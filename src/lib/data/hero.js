@@ -52,6 +52,18 @@ export const HERO = {
 		tagline: 'Las colas de espera, explicadas para equipos de software: notación, fórmulas, métricas e ideas clave.',
 		languages: 'Idiomas: '
 	},
+	'fr-001': {
+		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
+		languages: 'Langues : '
+	},
+	'fr-ca': {
+		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
+		languages: 'Langues : '
+	},
+	'fr-fr': {
+		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
+		languages: 'Langues : '
+	},
 	'hi-001': {
 		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
 		languages: 'भाषाएँ: '
@@ -84,6 +96,7 @@ export const ENDONYMS = {
 	'cy-001': 'Cymraeg',
 	'en-001': 'English',
 	'es-001': 'Español',
+	'fr-001': 'Français',
 	'hi-001': 'हिन्दी',
 	'zh-001': '中文'
 };
