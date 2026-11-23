@@ -1,0 +1,29 @@
+# Queue theory
+
+> Queue theory (queueing theory) for software teams: notation, utilization, Little’s law, Kingman’s formula, Erlang C, service metrics, DORA metrics, and practical insights. Source: https://github.com/queue-theory/queue-theory
+
+## Sections
+
+- [Introduction](https://queue-theory.github.io/en-001/#introduction)
+- [Queue terminology](https://queue-theory.github.io/en-001/#queue-terminology)
+- [Queue theory notation](https://queue-theory.github.io/en-001/#queue-theory-notation)
+- [Queue math](https://queue-theory.github.io/en-001/#queue-math)
+- [Activity tracking](https://queue-theory.github.io/en-001/#activity-tracking)
+- [Service metrics](https://queue-theory.github.io/en-001/#service-metrics)
+- [Queue of queues](https://queue-theory.github.io/en-001/#queue-of-queues)
+- [Insights](https://queue-theory.github.io/en-001/#insights)
+- [Epilog](https://queue-theory.github.io/en-001/#epilog)
+- [Tracking](https://queue-theory.github.io/en-001/#tracking)
+
+## Translations
+
+- [cy-001](https://queue-theory.github.io/cy-001/)
+- [cy-ar](https://queue-theory.github.io/cy-ar/)
+- [cy-gb](https://queue-theory.github.io/cy-gb/)
+- [en-001](https://queue-theory.github.io/en-001/)
+- [en-gb](https://queue-theory.github.io/en-gb/)
+- [en-us](https://queue-theory.github.io/en-us/)
+
+## Optional
+
+- [Source repository](https://github.com/queue-theory/queue-theory): README, specification (spec/), agent guide (AGENTS.md)

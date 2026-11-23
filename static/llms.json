@@ -1,0 +1,57 @@
+{
+  "name": "Queue theory",
+  "summary": "Queue theory (queueing theory) for software teams: notation, utilization, Little’s law, Kingman’s formula, Erlang C, service metrics, DORA metrics, and practical insights.",
+  "site": "https://queue-theory.github.io",
+  "repository": "https://github.com/queue-theory/queue-theory",
+  "sections": [
+    {
+      "title": "Introduction",
+      "url": "https://queue-theory.github.io/en-001/#introduction"
+    },
+    {
+      "title": "Queue terminology",
+      "url": "https://queue-theory.github.io/en-001/#queue-terminology"
+    },
+    {
+      "title": "Queue theory notation",
+      "url": "https://queue-theory.github.io/en-001/#queue-theory-notation"
+    },
+    {
+      "title": "Queue math",
+      "url": "https://queue-theory.github.io/en-001/#queue-math"
+    },
+    {
+      "title": "Activity tracking",
+      "url": "https://queue-theory.github.io/en-001/#activity-tracking"
+    },
+    {
+      "title": "Service metrics",
+      "url": "https://queue-theory.github.io/en-001/#service-metrics"
+    },
+    {
+      "title": "Queue of queues",
+      "url": "https://queue-theory.github.io/en-001/#queue-of-queues"
+    },
+    {
+      "title": "Insights",
+      "url": "https://queue-theory.github.io/en-001/#insights"
+    },
+    {
+      "title": "Epilog",
+      "url": "https://queue-theory.github.io/en-001/#epilog"
+    },
+    {
+      "title": "Tracking",
+      "url": "https://queue-theory.github.io/en-001/#tracking"
+    }
+  ],
+  "locales": [
+    "cy_001",
+    "cy_AR",
+    "cy_GB",
+    "en",
+    "en_GB",
+    "en_US"
+  ],
+  "translations": "https://github.com/queue-theory/queue-theory/tree/main/locales"
+}
