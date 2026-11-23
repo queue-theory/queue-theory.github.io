@@ -115,32 +115,39 @@ Our teams use some of the popular notation; we also add some custom notation tha
 
 Crosswalk from our notation to the standard textbook notation:
 
-| Ours | Standard | Meaning                                     |
-| ---- | -------- | ------------------------------------------- |
-| κ    | L        | average number of items in the system       |
-| λ    | λ        | arrival rate                                |
-| χ    | X        | throughput a.k.a. departure rate            |
-| α    | μ (often)| success rate; see service rate disambiguation |
-| ρ    | ρ        | utilization                                 |
-| τ    | W        | average time in the system                  |
-| ω    | Wq       | average time waiting in the queue           |
-| φ    | S        | average service time                        |
+| Ours | Standard | Meaning                                                                 |
+| ---- | -------- | ----------------------------------------------------------------------- |
+| κ    | L        | average number of items in the system, waiting plus being worked on    |
+| λ    | λ        | arrival rate of items that enter the system                             |
+| μ    | μ        | service rate a.k.a. capacity: how fast one server works while busy      |
+| ρ    | ρ        | utilization: the fraction of time servers are busy, λ / (c μ)           |
+| χ    | X        | throughput a.k.a. departure rate: observed output, for any reason      |
+| α    | none     | success rate: observed output that turns out right                      |
+| β    | none     | failure rate: observed output that turns out wrong                      |
+| δ    | none     | skip rate a.k.a. dropout rate: items that entered, then left unserved  |
+| ε    | none     | error ratio β / (α + β)                                                 |
+| τ    | W        | average time in the system a.k.a. lead time                             |
+| ω    | Wq       | average time waiting in the queue                                       |
+| φ    | S        | average service time a.k.a. work time; μ = 1 / S                        |
+| θ    | none     | step time between completions; mean step time ≈ 1 / χ in steady state  |
 
-Beware of symbol clashes when you read other sources: σ usually means standard deviation, and θ often means the abandonment rate in Erlang-A call center models.
+Beware of symbol clashes when you read other sources: σ usually means standard deviation, which is why we use δ for skip rate, and θ often means the abandonment rate in Erlang-A call center models, whereas we use θ for step time.
 
 ### Count
 
 We count items often, and we use this notation:
 
-- κ (kappa): count
+- κ (kappa): count of items in the system, meaning items waiting plus items being worked on
 
 Example:
 
-- κ = 100 means there are 100 items in the queue.
+- κ = 100 means there are 100 items in the system.
 
-- κ > 100 means there are more than 100 items in the queue.
+- κ > 100 means there are more than 100 items in the system.
 
-- κ ≫ 100 means there are many more than 100 items in the queue.
+- κ ≫ 100 means there are many more than 100 items in the system.
+
+A count such as κ = 100 is a snapshot at one moment. In Little's Law, κ means the long-run average count, which is the textbook L. The textbook symbol for only the items waiting in line is Lq.
 
 ### Arrival rate, service rate
 
@@ -148,7 +155,7 @@ The most important notation:
 
 - λ (lambda): arrival rate. This measures how fast new items are coming into the queue.
 
-- μ (mu): service rate. This measures how fast items in the queue are being handled.
+- μ (mu): service rate a.k.a. capacity. This measures how fast one server can handle items while it is busy.
 
 Examples of generalities for traditional queues with one server:
 
@@ -160,14 +167,13 @@ Examples of generalities for traditional queues with one server:
 
 The intuitive idea that "λ = μ keeps the queue the same size" is true only when arrivals and service are perfectly regular, like a metronome. Real arrivals are bursty, so idle time lost during a lull can never be recovered, and the queue grows during the next burst.
 
-Be aware that some queueing theory practitioners define service rate differently,
-and that service rate may be different due to failures such as errors or skips such as dropouts.
+Be aware that some queueing theory practitioners use "service rate" to mean observed output rather than capacity; see [service rate disambiguation](#service-rate-disambiguation).
 
 ### Utilization ratio a.k.a. traffic intensity
 
 The most important notation that summarizes a queue:
 
-- ρ (rho): utilization ratio = λ / μ for one server, or λ / (c μ) for c servers
+- ρ (rho): utilization ratio, meaning the fraction of time the servers are busy = λ / μ for one server, or λ / (c μ) for c servers
 
 Examples:
 
@@ -179,7 +185,7 @@ Examples:
 
 ### Throughput rates: total rate, success rate, failure rate, skip rate
 
-Throughput rates come in four broad categories:
+Throughput rates measure observed output, meaning items that actually leave the queue. They come in four broad categories:
 
 - χ (chi): total rate. This measures how many items per time exit the queue for any reason: success, failure, skip, etc.
 
@@ -187,11 +193,13 @@ Throughput rates come in four broad categories:
 
 - β (beta): failure rate. This measures how many items per time period turn out wrong e.g. incorrect, incomplete, rejected.
 
-- σ (sigma): skip rate. This measures how many items per time period skip the queue e.g. dropouts, abandonments, losses.
+- δ (delta): skip rate a.k.a. dropout rate. This measures how many items per time period enter the queue, then leave without being served, e.g. abandonments, reneges.
 
 Total rate = success rate + failure rate + skip rate:
 
-- χ = α + β + σ (pronounced: chi equals alpha plus beta plus sigma)
+- χ = α + β + δ (pronounced: chi equals alpha plus beta plus delta)
+
+Every item counted in χ entered the system, so in steady state the total rate equals the arrival rate: χ ≈ λ. That is why throughput rates measure output, not capacity.
 
 ### Service rate disambiguation
 
@@ -208,31 +216,31 @@ to track failures and skips.
 
 - Technology View: In applied fields such as software engineering, the service rate measures only successes, whereas the error rate measures failures, and the skip rate measures dropouts.
 
-Therefore we prefer to change from this terminology:
+Therefore we keep μ for capacity, and we add observed output rates alongside it, rather than replacing it:
 
-- μ (mu): service rate. This measures how fast items in the queue are being handled.
-
-To this terminology:
+- μ (mu): service rate a.k.a. capacity. This measures how fast one server can handle items while it is busy.
 
 - χ (chi): total rate. This measures how many items per time exit the queue for any reason: success, failure, skip, etc.
 
 - α (alpha): success rate. This measures how many items per time period turn out right e.g. correct, complete, accepted.
 
+Why not replace μ with χ or α? In a stable queue, every item that enters eventually leaves, so χ ≈ λ. Then λ / χ ≈ 1 whatever the load, which says nothing about how busy the servers are. Utilization needs capacity: ρ = λ / (c μ), which equals the fraction of time the servers are busy.
+
 ### Skip rate
 
 Skip rate details:
 
-- σ (sigma): skip rate. This measures how many items skip out the queue unhandled a.k.a. dropouts.
+- δ (delta): skip rate a.k.a. dropout rate. This measures how many items enter the queue, then leave unhandled.
 
-A skip is when an item leaves the queue without any significant processing:
+A skip is when an item enters the queue, then leaves without any significant processing:
 
-- Abandoning: when a customer starts a queue, then leaves, for any reason.
-
-- Balking: when a customer decides not to start waiting for service because the wait time threatens to be too long.
+- Abandoning: when a customer joins a queue, then leaves, for any reason.
 
 - Reneging: when a customer who has waited already decides to leave because they’ve wasted too much time.
 
-A related behavior is not a skip, because the customer stays in the system:
+Two related behaviors are not skips:
+
+- Balking: when a customer decides not to join the queue because the wait time threatens to be too long. A balked item never enters the system, so it is outside the system boundary: it is not counted in λ, χ, or δ. If balks matter, such as lost sales, then count them separately as turned-away arrivals.
 
 - Jockeying: when a customer switches between parallel queues, such as checkout lanes, trying to get a shorter wait.
 
@@ -242,7 +250,7 @@ The most important notation that summarizes a queue's success:
 
 - ε (epsilon): error ratio = failure count / (success count + failure count) = β / (α + β)
 
-Skips are excluded, because a skipped item was never serviced, so it was neither right nor wrong. Track skips separately via σ.
+Skips are excluded, because a skipped item was never serviced, so it was neither right nor wrong. Track skips separately via δ.
 
 Examples:
 
@@ -258,7 +266,7 @@ We track four times:
 
 - τ (tau): lead time = from start of queue to finish of queue
 
-- θ (theta): step time = from one finish to the next finish
+- θ (theta): step time = from one finish to the next finish; one step time is one gap, and the mean step time is the average gap
 
 - φ (phi): work time = time spent doing actual work a.k.a. processing time
 
@@ -278,7 +286,7 @@ Relationships:
 
 - τ = ω + φ: lead time is wait time plus work time. In the examples, 5s = 4s + 1s.
 
-- θ ≈ 1 / χ: in steady state, the average step time is the inverse of the total rate. In the examples, θ = 1s means χ ≈ 1 item per second.
+- mean θ ≈ 1 / χ: in steady state, the mean step time is the inverse of the total rate. A single gap says little about the rate; the average of many gaps does. In the examples, if the mean step time is 1s, then χ ≈ 1 item per second.
 
 ### Standard notation
 
@@ -309,6 +317,8 @@ When the last three are omitted, the defaults are K = ∞, N = ∞, D = FIFO. Fo
 Standard notation also uses n to mean the number of items in the system.
 
 ## Queue math
+
+The math sections use textbook symbols, so that you can compare them with other sources: S is the average service time, which is our φ, and μ = 1 / S is one server's capacity. See the crosswalk in [queue theory notation](#queue-theory-notation).
 
 ### The utilization curve
 
@@ -397,9 +407,11 @@ Examples:
 
 - Aβ: Activity failure rate a.k.a. error rate: how many items are wrong per time unit.
 
-- Aσ: Activity skip rate a.k.a. dropout rate: how many items are abandoned per time unit.
+- Aμ: Activity service rate a.k.a. capacity: how many items one server can complete per time unit while busy.
 
-- Aρ: Activity utilization ratio: how many items are arriving vs. completing.
+- Aδ: Activity skip rate a.k.a. dropout rate: how many items are abandoned per time unit.
+
+- Aρ: Activity utilization ratio: the fraction of available time the servers are busy, meaning busy time ÷ available time, or λ / (c μ).
 
 - Aε: Activity error ratio: how many items are completed with errors vs. total.
 
@@ -435,7 +447,7 @@ Little's law assumptions:
 
 - Items that leave early, such as by reneging, are either counted consistently in both λ and τ, or excluded consistently from both.
 
-Example: a team has κ = 20 tickets in progress, and finishes λ = 4 tickets per week, so the average ticket takes τ = κ / λ = 5 weeks. To cut lead time in half without working faster, cut work in progress in half.
+Example: a team has on average κ = 20 tickets in progress, and tickets arrive at λ = 4 per week; in steady state, the team also finishes χ = 4 per week. So the average ticket takes τ = κ / λ = 5 weeks. To cut lead time in half without working faster, cut work in progress in half.
 
 ### Key performance indicators (KPIs)
 

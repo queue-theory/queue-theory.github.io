@@ -117,32 +117,39 @@ Nuestros equipos usan parte de la notación más popular; también añadimos not
 
 Equivalencias entre nuestra notación y la notación estándar de los libros de texto:
 
-| Nuestra | Estándar   | Significado                                          |
-| ------- | ---------- | ---------------------------------------------------- |
-| κ       | L          | número medio de elementos en el sistema           |
-| λ       | λ          | tasa de llegada                                      |
-| χ       | X          | rendimiento, también llamado tasa de salida          |
-| α       | μ (a menudo)| tasa de éxito; ver desambiguación de la tasa de servicio |
-| ρ       | ρ          | utilización                                          |
-| τ       | W          | tiempo medio en el sistema                        |
-| ω       | Wq         | tiempo medio de espera en la cola                 |
-| φ       | S          | tiempo medio de servicio                          |
+| Nuestra | Estándar | Significado |
+| ------- | -------- | ----------- |
+| κ       | L        | número medio de elementos en el sistema, en espera más en atención |
+| λ       | λ        | tasa de llegada de los elementos que entran en el sistema |
+| μ       | μ        | tasa de servicio, también llamada capacidad: con qué rapidez trabaja un servidor mientras está ocupado |
+| ρ       | ρ        | utilización: la fracción del tiempo en que los servidores están ocupados, λ / (c μ) |
+| χ       | X        | rendimiento, también llamado tasa de salida: producción observada, por cualquier motivo |
+| α       | ninguno  | tasa de éxito: producción observada que resulta bien |
+| β       | ninguno  | tasa de fallo: producción observada que resulta mal |
+| δ       | ninguno  | tasa de omisión, también llamada tasa de abandono: elementos que entraron y luego salieron sin ser atendidos |
+| ε       | ninguno  | razón de errores β / (α + β) |
+| τ       | W        | tiempo medio en el sistema, también llamado tiempo de entrega |
+| ω       | Wq       | tiempo medio de espera en la cola |
+| φ       | S        | tiempo medio de servicio, también llamado tiempo de trabajo; μ = 1 / S |
+| θ       | ninguno  | tiempo de paso entre finalizaciones; tiempo de paso medio ≈ 1 / χ en estado estacionario |
 
-Cuidado con los símbolos que coinciden al leer otras fuentes: σ suele significar desviación estándar, y θ a menudo significa la tasa de abandono en los modelos Erlang-A de centros de llamadas.
+Cuidado con los símbolos que coinciden al leer otras fuentes: σ suele significar desviación estándar, por eso usamos δ para la tasa de omisión; y θ a menudo significa la tasa de abandono en los modelos Erlang-A de centros de llamadas, mientras que nosotros usamos θ para el tiempo de paso.
 
 ### Recuento
 
 Contamos elementos con frecuencia, y usamos esta notación:
 
-- κ (kappa): recuento
+- κ (kappa): recuento de elementos en el sistema, es decir, los elementos en espera más los elementos en atención
 
 Ejemplo:
 
-- κ = 100 significa que hay 100 elementos en la cola.
+- κ = 100 significa que hay 100 elementos en el sistema.
 
-- κ > 100 significa que hay más de 100 elementos en la cola.
+- κ > 100 significa que hay más de 100 elementos en el sistema.
 
-- κ ≫ 100 significa que hay muchos más de 100 elementos en la cola.
+- κ ≫ 100 significa que hay muchos más de 100 elementos en el sistema.
+
+Un recuento como κ = 100 es una instantánea de un momento. En la ley de Little, κ significa el recuento medio a largo plazo, que es la L de los libros de texto. El símbolo de los libros de texto para solo los elementos que esperan en la cola es Lq.
 
 ### Tasa de llegada, tasa de servicio
 
@@ -150,7 +157,7 @@ La notación más importante:
 
 - λ (lambda): tasa de llegada. Mide con qué rapidez entran elementos nuevos a la cola.
 
-- μ (mu): tasa de servicio. Mide con qué rapidez se gestionan los elementos de la cola.
+- μ (mu): tasa de servicio, también llamada capacidad. Mide con qué rapidez un servidor puede atender elementos mientras está ocupado.
 
 Ejemplos de generalidades para colas tradicionales con un servidor:
 
@@ -162,14 +169,13 @@ Ejemplos de generalidades para colas tradicionales con un servidor:
 
 La idea intuitiva de que "λ = μ mantiene la cola del mismo tamaño" solo es cierta cuando las llegadas y el servicio son perfectamente regulares, como un metrónomo. Las llegadas reales vienen en ráfagas, así que el tiempo ocioso perdido durante una pausa nunca se recupera, y la cola crece durante la siguiente ráfaga.
 
-Ten en cuenta que algunos especialistas en teoría de colas definen la tasa de servicio de otra manera,
-y que la tasa de servicio puede variar debido a fallos como errores u omisiones como abandonos.
+Tenga en cuenta que algunos especialistas en teoría de colas usan "tasa de servicio" para referirse a la producción observada en lugar de la capacidad; consulte la [desambiguación de la tasa de servicio](#desambiguación-de-la-tasa-de-servicio).
 
 ### Razón de utilización, también llamada intensidad de tráfico
 
 La notación más importante que resume una cola:
 
-- ρ (rho): razón de utilización = λ / μ para un servidor, o λ / (c μ) para c servidores
+- ρ (rho): razón de utilización, es decir, la fracción del tiempo en que los servidores están ocupados = λ / μ para un servidor, o λ / (c μ) para c servidores
 
 Ejemplos:
 
@@ -181,7 +187,7 @@ Ejemplos:
 
 ### Tasas de rendimiento: tasa total, tasa de éxito, tasa de fallo, tasa de omisión
 
-Las tasas de rendimiento se agrupan en cuatro categorías amplias:
+Las tasas de rendimiento miden la producción observada, es decir, los elementos que realmente salen de la cola. Se agrupan en cuatro categorías amplias:
 
 - χ (ji): tasa total. Mide cuántos elementos por periodo salen de la cola por cualquier motivo: éxito, fallo, omisión, etc.
 
@@ -189,11 +195,13 @@ Las tasas de rendimiento se agrupan en cuatro categorías amplias:
 
 - β (beta): tasa de fallo. Mide cuántos elementos por periodo resultan mal, p. ej. incorrectos, incompletos, rechazados.
 
-- σ (sigma): tasa de omisión. Mide cuántos elementos por periodo se saltan la cola, p. ej. abandonos, deserciones, pérdidas.
+- δ (delta): tasa de omisión, también llamada tasa de abandono. Mide cuántos elementos por periodo entran en la cola y luego salen sin ser atendidos, p. ej. abandonos, deserciones.
 
 Tasa total = tasa de éxito + tasa de fallo + tasa de omisión:
 
-- χ = α + β + σ (se lee: ji es igual a alfa más beta más sigma)
+- χ = α + β + δ (se lee: ji es igual a alfa más beta más delta)
+
+Cada elemento contado en χ entró en el sistema, así que en estado estacionario la tasa total es igual a la tasa de llegada: χ ≈ λ. Por eso las tasas de rendimiento miden la producción, no la capacidad.
 
 ### Desambiguación de la tasa de servicio
 
@@ -210,33 +218,33 @@ importante de hacer un seguimiento de los fallos y las omisiones.
 
 - Visión tecnológica: en campos aplicados como la ingeniería de software, la tasa de servicio mide solo los éxitos, mientras que la tasa de errores mide los fallos, y la tasa de omisión mide los abandonos.
 
-Por eso preferimos cambiar de esta terminología:
+Por eso conservamos μ para la capacidad, y añadimos tasas de producción observada junto a ella, en lugar de sustituirla:
 
-- μ (mu): tasa de servicio. Mide con qué rapidez se gestionan los elementos de la cola.
-
-A esta terminología:
+- μ (mu): tasa de servicio, también llamada capacidad. Mide con qué rapidez un servidor puede atender elementos mientras está ocupado.
 
 - χ (ji): tasa total. Mide cuántos elementos por periodo salen de la cola por cualquier motivo: éxito, fallo, omisión, etc.
 
 - α (alfa): tasa de éxito. Mide cuántos elementos por periodo resultan bien, p. ej. correctos, completos, aceptados.
 
+¿Por qué no sustituir μ por χ o α? En una cola estable, todo elemento que entra acaba saliendo, así que χ ≈ λ. Entonces λ / χ ≈ 1 sea cual sea la carga, lo cual no dice nada sobre lo ocupados que están los servidores. La utilización necesita la capacidad: ρ = λ / (c μ), que es igual a la fracción del tiempo en que los servidores están ocupados.
+
 ### Tasa de omisión
 
 Detalles de la tasa de omisión:
 
-- σ (sigma): tasa de omisión. Mide cuántos elementos salen de la cola sin ser atendidos, es decir, abandonos.
+- δ (delta): tasa de omisión, también llamada tasa de abandono. Mide cuántos elementos entran en la cola y luego salen sin ser atendidos.
 
-Una omisión ocurre cuando un elemento sale de la cola sin ningún procesamiento significativo:
+Una omisión ocurre cuando un elemento entra en la cola y luego sale sin ningún procesamiento significativo:
 
-- Abandono: cuando un cliente entra a una cola y luego se va, por cualquier motivo.
+- Abandono: cuando un cliente entra en una cola y luego se va, por cualquier motivo.
 
-- Desistimiento (balking): cuando un cliente decide no empezar a esperar el servicio porque el tiempo de espera amenaza con ser demasiado largo.
+- Deserción (reneging): cuando un cliente que ya ha esperado decide irse porque ha perdido demasiado tiempo.
 
-- Deserción (reneging): cuando un cliente que ya esperó decide irse porque ha perdido demasiado tiempo.
+Dos comportamientos relacionados no son omisiones:
 
-Un comportamiento relacionado no es una omisión, porque el cliente se queda en el sistema:
+- Desistimiento (balking): cuando un cliente decide no entrar en la cola porque el tiempo de espera amenaza con ser demasiado largo. Un elemento que desiste nunca entra en el sistema, así que queda fuera de los límites del sistema: no se cuenta en λ, χ ni δ. Si los desistimientos importan, como las ventas perdidas, cuéntelos por separado como llegadas rechazadas.
 
-- Cambio de cola (jockeying): cuando un cliente se cambia entre colas paralelas, como las cajas de un supermercado, para intentar esperar menos.
+- Cambio de cola (jockeying): el cliente se queda en el sistema; ocurre cuando un cliente se cambia entre colas paralelas, como las cajas de un supermercado, para intentar esperar menos.
 
 ### Razón de errores
 
@@ -244,7 +252,7 @@ La notación más importante que resume el éxito de una cola:
 
 - ε (épsilon): razón de errores = recuento de fallos / (recuento de éxitos + recuento de fallos) = β / (α + β)
 
-Las omisiones se excluyen, porque un elemento omitido nunca fue atendido, así que no resultó ni bien ni mal. Haz un seguimiento de las omisiones por separado mediante σ.
+Las omisiones se excluyen, porque un elemento omitido nunca fue atendido, así que no resultó ni bien ni mal. Haga un seguimiento de las omisiones por separado mediante δ.
 
 Ejemplos:
 
@@ -260,7 +268,7 @@ Hacemos un seguimiento de cuatro tiempos:
 
 - τ (tau): tiempo de entrega = desde el inicio de la cola hasta el final de la cola
 
-- θ (theta): tiempo de paso = desde una finalización hasta la siguiente finalización
+- θ (theta): tiempo de paso = desde una finalización hasta la siguiente finalización; un tiempo de paso es un intervalo, y el tiempo de paso medio es la media de los intervalos
 
 - φ (fi): tiempo de trabajo = tiempo dedicado a hacer trabajo real, también llamado tiempo de procesamiento
 
@@ -280,7 +288,7 @@ Relaciones:
 
 - τ = ω + φ: el tiempo de entrega es el tiempo de espera más el tiempo de trabajo. En los ejemplos, 5 s = 4 s + 1 s.
 
-- θ ≈ 1 / χ: en estado estacionario, el tiempo de paso medio es el inverso de la tasa total. En los ejemplos, θ = 1 s significa χ ≈ 1 elemento por segundo.
+- θ medio ≈ 1 / χ: en estado estacionario, el tiempo de paso medio es el inverso de la tasa total. Un solo intervalo dice poco sobre la tasa; la media de muchos intervalos sí lo dice. En los ejemplos, si el tiempo de paso medio es 1 s, entonces χ ≈ 1 elemento por segundo.
 
 ### Notación estándar
 
@@ -311,6 +319,8 @@ Cuando se omiten los tres últimos, los valores predeterminados son K = ∞, N =
 La notación estándar también usa n para indicar el número de elementos en el sistema.
 
 ## Matemáticas de colas
+
+Las secciones de matemáticas usan los símbolos de los libros de texto, para que pueda compararlas con otras fuentes: S es el tiempo medio de servicio, que es nuestra φ, y μ = 1 / S es la capacidad de un servidor. Consulte la tabla de equivalencias en [notación de la teoría de colas](#notación-de-la-teoría-de-colas).
 
 ### La curva de utilización
 
@@ -399,9 +409,11 @@ Ejemplos:
 
 - Aβ: tasa de fallo de la actividad, también llamada tasa de errores: cuántos elementos están mal por unidad de tiempo.
 
-- Aσ: tasa de omisión de la actividad, también llamada tasa de abandono: cuántos elementos se abandonan por unidad de tiempo.
+- Aμ: tasa de servicio de la actividad, también llamada capacidad: cuántos elementos puede completar un servidor por unidad de tiempo mientras está ocupado.
 
-- Aρ: razón de utilización de la actividad: cuántos elementos llegan frente a cuántos se completan.
+- Aδ: tasa de omisión de la actividad, también llamada tasa de abandono: cuántos elementos se abandonan por unidad de tiempo.
+
+- Aρ: razón de utilización de la actividad: la fracción del tiempo disponible en que los servidores están ocupados, es decir, tiempo ocupado ÷ tiempo disponible, o λ / (c μ).
 
 - Aε: razón de errores de la actividad: cuántos elementos se completan con errores frente al total.
 
@@ -437,7 +449,7 @@ Supuestos de la ley de Little:
 
 - Los elementos que salen antes de tiempo, por ejemplo por deserción, se cuentan de forma coherente tanto en λ como en τ, o se excluyen de forma coherente de ambos.
 
-Ejemplo: un equipo tiene κ = 20 tickets en curso y termina λ = 4 tickets por semana, así que el ticket medio tarda τ = κ / λ = 5 semanas. Para reducir el tiempo de entrega a la mitad sin trabajar más rápido, reduce a la mitad el trabajo en curso.
+Ejemplo: un equipo tiene de media κ = 20 tickets en curso, y los tickets llegan a λ = 4 por semana; en estado estacionario, el equipo también termina χ = 4 por semana. Así que el ticket medio tarda τ = κ / λ = 5 semanas. Para reducir el tiempo de entrega a la mitad sin trabajar más rápido, reduzca a la mitad el trabajo en curso.
 
 ### Indicadores clave de desempeño (KPI)
 
