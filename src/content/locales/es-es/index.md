@@ -359,7 +359,7 @@ Los tres factores son:
 
 - T: factor de tiempo S, el tiempo medio de servicio.
 
-Ejemplo: para una cola M/M/1, ca = cs = 1, así que V = 1, y la fórmula da el mismo tiempo de espera que la curva de utilización. Si haces más uniformes los elementos de trabajo, por ejemplo dividiendo los tickets grandes para que cs baje de 1 a casi 0, entonces V baja a cerca de 0,5, y el tiempo de espera se reduce aproximadamente a la mitad con la misma utilización.
+Ejemplo: para una cola M/M/1, ca = cs = 1, así que V = 1, y la fórmula da el mismo tiempo de espera que la curva de utilización. Si hace más uniformes los elementos de trabajo, por ejemplo dividiendo los tickets grandes para que cs baje de 1 a casi 0, entonces V baja a cerca de 0,5, y el tiempo de espera se reduce aproximadamente a la mitad con la misma utilización.
 
 La fórmula de Kingman muestra las tres palancas para reducir el tiempo de espera:
 
@@ -486,11 +486,11 @@ MTTR representa cuatro medidas diferentes:
 
 **Diferencias clave:**
 
-**Responder** mide la preparación del equipo y la eficacia de las alertas. Un tiempo de respuesta bajo significa que tus procesos de monitorización y de guardia funcionan bien, aunque el arreglo en sí tarde más.
+**Responder** mide la preparación del equipo y la eficacia de las alertas. Un tiempo de respuesta bajo significa que sus procesos de monitorización y de guardia funcionan bien, aunque el arreglo en sí tarde más.
 
-**Reparar** es estrictamente técnico: ¿cuánto tiempo tarda en arreglarse lo que está dañado una vez que estás trabajando en ello? Excluye el tiempo de detección, el triaje y la verificación.
+**Reparar** es estrictamente técnico: ¿cuánto tiempo tarda en arreglarse lo que está dañado una vez que se está trabajando en ello? Excluye el tiempo de detección, el triaje y la verificación.
 
-**Recuperar** trata de la disponibilidad del servicio desde la perspectiva del cliente. El sistema puede estar "reparado" pero todavía no "recuperado" si aún necesitas restaurar datos, calentar cachés o verificar la funcionalidad.
+**Recuperar** trata de la disponibilidad del servicio desde la perspectiva del cliente. El sistema puede estar "reparado" pero todavía no "recuperado" si aún necesita restaurar datos, calentar cachés o verificar la funcionalidad.
 
 **Resolver** es lo más completo: abarca todo el ciclo de vida del incidente, desde la primera detección hasta la verificación y el cierre posteriores al incidente.
 
@@ -517,15 +517,15 @@ DORA usa ahora cinco métricas, en dos grupos.
 
 Métricas de rendimiento:
 
-- **Tiempo de entrega de cambios** - Tiempo para implementar, probar y entregar el código de una funcionalidad (medido desde el commit hasta el despliegue en producción). Sé específico sobre lo que entiendes por inicio y fin. Por ejemplo, a algunos equipos les gusta medir desde que un desarrollador empieza a trabajar en un ticket hasta que el desarrollador envía el trabajo a un proceso de integración continua; este enfoque suele ser más eficaz para medir la productividad de las personas.
+- **Tiempo de entrega de cambios** - Tiempo para implementar, probar y entregar el código de una funcionalidad (medido desde el commit hasta el despliegue en producción). Sea específico sobre lo que entiende por inicio y fin. Por ejemplo, a algunos equipos les gusta medir desde que un desarrollador empieza a trabajar en un ticket hasta que el desarrollador envía el trabajo a un proceso de integración continua; este enfoque suele ser más eficaz para medir la productividad de las personas.
 
-- **Frecuencia de despliegue** - Número de despliegues en un periodo determinado. Sé específico sobre lo que entiendes por despliegue y cómo mides la frecuencia. Por ejemplo, algunos equipos despliegan a una flota de servidores de producción y hacen un seguimiento del lanzamiento completo, mientras que otros equipos despliegan a un solo servidor de pruebas de aceptación de usuario (UAT) y registran cuándo el jefe de proyecto envía un anuncio por correo electrónico a los usuarios para que prueben.
+- **Frecuencia de despliegue** - Número de despliegues en un periodo determinado. Sea específico sobre lo que entiende por despliegue y cómo mide la frecuencia. Por ejemplo, algunos equipos despliegan a una flota de servidores de producción y hacen un seguimiento del lanzamiento completo, mientras que otros equipos despliegan a un solo servidor de pruebas de aceptación de usuario (UAT) y registran cuándo el jefe de proyecto envía un anuncio por correo electrónico a los usuarios para que prueben.
 
-- **Tiempo de recuperación de despliegues fallidos** - Tiempo que se tarda en recuperarse de un despliegue que causa un fallo en producción. Antes se llamaba tiempo medio de recuperación (MTTR) o tiempo para restaurar el servicio. Sé específico sobre lo que entiendes por recuperación. Por ejemplo, algunos equipos cuentan la recuperación como la resolución completa, es decir, el tiempo total desde que se detecta un incidente hasta que se cierra por completo; este enfoque se describe mejor como tiempo medio para resolver.
+- **Tiempo de recuperación de despliegues fallidos** - Tiempo que se tarda en recuperarse de un despliegue que causa un fallo en producción. Antes se llamaba tiempo medio de recuperación (MTTR) o tiempo para restaurar el servicio. Sea específico sobre lo que entiende por recuperación. Por ejemplo, algunos equipos cuentan la recuperación como la resolución completa, es decir, el tiempo total desde que se detecta un incidente hasta que se cierra por completo; este enfoque se describe mejor como tiempo medio para resolver.
 
 Métricas de inestabilidad:
 
-- **Tasa de fallos de cambios** - Porcentaje de despliegues que causan un fallo en producción y necesitan corrección inmediata, como una reversión o un parche urgente. Sé específico sobre lo que entiendes por fallo. Por ejemplo, algunos equipos también cuentan un fallo cuando empiezan un ticket de trabajo y se dan cuenta de que el ticket no tiene suficiente información para avanzar, así que el equipo lo devuelve al equipo de especificaciones.
+- **Tasa de fallos de cambios** - Porcentaje de despliegues que causan un fallo en producción y necesitan corrección inmediata, como una reversión o un parche urgente. Sea específico sobre lo que entiende por fallo. Por ejemplo, algunos equipos también cuentan un fallo cuando empiezan un ticket de trabajo y se dan cuenta de que el ticket no tiene suficiente información para avanzar, así que el equipo lo devuelve al equipo de especificaciones.
 
 - **Tasa de retrabajo de despliegues** - Porcentaje de despliegues no planificados, por ejemplo para arreglar un incidente en producción. Es el número de despliegues no planificados dividido por el total de despliegues. DORA añadió esta métrica en 2024.
 
@@ -537,7 +537,7 @@ La teoría de colas se extiende fácilmente a una cola de colas, como un proceso
 
 ### Cola de colas del Doble Diamante
 
-Por ejemplo, considera el modelo de proceso de innovación del "Doble Diamante", que especifica cuatro etapas:
+Por ejemplo, considere el modelo de proceso de innovación del "Doble Diamante", que especifica cuatro etapas:
 
 1. Descubrir: entender el problema en lugar de solo suponer cuál es.
 2. Definir: con lo aprendido en la fase de descubrimiento, definir el reto.
@@ -567,19 +567,19 @@ En nuestro trabajo práctico, a menudo usamos la palabra "embudo" para describir
 
 Siete ideas clave sobre la teoría de colas, de Bob Wescott, autor de "The Every Computer Performance Book" (ver también [el resumen de Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
 
-1. Cuanto más lento es el centro de servicio, menor es la utilización máxima que deberías planificar en la carga pico.
+1. Cuanto más lento es el centro de servicio, menor es la utilización máxima que debería planificar en la carga pico.
 
 2. Es muy difícil usar el último 15% de cualquier cosa.
 
-3. Cuanto más cerca estás del límite, más alto es el precio de equivocarte.
+3. Cuanto más cerca esté del límite, más alto será el precio de equivocarse.
 
 4. Los aumentos del tiempo de respuesta están limitados por el número de elementos que pueden esperar.
 
-5. Recuerda que esto es una media, no un máximo.
+5. Recuerde que esto es una media, no un máximo.
 
 6. Existe un efecto humano de negación cuando hay varios centros de servicio.
 
-7. Presenta las pequeñas mejoras de la forma más favorable.
+7. Presente las pequeñas mejoras de la forma más favorable.
 
 ## Epílogo
 
@@ -645,5 +645,5 @@ Fórmulas (en inglés):
 - Versión: 3.0.0
 - Creado: 2019-01-25T04:17:56Z
 - Actualizado: 2026-11-23T15:33:48Z
-- Licencia: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, o contáctanos para otros términos (ver [LICENSE.md](LICENSE.md))
+- Licencia: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, o contáctenos para otros términos (ver [LICENSE.md](LICENSE.md))
 - Contacto: Joel Parker Henderson <joel@joelparkerhenderson.com>
