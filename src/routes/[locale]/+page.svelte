@@ -34,8 +34,8 @@
 			{#if hero}<p class="hero-subheadline">{hero.tagline}</p>{/if}
 			<p>{data.landing.hero.text}</p>
 			{#if hero}
-				<p class="hero-translations">
-					{hero.translations}{#each Object.entries(ENDONYMS).filter(([c]) => c.endsWith('-001')).sort(([a], [b]) => a.localeCompare(b)) as [code, name], i (code)}{i ? ', ' : ''}<a
+				<p class="hero-languages">
+					{hero.languages}{#each Object.entries(ENDONYMS).filter(([c]) => c.endsWith('-001')).sort(([a], [b]) => a.localeCompare(b)) as [code, name], i (code)}{i ? ', ' : ''}<a
 							href="/{code}/"
 							lang={slugToTag(code)}
 							aria-current={code === slug ? 'page' : undefined}>{name}</a
@@ -63,10 +63,10 @@
 		font-size: 1.25em;
 		font-weight: 600;
 	}
-	.hero-translations {
+	.hero-languages {
 		font-size: 0.9em;
 	}
-	.hero-translations a[aria-current='page'] {
+	.hero-languages a[aria-current='page'] {
 		font-weight: 700;
 		text-decoration: none;
 	}

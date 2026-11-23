@@ -28,6 +28,7 @@
 - [es-mx](https://queue-theory.github.io/es-mx/)
 - [zh-001](https://queue-theory.github.io/zh-001/)
 - [zh-cn](https://queue-theory.github.io/zh-cn/)
+- [zh-tw](https://queue-theory.github.io/zh-tw/)
 
 ## Optional
 

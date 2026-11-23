@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Copies each locale's landing page, ../locales/<slug>/index.md (the README,
 // translated), into src/content/locales/<slug>/index.md, and writes
-// src/lib/locale-pages.json: { "<slug>": { "title": "<# heading>" } }.
+// src/lib/locale-pages.json: { "<slug>": { "title": "<# heading>" } }, and
+// writes ../locales/<slug>/sitemap.xml, the sitemap of that locale's routes.
 // Reads the parent monorepo, so it runs with `pnpm run content`; the copied
 // files are committed. Never hand-edit src/content/locales/.
 //   pnpm run locales
@@ -33,6 +34,16 @@ for (const slug of slugs) {
 	mkdirSync(path.join(outRoot, slug), { recursive: true });
 	copyFileSync(file, path.join(outRoot, slug, 'index.md'));
 	tree[slug] = { title: titleOf(file, slug) };
+	writeFileSync(
+		path.join(localesRoot, slug, 'sitemap.xml'),
+		[
+			'<?xml version="1.0" encoding="UTF-8"?>',
+			'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+			`  <url><loc>https://queue-theory.github.io/${slug}/</loc></url>`,
+			'</urlset>',
+			''
+		].join('\n')
+	);
 }
 
 writeFileSync(path.join(siteRoot, 'src/lib/locale-pages.json'), JSON.stringify(tree, null, '\t') + '\n');

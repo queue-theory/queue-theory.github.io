@@ -24,9 +24,9 @@ const cases = [
 	[['zh'], '/zh-001/'],
 	[['zh-CN'], '/zh-cn/'],
 	[['zh-Hans'], '/zh-cn/'],
-	[['zh-Hant'], '/zh-001/'],
-	[['zh-TW'], '/zh-001/'],
-	[['zh-HK'], '/zh-001/'],
+	[['zh-Hant'], '/zh-tw/'],
+	[['zh-TW'], '/zh-tw/'],
+	[['zh-HK'], '/zh-tw/'],
 	[['zh-SG'], '/zh-001/'],
 	// first usable preference wins; unmatched ones are skipped
 	[['xx', 'cy-GB'], '/cy-gb/'],
