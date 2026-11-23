@@ -1,0 +1,35 @@
+// Text-size picker labels per language, keyed by Lily's DEFAULT_SIZES slugs
+// (largest … smallest). A language without an entry falls back to English.
+const K = ['largest', 'larger', 'large', 'normal', 'small', 'smaller', 'smallest'];
+/** @param {string} s seven labels separated by "|" */
+const L = (s) => Object.fromEntries(s.split('|').map((v, i) => [K[i], v]));
+
+/** @type {Record<string, Record<string, string>>} */
+export const SIZE_LABELS = {
+	en: L('Largest|Larger|Large|Normal|Small|Smaller|Smallest'),
+	ar: L('الأكبر|أكبر|كبير|عادي|صغير|أصغر|الأصغر'),
+	bn: L('সবচেয়ে বড়|আরও বড়|বড়|সাধারণ|ছোট|আরও ছোট|সবচেয়ে ছোট'),
+	cy: L('Mwyaf|Mwy|Mawr|Arferol|Bach|Llai|Lleiaf'),
+	da: L('Størst|Større|Stor|Normal|Lille|Mindre|Mindst'),
+	de: L('Am größten|Größer|Groß|Normal|Klein|Kleiner|Am kleinsten'),
+	es: L('Máximo|Más grande|Grande|Normal|Pequeño|Más pequeño|Mínimo'),
+	fr: L('Très grand|Plus grand|Grand|Normal|Petit|Plus petit|Très petit'),
+	hi: L('सबसे बड़ा|और बड़ा|बड़ा|सामान्य|छोटा|और छोटा|सबसे छोटा'),
+	id: L('Terbesar|Lebih besar|Besar|Normal|Kecil|Lebih kecil|Terkecil'),
+	it: L('Massimo|Più grande|Grande|Normale|Piccolo|Più piccolo|Minimo'),
+	ja: L('最大|より大きい|大|標準|小|より小さい|最小'),
+	ko: L('가장 크게|더 크게|크게|보통|작게|더 작게|가장 작게'),
+	nl: L('Grootst|Groter|Groot|Normaal|Klein|Kleiner|Kleinst'),
+	pt: L('Máximo|Maior|Grande|Normal|Pequeno|Menor|Mínimo'),
+	ru: L('Самый крупный|Крупнее|Крупный|Обычный|Мелкий|Мельче|Самый мелкий'),
+	sv: L('Störst|Större|Stor|Normal|Liten|Mindre|Minst'),
+	sw: L('Kubwa zaidi kabisa|Kubwa zaidi|Kubwa|Kawaida|Ndogo|Ndogo zaidi|Ndogo zaidi kabisa'),
+	ur: L('سب سے بڑا|مزید بڑا|بڑا|عام|چھوٹا|مزید چھوٹا|سب سے چھوٹا'),
+	vi: L('Lớn nhất|Lớn hơn|Lớn|Bình thường|Nhỏ|Nhỏ hơn|Nhỏ nhất'),
+	zh: L('最大|更大|大|标准|小|更小|最小')
+};
+
+/** @type {Record<string, Record<string, string>>} */
+export const SIZE_LABEL_OVERRIDES = {
+	'zh-tw': L('最大|更大|大|標準|小|更小|最小')
+};

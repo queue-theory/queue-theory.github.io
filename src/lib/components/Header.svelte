@@ -202,7 +202,8 @@
 					textSizeProps={{
 						storageKey: TEXT_SIZE_STORAGE_KEY,
 						defaultValue: DEFAULT_TEXT_SIZE,
-						name: 'text-size'
+						name: 'text-size',
+						sizeLabels: t.sizeLabels
 					}}
 					{shareTargets}
 					shareProps={{

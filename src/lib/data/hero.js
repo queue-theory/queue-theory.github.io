@@ -40,6 +40,18 @@ export const HERO = {
 		tagline: 'Las colas de espera, explicadas para equipos de software: notación, fórmulas, métricas e ideas clave.',
 		languages: 'Idiomas: '
 	},
+	'hi-001': {
+		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
+		languages: 'भाषाएँ: '
+	},
+	'hi-in': {
+		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
+		languages: 'भाषाएँ: '
+	},
+	'hi-np': {
+		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
+		languages: 'भाषाएँ: '
+	},
 	'zh-001': {
 		tagline: '为软件团队讲解排队：符号、公式、指标与洞见。',
 		languages: '语言：'
@@ -59,5 +71,6 @@ export const ENDONYMS = {
 	'cy-001': 'Cymraeg',
 	'en-001': 'English',
 	'es-001': 'Español',
+	'hi-001': 'हिन्दी',
 	'zh-001': '中文'
 };

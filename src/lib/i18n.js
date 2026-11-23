@@ -9,6 +9,7 @@ import { STRINGS_B } from './ui-strings-b.js';
 import { STRINGS_C } from './ui-strings-c.js';
 import { STRINGS_D } from './ui-strings-d.js';
 import { SEARCH_STRINGS, SEARCH_OVERRIDES } from './ui-search.js';
+import { SIZE_LABELS, SIZE_LABEL_OVERRIDES } from './ui-sizes.js';
 import { FOOTER_NOTE, FOOTER_NOTE_OVERRIDES, KW_STRINGS } from './ui-footer.js';
 
 /** @type {Record<string, any>} */
@@ -49,6 +50,7 @@ export function ui(locale) {
 		...(LANGUAGE_STRINGS[language] ?? {}),
 		...(LOCALE_OVERRIDES[locale] ?? {}),
 		search: SEARCH_OVERRIDES[locale] ?? SEARCH_STRINGS[language] ?? SEARCH_STRINGS.en,
+		sizeLabels: SIZE_LABEL_OVERRIDES[locale] ?? SIZE_LABELS[language] ?? SIZE_LABELS.en,
 		footerNote: FOOTER_NOTE_OVERRIDES[locale] ?? FOOTER_NOTE[language] ?? FOOTER_NOTE.en
 	};
 }
