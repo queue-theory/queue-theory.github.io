@@ -43,7 +43,7 @@ async function audit(page, label, options = AXE) {
 	return result.violations.length;
 }
 
-const PAGES = ['/', '/en-001/', '/en-001/?utilization', '/cy-gb/', '/cy-001/'];
+const PAGES = ['/', '/en-001/', '/en-001/?utilization', '/cy-gb/', '/cy-001/', '/es-es/', '/es-mx/'];
 
 let checks = 0;
 for (const width of [1200, 390]) {

@@ -27,11 +27,24 @@ export const HERO = {
 	'cy-ar': {
 		tagline: 'Ciwiau aros, wedi’u hesbonio ar gyfer timau meddalwedd: nodiant, fformiwlâu, metrigau, a mewnwelediadau.',
 		translations: 'Cyfieithiadau: '
-	}
+	},
+	'es-001': {
+		tagline: 'Las colas de espera, explicadas para equipos de software: notación, fórmulas, métricas e ideas clave.',
+		translations: 'Traducciones: '
+	},
+	'es-es': {
+		tagline: 'Las colas de espera, explicadas para equipos de software: notación, fórmulas, métricas e ideas clave.',
+		translations: 'Traducciones: '
+	},
+	'es-mx': {
+		tagline: 'Las colas de espera, explicadas para equipos de software: notación, fórmulas, métricas e ideas clave.',
+		translations: 'Traducciones: '
+	},
 };
 
 /** @type {Record<string, string>} */
 export const ENDONYMS = {
 	'cy-001': 'Cymraeg',
-	'en-001': 'English'
+	'en-001': 'English',
+	'es-001': 'Español'
 };

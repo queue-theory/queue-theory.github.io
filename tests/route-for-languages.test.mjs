@@ -16,6 +16,11 @@ const cases = [
 	[['en-US'], '/en-us/'],
 	[['en-GB'], '/en-gb/'],
 	[['en-AU'], '/en-001/'],
+	[['es'], '/es-001/'],
+	[['es-MX'], '/es-mx/'],
+	[['es-ES'], '/es-es/'],
+	[['es-AR'], '/es-001/'],
+	[['es-419'], '/es-001/'],
 	// first usable preference wins; unmatched ones are skipped
 	[['xx', 'cy-GB'], '/cy-gb/'],
 	[['de-DE', 'en-GB'], '/en-gb/'],

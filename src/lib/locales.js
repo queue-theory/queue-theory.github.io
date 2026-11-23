@@ -4,7 +4,7 @@
 // directory of its own and maps to the source-of-truth locale "en-001" (so
 // "en_001" is not listed separately: it would be a duplicate "English").
 // See spec/locale-specific-search-picker/index.md.
-export const LOCALES = ['cy_001', 'cy_AR', 'cy_GB', 'en', 'en_GB', 'en_US'];
+export const LOCALES = ['cy_001', 'cy_AR', 'cy_GB', 'en', 'en_GB', 'en_US', 'es_001', 'es_ES', 'es_MX'];
 
 export const DEFAULT_LOCALE = 'en';
 
@@ -63,4 +63,4 @@ export function routeForLanguages(languages) {
  * so search engines should index only the original: they are `noindex` and
  * left out of the sitemap. See ../spec/locales.md.
  */
-export const NOINDEX = ['cy-gb', 'cy-ar', 'en-gb', 'en-us'];
+export const NOINDEX = ['cy-gb', 'cy-ar', 'en-gb', 'en-us', 'es-es', 'es-mx'];
