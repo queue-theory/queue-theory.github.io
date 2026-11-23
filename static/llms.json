@@ -46,6 +46,9 @@
     }
   ],
   "locales": [
+    "ar_001",
+    "ar_DZ",
+    "ar_EG",
     "cy_001",
     "cy_AR",
     "cy_GB",

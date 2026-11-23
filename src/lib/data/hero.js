@@ -4,6 +4,18 @@
 // locale by its endonym.
 /** @type {Record<string, {tagline: string, languages: string}>} */
 export const HERO = {
+	'ar-001': {
+		tagline: 'صفوف الانتظار، مشروحة لفرق البرمجيات: الرموز، والصيغ، والمقاييس، والرؤى.',
+		languages: 'اللغات: '
+	},
+	'ar-dz': {
+		tagline: 'صفوف الانتظار، مشروحة لفرق البرمجيات: الرموز، والصيغ، والمقاييس، والرؤى.',
+		languages: 'اللغات: '
+	},
+	'ar-eg': {
+		tagline: 'صفوف الانتظار، مشروحة لفرق البرمجيات: الرموز، والصيغ، والمقاييس، والرؤى.',
+		languages: 'اللغات: '
+	},
 	'en-001': {
 		tagline: 'Waiting lines, explained for software teams: notation, formulas, metrics, and insights.',
 		languages: 'Languages: '
@@ -68,6 +80,7 @@ export const HERO = {
 
 /** @type {Record<string, string>} */
 export const ENDONYMS = {
+	'ar-001': 'العربية',
 	'cy-001': 'Cymraeg',
 	'en-001': 'English',
 	'es-001': 'Español',

@@ -43,7 +43,7 @@ async function audit(page, label, options = AXE) {
 	return result.violations.length;
 }
 
-const PAGES = ['/', '/en-001/', '/en-001/?utilization', '/cy-gb/', '/cy-001/', '/es-es/', '/es-mx/', '/hi-in/', '/hi-001/', '/zh-cn/', '/zh-tw/'];
+const PAGES = ['/', '/en-001/', '/en-001/?utilization', '/ar-eg/', '/ar-001/', '/cy-gb/', '/cy-001/', '/es-es/', '/es-mx/', '/hi-in/', '/hi-001/', '/zh-cn/', '/zh-tw/'];
 
 let checks = 0;
 for (const width of [1200, 390]) {

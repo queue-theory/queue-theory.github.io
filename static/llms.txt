@@ -17,6 +17,9 @@
 
 ## Translations
 
+- [ar-001](https://queue-theory.github.io/ar-001/)
+- [ar-dz](https://queue-theory.github.io/ar-dz/)
+- [ar-eg](https://queue-theory.github.io/ar-eg/)
 - [cy-001](https://queue-theory.github.io/cy-001/)
 - [cy-ar](https://queue-theory.github.io/cy-ar/)
 - [cy-gb](https://queue-theory.github.io/cy-gb/)
