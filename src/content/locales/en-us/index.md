@@ -609,17 +609,17 @@ Introductions with more detail:
 
 - [Waiting time, load factor, and queueing theory - By Erik Bernhardsson](https://erikbern.com/2018/03/27/waiting-time-load-factor-and-queueing-theory)
 
+- [Investopedia: Queueing theory](https://www.investopedia.com/terms/q/queuing-theory.asp)
+
+- [It's time for some queueing theory - By Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)
+
 Formulas:
 
 - [Kendall's notation](https://en.wikipedia.org/wiki/Kendall%27s_notation)
 
 - [Kingman's formula](https://en.wikipedia.org/wiki/Kingman%27s_formula)
 
-- [Erlang C formula](https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula)
-
-- [Investopedia: Queueing theory](https://www.investopedia.com/terms/q/queuing-theory.asp)
-
-- [It's time for some queueing theory - By Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)
+- [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
 ### Thanks
 
@@ -631,5 +631,5 @@ Formulas:
 - Version: 3.0.0
 - Created: 2019-01-25T04:17:56Z
 - Updated: 2026-11-23T15:33:48Z
-- License: Apache, BSD, CC, GPL, MIT, OGL, or contact us; see LICENSE.md.
+- License: see [LICENSE.md](LICENSE.md)
 - Contact: Joel Parker Henderson <joel@joelparkerhenderson.com>

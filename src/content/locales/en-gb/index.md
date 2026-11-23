@@ -1,8 +1,8 @@
 # Queue theory
 
 Queue theory is the mathematical study of waiting lines, or queues. We use
-queueing theory in our software development, for purposes such as analyzing and
-optimizing our practices and processes, such as our customer service
+queueing theory in our software development, for purposes such as analysing and
+optimising our practices and processes, such as our customer service
 responsiveness, project management kanban planning, inter-process communication
 message queues, and devops continuous deployment pipelines.
 
@@ -18,15 +18,15 @@ Contents:
 - [Queue theory notation](#queue-theory-notation)
   - [Count](#count)
   - [Arrival rate, service rate](#arrival-rate-service-rate)
-  - [Utilization ratio a.k.a. traffic intensity](#utilization-ratio-aka-traffic-intensity)
+  - [Utilisation ratio a.k.a. traffic intensity](#utilisation-ratio-aka-traffic-intensity)
   - [Throughput rates: total rate, success rate, failure rate, skip rate](#throughput-rates-total-rate-success-rate-failure-rate-skip-rate)
   - [Service rate disambiguation](#service-rate-disambiguation)
   - [Skip rate](#skip-rate)
   - [Error ratio](#error-ratio)
   - [Lead time, step time, work time, wait time](#lead-time-step-time-work-time-wait-time)
   - [Standard notation](#standard-notation)
-- [Queue math](#queue-math)
-  - [The utilization curve](#the-utilization-curve)
+- [Queue maths](#queue-maths)
+  - [The utilisation curve](#the-utilisation-curve)
   - [Kingman's formula](#kingmans-formula)
   - [Pooling and Erlang C](#pooling-and-erlang-c)
 - [Activity tracking](#activity-tracking)
@@ -40,7 +40,7 @@ Contents:
   - [Double Diamond queue of queues](#double-diamond-queue-of-queues)
   - [Funnel queue of queues](#funnel-queue-of-queues)
 - [Insights](#insights)
-- [Epilog](#epilog)
+- [Epilogue](#epilogue)
   - [See also](#see-also)
   - [Thanks](#thanks)
 - [Tracking](#tracking)
@@ -59,7 +59,7 @@ We use queueing theory in our projects for many purposes:
 
 ### Customer service responsiveness
 
-For example, we want to analyze how customers request sales help and support help, and how fast we respond.
+For example, we want to analyse how customers request sales help and support help, and how fast we respond.
 
 Some relevant products are e.g. [Salesforce](https://wikipedia.org/wiki/Salesforce), [LiveChat](https://wikipedia.org/wiki/LiveChat), [Zendesk](https://wikipedia.org/wiki/Zendesk).
 
@@ -71,7 +71,7 @@ Some relevant products are e.g. [Asana](<https://wikipedia.org/wiki/Asana_(softw
 
 ### Inter-process communication message queues
 
-For example, we want to maximize throughputs and minimize pressures as one program sends requests to another program.
+For example, we want to maximise throughputs and minimise pressures as one program sends requests to another program.
 
 Some relevant products are e.g. [RabbitMQ](https://wikipedia.org/wiki/RabbitMQ), [ActiveMQ](https://wikipedia.org/wiki/Apache_ActiveMQ), [ZeroMQ](https://wikipedia.org/wiki/ZeroMQ).
 
@@ -105,7 +105,7 @@ Queue types and service types describe how the queue chooses which items to proc
 
 - Time Sharing a.k.a. Processor Sharing (PS): serve everyone at the same time; service capacity is distributed evenly among everyone waiting.
 
-SJF and SRPT minimize the average wait, but they can starve long jobs indefinitely, so real systems often add aging or priority caps.
+SJF and SRPT minimise the average wait, but they can starve long jobs indefinitely, so real systems often add ageing or priority caps.
 
 ## Queue theory notation
 
@@ -121,12 +121,12 @@ Crosswalk from our notation to the standard textbook notation:
 | λ    | λ        | arrival rate                                |
 | χ    | X        | throughput a.k.a. departure rate            |
 | α    | μ (often)| success rate; see service rate disambiguation |
-| ρ    | ρ        | utilization                                 |
+| ρ    | ρ        | utilisation                                 |
 | τ    | W        | average time in the system                  |
 | ω    | Wq       | average time waiting in the queue           |
 | φ    | S        | average service time                        |
 
-Beware of symbol clashes when you read other sources: σ usually means standard deviation, and θ often means the abandonment rate in Erlang-A call center models.
+Beware of symbol clashes when you read other sources: σ usually means standard deviation, and θ often means the abandonment rate in Erlang-A call centre models.
 
 ### Count
 
@@ -163,15 +163,15 @@ The intuitive idea that "λ = μ keeps the queue the same size" is true only whe
 Be aware that some queueing theory practitioners define service rate differently,
 and that service rate may be different due to failures such as errors or skips such as dropouts.
 
-### Utilization ratio a.k.a. traffic intensity
+### Utilisation ratio a.k.a. traffic intensity
 
-The most important notation that summarizes a queue:
+The most important notation that summarises a queue:
 
-- ρ (rho): utilization ratio = λ / μ for one server, or λ / (c μ) for c servers
+- ρ (rho): utilisation ratio = λ / μ for one server, or λ / (c μ) for c servers
 
 Examples:
 
-- ρ < 1 means the servers have spare capacity; the queue is stable. The closer ρ gets to 1, the longer the waits; see [the utilization curve](#the-utilization-curve).
+- ρ < 1 means the servers have spare capacity; the queue is stable. The closer ρ gets to 1, the longer the waits; see [the utilisation curve](#the-utilisation-curve).
 
 - ρ = 1 means the servers are busy all the time; the queue is unstable and grows without bound.
 
@@ -232,13 +232,13 @@ A skip is when an item leaves the queue without any significant processing:
 
 - Reneging: when a customer who has waited already decides to leave because they’ve wasted too much time.
 
-A related behavior is not a skip, because the customer stays in the system:
+A related behaviour is not a skip, because the customer stays in the system:
 
 - Jockeying: when a customer switches between parallel queues, such as checkout lanes, trying to get a shorter wait.
 
 ### Error ratio
 
-The most important notation that summarizes a queue's success:
+The most important notation that summarises a queue's success:
 
 - ε (epsilon): error ratio = failure count / (success count + failure count) = β / (α + β)
 
@@ -308,11 +308,11 @@ When the last three are omitted, the defaults are K = ∞, N = ∞, D = FIFO. Fo
 
 Standard notation also uses n to mean the number of items in the system.
 
-## Queue math
+## Queue maths
 
-### The utilization curve
+### The utilisation curve
 
-The single most important result in queueing theory: as utilization approaches 100%, wait time grows without bound, and it grows fastest at the end.
+The single most important result in queueing theory: as utilisation approaches 100%, wait time grows without bound, and it grows fastest at the end.
 
 For an M/M/1 queue, where S is the average service time:
 
@@ -320,7 +320,7 @@ For an M/M/1 queue, where S is the average service time:
 
 - Wait time ω = S × ρ / (1 − ρ)
 
-| Utilization ρ | Lead time τ | Wait time ω |
+| Utilisation ρ | Lead time τ | Wait time ω |
 | ------------- | ----------- | ----------- |
 | 50%           | 2 × S       | 1 × S       |
 | 70%           | 3.3 × S     | 2.3 × S     |
@@ -331,7 +331,7 @@ For an M/M/1 queue, where S is the average service time:
 
 Example: a code review takes 1 hour of work. If reviewers are 80% busy, a review takes about 5 hours from request to done. If reviewers are 95% busy, it takes about 20 hours, even though the reviewers are only 15 percentage points busier.
 
-This is why "keep everyone 100% busy" is a recipe for long lead times, and why the [insights](#insights) below warn against planning for high utilization.
+This is why "keep everyone 100% busy" is a recipe for long lead times, and why the [insights](#insights) below warn against planning for high utilisation.
 
 ### Kingman's formula
 
@@ -341,17 +341,17 @@ Kingman's formula, a.k.a. the VUT equation, approximates wait time for a single-
 
 The three factors are:
 
-- U: utilization factor ρ / (1 − ρ), which is the utilization curve above.
+- U: utilisation factor ρ / (1 − ρ), which is the utilisation curve above.
 
 - V: variability factor (ca² + cs²) / 2, where ca is the coefficient of variation of time between arrivals, and cs is the coefficient of variation of service times. The coefficient of variation is the standard deviation divided by the mean.
 
 - T: time factor S, the average service time.
 
-Example: for an M/M/1 queue, ca = cs = 1, so V = 1, and the formula gives the same wait time as the utilization curve. If you make work items more uniform, such as by splitting large tickets so that cs drops from 1 to near 0, then V drops to about 0.5, and the wait time roughly halves at the same utilization.
+Example: for an M/M/1 queue, ca = cs = 1, so V = 1, and the formula gives the same wait time as the utilisation curve. If you make work items more uniform, such as by splitting large tickets so that cs drops from 1 to near 0, then V drops to about 0.5, and the wait time roughly halves at the same utilisation.
 
 Kingman's formula shows the three levers for reducing wait time:
 
-- Reduce utilization, such as by adding capacity or limiting work in progress.
+- Reduce utilisation, such as by adding capacity or limiting work in progress.
 
 - Reduce variability, such as by smaller batches, more uniform work items, or smoother arrivals.
 
@@ -361,13 +361,13 @@ Kingman's formula shows the three levers for reducing wait time:
 
 One shared queue that feeds several servers is better than separate queues that each feed one server. This is why banks use one line that feeds many tellers, and why a shared support queue beats per-agent queues.
 
-Example: two servers each take 1 hour per item, and items arrive at 1.6 items per hour in total, so utilization is 80%.
+Example: two servers each take 1 hour per item, and items arrive at 1.6 items per hour in total, so utilisation is 80%.
 
 - Separate queues: each server is an M/M/1 queue with 0.8 arrivals per hour, so the lead time is 1 / (1 − 0.8) = 5 hours.
 
 - Pooled queue: both servers share an M/M/2 queue, so the lead time is about 2.8 hours, which is about 44% less, with the same people and the same work.
 
-The Erlang C formula calculates the probability that an arriving item must wait in an M/M/c queue, with offered load a = λ / μ and utilization ρ = a / c:
+The Erlang C formula calculates the probability that an arriving item must wait in an M/M/c queue, with offered load a = λ / μ and utilisation ρ = a / c:
 
 - P(wait) = ((aᶜ / c!) / (1 − ρ)) / (Σₖ₌₀ᶜ⁻¹ (aᵏ / k!) + (aᶜ / c!) / (1 − ρ))
 
@@ -399,7 +399,7 @@ Examples:
 
 - Aσ: Activity skip rate a.k.a. dropout rate: how many items are abandoned per time unit.
 
-- Aρ: Activity utilization ratio: how many items are arriving vs. completing.
+- Aρ: Activity utilisation ratio: how many items are arriving vs. completing.
 
 - Aε: Activity error ratio: how many items are completed with errors vs. total.
 
@@ -439,7 +439,7 @@ Example: a team has κ = 20 tickets in progress, and finishes λ = 4 tickets per
 
 ### Key performance indicators (KPIs)
 
-We typically track many things about the activities in the queue, and we want to summarize the results by choosing a shortlist of the most relevant ones for our projects.
+We typically track many things about the activities in the queue, and we want to summarise the results by choosing a shortlist of the most relevant ones for our projects.
 
 We have built many projects, and we believe the most valuable summary indicators are:
 
@@ -511,7 +511,7 @@ Throughput metrics:
 
 Instability metrics:
 
-- **Change Failure Rate** - Percentage of deployments that cause a failure in production and need immediate remediation, such as a rollback or hotfix. Be specific what you mean by failure. For example, some teams also count a failure when they start on a work ticket then realize the work ticket doesn't have enough information to proceed, so the team rejects the work ticket back to the specification team.
+- **Change Failure Rate** - Percentage of deployments that cause a failure in production and need immediate remediation, such as a rollback or hotfix. Be specific what you mean by failure. For example, some teams also count a failure when they start on a work ticket then realise the work ticket doesn't have enough information to proceed, so the team rejects the work ticket back to the specification team.
 
 - **Deployment Rework Rate** - Percentage of deployments that are unplanned, such as to fix a production incident. This is unplanned deployments divided by total deployments. DORA added this metric in 2024.
 
@@ -543,17 +543,17 @@ Queue theory can model this as one process queue that contains four stage queues
 
 In our practical work, we frequently use the word "funnel" to loosely describe a queue-of-queues that tend to reduce the item count at each stage:
 
-- Hiring queue that uses an outreach stage, interview stage, and offer stage. For this kind of queue, we aim to maximize the stage 1 arrival rate, meaning increasing our outreach, such as via promotions.
+- Hiring queue that uses an outreach stage, interview stage, and offer stage. For this kind of queue, we aim to maximise the stage 1 arrival rate, meaning increasing our outreach, such as via promotions.
 
-- Purchasing queue that uses a customer search stage, shopping cart stage, and payment stage. For this kind of queue, we aim to minimize the stage 2 skip rate, meaning reducing cart abandonment, such as via reminders.
+- Purchasing queue that uses a customer search stage, shopping basket stage, and payment stage. For this kind of queue, we aim to minimise the stage 2 skip rate, meaning reducing basket abandonment, such as via reminders.
 
-- Programming queue that uses an integration stage, user acceptance stage, and production rollout stage. For this kind of queue, we aim to minimize the error rate of the production rollout stage, such as via canary telemetry.
+- Programming queue that uses an integration stage, user acceptance stage, and production rollout stage. For this kind of queue, we aim to minimise the error rate of the production rollout stage, such as via canary telemetry.
 
 ## Insights
 
 Seven insights into queueing theory, by Bob Wescott, author of "The Every Computer Performance Book" (see also [Kottke's summary](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
 
-1. The slower the service center, the lower the maximum utilization you should plan for at peak load.
+1. The slower the service centre, the lower the maximum utilisation you should plan for at peak load.
 
 2. It’s very hard to use the last 15% of anything.
 
@@ -567,7 +567,7 @@ Seven insights into queueing theory, by Bob Wescott, author of "The Every Comput
 
 7. Show small improvements in their best light.
 
-## Epilog
+## Epilogue
 
 ### See also
 
@@ -609,17 +609,17 @@ Introductions with more detail:
 
 - [Waiting time, load factor, and queueing theory - By Erik Bernhardsson](https://erikbern.com/2018/03/27/waiting-time-load-factor-and-queueing-theory)
 
+- [Investopedia: Queueing theory](https://www.investopedia.com/terms/q/queuing-theory.asp)
+
+- [It's time for some queueing theory - By Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)
+
 Formulas:
 
 - [Kendall's notation](https://en.wikipedia.org/wiki/Kendall%27s_notation)
 
 - [Kingman's formula](https://en.wikipedia.org/wiki/Kingman%27s_formula)
 
-- [Erlang C formula](https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula)
-
-- [Investopedia: Queueing theory](https://www.investopedia.com/terms/q/queuing-theory.asp)
-
-- [It's time for some queueing theory - By Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)
+- [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
 ### Thanks
 
@@ -631,5 +631,5 @@ Formulas:
 - Version: 3.0.0
 - Created: 2019-01-25T04:17:56Z
 - Updated: 2026-11-23T15:33:48Z
-- License: Apache, BSD, CC, GPL, MIT, OGL, or contact us; see LICENSE.md.
+- Licence: see [LICENSE.md](LICENSE.md)
 - Contact: Joel Parker Henderson <joel@joelparkerhenderson.com>

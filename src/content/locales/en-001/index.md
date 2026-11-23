@@ -631,5 +631,5 @@ Formulas:
 - Version: 3.0.0
 - Created: 2019-01-25T04:17:56Z
 - Updated: 2026-11-23T15:33:48Z
-- License: Apache, BSD, CC, GPL, MIT, OGL, or contact us; see LICENSE.md.
+- License: see [LICENSE.md](LICENSE.md)
 - Contact: Joel Parker Henderson <joel@joelparkerhenderson.com>

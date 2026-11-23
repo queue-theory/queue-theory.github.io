@@ -632,5 +632,5 @@ Fformiwlâu (Saesneg):
 - Fersiwn: 3.0.0
 - Crëwyd: 2019-01-25T04:17:56Z
 - Diweddarwyd: 2026-11-23T15:33:48Z
-- Trwydded: Apache, BSD, CC, GPL, MIT, OGL, neu cysylltwch â ni; gweler LICENSE.md.
+- Trwydded: gweler [LICENSE.md](LICENSE.md)
 - Cyswllt: Joel Parker Henderson <joel@joelparkerhenderson.com>
