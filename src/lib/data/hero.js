@@ -40,11 +40,20 @@ export const HERO = {
 		tagline: 'Las colas de espera, explicadas para equipos de software: notación, fórmulas, métricas e ideas clave.',
 		translations: 'Traducciones: '
 	},
+	'zh-001': {
+		tagline: '为软件团队讲解排队：符号、公式、指标与洞见。',
+		translations: '翻译：'
+	},
+	'zh-cn': {
+		tagline: '为软件团队讲解排队：符号、公式、指标与洞见。',
+		translations: '翻译：'
+	},
 };
 
 /** @type {Record<string, string>} */
 export const ENDONYMS = {
 	'cy-001': 'Cymraeg',
 	'en-001': 'English',
-	'es-001': 'Español'
+	'es-001': 'Español',
+	'zh-001': '中文'
 };

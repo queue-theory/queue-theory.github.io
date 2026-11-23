@@ -54,7 +54,9 @@
     "en_US",
     "es_001",
     "es_ES",
-    "es_MX"
+    "es_MX",
+    "zh_001",
+    "zh_CN"
   ],
   "translations": "https://github.com/queue-theory/queue-theory/tree/main/locales"
 }

@@ -4,7 +4,7 @@
 // directory of its own and maps to the source-of-truth locale "en-001" (so
 // "en_001" is not listed separately: it would be a duplicate "English").
 // See spec/locale-specific-search-picker/index.md.
-export const LOCALES = ['cy_001', 'cy_AR', 'cy_GB', 'en', 'en_GB', 'en_US', 'es_001', 'es_ES', 'es_MX'];
+export const LOCALES = ['cy_001', 'cy_AR', 'cy_GB', 'en', 'en_GB', 'en_US', 'es_001', 'es_ES', 'es_MX', 'zh_001', 'zh_CN'];
 
 export const DEFAULT_LOCALE = 'en';
 
@@ -35,7 +35,7 @@ export function isRtlSlug(slug) {
  *
  * Per preference, the first rule that matches wins:
  *  1. the exact locale ("cy_GB" or "cy-GB" -> "cy-gb", "zh-TW" -> "zh-tw");
- *  2. Chinese by script or region ("zh-Hant", "zh-HK", "zh-MO" -> "zh-tw"; "zh-Hans" -> "zh-cn");
+ *  2. Chinese by script or region, when that locale exists ("zh-Hant", "zh-HK", "zh-MO" -> "zh-tw"; "zh-Hans" -> "zh-cn");
  *  3. the language's international *-001 locale ("en-AU", "de-DE", "pt-BR", "fi" -> "en-001", "de-001", "pt-001", "fi-001").
  * Preferences that match nothing are skipped; with no match at all the result
  * is "/en-001/". See spec/website.md.
@@ -51,8 +51,8 @@ export function routeForLanguages(languages) {
 		const region = parts.find((p, i) => i > 0 && /^([a-z]{2}|\d{3})$/.test(p));
 
 		if (region && LOCALE_SLUGS.includes(`${lang}-${region}`)) return `/${lang}-${region}/`;
-		if (lang === 'zh' && (script === 'hant' || region === 'hk' || region === 'mo')) return '/zh-tw/';
-		if (lang === 'zh' && script === 'hans') return '/zh-cn/';
+		if (lang === 'zh' && (script === 'hant' || region === 'hk' || region === 'mo') && LOCALE_SLUGS.includes('zh-tw')) return '/zh-tw/';
+		if (lang === 'zh' && script === 'hans' && LOCALE_SLUGS.includes('zh-cn')) return '/zh-cn/';
 		if (LOCALE_SLUGS.includes(`${lang}-001`)) return `/${lang}-001/`;
 	}
 	return '/en-001/';
@@ -63,4 +63,4 @@ export function routeForLanguages(languages) {
  * so search engines should index only the original: they are `noindex` and
  * left out of the sitemap. See ../spec/locales.md.
  */
-export const NOINDEX = ['cy-gb', 'cy-ar', 'en-gb', 'en-us', 'es-es', 'es-mx'];
+export const NOINDEX = ['cy-gb', 'cy-ar', 'en-gb', 'en-us', 'es-es', 'es-mx', 'zh-cn'];

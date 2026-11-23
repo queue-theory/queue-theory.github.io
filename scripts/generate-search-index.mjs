@@ -33,6 +33,7 @@ function plainText(md) {
 		.replace(/^\s{0,3}#{1,6}\s+/gm, '')
 		.replace(/^\s*[-*+>]\s+/gm, '')
 		.replace(/^\s*\d+\.\s+/gm, '')
+		.replace(/:?-{3,}:?/g, ' ')
 		.replace(/[|`*_~]/g, ' ')
 		.replace(/\s+/g, ' ')
 		.trim();
