@@ -10,6 +10,9 @@ const cases = [
 	[['cy-GB'], '/cy-gb/'],
 	[['CY_ar'], '/cy-ar/'],
 	// the language's international *-001 locale
+	[['cs'], '/cs-001/'],
+	[['cs-CZ'], '/cs-cz/'],
+	[['cs-SK'], '/cs-001/'],
 	[['cy'], '/cy-001/'],
 	[['cy-US'], '/cy-001/'],
 	[['da'], '/da-001/'],

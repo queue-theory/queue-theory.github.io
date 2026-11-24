@@ -25,6 +25,8 @@
 - [bn-001](https://queue-theory.github.io/bn-001/)
 - [bn-bd](https://queue-theory.github.io/bn-bd/)
 - [bn-in](https://queue-theory.github.io/bn-in/)
+- [cs-001](https://queue-theory.github.io/cs-001/)
+- [cs-cz](https://queue-theory.github.io/cs-cz/)
 - [cy-001](https://queue-theory.github.io/cy-001/)
 - [cy-ar](https://queue-theory.github.io/cy-ar/)
 - [cy-gb](https://queue-theory.github.io/cy-gb/)

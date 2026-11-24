@@ -64,6 +64,14 @@ export const HERO = {
 		tagline: 'Waiting lines, explained for software teams: notation, formulas, metrics, and insights.',
 		languages: 'Languages: '
 	},
+	'cs-001': {
+		tagline: 'Průvodce frontami pro softwarové týmy: notace, vzorce, metriky, postřehy.',
+		languages: 'Jazyky:'
+	},
+	'cs-cz': {
+		tagline: 'Průvodce frontami pro softwarové týmy: notace, vzorce, metriky, postřehy.',
+		languages: 'Jazyky:'
+	},
 	'cy-001': {
 		tagline: 'Ciwiau aros, wedi’u hesbonio ar gyfer timau meddalwedd: nodiant, fformiwlâu, metrigau, a mewnwelediadau.',
 		languages: 'Ieithoedd: '
@@ -235,6 +243,7 @@ export const ENDONYMS = {
 	'ar-001': 'العربية',
 	'bg-001': 'Български',
 	'bn-001': 'বাংলা',
+	'cs-001': 'Čeština',
 	'cy-001': 'Cymraeg',
 	'da-001': 'Dansk',
 	'de-001': 'Deutsch',
