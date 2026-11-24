@@ -296,6 +296,14 @@ export const HERO = {
 		tagline: 'Schlaangen, erkläert fir Software-Équipen: Notatioun, Formelen, Moossen an Erkenntnisser.',
 		languages: 'Sproochen: '
 	},
+	'lo-001': {
+		tagline: 'ແຖວຄອຍ ອະທິບາຍສຳລັບທີມງານຊອບແວ: ສັນຍາລັກ, ສູດ, ການວັດແທກ ແລະ ຂໍ້ຄິດເລິກເຊິ່ງ.',
+		languages: 'ພາສາ: '
+	},
+	'lo-la': {
+		tagline: 'ແຖວຄອຍ ອະທິບາຍສຳລັບທີມງານຊອບແວ: ສັນຍາລັກ, ສູດ, ການວັດແທກ ແລະ ຂໍ້ຄິດເລິກເຊິ່ງ.',
+		languages: 'ພາສາ: '
+	},
 	'nl-001': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
@@ -413,6 +421,7 @@ export const ENDONYMS = {
 	'ko-001': '한국어',
 	'kw-001': 'Kernewek',
 	'lb-001': 'Lëtzebuergesch',
+	'lo-001': 'ລາວ',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',
