@@ -43,6 +43,8 @@
 - [id-my](https://queue-theory.github.io/id-my/)
 - [ja-001](https://queue-theory.github.io/ja-001/)
 - [ja-jp](https://queue-theory.github.io/ja-jp/)
+- [ko-001](https://queue-theory.github.io/ko-001/)
+- [ko-kr](https://queue-theory.github.io/ko-kr/)
 - [ru-001](https://queue-theory.github.io/ru-001/)
 - [ru-by](https://queue-theory.github.io/ru-by/)
 - [ru-ru](https://queue-theory.github.io/ru-ru/)
