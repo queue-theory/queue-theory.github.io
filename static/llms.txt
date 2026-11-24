@@ -119,6 +119,8 @@
 - [ru-ru](https://queue-theory.github.io/ru-ru/)
 - [sco-001](https://queue-theory.github.io/sco-001/)
 - [sco-gb](https://queue-theory.github.io/sco-gb/)
+- [sk-001](https://queue-theory.github.io/sk-001/)
+- [sk-sk](https://queue-theory.github.io/sk-sk/)
 - [sv-001](https://queue-theory.github.io/sv-001/)
 - [sv-se](https://queue-theory.github.io/sv-se/)
 - [sw-001](https://queue-theory.github.io/sw-001/)

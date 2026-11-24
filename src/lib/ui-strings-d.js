@@ -112,12 +112,12 @@ export const STRINGS_D = {
 		navAbout: 'O projekte',
 		navSearch: 'Hľadať',
 		onThisPage: 'Na tejto stránke',
-		readIntroduction: 'Prečítať úvod',
-		chooseLanguage: 'Vyberte jazyk',
+		readIntroduction: 'Prečítajte si, prosím, úvod',
+		chooseLanguage: 'Vyberte si, prosím, jazyk',
 		footerTaglineSuffix:
 			' — úvod do celosvetového štandardu na zdieľanie kľúčových zdravotných údajov cez hranice.',
 		footerNote:
-			'Táto stránka je vzdelávacia. Nie je lekárskou radou ani oficiálnou publikáciou ISO, CEN alebo HL7. Pred implementáciou si overte oficiálne špecifikácie.',
+			'Táto stránka je vzdelávacia. Nie je lekárskou radou ani oficiálnou publikáciou ISO, CEN alebo HL7. Pred implementáciou si, prosím, overte oficiálne špecifikácie.',
 		footerSourceLink: 'Zdroj',
 		pickerTheme: 'Motív',
 		pickerLanguage: 'Jazyk',

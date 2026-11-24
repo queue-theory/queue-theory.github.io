@@ -412,6 +412,14 @@ export const HERO = {
 		tagline: 'Queues explained fur software teams: notation, formulas, metrics, an insichts.',
 		languages: 'Leids: '
 	},
+	'sk-001': {
+		tagline: 'Fronty vysvetlené pre softvérové tímy: notácia, vzorce, metriky a postrehy.',
+		languages: 'Jazyky: '
+	},
+	'sk-sk': {
+		tagline: 'Fronty vysvetlené pre softvérové tímy: notácia, vzorce, metriky a postrehy.',
+		languages: 'Jazyky: '
+	},
 	'sv-001': {
 		tagline: 'En guide till köer för mjukvaruteam: notation, formler, mått, insikter.',
 		languages: 'Språk:'
@@ -512,6 +520,7 @@ export const ENDONYMS = {
 	'ro-001': 'Română',
 	'ru-001': 'Русский',
 	'sco-001': 'Scots',
+	'sk-001': 'Slovenčina',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',
 	'tr-001': 'Türkçe',
