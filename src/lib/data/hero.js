@@ -136,6 +136,18 @@ export const HERO = {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
 	},
+	'pt-001': {
+		tagline: 'Um guia de filas para equipes de software: notação, fórmulas, métricas, insights.',
+		languages: 'Idiomas:'
+	},
+	'pt-br': {
+		tagline: 'Um guia de filas para equipes de software: notação, fórmulas, métricas, insights.',
+		languages: 'Idiomas:'
+	},
+	'pt-pt': {
+		tagline: 'Um guia de filas para equipas de software: notação, fórmulas, métricas, insights.',
+		languages: 'Idiomas:'
+	},
 	'ru-001': {
 		tagline: 'Очереди простым языком для команд разработки программного обеспечения: нотация, формулы, метрики и выводы.',
 		languages: 'Языки: '
@@ -200,6 +212,7 @@ export const ENDONYMS = {
 	'ja-001': '日本語',
 	'ko-001': '한국어',
 	'nl-001': 'Nederlands',
+	'pt-001': 'Português',
 	'ru-001': 'Русский',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',

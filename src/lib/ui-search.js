@@ -49,7 +49,7 @@ export const SEARCH_STRINGS = {
 	pa: { loading: 'ਖੋਜ ਹੋ ਰਹੀ ਹੈ…', unavailable: 'ਇਸ ਭਾਸ਼ਾ ਲਈ ਖੋਜ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।', results: '{query} ਲਈ ਨਤੀਜੇ: {count}' },
 	pcm: { loading: 'Dem dey search…', unavailable: 'Search no dey for dis language.', results: 'Wetin dem find for {query}: {count}' },
 	pl: { loading: 'Wyszukiwanie…', unavailable: 'Wyszukiwanie nie jest dostępne dla tego języka.', results: 'Wyniki dla {query}: {count}' },
-	pt: { loading: 'A pesquisar…', unavailable: 'A pesquisa não está disponível para este idioma.', results: 'Resultados para {query}: {count}' },
+	pt: { loading: 'Pesquisando…', unavailable: 'A pesquisa não está disponível para este idioma.', results: 'Resultados para {query}: {count}' },
 	ro: { loading: 'Se caută…', unavailable: 'Căutarea nu este disponibilă pentru această limbă.', results: 'Rezultate pentru {query}: {count}' },
 	ru: { loading: 'Поиск…', unavailable: 'Поиск недоступен для этого языка.', results: 'Результаты по запросу {query}: {count}' },
 	sco: { loading: 'Seekin…', unavailable: 'Seek isnae available for this leid.', results: 'Results for {query}: {count}' },
@@ -72,5 +72,6 @@ export const SEARCH_STRINGS = {
 
 /** @type {Record<string, { loading: string, unavailable: string, results: string }>} */
 export const SEARCH_OVERRIDES = {
+	'pt-pt': { loading: 'A pesquisar…', unavailable: 'A pesquisa não está disponível para este idioma.', results: 'Resultados para {query}: {count}' },
 	'zh-tw': { loading: '搜尋中…', unavailable: '此語言暫不支援搜尋。', results: '{query}的搜尋結果：{count} 筆' }
 };
