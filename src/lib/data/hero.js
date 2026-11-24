@@ -444,6 +444,10 @@ export const HERO = {
 		tagline: 'Mwongozo wa foleni kwa timu za programu: nukuu, fomula, vipimo, maarifa.',
 		languages: 'Lugha:'
 	},
+	'ta-001': {
+		tagline: 'மென்பொருள் குழுக்களுக்காக விளக்கப்பட்ட வரிசைகள்: குறியீடுகள், சூத்திரங்கள், அளவீடுகள், நுண்ணறிவுகள்.',
+		languages: 'மொழிகள்: '
+	},
 	'tr-001': {
 		tagline: 'Yazılım ekipleri için kuyruk rehberi: gösterim, formüller, metrikler, çıkarımlar.',
 		languages: 'Diller:'
@@ -532,6 +536,7 @@ export const ENDONYMS = {
 	'sl-001': 'Slovenščina',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',
+	'ta-001': 'தமிழ்',
 	'tr-001': 'Türkçe',
 	'ur-001': 'اردو',
 	'vi-001': 'Tiếng Việt',
