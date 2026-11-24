@@ -20,6 +20,8 @@
 - [ar-001](https://queue-theory.github.io/ar-001/)
 - [ar-dz](https://queue-theory.github.io/ar-dz/)
 - [ar-eg](https://queue-theory.github.io/ar-eg/)
+- [bg-001](https://queue-theory.github.io/bg-001/)
+- [bg-bg](https://queue-theory.github.io/bg-bg/)
 - [bn-001](https://queue-theory.github.io/bn-001/)
 - [bn-bd](https://queue-theory.github.io/bn-bd/)
 - [bn-in](https://queue-theory.github.io/bn-in/)
