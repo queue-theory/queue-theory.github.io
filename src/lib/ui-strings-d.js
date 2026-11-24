@@ -86,12 +86,12 @@ export const STRINGS_D = {
 		navAbout: 'Aboot',
 		navSearch: 'Seek',
 		onThisPage: 'On this page',
-		readIntroduction: 'Read the intro',
-		chooseLanguage: 'Pick a leid',
+		readIntroduction: 'Please read the intro',
+		chooseLanguage: 'Please pick a leid',
 		footerTaglineSuffix:
 			' — an intro tae the warldwide staundart fur sharin key health data athort borders.',
 		footerNote:
-			'This site is educational. It isnae medical advice an it isnae an official publication o ISO, CEN, or HL7. Check the official specifications afore ye implement.',
+			'This site is educational. It isnae medical advice an it isnae an official publication o ISO, CEN, or HL7. Please check the official specifications afore you implement.',
 		footerSourceLink: 'Source',
 		pickerTheme: 'Theme',
 		pickerLanguage: 'Leid',

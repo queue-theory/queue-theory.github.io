@@ -404,6 +404,14 @@ export const HERO = {
 		tagline: 'Очереди простым языком для команд разработки программного обеспечения: нотация, формулы, метрики и выводы.',
 		languages: 'Языки: '
 	},
+	'sco-001': {
+		tagline: 'Queues explained fur software teams: notation, formulas, metrics, an insichts.',
+		languages: 'Leids: '
+	},
+	'sco-gb': {
+		tagline: 'Queues explained fur software teams: notation, formulas, metrics, an insichts.',
+		languages: 'Leids: '
+	},
 	'sv-001': {
 		tagline: 'En guide till köer för mjukvaruteam: notation, formler, mått, insikter.',
 		languages: 'Språk:'
@@ -503,6 +511,7 @@ export const ENDONYMS = {
 	'pt-001': 'Português',
 	'ro-001': 'Română',
 	'ru-001': 'Русский',
+	'sco-001': 'Scots',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',
 	'tr-001': 'Türkçe',

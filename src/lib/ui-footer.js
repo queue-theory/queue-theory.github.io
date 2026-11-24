@@ -52,7 +52,7 @@ export const FOOTER_NOTE = {
 	pt: 'Faça a sua própria diligência sobre estes recursos antes de usá-los em quaisquer sistemas críticos.',
 	ro: 'Vă rugăm să efectuați propria verificare a acestor resurse înainte de a le folosi în orice sisteme critice.',
 	ru: 'Прежде чем использовать эти материалы в критически важных системах, проведите собственную проверку.',
-	sco: 'Dae yer ain due diligence on thir resources afore ye uise them in onie critical systems.',
+	sco: 'Please dae your ain due diligence on thir resources afore you uise them in onie critical systems.',
 	sk: 'Skôr než tieto zdroje použijete v akýchkoľvek kritických systémoch, vykonajte vlastné preverenie.',
 	sl: 'Preden te vire uporabite v kakršnih koli kritičnih sistemih, sami opravite temeljit pregled.',
 	sv: 'Gör er egen noggranna granskning av dessa resurser innan ni använder dem i kritiska system.',

@@ -135,6 +135,8 @@ const cases = [
 	[['ru-RU'], '/ru-ru/'],
 	[['ru-BY'], '/ru-by/'],
 	[['ru-KZ'], '/ru-001/'],
+	[['sco'], '/sco-001/'],
+	[['sco-GB'], '/sco-gb/'],
 	[['sv'], '/sv-001/'],
 	[['sv-SE'], '/sv-se/'],
 	[['sv-FI'], '/sv-001/'],
