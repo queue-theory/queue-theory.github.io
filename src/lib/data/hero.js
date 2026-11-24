@@ -100,6 +100,14 @@ export const HERO = {
 		tagline: 'Antrean, dijelaskan untuk tim perangkat lunak: notasi, rumus, metrik, dan wawasan.',
 		languages: 'Bahasa: '
 	},
+	'ja-001': {
+		tagline: '待ち行列を、ソフトウェアチーム向けに解説します：表記法、公式、メトリクス、洞察。',
+		languages: '言語：'
+	},
+	'ja-jp': {
+		tagline: '待ち行列を、ソフトウェアチーム向けに解説します：表記法、公式、メトリクス、洞察。',
+		languages: '言語：'
+	},
 	'ru-001': {
 		tagline: 'Очереди простым языком для команд разработки программного обеспечения: нотация, формулы, метрики и выводы.',
 		languages: 'Языки: '
@@ -136,6 +144,7 @@ export const ENDONYMS = {
 	'fr-001': 'Français',
 	'hi-001': 'हिन्दी',
 	'id-001': 'Bahasa Indonesia',
+	'ja-001': '日本語',
 	'ru-001': 'Русский',
 	'zh-001': '中文'
 };

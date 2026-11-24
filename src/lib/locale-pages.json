@@ -71,6 +71,12 @@
 	"id-my": {
 		"title": "Teori antrean"
 	},
+	"ja-001": {
+		"title": "待ち行列理論"
+	},
+	"ja-jp": {
+		"title": "待ち行列理論"
+	},
 	"ru-001": {
 		"title": "Теория очередей"
 	},
