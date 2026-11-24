@@ -44,6 +44,7 @@ export const SIZE_LABELS = {
 	nl: L('Grootst|Groter|Groot|Normaal|Klein|Kleiner|Kleinst'),
 	pa: L('ਸਭ ਤੋਂ ਵੱਡਾ|ਹੋਰ ਵੱਡਾ|ਵੱਡਾ|ਆਮ|ਛੋਟਾ|ਹੋਰ ਛੋਟਾ|ਸਭ ਤੋਂ ਛੋਟਾ'),
 	pcm: L('Big pass all|Bigger|Big|Normal|Small|Smaller|Small pass all'),
+	pl: L('Największy|Większy|Duży|Normalny|Mały|Mniejszy|Najmniejszy'),
 	pt: L('Máximo|Maior|Grande|Normal|Pequeno|Menor|Mínimo'),
 	ru: L('Самый крупный|Крупнее|Крупный|Обычный|Мелкий|Мельче|Самый мелкий'),
 	sv: L('Störst|Större|Stor|Normal|Liten|Mindre|Minst'),

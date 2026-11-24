@@ -107,6 +107,8 @@
 - [nl-nl](https://queue-theory.github.io/nl-nl/)
 - [pa-001](https://queue-theory.github.io/pa-001/)
 - [pcm-001](https://queue-theory.github.io/pcm-001/)
+- [pl-001](https://queue-theory.github.io/pl-001/)
+- [pl-pl](https://queue-theory.github.io/pl-pl/)
 - [pt-001](https://queue-theory.github.io/pt-001/)
 - [pt-br](https://queue-theory.github.io/pt-br/)
 - [pt-pt](https://queue-theory.github.io/pt-pt/)

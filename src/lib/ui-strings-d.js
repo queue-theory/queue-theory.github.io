@@ -34,12 +34,12 @@ export const STRINGS_D = {
 		navAbout: 'O projekcie',
 		navSearch: 'Szukaj',
 		onThisPage: 'Na tej stronie',
-		readIntroduction: 'Przeczytaj wprowadzenie',
-		chooseLanguage: 'Wybierz język',
+		readIntroduction: 'Prosimy przeczytać wprowadzenie',
+		chooseLanguage: 'Prosimy wybrać język',
 		footerTaglineSuffix:
 			' — wprowadzenie do światowego standardu wymiany kluczowych danych zdrowotnych ponad granicami.',
 		footerNote:
-			'Ta strona ma charakter edukacyjny. Nie stanowi porady medycznej ani oficjalnej publikacji ISO, CEN czy HL7. Przed wdrożeniem sprawdź oficjalne specyfikacje.',
+			'Ta strona ma charakter edukacyjny. Nie stanowi porady medycznej ani oficjalnej publikacji ISO, CEN czy HL7. Przed wdrożeniem prosimy sprawdzić oficjalne specyfikacje.',
 		footerSourceLink: 'Źródło',
 		pickerTheme: 'Motyw',
 		pickerLanguage: 'Język',

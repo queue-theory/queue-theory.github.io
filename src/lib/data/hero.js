@@ -364,6 +364,14 @@ export const HERO = {
 		tagline: 'Queue wey we explain for software team dem: notation, formula, metrics, and insight.',
 		languages: 'Language dem: '
 	},
+	'pl-001': {
+		tagline: 'Kolejki wyjaśnione dla zespołów programistycznych: notacja, wzory, metryki i spostrzeżenia.',
+		languages: 'Języki: '
+	},
+	'pl-pl': {
+		tagline: 'Kolejki wyjaśnione dla zespołów programistycznych: notacja, wzory, metryki i spostrzeżenia.',
+		languages: 'Języki: '
+	},
 	'pt-001': {
 		tagline: 'Um guia de filas para equipes de software: notação, fórmulas, métricas, insights.',
 		languages: 'Idiomas:'
@@ -483,6 +491,7 @@ export const ENDONYMS = {
 	'nl-001': 'Nederlands',
 	'pa-001': 'ਪੰਜਾਬੀ',
 	'pcm-001': 'Naijá',
+	'pl-001': 'Polski',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',
 	'sv-001': 'Svenska',
