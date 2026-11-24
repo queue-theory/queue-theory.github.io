@@ -324,6 +324,10 @@ export const HERO = {
 		tagline: 'सॉफ्टवेअर संघांसाठी स्पष्ट केलेल्या रांगा: चिन्हपद्धती, सूत्रे, मेट्रिक्स आणि अंतर्दृष्टी.',
 		languages: 'भाषा: '
 	},
+	'ms-001': {
+		tagline: 'Baris gilir, diterangkan untuk pasukan perisian: tatatanda, formula, metrik dan pandangan.',
+		languages: 'Bahasa: '
+	},
 	'nl-001': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
@@ -445,6 +449,7 @@ export const ENDONYMS = {
 	'lt-001': 'Lietuvių',
 	'lv-001': 'Latviešu',
 	'mr-001': 'मराठी',
+	'ms-001': 'Bahasa Melayu',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',

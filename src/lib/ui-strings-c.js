@@ -264,8 +264,8 @@ export const STRINGS_C = {
 		navAbout: 'Tentang',
 		navSearch: 'Cari',
 		onThisPage: 'Di halaman ini',
-		readIntroduction: 'Baca pengenalan',
-		chooseLanguage: 'Pilih bahasa',
+		readIntroduction: 'Sila baca pengenalan',
+		chooseLanguage: 'Sila pilih bahasa',
 		footerTaglineSuffix:
 			' — pengenalan kepada piawaian sedunia untuk berkongsi data kesihatan penting merentas sempadan.',
 		footerNote:
