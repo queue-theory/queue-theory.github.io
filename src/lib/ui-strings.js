@@ -414,7 +414,7 @@ export const LANGUAGE_STRINGS = {
 		footerTaglineSuffix:
 			' — en introduktion till den globala standarden för att dela viktiga hälsodata över gränserna.',
 		footerNote:
-			'Den här webbplatsen är pedagogisk. Den är inte medicinsk rådgivning och inte en officiell publikation från ISO, CEN eller HL7. Kontrollera de officiella specifikationerna innan du implementerar.',
+			'Den här webbplatsen är pedagogisk. Den är inte medicinsk rådgivning och inte en officiell publikation från ISO, CEN eller HL7. Kontrollera de officiella specifikationerna innan ni implementerar.',
 		footerSourceLink: 'Källa',
 		pickerTheme: 'Tema',
 		pickerLanguage: 'Språk',
