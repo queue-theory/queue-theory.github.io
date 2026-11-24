@@ -40,7 +40,7 @@ export const FOOTER_NOTE = {
 	lb: 'Maacht w.e.g. Är eege Kontroll vun dëse Ressourcen, ier Dir se a kritesche Systemer benotzt.',
 	lo: 'ກະລຸນາກວດສອບແຫຼ່ງຂໍ້ມູນເຫຼົ່ານີ້ດ້ວຍຕົວທ່ານເອງກ່ອນນຳໄປໃຊ້ໃນລະບົບສຳຄັນໃດໆ.',
 	lt: 'Prašome prieš naudojant šiuos išteklius bet kurioje kritinėje sistemoje patiems atlikti išsamų patikrinimą.',
-	lv: 'Pirms šo resursu izmantošanas jebkurās kritiskās sistēmās veiciet pats savu rūpīgo pārbaudi.',
+	lv: 'Lūdzu, pirms šo resursu izmantošanas jebkurās kritiskās sistēmās veiciet paši savu rūpīgu pārbaudi.',
 	mr: 'कोणत्याही महत्त्वाच्या प्रणालीत वापरण्यापूर्वी या संसाधनांची स्वतः योग्य पडताळणी करा.',
 	ms: 'Lakukan usaha wajar anda sendiri terhadap sumber ini sebelum menggunakannya dalam mana-mana sistem kritikal.',
 	mt: 'Agħmel id-diliġenza dovuta tiegħek stess fuq dawn ir-riżorsi qabel ma tużahom f’xi sistema kritika.',

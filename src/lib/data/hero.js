@@ -312,6 +312,14 @@ export const HERO = {
 		tagline: 'Eilės, paaiškintos programinės įrangos komandoms: žymėjimas, formulės, metrikos ir įžvalgos.',
 		languages: 'Kalbos: '
 	},
+	'lv-001': {
+		tagline: 'Rindas, izskaidrotas programmatūras komandām: apzīmējumi, formulas, metrikas un atziņas.',
+		languages: 'Valodas: '
+	},
+	'lv-lv': {
+		tagline: 'Rindas, izskaidrotas programmatūras komandām: apzīmējumi, formulas, metrikas un atziņas.',
+		languages: 'Valodas: '
+	},
 	'nl-001': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
@@ -431,6 +439,7 @@ export const ENDONYMS = {
 	'lb-001': 'Lëtzebuergesch',
 	'lo-001': 'ລາວ',
 	'lt-001': 'Lietuvių',
+	'lv-001': 'Latviešu',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',

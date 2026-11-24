@@ -213,7 +213,7 @@ export const STRINGS_C = {
 		navAbout: 'Par',
 		navSearch: 'Meklēt',
 		onThisPage: 'Šajā lapā',
-		readIntroduction: 'Lasīt ievadu',
+		readIntroduction: 'Lūdzu, izlasiet ievadu',
 		chooseLanguage: 'Izvēlieties valodu',
 		footerTaglineSuffix:
 			' — ievads pasaules standartā galveno veselības datu apmaiņai pāri robežām.',
