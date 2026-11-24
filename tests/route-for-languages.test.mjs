@@ -60,6 +60,8 @@ const cases = [
 	[['bn-BD'], '/bn-bd/'],
 	[['bn-IN'], '/bn-in/'],
 	[['bn-GB'], '/bn-001/'],
+	[['ga'], '/ga-001/'],
+	[['ga-IE'], '/ga-ie/'],
 	[['hi'], '/hi-001/'],
 	[['hi-IN'], '/hi-in/'],
 	[['hi-NP'], '/hi-np/'],

@@ -71,15 +71,17 @@
 		en_GB: 'Great Britain',
 		eu_ES: 'Espainia',
 		cy_GB: 'Prydain Fawr',
+		ga_IE: 'Éire',
 		gd_GB: 'Breatainn Mhòr',
 		kw_GB: 'Breten Veur',
 		sco_GB: 'Great Britain'
 	};
 	// Browsers lack display-name data for Welsh, Basque, Scots, Cornish, Nigerian Pidgin and Wu Chinese (they show "Sco", "Kw", "PCM"),
-	// show Scottish Gaelic in English, and shorten Indonesian to "Indonesia".
+	// show Irish and Scottish Gaelic in English, and shorten Indonesian to "Indonesia".
 	const LANGUAGE_OVERRIDES: Record<string, string> = {
 		cy: 'Cymraeg',
 		eu: 'Euskara',
+		ga: 'Gaeilge',
 		gd: 'Gàidhlig',
 		id: 'Bahasa Indonesia',
 		kw: 'Kernewek',

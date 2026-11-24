@@ -164,6 +164,14 @@ export const HERO = {
 		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
 		languages: 'Langues : '
 	},
+	'ga-001': {
+		tagline: 'Scuainí, mínithe d’fhoirne bogearraí: nodaireacht, foirmlí, méadrachtaí agus léargais.',
+		languages: 'Teangacha: '
+	},
+	'ga-ie': {
+		tagline: 'Scuainí, mínithe d’fhoirne bogearraí: nodaireacht, foirmlí, méadrachtaí agus léargais.',
+		languages: 'Teangacha: '
+	},
 	'hi-001': {
 		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
 		languages: 'भाषाएँ: '
@@ -311,6 +319,7 @@ export const ENDONYMS = {
 	'fa-001': 'فارسی',
 	'fi-001': 'Suomi',
 	'fr-001': 'Français',
+	'ga-001': 'Gaeilge',
 	'hi-001': 'हिन्दी',
 	'id-001': 'Bahasa Indonesia',
 	'it-001': 'Italiano',
