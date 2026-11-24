@@ -45,6 +45,8 @@
 - [es-001](https://queue-theory.github.io/es-001/)
 - [es-es](https://queue-theory.github.io/es-es/)
 - [es-mx](https://queue-theory.github.io/es-mx/)
+- [et-001](https://queue-theory.github.io/et-001/)
+- [et-ee](https://queue-theory.github.io/et-ee/)
 - [fr-001](https://queue-theory.github.io/fr-001/)
 - [fr-ca](https://queue-theory.github.io/fr-ca/)
 - [fr-fr](https://queue-theory.github.io/fr-fr/)

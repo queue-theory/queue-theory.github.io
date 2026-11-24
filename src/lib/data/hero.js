@@ -116,6 +116,14 @@ export const HERO = {
 		tagline: 'Las colas de espera, explicadas para equipos de software: notación, fórmulas, métricas e ideas clave.',
 		languages: 'Idiomas: '
 	},
+	'et-001': {
+		tagline: 'Järjekorrad tarkvarameeskondadele selgitatuna: tähistus, valemid, mõõdikud, tähelepanekud.',
+		languages: 'Keeled:'
+	},
+	'et-ee': {
+		tagline: 'Järjekorrad tarkvarameeskondadele selgitatuna: tähistus, valemid, mõõdikud, tähelepanekud.',
+		languages: 'Keeled:'
+	},
 	'fr-001': {
 		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
 		languages: 'Langues : '
@@ -270,6 +278,7 @@ export const ENDONYMS = {
 	'el-001': 'Ελληνικά',
 	'en-001': 'English',
 	'es-001': 'Español',
+	'et-001': 'Eesti',
 	'fr-001': 'Français',
 	'hi-001': 'हिन्दी',
 	'id-001': 'Bahasa Indonesia',
