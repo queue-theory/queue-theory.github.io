@@ -232,6 +232,14 @@ export const HERO = {
 		tagline: 'Antrean, dijelaskan untuk tim perangkat lunak: notasi, rumus, metrik, dan wawasan.',
 		languages: 'Bahasa: '
 	},
+	'is-001': {
+		tagline: 'Biðraðir útskýrðar fyrir hugbúnaðarteymi: táknmál, formúlur, mælikvarðar og innsýn.',
+		languages: 'Tungumál: '
+	},
+	'is-is': {
+		tagline: 'Biðraðir útskýrðar fyrir hugbúnaðarteymi: táknmál, formúlur, mælikvarðar og innsýn.',
+		languages: 'Tungumál: '
+	},
 	'it-001': {
 		tagline: 'Le code spiegate ai team software: notazione, formule, metriche, spunti.',
 		languages: 'Lingue:'
@@ -364,6 +372,7 @@ export const ENDONYMS = {
 	'hr-001': 'Hrvatski',
 	'hu-001': 'Magyar',
 	'id-001': 'Bahasa Indonesia',
+	'is-001': 'Íslenska',
 	'it-001': 'Italiano',
 	'ja-001': '日本語',
 	'ko-001': '한국어',

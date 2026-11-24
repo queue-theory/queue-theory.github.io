@@ -29,7 +29,7 @@ export const FOOTER_NOTE = {
 	hr: 'Prije korištenja ovih resursa u bilo kojem kritičnom sustavu sami provedite dubinsku provjeru.',
 	hu: 'Mielőtt ezeket az anyagokat kritikus rendszerekben használná, végezze el a saját átvilágítását.',
 	id: 'Lakukan uji tuntas Anda sendiri atas sumber daya ini sebelum menggunakannya di sistem kritis mana pun.',
-	is: 'Gerðu þína eigin áreiðanleikakönnun á þessum gögnum áður en þú notar þau í mikilvægum kerfum.',
+	is: 'Gerið eigin áreiðanleikakönnun á þessum gögnum áður en þér notið þau í mikilvægum kerfum.',
 	it: 'Effettuate le vostre verifiche su queste risorse prima di usarle in qualsiasi sistema critico.',
 	ja: 'これらの資料を重要なシステムで使う前に、ご自身で十分に検証してください。',
 	jv: 'Lakonana uji tuntas dhewe kanggo sumber daya iki sadurunge digunakake ing sistem kritis apa wae.',

@@ -25,6 +25,7 @@ export const SIZE_LABELS = {
 	hr: L('Najveće|Veće|Veliko|Normalno|Malo|Manje|Najmanje'),
 	hu: L('Legnagyobb|Nagyobb|Nagy|Normál|Kicsi|Kisebb|Legkisebb'),
 	id: L('Terbesar|Lebih besar|Besar|Normal|Kecil|Lebih kecil|Terkecil'),
+	is: L('Stærst|Stærri|Stór|Venjuleg|Lítil|Minni|Minnst'),
 	it: L('Massimo|Più grande|Grande|Normale|Piccolo|Più piccolo|Minimo'),
 	ja: L('最大|より大きい|大|標準|小|より小さい|最小'),
 	ko: L('가장 크게|더 크게|크게|보통|작게|더 작게|가장 작게'),

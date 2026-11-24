@@ -74,6 +74,8 @@
 - [id-001](https://queue-theory.github.io/id-001/)
 - [id-id](https://queue-theory.github.io/id-id/)
 - [id-my](https://queue-theory.github.io/id-my/)
+- [is-001](https://queue-theory.github.io/is-001/)
+- [is-is](https://queue-theory.github.io/is-is/)
 - [it-001](https://queue-theory.github.io/it-001/)
 - [it-it](https://queue-theory.github.io/it-it/)
 - [ja-001](https://queue-theory.github.io/ja-001/)

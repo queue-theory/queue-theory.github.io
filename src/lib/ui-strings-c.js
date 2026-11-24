@@ -35,7 +35,7 @@ export const STRINGS_C = {
 		navSearch: 'Leita',
 		onThisPage: 'Á þessari síðu',
 		readIntroduction: 'Lesa inngang',
-		chooseLanguage: 'Veldu tungumál',
+		chooseLanguage: 'Veljið tungumál',
 		footerTaglineSuffix:
 			' — inngangur að alþjóðlegum staðli um miðlun lykilheilbrigðisgagna yfir landamæri.',
 		footerNote:

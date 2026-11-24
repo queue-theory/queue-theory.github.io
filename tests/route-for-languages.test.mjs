@@ -81,6 +81,8 @@ const cases = [
 	[['id-ID'], '/id-id/'],
 	[['id-MY'], '/id-my/'],
 	[['id-SG'], '/id-001/'],
+	[['is'], '/is-001/'],
+	[['is-IS'], '/is-is/'],
 	[['it'], '/it-001/'],
 	[['it-IT'], '/it-it/'],
 	[['it-CH'], '/it-001/'],
