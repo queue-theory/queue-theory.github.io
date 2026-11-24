@@ -45,6 +45,8 @@
 - [ja-jp](https://queue-theory.github.io/ja-jp/)
 - [ko-001](https://queue-theory.github.io/ko-001/)
 - [ko-kr](https://queue-theory.github.io/ko-kr/)
+- [nl-001](https://queue-theory.github.io/nl-001/)
+- [nl-nl](https://queue-theory.github.io/nl-nl/)
 - [ru-001](https://queue-theory.github.io/ru-001/)
 - [ru-by](https://queue-theory.github.io/ru-by/)
 - [ru-ru](https://queue-theory.github.io/ru-ru/)

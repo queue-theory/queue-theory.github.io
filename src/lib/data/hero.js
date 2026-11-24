@@ -116,6 +116,14 @@ export const HERO = {
 		tagline: '소프트웨어 팀을 위한 큐 해설: 표기법, 공식, 지표, 통찰.',
 		languages: '언어:'
 	},
+	'nl-001': {
+		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
+		languages: 'Talen:'
+	},
+	'nl-nl': {
+		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
+		languages: 'Talen:'
+	},
 	'ru-001': {
 		tagline: 'Очереди простым языком для команд разработки программного обеспечения: нотация, формулы, метрики и выводы.',
 		languages: 'Языки: '
@@ -170,6 +178,7 @@ export const ENDONYMS = {
 	'id-001': 'Bahasa Indonesia',
 	'ja-001': '日本語',
 	'ko-001': '한국어',
+	'nl-001': 'Nederlands',
 	'ru-001': 'Русский',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',
