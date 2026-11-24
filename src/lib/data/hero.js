@@ -124,6 +124,14 @@ export const HERO = {
 		tagline: 'Järjekorrad tarkvarameeskondadele selgitatuna: tähistus, valemid, mõõdikud, tähelepanekud.',
 		languages: 'Keeled:'
 	},
+	'eu-001': {
+		tagline: 'Ilarak software-taldeentzat azalduta: notazioa, formulak, metrikak, ondorioak.',
+		languages: 'Hizkuntzak:'
+	},
+	'eu-es': {
+		tagline: 'Ilarak software-taldeentzat azalduta: notazioa, formulak, metrikak, ondorioak.',
+		languages: 'Hizkuntzak:'
+	},
 	'fr-001': {
 		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
 		languages: 'Langues : '
@@ -279,6 +287,7 @@ export const ENDONYMS = {
 	'en-001': 'English',
 	'es-001': 'Español',
 	'et-001': 'Eesti',
+	'eu-001': 'Euskara',
 	'fr-001': 'Français',
 	'hi-001': 'हिन्दी',
 	'id-001': 'Bahasa Indonesia',
