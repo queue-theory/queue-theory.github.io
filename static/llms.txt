@@ -50,6 +50,8 @@
 - [eu-001](https://queue-theory.github.io/eu-001/)
 - [eu-es](https://queue-theory.github.io/eu-es/)
 - [fa-001](https://queue-theory.github.io/fa-001/)
+- [fi-001](https://queue-theory.github.io/fi-001/)
+- [fi-fi](https://queue-theory.github.io/fi-fi/)
 - [fr-001](https://queue-theory.github.io/fr-001/)
 - [fr-ca](https://queue-theory.github.io/fr-ca/)
 - [fr-fr](https://queue-theory.github.io/fr-fr/)

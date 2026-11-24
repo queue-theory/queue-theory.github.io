@@ -136,6 +136,14 @@ export const HERO = {
 		tagline: 'صف‌ها برای تیم‌های نرم‌افزاری: نمادگذاری، فرمول‌ها، سنجه‌ها، بینش‌ها.',
 		languages: 'زبان‌ها:'
 	},
+	'fi-001': {
+		tagline: 'Jonot selitettynä ohjelmistotiimeille: merkinnät, kaavat, mittarit, havainnot.',
+		languages: 'Kielet:'
+	},
+	'fi-fi': {
+		tagline: 'Jonot selitettynä ohjelmistotiimeille: merkinnät, kaavat, mittarit, havainnot.',
+		languages: 'Kielet:'
+	},
 	'fr-001': {
 		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
 		languages: 'Langues : '
@@ -293,6 +301,7 @@ export const ENDONYMS = {
 	'et-001': 'Eesti',
 	'eu-001': 'Euskara',
 	'fa-001': 'فارسی',
+	'fi-001': 'Suomi',
 	'fr-001': 'Français',
 	'hi-001': 'हिन्दी',
 	'id-001': 'Bahasa Indonesia',
