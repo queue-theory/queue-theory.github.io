@@ -54,6 +54,7 @@ export const SIZE_LABELS = {
 	sv: L('Störst|Större|Stor|Normal|Liten|Mindre|Minst'),
 	sw: L('Kubwa zaidi kabisa|Kubwa zaidi|Kubwa|Kawaida|Ndogo|Ndogo zaidi|Ndogo zaidi kabisa'),
 	ta: L('மிகப் பெரியது|இன்னும் பெரியது|பெரியது|இயல்பானது|சிறியது|இன்னும் சிறியது|மிகச் சிறியது'),
+	te: L('అతి పెద్దది|మరింత పెద్దది|పెద్దది|సాధారణం|చిన్నది|మరింత చిన్నది|అతి చిన్నది'),
 	ur: L('سب سے بڑا|مزید بڑا|بڑا|عام|چھوٹا|مزید چھوٹا|سب سے چھوٹا'),
 	vi: L('Lớn nhất|Lớn hơn|Lớn|Bình thường|Nhỏ|Nhỏ hơn|Nhỏ nhất'),
 	zh: L('最大|更大|大|标准|小|更小|最小')

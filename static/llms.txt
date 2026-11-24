@@ -128,6 +128,7 @@
 - [sw-001](https://queue-theory.github.io/sw-001/)
 - [sw-tz](https://queue-theory.github.io/sw-tz/)
 - [ta-001](https://queue-theory.github.io/ta-001/)
+- [te-001](https://queue-theory.github.io/te-001/)
 - [tr-001](https://queue-theory.github.io/tr-001/)
 - [tr-tr](https://queue-theory.github.io/tr-tr/)
 - [ur-001](https://queue-theory.github.io/ur-001/)

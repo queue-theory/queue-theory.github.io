@@ -58,7 +58,7 @@ export const FOOTER_NOTE = {
 	sv: 'Gör er egen noggranna granskning av dessa resurser innan ni använder dem i kritiska system.',
 	sw: 'Fanya uchunguzi wako mwenyewe wa rasilimali hizi kabla ya kuzitumia katika mifumo yoyote muhimu.',
 	ta: 'எந்த முக்கிய அமைப்பிலும் பயன்படுத்தும் முன் தயவுசெய்து இந்த வளங்களை நீங்களே முறையாகச் சரிபார்க்கவும்.',
-	te: 'ఏదైనా కీలక వ్యవస్థల్లో ఉపయోగించే ముందు ఈ వనరులను మీరే సరిగా పరిశీలించండి.',
+	te: 'ఏదైనా కీలక వ్యవస్థల్లో ఉపయోగించే ముందు దయచేసి ఈ వనరులను మీరే సరిగా పరిశీలించండి.',
 	th: 'โปรดตรวจสอบแหล่งข้อมูลเหล่านี้ด้วยตนเองก่อนนำไปใช้ในระบบสำคัญใดๆ',
 	tl: 'Gawin ang sarili mong due diligence sa mga mapagkukunang ito bago gamitin sa anumang kritikal na sistema.',
 	tr: 'Bu kaynakları herhangi bir kritik sistemde kullanmadan önce kendi gerekli incelemenizi yapın.',

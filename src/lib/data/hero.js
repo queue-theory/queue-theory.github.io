@@ -448,6 +448,10 @@ export const HERO = {
 		tagline: 'மென்பொருள் குழுக்களுக்காக விளக்கப்பட்ட வரிசைகள்: குறியீடுகள், சூத்திரங்கள், அளவீடுகள், நுண்ணறிவுகள்.',
 		languages: 'மொழிகள்: '
 	},
+	'te-001': {
+		tagline: 'సాఫ్ట్‌వేర్ బృందాల కోసం వివరించిన క్యూలు: సంకేతాలు, సూత్రాలు, కొలమానాలు, అంతర్దృష్టులు.',
+		languages: 'భాషలు: '
+	},
 	'tr-001': {
 		tagline: 'Yazılım ekipleri için kuyruk rehberi: gösterim, formüller, metrikler, çıkarımlar.',
 		languages: 'Diller:'
@@ -537,6 +541,7 @@ export const ENDONYMS = {
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',
 	'ta-001': 'தமிழ்',
+	'te-001': 'తెలుగు',
 	'tr-001': 'Türkçe',
 	'ur-001': 'اردو',
 	'vi-001': 'Tiếng Việt',
