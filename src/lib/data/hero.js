@@ -472,6 +472,10 @@ export const HERO = {
 		tagline: 'Yazılım ekipleri için kuyruk rehberi: gösterim, formüller, metrikler, çıkarımlar.',
 		languages: 'Diller:'
 	},
+	'uk-001': {
+		tagline: 'Черги для команд розробників: нотація, формули, метрики, висновки.',
+		languages: 'Мови: '
+	},
 	'ur-001': {
 		tagline: 'سافٹ ویئر ٹیموں کے لیے قطار کی رہنمائی: علامات، فارمولے، پیمانے، بصیرتیں۔',
 		languages: 'زبانیں:'
@@ -557,6 +561,7 @@ export const ENDONYMS = {
 	'th-001': 'ไทย',
 	'tl-001': 'Tagalog',
 	'tr-001': 'Türkçe',
+	'uk-001': 'Українська',
 	'ur-001': 'اردو',
 	'vi-001': 'Tiếng Việt',
 	'zh-001': '中文'
