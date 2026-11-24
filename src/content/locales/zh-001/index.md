@@ -636,5 +636,5 @@ John D. Cook 的入门文章（英文）：
 - 版本：3.0.0
 - 创建：2019-01-25T04:17:56Z
 - 更新：2026-11-23T15:33:48Z
-- 许可证：`MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`，或联系我们获取其他条款（参见 [LICENSE.md](LICENSE.md)）
+- 许可证：`MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`，或联系我们获取其他条款（参见 [LICENSE.md](LICENSE.md)）
 - 联系：Joel Parker Henderson <joel@joelparkerhenderson.com>

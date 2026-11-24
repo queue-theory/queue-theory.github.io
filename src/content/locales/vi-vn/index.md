@@ -636,5 +636,5 @@ Công thức:
 - Phiên bản: 3.0.0
 - Tạo lúc: 2019-01-25T04:17:56Z
 - Cập nhật: 2026-11-23T15:33:48Z
-- Giấy phép: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, hoặc liên hệ với chúng tôi để có các điều khoản khác (xem [LICENSE.md](LICENSE.md))
+- Giấy phép: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, hoặc liên hệ với chúng tôi để có các điều khoản khác (xem [LICENSE.md](LICENSE.md))
 - Liên hệ: Joel Parker Henderson <joel@joelparkerhenderson.com>

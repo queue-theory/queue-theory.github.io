@@ -639,5 +639,5 @@ Formules:
 - Versie: 3.0.0
 - Aangemaakt: 2019-01-25T04:17:56Z
 - Bijgewerkt: 2026-11-23T15:33:48Z
-- Licentie: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, of neem contact met ons op voor andere voorwaarden (zie [LICENSE.md](LICENSE.md))
+- Licentie: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, of neem contact met ons op voor andere voorwaarden (zie [LICENSE.md](LICENSE.md))
 - Contact: Joel Parker Henderson <joel@joelparkerhenderson.com>

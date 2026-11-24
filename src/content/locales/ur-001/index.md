@@ -643,5 +643,5 @@ John D. Cook کے تعارفی مضامین:
 - ورژن: 3.0.0
 - تاریخِ تخلیق: 2019-01-25T04:17:56Z
 - تاریخِ تجدید: 2026-11-23T15:33:48Z
-- لائسنس: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`، یا دیگر شرائط کے لیے ہم سے رابطہ کریں (دیکھیے [LICENSE.md](LICENSE.md))
+- لائسنس: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`، یا دیگر شرائط کے لیے ہم سے رابطہ کریں (دیکھیے [LICENSE.md](LICENSE.md))
 - رابطہ: Joel Parker Henderson <joel@joelparkerhenderson.com>

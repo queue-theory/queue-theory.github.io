@@ -643,5 +643,5 @@ Formler:
 - Version: 3.0.0
 - Oprettet: 2019-01-25T04:17:56Z
 - Opdateret: 2026-11-23T15:33:48Z
-- Licens: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, eller kontakt os for andre vilkår (se [LICENSE.md](LICENSE.md))
+- Licens: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, eller kontakt os for andre vilkår (se [LICENSE.md](LICENSE.md))
 - Kontakt: Joel Parker Henderson <joel@joelparkerhenderson.com>

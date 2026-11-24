@@ -645,5 +645,5 @@ Fórmulas (en inglés):
 - Versión: 3.0.0
 - Creado: 2019-01-25T04:17:56Z
 - Actualizado: 2026-11-23T15:33:48Z
-- Licencia: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, o contáctenos para otros términos (ver [LICENSE.md](LICENSE.md))
+- Licencia: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, o contáctenos para otros términos (ver [LICENSE.md](LICENSE.md))
 - Contacto: Joel Parker Henderson <joel@joelparkerhenderson.com>

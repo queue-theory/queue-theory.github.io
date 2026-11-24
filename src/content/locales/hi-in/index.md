@@ -643,5 +643,5 @@ DORA की पहले की रिपोर्टों में **वि�
 - संस्करण: 3.0.0
 - निर्मित: 2019-01-25T04:17:56Z
 - अद्यतन: 2026-11-23T15:33:48Z
-- लाइसेंस: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, या अन्य शर्तों के लिए हमसे संपर्क करें ([LICENSE.md](LICENSE.md) देखें)
+- लाइसेंस: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, या अन्य शर्तों के लिए हमसे संपर्क करें ([LICENSE.md](LICENSE.md) देखें)
 - संपर्क: Joel Parker Henderson <joel@joelparkerhenderson.com>

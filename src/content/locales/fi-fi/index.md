@@ -643,5 +643,5 @@ Kaavat:
 - Versio: 3.0.0
 - Luotu: 2019-01-25T04:17:56Z
 - Päivitetty: 2026-11-23T15:33:48Z
-- Lisenssi: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, tai ottakaa meihin yhteyttä muista ehdoista (katsokaa [LICENSE.md](LICENSE.md))
+- Lisenssi: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, tai ottakaa meihin yhteyttä muista ehdoista (katsokaa [LICENSE.md](LICENSE.md))
 - Yhteystiedot: Joel Parker Henderson <joel@joelparkerhenderson.com>

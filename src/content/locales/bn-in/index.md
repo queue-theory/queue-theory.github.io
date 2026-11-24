@@ -643,5 +643,5 @@ DORA-র আগের প্রতিবেদনগুলোতে **নির�
 - সংস্করণ: 3.0.0
 - তৈরি: 2019-01-25T04:17:56Z
 - হালনাগাদ: 2026-11-23T15:33:48Z
-- লাইসেন্স: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, অথবা অন্য শর্তের জন্য আমাদের সঙ্গে যোগাযোগ করুন (দেখুন [LICENSE.md](LICENSE.md))
+- লাইসেন্স: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, অথবা অন্য শর্তের জন্য আমাদের সঙ্গে যোগাযোগ করুন (দেখুন [LICENSE.md](LICENSE.md))
 - যোগাযোগ: Joel Parker Henderson <joel@joelparkerhenderson.com>

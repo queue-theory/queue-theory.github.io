@@ -636,5 +636,5 @@ John D. Cook による入門：
 - バージョン：3.0.0
 - 作成日：2019-01-25T04:17:56Z
 - 更新日：2026-11-23T15:33:48Z
-- ライセンス：`MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`、またはその他の条件については私たちにお問い合わせください（[LICENSE.md](LICENSE.md) を参照）
+- ライセンス：`MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`、またはその他の条件については私たちにお問い合わせください（[LICENSE.md](LICENSE.md) を参照）
 - 連絡先：Joel Parker Henderson <joel@joelparkerhenderson.com>

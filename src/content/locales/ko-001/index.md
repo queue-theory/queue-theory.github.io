@@ -636,5 +636,5 @@ John D. Cook의 입문 글:
 - 버전: 3.0.0
 - 생성일: 2019-01-25T04:17:56Z
 - 갱신일: 2026-11-23T15:33:48Z
-- 라이선스: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0`, 또는 그 밖의 조건은 저희에게 문의하십시오([LICENSE.md](LICENSE.md) 참조)
+- 라이선스: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, 또는 그 밖의 조건은 저희에게 문의하십시오([LICENSE.md](LICENSE.md) 참조)
 - 연락처: Joel Parker Henderson <joel@joelparkerhenderson.com>
