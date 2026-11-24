@@ -260,6 +260,14 @@ export const HERO = {
 		tagline: 'Antrian, dipunandharaken kangge tim piranti lunak: notasi, rumus, metrik, saha wawasan.',
 		languages: 'Basa: '
 	},
+	'km-001': {
+		tagline: 'ជួរ ដែលពន្យល់សម្រាប់ក្រុមកម្មវិធី៖ សញ្ញាណ រូបមន្ត រង្វាស់ និងការយល់ដឹងស៊ីជម្រៅ។',
+		languages: 'ភាសា៖ '
+	},
+	'km-kh': {
+		tagline: 'ជួរ ដែលពន្យល់សម្រាប់ក្រុមកម្មវិធី៖ សញ្ញាណ រូបមន្ត រង្វាស់ និងការយល់ដឹងស៊ីជម្រៅ។',
+		languages: 'ភាសា៖ '
+	},
 	'ko-001': {
 		tagline: '소프트웨어 팀을 위한 큐 해설: 표기법, 공식, 지표, 통찰.',
 		languages: '언어:'
@@ -380,6 +388,7 @@ export const ENDONYMS = {
 	'it-001': 'Italiano',
 	'ja-001': '日本語',
 	'jv-001': 'Basa Jawa',
+	'km-001': 'ខ្មែរ',
 	'ko-001': '한국어',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',

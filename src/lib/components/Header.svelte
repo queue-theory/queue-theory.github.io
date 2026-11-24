@@ -74,10 +74,11 @@
 		ga_IE: 'Éire',
 		gd_GB: 'Breatainn Mhòr',
 		is_IS: 'Ísland',
+		km_KH: 'កម្ពុជា',
 		kw_GB: 'Breten Veur',
 		sco_GB: 'Great Britain'
 	};
-	// Browsers lack display-name data for Welsh, Basque, Icelandic, Javanese, Scots, Cornish, Nigerian Pidgin and Wu Chinese (they show "Sco", "Kw", "PCM"),
+	// Browsers lack display-name data for Welsh, Basque, Icelandic, Javanese, Khmer, Scots, Cornish, Nigerian Pidgin and Wu Chinese (they show "Sco", "Kw", "PCM"),
 	// show Irish and Scottish Gaelic in English, and shorten Indonesian to "Indonesia".
 	const LANGUAGE_OVERRIDES: Record<string, string> = {
 		cy: 'Cymraeg',
@@ -87,6 +88,7 @@
 		id: 'Bahasa Indonesia',
 		is: 'Íslenska',
 		jv: 'Basa Jawa',
+		km: 'ខ្មែរ',
 		kw: 'Kernewek',
 		pcm: 'Naijá',
 		sco: 'Scots',
