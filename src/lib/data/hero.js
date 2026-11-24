@@ -132,6 +132,10 @@ export const HERO = {
 		tagline: 'Ilarak software-taldeentzat azalduta: notazioa, formulak, metrikak, ondorioak.',
 		languages: 'Hizkuntzak:'
 	},
+	'fa-001': {
+		tagline: 'صف‌ها برای تیم‌های نرم‌افزاری: نمادگذاری، فرمول‌ها، سنجه‌ها، بینش‌ها.',
+		languages: 'زبان‌ها:'
+	},
 	'fr-001': {
 		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
 		languages: 'Langues : '
@@ -288,6 +292,7 @@ export const ENDONYMS = {
 	'es-001': 'Español',
 	'et-001': 'Eesti',
 	'eu-001': 'Euskara',
+	'fa-001': 'فارسی',
 	'fr-001': 'Français',
 	'hi-001': 'हिन्दी',
 	'id-001': 'Bahasa Indonesia',
