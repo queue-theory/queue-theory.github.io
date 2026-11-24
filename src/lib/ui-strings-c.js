@@ -136,8 +136,8 @@ export const STRINGS_C = {
 		navAbout: 'Iwwer',
 		navSearch: 'Sichen',
 		onThisPage: 'Op dëser Säit',
-		readIntroduction: 'Aleedung liesen',
-		chooseLanguage: 'Sprooch wielen',
+		readIntroduction: 'Liest w.e.g. d’Aleedung',
+		chooseLanguage: 'Wielt w.e.g. eng Sprooch',
 		footerTaglineSuffix:
 			' — eng Aféierung an de weltwäite Standard fir de grenziwwerschreidenden Austausch vu wichtege Gesondheetsdaten.',
 		footerNote:

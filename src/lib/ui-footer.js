@@ -37,7 +37,7 @@ export const FOOTER_NOTE = {
 	kn: 'ಯಾವುದೇ ನಿರ್ಣಾಯಕ ವ್ಯವಸ್ಥೆಗಳಲ್ಲಿ ಬಳಸುವ ಮೊದಲು ದಯವಿಟ್ಟು ಈ ಸಂಪನ್ಮೂಲಗಳನ್ನು ನೀವೇ ಸೂಕ್ತವಾಗಿ ಪರಿಶೀಲಿಸಿ.',
 	ko: '이 자료를 중요한 시스템에서 사용하기 전에 직접 충분히 검증하세요.',
 	kw: 'Mar pleg, gwrewgh agas hwithrans diwysek agas honan a’n fentynyow ma kyns aga devnydhya yn system vyth a vri.',
-	lb: 'Maacht är eege Kontroll vun dëse Ressourcen, ier dir se a kritesche Systemer benotzt.',
+	lb: 'Maacht w.e.g. Är eege Kontroll vun dëse Ressourcen, ier Dir se a kritesche Systemer benotzt.',
 	lo: 'ກະລຸນາກວດສອບແຫຼ່ງຂໍ້ມູນເຫຼົ່ານີ້ດ້ວຍຕົນເອງກ່ອນນຳໄປໃຊ້ໃນລະບົບສຳຄັນໃດໆ.',
 	lt: 'Prieš naudodami šiuos išteklius bet kurioje kritinėje sistemoje, patys atlikite išsamų patikrinimą.',
 	lv: 'Pirms šo resursu izmantošanas jebkurās kritiskās sistēmās veiciet pats savu rūpīgo pārbaudi.',

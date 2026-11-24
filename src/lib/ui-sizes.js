@@ -33,6 +33,7 @@ export const SIZE_LABELS = {
 	kn: L('ಅತಿ ದೊಡ್ಡದು|ಇನ್ನೂ ದೊಡ್ಡದು|ದೊಡ್ಡದು|ಸಾಮಾನ್ಯ|ಚಿಕ್ಕದು|ಇನ್ನೂ ಚಿಕ್ಕದು|ಅತಿ ಚಿಕ್ಕದು'),
 	ko: L('가장 크게|더 크게|크게|보통|작게|더 작게|가장 작게'),
 	kw: L('An brassa|Brassa|Bras|Usadow|Byghan|Le|An lyha'),
+	lb: L('Am gréissten|Méi grouss|Grouss|Normal|Kleng|Méi kleng|Am klengsten'),
 	nl: L('Grootst|Groter|Groot|Normaal|Klein|Kleiner|Kleinst'),
 	pt: L('Máximo|Maior|Grande|Normal|Pequeno|Menor|Mínimo'),
 	ru: L('Самый крупный|Крупнее|Крупный|Обычный|Мелкий|Мельче|Самый мелкий'),

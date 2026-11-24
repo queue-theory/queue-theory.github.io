@@ -288,6 +288,14 @@ export const HERO = {
 		tagline: 'Lostow, displegys rag parys medhelweyth: notyans, furvelow, musurow ha golokow.',
 		languages: 'Yethow: '
 	},
+	'lb-001': {
+		tagline: 'Schlaangen, erkläert fir Software-Équipen: Notatioun, Formelen, Moossen an Erkenntnisser.',
+		languages: 'Sproochen: '
+	},
+	'lb-lu': {
+		tagline: 'Schlaangen, erkläert fir Software-Équipen: Notatioun, Formelen, Moossen an Erkenntnisser.',
+		languages: 'Sproochen: '
+	},
 	'nl-001': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
@@ -404,6 +412,7 @@ export const ENDONYMS = {
 	'kn-001': 'ಕನ್ನಡ',
 	'ko-001': '한국어',
 	'kw-001': 'Kernewek',
+	'lb-001': 'Lëtzebuergesch',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',
