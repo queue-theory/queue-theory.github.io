@@ -12,6 +12,8 @@ const cases = [
 	// the language's international *-001 locale
 	[['cy'], '/cy-001/'],
 	[['cy-US'], '/cy-001/'],
+	[['da'], '/da-001/'],
+	[['da-DK'], '/da-001/'],
 	[['de'], '/de-001/'],
 	[['de-DE'], '/de-de/'],
 	[['de-AT'], '/de-at/'],

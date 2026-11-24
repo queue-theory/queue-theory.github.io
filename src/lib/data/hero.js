@@ -28,6 +28,10 @@ export const HERO = {
 		tagline: 'অপেক্ষার সারি, সফটওয়্যার দলগুলোর জন্য ব্যাখ্যা করা হলো: সংকেতপদ্ধতি, সূত্র, মেট্রিক ও অন্তর্দৃষ্টি।',
 		languages: 'ভাষা: '
 	},
+	'da-001': {
+		tagline: 'En guide til køer for softwareteams: notation, formler, målinger, indsigter.',
+		languages: 'Sprog:'
+	},
 	'de-001': {
 		tagline: 'Ein Leitfaden zu Warteschlangen für Softwareteams: Notation, Formeln, Kennzahlen, Erkenntnisse.',
 		languages: 'Sprachen:'
@@ -207,6 +211,7 @@ export const ENDONYMS = {
 	'ar-001': 'العربية',
 	'bn-001': 'বাংলা',
 	'cy-001': 'Cymraeg',
+	'da-001': 'Dansk',
 	'de-001': 'Deutsch',
 	'en-001': 'English',
 	'es-001': 'Español',
