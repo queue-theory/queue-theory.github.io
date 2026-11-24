@@ -212,6 +212,14 @@ export const HERO = {
 		tagline: 'Redovi čekanja, objašnjeni za softverske timove: notacija, formule, metrike i uvidi.',
 		languages: 'Jezici: '
 	},
+	'hu-001': {
+		tagline: 'Sorbanállás szoftvercsapatoknak elmagyarázva: jelölések, képletek, metrikák és meglátások.',
+		languages: 'Nyelvek: '
+	},
+	'hu-hu': {
+		tagline: 'Sorbanállás szoftvercsapatoknak elmagyarázva: jelölések, képletek, metrikák és meglátások.',
+		languages: 'Nyelvek: '
+	},
 	'id-001': {
 		tagline: 'Antrean, dijelaskan untuk tim perangkat lunak: notasi, rumus, metrik, dan wawasan.',
 		languages: 'Bahasa: '
@@ -354,6 +362,7 @@ export const ENDONYMS = {
 	'he-001': 'עברית',
 	'hi-001': 'हिन्दी',
 	'hr-001': 'Hrvatski',
+	'hu-001': 'Magyar',
 	'id-001': 'Bahasa Indonesia',
 	'it-001': 'Italiano',
 	'ja-001': '日本語',

@@ -69,6 +69,8 @@
 - [hi-np](https://queue-theory.github.io/hi-np/)
 - [hr-001](https://queue-theory.github.io/hr-001/)
 - [hr-hr](https://queue-theory.github.io/hr-hr/)
+- [hu-001](https://queue-theory.github.io/hu-001/)
+- [hu-hu](https://queue-theory.github.io/hu-hu/)
 - [id-001](https://queue-theory.github.io/id-001/)
 - [id-id](https://queue-theory.github.io/id-id/)
 - [id-my](https://queue-theory.github.io/id-my/)
