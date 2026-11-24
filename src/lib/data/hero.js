@@ -452,6 +452,14 @@ export const HERO = {
 		tagline: 'సాఫ్ట్‌వేర్ బృందాల కోసం వివరించిన క్యూలు: సంకేతాలు, సూత్రాలు, కొలమానాలు, అంతర్దృష్టులు.',
 		languages: 'భాషలు: '
 	},
+	'th-001': {
+		tagline: 'อธิบายแถวคอยสำหรับทีมซอฟต์แวร์: สัญกรณ์ สูตร ตัวชี้วัด และข้อคิดเชิงลึก',
+		languages: 'ภาษา: '
+	},
+	'th-th': {
+		tagline: 'อธิบายแถวคอยสำหรับทีมซอฟต์แวร์: สัญกรณ์ สูตร ตัวชี้วัด และข้อคิดเชิงลึก',
+		languages: 'ภาษา: '
+	},
 	'tr-001': {
 		tagline: 'Yazılım ekipleri için kuyruk rehberi: gösterim, formüller, metrikler, çıkarımlar.',
 		languages: 'Diller:'
@@ -542,6 +550,7 @@ export const ENDONYMS = {
 	'sw-001': 'Kiswahili',
 	'ta-001': 'தமிழ்',
 	'te-001': 'తెలుగు',
+	'th-001': 'ไทย',
 	'tr-001': 'Türkçe',
 	'ur-001': 'اردو',
 	'vi-001': 'Tiếng Việt',

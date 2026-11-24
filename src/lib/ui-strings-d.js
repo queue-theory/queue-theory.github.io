@@ -215,8 +215,8 @@ export const STRINGS_D = {
 		navAbout: 'เกี่ยวกับ',
 		navSearch: 'ค้นหา',
 		onThisPage: 'ในหน้านี้',
-		readIntroduction: 'อ่านบทนำ',
-		chooseLanguage: 'เลือกภาษา',
+		readIntroduction: 'โปรดอ่านบทนำ',
+		chooseLanguage: 'โปรดเลือกภาษา',
 		footerTaglineSuffix: ' — บทนำสู่มาตรฐานสากลสำหรับการแบ่งปันข้อมูลสุขภาพสำคัญข้ามพรมแดน',
 		footerNote:
 			'เว็บไซต์นี้เพื่อการศึกษา ไม่ใช่คำแนะนำทางการแพทย์ และไม่ใช่สิ่งพิมพ์อย่างเป็นทางการของ ISO, CEN หรือ HL7 โปรดตรวจสอบข้อกำหนดอย่างเป็นทางการก่อนนำไปใช้',
