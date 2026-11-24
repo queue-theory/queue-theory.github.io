@@ -4,7 +4,7 @@
 // directory of its own and maps to the source-of-truth locale "en-001" (so
 // "en_001" is not listed separately: it would be a duplicate "English").
 // See spec/locale-specific-search-picker/index.md.
-export const LOCALES = ['ar_001', 'ar_DZ', 'ar_EG', 'bg_001', 'bg_BG', 'bn_001', 'bn_BD', 'bn_IN', 'cs_001', 'cs_CZ', 'cy_001', 'cy_AR', 'cy_GB', 'da_001', 'da_DK', 'de_001', 'de_AT', 'de_DE', 'en', 'en_GB', 'en_US', 'es_001', 'es_ES', 'es_MX', 'fr_001', 'fr_CA', 'fr_FR', 'hi_001', 'hi_IN', 'hi_NP', 'id_001', 'id_ID', 'id_MY', 'it_001', 'it_IT', 'ja_001', 'ja_JP', 'ko_001', 'ko_KR', 'nl_001', 'nl_NL', 'pt_001', 'pt_BR', 'pt_PT', 'ru_001', 'ru_BY', 'ru_RU', 'sv_001', 'sv_SE', 'sw_001', 'sw_TZ', 'tr_001', 'tr_TR', 'ur_001', 'vi_001', 'vi_VN', 'zh_001', 'zh_CN', 'zh_TW'];
+export const LOCALES = ['ar_001', 'ar_DZ', 'ar_EG', 'bg_001', 'bg_BG', 'bn_001', 'bn_BD', 'bn_IN', 'cs_001', 'cs_CZ', 'cy_001', 'cy_AR', 'cy_GB', 'da_001', 'da_DK', 'de_001', 'de_AT', 'de_DE', 'el_001', 'el_CY', 'el_GR', 'en', 'en_GB', 'en_US', 'es_001', 'es_ES', 'es_MX', 'fr_001', 'fr_CA', 'fr_FR', 'hi_001', 'hi_IN', 'hi_NP', 'id_001', 'id_ID', 'id_MY', 'it_001', 'it_IT', 'ja_001', 'ja_JP', 'ko_001', 'ko_KR', 'nl_001', 'nl_NL', 'pt_001', 'pt_BR', 'pt_PT', 'ru_001', 'ru_BY', 'ru_RU', 'sv_001', 'sv_SE', 'sw_001', 'sw_TZ', 'tr_001', 'tr_TR', 'ur_001', 'vi_001', 'vi_VN', 'zh_001', 'zh_CN', 'zh_TW'];
 
 export const DEFAULT_LOCALE = 'en';
 
@@ -63,4 +63,4 @@ export function routeForLanguages(languages) {
  * so search engines should index only the original: they are `noindex` and
  * left out of the sitemap. See ../spec/locales.md.
  */
-export const NOINDEX = ['ar-dz', 'ar-eg', 'bg-bg', 'bn-bd', 'bn-in', 'cs-cz', 'cy-gb', 'cy-ar', 'da-dk', 'de-at', 'de-de', 'en-gb', 'en-us', 'es-es', 'es-mx', 'fr-ca', 'fr-fr', 'hi-in', 'hi-np', 'id-id', 'id-my', 'it-it', 'ja-jp', 'ko-kr', 'nl-nl', 'pt-br', 'pt-pt', 'ru-by', 'ru-ru', 'sv-se', 'sw-tz', 'tr-tr', 'vi-vn', 'zh-cn'];
+export const NOINDEX = ['ar-dz', 'ar-eg', 'bg-bg', 'bn-bd', 'bn-in', 'cs-cz', 'cy-gb', 'cy-ar', 'da-dk', 'de-at', 'de-de', 'el-cy', 'el-gr', 'en-gb', 'en-us', 'es-es', 'es-mx', 'fr-ca', 'fr-fr', 'hi-in', 'hi-np', 'id-id', 'id-my', 'it-it', 'ja-jp', 'ko-kr', 'nl-nl', 'pt-br', 'pt-pt', 'ru-by', 'ru-ru', 'sv-se', 'sw-tz', 'tr-tr', 'vi-vn', 'zh-cn'];

@@ -56,6 +56,18 @@ export const HERO = {
 		tagline: 'Ein Leitfaden zu Warteschlangen für Softwareteams: Notation, Formeln, Kennzahlen, Erkenntnisse.',
 		languages: 'Sprachen:'
 	},
+	'el-001': {
+		tagline: 'Οδηγός για τις ουρές για ομάδες λογισμικού: συμβολισμός, τύποι, μετρικές, διαπιστώσεις.',
+		languages: 'Γλώσσες:'
+	},
+	'el-cy': {
+		tagline: 'Οδηγός για τις ουρές για ομάδες λογισμικού: συμβολισμός, τύποι, μετρικές, διαπιστώσεις.',
+		languages: 'Γλώσσες:'
+	},
+	'el-gr': {
+		tagline: 'Οδηγός για τις ουρές για ομάδες λογισμικού: συμβολισμός, τύποι, μετρικές, διαπιστώσεις.',
+		languages: 'Γλώσσες:'
+	},
 	'en-001': {
 		tagline: 'Waiting lines, explained for software teams: notation, formulas, metrics, and insights.',
 		languages: 'Languages: '
@@ -251,6 +263,7 @@ export const ENDONYMS = {
 	'cy-001': 'Cymraeg',
 	'da-001': 'Dansk',
 	'de-001': 'Deutsch',
+	'el-001': 'Ελληνικά',
 	'en-001': 'English',
 	'es-001': 'Español',
 	'fr-001': 'Français',
