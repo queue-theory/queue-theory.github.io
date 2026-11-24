@@ -172,6 +172,14 @@ export const HERO = {
 		tagline: 'Scuainí, mínithe d’fhoirne bogearraí: nodaireacht, foirmlí, méadrachtaí agus léargais.',
 		languages: 'Teangacha: '
 	},
+	'gd-001': {
+		tagline: 'Ciudhaichean, air am mìneachadh do sgiobaidhean bathair-bhog: comharrachadh, foirmlean, meatrachdan agus lèirsinnean.',
+		languages: 'Cànanan: '
+	},
+	'gd-gb': {
+		tagline: 'Ciudhaichean, air am mìneachadh do sgiobaidhean bathair-bhog: comharrachadh, foirmlean, meatrachdan agus lèirsinnean.',
+		languages: 'Cànanan: '
+	},
 	'hi-001': {
 		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
 		languages: 'भाषाएँ: '
@@ -320,6 +328,7 @@ export const ENDONYMS = {
 	'fi-001': 'Suomi',
 	'fr-001': 'Français',
 	'ga-001': 'Gaeilge',
+	'gd-001': 'Gàidhlig',
 	'hi-001': 'हिन्दी',
 	'id-001': 'Bahasa Indonesia',
 	'it-001': 'Italiano',

@@ -17,6 +17,7 @@ export const SIZE_LABELS = {
 	fi: L('Suurin|Suurempi|Suuri|Normaali|Pieni|Pienempi|Pienin'),
 	fr: L('Très grand|Plus grand|Grand|Normal|Petit|Plus petit|Très petit'),
 	ga: L('Is mó|Níos mó|Mór|Gnáth|Beag|Níos lú|Is lú'),
+	gd: L('As motha|Nas motha|Mòr|Àbhaisteach|Beag|Nas lugha|As lugha'),
 	hi: L('सबसे बड़ा|और बड़ा|बड़ा|सामान्य|छोटा|और छोटा|सबसे छोटा'),
 	id: L('Terbesar|Lebih besar|Besar|Normal|Kecil|Lebih kecil|Terkecil'),
 	it: L('Massimo|Più grande|Grande|Normale|Piccolo|Più piccolo|Minimo'),
