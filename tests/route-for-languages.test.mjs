@@ -118,7 +118,7 @@ const cases = [
 	[['ko-US'], '/ko-001/'],
 	[['nl'], '/nl-001/'],
 	[['nl-NL'], '/nl-nl/'],
-	[['nl-BE'], '/nl-001/'],
+	[['nl-BE'], '/nl-be/'],
 	[['pt'], '/pt-001/'],
 	[['pt-BR'], '/pt-br/'],
 	[['pt-PT'], '/pt-pt/'],

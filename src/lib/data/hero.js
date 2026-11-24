@@ -348,6 +348,10 @@ export const HERO = {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
 	},
+	'nl-be': {
+		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
+		languages: 'Talen:'
+	},
 	'nl-nl': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
