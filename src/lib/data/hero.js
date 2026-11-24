@@ -492,6 +492,10 @@ export const HERO = {
 		tagline: '软件团队个排队论：符号、公式、指标、心得。',
 		languages: '语言：'
 	},
+	'yue-001': {
+		tagline: '軟件團隊嘅排隊論：符號、公式、指標、心得。',
+		languages: '語言：'
+	},
 	'zh-001': {
 		tagline: '为软件团队讲解排队：符号、公式、指标与洞见。',
 		languages: '语言：'
@@ -569,5 +573,6 @@ export const ENDONYMS = {
 	'ur-001': 'اردو',
 	'vi-001': 'Tiếng Việt',
 	'wuu-001': '吴语',
+	'yue-001': '粵語',
 	'zh-001': '中文'
 };
