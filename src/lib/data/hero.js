@@ -320,6 +320,10 @@ export const HERO = {
 		tagline: 'Rindas, izskaidrotas programmatūras komandām: apzīmējumi, formulas, metrikas un atziņas.',
 		languages: 'Valodas: '
 	},
+	'mr-001': {
+		tagline: 'सॉफ्टवेअर संघांसाठी स्पष्ट केलेल्या रांगा: चिन्हपद्धती, सूत्रे, मेट्रिक्स आणि अंतर्दृष्टी.',
+		languages: 'भाषा: '
+	},
 	'nl-001': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
@@ -440,6 +444,7 @@ export const ENDONYMS = {
 	'lo-001': 'ລາວ',
 	'lt-001': 'Lietuvių',
 	'lv-001': 'Latviešu',
+	'mr-001': 'मराठी',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',

@@ -37,6 +37,7 @@ export const SIZE_LABELS = {
 	lo: L('ໃຫຍ່ທີ່ສຸດ|ໃຫຍ່ກວ່າ|ໃຫຍ່|ປົກກະຕິ|ນ້ອຍ|ນ້ອຍກວ່າ|ນ້ອຍທີ່ສຸດ'),
 	lt: L('Didžiausias|Didesnis|Didelis|Įprastas|Mažas|Mažesnis|Mažiausias'),
 	lv: L('Vislielākais|Lielāks|Liels|Parasts|Mazs|Mazāks|Vismazākais'),
+	mr: L('सर्वात मोठा|अधिक मोठा|मोठा|सामान्य|लहान|अधिक लहान|सर्वात लहान'),
 	nl: L('Grootst|Groter|Groot|Normaal|Klein|Kleiner|Kleinst'),
 	pt: L('Máximo|Maior|Grande|Normal|Pequeno|Menor|Mínimo'),
 	ru: L('Самый крупный|Крупнее|Крупный|Обычный|Мелкий|Мельче|Самый мелкий'),

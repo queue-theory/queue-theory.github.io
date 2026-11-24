@@ -96,6 +96,7 @@
 - [lt-lt](https://queue-theory.github.io/lt-lt/)
 - [lv-001](https://queue-theory.github.io/lv-001/)
 - [lv-lv](https://queue-theory.github.io/lv-lv/)
+- [mr-001](https://queue-theory.github.io/mr-001/)
 - [nl-001](https://queue-theory.github.io/nl-001/)
 - [nl-nl](https://queue-theory.github.io/nl-nl/)
 - [pt-001](https://queue-theory.github.io/pt-001/)

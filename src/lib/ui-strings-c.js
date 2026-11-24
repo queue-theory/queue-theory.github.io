@@ -239,8 +239,8 @@ export const STRINGS_C = {
 		navAbout: 'माहिती',
 		navSearch: 'शोधा',
 		onThisPage: 'या पानावर',
-		readIntroduction: 'प्रस्तावना वाचा',
-		chooseLanguage: 'भाषा निवडा',
+		readIntroduction: 'कृपया प्रस्तावना वाचा',
+		chooseLanguage: 'कृपया भाषा निवडा',
 		footerTaglineSuffix: ' — सीमांपलीकडे प्रमुख आरोग्य डेटा सामायिक करण्याच्या जागतिक मानकाची ओळख.',
 		footerNote:
 			'ही साइट शैक्षणिक आहे. हा वैद्यकीय सल्ला नाही आणि ISO, CEN किंवा HL7 चे अधिकृत प्रकाशनही नाही. अंमलबजावणीपूर्वी अधिकृत विनिर्देश तपासा.',
