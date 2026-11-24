@@ -152,6 +152,14 @@ export const HERO = {
 		tagline: 'Mwongozo wa foleni kwa timu za programu: nukuu, fomula, vipimo, maarifa.',
 		languages: 'Lugha:'
 	},
+	'vi-001': {
+		tagline: 'Hướng dẫn về hàng đợi dành cho các nhóm phần mềm: ký hiệu, công thức, chỉ số, nhận định.',
+		languages: 'Ngôn ngữ:'
+	},
+	'vi-vn': {
+		tagline: 'Hướng dẫn về hàng đợi dành cho các nhóm phần mềm: ký hiệu, công thức, chỉ số, nhận định.',
+		languages: 'Ngôn ngữ:'
+	},
 	'zh-001': {
 		tagline: '为软件团队讲解排队：符号、公式、指标与洞见。',
 		languages: '语言：'
@@ -182,5 +190,6 @@ export const ENDONYMS = {
 	'ru-001': 'Русский',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',
+	'vi-001': 'Tiếng Việt',
 	'zh-001': '中文'
 };

@@ -54,6 +54,8 @@
 - [sv-se](https://queue-theory.github.io/sv-se/)
 - [sw-001](https://queue-theory.github.io/sw-001/)
 - [sw-tz](https://queue-theory.github.io/sw-tz/)
+- [vi-001](https://queue-theory.github.io/vi-001/)
+- [vi-vn](https://queue-theory.github.io/vi-vn/)
 - [zh-001](https://queue-theory.github.io/zh-001/)
 - [zh-cn](https://queue-theory.github.io/zh-cn/)
 - [zh-tw](https://queue-theory.github.io/zh-tw/)
