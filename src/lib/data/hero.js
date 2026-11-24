@@ -336,6 +336,14 @@ export const HERO = {
 		tagline: 'Kjuwijiet, spjegati għal timijiet tas-software: notazzjoni, formuli, metriċi u għarfien.',
 		languages: 'Lingwi: '
 	},
+	'nb-001': {
+		tagline: 'Køer, forklart for programvareteam: notasjon, formler, metrikker og innsikter.',
+		languages: 'Språk: '
+	},
+	'nb-no': {
+		tagline: 'Køer, forklart for programvareteam: notasjon, formler, metrikker og innsikter.',
+		languages: 'Språk: '
+	},
 	'nl-001': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
@@ -459,6 +467,7 @@ export const ENDONYMS = {
 	'mr-001': 'मराठी',
 	'ms-001': 'Bahasa Melayu',
 	'mt-001': 'Malti',
+	'nb-001': 'Norsk bokmål',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',

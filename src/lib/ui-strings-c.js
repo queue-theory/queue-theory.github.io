@@ -316,12 +316,12 @@ export const STRINGS_C = {
 		navAbout: 'Om',
 		navSearch: 'Søk',
 		onThisPage: 'På denne siden',
-		readIntroduction: 'Les innledningen',
-		chooseLanguage: 'Velg språk',
+		readIntroduction: 'Vennligst les innledningen',
+		chooseLanguage: 'Vennligst velg språk',
 		footerTaglineSuffix:
 			' — en introduksjon til den globale standarden for deling av viktige helsedata på tvers av landegrenser.',
 		footerNote:
-			'Dette nettstedet er pedagogisk. Det er ikke medisinsk rådgivning og ikke en offisiell publikasjon fra ISO, CEN eller HL7. Sjekk de offisielle spesifikasjonene før du implementerer.',
+			'Dette nettstedet er pedagogisk. Det er ikke medisinsk rådgivning og ikke en offisiell publikasjon fra ISO, CEN eller HL7. Vennligst sjekk de offisielle spesifikasjonene før De implementerer.',
 		footerSourceLink: 'Kilde',
 		pickerTheme: 'Tema',
 		pickerLanguage: 'Språk',
