@@ -129,6 +129,8 @@ const cases = [
 	[['pt-BR'], '/pt-br/'],
 	[['pt-PT'], '/pt-pt/'],
 	[['pt-AO'], '/pt-001/'],
+	[['ro'], '/ro-001/'],
+	[['ro-RO'], '/ro-ro/'],
 	[['ru'], '/ru-001/'],
 	[['ru-RU'], '/ru-ru/'],
 	[['ru-BY'], '/ru-by/'],

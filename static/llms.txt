@@ -112,6 +112,8 @@
 - [pt-001](https://queue-theory.github.io/pt-001/)
 - [pt-br](https://queue-theory.github.io/pt-br/)
 - [pt-pt](https://queue-theory.github.io/pt-pt/)
+- [ro-001](https://queue-theory.github.io/ro-001/)
+- [ro-ro](https://queue-theory.github.io/ro-ro/)
 - [ru-001](https://queue-theory.github.io/ru-001/)
 - [ru-by](https://queue-theory.github.io/ru-by/)
 - [ru-ru](https://queue-theory.github.io/ru-ru/)

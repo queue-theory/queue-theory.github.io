@@ -46,6 +46,7 @@ export const SIZE_LABELS = {
 	pcm: L('Big pass all|Bigger|Big|Normal|Small|Smaller|Small pass all'),
 	pl: L('Największy|Większy|Duży|Normalny|Mały|Mniejszy|Najmniejszy'),
 	pt: L('Máximo|Maior|Grande|Normal|Pequeno|Menor|Mínimo'),
+	ro: L('Cel mai mare|Mai mare|Mare|Normal|Mic|Mai mic|Cel mai mic'),
 	ru: L('Самый крупный|Крупнее|Крупный|Обычный|Мелкий|Мельче|Самый мелкий'),
 	sv: L('Störst|Större|Stor|Normal|Liten|Mindre|Minst'),
 	sw: L('Kubwa zaidi kabisa|Kubwa zaidi|Kubwa|Kawaida|Ndogo|Ndogo zaidi|Ndogo zaidi kabisa'),

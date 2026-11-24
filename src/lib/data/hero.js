@@ -384,6 +384,14 @@ export const HERO = {
 		tagline: 'Um guia de filas para equipas de software: notação, fórmulas, métricas, insights.',
 		languages: 'Idiomas:'
 	},
+	'ro-001': {
+		tagline: 'Cozile de așteptare explicate pentru echipele de software: notație, formule, metrici și observații.',
+		languages: 'Limbi: '
+	},
+	'ro-ro': {
+		tagline: 'Cozile de așteptare explicate pentru echipele de software: notație, formule, metrici și observații.',
+		languages: 'Limbi: '
+	},
 	'ru-001': {
 		tagline: 'Очереди простым языком для команд разработки программного обеспечения: нотация, формулы, метрики и выводы.',
 		languages: 'Языки: '
@@ -493,6 +501,7 @@ export const ENDONYMS = {
 	'pcm-001': 'Naijá',
 	'pl-001': 'Polski',
 	'pt-001': 'Português',
+	'ro-001': 'Română',
 	'ru-001': 'Русский',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',

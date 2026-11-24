@@ -50,7 +50,7 @@ export const FOOTER_NOTE = {
 	pcm: 'Please do your own check for dis resources before you use dem for any important system.',
 	pl: 'Przed użyciem tych zasobów w jakichkolwiek systemach krytycznych prosimy samodzielnie je dokładnie sprawdzić.',
 	pt: 'Faça a sua própria diligência sobre estes recursos antes de usá-los em quaisquer sistemas críticos.',
-	ro: 'Efectuați propria verificare a acestor resurse înainte de a le folosi în orice sisteme critice.',
+	ro: 'Vă rugăm să efectuați propria verificare a acestor resurse înainte de a le folosi în orice sisteme critice.',
 	ru: 'Прежде чем использовать эти материалы в критически важных системах, проведите собственную проверку.',
 	sco: 'Dae yer ain due diligence on thir resources afore ye uise them in onie critical systems.',
 	sk: 'Skôr než tieto zdroje použijete v akýchkoľvek kritických systémoch, vykonajte vlastné preverenie.',
