@@ -32,7 +32,7 @@ export const SEARCH_STRINGS = {
 	is: { loading: 'Leita…', unavailable: 'Leit er ekki í boði fyrir þetta tungumál.', results: 'Niðurstöður fyrir {query}: {count}' },
 	it: { loading: 'Ricerca in corso…', unavailable: 'La ricerca non è disponibile per questa lingua.', results: 'Risultati per {query}: {count}' },
 	ja: { loading: '検索中…', unavailable: 'この言語では検索を利用できません。', results: '{query} の検索結果: {count} 件' },
-	jv: { loading: 'Nggoleki…', unavailable: 'Panggolékan ora kasedhiya kanggo basa iki.', results: 'Asil kanggo {query}: {count}' },
+	jv: { loading: 'Saweg madosi…', unavailable: 'Pamadosan boten kasedhiya kangge basa punika.', results: 'Asil kangge {query}: {count}' },
 	km: { loading: 'កំពុងស្វែងរក…', unavailable: 'មិនមានការស្វែងរកសម្រាប់ភាសានេះទេ។', results: 'លទ្ធផលសម្រាប់ {query}៖ {count}' },
 	kn: { loading: 'ಹುಡುಕಲಾಗುತ್ತಿದೆ…', unavailable: 'ಈ ಭಾಷೆಗೆ ಹುಡುಕಾಟ ಲಭ್ಯವಿಲ್ಲ.', results: '{query} ಗಾಗಿ ಫಲಿತಾಂಶಗಳು: {count}' },
 	ko: { loading: '검색 중…', unavailable: '이 언어에서는 검색을 사용할 수 없습니다.', results: '{query} 검색 결과: {count}건' },

@@ -80,6 +80,7 @@
 - [it-it](https://queue-theory.github.io/it-it/)
 - [ja-001](https://queue-theory.github.io/ja-001/)
 - [ja-jp](https://queue-theory.github.io/ja-jp/)
+- [jv-001](https://queue-theory.github.io/jv-001/)
 - [ko-001](https://queue-theory.github.io/ko-001/)
 - [ko-kr](https://queue-theory.github.io/ko-kr/)
 - [nl-001](https://queue-theory.github.io/nl-001/)

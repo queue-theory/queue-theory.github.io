@@ -256,6 +256,10 @@ export const HERO = {
 		tagline: '待ち行列を、ソフトウェアチーム向けに解説します：表記法、公式、メトリクス、洞察。',
 		languages: '言語：'
 	},
+	'jv-001': {
+		tagline: 'Antrian, dipunandharaken kangge tim piranti lunak: notasi, rumus, metrik, saha wawasan.',
+		languages: 'Basa: '
+	},
 	'ko-001': {
 		tagline: '소프트웨어 팀을 위한 큐 해설: 표기법, 공식, 지표, 통찰.',
 		languages: '언어:'
@@ -375,6 +379,7 @@ export const ENDONYMS = {
 	'is-001': 'Íslenska',
 	'it-001': 'Italiano',
 	'ja-001': '日本語',
+	'jv-001': 'Basa Jawa',
 	'ko-001': '한국어',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',

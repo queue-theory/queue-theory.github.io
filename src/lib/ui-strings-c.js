@@ -55,13 +55,13 @@ export const STRINGS_C = {
 		shareOn: 'Deila á {site}'
 	}),
 	jv: T({
-		skipToContent: 'Langsung menyang isi',
-		navHome: 'Ngarep',
+		skipToContent: 'Langsung dhateng isi',
+		navHome: 'Ngajeng',
 		navAbout: 'Babagan',
-		navSearch: 'Golek',
-		onThisPage: 'Ing kaca iki',
-		readIntroduction: 'Woconen pambuka',
-		chooseLanguage: 'Pilih basa',
+		navSearch: 'Pados',
+		onThisPage: 'Wonten ing kaca punika',
+		readIntroduction: 'Mangga waos pambuka',
+		chooseLanguage: 'Mangga pilih basa',
 		footerTaglineSuffix:
 			' — pambuka standar donya kanggo nuduhake data kesehatan penting nglangkungi wates.',
 		footerNote:
@@ -70,15 +70,15 @@ export const STRINGS_C = {
 		pickerTheme: 'Tema',
 		pickerLanguage: 'Basa',
 		pickerTextSize: 'Ukuran teks',
-		pickerShare: 'Bagekna',
+		pickerShare: 'Bagekaken',
 		pickerLinks: 'Tautan',
-		searchInputLabel: 'Golek ing situs iki',
-		searchPlaceholder: 'Golek…',
+		searchInputLabel: 'Pados wonten ing situs punika',
+		searchPlaceholder: 'Pados…',
 		shareCopyLink: 'Salin tautan',
-		shareCopied: 'Wis disalin',
-		shareCopyFailed: 'Nyalin gagal',
-		shareEmailLabel: 'Kirim tautan liwat email',
-		shareOn: 'Bagekna ing {site}'
+		shareCopied: 'Sampun dipunsalin',
+		shareCopyFailed: 'Gagal nyalin',
+		shareEmailLabel: 'Kintun tautan lumantar email',
+		shareOn: 'Bagekaken wonten ing {site}'
 	}),
 	km: T({
 		skipToContent: 'រំលងទៅមាតិកា',
