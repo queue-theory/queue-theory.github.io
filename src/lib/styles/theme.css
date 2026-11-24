@@ -91,6 +91,12 @@ a:hover {
 	text-decoration-thickness: 2px;
 }
 
+/* Lily's themes give containers a fluid gutter (1rem to 2rem); the main column
+ * uses 1rem, so match it to keep the header and footer aligned with it. */
+.container-with-fixed-width {
+	padding-inline: 1rem;
+}
+
 .site-header-bar {
 	display: flex;
 	align-items: center;
@@ -267,6 +273,13 @@ main {
 	border: 1px solid var(--lily-border, color-mix(in oklch, var(--color-base-content) 20%, transparent));
 	padding: 0.5rem;
 	text-align: left;
+}
+
+/* Lily's themes keep header words whole, which makes some tables scroll
+ * sideways on a phone, where a keyboard cannot scroll them (axe rule
+ * scrollable-region-focusable). Let long header words wrap instead. */
+.prose :is(th, th a, th code) {
+	overflow-wrap: anywhere;
 }
 
 /* --- Card grids: guide / templates / examples indexes --- */
