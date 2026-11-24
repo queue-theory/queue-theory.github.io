@@ -83,6 +83,12 @@
 	"id-my": {
 		"title": "Teori antrean"
 	},
+	"it-001": {
+		"title": "Teoria delle code"
+	},
+	"it-it": {
+		"title": "Teoria delle code"
+	},
 	"ja-001": {
 		"title": "待ち行列理論"
 	},

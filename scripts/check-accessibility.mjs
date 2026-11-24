@@ -43,7 +43,7 @@ async function audit(page, label, options = AXE) {
 	return result.violations.length;
 }
 
-const PAGES = ['/', '/en-001/', '/en-001/?utilization', '/ar-eg/', '/ar-001/', '/bn-bd/', '/bn-001/', '/cy-gb/', '/cy-001/', '/da-001/', '/de-de/', '/de-001/', '/es-es/', '/es-mx/', '/fr-fr/', '/fr-001/', '/hi-in/', '/hi-001/', '/id-id/', '/id-001/', '/ja-jp/', '/ja-001/', '/ko-kr/', '/ko-001/', '/nl-nl/', '/nl-001/', '/pt-br/', '/pt-001/', '/ru-ru/', '/ru-001/', '/sv-se/', '/sv-001/', '/sw-tz/', '/sw-001/', '/ur-001/', '/vi-vn/', '/vi-001/', '/zh-cn/', '/zh-tw/'];
+const PAGES = ['/', '/en-001/', '/en-001/?utilization', '/ar-eg/', '/ar-001/', '/bn-bd/', '/bn-001/', '/cy-gb/', '/cy-001/', '/da-001/', '/de-de/', '/de-001/', '/es-es/', '/es-mx/', '/fr-fr/', '/fr-001/', '/hi-in/', '/hi-001/', '/id-id/', '/id-001/', '/it-it/', '/it-001/', '/ja-jp/', '/ja-001/', '/ko-kr/', '/ko-001/', '/nl-nl/', '/nl-001/', '/pt-br/', '/pt-001/', '/ru-ru/', '/ru-001/', '/sv-se/', '/sv-001/', '/sw-tz/', '/sw-001/', '/ur-001/', '/vi-vn/', '/vi-001/', '/zh-cn/', '/zh-tw/'];
 
 let checks = 0;
 for (const width of [1200, 390]) {

@@ -45,6 +45,8 @@
 - [id-001](https://queue-theory.github.io/id-001/)
 - [id-id](https://queue-theory.github.io/id-id/)
 - [id-my](https://queue-theory.github.io/id-my/)
+- [it-001](https://queue-theory.github.io/it-001/)
+- [it-it](https://queue-theory.github.io/it-it/)
 - [ja-001](https://queue-theory.github.io/ja-001/)
 - [ja-jp](https://queue-theory.github.io/ja-jp/)
 - [ko-001](https://queue-theory.github.io/ko-001/)
