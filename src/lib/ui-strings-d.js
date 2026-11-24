@@ -240,12 +240,12 @@ export const STRINGS_D = {
 		navAbout: 'Tungkol',
 		navSearch: 'Hanapin',
 		onThisPage: 'Sa pahinang ito',
-		readIntroduction: 'Basahin ang pambungad',
-		chooseLanguage: 'Pumili ng wika',
+		readIntroduction: 'Pakibasa po ang pambungad',
+		chooseLanguage: 'Pakipili po ng wika',
 		footerTaglineSuffix:
 			' — pambungad sa pandaigdigang pamantayan para sa pagbabahagi ng mahahalagang datos pangkalusugan sa mga hangganan.',
 		footerNote:
-			'Pang-edukasyon ang site na ito. Hindi ito payong medikal at hindi ito opisyal na publikasyon ng ISO, CEN, o HL7. Tingnan ang mga opisyal na espesipikasyon bago magpatupad.',
+			'Pang-edukasyon ang site na ito. Hindi ito payong medikal at hindi ito opisyal na publikasyon ng ISO, CEN, o HL7. Pakitingnan po ang mga opisyal na espesipikasyon bago magpatupad.',
 		footerSourceLink: 'Pinagmulan',
 		pickerTheme: 'Tema',
 		pickerLanguage: 'Wika',

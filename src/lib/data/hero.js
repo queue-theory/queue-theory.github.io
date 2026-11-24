@@ -460,6 +460,10 @@ export const HERO = {
 		tagline: 'อธิบายแถวคอยสำหรับทีมซอฟต์แวร์: สัญกรณ์ สูตร ตัวชี้วัด และข้อคิดเชิงลึก',
 		languages: 'ภาษา: '
 	},
+	'tl-001': {
+		tagline: 'Mga pila na ipinaliwanag para sa mga software team: notasyon, mga pormula, mga sukatan, mga kabatiran.',
+		languages: 'Mga wika: '
+	},
 	'tr-001': {
 		tagline: 'Yazılım ekipleri için kuyruk rehberi: gösterim, formüller, metrikler, çıkarımlar.',
 		languages: 'Diller:'
@@ -551,6 +555,7 @@ export const ENDONYMS = {
 	'ta-001': 'தமிழ்',
 	'te-001': 'తెలుగు',
 	'th-001': 'ไทย',
+	'tl-001': 'Tagalog',
 	'tr-001': 'Türkçe',
 	'ur-001': 'اردو',
 	'vi-001': 'Tiếng Việt',

@@ -60,7 +60,7 @@ export const FOOTER_NOTE = {
 	ta: 'எந்த முக்கிய அமைப்பிலும் பயன்படுத்தும் முன் தயவுசெய்து இந்த வளங்களை நீங்களே முறையாகச் சரிபார்க்கவும்.',
 	te: 'ఏదైనా కీలక వ్యవస్థల్లో ఉపయోగించే ముందు దయచేసి ఈ వనరులను మీరే సరిగా పరిశీలించండి.',
 	th: 'โปรดตรวจสอบแหล่งข้อมูลเหล่านี้ด้วยตนเองก่อนนำไปใช้ในระบบสำคัญใดๆ',
-	tl: 'Gawin ang sarili mong due diligence sa mga mapagkukunang ito bago gamitin sa anumang kritikal na sistema.',
+	tl: 'Pakigawa po ninyo ang sarili ninyong due diligence sa mga mapagkukunang ito bago gamitin sa anumang kritikal na sistema.',
 	tr: 'Bu kaynakları herhangi bir kritik sistemde kullanmadan önce kendi gerekli incelemenizi yapın.',
 	uk: 'Перш ніж використовувати ці матеріали в критично важливих системах, проведіть власну перевірку.',
 	ur: 'ان وسائل کو کسی بھی نازک نظام میں استعمال کرنے سے پہلے خود اچھی طرح جانچ لیں۔',
