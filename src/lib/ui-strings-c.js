@@ -290,8 +290,8 @@ export const STRINGS_C = {
 		navAbout: 'Dwar',
 		navSearch: 'Fittex',
 		onThisPage: 'F’din il-paġna',
-		readIntroduction: 'Aqra l-introduzzjoni',
-		chooseLanguage: 'Agħżel lingwa',
+		readIntroduction: 'Jekk jogħġbok aqra l-introduzzjoni',
+		chooseLanguage: 'Jekk jogħġbok agħżel lingwa',
 		footerTaglineSuffix:
 			' — introduzzjoni għall-istandard dinji biex tinqasam data importanti dwar is-saħħa minn fuq il-fruntieri.',
 		footerNote:

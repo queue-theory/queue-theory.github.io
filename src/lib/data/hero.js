@@ -328,6 +328,14 @@ export const HERO = {
 		tagline: 'Baris gilir, diterangkan untuk pasukan perisian: tatatanda, formula, metrik dan pandangan.',
 		languages: 'Bahasa: '
 	},
+	'mt-001': {
+		tagline: 'Kjuwijiet, spjegati għal timijiet tas-software: notazzjoni, formuli, metriċi u għarfien.',
+		languages: 'Lingwi: '
+	},
+	'mt-mt': {
+		tagline: 'Kjuwijiet, spjegati għal timijiet tas-software: notazzjoni, formuli, metriċi u għarfien.',
+		languages: 'Lingwi: '
+	},
 	'nl-001': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
@@ -450,6 +458,7 @@ export const ENDONYMS = {
 	'lv-001': 'Latviešu',
 	'mr-001': 'मराठी',
 	'ms-001': 'Bahasa Melayu',
+	'mt-001': 'Malti',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',
