@@ -360,6 +360,10 @@ export const HERO = {
 		tagline: 'ਸਾਫ਼ਟਵੇਅਰ ਟੀਮਾਂ ਲਈ ਸਮਝਾਈਆਂ ਗਈਆਂ ਕਤਾਰਾਂ: ਸੰਕੇਤ, ਫ਼ਾਰਮੂਲੇ, ਮੈਟ੍ਰਿਕਸ ਅਤੇ ਅੰਤਰਦ੍ਰਿਸ਼ਟੀਆਂ।',
 		languages: 'ਭਾਸ਼ਾਵਾਂ: '
 	},
+	'pcm-001': {
+		tagline: 'Queue wey we explain for software team dem: notation, formula, metrics, and insight.',
+		languages: 'Language dem: '
+	},
 	'pt-001': {
 		tagline: 'Um guia de filas para equipes de software: notação, fórmulas, métricas, insights.',
 		languages: 'Idiomas:'
@@ -478,6 +482,7 @@ export const ENDONYMS = {
 	'nb-001': 'Norsk bokmål',
 	'nl-001': 'Nederlands',
 	'pa-001': 'ਪੰਜਾਬੀ',
+	'pcm-001': 'Naijá',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',
 	'sv-001': 'Svenska',

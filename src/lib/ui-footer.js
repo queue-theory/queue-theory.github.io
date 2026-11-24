@@ -47,7 +47,7 @@ export const FOOTER_NOTE = {
 	nb: 'Vennligst gjør Deres egen aktsomhetsvurdering av disse ressursene før De bruker dem i kritiske systemer.',
 	nl: 'Voer uw eigen zorgvuldigheidsonderzoek uit naar deze bronnen voordat u ze in kritieke systemen gebruikt.',
 	pa: 'ਕਿਰਪਾ ਕਰਕੇ ਕਿਸੇ ਵੀ ਮਹੱਤਵਪੂਰਨ ਸਿਸਟਮ ਵਿੱਚ ਵਰਤਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਸੀਂ ਆਪ ਇਨ੍ਹਾਂ ਸਰੋਤਾਂ ਦੀ ਪੂਰੀ ਜਾਂਚ ਕਰੋ।',
-	pcm: 'Do your own check for dis resources before you use dem for any important system.',
+	pcm: 'Please do your own check for dis resources before you use dem for any important system.',
 	pl: 'Zanim użyjesz tych zasobów w jakichkolwiek systemach krytycznych, samodzielnie dokładnie je sprawdź.',
 	pt: 'Faça a sua própria diligência sobre estes recursos antes de usá-los em quaisquer sistemas críticos.',
 	ro: 'Efectuați propria verificare a acestor resurse înainte de a le folosi în orice sisteme critice.',

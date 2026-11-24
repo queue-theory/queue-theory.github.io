@@ -8,12 +8,12 @@ export const STRINGS_D = {
 		navAbout: 'About',
 		navSearch: 'Search',
 		onThisPage: 'For dis page',
-		readIntroduction: 'Read di introduction',
-		chooseLanguage: 'Choose language',
+		readIntroduction: 'Please read di introduction',
+		chooseLanguage: 'Please choose language',
 		footerTaglineSuffix:
 			' — introduction to di worldwide standard wey dem dey use share key health data cross borders.',
 		footerNote:
-			'Dis site na for education. E no be medical advice and e no be official publication from ISO, CEN, or HL7. Check di official specifications before you implement.',
+			'Dis site na for education. E no be medical advice and e no be official publication from ISO, CEN, or HL7. Please check di official specifications before you implement.',
 		footerSourceLink: 'Source',
 		pickerTheme: 'Theme',
 		pickerLanguage: 'Language',
