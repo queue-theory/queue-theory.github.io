@@ -4,7 +4,7 @@
 // directory of its own and maps to the source-of-truth locale "en-001" (so
 // "en_001" is not listed separately: it would be a duplicate "English").
 // See spec/locale-specific-search-picker/index.md.
-export const LOCALES = ['ar_001', 'ar_DZ', 'ar_EG', 'bn_001', 'bn_BD', 'bn_IN', 'cy_001', 'cy_AR', 'cy_GB', 'en', 'en_GB', 'en_US', 'es_001', 'es_ES', 'es_MX', 'fr_001', 'fr_CA', 'fr_FR', 'hi_001', 'hi_IN', 'hi_NP', 'id_001', 'id_ID', 'id_MY', 'ja_001', 'ja_JP', 'ko_001', 'ko_KR', 'nl_001', 'nl_NL', 'ru_001', 'ru_BY', 'ru_RU', 'sv_001', 'sv_SE', 'sw_001', 'sw_TZ', 'vi_001', 'vi_VN', 'zh_001', 'zh_CN', 'zh_TW'];
+export const LOCALES = ['ar_001', 'ar_DZ', 'ar_EG', 'bn_001', 'bn_BD', 'bn_IN', 'cy_001', 'cy_AR', 'cy_GB', 'de_001', 'de_AT', 'de_DE', 'en', 'en_GB', 'en_US', 'es_001', 'es_ES', 'es_MX', 'fr_001', 'fr_CA', 'fr_FR', 'hi_001', 'hi_IN', 'hi_NP', 'id_001', 'id_ID', 'id_MY', 'ja_001', 'ja_JP', 'ko_001', 'ko_KR', 'nl_001', 'nl_NL', 'ru_001', 'ru_BY', 'ru_RU', 'sv_001', 'sv_SE', 'sw_001', 'sw_TZ', 'vi_001', 'vi_VN', 'zh_001', 'zh_CN', 'zh_TW'];
 
 export const DEFAULT_LOCALE = 'en';
 
@@ -63,4 +63,4 @@ export function routeForLanguages(languages) {
  * so search engines should index only the original: they are `noindex` and
  * left out of the sitemap. See ../spec/locales.md.
  */
-export const NOINDEX = ['ar-dz', 'ar-eg', 'bn-bd', 'bn-in', 'cy-gb', 'cy-ar', 'en-gb', 'en-us', 'es-es', 'es-mx', 'fr-ca', 'fr-fr', 'hi-in', 'hi-np', 'id-id', 'id-my', 'ja-jp', 'ko-kr', 'nl-nl', 'ru-by', 'ru-ru', 'sv-se', 'sw-tz', 'vi-vn', 'zh-cn'];
+export const NOINDEX = ['ar-dz', 'ar-eg', 'bn-bd', 'bn-in', 'cy-gb', 'cy-ar', 'de-at', 'de-de', 'en-gb', 'en-us', 'es-es', 'es-mx', 'fr-ca', 'fr-fr', 'hi-in', 'hi-np', 'id-id', 'id-my', 'ja-jp', 'ko-kr', 'nl-nl', 'ru-by', 'ru-ru', 'sv-se', 'sw-tz', 'vi-vn', 'zh-cn'];

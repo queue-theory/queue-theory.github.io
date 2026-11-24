@@ -12,6 +12,10 @@ const cases = [
 	// the language's international *-001 locale
 	[['cy'], '/cy-001/'],
 	[['cy-US'], '/cy-001/'],
+	[['de'], '/de-001/'],
+	[['de-DE'], '/de-de/'],
+	[['de-AT'], '/de-at/'],
+	[['de-CH'], '/de-001/'],
 	[['en'], '/en-001/'],
 	[['en-US'], '/en-us/'],
 	[['en-GB'], '/en-gb/'],
@@ -71,7 +75,7 @@ const cases = [
 	[['zh-SG'], '/zh-001/'],
 	// first usable preference wins; unmatched ones are skipped
 	[['xx', 'cy-GB'], '/cy-gb/'],
-	[['de-DE', 'en-GB'], '/en-gb/'],
+	[['xx-XX', 'en-GB'], '/en-gb/'],
 	// nothing matches: English
 	[['zu'], '/en-001/'],
 	[[], '/en-001/'],
