@@ -54,7 +54,7 @@ export const FOOTER_NOTE = {
 	ru: 'Прежде чем использовать эти материалы в критически важных системах, проведите собственную проверку.',
 	sco: 'Please dae your ain due diligence on thir resources afore you uise them in onie critical systems.',
 	sk: 'Skôr než tieto zdroje použijete v akýchkoľvek kritických systémoch, vykonajte, prosím, vlastné preverenie.',
-	sl: 'Preden te vire uporabite v kakršnih koli kritičnih sistemih, sami opravite temeljit pregled.',
+	sl: 'Preden te vire uporabite v kakršnih koli kritičnih sistemih, prosimo, sami opravite temeljit pregled.',
 	sv: 'Gör er egen noggranna granskning av dessa resurser innan ni använder dem i kritiska system.',
 	sw: 'Fanya uchunguzi wako mwenyewe wa rasilimali hizi kabla ya kuzitumia katika mifumo yoyote muhimu.',
 	ta: 'எந்த முக்கிய அமைப்பிலும் பயன்படுத்தும் முன் இந்த வளங்களை நீங்களே முறையாகச் சரிபார்க்கவும்.',

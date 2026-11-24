@@ -139,6 +139,8 @@ const cases = [
 	[['sco-GB'], '/sco-gb/'],
 	[['sk'], '/sk-001/'],
 	[['sk-SK'], '/sk-sk/'],
+	[['sl'], '/sl-001/'],
+	[['sl-SI'], '/sl-si/'],
 	[['sv'], '/sv-001/'],
 	[['sv-SE'], '/sv-se/'],
 	[['sv-FI'], '/sv-001/'],

@@ -420,6 +420,14 @@ export const HERO = {
 		tagline: 'Fronty vysvetlené pre softvérové tímy: notácia, vzorce, metriky a postrehy.',
 		languages: 'Jazyky: '
 	},
+	'sl-001': {
+		tagline: 'Čakalne vrste, razložene za ekipe razvijalcev programske opreme: notacija, formule, metrike in spoznanja.',
+		languages: 'Jeziki: '
+	},
+	'sl-si': {
+		tagline: 'Čakalne vrste, razložene za ekipe razvijalcev programske opreme: notacija, formule, metrike in spoznanja.',
+		languages: 'Jeziki: '
+	},
 	'sv-001': {
 		tagline: 'En guide till köer för mjukvaruteam: notation, formler, mått, insikter.',
 		languages: 'Språk:'
@@ -521,6 +529,7 @@ export const ENDONYMS = {
 	'ru-001': 'Русский',
 	'sco-001': 'Scots',
 	'sk-001': 'Slovenčina',
+	'sl-001': 'Slovenščina',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',
 	'tr-001': 'Türkçe',

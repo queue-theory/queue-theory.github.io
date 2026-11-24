@@ -50,6 +50,7 @@ export const SIZE_LABELS = {
 	ru: L('Самый крупный|Крупнее|Крупный|Обычный|Мелкий|Мельче|Самый мелкий'),
 	sco: L('Biggest|Bigger|Big|Normal|Smaw|Smawer|Smawest'),
 	sk: L('Najväčšie|Väčšie|Veľké|Normálne|Malé|Menšie|Najmenšie'),
+	sl: L('Največja|Večja|Velika|Običajna|Majhna|Manjša|Najmanjša'),
 	sv: L('Störst|Större|Stor|Normal|Liten|Mindre|Minst'),
 	sw: L('Kubwa zaidi kabisa|Kubwa zaidi|Kubwa|Kawaida|Ndogo|Ndogo zaidi|Ndogo zaidi kabisa'),
 	ur: L('سب سے بڑا|مزید بڑا|بڑا|عام|چھوٹا|مزید چھوٹا|سب سے چھوٹا'),

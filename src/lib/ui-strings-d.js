@@ -138,12 +138,12 @@ export const STRINGS_D = {
 		navAbout: 'O projektu',
 		navSearch: 'Iskanje',
 		onThisPage: 'Na tej strani',
-		readIntroduction: 'Preberi uvod',
-		chooseLanguage: 'Izberite jezik',
+		readIntroduction: 'Prosimo, preberite uvod',
+		chooseLanguage: 'Prosimo, izberite jezik',
 		footerTaglineSuffix:
 			' — uvod v svetovni standard za izmenjavo ključnih zdravstvenih podatkov prek meja.',
 		footerNote:
-			'Ta spletno mesto je izobraževalno. Ni zdravniški nasvet in ni uradna publikacija ISO, CEN ali HL7. Pred izvedbo preverite uradne specifikacije.',
+			'To spletno mesto je izobraževalno. Ni zdravniški nasvet in ni uradna publikacija ISO, CEN ali HL7. Pred izvedbo, prosimo, preverite uradne specifikacije.',
 		footerSourceLink: 'Vir',
 		pickerTheme: 'Tema',
 		pickerLanguage: 'Jezik',
