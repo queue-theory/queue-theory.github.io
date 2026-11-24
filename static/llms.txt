@@ -31,6 +31,7 @@
 - [cy-ar](https://queue-theory.github.io/cy-ar/)
 - [cy-gb](https://queue-theory.github.io/cy-gb/)
 - [da-001](https://queue-theory.github.io/da-001/)
+- [da-dk](https://queue-theory.github.io/da-dk/)
 - [de-001](https://queue-theory.github.io/de-001/)
 - [de-at](https://queue-theory.github.io/de-at/)
 - [de-de](https://queue-theory.github.io/de-de/)

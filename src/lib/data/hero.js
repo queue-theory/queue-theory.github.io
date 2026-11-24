@@ -40,6 +40,10 @@ export const HERO = {
 		tagline: 'En guide til køer for softwareteams: notation, formler, målinger, indsigter.',
 		languages: 'Sprog:'
 	},
+	'da-dk': {
+		tagline: 'En guide til køer for softwareteams: notation, formler, målinger, indsigter.',
+		languages: 'Sprog:'
+	},
 	'de-001': {
 		tagline: 'Ein Leitfaden zu Warteschlangen für Softwareteams: Notation, Formeln, Kennzahlen, Erkenntnisse.',
 		languages: 'Sprachen:'
