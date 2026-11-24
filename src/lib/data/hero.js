@@ -176,6 +176,10 @@ export const HERO = {
 		tagline: 'Mwongozo wa foleni kwa timu za programu: nukuu, fomula, vipimo, maarifa.',
 		languages: 'Lugha:'
 	},
+	'ur-001': {
+		tagline: 'سافٹ ویئر ٹیموں کے لیے قطار کی رہنمائی: علامات، فارمولے، پیمانے، بصیرتیں۔',
+		languages: 'زبانیں:'
+	},
 	'vi-001': {
 		tagline: 'Hướng dẫn về hàng đợi dành cho các nhóm phần mềm: ký hiệu, công thức, chỉ số, nhận định.',
 		languages: 'Ngôn ngữ:'
@@ -216,6 +220,7 @@ export const ENDONYMS = {
 	'ru-001': 'Русский',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',
+	'ur-001': 'اردو',
 	'vi-001': 'Tiếng Việt',
 	'zh-001': '中文'
 };
