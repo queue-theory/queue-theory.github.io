@@ -304,6 +304,14 @@ export const HERO = {
 		tagline: 'ແຖວຄອຍ ອະທິບາຍສຳລັບທີມງານຊອບແວ: ສັນຍາລັກ, ສູດ, ການວັດແທກ ແລະ ຂໍ້ຄິດເລິກເຊິ່ງ.',
 		languages: 'ພາສາ: '
 	},
+	'lt-001': {
+		tagline: 'Eilės, paaiškintos programinės įrangos komandoms: žymėjimas, formulės, metrikos ir įžvalgos.',
+		languages: 'Kalbos: '
+	},
+	'lt-lt': {
+		tagline: 'Eilės, paaiškintos programinės įrangos komandoms: žymėjimas, formulės, metrikos ir įžvalgos.',
+		languages: 'Kalbos: '
+	},
 	'nl-001': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
@@ -422,6 +430,7 @@ export const ENDONYMS = {
 	'kw-001': 'Kernewek',
 	'lb-001': 'Lëtzebuergesch',
 	'lo-001': 'ລາວ',
+	'lt-001': 'Lietuvių',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',

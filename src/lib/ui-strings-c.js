@@ -187,7 +187,7 @@ export const STRINGS_C = {
 		navAbout: 'Apie',
 		navSearch: 'Paieška',
 		onThisPage: 'Šiame puslapyje',
-		readIntroduction: 'Skaityti įvadą',
+		readIntroduction: 'Prašome perskaityti įvadą',
 		chooseLanguage: 'Pasirinkite kalbą',
 		footerTaglineSuffix:
 			' — įvadas į pasaulinį standartą, skirtą pagrindiniais sveikatos duomenimis dalytis per sienas.',

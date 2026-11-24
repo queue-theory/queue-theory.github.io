@@ -35,6 +35,7 @@ export const SIZE_LABELS = {
 	kw: L('An brassa|Brassa|Bras|Usadow|Byghan|Le|An lyha'),
 	lb: L('Am gréissten|Méi grouss|Grouss|Normal|Kleng|Méi kleng|Am klengsten'),
 	lo: L('ໃຫຍ່ທີ່ສຸດ|ໃຫຍ່ກວ່າ|ໃຫຍ່|ປົກກະຕິ|ນ້ອຍ|ນ້ອຍກວ່າ|ນ້ອຍທີ່ສຸດ'),
+	lt: L('Didžiausias|Didesnis|Didelis|Įprastas|Mažas|Mažesnis|Mažiausias'),
 	nl: L('Grootst|Groter|Groot|Normaal|Klein|Kleiner|Kleinst'),
 	pt: L('Máximo|Maior|Grande|Normal|Pequeno|Menor|Mínimo'),
 	ru: L('Самый крупный|Крупнее|Крупный|Обычный|Мелкий|Мельче|Самый мелкий'),
