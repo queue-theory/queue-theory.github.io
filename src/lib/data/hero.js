@@ -148,6 +148,10 @@ export const HERO = {
 		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
 		languages: 'Langues : '
 	},
+	'fr-be': {
+		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
+		languages: 'Langues : '
+	},
 	'fr-ca': {
 		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
 		languages: 'Langues : '
@@ -155,6 +159,10 @@ export const HERO = {
 	'fr-fr': {
 		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
 		languages: 'Langues : '
+	},
+	'fr-lu': {
+		tagline: 'Les files d’attente, expliquées aux équipes logicielles : notation, formules, métriques et enseignements.',
+		languages: 'Langues : '
 	},
 	'hi-001': {
 		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
