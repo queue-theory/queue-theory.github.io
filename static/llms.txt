@@ -62,6 +62,7 @@
 - [gd-001](https://queue-theory.github.io/gd-001/)
 - [gd-gb](https://queue-theory.github.io/gd-gb/)
 - [gu-001](https://queue-theory.github.io/gu-001/)
+- [ha-001](https://queue-theory.github.io/ha-001/)
 - [hi-001](https://queue-theory.github.io/hi-001/)
 - [hi-in](https://queue-theory.github.io/hi-in/)
 - [hi-np](https://queue-theory.github.io/hi-np/)

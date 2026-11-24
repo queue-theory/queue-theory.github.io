@@ -43,7 +43,7 @@ async function audit(page, label, options = AXE) {
 	return result.violations.length;
 }
 
-const PAGES = ['/', '/en-001/', '/en-001/?utilization', '/ar-eg/', '/ar-001/', '/bg-bg/', '/bg-001/', '/bn-bd/', '/bn-001/', '/cs-cz/', '/cs-001/', '/cy-gb/', '/cy-001/', '/da-001/', '/da-dk/', '/de-de/', '/de-001/', '/el-gr/', '/el-001/', '/es-es/', '/es-mx/', '/et-ee/', '/et-001/', '/eu-es/', '/eu-001/', '/fa-001/', '/fi-fi/', '/fi-001/', '/fr-fr/', '/fr-be/', '/fr-lu/', '/fr-001/', '/ga-ie/', '/ga-001/', '/gd-gb/', '/gd-001/', '/gu-001/', '/hi-in/', '/hi-001/', '/id-id/', '/id-001/', '/it-it/', '/it-001/', '/ja-jp/', '/ja-001/', '/ko-kr/', '/ko-001/', '/nl-nl/', '/nl-001/', '/pt-br/', '/pt-001/', '/ru-ru/', '/ru-001/', '/sv-se/', '/sv-001/', '/sw-tz/', '/sw-001/', '/tr-tr/', '/tr-001/', '/ur-001/', '/vi-vn/', '/vi-001/', '/zh-cn/', '/zh-tw/'];
+const PAGES = ['/', '/en-001/', '/en-001/?utilization', '/ar-eg/', '/ar-001/', '/bg-bg/', '/bg-001/', '/bn-bd/', '/bn-001/', '/cs-cz/', '/cs-001/', '/cy-gb/', '/cy-001/', '/da-001/', '/da-dk/', '/de-de/', '/de-001/', '/el-gr/', '/el-001/', '/es-es/', '/es-mx/', '/et-ee/', '/et-001/', '/eu-es/', '/eu-001/', '/fa-001/', '/fi-fi/', '/fi-001/', '/fr-fr/', '/fr-be/', '/fr-lu/', '/fr-001/', '/ga-ie/', '/ga-001/', '/gd-gb/', '/gd-001/', '/gu-001/', '/ha-001/', '/hi-in/', '/hi-001/', '/id-id/', '/id-001/', '/it-it/', '/it-001/', '/ja-jp/', '/ja-001/', '/ko-kr/', '/ko-001/', '/nl-nl/', '/nl-001/', '/pt-br/', '/pt-001/', '/ru-ru/', '/ru-001/', '/sv-se/', '/sv-001/', '/sw-tz/', '/sw-001/', '/tr-tr/', '/tr-001/', '/ur-001/', '/vi-vn/', '/vi-001/', '/zh-cn/', '/zh-tw/'];
 
 let checks = 0;
 for (const width of [1200, 390]) {

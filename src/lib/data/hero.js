@@ -184,6 +184,10 @@ export const HERO = {
 		tagline: 'કતારો, સોફ્ટવેર ટીમો માટે સમજાવેલ: સંકેતન, સૂત્રો, મેટ્રિક્સ અને આંતરદૃષ્ટિઓ.',
 		languages: 'ભાષાઓ: '
 	},
+	'ha-001': {
+		tagline: 'Layuka, an bayyana su don ƙungiyoyin manhaja: alamomi, dabaru, ma\'auni da fahimta.',
+		languages: 'Harsuna: '
+	},
 	'hi-001': {
 		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
 		languages: 'भाषाएँ: '
@@ -334,6 +338,7 @@ export const ENDONYMS = {
 	'ga-001': 'Gaeilge',
 	'gd-001': 'Gàidhlig',
 	'gu-001': 'ગુજરાતી',
+	'ha-001': 'Hausa',
 	'hi-001': 'हिन्दी',
 	'id-001': 'Bahasa Indonesia',
 	'it-001': 'Italiano',
