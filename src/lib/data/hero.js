@@ -280,6 +280,14 @@ export const HERO = {
 		tagline: '소프트웨어 팀을 위한 큐 해설: 표기법, 공식, 지표, 통찰.',
 		languages: '언어:'
 	},
+	'kw-001': {
+		tagline: 'Lostow, displegys rag parys medhelweyth: notyans, furvelow, musurow ha golokow.',
+		languages: 'Yethow: '
+	},
+	'kw-gb': {
+		tagline: 'Lostow, displegys rag parys medhelweyth: notyans, furvelow, musurow ha golokow.',
+		languages: 'Yethow: '
+	},
 	'nl-001': {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
@@ -395,6 +403,7 @@ export const ENDONYMS = {
 	'km-001': 'ខ្មែរ',
 	'kn-001': 'ಕನ್ನಡ',
 	'ko-001': '한국어',
+	'kw-001': 'Kernewek',
 	'nl-001': 'Nederlands',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',

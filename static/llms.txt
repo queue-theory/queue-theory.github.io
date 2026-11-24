@@ -86,6 +86,8 @@
 - [kn-001](https://queue-theory.github.io/kn-001/)
 - [ko-001](https://queue-theory.github.io/ko-001/)
 - [ko-kr](https://queue-theory.github.io/ko-kr/)
+- [kw-001](https://queue-theory.github.io/kw-001/)
+- [kw-gb](https://queue-theory.github.io/kw-gb/)
 - [nl-001](https://queue-theory.github.io/nl-001/)
 - [nl-nl](https://queue-theory.github.io/nl-nl/)
 - [pt-001](https://queue-theory.github.io/pt-001/)
