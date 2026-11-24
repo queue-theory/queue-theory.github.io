@@ -16,6 +16,18 @@ export const HERO = {
 		tagline: 'صفوف الانتظار، مشروحة لفرق البرمجيات: الرموز، والصيغ، والمقاييس، والرؤى.',
 		languages: 'اللغات: '
 	},
+	'bn-001': {
+		tagline: 'অপেক্ষার সারি, সফটওয়্যার দলগুলোর জন্য ব্যাখ্যা করা হলো: সংকেতপদ্ধতি, সূত্র, মেট্রিক ও অন্তর্দৃষ্টি।',
+		languages: 'ভাষা: '
+	},
+	'bn-bd': {
+		tagline: 'অপেক্ষার সারি, সফটওয়্যার দলগুলোর জন্য ব্যাখ্যা করা হলো: সংকেতপদ্ধতি, সূত্র, মেট্রিক ও অন্তর্দৃষ্টি।',
+		languages: 'ভাষা: '
+	},
+	'bn-in': {
+		tagline: 'অপেক্ষার সারি, সফটওয়্যার দলগুলোর জন্য ব্যাখ্যা করা হলো: সংকেতপদ্ধতি, সূত্র, মেট্রিক ও অন্তর্দৃষ্টি।',
+		languages: 'ভাষা: '
+	},
 	'en-001': {
 		tagline: 'Waiting lines, explained for software teams: notation, formulas, metrics, and insights.',
 		languages: 'Languages: '
@@ -105,6 +117,7 @@ export const HERO = {
 /** @type {Record<string, string>} */
 export const ENDONYMS = {
 	'ar-001': 'العربية',
+	'bn-001': 'বাংলা',
 	'cy-001': 'Cymraeg',
 	'en-001': 'English',
 	'es-001': 'Español',
