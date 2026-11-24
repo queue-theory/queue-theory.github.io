@@ -22,6 +22,7 @@ export const SIZE_LABELS = {
 	ha: L('Mafi girma|Ya fi girma|Babba|Na al\'ada|Ƙarami|Ya fi ƙanƙanta|Mafi ƙanƙanta'),
 	he: L('הגדול ביותר|גדול יותר|גדול|רגיל|קטן|קטן יותר|הקטן ביותר'),
 	hi: L('सबसे बड़ा|और बड़ा|बड़ा|सामान्य|छोटा|और छोटा|सबसे छोटा'),
+	hr: L('Najveće|Veće|Veliko|Normalno|Malo|Manje|Najmanje'),
 	id: L('Terbesar|Lebih besar|Besar|Normal|Kecil|Lebih kecil|Terkecil'),
 	it: L('Massimo|Più grande|Grande|Normale|Piccolo|Più piccolo|Minimo'),
 	ja: L('最大|より大きい|大|標準|小|より小さい|最小'),

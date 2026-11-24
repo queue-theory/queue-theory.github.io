@@ -73,6 +73,8 @@ const cases = [
 	[['hi'], '/hi-001/'],
 	[['hi-IN'], '/hi-in/'],
 	[['hi-NP'], '/hi-np/'],
+	[['hr'], '/hr-001/'],
+	[['hr-HR'], '/hr-hr/'],
 	[['id'], '/id-001/'],
 	[['id-ID'], '/id-id/'],
 	[['id-MY'], '/id-my/'],

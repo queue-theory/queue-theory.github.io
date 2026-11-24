@@ -204,6 +204,14 @@ export const HERO = {
 		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
 		languages: 'भाषाएँ: '
 	},
+	'hr-001': {
+		tagline: 'Redovi čekanja, objašnjeni za softverske timove: notacija, formule, metrike i uvidi.',
+		languages: 'Jezici: '
+	},
+	'hr-hr': {
+		tagline: 'Redovi čekanja, objašnjeni za softverske timove: notacija, formule, metrike i uvidi.',
+		languages: 'Jezici: '
+	},
 	'id-001': {
 		tagline: 'Antrean, dijelaskan untuk tim perangkat lunak: notasi, rumus, metrik, dan wawasan.',
 		languages: 'Bahasa: '
@@ -345,6 +353,7 @@ export const ENDONYMS = {
 	'ha-001': 'Hausa',
 	'he-001': 'עברית',
 	'hi-001': 'हिन्दी',
+	'hr-001': 'Hrvatski',
 	'id-001': 'Bahasa Indonesia',
 	'it-001': 'Italiano',
 	'ja-001': '日本語',
