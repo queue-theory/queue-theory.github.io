@@ -138,6 +138,7 @@
 - [ur-001](https://queue-theory.github.io/ur-001/)
 - [vi-001](https://queue-theory.github.io/vi-001/)
 - [vi-vn](https://queue-theory.github.io/vi-vn/)
+- [wuu-001](https://queue-theory.github.io/wuu-001/)
 - [zh-001](https://queue-theory.github.io/zh-001/)
 - [zh-cn](https://queue-theory.github.io/zh-cn/)
 - [zh-tw](https://queue-theory.github.io/zh-tw/)

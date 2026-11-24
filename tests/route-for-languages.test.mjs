@@ -165,6 +165,8 @@ const cases = [
 	[['vi'], '/vi-001/'],
 	[['vi-VN'], '/vi-vn/'],
 	[['vi-US'], '/vi-001/'],
+	[['wuu'], '/wuu-001/'],
+	[['wuu-CN'], '/wuu-001/'],
 	[['zh'], '/zh-001/'],
 	[['zh-CN'], '/zh-cn/'],
 	[['zh-Hans'], '/zh-cn/'],

@@ -488,6 +488,10 @@ export const HERO = {
 		tagline: 'Hướng dẫn về hàng đợi dành cho các nhóm phần mềm: ký hiệu, công thức, chỉ số, nhận định.',
 		languages: 'Ngôn ngữ:'
 	},
+	'wuu-001': {
+		tagline: '软件团队个排队论：符号、公式、指标、心得。',
+		languages: '语言：'
+	},
 	'zh-001': {
 		tagline: '为软件团队讲解排队：符号、公式、指标与洞见。',
 		languages: '语言：'
@@ -564,5 +568,6 @@ export const ENDONYMS = {
 	'uk-001': 'Українська',
 	'ur-001': 'اردو',
 	'vi-001': 'Tiếng Việt',
+	'wuu-001': '吴语',
 	'zh-001': '中文'
 };

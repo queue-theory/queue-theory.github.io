@@ -65,7 +65,7 @@ export const SEARCH_STRINGS = {
 	uk: { loading: 'Пошук…', unavailable: 'Пошук недоступний для цієї мови.', results: 'Результати за запитом {query}: {count}' },
 	ur: { loading: 'تلاش جاری ہے…', unavailable: 'اس زبان کے لیے تلاش دستیاب نہیں ہے۔', results: '{query} کے نتائج: {count}' },
 	vi: { loading: 'Đang tìm kiếm…', unavailable: 'Chưa hỗ trợ tìm kiếm cho ngôn ngữ này.', results: 'Kết quả cho {query}: {count}' },
-	wuu: { loading: '搜索中…', unavailable: '该语言暂时不能搜索。', results: '{query}个搜索结果: {count} 条' },
+	wuu: { loading: '搜索中…', unavailable: '搿种语言暂时还勿好搜索。', results: '{query}个搜索结果：{count} 条' },
 	yue: { loading: '搜尋緊…', unavailable: '呢種語言暫時未能搜尋。', results: '{query}嘅搜尋結果：{count} 項' },
 	zh: { loading: '正在搜索…', unavailable: '此语言暂不支持搜索。', results: '{query}的搜索结果：{count} 条' }
 };
