@@ -48,6 +48,8 @@
 - [ru-001](https://queue-theory.github.io/ru-001/)
 - [ru-by](https://queue-theory.github.io/ru-by/)
 - [ru-ru](https://queue-theory.github.io/ru-ru/)
+- [sw-001](https://queue-theory.github.io/sw-001/)
+- [sw-tz](https://queue-theory.github.io/sw-tz/)
 - [zh-001](https://queue-theory.github.io/zh-001/)
 - [zh-cn](https://queue-theory.github.io/zh-cn/)
 - [zh-tw](https://queue-theory.github.io/zh-tw/)

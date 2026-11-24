@@ -128,6 +128,14 @@ export const HERO = {
 		tagline: 'Очереди простым языком для команд разработки программного обеспечения: нотация, формулы, метрики и выводы.',
 		languages: 'Языки: '
 	},
+	'sw-001': {
+		tagline: 'Mwongozo wa foleni kwa timu za programu: nukuu, fomula, vipimo, maarifa.',
+		languages: 'Lugha:'
+	},
+	'sw-tz': {
+		tagline: 'Mwongozo wa foleni kwa timu za programu: nukuu, fomula, vipimo, maarifa.',
+		languages: 'Lugha:'
+	},
 	'zh-001': {
 		tagline: '为软件团队讲解排队：符号、公式、指标与洞见。',
 		languages: '语言：'
@@ -155,5 +163,6 @@ export const ENDONYMS = {
 	'ja-001': '日本語',
 	'ko-001': '한국어',
 	'ru-001': 'Русский',
+	'sw-001': 'Kiswahili',
 	'zh-001': '中文'
 };
