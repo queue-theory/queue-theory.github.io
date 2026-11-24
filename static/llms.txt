@@ -83,6 +83,7 @@
 - [jv-001](https://queue-theory.github.io/jv-001/)
 - [km-001](https://queue-theory.github.io/km-001/)
 - [km-kh](https://queue-theory.github.io/km-kh/)
+- [kn-001](https://queue-theory.github.io/kn-001/)
 - [ko-001](https://queue-theory.github.io/ko-001/)
 - [ko-kr](https://queue-theory.github.io/ko-kr/)
 - [nl-001](https://queue-theory.github.io/nl-001/)

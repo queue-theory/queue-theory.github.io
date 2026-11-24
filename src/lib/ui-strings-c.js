@@ -111,8 +111,8 @@ export const STRINGS_C = {
 		navAbout: 'ಕುರಿತು',
 		navSearch: 'ಹುಡುಕಿ',
 		onThisPage: 'ಈ ಪುಟದಲ್ಲಿ',
-		readIntroduction: 'ಪರಿಚಯ ಓದಿ',
-		chooseLanguage: 'ಭಾಷೆಯನ್ನು ಆರಿಸಿ',
+		readIntroduction: 'ದಯವಿಟ್ಟು ಪರಿಚಯವನ್ನು ಓದಿ',
+		chooseLanguage: 'ದಯವಿಟ್ಟು ಭಾಷೆಯನ್ನು ಆರಿಸಿ',
 		footerTaglineSuffix: ' — ಗಡಿಗಳನ್ನು ಮೀರಿ ಪ್ರಮುಖ ಆರೋಗ್ಯ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳುವ ವಿಶ್ವವ್ಯಾಪಿ ಮಾನದಂಡದ ಪರಿಚಯ.',
 		footerNote:
 			'ಈ ತಾಣ ಶೈಕ್ಷಣಿಕವಾಗಿದೆ. ಇದು ವೈದ್ಯಕೀಯ ಸಲಹೆಯಲ್ಲ, ISO, CEN ಅಥವಾ HL7 ನ ಅಧಿಕೃತ ಪ್ರಕಟಣೆಯೂ ಅಲ್ಲ. ಅನುಷ್ಠಾನಕ್ಕೆ ಮೊದಲು ಅಧಿಕೃತ ವಿಶೇಷಣಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.',

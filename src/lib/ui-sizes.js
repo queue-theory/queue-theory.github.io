@@ -30,6 +30,7 @@ export const SIZE_LABELS = {
 	ja: L('最大|より大きい|大|標準|小|より小さい|最小'),
 	jv: L('Paling ageng|Langkung ageng|Ageng|Limrah|Alit|Langkung alit|Paling alit'),
 	km: L('ធំបំផុត|ធំជាង|ធំ|ធម្មតា|តូច|តូចជាង|តូចបំផុត'),
+	kn: L('ಅತಿ ದೊಡ್ಡದು|ಇನ್ನೂ ದೊಡ್ಡದು|ದೊಡ್ಡದು|ಸಾಮಾನ್ಯ|ಚಿಕ್ಕದು|ಇನ್ನೂ ಚಿಕ್ಕದು|ಅತಿ ಚಿಕ್ಕದು'),
 	ko: L('가장 크게|더 크게|크게|보통|작게|더 작게|가장 작게'),
 	nl: L('Grootst|Groter|Groot|Normaal|Klein|Kleiner|Kleinst'),
 	pt: L('Máximo|Maior|Grande|Normal|Pequeno|Menor|Mínimo'),

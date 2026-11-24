@@ -34,7 +34,7 @@ export const FOOTER_NOTE = {
 	ja: 'これらの資料を重要なシステムで使う前に、ご自身で十分に検証してください。',
 	jv: 'Mangga nindakaken uji tuntas piyambak kangge sumber daya punika saderengipun dipunginakaken wonten ing sistem kritis punapa kemawon.',
 	km: 'សូមធ្វើការត្រួតពិនិត្យដោយខ្លួនឯងលើធនធានទាំងនេះ មុនប្រើក្នុងប្រព័ន្ធសំខាន់ៗណាមួយ។',
-	kn: 'ಯಾವುದೇ ನಿರ್ಣಾಯಕ ವ್ಯವಸ್ಥೆಗಳಲ್ಲಿ ಬಳಸುವ ಮೊದಲು ಈ ಸಂಪನ್ಮೂಲಗಳನ್ನು ನೀವೇ ಸೂಕ್ತವಾಗಿ ಪರಿಶೀಲಿಸಿ.',
+	kn: 'ಯಾವುದೇ ನಿರ್ಣಾಯಕ ವ್ಯವಸ್ಥೆಗಳಲ್ಲಿ ಬಳಸುವ ಮೊದಲು ದಯವಿಟ್ಟು ಈ ಸಂಪನ್ಮೂಲಗಳನ್ನು ನೀವೇ ಸೂಕ್ತವಾಗಿ ಪರಿಶೀಲಿಸಿ.',
 	ko: '이 자료를 중요한 시스템에서 사용하기 전에 직접 충분히 검증하세요.',
 	kw: 'Gwrewgh agas dyllans dewisys agas honan a’n resorsow ma kyns aga usya in system dhe vri vyth.',
 	lb: 'Maacht är eege Kontroll vun dëse Ressourcen, ier dir se a kritesche Systemer benotzt.',
