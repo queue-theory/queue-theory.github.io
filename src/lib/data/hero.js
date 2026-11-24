@@ -356,6 +356,10 @@ export const HERO = {
 		tagline: 'Een gids over wachtrijen voor softwareteams: notatie, formules, metrieken, inzichten.',
 		languages: 'Talen:'
 	},
+	'pa-001': {
+		tagline: 'ਸਾਫ਼ਟਵੇਅਰ ਟੀਮਾਂ ਲਈ ਸਮਝਾਈਆਂ ਗਈਆਂ ਕਤਾਰਾਂ: ਸੰਕੇਤ, ਫ਼ਾਰਮੂਲੇ, ਮੈਟ੍ਰਿਕਸ ਅਤੇ ਅੰਤਰਦ੍ਰਿਸ਼ਟੀਆਂ।',
+		languages: 'ਭਾਸ਼ਾਵਾਂ: '
+	},
 	'pt-001': {
 		tagline: 'Um guia de filas para equipes de software: notação, fórmulas, métricas, insights.',
 		languages: 'Idiomas:'
@@ -473,6 +477,7 @@ export const ENDONYMS = {
 	'mt-001': 'Malti',
 	'nb-001': 'Norsk bokmål',
 	'nl-001': 'Nederlands',
+	'pa-001': 'ਪੰਜਾਬੀ',
 	'pt-001': 'Português',
 	'ru-001': 'Русский',
 	'sv-001': 'Svenska',

@@ -42,6 +42,7 @@ export const SIZE_LABELS = {
 	mt: L('L-akbar|Akbar|Kbir|Normali|Żgħir|Iżgħar|L-iżgħar'),
 	nb: L('Størst|Større|Stor|Normal|Liten|Mindre|Minst'),
 	nl: L('Grootst|Groter|Groot|Normaal|Klein|Kleiner|Kleinst'),
+	pa: L('ਸਭ ਤੋਂ ਵੱਡਾ|ਹੋਰ ਵੱਡਾ|ਵੱਡਾ|ਆਮ|ਛੋਟਾ|ਹੋਰ ਛੋਟਾ|ਸਭ ਤੋਂ ਛੋਟਾ'),
 	pt: L('Máximo|Maior|Grande|Normal|Pequeno|Menor|Mínimo'),
 	ru: L('Самый крупный|Крупнее|Крупный|Обычный|Мелкий|Мельче|Самый мелкий'),
 	sv: L('Störst|Större|Stor|Normal|Liten|Mindre|Minst'),

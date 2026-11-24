@@ -46,7 +46,7 @@ export const FOOTER_NOTE = {
 	mt: 'Jekk jogħġbok agħmel id-diliġenza dovuta tiegħek stess fuq dawn ir-riżorsi qabel ma tużahom f’xi sistema kritika.',
 	nb: 'Vennligst gjør Deres egen aktsomhetsvurdering av disse ressursene før De bruker dem i kritiske systemer.',
 	nl: 'Voer uw eigen zorgvuldigheidsonderzoek uit naar deze bronnen voordat u ze in kritieke systemen gebruikt.',
-	pa: 'ਕਿਸੇ ਵੀ ਮਹੱਤਵਪੂਰਨ ਸਿਸਟਮ ਵਿੱਚ ਵਰਤਣ ਤੋਂ ਪਹਿਲਾਂ ਇਨ੍ਹਾਂ ਸਰੋਤਾਂ ਦੀ ਆਪ ਪੂਰੀ ਜਾਂਚ ਕਰੋ।',
+	pa: 'ਕਿਰਪਾ ਕਰਕੇ ਕਿਸੇ ਵੀ ਮਹੱਤਵਪੂਰਨ ਸਿਸਟਮ ਵਿੱਚ ਵਰਤਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਸੀਂ ਆਪ ਇਨ੍ਹਾਂ ਸਰੋਤਾਂ ਦੀ ਪੂਰੀ ਜਾਂਚ ਕਰੋ।',
 	pcm: 'Do your own check for dis resources before you use dem for any important system.',
 	pl: 'Zanim użyjesz tych zasobów w jakichkolwiek systemach krytycznych, samodzielnie dokładnie je sprawdź.',
 	pt: 'Faça a sua própria diligência sobre estes recursos antes de usá-los em quaisquer sistemas críticos.',
