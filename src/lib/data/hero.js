@@ -88,6 +88,18 @@ export const HERO = {
 		tagline: 'प्रतीक्षा-पंक्तियाँ, सॉफ़्टवेयर टीमों के लिए समझाई गईं: संकेतन, सूत्र, मेट्रिक्स और अंतर्दृष्टियाँ।',
 		languages: 'भाषाएँ: '
 	},
+	'id-001': {
+		tagline: 'Antrean, dijelaskan untuk tim perangkat lunak: notasi, rumus, metrik, dan wawasan.',
+		languages: 'Bahasa: '
+	},
+	'id-id': {
+		tagline: 'Antrean, dijelaskan untuk tim perangkat lunak: notasi, rumus, metrik, dan wawasan.',
+		languages: 'Bahasa: '
+	},
+	'id-my': {
+		tagline: 'Antrean, dijelaskan untuk tim perangkat lunak: notasi, rumus, metrik, dan wawasan.',
+		languages: 'Bahasa: '
+	},
 	'ru-001': {
 		tagline: 'Очереди простым языком для команд разработки программного обеспечения: нотация, формулы, метрики и выводы.',
 		languages: 'Языки: '
@@ -123,6 +135,7 @@ export const ENDONYMS = {
 	'es-001': 'Español',
 	'fr-001': 'Français',
 	'hi-001': 'हिन्दी',
+	'id-001': 'Bahasa Indonesia',
 	'ru-001': 'Русский',
 	'zh-001': '中文'
 };
