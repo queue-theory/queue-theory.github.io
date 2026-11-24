@@ -40,6 +40,7 @@
 - [el-gr](https://queue-theory.github.io/el-gr/)
 - [en-001](https://queue-theory.github.io/en-001/)
 - [en-gb](https://queue-theory.github.io/en-gb/)
+- [en-ie](https://queue-theory.github.io/en-ie/)
 - [en-us](https://queue-theory.github.io/en-us/)
 - [es-001](https://queue-theory.github.io/es-001/)
 - [es-es](https://queue-theory.github.io/es-es/)

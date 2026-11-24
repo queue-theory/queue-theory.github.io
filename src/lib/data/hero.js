@@ -76,6 +76,10 @@ export const HERO = {
 		tagline: 'Waiting lines, explained for software teams: notation, formulas, metrics, and insights.',
 		languages: 'Languages: '
 	},
+	'en-ie': {
+		tagline: 'Waiting lines, explained for software teams: notation, formulas, metrics, and insights.',
+		languages: 'Languages: '
+	},
 	'en-us': {
 		tagline: 'Waiting lines, explained for software teams: notation, formulas, metrics, and insights.',
 		languages: 'Languages: '

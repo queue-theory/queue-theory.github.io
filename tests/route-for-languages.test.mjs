@@ -28,6 +28,7 @@ const cases = [
 	[['en'], '/en-001/'],
 	[['en-US'], '/en-us/'],
 	[['en-GB'], '/en-gb/'],
+	[['en-IE'], '/en-ie/'],
 	[['en-AU'], '/en-001/'],
 	[['es'], '/es-001/'],
 	[['es-MX'], '/es-mx/'],
