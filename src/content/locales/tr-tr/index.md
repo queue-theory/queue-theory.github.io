@@ -1,0 +1,648 @@
+# Kuyruk teorisi
+
+Kuyruk teorisi, bekleme hatlarının, yani kuyrukların matematiksel incelemesidir.
+Kuyruk teorisini yazılım geliştirmemizde; uygulamalarımızı ve süreçlerimizi
+analiz etmek ve iyileştirmek gibi amaçlarla kullanırız. Örneğin müşteri
+hizmetlerindeki yanıt verme hızımız, proje yönetimindeki kanban planlamamız,
+süreçler arası iletişimdeki mesaj kuyruklarımız ve devops sürekli dağıtım
+hatlarımız bunlar arasındadır.
+
+İçindekiler:
+
+- [Giriş](#giriş)
+  - [Müşteri hizmetlerinde yanıt verme hızı](#müşteri-hizmetlerinde-yanıt-verme-hızı)
+  - [Proje yönetiminde kanban planlaması](#proje-yönetiminde-kanban-planlaması)
+  - [Süreçler arası iletişim için mesaj kuyrukları](#süreçler-arası-iletişim-için-mesaj-kuyrukları)
+  - [Devops sürekli dağıtım hatları](#devops-sürekli-dağıtım-hatları)
+- [Kuyruk terminolojisi](#kuyruk-terminolojisi)
+  - [Kuyruk türleri ve hizmet türleri](#kuyruk-türleri-ve-hizmet-türleri)
+- [Kuyruk teorisi gösterimi](#kuyruk-teorisi-gösterimi)
+  - [Sayım](#sayım)
+  - [Varış hızı, hizmet hızı](#varış-hızı-hizmet-hızı)
+  - [Kullanım oranı, diğer adıyla trafik yoğunluğu](#kullanım-oranı-diğer-adıyla-trafik-yoğunluğu)
+  - [Çıktı hızları: toplam hız, başarı hızı, başarısızlık hızı, atlama hızı](#çıktı-hızları-toplam-hız-başarı-hızı-başarısızlık-hızı-atlama-hızı)
+  - [Hizmet hızı kavramının netleştirilmesi](#hizmet-hızı-kavramının-netleştirilmesi)
+  - [Atlama hızı](#atlama-hızı)
+  - [Hata oranı](#hata-oranı)
+  - [Teslim süresi, adım süresi, çalışma süresi, bekleme süresi](#teslim-süresi-adım-süresi-çalışma-süresi-bekleme-süresi)
+  - [Standart gösterim](#standart-gösterim)
+- [Kuyruk matematiği](#kuyruk-matematiği)
+  - [Kullanım eğrisi](#kullanım-eğrisi)
+  - [Kingman formülü](#kingman-formülü)
+  - [Havuzlama ve Erlang C](#havuzlama-ve-erlang-c)
+- [Etkinlik takibi](#etkinlik-takibi)
+  - [Etkinlik örnekleri](#etkinlik-örnekleri)
+  - [Little Yasası](#little-yasası)
+  - [Temel performans göstergeleri (KPI'lar)](#temel-performans-göstergeleri-kpilar)
+- [Hizmet metrikleri](#hizmet-metrikleri)
+  - [Ortalama yanıt, onarım, kurtarma ve çözüm süresi](#ortalama-yanıt-onarım-kurtarma-ve-çözüm-süresi)
+  - [DORA metrikleri](#dora-metrikleri)
+- [Kuyruklardan oluşan kuyruk](#kuyruklardan-oluşan-kuyruk)
+  - [Double Diamond tipi kuyruklardan oluşan kuyruk](#double-diamond-tipi-kuyruklardan-oluşan-kuyruk)
+  - [Huni tipi kuyruklardan oluşan kuyruk](#huni-tipi-kuyruklardan-oluşan-kuyruk)
+- [Çıkarımlar](#çıkarımlar)
+- [Sonsöz](#sonsöz)
+  - [Ayrıca bakınız](#ayrıca-bakınız)
+  - [Teşekkürler](#teşekkürler)
+- [Proje bilgileri](#proje-bilgileri)
+
+## Giriş
+
+Kuyruk teorisini projelerimizde birçok amaçla kullanırız:
+
+- Müşteri hizmetlerinde yanıt verme hızı
+
+- Proje yönetiminde kanban planlaması
+
+- Süreçler arası iletişim için mesaj kuyrukları
+
+- Devops sürekli dağıtım hatları
+
+### Müşteri hizmetlerinde yanıt verme hızı
+
+Örneğin müşterilerin satış ve destek yardımını nasıl talep ettiğini ve bizim ne kadar hızlı yanıt verdiğimizi analiz etmek isteriz.
+
+İlgili ürünlerden bazıları örneğin şunlardır: [Salesforce](https://wikipedia.org/wiki/Salesforce), [LiveChat](https://wikipedia.org/wiki/LiveChat), [Zendesk](https://wikipedia.org/wiki/Zendesk).
+
+### Proje yönetiminde kanban planlaması
+
+Örneğin yeni bir özellik fikri tasarımdan teslimata doğru ilerlerken teslim sürelerini ve ilerleme sürelerini takip etmek isteriz.
+
+İlgili ürünlerden bazıları örneğin şunlardır: [Asana](<https://wikipedia.org/wiki/Asana_(software)>), [Jira](<https://wikipedia.org/wiki/Jira_(software)>), [Microsoft Project](https://wikipedia.org/wiki/Microsoft_Project).
+
+### Süreçler arası iletişim için mesaj kuyrukları
+
+Örneğin bir program başka bir programa istek gönderirken çıktıyı en üst düzeye çıkarmak ve baskıyı en aza indirmek isteriz.
+
+İlgili ürünlerden bazıları örneğin şunlardır: [RabbitMQ](https://wikipedia.org/wiki/RabbitMQ), [ActiveMQ](https://wikipedia.org/wiki/Apache_ActiveMQ), [ZeroMQ](https://wikipedia.org/wiki/ZeroMQ).
+
+### Devops sürekli dağıtım hatları
+
+Örneğin sürekli entegrasyon sunucumuzun yazılımımızı test edip ardından dağıtacak kapasiteye sahip olduğundan emin olmak isteriz.
+
+İlgili ürünlerden bazıları örneğin şunlardır: [Jenkins](<https://wikipedia.org/wiki/Jenkins_(software)>), [Bamboo](<https://wikipedia.org/wiki/Bamboo_(software)>), [Azure DevOps](https://wikipedia.org/wiki/Microsoft_Visual_Studio#Azure_DevOps).
+
+## Kuyruk terminolojisi
+
+Kuyruk terminolojisi geniş bir konudur. Bu bölümde sık kullandığımız terimlerden bazıları yer alır. Örneklerde sırada bekleyen bir müşteri fikrini kullanacağız.
+
+### Kuyruk türleri ve hizmet türleri
+
+Kuyruk türleri ve hizmet türleri, kuyruğun hangi öğeleri işleyeceğini nasıl seçtiğini tanımlar.
+
+- İlk Giren İlk Çıkar (First In First Out, FIFO): en uzun süredir bekleyen müşteriye hizmet verilir.
+
+- Son Giren İlk Çıkar (Last In First Out, LIFO): en kısa süredir bekleyen müşteriye hizmet verilir.
+
+- Öncelik: müşterilere öncelik düzeylerine göre hizmet verilir; bu düzeyler statü, aciliyet, ödeme vb. temellere dayanabilir.
+
+- En Kısa İş Önce (Shortest Job First, SJF): en az hizmete ihtiyaç duyan müşteriye hizmet verilir.
+
+- En Uzun İş Önce (Longest Job First, LJF): en çok hizmete ihtiyaç duyan müşteriye hizmet verilir.
+
+- En Kısa Kalan İşlem Süresi (Shortest Remaining Processing Time, SRPT): SJF gibidir, ancak yeni gelen kısa bir iş, hâlihazırda hizmet görmekte olan daha uzun bir işin önüne geçebilir.
+
+- Round Robin: her müşteriye kısa bir zaman dilimi boyunca hizmet verilir, ardından bir sonraki müşteriye geçilir ve bu tekrarlanır.
+
+- Zaman Paylaşımı, diğer adıyla İşlemci Paylaşımı (Processor Sharing, PS): herkese aynı anda hizmet verilir; hizmet kapasitesi bekleyen herkes arasında eşit olarak dağıtılır.
+
+SJF ve SRPT ortalama beklemeyi en aza indirir, ancak uzun işleri süresiz olarak bekletebilirler (açlık); bu nedenle gerçek sistemler genellikle yaşlandırma (aging) ya da öncelik sınırları ekler.
+
+## Kuyruk teorisi gösterimi
+
+Kuyruk teorisi, Yunan harfleriyle yazılan bir gösterim kullanır.
+
+Ekiplerimiz yaygın gösterimin bir kısmını kullanır; ayrıca yazılım projelerinde işimize yarayan bazı özel gösterimler de ekleriz.
+
+Bizim gösterimimizden standart ders kitabı gösterimine geçiş tablosu:
+
+| Bizim | Standart | Anlamı                                                                              |
+| ----- | -------- | ----------------------------------------------------------------------------------- |
+| κ     | L        | sistemdeki ortalama öğe sayısı: bekleyenler artı üzerinde çalışılanlar              |
+| λ     | λ        | sisteme giren öğelerin varış hızı                                                   |
+| μ     | μ        | hizmet hızı, diğer adıyla kapasite: bir sunucunun meşgulken ne kadar hızlı çalıştığı |
+| ρ     | ρ        | kullanım: sunucuların meşgul olduğu zamanın oranı, λ / (c μ)                        |
+| χ     | X        | çıktı hızı, diğer adıyla ayrılış hızı: herhangi bir nedenle gözlenen çıktı          |
+| α     | yok      | başarı hızı: doğru çıkan gözlenen çıktı                                             |
+| β     | yok      | başarısızlık hızı: yanlış çıkan gözlenen çıktı                                      |
+| δ     | yok      | atlama hızı, diğer adıyla bırakma hızı: girip hizmet almadan ayrılan öğeler        |
+| ε     | yok      | hata oranı β / (α + β)                                                              |
+| τ     | W        | sistemde geçen ortalama süre, diğer adıyla teslim süresi                            |
+| ω     | Wq       | kuyrukta beklenen ortalama süre                                                     |
+| φ     | S        | ortalama hizmet süresi, diğer adıyla çalışma süresi; μ = 1 / S                      |
+| θ     | yok      | tamamlanmalar arasındaki adım süresi; kararlı durumda ortalama adım süresi ≈ 1 / χ |
+
+Başka kaynakları okurken sembol çakışmalarına dikkat edin: σ genellikle standart sapma anlamına gelir; bu yüzden atlama hızı için δ kullanırız. θ ise Erlang-A çağrı merkezi modellerinde çoğu zaman vazgeçme hızı anlamına gelirken biz θ'yı adım süresi için kullanırız.
+
+### Sayım
+
+Öğeleri sık sık sayarız ve şu gösterimi kullanırız:
+
+- κ (kappa): sistemdeki öğe sayısı, yani bekleyen öğeler artı üzerinde çalışılan öğeler
+
+Örnek:
+
+- κ = 100, sistemde 100 öğe olduğu anlamına gelir.
+
+- κ > 100, sistemde 100'den fazla öğe olduğu anlamına gelir.
+
+- κ ≫ 100, sistemde 100'den çok daha fazla öğe olduğu anlamına gelir.
+
+κ = 100 gibi bir sayım, tek bir andaki anlık görüntüdür. Little Yasası'nda κ, uzun dönem ortalama sayımı ifade eder; bu da ders kitabındaki L'dir. Yalnızca sırada bekleyen öğeler için ders kitabı sembolü Lq'dur.
+
+### Varış hızı, hizmet hızı
+
+En önemli gösterim:
+
+- λ (lambda): varış hızı. Kuyruğa yeni öğelerin ne kadar hızlı geldiğini ölçer.
+
+- μ (mu): hizmet hızı, diğer adıyla kapasite. Bir sunucunun meşgulken öğeleri ne kadar hızlı işleyebildiğini ölçer.
+
+Tek sunuculu geleneksel kuyruklar için genel durum örnekleri:
+
+- λ < μ, varış hızının hizmet hızından küçük olduğu anlamına gelir; kuyruk kararlıdır, yani sonlu bir ortalama boyut etrafında dalgalanır.
+
+- λ = μ, varış hızının hizmet hızına eşit olduğu anlamına gelir; en ufak bir rastlantısallık bile olsa kuyruk kayar ve sınırsız büyür.
+
+- λ > μ, varış hızının hizmet hızından büyük olduğu anlamına gelir; kuyruk zaman birimi başına yaklaşık λ − μ öğe kadar sürekli büyür.
+
+"λ = μ kuyruğu aynı boyutta tutar" şeklindeki sezgisel düşünce, yalnızca varışlar ve hizmet bir metronom gibi tamamen düzenli olduğunda doğrudur. Gerçek varışlar dalgalıdır (ani yığılmalar halinde gelir); bu nedenle sakin bir dönemde kaybedilen boş zaman asla geri kazanılamaz ve kuyruk bir sonraki yığılmada büyür.
+
+Bazı kuyruk teorisi uygulayıcılarının "hizmet hızı" terimini kapasite yerine gözlenen çıktı anlamında kullandığını unutmayın; bkz. [hizmet hızı kavramının netleştirilmesi](#hizmet-hızı-kavramının-netleştirilmesi).
+
+### Kullanım oranı, diğer adıyla trafik yoğunluğu
+
+Bir kuyruğu özetleyen en önemli gösterim:
+
+- ρ (rho): kullanım oranı, yani sunucuların meşgul olduğu zamanın oranı; tek sunucu için = λ / μ, c sunucu için λ / (c μ)
+
+Örnekler:
+
+- ρ < 1, sunucuların yedek kapasitesi olduğu anlamına gelir; kuyruk kararlıdır. ρ 1'e ne kadar yaklaşırsa beklemeler o kadar uzar; bkz. [kullanım eğrisi](#kullanım-eğrisi).
+
+- ρ = 1, sunucuların sürekli meşgul olduğu anlamına gelir; kuyruk kararsızdır ve sınırsız büyür.
+
+- ρ > 1, varışların kapasiteyi aştığı anlamına gelir; kuyruk büyümektedir.
+
+### Çıktı hızları: toplam hız, başarı hızı, başarısızlık hızı, atlama hızı
+
+Çıktı hızları gözlenen çıktıyı, yani kuyruktan gerçekten ayrılan öğeleri ölçer. Dört geniş kategoride ele alınırlar:
+
+- χ (chi): toplam hız. Birim zamanda herhangi bir nedenle (başarı, başarısızlık, atlama vb.) kuyruktan kaç öğenin çıktığını ölçer.
+
+- α (alpha): başarı hızı. Birim zamanda kaç öğenin doğru çıktığını ölçer; örneğin doğru, eksiksiz, kabul edilmiş.
+
+- β (beta): başarısızlık hızı. Birim zamanda kaç öğenin yanlış çıktığını ölçer; örneğin hatalı, eksik, reddedilmiş.
+
+- δ (delta): atlama hızı, diğer adıyla bırakma hızı. Birim zamanda kaç öğenin kuyruğa girip hizmet almadan ayrıldığını ölçer; örneğin vazgeçmeler, yarıda bırakmalar.
+
+Toplam hız = başarı hızı + başarısızlık hızı + atlama hızı:
+
+- χ = α + β + δ (okunuşu: chi eşittir alpha artı beta artı delta)
+
+χ içinde sayılan her öğe sisteme girmiştir; bu yüzden kararlı durumda toplam hız varış hızına eşittir: χ ≈ λ. Çıktı hızlarının kapasiteyi değil çıktıyı ölçmesinin nedeni budur.
+
+### Hizmet hızı kavramının netleştirilmesi
+
+Bağlama ve uygulayıcıya göre "hizmet hızı" terimi ya "toplam hız" ya da
+"başarı hızı" anlamına gelebilir.
+
+Bunun tarihsel kökenleri vardır ve özellikle başarısızlıkları ve atlamaları
+takip etmenin büyük önem taşıdığı bağlamlarda kuyruk teorisini kullanan
+uygulayıcılar için karışıklığa ve hatalara yol açabilir.
+
+- Teorik Bakış: Hizmet hızı, işlerin başarı, başarısızlık, atlama vb. olup olmadığından bağımsız olarak saf bir hız ölçüsüdür (ör. saniyedeki iş sayısı).
+
+- İşleme Bakışı: Hizmet hızı, kuyruğun işlemeye zaman harcadığı her şeyi, yani başarıları veya başarısızlıkları kapsar, ancak atlamaları kapsamaz.
+
+- Teknoloji Bakışı: Yazılım mühendisliği gibi uygulamalı alanlarda hizmet hızı yalnızca başarıları ölçer; hata hızı başarısızlıkları, atlama hızı ise bırakmaları ölçer.
+
+Bu nedenle μ'yü kapasite için koruruz ve onun yerine koymak yerine yanına gözlenen çıktı hızlarını ekleriz:
+
+- μ (mu): hizmet hızı, diğer adıyla kapasite. Bir sunucunun meşgulken öğeleri ne kadar hızlı işleyebildiğini ölçer.
+
+- χ (chi): toplam hız. Birim zamanda herhangi bir nedenle (başarı, başarısızlık, atlama vb.) kuyruktan kaç öğenin çıktığını ölçer.
+
+- α (alpha): başarı hızı. Birim zamanda kaç öğenin doğru çıktığını ölçer; örneğin doğru, eksiksiz, kabul edilmiş.
+
+Neden μ'yü χ ya da α ile değiştirmiyoruz? Kararlı bir kuyrukta giren her öğe eninde sonunda ayrılır, dolayısıyla χ ≈ λ olur. Bu durumda yük ne olursa olsun λ / χ ≈ 1 olur ve bu, sunucuların ne kadar meşgul olduğu hakkında hiçbir şey söylemez. Kullanım için kapasite gerekir: ρ = λ / (c μ); bu da sunucuların meşgul olduğu zamanın oranına eşittir.
+
+### Atlama hızı
+
+Atlama hızının ayrıntıları:
+
+- δ (delta): atlama hızı, diğer adıyla bırakma hızı. Kaç öğenin kuyruğa girip işlenmeden ayrıldığını ölçer.
+
+Atlama, bir öğenin kuyruğa girip kayda değer bir işlem görmeden ayrılmasıdır:
+
+- Vazgeçme (abandoning): bir müşterinin kuyruğa katılıp herhangi bir nedenle ayrılmasıdır.
+
+- Yarıda bırakma (reneging): bir süre beklemiş olan bir müşterinin çok fazla zaman kaybettiğini düşünerek ayrılmaya karar vermesidir.
+
+İlişkili iki davranış atlama sayılmaz:
+
+- Katılmaktan kaçınma (balking): bekleme süresinin çok uzun olacağı endişesiyle bir müşterinin kuyruğa hiç katılmamaya karar vermesidir. Kaçınılan bir öğe sisteme hiç girmez, yani sistem sınırının dışındadır: λ, χ veya δ içinde sayılmaz. Kaçınmalar önemliyse (örneğin kaybedilen satışlar), bunları geri çevrilen varışlar olarak ayrıca sayın.
+
+- Sıra değiştirme (jockeying): bir müşterinin daha kısa bir bekleme elde etmek için kasa şeritleri gibi paralel kuyruklar arasında geçiş yapmasıdır.
+
+### Hata oranı
+
+Bir kuyruğun başarısını özetleyen en önemli gösterim:
+
+- ε (epsilon): hata oranı = başarısızlık sayısı / (başarı sayısı + başarısızlık sayısı) = β / (α + β)
+
+Atlamalar hariç tutulur, çünkü atlanan bir öğeye hiç hizmet verilmemiştir; dolayısıyla ne doğrudur ne de yanlıştır. Atlamaları δ ile ayrıca takip edin.
+
+Örnekler:
+
+- ε = 0, hiç hata olmadığı anlamına gelir.
+
+- ε = 0,1, hizmetlerin %10'unda hata olduğu anlamına gelir.
+
+- ε = 1, her hizmette hata olduğu anlamına gelir.
+
+### Teslim süresi, adım süresi, çalışma süresi, bekleme süresi
+
+Dört süreyi takip ederiz:
+
+- τ (tau): teslim süresi = kuyruğun başlangıcından kuyruğun bitişine kadar
+
+- θ (theta): adım süresi = bir bitişten bir sonraki bitişe kadar; bir adım süresi tek bir aralıktır, ortalama adım süresi ise ortalama aralıktır
+
+- φ (phi): çalışma süresi = fiilî iş yapmaya harcanan süre, diğer adıyla işlem süresi
+
+- ω (omega): bekleme süresi = fiilî iş yapılmadan geçen süre, diğer adıyla askıda kalma süresi
+
+Örnekler:
+
+- τ = 5 sn, bir öğenin kuyruğa eklendiği ve 5 saniye sonra hizmetinin tamamlandığı anlamına gelir.
+
+- ω = 4 sn, bir öğenin kuyrukta 4 saniye beklediği ve ardından üzerinde çalışılmaya başlandığı anlamına gelir.
+
+- φ = 1 sn, bir öğenin 1 saniyelik iş gerektirdiği ve ardından tamamlandığı anlamına gelir.
+
+- θ = 1 sn, bir tamamlanma ile bir sonraki tamamlanma arasında 1 saniye olduğu anlamına gelir.
+
+İlişkiler:
+
+- τ = ω + φ: teslim süresi, bekleme süresi artı çalışma süresidir. Örneklerde 5 sn = 4 sn + 1 sn.
+
+- ortalama θ ≈ 1 / χ: kararlı durumda ortalama adım süresi, toplam hızın tersidir. Tek bir aralık hız hakkında pek az şey söyler; birçok aralığın ortalaması ise çok şey söyler. Örneklerde ortalama adım süresi 1 sn ise χ ≈ saniyede 1 öğedir.
+
+### Standart gösterim
+
+Kuyruk teorisinin standart gösterimi, bir kuyruğu A/S/c/K/N/D biçiminde yazılan Kendall gösterimiyle tanımlar:
+
+- A: varış süreci, yani varışlar arasındaki sürenin dağılımı.
+
+- S: hizmet süreci, yani hizmet sürelerinin dağılımı.
+
+- c: sunucu sayısı.
+
+- K: kapasite, yani yeni varışlar geri çevrilmeden önce sistemde (bekleyen veya hizmet alan) bulunmasına izin verilen en fazla öğe sayısı.
+
+- N: popülasyon, yani olası müşteri sayısı.
+
+- D: disiplin, yani FIFO veya LIFO gibi kuyruk türü.
+
+A ve S için yaygın harfler:
+
+- M: Markov, diğer adıyla belleksiz; Poisson varışlarından doğan üstel süreler anlamına gelir.
+
+- D: Deterministik, yani sabit süreler.
+
+- G: Genel, yani herhangi bir dağılım.
+
+Son üçü yazılmadığında varsayılan değerler K = ∞, N = ∞, D = FIFO'dur. Örneğin "M/M/1"; Poisson varışları, üstel hizmet süreleri, tek sunucu, sınırsız kapasite, sınırsız popülasyon ve ilk giren ilk çıkar anlamına gelir.
+
+Standart gösterimde n, sistemdeki öğe sayısını ifade etmek için de kullanılır.
+
+## Kuyruk matematiği
+
+Matematik bölümleri, başka kaynaklarla karşılaştırabilmeniz için ders kitabı sembollerini kullanır: S ortalama hizmet süresidir, yani bizim φ'miz; μ = 1 / S ise bir sunucunun kapasitesidir. Geçiş tablosu için bkz. [kuyruk teorisi gösterimi](#kuyruk-teorisi-gösterimi).
+
+### Kullanım eğrisi
+
+Kuyruk teorisindeki en önemli tek sonuç: kullanım %100'e yaklaştıkça bekleme süresi sınırsız büyür ve en hızlı büyüme sona doğru olur.
+
+S'nin ortalama hizmet süresi olduğu bir M/M/1 kuyruğu için:
+
+- Teslim süresi τ = S / (1 − ρ)
+
+- Bekleme süresi ω = S × ρ / (1 − ρ)
+
+| Kullanım ρ | Teslim süresi τ | Bekleme süresi ω |
+| ---------- | --------------- | ---------------- |
+| %50        | 2 × S           | 1 × S            |
+| %70        | 3,3 × S         | 2,3 × S          |
+| %80        | 5 × S           | 4 × S            |
+| %90        | 10 × S          | 9 × S            |
+| %95        | 20 × S          | 19 × S           |
+| %99        | 100 × S         | 99 × S           |
+
+Örnek: bir kod incelemesi 1 saatlik iş gerektirir. İnceleyenler %80 meşgulse bir inceleme, talepten tamamlanmaya kadar yaklaşık 5 saat sürer. İnceleyenler %95 meşgulse, inceleyenler yalnızca 15 yüzde puanı daha meşgul olmasına rağmen yaklaşık 20 saat sürer.
+
+"Herkesi %100 meşgul tutun" yaklaşımının uzun teslim sürelerinin reçetesi olmasının ve aşağıdaki [çıkarımların](#çıkarımlar) yüksek kullanıma göre planlama yapmaya karşı uyarmasının nedeni budur.
+
+### Kingman formülü
+
+Kingman formülü, diğer adıyla VUT denklemi, herhangi bir varış ve hizmet dağılımına sahip tek sunuculu bir kuyruk (G/G/1) için bekleme süresini yaklaşık olarak hesaplar:
+
+- ω ≈ (ρ / (1 − ρ)) × ((ca² + cs²) / 2) × S
+
+Üç çarpan şunlardır:
+
+- U: kullanım çarpanı ρ / (1 − ρ); bu, yukarıdaki kullanım eğrisidir.
+
+- V: değişkenlik çarpanı (ca² + cs²) / 2; burada ca varışlar arasındaki sürenin değişim katsayısı, cs ise hizmet sürelerinin değişim katsayısıdır. Değişim katsayısı, standart sapmanın ortalamaya bölümüdür.
+
+- T: zaman çarpanı S, yani ortalama hizmet süresi.
+
+Örnek: bir M/M/1 kuyruğu için ca = cs = 1'dir, dolayısıyla V = 1 olur ve formül kullanım eğrisiyle aynı bekleme süresini verir. İş öğelerini daha tekdüze hâle getirirseniz, örneğin büyük biletleri bölerek cs'yi 1'den 0'a yakın bir değere düşürürseniz, V yaklaşık 0,5'e düşer ve aynı kullanımda bekleme süresi kabaca yarıya iner.
+
+Kingman formülü, bekleme süresini azaltmanın üç kaldıracını gösterir:
+
+- Kullanımı azaltın; örneğin kapasite ekleyerek veya devam eden işi sınırlayarak.
+
+- Değişkenliği azaltın; örneğin daha küçük partiler, daha tekdüze iş öğeleri veya daha düzgün varışlarla.
+
+- Hizmet süresini azaltın; örneğin otomasyonla.
+
+### Havuzlama ve Erlang C
+
+Birden fazla sunucuyu besleyen tek bir ortak kuyruk, her biri tek bir sunucuyu besleyen ayrı kuyruklardan daha iyidir. Bankaların birçok gişeyi besleyen tek bir sıra kullanmasının ve ortak bir destek kuyruğunun temsilci başına ayrı kuyruklardan üstün olmasının nedeni budur.
+
+Örnek: iki sunucunun her biri öğe başına 1 saat harcıyor ve öğeler toplamda saatte 1,6 öğe hızıyla geliyor; dolayısıyla kullanım %80'dir.
+
+- Ayrı kuyruklar: her sunucu saatte 0,8 varışlı bir M/M/1 kuyruğudur; dolayısıyla teslim süresi 1 / (1 − 0,8) = 5 saattir.
+
+- Havuzlanmış kuyruk: iki sunucu bir M/M/2 kuyruğunu paylaşır; dolayısıyla teslim süresi yaklaşık 2,8 saattir. Bu, aynı kişiler ve aynı işle yaklaşık %44 daha azdır.
+
+Erlang C formülü, sunulan yükün a = λ / μ ve kullanımın ρ = a / c olduğu bir M/M/c kuyruğunda, gelen bir öğenin beklemek zorunda kalma olasılığını hesaplar:
+
+- P(wait) = ((aᶜ / c!) / (1 − ρ)) / (Σₖ₌₀ᶜ⁻¹ (aᵏ / k!) + (aᶜ / c!) / (1 − ρ))
+
+- Bekleme süresi ω = P(wait) / (c μ − λ)
+
+Müşteri hizmetleri ekipleri, "aramaların %80'inin 20 saniye içinde yanıtlanması" gibi bir hedefi karşılamak için kaç temsilci görevlendireceklerine karar verirken Erlang C'yi kullanır.
+
+Havuzlamanın sınırları vardır: en iyi, herhangi bir sunucunun herhangi bir öğeyi işleyebildiği durumda çalışır. Öğeler uzman gerektiriyorsa havuzlanmış bir kuyruk yönlendirme kurallarına ihtiyaç duyabilir.
+
+## Etkinlik takibi
+
+### Etkinlik örnekleri
+
+Takip etmek istediğimiz bir şey olduğunu ve buna "Etkinlik" gibi genel bir ad verip "A" olarak kısalttığımızı varsayalım.
+
+Etkinliği ve etkinliğin bir kuyrukta nasıl ilerlediğini tanımlamak için kuyruk gösterimini verimli bir şekilde kullanabiliriz.
+
+Örnekler:
+
+- Aκ: Etkinlik sayısı: kuyrukta kaç öğe olduğu.
+
+- Aλ: Etkinlik varış hızı: zaman birimi başına kaç öğenin geldiği.
+
+- Aχ: Etkinlik toplam hızı: zaman birimi başına kuyruktan kaç öğenin çıktığı.
+
+- Aα: Etkinlik başarı hızı: zaman birimi başına kaç öğenin doğru olduğu.
+
+- Aβ: Etkinlik başarısızlık hızı, diğer adıyla hata hızı: zaman birimi başına kaç öğenin yanlış olduğu.
+
+- Aμ: Etkinlik hizmet hızı, diğer adıyla kapasite: bir sunucunun meşgulken zaman birimi başına kaç öğe tamamlayabildiği.
+
+- Aδ: Etkinlik atlama hızı, diğer adıyla bırakma hızı: zaman birimi başına kaç öğeden vazgeçildiği.
+
+- Aρ: Etkinlik kullanım oranı: kullanılabilir zamanın sunucuların meşgul olduğu oranı, yani meşgul süre ÷ kullanılabilir süre veya λ / (c μ).
+
+- Aε: Etkinlik hata oranı: toplama kıyasla kaç öğenin hatalı tamamlandığı.
+
+- Aτ: Etkinlik teslim süresi: talep edilmesinden tamamlanmasına kadar ne kadar zaman geçtiği.
+
+- Aω: Etkinlik bekleme süresi: talep edilmesinden başlanmasına kadar ne kadar zaman geçtiği.
+
+- Aφ: Etkinlik çalışma süresi: başlanmasından tamamlanmasına kadar ne kadar zaman geçtiği.
+
+- Aθ: Etkinlik adım süresi: bir tamamlanmadan bir sonraki tamamlanmaya kadar ne kadar zaman geçtiği.
+
+### Little Yasası
+
+Little Yasası, John Little'a ait bir teoremdir ve şunu söyler: durağan bir sistemdeki uzun dönem ortalama müşteri sayısı L, uzun dönem ortalama etkin varış hızı λ ile bir müşterinin sistemde geçirdiği ortalama süre W'nin çarpımına eşittir.
+
+Örnek gösterim:
+
+- L: sistemdeki uzun dönem ortalama müşteri sayısı. Biz κ (kappa) kullanmayı tercih ederiz.
+
+- λ: uzun dönem ortalama etkin varış hızı, yani sisteme gerçekten giren öğeler; dolayısıyla katılmaktan kaçınmalar hariçtir.
+
+- W: bir öğenin sistemde bulunduğu uzun dönem ortalama süre. Biz τ (tau) kullanmayı tercih ederiz.
+
+- L = λ W, Little Yasası'dır. Biz κ = λ τ (kappa = lambda \* tau) yazmayı tercih ederiz.
+
+Little Yasası dikkat çekici ölçüde geneldir: varış dağılımından, hizmet dağılımından, sunucu sayısından veya kuyruk türünden bağımsız olarak geçerlidir.
+
+Little Yasası'nın varsayımları:
+
+- Tüm ölçü birimleri tutarlıdır.
+
+- Sistem kararlıdır; yani ölçüm dönemi boyunca ortalama varış hızı ortalama ayrılış hızına eşittir ve öğe sayısı başlangıçta ve sonda kabaca aynıdır.
+
+- Yarıda bırakma gibi nedenlerle erken ayrılan öğeler ya hem λ hem τ içinde tutarlı biçimde sayılır ya da her ikisinden tutarlı biçimde hariç tutulur.
+
+Örnek: bir ekipte ortalama κ = 20 bilet üzerinde çalışılıyor ve biletler haftada λ = 4 hızıyla geliyor; kararlı durumda ekip de haftada χ = 4 bilet bitiriyor. Dolayısıyla ortalama bir bilet τ = κ / λ = 5 hafta sürer. Daha hızlı çalışmadan teslim süresini yarıya indirmek için devam eden işi yarıya indirin.
+
+### Temel performans göstergeleri (KPI'lar)
+
+Kuyruktaki etkinliklerle ilgili genellikle birçok şeyi takip ederiz ve sonuçları, projelerimiz için en ilgili olanlardan oluşan kısa bir liste seçerek özetlemek isteriz.
+
+Birçok proje geliştirdik ve en değerli özet göstergelerin şunlar olduğuna inanıyoruz:
+
+- Dτ = Teslimat teslim süresi. Ürün ekipleri "konseptten müşteriye" veya "fikirden uygulamaya" diyebilir.
+
+- Dα = Teslimat başarı hızı. Devops ekipleri "dağıtım sıklığı" veya "günde X kez yayına alıyoruz" diyebilir.
+
+- Dε = Teslimat hata oranı. Kalite ekipleri "değişiklik başarısızlık oranı" veya "geri alma yüzdesi" diyebilir.
+
+- Rτ = Geri yükleme teslim süresi. Site güvenilirliği mühendisleri "başarısız dağıtımdan kurtarma süresi" veya "ortalama geri yükleme süresi (MTTR)" diyebilir.
+
+## Hizmet metrikleri
+
+Faydalı terimler:
+
+- **Hizmet Düzeyi Göstergesi (Service Level Indicator, SLI):** metriğin kendisidir (ör. %99,9 çalışma süresi)
+- **Hizmet Düzeyi Hedefi (Service Level Objective, SLO):** o metrik için belirlenen iç hedeftir (ör. %99,95 çalışma süresini hedeflemek)
+- **Hizmet Düzeyi Anlaşması (Service Level Agreement, SLA):** müşteriye verilen resmî, sözleşmeye dayalı taahhüttür (ör. tutturulamazsa cezaları olan %99,9 çalışma süresi).
+
+### Ortalama yanıt, onarım, kurtarma ve çözüm süresi
+
+MTTR dört farklı ölçümü ifade eder:
+
+| Metrik                                             | Odak                   | Ölçtüğü                                      | Başlangıç                                 | Bitiş                                    |
+| -------------------------------------------------- | ---------------------- | -------------------------------------------- | ----------------------------------------- | ---------------------------------------- |
+| **Ortalama Yanıt Süresi (Mean Time To Respond)**   | İlk tepki              | Olayı kabul edip harekete geçme süresi       | Olay tespit edildiğinde/bildirildiğinde   | Ekip üzerinde çalışmaya başladığında     |
+| **Ortalama Onarım Süresi (Mean Time To Repair)**   | Teknik düzeltme        | Bozuk öğeyi düzeltme süresi                  | Onarım çalışması başladığında             | Öğe düzeltildiğinde                      |
+| **Ortalama Kurtarma Süresi (Mean Time To Recover)** | Hizmetin geri gelmesi | Hizmeti tamamen geri getirme süresi          | Olay/kesinti başladığında                 | Hizmet tamamen çalışır olduğunda         |
+| **Ortalama Çözüm Süresi (Mean Time To Resolve)**   | Tam çözüm              | Tespitten kapanışa kadar geçen toplam süre   | Olay tespit edildiğinde                   | Olay tamamen kapatıldığında              |
+
+**Temel farklar:**
+
+**Yanıt**, ekibin hazırlığını ve uyarı mekanizmalarının etkinliğini ölçer. Kısa bir yanıt süresi, asıl düzeltme daha uzun sürse bile izleme ve nöbet süreçlerinizin iyi çalıştığı anlamına gelir.
+
+**Onarım** dar anlamda tekniktir: üzerinde çalışmaya başladıktan sonra bozuk şeyi gerçekten düzeltmek ne kadar sürer? Tespit süresini, önceliklendirmeyi ve doğrulamayı kapsamaz.
+
+**Kurtarma**, müşterinin bakış açısından hizmetin kullanılabilirliğiyle ilgilidir. Hâlâ verileri geri yüklemeniz, önbellekleri ısıtmanız veya işlevselliği doğrulamanız gerekiyorsa sistem "onarılmış" ama henüz "kurtarılmamış" olabilir.
+
+**Çözüm** en kapsamlı olanıdır: ilk tespitten olay sonrası doğrulamaya ve kapanışa kadar tüm olay yaşam döngüsünü kapsar.
+
+Örnek senaryo:
+
+- 02:00 — Kesinti başlar
+- 02:05 — Uyarı tetiklenir, olay tespit edilir
+- 02:15 — Nöbetçi olayı kabul eder ve çalışmaya başlar → Yanıt süresi: 10 dk (02:05'ten 02:15'e)
+- 02:45 — Kök neden belirlenir, düzeltme dağıtılır → Onarım süresi: 30 dk (02:15'ten 02:45'e)
+- 03:00 — Hizmetin kullanıcılar için çalıştığı doğrulanır → Kurtarma süresi: 60 dk (02:00'den 03:00'e)
+- 03:30 — Doğrulamanın ardından olay bileti kapatılır → Çözüm süresi: 85 dk (02:05'ten 03:30'a)
+
+İlişkili metrikler:
+
+- MTBF (mean time before failure, arızadan önceki ortalama süre)
+- MTTF (mean time to failure, arızaya kadar geçen ortalama süre)
+- MTTA (mean time to acknowledge, kabul etmeye kadar geçen ortalama süre)
+
+### DORA metrikleri
+
+DevOps Research and Assessment (DORA) metrikleri, özellikle yazılım mühendisliği devops ekipleri için sektör standardı temel performans göstergeleridir (KPI'lar). Bkz. [dora.dev](https://dora.dev/guides/dora-metrics/).
+
+DORA artık iki grupta toplanan beş metrik kullanmaktadır.
+
+Çıktı metrikleri:
+
+- **Değişiklik Teslim Süresi (Change Lead Time)** - Bir özellik için kodu geliştirme, test etme ve teslim etme süresi (commit'ten üretim ortamına dağıtıma kadar ölçülür). Başlangıç ve bitişten ne kastettiğinizi açıkça belirtin. Örneğin bazı ekipler, bir geliştiricinin bir bilet üzerinde çalışmaya başladığı andan, geliştiricinin işi sürekli entegrasyon sürecine gönderdiği ana kadar ölçmeyi tercih eder; bu yaklaşım kişisel verimliliği ölçmek için genellikle daha etkilidir.
+
+- **Dağıtım Sıklığı (Deployment Frequency)** - Belirli bir süre içindeki dağıtım sayısı. Dağıtımdan ne kastettiğinizi ve sıklığı nasıl takip ettiğinizi açıkça belirtin. Örneğin bazı ekipler bir üretim sunucuları filosuna dağıtım yapar ve tüm yaygınlaştırmayı takip ederken, diğer ekipler tek bir kullanıcı kabul testi (UAT) sunucusuna dağıtım yapar ve proje yöneticisinin kullanıcılara test etmeyi denemeleri için e-posta duyurusu gönderdiği anı takip eder.
+
+- **Başarısız Dağıtımdan Kurtarma Süresi (Failed Deployment Recovery Time)** - Üretimde arızaya neden olan bir dağıtımdan kurtulmak için geçen süre. Bu metrik daha önce Ortalama Kurtarma Süresi (Mean Time to Recovery, MTTR) veya Hizmeti Geri Yükleme Süresi (Time to Restore Service) olarak adlandırılıyordu. Kurtarmadan ne kastettiğinizi açıkça belirtin. Örneğin bazı ekipler kurtarmayı tam çözüm olarak, yani bir olayın tespit edildiği andan tamamen kapatıldığı ana kadar geçen toplam süre olarak sayar; bu yaklaşım Ortalama Çözüm Süresi olarak daha iyi tanımlanır.
+
+Kararsızlık metrikleri:
+
+- **Değişiklik Başarısızlık Oranı (Change Failure Rate)** - Üretimde arızaya neden olan ve geri alma ya da acil düzeltme (hotfix) gibi derhâl müdahale gerektiren dağıtımların yüzdesi. Başarısızlıktan ne kastettiğinizi açıkça belirtin. Örneğin bazı ekipler, bir iş bileti üzerinde çalışmaya başlayıp ardından biletin ilerlemek için yeterli bilgi içermediğini fark ettiklerinde ve bileti belirtim ekibine geri gönderdiklerinde bunu da başarısızlık olarak sayar.
+
+- **Dağıtım Yeniden İşleme Oranı (Deployment Rework Rate)** - Bir üretim olayını düzeltmek gibi planlanmamış dağıtımların yüzdesi. Bu, planlanmamış dağıtımların toplam dağıtımlara bölümüdür. DORA bu metriği 2024'te ekledi.
+
+Daha önceki DORA raporları, operasyonel bir performans metriği olarak **Güvenilirlik (Reliability)** konusunu da ele alıyordu: kullanılabilirlik, çalışma süresi, gecikme, doğruluk ve hizmet düzeyi hedefleri gibi hizmet tutarlılığının daha geniş, çoğu zaman niteliksel bir değerlendirmesi. Güvenilirlik, yüksek hızın sistem yeteneği pahasına elde edilmediğini göstermeye yardımcı olur.
+
+## Kuyruklardan oluşan kuyruk
+
+Kuyruk teorisi, alt düzey aşamaları, evreleri veya kapıları içeren üst düzey bir süreç gibi kuyruklardan oluşan bir kuyruğa kolayca genişletilebilir.
+
+### Double Diamond tipi kuyruklardan oluşan kuyruk
+
+Örneğin dört aşama belirleyen "Double Diamond" (Çift Elmas) inovasyon süreç modelini düşünün:
+
+1. Keşfet (Discover): Sorunun ne olduğunu yalnızca varsaymak yerine onu anlayın.
+2. Tanımla (Define): Keşif aşamasından elde edilen içgörüyle zorluğu tanımlayın.
+3. Geliştir (Develop): Açıkça tanımlanmış soruna farklı yanıtlar verin.
+4. Teslim et (Deliver): Farklı çözümleri küçük ölçekte test edin, ardından iyileştirin.
+
+Kuyruk teorisi bunu, dört aşama kuyruğu içeren tek bir süreç kuyruğu olarak modelleyebilir:
+
+- Sürecin varış hızı, 1. aşamanın varış hızıdır.
+- Sürecin başarı hızı, 4. aşamanın başarı hızıdır.
+- Sürecin hata sayısı, aşamaların hata sayılarının toplamıdır.
+- Sürecin atlama sayısı, aşamaların atlama sayılarının toplamıdır.
+- Sürecin teslim süresi, aşamaların teslim sürelerinin toplamıdır.
+- Sürecin en yüksek çıktısı, en yavaş aşamanın, diğer adıyla darboğazın çıktısıdır.
+
+### Huni tipi kuyruklardan oluşan kuyruk
+
+Pratik çalışmalarımızda "huni" kelimesini, her aşamada öğe sayısını azaltma eğiliminde olan kuyruklardan oluşan bir kuyruğu genel olarak tanımlamak için sık sık kullanırız:
+
+- Bir erişim aşaması, mülakat aşaması ve teklif aşaması kullanan işe alım kuyruğu. Bu tür bir kuyrukta 1. aşamanın varış hızını en üst düzeye çıkarmayı, yani örneğin tanıtımlar yoluyla erişimimizi artırmayı hedefleriz.
+
+- Bir müşteri arama aşaması, alışveriş sepeti aşaması ve ödeme aşaması kullanan satın alma kuyruğu. Bu tür bir kuyrukta 2. aşamanın atlama hızını en aza indirmeyi, yani örneğin hatırlatmalar yoluyla sepet terkini azaltmayı hedefleriz.
+
+- Bir entegrasyon aşaması, kullanıcı kabul aşaması ve üretime yaygınlaştırma aşaması kullanan programlama kuyruğu. Bu tür bir kuyrukta üretime yaygınlaştırma aşamasının hata hızını, örneğin kanarya telemetrisi yoluyla en aza indirmeyi hedefleriz.
+
+## Çıkarımlar
+
+"The Every Computer Performance Book" kitabının yazarı Bob Wescott'tan kuyruk teorisine dair yedi çıkarım (ayrıca bkz. [Kottke'nin özeti](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
+
+1. Hizmet merkezi ne kadar yavaşsa, en yoğun yük için planlamanız gereken en yüksek kullanım o kadar düşük olmalıdır.
+
+2. Herhangi bir şeyin son %15'ini kullanmak çok zordur.
+
+3. Sınıra ne kadar yakınsanız, yanılmanın bedeli o kadar yüksektir.
+
+4. Yanıt süresindeki artışlar, bekleyebilecek olanların sayısıyla sınırlıdır.
+
+5. Bunun bir en yüksek değer değil, bir ortalama olduğunu unutmayın.
+
+6. Birden fazla hizmet merkezinde insani bir inkâr etkisi vardır.
+
+7. Küçük iyileştirmeleri en iyi şekilde gösterin.
+
+## Sonsöz
+
+### Ayrıca bakınız
+
+Wikipedia:
+
+- [Queueing theory](https://en.wikipedia.org/wiki/Queueing_theory)
+
+- [M/M/1 queue](https://en.wikipedia.org/wiki/M/M/1_queue)
+
+- [Little's law](https://en.wikipedia.org/wiki/Little%27s_law)
+
+- [Markov chain](https://en.wikipedia.org/wiki/Markov_chain)
+
+Birçok projede kuyruk kullandığımız Wikipedia alanları:
+
+- [Project management](https://en.wikipedia.org/wiki/Project_management)
+
+- [Message queue](https://en.wikipedia.org/wiki/Message_queue)
+
+- [DevOps](https://en.wikipedia.org/wiki/DevOps)
+
+John D. Cook'un giriş yazıları:
+
+- [The science of waiting in line](https://www.johndcook.com/blog/2019/01/23/queueing/)
+
+- [Server utilization: Joel on queuing](https://www.johndcook.com/blog/2009/01/30/server-utilization-joel-on-queuing/)
+
+- [What happens when you add a new teller?](https://www.johndcook.com/blog/2008/10/21/what-happens-when-you-add-a-new-teller/)
+
+Daha ayrıntılı giriş yazıları:
+
+- [Queuing Theory: Simple Definition, Notation and Terminology](https://www.statisticshowto.com/queuing-theory/)
+
+- [The most important thing to understand about queues - By Dan Slimmon](https://blog.danslimmon.com/2016/08/26/the-most-important-thing-to-understand-about-queues/)
+
+- [Operations Research - Notes. By J E Beasley](https://people.brunel.ac.uk/~mastjjb/jeb/or/queue.html)
+
+- [Little’s Law – the basis of Lean and Kanban](https://itsadeliverything.com/littles-law-the-basis-of-lean-and-kanban)
+
+- [Waiting time, load factor, and queueing theory - By Erik Bernhardsson](https://erikbern.com/2018/03/27/waiting-time-load-factor-and-queueing-theory)
+
+- [Investopedia: Queueing theory](https://www.investopedia.com/terms/q/queuing-theory.asp)
+
+- [It's time for some queueing theory - By Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)
+
+Formüller:
+
+- [Kendall's notation](https://en.wikipedia.org/wiki/Kendall%27s_notation)
+
+- [Kingman's formula](https://en.wikipedia.org/wiki/Kingman%27s_formula)
+
+- [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
+
+### Teşekkürler
+
+[Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Bu kitap üst düzey devops için mükemmeldir ve KPI seçimimizi doğrudan şekillendirir. Bu sayfadaki KPI'lar kitabın önerileriyle uyumludur.
+
+## Proje bilgileri
+
+- Paket: queue-theory
+- Sürüm: 3.0.0
+- Oluşturulma: 2019-01-25T04:17:56Z
+- Güncellenme: 2026-11-23T15:33:48Z
+- Lisans: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-NC-SA-4.0` veya diğer koşullar için bizimle iletişime geçin (bkz. [LICENSE.md](LICENSE.md))
+- İletişim: Joel Parker Henderson <joel@joelparkerhenderson.com>

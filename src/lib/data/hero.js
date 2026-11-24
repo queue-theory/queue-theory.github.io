@@ -188,6 +188,14 @@ export const HERO = {
 		tagline: 'Mwongozo wa foleni kwa timu za programu: nukuu, fomula, vipimo, maarifa.',
 		languages: 'Lugha:'
 	},
+	'tr-001': {
+		tagline: 'Yazılım ekipleri için kuyruk rehberi: gösterim, formüller, metrikler, çıkarımlar.',
+		languages: 'Diller:'
+	},
+	'tr-tr': {
+		tagline: 'Yazılım ekipleri için kuyruk rehberi: gösterim, formüller, metrikler, çıkarımlar.',
+		languages: 'Diller:'
+	},
 	'ur-001': {
 		tagline: 'سافٹ ویئر ٹیموں کے لیے قطار کی رہنمائی: علامات، فارمولے، پیمانے، بصیرتیں۔',
 		languages: 'زبانیں:'
@@ -234,6 +242,7 @@ export const ENDONYMS = {
 	'ru-001': 'Русский',
 	'sv-001': 'Svenska',
 	'sw-001': 'Kiswahili',
+	'tr-001': 'Türkçe',
 	'ur-001': 'اردو',
 	'vi-001': 'Tiếng Việt',
 	'zh-001': '中文'
