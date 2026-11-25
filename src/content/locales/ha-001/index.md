@@ -19,12 +19,12 @@ Abubuwan da ke ciki:
   - [Ƙidaya](#ƙidaya)
   - [Yawan isowa, yawan sabis](#yawan-isowa-yawan-sabis)
   - [Rabon amfani wato ƙarfin zirga-zirga](#rabon-amfani-wato-ƙarfin-zirga-zirga)
-  - [Yawan fitarwa: jimillar yawa, yawan nasara, yawan gazawa, yawan tsallakewa](#yawan-fitarwa-jimillar-yawa-yawan-nasara-yawan-gazawa-yawan-tsallakewa)
+  - [Yawan fitarwa: jimillar yawa, yawan kammalawa, yawan nasara, yawan gazawa, yawan tsallakewa](#yawan-fitarwa-jimillar-yawa-yawan-kammalawa-yawan-nasara-yawan-gazawa-yawan-tsallakewa)
   - [Bayyana ma'anar yawan sabis](#bayyana-maanar-yawan-sabis)
   - [Yawan tsallakewa](#yawan-tsallakewa)
   - [Rabon kuskure](#rabon-kuskure)
   - [Lokacin jagora, lokacin mataki, lokacin aiki, lokacin jira](#lokacin-jagora-lokacin-mataki-lokacin-aiki-lokacin-jira)
-  - [Daidaitattun alamomi](#daidaitattun-alamomi)
+  - [Alamomin Kendall](#alamomin-kendall)
 - [Lissafin layi](#lissafin-layi)
   - [Lanƙwasan amfani](#lanƙwasan-amfani)
   - [Dabarar Kingman](#dabarar-kingman)
@@ -113,41 +113,50 @@ Ka'idar layi tana amfani da alamomi masu haruffan Girka.
 
 Ƙungiyoyinmu suna amfani da wasu shahararrun alamomi; muna kuma ƙara wasu alamomi na musamman da ke taimaka mana a ayyukan manhaja.
 
-Kwatanci daga alamominmu zuwa daidaitattun alamomin littattafan karatu:
+Alamarmu da ma'anar kowace alama:
 
-| Namu | Daidaitacce | Ma'ana |
-| ---- | ----------- | ------ |
-| κ | L | matsakaicin adadin abubuwa a cikin tsarin, masu jira tare da waɗanda ake aiki a kansu |
-| λ | λ | yawan isowar abubuwan da ke shiga tsarin |
-| μ | μ | yawan sabis wato ƙarfi: saurin aikin mai sabis ɗaya yayin da yake aiki |
-| ρ | ρ | amfani: ɓangaren lokacin da masu sabis ke aiki, λ / (c μ) |
-| χ | X | yawan fitarwa wato yawan tashi: fitarwar da aka lura, saboda kowane dalili |
-| α | babu | yawan nasara: fitarwar da aka lura wadda ta zama daidai |
-| β | babu | yawan gazawa: fitarwar da aka lura wadda ta zama ba daidai ba |
-| δ | babu | yawan tsallakewa wato yawan ficewa: abubuwan da suka shiga, sannan suka fita ba tare da sabis ba |
-| ε | babu | rabon kuskure β / (α + β) |
-| τ | W | matsakaicin lokaci a cikin tsarin wato lokacin jagora |
-| ω | Wq | matsakaicin lokacin jira a cikin layi |
-| φ | S | matsakaicin lokacin sabis wato lokacin aiki; μ = 1 / S |
-| θ | babu | lokacin mataki tsakanin kammalawa; matsakaicin lokacin mataki ≈ 1 / χ a cikin daidaitaccen yanayi |
-
-Ku yi hattara da cin karo da alamomi lokacin da kuke karanta wasu majiyoyi: σ yawanci tana nufin karkacewar ma'auni (standard deviation), shi ya sa muke amfani da δ don yawan tsallakewa, kuma θ sau da yawa tana nufin yawan barin layi a cikin samfuran cibiyar kira na Erlang-A, yayin da mu muke amfani da θ don lokacin mataki.
+| Alamarmu | Ma'ana |
+| -------- | ------ |
+| κ (kappa) | adadin abubuwa a cikin tsarin, masu jira tare da waɗanda ake aiki a kansu |
+| λ (lambda) | yawan isowar abubuwan da ke shiga tsarin |
+| μ (mu) | yawan sabis wato ƙarfi: saurin aikin mai sabis ɗaya yayin da yake aiki |
+| ρ (rho) | amfani: ɓangaren lokacin da masu sabis ke aiki, λ / (c μ) |
+| χ (chi) | yawan fitarwa wato yawan tashi: fitarwar da aka lura, saboda kowane dalili |
+| α (alpha) | yawan nasara: fitarwar da aka lura wadda ta zama daidai |
+| β (beta) | yawan gazawa: fitarwar da aka lura wadda ta zama ba daidai ba |
+| δ (delta) | yawan kammalawa: nasara + gazawa, abubuwan da aka yi musu sabis, ko sakamakon daidai ne ko kuskure |
+| σ (sigma) | yawan tsallakewa: abubuwan da suka shiga, sannan suka fita ba tare da sabis ba |
+| ε (epsilon) | rabon kuskure: β / (α + β) = β / δ |
+| τ (tau) | lokaci a cikin tsarin wato lokacin jagora |
+| ω (omega) | lokacin jira wato lokaci a cikin layi |
+| φ (phi) | lokacin aiki wato lokaci a cikin na'urar sarrafawa wato lokacin sabis |
+| θ (theta) | lokacin mataki tsakanin kammalawa; matsakaicin lokacin mataki ≈ 1 / χ a cikin daidaitaccen yanayi |
 
 ### Ƙidaya
 
 Muna yawan ƙidaya abubuwa, kuma muna amfani da wannan alamar:
 
-- κ (kappa): ƙidayar abubuwa a cikin tsarin, wato abubuwan da ke jira tare da abubuwan da ake aiki a kansu
+- κ (kappa): ƙidayar abubuwa a cikin tsarin, wato abubuwan da ke jira tare da abubuwan da ake aiki a kansu.
+
+![Zane: abubuwa suna zuwa da yawan λ, akwai abubuwa κ a cikin tsarin, kuma abubuwa suna fita da fitarwa χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Misali:
 
-- κ = 100 yana nufin akwai abubuwa 100 a cikin tsarin.
+- κ = 10 yana nufin daidai 10
 
-- κ > 100 yana nufin akwai abubuwa fiye da 100 a cikin tsarin.
+- κ ≈ 10 yana nufin kusan 10
 
-- κ ≫ 100 yana nufin akwai abubuwa masu yawa fiye da 100 a cikin tsarin.
+- κ < 10 yana nufin ƙasa da 10
 
-Ƙidaya kamar κ = 100 hoto ne na lokaci guda. A cikin Dokar Little, κ tana nufin matsakaicin ƙidaya na dogon lokaci, wadda ita ce L ta littattafan karatu. Alamar littattafan karatu don abubuwan da ke jira a layi kaɗai ita ce Lq.
+- κ > 10 yana nufin fiye da 10
+
+- κ ≪ 10 yana nufin ƙasa da 10 sosai
+
+- κ ≫ 10 yana nufin fiye da 10 sosai
+
+Ƙidaya κ (kappa) hoto ne na lokaci guda.
+
+Matsakaicin ƙidaya κ̅ (kappa mai layi) lissafi ne da ke ɗaukar matsakaicin ma'auni a tsawon wani lokaci na musamman, misali auna kowace awa har tsawon mako biyu.
 
 ### Yawan isowa, yawan sabis
 
@@ -183,9 +192,9 @@ Misalai:
 
 - ρ > 1 yana nufin isowa ta zarce ƙarfi; layin yana ƙara girma.
 
-### Yawan fitarwa: jimillar yawa, yawan nasara, yawan gazawa, yawan tsallakewa
+### Yawan fitarwa: jimillar yawa, yawan kammalawa, yawan nasara, yawan gazawa, yawan tsallakewa
 
-Yawan fitarwa yana auna fitarwar da aka lura, wato abubuwan da suka fita daga layi a zahiri. Suna zuwa cikin manyan rukunoni huɗu:
+Yawan fitarwa yana auna fitarwar da aka lura, wato abubuwan da suka fita daga layi a zahiri. Suna zuwa cikin manyan rukunoni biyar:
 
 - χ (chi): jimillar yawa. Wannan yana auna abubuwa nawa a kowane lokaci ke fita daga layi saboda kowane dalili: nasara, gazawa, tsallakewa, da sauransu.
 
@@ -193,11 +202,23 @@ Yawan fitarwa yana auna fitarwar da aka lura, wato abubuwan da suka fita daga la
 
 - β (beta): yawan gazawa. Wannan yana auna abubuwa nawa a kowane tsawon lokaci suka zama ba daidai ba misali marasa inganci, marasa cikawa, waɗanda aka ƙi.
 
-- δ (delta): yawan tsallakewa wato yawan ficewa. Wannan yana auna abubuwa nawa a kowane tsawon lokaci ke shiga layi, sannan su fita ba tare da an yi musu sabis ba, misali barin layi, janyewa.
+- δ (delta): yawan kammalawa. Wannan yana auna abubuwa nawa a kowane tsawon lokaci ake yi musu sabis, ko sakamakon daidai ne ko kuskure: nasara + gazawa.
+
+- σ (sigma): yawan tsallakewa. Wannan yana auna abubuwa nawa a kowane tsawon lokaci ke shiga layi, sannan su fita ba tare da an yi musu sabis ba, misali barin layi, janyewa.
+
+Yawan kammalawa = yawan nasara + yawan gazawa:
+
+- δ = α + β (ana furtawa: delta daidai da alpha da beta)
+
+Jimillar yawa = yawan kammalawa + yawan tsallakewa:
+
+- χ = δ + σ (ana furtawa: chi daidai da delta da sigma)
 
 Jimillar yawa = yawan nasara + yawan gazawa + yawan tsallakewa:
 
-- χ = α + β + δ (ana furtawa: chi daidai da alpha da beta da delta)
+- χ = α + β + σ (ana furtawa: chi daidai da alpha da beta da sigma)
+
+![Zane: abubuwa suna fita daga tsarin a matsayin nasara α, gazawa β ko tsallakewa σ; waɗanda aka kammala δ = α + β, don haka χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kowane abu da aka ƙidaya a cikin χ ya shiga tsarin, don haka a cikin daidaitaccen yanayi jimillar yawa daidai take da yawan isowa: χ ≈ λ. Shi ya sa yawan fitarwa ke auna fitarwa, ba ƙarfi ba.
 
@@ -214,7 +235,7 @@ bin diddigin gazawa da tsallakewa.
 
 - Ra'ayin Sarrafawa: Yawan sabis ya haɗa da duk abin da layi ke kashe lokaci yana sarrafawa, wato nasarori ko gazawa, amma bai haɗa da tsallakewa ba.
 
-- Ra'ayin Fasaha: A fannonin aiki kamar injiniyancin manhaja, yawan sabis yana auna nasarori ne kawai, yayin da yawan kuskure ke auna gazawa, kuma yawan tsallakewa ke auna ficewa.
+- Ra'ayin Fasaha: A fannonin aiki kamar injiniyancin manhaja, yawan sabis yana auna nasarori ne kawai, yayin da yawan kuskure ke auna gazawa, kuma yawan tsallakewa ke auna tsallakewa.
 
 Saboda haka muna ajiye μ don ƙarfi, kuma muna ƙara yawan fitarwar da aka lura tare da ita, maimakon maye gurbinta:
 
@@ -230,7 +251,7 @@ Me ya sa ba za a maye gurbin μ da χ ko α ba? A cikin layi mai kwanciyar hanka
 
 Cikakkun bayanai game da yawan tsallakewa:
 
-- δ (delta): yawan tsallakewa wato yawan ficewa. Wannan yana auna abubuwa nawa ke shiga layi, sannan su fita ba tare da an sarrafa su ba.
+- σ (sigma): yawan tsallakewa. Wannan yana auna abubuwa nawa ke shiga layi, sannan su fita ba tare da an sarrafa su ba.
 
 Tsallakewa ita ce lokacin da wani abu ya shiga layi, sannan ya fita ba tare da wani muhimmin sarrafawa ba:
 
@@ -240,7 +261,7 @@ Tsallakewa ita ce lokacin da wani abu ya shiga layi, sannan ya fita ba tare da w
 
 Halaye biyu masu alaƙa ba tsallakewa ba ne:
 
-- Ƙin shiga (balking): lokacin da abokin ciniki ya yanke shawarar kada ya shiga layi saboda lokacin jira yana barazanar yin tsayi da yawa. Abin da ya ƙi shiga bai taɓa shiga tsarin ba, don haka yana wajen iyakar tsarin: ba a ƙidaya shi a cikin λ, χ, ko δ. Idan ƙin shiga yana da muhimmanci, kamar tallace-tallacen da aka rasa, to ku ƙidaya su daban a matsayin isowar da aka mayar.
+- Ƙin shiga (balking): lokacin da abokin ciniki ya yanke shawarar kada ya shiga layi saboda lokacin jira yana barazanar yin tsayi da yawa. Abin da ya ƙi shiga bai taɓa shiga tsarin ba, don haka yana wajen iyakar tsarin: ba a ƙidaya shi a cikin λ, χ, ko σ. Idan ƙin shiga yana da muhimmanci, kamar tallace-tallacen da aka rasa, to ku ƙidaya su daban a matsayin isowar da aka mayar.
 
 - Sauya layi (jockeying): lokacin da abokin ciniki ke sauyawa tsakanin layuka masu tafiya kafaɗa da kafaɗa, kamar layukan biyan kuɗi, yana ƙoƙarin samun jira mafi gajarta.
 
@@ -248,9 +269,11 @@ Halaye biyu masu alaƙa ba tsallakewa ba ne:
 
 Alamar da ta fi muhimmanci wadda ke taƙaita nasarar layi:
 
-- ε (epsilon): rabon kuskure = ƙidayar gazawa / (ƙidayar nasara + ƙidayar gazawa) = β / (α + β)
+- ε (epsilon): rabon kuskure = ƙidayar gazawa / (ƙidayar nasara + ƙidayar gazawa) = β / (α + β) = β / δ
 
-An cire tsallakewa, domin ba a taɓa yi wa abin da aka tsallake sabis ba, don haka bai zama daidai ba kuma bai zama ba daidai ba. Ku bi diddigin tsallakewa daban ta hanyar δ.
+An cire tsallakewa, domin ba a taɓa yi wa abin da aka tsallake sabis ba, don haka bai zama daidai ba kuma bai zama ba daidai ba. Ku bi diddigin tsallakewa daban ta hanyar σ.
+
+![Zane: yawan kammalawa δ shi ne yawan nasara α da yawan gazawa β, kuma rabon kuskure ε shi ne yawan gazawa β a raba da yawan kammalawa δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Misalai:
 
@@ -272,6 +295,8 @@ Muna bin diddigin lokuta huɗu:
 
 - ω (omega): lokacin jira = lokacin da aka kashe ba tare da yin ainihin aiki ba wato lokacin dakon
 
+![Zane: lokacin jagora τ shi ne lokacin jira ω sai kuma lokacin aiki φ, don haka τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Misalai:
 
 - τ = 5s yana nufin an ƙara wani abu cikin layi, sannan aka yi masa sabis daƙiƙa 5 bayan haka.
@@ -288,9 +313,9 @@ Dangantaka:
 
 - matsakaicin θ ≈ 1 / χ: a cikin daidaitaccen yanayi, matsakaicin lokacin mataki shi ne juyin jimillar yawa. Tazara ɗaya ba ta faɗin abu mai yawa game da yawan; matsakaicin tazara masu yawa kuwa yana faɗi. A cikin misalan, idan matsakaicin lokacin mataki 1s ne, to χ ≈ abu 1 a kowane daƙiƙa.
 
-### Daidaitattun alamomi
+### Alamomin Kendall
 
-Daidaitattun alamomi na ka'idar layi suna bayyana layi ta amfani da alamomin Kendall, waɗanda ake rubutawa kamar A/S/c/K/N/D:
+Alamomin Kendall wasu alamomi ne daban na ka'idar layi, waɗanda ake rubutawa kamar A/S/c/K/N/D:
 
 - A: tsarin isowa, wato rarrabuwar lokaci tsakanin isowa.
 
@@ -314,11 +339,13 @@ Haruffan da aka saba amfani da su don A da S:
 
 Idan aka bar uku na ƙarshe, ƙimomin da aka saba su ne K = ∞, N = ∞, D = FIFO. Misali, "M/M/1" yana nufin isowar Poisson, lokutan sabis na exponential, mai sabis ɗaya, ƙarfin ɗauka marar iyaka, al'umma marar iyaka, kuma na farko da ya shigo shi ne na farko da zai fita.
 
-Daidaitattun alamomi kuma suna amfani da n da ma'anar adadin abubuwa a cikin tsarin.
+Kuma:
+
+- n: adadin abubuwa a cikin tsarin.
 
 ## Lissafin layi
 
-Sassan lissafi suna amfani da alamomin littattafan karatu, don ku iya kwatanta su da wasu majiyoyi: S shi ne matsakaicin lokacin sabis, wanda shi ne φ ɗinmu, kuma μ = 1 / S shi ne ƙarfin mai sabis ɗaya. Duba kwatancin a cikin [alamomin ka'idar layi](#alamomin-kaidar-layi).
+Sassan lissafi suna amfani da alamomin littattafan karatu, don ku iya kwatanta su da wasu majiyoyi: S shi ne matsakaicin lokacin sabis, wanda shi ne φ ɗinmu, kuma μ = 1 / S shi ne ƙarfin mai sabis ɗaya.
 
 ### Lanƙwasan amfani
 
@@ -409,7 +436,7 @@ Misalai:
 
 - Aμ: yawan sabis na Aiki wato ƙarfi: abubuwa nawa mai sabis ɗaya zai iya kammalawa a kowace raka'ar lokaci yayin da yake aiki.
 
-- Aδ: yawan tsallakewar Aiki wato yawan ficewa: abubuwa nawa ake barinsu a kowace raka'ar lokaci.
+- Aσ: yawan tsallakewar Aiki: abubuwa nawa ake barinsu a kowace raka'ar lokaci.
 
 - Aρ: rabon amfanin Aiki: ɓangaren lokacin da ake da shi da masu sabis ke aiki, wato lokacin shagaltuwa ÷ lokacin da ake da shi, ko λ / (c μ).
 

@@ -19,12 +19,12 @@ Sisukord:
   - [Arv](#arv)
   - [Saabumiskiirus, teeninduskiirus](#saabumiskiirus-teeninduskiirus)
   - [Kasutusaste ehk liiklusintensiivsus](#kasutusaste-ehk-liiklusintensiivsus)
-  - [Läbilaskekiirused: kogukiirus, õnnestumiskiirus, ebaõnnestumiskiirus, vahelejätmiskiirus](#läbilaskekiirused-kogukiirus-õnnestumiskiirus-ebaõnnestumiskiirus-vahelejätmiskiirus)
+  - [Läbilaskekiirused: kogukiirus, lõpetamiskiirus, õnnestumiskiirus, ebaõnnestumiskiirus, vahelejätmiskiirus](#läbilaskekiirused-kogukiirus-lõpetamiskiirus-õnnestumiskiirus-ebaõnnestumiskiirus-vahelejätmiskiirus)
   - [Teeninduskiiruse mõiste täpsustamine](#teeninduskiiruse-mõiste-täpsustamine)
   - [Vahelejätmiskiirus](#vahelejätmiskiirus)
   - [Veasuhe](#veasuhe)
   - [Läbimisaeg, sammuaeg, tööaeg, ooteaeg](#läbimisaeg-sammuaeg-tööaeg-ooteaeg)
-  - [Standardtähistus](#standardtähistus)
+  - [Kendalli tähistus](#kendalli-tähistus)
 - [Järjekordade matemaatika](#järjekordade-matemaatika)
   - [Kasutusastme kõver](#kasutusastme-kõver)
   - [Kingmani valem](#kingmani-valem)
@@ -113,41 +113,50 @@ Järjekorrateooria kasutab kreeka tähtedega tähistust.
 
 Meie meeskonnad kasutavad osa levinud tähistusest; lisame ka omapoolset tähistust, mis aitab meid tarkvaraprojektides.
 
-Vastavustabel meie tähistuse ja õpikute standardtähistuse vahel:
+Meie tähistus ja iga sümboli tähendus:
 
-| Meie | Standard | Tähendus                                                                     |
-| ---- | -------- | ---------------------------------------------------------------------------- |
-| κ    | L        | süsteemis olevate üksuste keskmine arv, ootavad pluss töös olevad            |
-| λ    | λ        | süsteemi sisenevate üksuste saabumiskiirus                                   |
-| μ    | μ        | teeninduskiirus ehk võimsus: kui kiiresti üks teenindaja hõivatuna töötab    |
-| ρ    | ρ        | kasutusaste: osa ajast, mil teenindajad on hõivatud, λ / (c μ)               |
-| χ    | X        | läbilaskevõime ehk väljumiskiirus: täheldatud väljund mis tahes põhjusel     |
-| α    | puudub   | õnnestumiskiirus: täheldatud väljund, mis osutub õigeks                      |
-| β    | puudub   | ebaõnnestumiskiirus: täheldatud väljund, mis osutub valeks                   |
-| δ    | puudub   | vahelejätmiskiirus ehk väljalangemiskiirus: sisenenud, kuid teenindamata     |
-| ε    | puudub   | veasuhe β / (α + β)                                                          |
-| τ    | W        | keskmine aeg süsteemis ehk läbimisaeg                                        |
-| ω    | Wq       | keskmine ooteaeg järjekorras                                                 |
-| φ    | S        | keskmine teenindusaeg ehk tööaeg; μ = 1 / S                                  |
-| θ    | puudub   | sammuaeg lõpetamiste vahel; keskmine sammuaeg ≈ 1 / χ püsiseisundis          |
-
-Olge teisi allikaid lugedes ettevaatlik sümbolite kattumise suhtes: σ tähendab tavaliselt standardhälvet, mistõttu kasutame vahelejätmiskiiruse jaoks δ-d, ja θ tähendab Erlang-A kõnekeskuse mudelites sageli loobumiskiirust, samas kui meie kasutame θ-d sammuaja jaoks.
+| Meie tähistus | Tähendus |
+| ------------- | -------- |
+| κ (kapa) | süsteemis olevate üksuste arv, ootavad pluss töös olevad |
+| λ (lambda) | süsteemi sisenevate üksuste saabumiskiirus |
+| μ (müü) | teeninduskiirus ehk võimsus: kui kiiresti üks teenindaja hõivatuna töötab |
+| ρ (roo) | kasutusaste: osa ajast, mil teenindajad on hõivatud, λ / (c μ) |
+| χ (hii) | läbilaskevõime ehk väljumiskiirus: täheldatud väljund mis tahes põhjusel |
+| α (alfa) | õnnestumiskiirus: täheldatud väljund, mis osutub õigeks |
+| β (beeta) | ebaõnnestumiskiirus: täheldatud väljund, mis osutub valeks |
+| δ (delta) | lõpetamiskiirus: õnnestumine + ebaõnnestumine, teenindatud üksused, olgu tulemus õige või vale |
+| σ (sigma) | vahelejätmiskiirus: sisenenud, kuid teenindamata üksused |
+| ε (epsilon) | veasuhe: β / (α + β) = β / δ |
+| τ (tau) | aeg süsteemis ehk läbimisaeg |
+| ω (oomega) | ooteaeg ehk aeg järjekorras |
+| φ (fii) | tööaeg ehk aeg protsessoris ehk teenindusaeg |
+| θ (teeta) | sammuaeg lõpetamiste vahel; keskmine sammuaeg ≈ 1 / χ püsiseisundis |
 
 ### Arv
 
 Loendame üksusi sageli ja kasutame järgmist tähistust:
 
-- κ (kapa): süsteemis olevate üksuste arv, st ootavad üksused pluss töös olevad üksused
+- κ (kapa): süsteemis olevate üksuste arv, st ootavad üksused pluss töös olevad üksused.
+
+![Diagramm: üksused saabuvad kiirusega λ, süsteemis on κ üksust ja üksused lahkuvad läbilaskega χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Näide:
 
-- κ = 100 tähendab, et süsteemis on 100 üksust.
+- κ = 10 tähendab täpselt 10
 
-- κ > 100 tähendab, et süsteemis on rohkem kui 100 üksust.
+- κ ≈ 10 tähendab umbes 10
 
-- κ ≫ 100 tähendab, et süsteemis on palju rohkem kui 100 üksust.
+- κ < 10 tähendab vähem kui 10
 
-Arv, näiteks κ = 100, on hetkeseis ühel ajahetkel. Little'i seaduses tähendab κ pikaajalist keskmist arvu, mis on õpikute L. Õpikute sümbol ainult järjekorras ootavate üksuste jaoks on Lq.
+- κ > 10 tähendab rohkem kui 10
+
+- κ ≪ 10 tähendab palju vähem kui 10
+
+- κ ≫ 10 tähendab palju rohkem kui 10
+
+Arv κ (kapa) on hetktõmmis ühest hetkest.
+
+Keskmine arv κ̅ (kapa kriipsuga) on arvutus, mis võtab keskmise mõõtmistest teatud ajavahemiku jooksul, näiteks mõõtes iga tunni tagant kahe nädala vältel.
 
 ### Saabumiskiirus, teeninduskiirus
 
@@ -183,9 +192,9 @@ Näited:
 
 - ρ > 1 tähendab, et saabumised ületavad võimsust; järjekord suureneb.
 
-### Läbilaskekiirused: kogukiirus, õnnestumiskiirus, ebaõnnestumiskiirus, vahelejätmiskiirus
+### Läbilaskekiirused: kogukiirus, lõpetamiskiirus, õnnestumiskiirus, ebaõnnestumiskiirus, vahelejätmiskiirus
 
-Läbilaskekiirused mõõdavad täheldatud väljundit, st üksusi, mis tegelikult järjekorrast lahkuvad. Need jagunevad neljaks laiaks kategooriaks:
+Läbilaskekiirused mõõdavad täheldatud väljundit, st üksusi, mis tegelikult järjekorrast lahkuvad. Need jagunevad viieks laiaks kategooriaks:
 
 - χ (hii): kogukiirus. See mõõdab, mitu üksust ajaühikus väljub järjekorrast mis tahes põhjusel: õnnestumine, ebaõnnestumine, vahelejätmine jne.
 
@@ -193,11 +202,23 @@ Läbilaskekiirused mõõdavad täheldatud väljundit, st üksusi, mis tegelikult
 
 - β (beeta): ebaõnnestumiskiirus. See mõõdab, mitu üksust ajaühikus osutub valeks, nt ebakorrektseks, puudulikuks, tagasilükatuks.
 
-- δ (delta): vahelejätmiskiirus ehk väljalangemiskiirus. See mõõdab, mitu üksust ajaühikus siseneb järjekorda ja lahkub seejärel teenindamata, nt loobumised, ootamisest loobumised.
+- δ (delta): lõpetamiskiirus. See mõõdab, mitu üksust ajaühikus teenindatakse, olgu tulemus õige või vale: õnnestumine + ebaõnnestumine.
+
+- σ (sigma): vahelejätmiskiirus. See mõõdab, mitu üksust ajaühikus siseneb järjekorda ja lahkub seejärel teenindamata, nt loobumised, ootamisest loobumised.
+
+Lõpetamiskiirus = õnnestumiskiirus + ebaõnnestumiskiirus:
+
+- δ = α + β (hääldatakse: delta võrdub alfa pluss beeta)
+
+Kogukiirus = lõpetamiskiirus + vahelejätmiskiirus:
+
+- χ = δ + σ (hääldatakse: hii võrdub delta pluss sigma)
 
 Kogukiirus = õnnestumiskiirus + ebaõnnestumiskiirus + vahelejätmiskiirus:
 
-- χ = α + β + δ (hääldatakse: hii võrdub alfa pluss beeta pluss delta)
+- χ = α + β + σ (hääldatakse: hii võrdub alfa pluss beeta pluss sigma)
+
+![Diagramm: üksused lahkuvad süsteemist õnnestumisena α, ebaõnnestumisena β või vahelejätmisena σ; lõpetatud δ = α + β, seega χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Iga χ-s loendatud üksus on süsteemi sisenenud, seega püsiseisundis võrdub kogukiirus saabumiskiirusega: χ ≈ λ. Seetõttu mõõdavad läbilaskekiirused väljundit, mitte võimsust.
 
@@ -214,7 +235,7 @@ on märkimisväärne vajadus jälgida ebaõnnestumisi ja vahelejätmisi.
 
 - Töötlemise vaade: teeninduskiirus hõlmab kõike, mille töötlemisele järjekord aega kulutab, st õnnestumisi või ebaõnnestumisi, kuid ei hõlma vahelejätmisi.
 
-- Tehnoloogiline vaade: rakendusvaldkondades, näiteks tarkvaratehnikas, mõõdab teeninduskiirus ainult õnnestumisi, veakiirus aga ebaõnnestumisi ja vahelejätmiskiirus väljalangemisi.
+- Tehnoloogiline vaade: rakendusvaldkondades, näiteks tarkvaratehnikas, mõõdab teeninduskiirus ainult õnnestumisi, veakiirus aga ebaõnnestumisi ja vahelejätmiskiirus vahelejätmisi.
 
 Seetõttu jätame μ võimsuse tähistamiseks ja lisame selle kõrvale täheldatud väljundi kiirused, selle asendamise asemel:
 
@@ -230,7 +251,7 @@ Miks mitte asendada μ χ või α-ga? Stabiilses järjekorras lahkub iga sisenen
 
 Vahelejätmiskiiruse üksikasjad:
 
-- δ (delta): vahelejätmiskiirus ehk väljalangemiskiirus. See mõõdab, mitu üksust siseneb järjekorda ja lahkub seejärel käsitlemata.
+- σ (sigma): vahelejätmiskiirus. See mõõdab, mitu üksust siseneb järjekorda ja lahkub seejärel töötlemata.
 
 Vahelejätmine on see, kui üksus siseneb järjekorda ja lahkub seejärel ilma märkimisväärse töötlemiseta:
 
@@ -240,7 +261,7 @@ Vahelejätmine on see, kui üksus siseneb järjekorda ja lahkub seejärel ilma m
 
 Kaks seotud käitumist ei ole vahelejätmised:
 
-- Eemaletõrjumine (balking): kui klient otsustab järjekorraga mitte liituda, sest ooteaeg ähvardab olla liiga pikk. Eemaletõrjutud üksus ei sisene kunagi süsteemi, seega on see väljaspool süsteemi piiri: seda ei loendata λ-s, χ-s ega δ-s. Kui eemaletõrjumised on olulised, näiteks kaotatud müük, siis loendage neid eraldi tagasilükatud saabumistena.
+- Eemaletõrjumine (balking): kui klient otsustab järjekorraga mitte liituda, sest ooteaeg ähvardab olla liiga pikk. Eemaletõrjutud üksus ei sisene kunagi süsteemi, seega on see väljaspool süsteemi piiri: seda ei loendata λ-s, χ-s ega σ-s. Kui eemaletõrjumised on olulised, näiteks kaotatud müük, siis loendage neid eraldi tagasilükatud saabumistena.
 
 - Järjekorra vahetamine (jockeying): kui klient vahetab paralleelsete järjekordade vahel, näiteks kassaridade vahel, püüdes saada lühemat ooteaega.
 
@@ -248,9 +269,11 @@ Kaks seotud käitumist ei ole vahelejätmised:
 
 Kõige olulisem tähistus, mis järjekorra edukust kokku võtab:
 
-- ε (epsilon): veasuhe = ebaõnnestumiste arv / (õnnestumiste arv + ebaõnnestumiste arv) = β / (α + β)
+- ε (epsilon): veasuhe = ebaõnnestumiste arv / (õnnestumiste arv + ebaõnnestumiste arv) = β / (α + β) = β / δ
 
-Vahelejätmised jäetakse välja, sest vahele jäetud üksust ei teenindatud kunagi, seega ei olnud see ei õige ega vale. Jälgige vahelejätmisi eraldi δ abil.
+Vahelejätmised jäetakse välja, sest vahele jäetud üksust ei teenindatud kunagi, seega ei olnud see ei õige ega vale. Jälgige vahelejätmisi eraldi σ abil.
+
+![Diagramm: lõpetamiskiirus δ on õnnestumiskiirus α pluss ebaõnnestumiskiirus β ning veasuhe ε on ebaõnnestumiskiirus β jagatud lõpetamiskiirusega δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Näited:
 
@@ -272,6 +295,8 @@ Jälgime nelja aega:
 
 - ω (oomega): ooteaeg = aeg, mil tegelikku tööd ei tehta, ehk ootel olemise aeg
 
+![Diagramm: läbimisaeg τ on ooteaeg ω, millele järgneb tööaeg φ, seega τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Näited:
 
 - τ = 5 s tähendab, et üksus lisatakse järjekorda ja teenindatakse 5 sekundit hiljem.
@@ -288,9 +313,9 @@ Seosed:
 
 - keskmine θ ≈ 1 / χ: püsiseisundis on keskmine sammuaeg kogukiiruse pöördväärtus. Üksik vahe ütleb kiiruse kohta vähe; paljude vahede keskmine ütleb rohkem. Näidetes, kui keskmine sammuaeg on 1 s, siis χ ≈ 1 üksus sekundis.
 
-### Standardtähistus
+### Kendalli tähistus
 
-Järjekorrateooria standardtähistus kirjeldab järjekorda Kendalli tähistuse abil, mis kirjutatakse kujul A/S/c/K/N/D:
+Kendalli tähistus on järjekorrateooria teistsugune tähistus, mida kirjutatakse kujul A/S/c/K/N/D:
 
 - A: saabumisprotsess, st saabumistevaheliste aegade jaotus.
 
@@ -314,11 +339,13 @@ Levinud tähed A ja S jaoks:
 
 Kui kolm viimast jäetakse ära, on vaikeväärtused K = ∞, N = ∞, D = FIFO. Näiteks „M/M/1“ tähendab Poissoni saabumisi, eksponentsiaalseid teenindusaegu, ühte teenindajat, piiramatut mahutavust, piiramatut populatsiooni ja põhimõtet „esimesena sisse, esimesena välja“.
 
-Standardtähistus kasutab ka n-i süsteemis olevate üksuste arvu tähistamiseks.
+Samuti:
+
+- n: süsteemis olevate üksuste arv.
 
 ## Järjekordade matemaatika
 
-Matemaatika jaotistes kasutatakse õpikute sümboleid, et saaksite neid teiste allikatega võrrelda: S on keskmine teenindusaeg, mis on meie φ, ja μ = 1 / S on ühe teenindaja võimsus. Vaadake vastavustabelit jaotises [järjekorrateooria tähistus](#järjekorrateooria-tähistus).
+Matemaatika jaotistes kasutatakse õpikute sümboleid, et saaksite neid teiste allikatega võrrelda: S on keskmine teenindusaeg, mis on meie φ, ja μ = 1 / S on ühe teenindaja võimsus.
 
 ### Kasutusastme kõver
 
@@ -409,7 +436,7 @@ Näited:
 
 - Aμ: tegevuse teeninduskiirus ehk võimsus: mitu üksust suudab üks teenindaja hõivatuna ajaühikus lõpetada.
 
-- Aδ: tegevuse vahelejätmiskiirus ehk väljalangemiskiirus: mitmest üksusest loobutakse ajaühikus.
+- Aσ: tegevuse vahelejätmiskiirus: mitmest üksusest loobutakse ajaühikus.
 
 - Aρ: tegevuse kasutusaste: osa saadaolevast ajast, mil teenindajad on hõivatud, st hõivatud aeg ÷ saadaolev aeg ehk λ / (c μ).
 

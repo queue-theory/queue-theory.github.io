@@ -15,12 +15,12 @@ Synsas:
   - [Niver](#niver)
   - [Toth devedhyans, toth servis](#toth-devedhyans-toth-servis)
   - [Kevradh devnydh po nerth trafik](#kevradh-devnydh-po-nerth-trafik)
-  - [Tothow dhe-ves: toth dien, toth sewena, toth fyllel, toth lamma](#tothow-dhe-ves-toth-dien-toth-sewena-toth-fyllel-toth-lamma)
+  - [Tothow dhe-ves: toth dien, toth gorfennys, toth sewena, toth fyllel, toth lamma](#tothow-dhe-ves-toth-dien-toth-gorfennys-toth-sewena-toth-fyllel-toth-lamma)
   - [Styryans toth servis](#styryans-toth-servis)
   - [Toth lamma](#toth-lamma)
   - [Kevradh kammow](#kevradh-kammow)
   - [Termyn ledya, termyn pas, termyn ober, termyn gortos](#termyn-ledya-termyn-pas-termyn-ober-termyn-gortos)
-  - [Notyans savonek](#notyans-savonek)
+  - [Notyans Kendall](#notyans-kendall)
 - [Matematek lostow](#matematek-lostow)
   - [An linen gromm a dhevnydh](#an-linen-gromm-a-dhevnydh)
   - [Furvel Kingman](#furvel-kingman)
@@ -109,41 +109,50 @@ Tybyans lostow a dhevnydh notyans gans lytherennow Greka.
 
 Agan para a dhevnydh nebes a’n notyans poblek; ni a geworr ynwedh nebes notyans arbennek a’gan gweres gans ragdresow medhelweyth.
 
-Treusva a’gan notyans dhe’n notyans savonek a’n lyvrow-dyski:
+Agan notyans ha styr pub arwodh:
 
-| Agan re | Savonek | Styr                                                                         |
-| ------- | ------- | ---------------------------------------------------------------------------- |
-| κ       | L       | niver mayn a daklow y’n system, ow kortos keffrys hag ow pos oberys          |
-| λ       | λ       | toth devedhyans an taklow a entr y’n system                                  |
-| μ       | μ       | toth servis po dalgh: pes uskis yth ober unn servell ha hi bysi              |
-| ρ       | ρ       | devnydh: an rann a’n termyn may ma an servellow bysi, λ / (c μ)              |
-| χ       | X       | toth dhe-ves po toth gasa an system: eskor gwelys, rag acheson vyth          |
-| α       | travyth | toth sewena: eskor gwelys a dhe vos ewn                                      |
-| β       | travyth | toth fyllel: eskor gwelys a dhe vos kamm                                     |
-| δ       | travyth | toth lamma po toth fyllel-gortos: taklow a entras, ena a asas heb bos servys |
-| ε       | travyth | kevradh kammow β / (α + β)                                                   |
-| τ       | W       | termyn mayn y’n system po termyn ledya                                       |
-| ω       | Wq      | termyn mayn ow kortos y’n lost                                               |
-| φ       | S       | termyn servis mayn po termyn ober; μ = 1 / S                                 |
-| θ       | travyth | termyn pas yntra kowlwriansow; termyn pas mayn ≈ 1 / χ yn studh sad          |
-
-Kemmerewgh with rag omdhalghow arwoddhow pan redyowgh fentynyow erell: σ a styr yn usadow an dhiwedhyans savonek (standard deviation), hag yndella ni a dhevnydh δ rag toth lamma, ha θ a styr yn fenowgh an toth forsakya yn patronyow kresennow galwow Erlang-A, ha ni a dhevnydh θ rag termyn pas.
+| Agan notyans | Styr |
+| ------------ | ---- |
+| κ (kappa) | niver a daklow y’n system, ow kortos keffrys hag ow pos oberys |
+| λ (lambda) | toth devedhyans an taklow a entr y’n system |
+| μ (mu) | toth servis po dalgh: pes uskis yth ober unn servell ha hi bysi |
+| ρ (rho) | devnydh: an rann a’n termyn may ma an servellow bysi, λ / (c μ) |
+| χ (chi) | toth dhe-ves po toth gasa an system: eskor gwelys, rag acheson vyth |
+| α (alpha) | toth sewena: eskor gwelys a dhe vos ewn |
+| β (beta) | toth fyllel: eskor gwelys a dhe vos kamm |
+| δ (delta) | toth gorfennys: sewena + fyllel, taklow servys, pynag oll yw an sewyans ewn po kamm |
+| σ (sigma) | toth lamma: taklow a entras, ena a asas heb bos servys |
+| ε (epsilon) | kevradh kammow: β / (α + β) = β / δ |
+| τ (tau) | termyn y’n system po termyn ledya |
+| ω (omega) | termyn ow kortos po termyn y’n lost |
+| φ (phi) | termyn ober po termyn y’n argesyer po termyn servis |
+| θ (theta) | termyn pas yntra kowlwriansow; termyn pas mayn ≈ 1 / χ yn studh sad |
 
 ### Niver
 
 Ni a nivera taklow yn fenowgh, ha ni a dhevnydh an notyans ma:
 
-- κ (kappa): niver a daklow y’n system, hen yw taklow ow kortos ha taklow ow pos oberys
+- κ (kappa): niver a daklow y’n system, hen yw taklow ow kortos ha taklow ow pos oberys.
+
+![Diagram: taklow a dheu orth toth λ, y fydh κ takel y’n system, ha taklow a as gans dhe-ves χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Ensampel:
 
-- κ = 100 a styr bos 100 takel y’n system.
+- κ = 10 a styr 10 poran
 
-- κ > 100 a styr bos moy es 100 takel y’n system.
+- κ ≈ 10 a styr adro dhe 10
 
-- κ ≫ 100 a styr bos meur moy es 100 takel y’n system.
+- κ < 10 a styr le es 10
 
-Niver kepar ha κ = 100 yw skeusen orth unn prys. Yn Lagha Little, κ a styr an niver mayn dres termyn hir, hen yw L an lyvrow-dyski. An arwoedh y’n lyvrow-dyski rag an taklow ow kortos yn rew hepken yw Lq.
+- κ > 10 a styr moy es 10
+
+- κ ≪ 10 a styr meur le es 10
+
+- κ ≫ 10 a styr meur moy es 10
+
+An niver κ (kappa) yw skeusen orth unn prys.
+
+An niver mayn κ̅ (kappa gans barr) yw jydhyans a gemmer mayn a vusurow dres termyn kevrennys, rag ensampel musur pub our rag dhew seythen.
 
 ### Toth devedhyans, toth servis
 
@@ -179,9 +188,9 @@ Ensamplow:
 
 - ρ > 1 a styr bos an devedhyansow dres an dalgh; yma an lost ow mos ha brassa.
 
-### Tothow dhe-ves: toth dien, toth sewena, toth fyllel, toth lamma
+### Tothow dhe-ves: toth dien, toth gorfennys, toth sewena, toth fyllel, toth lamma
 
-Tothow dhe-ves a vusur eskor gwelys, hen yw taklow a as an lost yn hwir. I a dheu yn peswar rann ledan:
+Tothow dhe-ves a vusur eskor gwelys, hen yw taklow a as an lost yn hwir. I a dheu yn pymp rann ledan:
 
 - χ (chi): toth dien. Hemma a vusur pes taklow pub termyn a as an lost rag acheson vyth: sewena, fyllel, lamma, h.e.
 
@@ -189,11 +198,23 @@ Tothow dhe-ves a vusur eskor gwelys, hen yw taklow a as an lost yn hwir. I a dhe
 
 - β (beta): toth fyllel. Hemma a vusur pes taklow pub spys termyn a dhe vos kamm, rag ensampel ankewar, anperfydh, sconys.
 
-- δ (delta): toth lamma po toth fyllel-gortos. Hemma a vusur pes taklow pub spys termyn a entr y’n lost, ena a as heb bos servys, rag ensampel forsakyansow, tennansow-war-dhelergh.
+- δ (delta): toth gorfennys. Hemma a vusur pes taklow pub spys termyn yw servys, pynag oll yw an sewyans ewn po kamm: sewena + fyllel.
+
+- σ (sigma): toth lamma. Hemma a vusur pes taklow pub spys termyn a entr y’n lost, ena a as heb bos servys, rag ensampel forsakyansow, tennansow-war-dhelergh.
+
+Toth gorfennys = toth sewena + toth fyllel:
+
+- δ = α + β (leverys: delta yw kehaval dhe alpha ha beta)
+
+Toth dien = toth gorfennys + toth lamma:
+
+- χ = δ + σ (leverys: chi yw kehaval dhe delta ha sigma)
 
 Toth dien = toth sewena + toth fyllel + toth lamma:
 
-- χ = α + β + δ (leverys: chi yw kehaval dhe alpha ha beta ha delta)
+- χ = α + β + σ (leverys: chi yw kehaval dhe alpha ha beta ha sigma)
+
+![Diagram: taklow a as an system avel sewena α, fyllel β po lamma σ; gorfennys δ = α + β, yndella χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Pub takel nivers yn χ a entras y’n system, ytho yn studh sad an toth dien yw kehaval dhe’n toth devedhyans: χ ≈ λ. Rakhenna tothow dhe-ves a vusur eskor, ha nyns yw dalgh.
 
@@ -207,7 +228,7 @@ Gwreydhyow istorek eus dhe hemma, hag ev a yll ledya dhe gemmyskans ha kammgemme
 
 - Golok Dyghtyans: An toth servis a syns pypynag a spen an lost termyn orth y dhyghtya, hen yw sewenansow po fyllansow, saw ny syns lammow.
 
-- Golok Teknologieth: Yn gweythresow usys kepar ha ynjinorieth medhelweyth, an toth servis a vusur sewenansow hepken, ha’n toth kammow a vusur fyllansow, ha’n toth lamma a vusur fyllansow-gortos.
+- Golok Teknologieth: Yn gweythresow usys kepar ha ynjinorieth medhelweyth, an toth servis a vusur sewenansow hepken, ha’n toth kammow a vusur fyllansow, ha’n toth lamma a vusur lammow.
 
 Rakhenna ni a with μ rag dalgh, ha ni a geworr tothow eskor gwelys ryb y denewen, yn le y gemmeres le:
 
@@ -223,7 +244,7 @@ Prag na gemmeryn ni χ po α yn le μ? Yn lost sad, pub takel a entr a as wor’
 
 Manylyon an toth lamma:
 
-- δ (delta): toth lamma po toth fyllel-gortos. Hemma a vusur pes taklow a entr y’n lost, ena a as heb bos dyghtys.
+- σ (sigma): toth lamma. Hemma a vusur pes taklow a entr y’n lost, ena a as heb bos oberys.
 
 Lamm yw pan entro takel y’n lost, ena ev a as heb dyghtyans vyth a vern:
 
@@ -233,7 +254,7 @@ Lamm yw pan entro takel y’n lost, ena ev a as heb dyghtyans vyth a vern:
 
 Dew omdhegyans kelmys nyns yns lammow:
 
-- Sconya: pan erviro kliens na junya orth an lost drefenn an termyn gortos dhe vygythya bos re hir. Takel sconys ny entr y’n system bynitha, ytho yma ev a-ves dhe or an system: nyns yw nivers yn λ, χ, po δ. Mar pe bern dhe sconyansow, kepar ha gwerthansow kellys, niverewgh i a-dhidro avel devedhyansow treylys a-denewen.
+- Sconya: pan erviro kliens na junya orth an lost drefenn an termyn gortos dhe vygythya bos re hir. Takel sconys ny entr y’n system bynitha, ytho yma ev a-ves dhe or an system: nyns yw nivers yn λ, χ, po σ. Mar pe bern dhe sconyansow, kepar ha gwerthansow kellys, niverewgh i a-dhidro avel devedhyansow treylys a-denewen.
 
 - Lamma yntra lostow: pan dreylyo kliens yntra lostow kehaval, kepar ha rewow tyli, ow assaya kavos gortos berra.
 
@@ -241,9 +262,11 @@ Dew omdhegyans kelmys nyns yns lammow:
 
 An notyans moyha posek a gomprehend sewena lost:
 
-- ε (epsilon): kevradh kammow = niver fyllansow / (niver sewenansow + niver fyllansow) = β / (α + β)
+- ε (epsilon): kevradh kammow = niver fyllansow / (niver sewenansow + niver fyllansow) = β / (α + β) = β / δ
 
-Lammow yw keas yn-mes, drefenn na veu takel lammys servys bynitha, ytho nyns o naneyl ewn na kamm. Holyewgh lammow a-dhidro dre δ.
+Lammow yw keas yn-mes, drefenn na veu takel lammys servys bynitha, ytho nyns o naneyl ewn na kamm. Holyewgh lammow a-dhidro dre σ.
+
+![Diagram: an toth gorfennys δ yw an toth sewena α ha’n toth fyllel β, ha’n kevradh kammow ε yw an toth fyllel β rynnys dhe’n toth gorfennys δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Ensamplow:
 
@@ -265,6 +288,8 @@ Ni a hol peswar termyn:
 
 - ω (omega): termyn gortos = termyn spenys heb gul ober gwir po termyn ow kortos
 
+![Diagram: an termyn ledya τ yw an termyn ow kortos ω ha ena an termyn ober φ, yndella τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Ensamplow:
 
 - τ = 5s a styr bos takel keworrys dhe’n lost, ena servys 5 eylen diwettha.
@@ -281,9 +306,9 @@ Kehevelepow:
 
 - θ mayn ≈ 1 / χ: yn studh sad, an termyn pas mayn yw an eneb a’n toth dien. Unn aswa a lever nebes a-dro dhe’n toth; an mayn a lies aswa a lever moy. Y’n ensamplow, mars yw an termyn pas mayn 1s, ena χ ≈ 1 takel pub eylen.
 
-### Notyans savonek
+### Notyans Kendall
 
-Notyans savonek rag tybyans lostow a dhiskrif lost dre notyans Kendall, skrifys avel A/S/c/K/N/D:
+Notyans Kendall yw notyans aral rag tybyans lostow, skrifys avel A/S/c/K/N/D:
 
 - A: an argerdh devedhyans, hen yw dasrann an termyn yntra devedhyansow.
 
@@ -307,11 +332,13 @@ Lytherennow kemmyn rag A hag S:
 
 Pan vo an tri diwettha gesys yn-mes, an talvosow defowt yw K = ∞, N = ∞, D = FIFO. Rag ensampel, “M/M/1” a styr devedhyansow Poisson, termynyow servis eksponensek, unn servell, dalgh heb finweth, poblans heb finweth, ha kynsa ynno kynsa yn-mes.
 
-Notyans savonek a dhevnydh ynwedh n dhe styrya an niver a daklow y’n system.
+Ynwedh:
+
+- n: an niver a daklow y’n system.
 
 ## Matematek lostow
 
-An rannow matematek a dhevnydh arwoddhow an lyvrow-dyski, may hyllowgh aga hevelebi gans fentynyow erell: S yw an termyn servis mayn, hag yw agan φ, ha μ = 1 / S yw dalgh unn servell. Mar pleg, gwelewgh an dreusva yn [notyans tybyans lostow](#notyans-tybyans-lostow).
+An rannow matematek a dhevnydh arwoddhow an lyvrow-dyski, may hyllowgh aga hevelebi gans fentynyow erell: S yw an termyn servis mayn, hag yw agan φ, ha μ = 1 / S yw dalgh unn servell.
 
 ### An linen gromm a dhevnydh
 
@@ -402,7 +429,7 @@ Ensamplow:
 
 - Aμ: toth servis an gwrians po dalgh: pes taklow a yll unn servell kowlwul pub unnses termyn ha hi bysi.
 
-- Aδ: toth lamma an gwrians po toth fyllel-gortos: pes taklow yw forsakys pub unnses termyn.
+- Aσ: toth lamma an gwrians: pes taklow yw forsakys pub unnses termyn.
 
 - Aρ: kevradh devnydh an gwrians: an rann a’n termyn kavadow may ma an servellow bysi, hen yw termyn bysi ÷ termyn kavadow, po λ / (c μ).
 

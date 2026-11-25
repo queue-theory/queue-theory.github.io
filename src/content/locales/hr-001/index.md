@@ -19,12 +19,12 @@ Sadržaj:
   - [Broj](#broj)
   - [Stopa dolazaka, stopa posluživanja](#stopa-dolazaka-stopa-posluživanja)
   - [Omjer iskorištenosti odnosno intenzitet prometa](#omjer-iskorištenosti-odnosno-intenzitet-prometa)
-  - [Stope propusnosti: ukupna stopa, stopa uspjeha, stopa neuspjeha, stopa preskakanja](#stope-propusnosti-ukupna-stopa-stopa-uspjeha-stopa-neuspjeha-stopa-preskakanja)
+  - [Stope propusnosti: ukupna stopa, stopa dovršenosti, stopa uspjeha, stopa neuspjeha, stopa preskakanja](#stope-propusnosti-ukupna-stopa-stopa-dovršenosti-stopa-uspjeha-stopa-neuspjeha-stopa-preskakanja)
   - [Razjašnjenje pojma stope posluživanja](#razjašnjenje-pojma-stope-posluživanja)
   - [Stopa preskakanja](#stopa-preskakanja)
   - [Omjer pogrešaka](#omjer-pogrešaka)
   - [Vrijeme isporuke, vrijeme koraka, vrijeme rada, vrijeme čekanja](#vrijeme-isporuke-vrijeme-koraka-vrijeme-rada-vrijeme-čekanja)
-  - [Standardna notacija](#standardna-notacija)
+  - [Kendallova notacija](#kendallova-notacija)
 - [Matematika redova čekanja](#matematika-redova-čekanja)
   - [Krivulja iskorištenosti](#krivulja-iskorištenosti)
   - [Kingmanova formula](#kingmanova-formula)
@@ -113,41 +113,50 @@ Teorija redova čekanja koristi notaciju s grčkim slovima.
 
 Naši timovi koriste dio popularne notacije; dodajemo i vlastitu notaciju koja nam pomaže u softverskim projektima.
 
-Usporedba naše notacije sa standardnom udžbeničkom notacijom:
+Naša notacija i značenje svakog simbola:
 
-| Naša | Standardna | Značenje                                                                         |
-| ---- | ---------- | -------------------------------------------------------------------------------- |
-| κ    | L          | prosječan broj stavki u sustavu, onih koje čekaju i onih na kojima se radi       |
-| λ    | λ          | stopa dolazaka stavki koje ulaze u sustav                                        |
-| μ    | μ          | stopa posluživanja odnosno kapacitet: koliko brzo jedan poslužitelj radi dok je zauzet |
-| ρ    | ρ          | iskorištenost: udio vremena u kojem su poslužitelji zauzeti, λ / (c μ)           |
-| χ    | X          | propusnost odnosno stopa odlazaka: opaženi izlaz, iz bilo kojeg razloga          |
-| α    | nema       | stopa uspjeha: opaženi izlaz koji se pokaže ispravnim                            |
-| β    | nema       | stopa neuspjeha: opaženi izlaz koji se pokaže neispravnim                        |
-| δ    | nema       | stopa preskakanja odnosno stopa odustajanja: stavke koje su ušle, a zatim otišle neposlužene |
-| ε    | nema       | omjer pogrešaka β / (α + β)                                                      |
-| τ    | W          | prosječno vrijeme u sustavu odnosno vrijeme isporuke                             |
-| ω    | Wq         | prosječno vrijeme čekanja u redu                                                 |
-| φ    | S          | prosječno vrijeme posluživanja odnosno vrijeme rada; μ = 1 / S                   |
-| θ    | nema       | vrijeme koraka između završetaka; prosječno vrijeme koraka ≈ 1 / χ u stacionarnom stanju |
-
-Pazite na sukobe simbola kada čitate druge izvore: σ obično označava standardnu devijaciju, zbog čega mi za stopu preskakanja koristimo δ, a θ često označava stopu odustajanja u modelima pozivnih centara Erlang-A, dok mi θ koristimo za vrijeme koraka.
+| Naša notacija | Značenje |
+| ------------- | -------- |
+| κ (kapa) | broj stavki u sustavu, onih koje čekaju i onih na kojima se radi |
+| λ (lambda) | stopa dolazaka stavki koje ulaze u sustav |
+| μ (mi) | stopa posluživanja odnosno kapacitet: koliko brzo jedan poslužitelj radi dok je zauzet |
+| ρ (ro) | iskorištenost: udio vremena u kojem su poslužitelji zauzeti, λ / (c μ) |
+| χ (hi) | propusnost odnosno stopa odlazaka: opaženi izlaz, iz bilo kojeg razloga |
+| α (alfa) | stopa uspjeha: opaženi izlaz koji se pokaže ispravnim |
+| β (beta) | stopa neuspjeha: opaženi izlaz koji se pokaže neispravnim |
+| δ (delta) | stopa dovršenosti: uspjeh + neuspjeh, stavke koje su poslužene, bilo da je ishod ispravan ili pogrešan |
+| σ (sigma) | stopa preskakanja: stavke koje su ušle, a zatim otišle neposlužene |
+| ε (epsilon) | omjer pogrešaka: β / (α + β) = β / δ |
+| τ (tau) | vrijeme u sustavu odnosno vrijeme isporuke |
+| ω (omega) | vrijeme čekanja odnosno vrijeme u redu |
+| φ (fi) | vrijeme rada odnosno vrijeme u procesoru odnosno vrijeme posluživanja |
+| θ (theta) | vrijeme koraka između završetaka; prosječno vrijeme koraka ≈ 1 / χ u stacionarnom stanju |
 
 ### Broj
 
 Često brojimo stavke i koristimo ovu notaciju:
 
-- κ (kapa): broj stavki u sustavu, odnosno stavke koje čekaju plus stavke na kojima se radi
+- κ (kapa): broj stavki u sustavu, odnosno stavke koje čekaju plus stavke na kojima se radi.
+
+![Dijagram: stavke stižu stopom λ, u sustavu je κ stavki, a stavke odlaze propusnošću χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Primjer:
 
-- κ = 100 znači da je u sustavu 100 stavki.
+- κ = 10 znači točno 10
 
-- κ > 100 znači da je u sustavu više od 100 stavki.
+- κ ≈ 10 znači otprilike 10
 
-- κ ≫ 100 znači da je u sustavu mnogo više od 100 stavki.
+- κ < 10 znači manje od 10
 
-Broj kao što je κ = 100 snimka je jednog trenutka. U Littleovu zakonu κ označava dugoročni prosječni broj, što je udžbenički L. Udžbenički simbol samo za stavke koje čekaju u redu je Lq.
+- κ > 10 znači više od 10
+
+- κ ≪ 10 znači mnogo manje od 10
+
+- κ ≫ 10 znači mnogo više od 10
+
+Broj κ (kapa) snimka je jednog trenutka.
+
+Prosječni broj κ̅ (kapa s crtom) izračun je koji uprosječuje mjerenja tijekom određenog razdoblja, na primjer mjerenje svaki sat tijekom dva tjedna.
 
 ### Stopa dolazaka, stopa posluživanja
 
@@ -183,9 +192,9 @@ Primjeri:
 
 - ρ > 1 znači da dolasci premašuju kapacitet; red se povećava.
 
-### Stope propusnosti: ukupna stopa, stopa uspjeha, stopa neuspjeha, stopa preskakanja
+### Stope propusnosti: ukupna stopa, stopa dovršenosti, stopa uspjeha, stopa neuspjeha, stopa preskakanja
 
-Stope propusnosti mjere opaženi izlaz, odnosno stavke koje stvarno napuštaju red. Postoje četiri široke kategorije:
+Stope propusnosti mjere opaženi izlaz, odnosno stavke koje stvarno napuštaju red. Postoji pet širokih kategorija:
 
 - χ (hi): ukupna stopa. Mjeri koliko stavki po jedinici vremena izlazi iz reda iz bilo kojeg razloga: uspjeh, neuspjeh, preskakanje itd.
 
@@ -193,11 +202,23 @@ Stope propusnosti mjere opaženi izlaz, odnosno stavke koje stvarno napuštaju r
 
 - β (beta): stopa neuspjeha. Mjeri koliko se stavki po razdoblju pokaže neispravnima, npr. netočnima, nepotpunima, odbijenima.
 
-- δ (delta): stopa preskakanja odnosno stopa odustajanja. Mjeri koliko stavki po razdoblju uđe u red, a zatim ode a da nisu poslužene, npr. napuštanja, odustajanja.
+- δ (delta): stopa dovršenosti. Mjeri koliko stavki po razdoblju bude posluženo, bilo da je ishod ispravan ili pogrešan: uspjeh + neuspjeh.
+
+- σ (sigma): stopa preskakanja. Mjeri koliko stavki po razdoblju uđe u red, a zatim ode a da nisu poslužene, npr. napuštanja, odustajanja.
+
+Stopa dovršenosti = stopa uspjeha + stopa neuspjeha:
+
+- δ = α + β (izgovara se: delta je jednako alfa plus beta)
+
+Ukupna stopa = stopa dovršenosti + stopa preskakanja:
+
+- χ = δ + σ (izgovara se: hi je jednako delta plus sigma)
 
 Ukupna stopa = stopa uspjeha + stopa neuspjeha + stopa preskakanja:
 
-- χ = α + β + δ (izgovara se: hi je jednako alfa plus beta plus delta)
+- χ = α + β + σ (izgovara se: hi je jednako alfa plus beta plus sigma)
+
+![Dijagram: stavke napuštaju sustav kao uspjeh α, neuspjeh β ili preskakanje σ; dovršeno δ = α + β, dakle χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Svaka stavka uračunata u χ ušla je u sustav, pa je u stacionarnom stanju ukupna stopa jednaka stopi dolazaka: χ ≈ λ. Zato stope propusnosti mjere izlaz, a ne kapacitet.
 
@@ -214,7 +235,7 @@ postoji značajna potreba za praćenjem neuspjeha i preskakanja.
 
 - Procesno gledište: stopa posluživanja uključuje sve na što red troši vrijeme obrade, odnosno uspjehe ili neuspjehe, ali ne uključuje preskakanja.
 
-- Tehnološko gledište: u primijenjenim područjima kao što je softversko inženjerstvo stopa posluživanja mjeri samo uspjehe, dok stopa pogrešaka mjeri neuspjehe, a stopa preskakanja mjeri odustajanja.
+- Tehnološko gledište: u primijenjenim područjima kao što je softversko inženjerstvo stopa posluživanja mjeri samo uspjehe, dok stopa pogrešaka mjeri neuspjehe, a stopa preskakanja mjeri preskakanja.
 
 Zato μ zadržavamo za kapacitet i uz njega dodajemo stope opaženog izlaza, umjesto da ga zamijenimo:
 
@@ -230,7 +251,7 @@ Zašto μ ne zamijeniti s χ ili α? U stabilnom redu svaka stavka koja uđe na 
 
 Pojedinosti o stopi preskakanja:
 
-- δ (delta): stopa preskakanja odnosno stopa odustajanja. Mjeri koliko stavki uđe u red, a zatim ode neobrađeno.
+- σ (sigma): stopa preskakanja. Mjeri koliko stavki uđe u red, a zatim ode neobrađeno.
 
 Preskakanje je kada stavka uđe u red, a zatim ode bez ikakve značajne obrade:
 
@@ -240,7 +261,7 @@ Preskakanje je kada stavka uđe u red, a zatim ode bez ikakve značajne obrade:
 
 Dva srodna ponašanja nisu preskakanja:
 
-- Odbijanje ulaska (balking): kada korisnik odluči ne pridružiti se redu jer prijeti predugo čekanje. Stavka koja odbije ulazak nikada ne ulazi u sustav, pa je izvan granice sustava: ne uračunava se u λ, χ ni δ. Ako su odbijanja ulaska važna, primjerice izgubljene prodaje, brojite ih zasebno kao odbijene dolaske.
+- Odbijanje ulaska (balking): kada korisnik odluči ne pridružiti se redu jer prijeti predugo čekanje. Stavka koja odbije ulazak nikada ne ulazi u sustav, pa je izvan granice sustava: ne uračunava se u λ, χ ni σ. Ako su odbijanja ulaska važna, primjerice izgubljene prodaje, brojite ih zasebno kao odbijene dolaske.
 
 - Prebacivanje (jockeying): kada korisnik prelazi iz jednog paralelnog reda u drugi, primjerice između blagajni, pokušavajući kraće čekati.
 
@@ -248,9 +269,11 @@ Dva srodna ponašanja nisu preskakanja:
 
 Najvažnija notacija koja sažima uspješnost reda:
 
-- ε (epsilon): omjer pogrešaka = broj neuspjeha / (broj uspjeha + broj neuspjeha) = β / (α + β)
+- ε (epsilon): omjer pogrešaka = broj neuspjeha / (broj uspjeha + broj neuspjeha) = β / (α + β) = β / δ
 
-Preskakanja su isključena jer preskočena stavka nikada nije poslužena, pa nije bila ni ispravna ni neispravna. Preskakanja pratite zasebno putem δ.
+Preskakanja su isključena jer preskočena stavka nikada nije poslužena, pa nije bila ni ispravna ni neispravna. Preskakanja pratite zasebno putem σ.
+
+![Dijagram: stopa dovršenosti δ je stopa uspjeha α plus stopa neuspjeha β, a omjer pogrešaka ε je stopa neuspjeha β podijeljena stopom dovršenosti δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Primjeri:
 
@@ -272,6 +295,8 @@ Pratimo četiri vremena:
 
 - ω (omega): vrijeme čekanja = vrijeme u kojem se ne obavlja stvarni rad odnosno vrijeme na čekanju
 
+![Dijagram: vrijeme isporuke τ je vrijeme čekanja ω nakon kojeg slijedi vrijeme rada φ, dakle τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Primjeri:
 
 - τ = 5s znači da je stavka dodana u red, a zatim poslužena 5 sekundi kasnije.
@@ -288,9 +313,9 @@ Odnosi:
 
 - prosječno θ ≈ 1 / χ: u stacionarnom stanju prosječno vrijeme koraka recipročna je vrijednost ukupne stope. Jedan razmak malo govori o stopi; prosjek mnogih razmaka govori mnogo. U primjerima, ako je prosječno vrijeme koraka 1s, tada je χ ≈ 1 stavka u sekundi.
 
-### Standardna notacija
+### Kendallova notacija
 
-Standardna notacija teorije redova čekanja opisuje red pomoću Kendallove notacije, zapisane kao A/S/c/K/N/D:
+Kendallova notacija druga je notacija teorije redova čekanja, zapisana kao A/S/c/K/N/D:
 
 - A: proces dolazaka, odnosno razdioba vremena između dolazaka.
 
@@ -314,11 +339,13 @@ Uobičajena slova za A i S:
 
 Kada su posljednja tri izostavljena, zadane vrijednosti su K = ∞, N = ∞, D = FIFO. Primjerice, „M/M/1” znači Poissonovi dolasci, eksponencijalna vremena posluživanja, jedan poslužitelj, neograničen kapacitet, neograničena populacija i prvi ušao, prvi izašao.
 
-Standardna notacija koristi i n za broj stavki u sustavu.
+Također:
+
+- n: broj stavki u sustavu.
 
 ## Matematika redova čekanja
 
-Matematički odjeljci koriste udžbeničke simbole kako biste ih mogli usporediti s drugim izvorima: S je prosječno vrijeme posluživanja, što je naš φ, a μ = 1 / S kapacitet je jednog poslužitelja. Pogledajte usporedbu u odjeljku [notacija teorije redova čekanja](#notacija-teorije-redova-čekanja).
+Matematički odjeljci koriste udžbeničke simbole kako biste ih mogli usporediti s drugim izvorima: S je prosječno vrijeme posluživanja, što je naš φ, a μ = 1 / S kapacitet je jednog poslužitelja.
 
 ### Krivulja iskorištenosti
 
@@ -409,7 +436,7 @@ Primjeri:
 
 - Aμ: stopa posluživanja aktivnosti odnosno kapacitet: koliko stavki jedan poslužitelj može dovršiti po jedinici vremena dok je zauzet.
 
-- Aδ: stopa preskakanja aktivnosti odnosno stopa odustajanja: koliko je stavki napušteno po jedinici vremena.
+- Aσ: stopa preskakanja aktivnosti: koliko je stavki napušteno po jedinici vremena.
 
 - Aρ: omjer iskorištenosti aktivnosti: udio raspoloživog vremena u kojem su poslužitelji zauzeti, odnosno vrijeme zauzetosti ÷ raspoloživo vrijeme, ili λ / (c μ).
 

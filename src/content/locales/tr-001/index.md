@@ -20,12 +20,12 @@ hatlarımız bunlar arasındadır.
   - [Sayım](#sayım)
   - [Varış hızı, hizmet hızı](#varış-hızı-hizmet-hızı)
   - [Kullanım oranı, diğer adıyla trafik yoğunluğu](#kullanım-oranı-diğer-adıyla-trafik-yoğunluğu)
-  - [Çıktı hızları: toplam hız, başarı hızı, başarısızlık hızı, atlama hızı](#çıktı-hızları-toplam-hız-başarı-hızı-başarısızlık-hızı-atlama-hızı)
+  - [Çıktı hızları: toplam hız, tamamlanma hızı, başarı hızı, başarısızlık hızı, atlama hızı](#çıktı-hızları-toplam-hız-tamamlanma-hızı-başarı-hızı-başarısızlık-hızı-atlama-hızı)
   - [Hizmet hızı kavramının netleştirilmesi](#hizmet-hızı-kavramının-netleştirilmesi)
   - [Atlama hızı](#atlama-hızı)
   - [Hata oranı](#hata-oranı)
   - [Teslim süresi, adım süresi, çalışma süresi, bekleme süresi](#teslim-süresi-adım-süresi-çalışma-süresi-bekleme-süresi)
-  - [Standart gösterim](#standart-gösterim)
+  - [Kendall gösterimi](#kendall-gösterimi)
 - [Kuyruk matematiği](#kuyruk-matematiği)
   - [Kullanım eğrisi](#kullanım-eğrisi)
   - [Kingman formülü](#kingman-formülü)
@@ -114,41 +114,50 @@ Kuyruk teorisi, Yunan harfleriyle yazılan bir gösterim kullanır.
 
 Ekiplerimiz yaygın gösterimin bir kısmını kullanır; ayrıca yazılım projelerinde işimize yarayan bazı özel gösterimler de ekleriz.
 
-Bizim gösterimimizden standart ders kitabı gösterimine geçiş tablosu:
+Bizim gösterimimiz ve her simgenin anlamı:
 
-| Bizim | Standart | Anlamı                                                                              |
-| ----- | -------- | ----------------------------------------------------------------------------------- |
-| κ     | L        | sistemdeki ortalama öğe sayısı: bekleyenler artı üzerinde çalışılanlar              |
-| λ     | λ        | sisteme giren öğelerin varış hızı                                                   |
-| μ     | μ        | hizmet hızı, diğer adıyla kapasite: bir sunucunun meşgulken ne kadar hızlı çalıştığı |
-| ρ     | ρ        | kullanım: sunucuların meşgul olduğu zamanın oranı, λ / (c μ)                        |
-| χ     | X        | çıktı hızı, diğer adıyla ayrılış hızı: herhangi bir nedenle gözlenen çıktı          |
-| α     | yok      | başarı hızı: doğru çıkan gözlenen çıktı                                             |
-| β     | yok      | başarısızlık hızı: yanlış çıkan gözlenen çıktı                                      |
-| δ     | yok      | atlama hızı, diğer adıyla bırakma hızı: girip hizmet almadan ayrılan öğeler        |
-| ε     | yok      | hata oranı β / (α + β)                                                              |
-| τ     | W        | sistemde geçen ortalama süre, diğer adıyla teslim süresi                            |
-| ω     | Wq       | kuyrukta beklenen ortalama süre                                                     |
-| φ     | S        | ortalama hizmet süresi, diğer adıyla çalışma süresi; μ = 1 / S                      |
-| θ     | yok      | tamamlanmalar arasındaki adım süresi; kararlı durumda ortalama adım süresi ≈ 1 / χ |
-
-Başka kaynakları okurken sembol çakışmalarına dikkat edin: σ genellikle standart sapma anlamına gelir; bu yüzden atlama hızı için δ kullanırız. θ ise Erlang-A çağrı merkezi modellerinde çoğu zaman vazgeçme hızı anlamına gelirken biz θ'yı adım süresi için kullanırız.
+| Bizim gösterimimiz | Anlamı |
+| ------------------ | ------ |
+| κ (kappa) | sistemdeki öğe sayısı, bekleyenler artı üzerinde çalışılanlar |
+| λ (lambda) | sisteme giren öğelerin varış hızı |
+| μ (mu) | hizmet hızı, diğer adıyla kapasite: bir sunucunun meşgulken ne kadar hızlı çalıştığı |
+| ρ (rho) | kullanım: sunucuların meşgul olduğu zamanın oranı, λ / (c μ) |
+| χ (chi) | çıktı hızı, diğer adıyla ayrılış hızı: herhangi bir nedenle gözlenen çıktı |
+| α (alpha) | başarı hızı: doğru çıkan gözlenen çıktı |
+| β (beta) | başarısızlık hızı: yanlış çıkan gözlenen çıktı |
+| δ (delta) | tamamlanma hızı: başarı + başarısızlık, hizmet alan öğeler, sonuç doğru da olsa yanlış da olsa |
+| σ (sigma) | atlama hızı: girip hizmet almadan ayrılan öğeler |
+| ε (epsilon) | hata oranı: β / (α + β) = β / δ |
+| τ (tau) | sistemde geçen süre, diğer adıyla teslim süresi |
+| ω (omega) | bekleme süresi, diğer adıyla kuyruktaki süre |
+| φ (phi) | çalışma süresi, diğer adıyla işlemcideki süre, diğer adıyla hizmet süresi |
+| θ (theta) | tamamlanmalar arasındaki adım süresi; kararlı durumda ortalama adım süresi ≈ 1 / χ |
 
 ### Sayım
 
 Öğeleri sık sık sayarız ve şu gösterimi kullanırız:
 
-- κ (kappa): sistemdeki öğe sayısı, yani bekleyen öğeler artı üzerinde çalışılan öğeler
+- κ (kappa): sistemdeki öğe sayısı, yani bekleyen öğeler artı üzerinde çalışılan öğeler.
+
+![Diyagram: öğeler λ hızıyla gelir, sistemde κ öğe vardır ve öğeler χ çıktı hızıyla ayrılır](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Örnek:
 
-- κ = 100, sistemde 100 öğe olduğu anlamına gelir.
+- κ = 10, tam olarak 10 anlamına gelir.
 
-- κ > 100, sistemde 100'den fazla öğe olduğu anlamına gelir.
+- κ ≈ 10, yaklaşık 10 anlamına gelir.
 
-- κ ≫ 100, sistemde 100'den çok daha fazla öğe olduğu anlamına gelir.
+- κ < 10, 10'dan az anlamına gelir.
 
-κ = 100 gibi bir sayım, tek bir andaki anlık görüntüdür. Little Yasası'nda κ, uzun dönem ortalama sayımı ifade eder; bu da ders kitabındaki L'dir. Yalnızca sırada bekleyen öğeler için ders kitabı sembolü Lq'dur.
+- κ > 10, 10'dan fazla anlamına gelir.
+
+- κ ≪ 10, 10'dan çok daha az anlamına gelir.
+
+- κ ≫ 10, 10'dan çok daha fazla anlamına gelir.
+
+κ (kappa) sayısı bir anın anlık görüntüsüdür.
+
+Ortalama sayı κ̅ (kappa çubuklu), belirli bir zaman dilimindeki ölçümlerin ortalamasını alan bir hesaplamadır; örneğin iki hafta boyunca her saat ölçüm yapmak gibi.
 
 ### Varış hızı, hizmet hızı
 
@@ -184,9 +193,9 @@ Bir kuyruğu özetleyen en önemli gösterim:
 
 - ρ > 1, varışların kapasiteyi aştığı anlamına gelir; kuyruk büyümektedir.
 
-### Çıktı hızları: toplam hız, başarı hızı, başarısızlık hızı, atlama hızı
+### Çıktı hızları: toplam hız, tamamlanma hızı, başarı hızı, başarısızlık hızı, atlama hızı
 
-Çıktı hızları gözlenen çıktıyı, yani kuyruktan gerçekten ayrılan öğeleri ölçer. Dört geniş kategoride ele alınırlar:
+Çıktı hızları gözlenen çıktıyı, yani kuyruktan gerçekten ayrılan öğeleri ölçer. Beş geniş kategoride ele alınırlar:
 
 - χ (chi): toplam hız. Birim zamanda herhangi bir nedenle (başarı, başarısızlık, atlama vb.) kuyruktan kaç öğenin çıktığını ölçer.
 
@@ -194,11 +203,23 @@ Bir kuyruğu özetleyen en önemli gösterim:
 
 - β (beta): başarısızlık hızı. Birim zamanda kaç öğenin yanlış çıktığını ölçer; örneğin hatalı, eksik, reddedilmiş.
 
-- δ (delta): atlama hızı, diğer adıyla bırakma hızı. Birim zamanda kaç öğenin kuyruğa girip hizmet almadan ayrıldığını ölçer; örneğin vazgeçmeler, yarıda bırakmalar.
+- δ (delta): tamamlanma hızı. Birim zamanda kaç öğenin hizmet aldığını, sonucun doğru ya da yanlış olmasına bakmaksızın ölçer: başarı + başarısızlık.
+
+- σ (sigma): atlama hızı. Birim zamanda kaç öğenin kuyruğa girip hizmet almadan ayrıldığını ölçer; örneğin vazgeçmeler, yarıda bırakmalar.
+
+Tamamlanma hızı = başarı hızı + başarısızlık hızı:
+
+- δ = α + β (okunuşu: delta eşittir alpha artı beta)
+
+Toplam hız = tamamlanma hızı + atlama hızı:
+
+- χ = δ + σ (okunuşu: chi eşittir delta artı sigma)
 
 Toplam hız = başarı hızı + başarısızlık hızı + atlama hızı:
 
-- χ = α + β + δ (okunuşu: chi eşittir alpha artı beta artı delta)
+- χ = α + β + σ (okunuşu: chi eşittir alpha artı beta artı sigma)
+
+![Diyagram: öğeler sistemi başarı α, başarısızlık β veya atlama σ olarak terk eder; tamamlanan δ = α + β, dolayısıyla χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ içinde sayılan her öğe sisteme girmiştir; bu yüzden kararlı durumda toplam hız varış hızına eşittir: χ ≈ λ. Çıktı hızlarının kapasiteyi değil çıktıyı ölçmesinin nedeni budur.
 
@@ -215,7 +236,7 @@ uygulayıcılar için karışıklığa ve hatalara yol açabilir.
 
 - İşleme Bakışı: Hizmet hızı, kuyruğun işlemeye zaman harcadığı her şeyi, yani başarıları veya başarısızlıkları kapsar, ancak atlamaları kapsamaz.
 
-- Teknoloji Bakışı: Yazılım mühendisliği gibi uygulamalı alanlarda hizmet hızı yalnızca başarıları ölçer; hata hızı başarısızlıkları, atlama hızı ise bırakmaları ölçer.
+- Teknoloji Bakışı: Yazılım mühendisliği gibi uygulamalı alanlarda hizmet hızı yalnızca başarıları ölçer; hata hızı başarısızlıkları, atlama hızı ise atlamaları ölçer.
 
 Bu nedenle μ'yü kapasite için koruruz ve onun yerine koymak yerine yanına gözlenen çıktı hızlarını ekleriz:
 
@@ -231,7 +252,7 @@ Neden μ'yü χ ya da α ile değiştirmiyoruz? Kararlı bir kuyrukta giren her 
 
 Atlama hızının ayrıntıları:
 
-- δ (delta): atlama hızı, diğer adıyla bırakma hızı. Kaç öğenin kuyruğa girip işlenmeden ayrıldığını ölçer.
+- σ (sigma): atlama hızı. Kaç öğenin kuyruğa girip işlenmeden ayrıldığını ölçer.
 
 Atlama, bir öğenin kuyruğa girip kayda değer bir işlem görmeden ayrılmasıdır:
 
@@ -241,7 +262,7 @@ Atlama, bir öğenin kuyruğa girip kayda değer bir işlem görmeden ayrılmas�
 
 İlişkili iki davranış atlama sayılmaz:
 
-- Katılmaktan kaçınma (balking): bekleme süresinin çok uzun olacağı endişesiyle bir müşterinin kuyruğa hiç katılmamaya karar vermesidir. Kaçınılan bir öğe sisteme hiç girmez, yani sistem sınırının dışındadır: λ, χ veya δ içinde sayılmaz. Kaçınmalar önemliyse (örneğin kaybedilen satışlar), bunları geri çevrilen varışlar olarak ayrıca sayın.
+- Katılmaktan kaçınma (balking): bekleme süresinin çok uzun olacağı endişesiyle bir müşterinin kuyruğa hiç katılmamaya karar vermesidir. Kaçınılan bir öğe sisteme hiç girmez, yani sistem sınırının dışındadır: λ, χ veya σ içinde sayılmaz. Kaçınmalar önemliyse (örneğin kaybedilen satışlar), bunları geri çevrilen varışlar olarak ayrıca sayın.
 
 - Sıra değiştirme (jockeying): bir müşterinin daha kısa bir bekleme elde etmek için kasa şeritleri gibi paralel kuyruklar arasında geçiş yapmasıdır.
 
@@ -249,9 +270,11 @@ Atlama, bir öğenin kuyruğa girip kayda değer bir işlem görmeden ayrılmas�
 
 Bir kuyruğun başarısını özetleyen en önemli gösterim:
 
-- ε (epsilon): hata oranı = başarısızlık sayısı / (başarı sayısı + başarısızlık sayısı) = β / (α + β)
+- ε (epsilon): hata oranı = başarısızlık sayısı / (başarı sayısı + başarısızlık sayısı) = β / (α + β) = β / δ
 
-Atlamalar hariç tutulur, çünkü atlanan bir öğeye hiç hizmet verilmemiştir; dolayısıyla ne doğrudur ne de yanlıştır. Atlamaları δ ile ayrıca takip edin.
+Atlamalar hariç tutulur, çünkü atlanan bir öğeye hiç hizmet verilmemiştir; dolayısıyla ne doğrudur ne de yanlıştır. Atlamaları σ ile ayrıca takip edin.
+
+![Diyagram: tamamlanma hızı δ, başarı hızı α artı başarısızlık hızı β'dır; hata oranı ε ise başarısızlık hızı β'nın tamamlanma hızı δ'ya bölünmesidir](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Örnekler:
 
@@ -273,6 +296,8 @@ Dört süreyi takip ederiz:
 
 - ω (omega): bekleme süresi = fiilî iş yapılmadan geçen süre, diğer adıyla askıda kalma süresi
 
+![Diyagram: teslim süresi τ, bekleme süresi ω ve ardından gelen çalışma süresi φ'dir, dolayısıyla τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Örnekler:
 
 - τ = 5 sn, bir öğenin kuyruğa eklendiği ve 5 saniye sonra hizmetinin tamamlandığı anlamına gelir.
@@ -289,9 +314,9 @@ Dört süreyi takip ederiz:
 
 - ortalama θ ≈ 1 / χ: kararlı durumda ortalama adım süresi, toplam hızın tersidir. Tek bir aralık hız hakkında pek az şey söyler; birçok aralığın ortalaması ise çok şey söyler. Örneklerde ortalama adım süresi 1 sn ise χ ≈ saniyede 1 öğedir.
 
-### Standart gösterim
+### Kendall gösterimi
 
-Kuyruk teorisinin standart gösterimi, bir kuyruğu A/S/c/K/N/D biçiminde yazılan Kendall gösterimiyle tanımlar:
+Kendall gösterimi, kuyruk kuramının farklı bir gösterimidir ve A/S/c/K/N/D biçiminde yazılır:
 
 - A: varış süreci, yani varışlar arasındaki sürenin dağılımı.
 
@@ -315,11 +340,13 @@ A ve S için yaygın harfler:
 
 Son üçü yazılmadığında varsayılan değerler K = ∞, N = ∞, D = FIFO'dur. Örneğin "M/M/1"; Poisson varışları, üstel hizmet süreleri, tek sunucu, sınırsız kapasite, sınırsız popülasyon ve ilk giren ilk çıkar anlamına gelir.
 
-Standart gösterimde n, sistemdeki öğe sayısını ifade etmek için de kullanılır.
+Ayrıca:
+
+- n: sistemdeki öğe sayısı.
 
 ## Kuyruk matematiği
 
-Matematik bölümleri, başka kaynaklarla karşılaştırabilmeniz için ders kitabı sembollerini kullanır: S ortalama hizmet süresidir, yani bizim φ'miz; μ = 1 / S ise bir sunucunun kapasitesidir. Geçiş tablosu için bkz. [kuyruk teorisi gösterimi](#kuyruk-teorisi-gösterimi).
+Matematik bölümleri, başka kaynaklarla karşılaştırabilmeniz için ders kitabı sembollerini kullanır: S ortalama hizmet süresidir, yani bizim φ'miz; μ = 1 / S ise bir sunucunun kapasitesidir.
 
 ### Kullanım eğrisi
 
@@ -410,7 +437,7 @@ Etkinliği ve etkinliğin bir kuyrukta nasıl ilerlediğini tanımlamak için ku
 
 - Aμ: Etkinlik hizmet hızı, diğer adıyla kapasite: bir sunucunun meşgulken zaman birimi başına kaç öğe tamamlayabildiği.
 
-- Aδ: Etkinlik atlama hızı, diğer adıyla bırakma hızı: zaman birimi başına kaç öğeden vazgeçildiği.
+- Aσ: Etkinlik atlama hızı: zaman birimi başına kaç öğeden vazgeçildiği.
 
 - Aρ: Etkinlik kullanım oranı: kullanılabilir zamanın sunucuların meşgul olduğu oranı, yani meşgul süre ÷ kullanılabilir süre veya λ / (c μ).
 

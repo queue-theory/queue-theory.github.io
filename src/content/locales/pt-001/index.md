@@ -15,12 +15,12 @@ Sumário:
   - [Contagem](#contagem)
   - [Taxa de chegada, taxa de atendimento](#taxa-de-chegada-taxa-de-atendimento)
   - [Razão de utilização, também chamada intensidade de tráfego](#razão-de-utilização-também-chamada-intensidade-de-tráfego)
-  - [Taxas de vazão: taxa total, taxa de sucesso, taxa de falha, taxa de desistência](#taxas-de-vazão-taxa-total-taxa-de-sucesso-taxa-de-falha-taxa-de-desistência)
+  - [Taxas de vazão: taxa total, taxa de conclusão, taxa de sucesso, taxa de falha, taxa de desistência](#taxas-de-vazão-taxa-total-taxa-de-conclusão-taxa-de-sucesso-taxa-de-falha-taxa-de-desistência)
   - [Desambiguação da taxa de atendimento](#desambiguação-da-taxa-de-atendimento)
   - [Taxa de desistência](#taxa-de-desistência)
   - [Razão de erro](#razão-de-erro)
   - [Tempo de atravessamento, tempo de passo, tempo de trabalho, tempo de espera](#tempo-de-atravessamento-tempo-de-passo-tempo-de-trabalho-tempo-de-espera)
-  - [Notação padrão](#notação-padrão)
+  - [Notação de Kendall](#notação-de-kendall)
 - [Matemática das filas](#matemática-das-filas)
   - [A curva de utilização](#a-curva-de-utilização)
   - [Fórmula de Kingman](#fórmula-de-kingman)
@@ -109,41 +109,50 @@ A teoria das filas usa uma notação com letras gregas.
 
 Nossas equipes usam parte da notação mais difundida; também acrescentamos uma notação própria que nos ajuda nos projetos de software.
 
-Correspondência entre a nossa notação e a notação padrão dos livros didáticos:
+Nossa notação e o significado de cada símbolo:
 
-| Nossa | Padrão | Significado |
-| ---- | -------- | ----------------------------------------------------------------------- |
-| κ | L | número médio de itens no sistema, esperando mais em atendimento |
-| λ | λ | taxa de chegada dos itens que entram no sistema |
-| μ | μ | taxa de atendimento, também chamada capacidade: a rapidez com que um servidor trabalha enquanto está ocupado |
-| ρ | ρ | utilização: a fração do tempo em que os servidores estão ocupados, λ / (c μ) |
-| χ | X | vazão, também chamada taxa de saída: produção observada, por qualquer motivo |
-| α | nenhum | taxa de sucesso: produção observada que se revela correta |
-| β | nenhum | taxa de falha: produção observada que se revela incorreta |
-| δ | nenhum | taxa de desistência: itens que entraram e depois saíram sem atendimento |
-| ε | nenhum | razão de erro β / (α + β) |
-| τ | W | tempo médio no sistema, também chamado tempo de atravessamento (lead time) |
-| ω | Wq | tempo médio de espera na fila |
-| φ | S | tempo médio de atendimento, também chamado tempo de trabalho; μ = 1 / S |
-| θ | nenhum | tempo de passo entre conclusões; tempo de passo médio ≈ 1 / χ em regime estacionário |
-
-Atenção aos conflitos de símbolos ao ler outras fontes: σ costuma significar desvio padrão, e é por isso que usamos δ para a taxa de desistência; e θ costuma significar a taxa de abandono nos modelos Erlang-A de call centers, enquanto nós usamos θ para o tempo de passo.
+| Nossa notação | Significado |
+| ------------- | ----------- |
+| κ (kappa) | número de itens no sistema, esperando mais em atendimento |
+| λ (lambda) | taxa de chegada dos itens que entram no sistema |
+| μ (mi) | taxa de atendimento, também chamada capacidade: a rapidez com que um servidor trabalha enquanto está ocupado |
+| ρ (rô) | utilização: a fração do tempo em que os servidores estão ocupados, λ / (c μ) |
+| χ (qui) | vazão, também chamada taxa de saída: produção observada, por qualquer motivo |
+| α (alfa) | taxa de sucesso: produção observada que se revela correta |
+| β (beta) | taxa de falha: produção observada que se revela incorreta |
+| δ (delta) | taxa de conclusão: sucesso + falha, itens atendidos, seja o resultado certo ou errado |
+| σ (sigma) | taxa de desistência: itens que entraram e depois saíram sem atendimento |
+| ε (épsilon) | razão de erro: β / (α + β) = β / δ |
+| τ (tau) | tempo no sistema, também chamado tempo de atravessamento (lead time) |
+| ω (ômega) | tempo de espera, também chamado tempo na fila |
+| φ (fi) | tempo de trabalho, também chamado tempo no processador, também chamado tempo de atendimento |
+| θ (teta) | tempo de passo entre conclusões; tempo de passo médio ≈ 1 / χ em regime estacionário |
 
 ### Contagem
 
 Contamos itens com frequência e usamos esta notação:
 
-- κ (kappa): contagem de itens no sistema, ou seja, itens esperando mais itens em atendimento
+- κ (kappa): contagem de itens no sistema, ou seja, itens esperando mais itens em atendimento.
+
+![Diagrama: os itens chegam à taxa λ, há κ itens no sistema e os itens saem com a vazão χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Exemplo:
 
-- κ = 100 significa que há 100 itens no sistema.
+- κ = 10 significa exatamente 10
 
-- κ > 100 significa que há mais de 100 itens no sistema.
+- κ ≈ 10 significa aproximadamente 10
 
-- κ ≫ 100 significa que há muito mais de 100 itens no sistema.
+- κ < 10 significa menos de 10
 
-Uma contagem como κ = 100 é um retrato de um único momento. Na Lei de Little, κ significa a contagem média de longo prazo, que é o L dos livros didáticos. O símbolo dos livros didáticos para apenas os itens que esperam na fila é Lq.
+- κ > 10 significa mais de 10
+
+- κ ≪ 10 significa muito menos de 10
+
+- κ ≫ 10 significa muito mais de 10
+
+A contagem κ (kappa) é um instantâneo de um momento.
+
+A contagem média κ̅ (kappa com barra) é um cálculo que faz a média de medições ao longo de um período específico, por exemplo medindo a cada hora durante duas semanas.
 
 ### Taxa de chegada, taxa de atendimento
 
@@ -179,9 +188,9 @@ Exemplos:
 
 - ρ > 1 significa que as chegadas excedem a capacidade; a fila está aumentando.
 
-### Taxas de vazão: taxa total, taxa de sucesso, taxa de falha, taxa de desistência
+### Taxas de vazão: taxa total, taxa de conclusão, taxa de sucesso, taxa de falha, taxa de desistência
 
-As taxas de vazão medem a produção observada, ou seja, os itens que efetivamente saem da fila. Elas se dividem em quatro grandes categorias:
+As taxas de vazão medem a produção observada, ou seja, os itens que efetivamente saem da fila. Elas se dividem em cinco grandes categorias:
 
 - χ (qui): taxa total. Mede quantos itens por unidade de tempo saem da fila por qualquer motivo: sucesso, falha, desistência etc.
 
@@ -189,11 +198,23 @@ As taxas de vazão medem a produção observada, ou seja, os itens que efetivame
 
 - β (beta): taxa de falha. Mede quantos itens por período de tempo se revelam incorretos, por exemplo errados, incompletos, rejeitados.
 
-- δ (delta): taxa de desistência, também chamada taxa de abandono. Mede quantos itens por período de tempo entram na fila e depois saem sem serem atendidos, por exemplo abandonos, desistências durante a espera.
+- δ (delta): taxa de conclusão. Mede quantos itens por período de tempo são atendidos, seja o resultado certo ou errado: sucesso + falha.
+
+- σ (sigma): taxa de desistência. Mede quantos itens por período de tempo entram na fila e depois saem sem serem atendidos, por exemplo abandonos, desistências.
+
+Taxa de conclusão = taxa de sucesso + taxa de falha:
+
+- δ = α + β (lê-se: delta é igual a alfa mais beta)
+
+Taxa total = taxa de conclusão + taxa de desistência:
+
+- χ = δ + σ (lê-se: qui é igual a delta mais sigma)
 
 Taxa total = taxa de sucesso + taxa de falha + taxa de desistência:
 
-- χ = α + β + δ (lê-se: qui é igual a alfa mais beta mais delta)
+- χ = α + β + σ (lê-se: qui é igual a alfa mais beta mais sigma)
+
+![Diagrama: os itens saem do sistema como sucesso α, falha β ou desistência σ; concluídos δ = α + β, portanto χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Todo item contado em χ entrou no sistema, portanto, em regime estacionário, a taxa total é igual à taxa de chegada: χ ≈ λ. É por isso que as taxas de vazão medem a produção, e não a capacidade.
 
@@ -207,7 +228,7 @@ Isso tem raízes históricas e pode causar confusão e erros, especialmente em c
 
 - Visão de processamento: a taxa de atendimento inclui tudo aquilo que a fila gasta tempo processando, ou seja, sucessos ou falhas, mas não inclui desistências.
 
-- Visão tecnológica: em áreas aplicadas, como a engenharia de software, a taxa de atendimento mede apenas os sucessos, enquanto a taxa de erro mede as falhas e a taxa de desistência mede os abandonos.
+- Visão tecnológica: em áreas aplicadas, como a engenharia de software, a taxa de atendimento mede apenas os sucessos, enquanto a taxa de erro mede as falhas e a taxa de desistência mede as desistências.
 
 Por isso mantemos μ para a capacidade e acrescentamos ao lado dele as taxas de produção observada, em vez de substituí-lo:
 
@@ -223,7 +244,7 @@ Por que não substituir μ por χ ou α? Em uma fila estável, todo item que ent
 
 Detalhes da taxa de desistência:
 
-- δ (delta): taxa de desistência, também chamada taxa de abandono. Mede quantos itens entram na fila e depois saem sem serem tratados.
+- σ (sigma): taxa de desistência. Mede quantos itens entram na fila e depois saem sem serem processados.
 
 Uma desistência ocorre quando um item entra na fila e depois sai sem nenhum processamento significativo:
 
@@ -233,7 +254,7 @@ Uma desistência ocorre quando um item entra na fila e depois sai sem nenhum pro
 
 Dois comportamentos relacionados não são desistências:
 
-- Recusa de entrada (balking): quando um cliente decide não entrar na fila porque o tempo de espera ameaça ser longo demais. Um item recusado nunca entra no sistema, portanto está fora da fronteira do sistema: não é contado em λ, χ nem δ. Se as recusas importarem, como no caso de vendas perdidas, conte-as separadamente como chegadas rejeitadas.
+- Recusa de entrada (balking): quando um cliente decide não entrar na fila porque o tempo de espera ameaça ser longo demais. Um item recusado nunca entra no sistema, portanto está fora da fronteira do sistema: não é contado em λ, χ nem σ. Se as recusas importarem, como no caso de vendas perdidas, conte-as separadamente como chegadas rejeitadas.
 
 - Troca de fila (jockeying): quando um cliente alterna entre filas paralelas, como os caixas de um supermercado, tentando conseguir uma espera mais curta.
 
@@ -241,9 +262,11 @@ Dois comportamentos relacionados não são desistências:
 
 A notação mais importante que resume o sucesso de uma fila:
 
-- ε (épsilon): razão de erro = contagem de falhas / (contagem de sucessos + contagem de falhas) = β / (α + β)
+- ε (épsilon): razão de erro = contagem de falhas / (contagem de sucessos + contagem de falhas) = β / (α + β) = β / δ
 
-As desistências são excluídas, porque um item que desistiu nunca foi atendido, portanto não foi nem correto nem incorreto. Acompanhe as desistências separadamente por meio de δ.
+As desistências são excluídas, porque um item que desistiu nunca foi atendido, portanto não foi nem correto nem incorreto. Acompanhe as desistências separadamente por meio de σ.
+
+![Diagrama: a taxa de conclusão δ é a taxa de sucesso α mais a taxa de falha β, e a razão de erro ε é a taxa de falha β dividida pela taxa de conclusão δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Exemplos:
 
@@ -265,6 +288,8 @@ Acompanhamos quatro tempos:
 
 - ω (ômega): tempo de espera = tempo gasto sem fazer trabalho efetivo, também chamado tempo pendente
 
+![Diagrama: o tempo de atravessamento τ é o tempo de espera ω seguido do tempo de trabalho φ, portanto τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Exemplos:
 
 - τ = 5s significa que um item é adicionado à fila e atendido 5 segundos depois.
@@ -281,9 +306,9 @@ Relações:
 
 - θ médio ≈ 1 / χ: em regime estacionário, o tempo de passo médio é o inverso da taxa total. Um único intervalo diz pouco sobre a taxa; a média de muitos intervalos diz muito. Nos exemplos, se o tempo de passo médio é 1s, então χ ≈ 1 item por segundo.
 
-### Notação padrão
+### Notação de Kendall
 
-A notação padrão da teoria das filas descreve uma fila usando a notação de Kendall, escrita como A/S/c/K/N/D:
+A notação de Kendall é outra notação da teoria das filas, escrita como A/S/c/K/N/D:
 
 - A: o processo de chegada, ou seja, a distribuição do tempo entre chegadas.
 
@@ -307,11 +332,13 @@ Letras comuns para A e S:
 
 Quando os três últimos são omitidos, os valores padrão são K = ∞, N = ∞, D = FIFO. Por exemplo, "M/M/1" significa chegadas de Poisson, tempos de atendimento exponenciais, um servidor, capacidade ilimitada, população ilimitada e primeiro a entrar, primeiro a sair.
 
-A notação padrão também usa n para designar o número de itens no sistema.
+Além disso:
+
+- n: o número de itens no sistema.
 
 ## Matemática das filas
 
-As seções de matemática usam os símbolos dos livros didáticos, para que seja possível compará-las com outras fontes: S é o tempo médio de atendimento, que é o nosso φ, e μ = 1 / S é a capacidade de um servidor. Consulte a correspondência em [notação da teoria das filas](#notação-da-teoria-das-filas).
+As seções de matemática usam os símbolos dos livros didáticos, para que seja possível compará-las com outras fontes: S é o tempo médio de atendimento, que é o nosso φ, e μ = 1 / S é a capacidade de um servidor.
 
 ### A curva de utilização
 
@@ -402,7 +429,7 @@ Exemplos:
 
 - Aμ: taxa de atendimento da atividade, também chamada capacidade: quantos itens um servidor consegue concluir por unidade de tempo enquanto está ocupado.
 
-- Aδ: taxa de desistência da atividade, também chamada taxa de abandono: quantos itens são abandonados por unidade de tempo.
+- Aσ: taxa de desistência da atividade: quantos itens são abandonados por unidade de tempo.
 
 - Aρ: razão de utilização da atividade: a fração do tempo disponível em que os servidores estão ocupados, ou seja, tempo ocupado ÷ tempo disponível, ou λ / (c μ).
 

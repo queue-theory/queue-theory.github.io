@@ -19,12 +19,12 @@ Obsah:
   - [Počet](#počet)
   - [Intenzita příchodů, intenzita obsluhy](#intenzita-příchodů-intenzita-obsluhy)
   - [Míra vytížení neboli intenzita provozu](#míra-vytížení-neboli-intenzita-provozu)
-  - [Míry propustnosti: celková míra, míra úspěchu, míra selhání, míra vynechání](#míry-propustnosti-celková-míra-míra-úspěchu-míra-selhání-míra-vynechání)
+  - [Míry propustnosti: celková míra, míra dokončení, míra úspěchu, míra selhání, míra vynechání](#míry-propustnosti-celková-míra-míra-dokončení-míra-úspěchu-míra-selhání-míra-vynechání)
   - [Nejednoznačnost pojmu intenzita obsluhy](#nejednoznačnost-pojmu-intenzita-obsluhy)
   - [Míra vynechání](#míra-vynechání)
   - [Poměr chyb](#poměr-chyb)
   - [Průběžná doba, doba kroku, doba práce, doba čekání](#průběžná-doba-doba-kroku-doba-práce-doba-čekání)
-  - [Standardní notace](#standardní-notace)
+  - [Kendallova notace](#kendallova-notace)
 - [Matematika front](#matematika-front)
   - [Křivka vytížení](#křivka-vytížení)
   - [Kingmanův vzorec](#kingmanův-vzorec)
@@ -113,41 +113,50 @@ Teorie front používá notaci s řeckými písmeny.
 
 Naše týmy používají část rozšířené notace; přidáváme také vlastní notaci, která nám pomáhá při softwarových projektech.
 
-Převodní tabulka z naší notace na standardní učebnicovou notaci:
+Naše notace a význam jednotlivých symbolů:
 
-| Naše | Standardní | Význam                                                                            |
-| ---- | ---------- | --------------------------------------------------------------------------------- |
-| κ    | L          | průměrný počet položek v systému, čekajících i právě zpracovávaných               |
-| λ    | λ          | intenzita příchodů položek, které vstupují do systému                             |
-| μ    | μ          | intenzita obsluhy neboli kapacita: jak rychle pracuje jeden server, když je vytížen |
-| ρ    | ρ          | vytížení: podíl času, kdy jsou servery obsazeny, λ / (c μ)                        |
-| χ    | X          | propustnost neboli intenzita odchodů: pozorovaný výstup z jakéhokoli důvodu       |
-| α    | žádný      | míra úspěchu: pozorovaný výstup, který se ukáže jako správný                      |
-| β    | žádný      | míra selhání: pozorovaný výstup, který se ukáže jako chybný                       |
-| δ    | žádný      | míra vynechání neboli míra odpadu: položky, které vstoupily a odešly neobslouženy |
-| ε    | žádný      | poměr chyb β / (α + β)                                                            |
-| τ    | W          | průměrná doba v systému neboli průběžná doba (lead time)                          |
-| ω    | Wq         | průměrná doba čekání ve frontě                                                    |
-| φ    | S          | průměrná doba obsluhy neboli doba práce; μ = 1 / S                                |
-| θ    | žádný      | doba kroku mezi dokončeními; střední doba kroku ≈ 1 / χ v ustáleném stavu         |
-
-Při čtení jiných zdrojů si dejte pozor na kolize symbolů: σ obvykle znamená směrodatnou odchylku, a proto pro míru vynechání používáme δ; θ v modelech call center Erlang-A často znamená intenzitu opouštění fronty, kdežto my θ používáme pro dobu kroku.
+| Naše notace | Význam |
+| ----------- | ------ |
+| κ (kappa) | počet položek v systému, čekajících i právě zpracovávaných |
+| λ (lambda) | intenzita příchodů položek, které vstupují do systému |
+| μ (mí) | intenzita obsluhy neboli kapacita: jak rychle pracuje jeden server, když je vytížen |
+| ρ (ró) | vytížení: podíl času, kdy jsou servery obsazeny, λ / (c μ) |
+| χ (chí) | propustnost neboli intenzita odchodů: pozorovaný výstup z jakéhokoli důvodu |
+| α (alfa) | míra úspěchu: pozorovaný výstup, který se ukáže jako správný |
+| β (beta) | míra selhání: pozorovaný výstup, který se ukáže jako chybný |
+| δ (delta) | míra dokončení: úspěch + selhání, obsloužené položky s dobrým i špatným výsledkem |
+| σ (sigma) | míra vynechání: položky, které vstoupily a odešly neobslouženy |
+| ε (epsilon) | poměr chyb: β / (α + β) = β / δ |
+| τ (tau) | doba v systému neboli průběžná doba (lead time) |
+| ω (omega) | doba čekání neboli doba ve frontě |
+| φ (fí) | doba práce neboli doba v procesoru neboli doba obsluhy |
+| θ (théta) | doba kroku mezi dokončeními; střední doba kroku ≈ 1 / χ v ustáleném stavu |
 
 ### Počet
 
 Položky počítáme často a používáme tuto notaci:
 
-- κ (kappa): počet položek v systému, tedy čekajících položek plus položek, na kterých se právě pracuje
+- κ (kappa): počet položek v systému, tedy čekajících položek plus položek, na kterých se právě pracuje.
+
+![Diagram: položky přicházejí s mírou λ, v systému je κ položek, položky odcházejí s propustností χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Příklad:
 
-- κ = 100 znamená, že v systému je 100 položek.
+- κ = 10 znamená přesně 10
 
-- κ > 100 znamená, že v systému je více než 100 položek.
+- κ ≈ 10 znamená přibližně 10
 
-- κ ≫ 100 znamená, že v systému je mnohem více než 100 položek.
+- κ < 10 znamená méně než 10
 
-Počet jako κ = 100 je snímek v jednom okamžiku. V Littleově zákoně znamená κ dlouhodobý průměrný počet, tedy učebnicové L. Učebnicový symbol pouze pro položky čekající ve frontě je Lq.
+- κ > 10 znamená více než 10
+
+- κ ≪ 10 znamená mnohem méně než 10
+
+- κ ≫ 10 znamená mnohem více než 10
+
+Počet κ (kappa) je snímek v jednom okamžiku.
+
+Průměrný počet κ̅ (kappa s pruhem) je výpočet, který průměruje měření za určité časové období, například měření každou hodinu po dobu dvou týdnů.
 
 ### Intenzita příchodů, intenzita obsluhy
 
@@ -183,9 +192,9 @@ Příklady:
 
 - ρ > 1 znamená, že příchody převyšují kapacitu; fronta se zvětšuje.
 
-### Míry propustnosti: celková míra, míra úspěchu, míra selhání, míra vynechání
+### Míry propustnosti: celková míra, míra dokončení, míra úspěchu, míra selhání, míra vynechání
 
-Míry propustnosti měří pozorovaný výstup, tedy položky, které skutečně opouštějí frontu. Dělí se do čtyř širokých kategorií:
+Míry propustnosti měří pozorovaný výstup, tedy položky, které skutečně opouštějí frontu. Dělí se do pěti širokých kategorií:
 
 - χ (chí): celková míra. Měří, kolik položek za jednotku času opustí frontu z jakéhokoli důvodu: úspěch, selhání, vynechání atd.
 
@@ -193,11 +202,23 @@ Míry propustnosti měří pozorovaný výstup, tedy položky, které skutečně
 
 - β (beta): míra selhání. Měří, kolik položek za časové období dopadne špatně, např. nesprávně, neúplně, zamítnuto.
 
-- δ (delta): míra vynechání neboli míra odpadu. Měří, kolik položek za časové období vstoupí do fronty a poté odejde, aniž by byly obslouženy, např. opuštění, odstoupení.
+- δ (delta): míra dokončení. Měří, kolik položek za časové období je obslouženo, ať už dopadnou dobře, nebo špatně: úspěch + selhání.
+
+- σ (sigma): míra vynechání. Měří, kolik položek za časové období vstoupí do fronty a poté odejde, aniž by byly obslouženy, např. opuštění, odstoupení.
+
+Míra dokončení = míra úspěchu + míra selhání:
+
+- δ = α + β (čte se: delta se rovná alfa plus beta)
+
+Celková míra = míra dokončení + míra vynechání:
+
+- χ = δ + σ (čte se: chí se rovná delta plus sigma)
 
 Celková míra = míra úspěchu + míra selhání + míra vynechání:
 
-- χ = α + β + δ (čte se: chí se rovná alfa plus beta plus delta)
+- χ = α + β + σ (čte se: chí se rovná alfa plus beta plus sigma)
+
+![Diagram: položky opouštějí systém jako úspěch α, selhání β nebo vynechání σ; dokončené δ = α + β, tedy χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Každá položka započtená do χ vstoupila do systému, takže v ustáleném stavu se celková míra rovná intenzitě příchodů: χ ≈ λ. Proto míry propustnosti měří výstup, nikoli kapacitu.
 
@@ -214,7 +235,7 @@ sledovat selhání a vynechání.
 
 - Procesní pohled: Intenzita obsluhy zahrnuje vše, čím fronta tráví čas zpracováním, tedy úspěchy i selhání, ale nezahrnuje vynechání.
 
-- Technologický pohled: V aplikovaných oborech, jako je softwarové inženýrství, měří intenzita obsluhy pouze úspěchy, kdežto chybovost měří selhání a míra vynechání měří odpad.
+- Technologický pohled: V aplikovaných oborech, jako je softwarové inženýrství, měří intenzita obsluhy pouze úspěchy, kdežto chybovost měří selhání a míra vynechání měří vynechané položky.
 
 Proto ponecháváme μ pro kapacitu a pozorované míry výstupu přidáváme vedle ní, místo abychom ji nahrazovali:
 
@@ -230,7 +251,7 @@ Proč nenahradit μ hodnotou χ nebo α? Ve stabilní frontě každá položka, 
 
 Podrobnosti o míře vynechání:
 
-- δ (delta): míra vynechání neboli míra odpadu. Měří, kolik položek vstoupí do fronty a poté odejde nevyřízeno.
+- σ (sigma): míra vynechání. Měří, kolik položek vstoupí do fronty a poté odejde nezpracováno.
 
 Vynechání nastává, když položka vstoupí do fronty a poté ji opustí bez jakéhokoli podstatného zpracování:
 
@@ -240,7 +261,7 @@ Vynechání nastává, když položka vstoupí do fronty a poté ji opustí bez 
 
 Dvě související chování vynecháním nejsou:
 
-- Odrazení (balking): zákazník se rozhodne do fronty nezařadit, protože hrozí příliš dlouhé čekání. Odrazená položka nikdy nevstoupí do systému, takže leží mimo hranici systému: nezapočítává se do λ, χ ani δ. Pokud na odrazeních záleží, například kvůli ztraceným prodejům, počítejte je zvlášť jako odmítnuté příchody.
+- Odrazení (balking): zákazník se rozhodne do fronty nezařadit, protože hrozí příliš dlouhé čekání. Odrazená položka nikdy nevstoupí do systému, takže leží mimo hranici systému: nezapočítává se do λ, χ ani σ. Pokud na odrazeních záleží, například kvůli ztraceným prodejům, počítejte je zvlášť jako odmítnuté příchody.
 
 - Přebíhání (jockeying): zákazník přechází mezi paralelními frontami, například mezi pokladnami, ve snaze čekat kratší dobu.
 
@@ -248,9 +269,11 @@ Dvě související chování vynecháním nejsou:
 
 Nejdůležitější notace, která shrnuje úspěšnost fronty:
 
-- ε (epsilon): poměr chyb = počet selhání / (počet úspěchů + počet selhání) = β / (α + β)
+- ε (epsilon): poměr chyb = počet selhání / (počet úspěchů + počet selhání) = β / (α + β) = β / δ
 
-Vynechání se nezapočítávají, protože vynechaná položka nebyla nikdy obsloužena, takže nebyla ani správná, ani chybná. Vynechání sledujte zvlášť pomocí δ.
+Vynechání se nezapočítávají, protože vynechaná položka nebyla nikdy obsloužena, takže nebyla ani správná, ani chybná. Vynechání sledujte zvlášť pomocí σ.
+
+![Diagram: míra dokončení δ je míra úspěchu α plus míra selhání β a poměr chyb ε je míra selhání β dělená mírou dokončení δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Příklady:
 
@@ -272,6 +295,8 @@ Sledujeme čtyři doby:
 
 - ω (omega): doba čekání = čas, kdy se skutečně nepracuje, neboli doba nevyřízení
 
+![Diagram: průběžná doba τ je doba čekání ω následovaná dobou práce φ, tedy τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Příklady:
 
 - τ = 5 s znamená, že položka je přidána do fronty a obsloužena o 5 sekund později.
@@ -288,9 +313,9 @@ Vztahy:
 
 - střední θ ≈ 1 / χ: v ustáleném stavu je střední doba kroku převrácenou hodnotou celkové míry. Jediná mezera o intenzitě mnoho neříká; průměr mnoha mezer ano. Pokud je v příkladech střední doba kroku 1 s, pak χ ≈ 1 položka za sekundu.
 
-### Standardní notace
+### Kendallova notace
 
-Standardní notace teorie front popisuje frontu pomocí Kendallovy notace, zapisované jako A/S/c/K/N/D:
+Kendallova notace je jiná notace teorie front, zapisovaná jako A/S/c/K/N/D:
 
 - A: proces příchodů, tedy rozdělení doby mezi příchody.
 
@@ -314,11 +339,13 @@ Běžná písmena pro A a S:
 
 Pokud jsou poslední tři vynechány, výchozí hodnoty jsou K = ∞, N = ∞, D = FIFO. Například „M/M/1“ znamená poissonovské příchody, exponenciální doby obsluhy, jeden server, neomezenou kapacitu, neomezenou populaci a obsluhu v pořadí příchodu (first in first out).
 
-Standardní notace také používá n pro počet položek v systému.
+Také:
+
+- n: počet položek v systému.
 
 ## Matematika front
 
-Matematické části používají učebnicové symboly, abyste je mohli porovnat s jinými zdroji: S je průměrná doba obsluhy, tedy naše φ, a μ = 1 / S je kapacita jednoho serveru. Viz převodní tabulku v části [notace teorie front](#notace-teorie-front).
+Matematické části používají učebnicové symboly, abyste je mohli porovnat s jinými zdroji: S je průměrná doba obsluhy, tedy naše φ, a μ = 1 / S je kapacita jednoho serveru.
 
 ### Křivka vytížení
 
@@ -409,7 +436,7 @@ Příklady:
 
 - Aμ: intenzita obsluhy neboli kapacita činností: kolik položek dokáže jeden server dokončit za časovou jednotku, když je vytížen.
 
-- Aδ: míra vynechání neboli míra odpadu činností: kolik položek je opuštěno za časovou jednotku.
+- Aσ: míra vynechání činností: kolik položek je opuštěno za časovou jednotku.
 
 - Aρ: míra vytížení činností: podíl dostupného času, kdy jsou servery obsazeny, tedy doba obsazení ÷ dostupná doba, nebo λ / (c μ).
 

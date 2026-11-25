@@ -20,12 +20,12 @@ Contenido:
   - [Recuento](#recuento)
   - [Tasa de llegada, tasa de servicio](#tasa-de-llegada-tasa-de-servicio)
   - [Razón de utilización, también llamada intensidad de tráfico](#razón-de-utilización-también-llamada-intensidad-de-tráfico)
-  - [Tasas de rendimiento: tasa total, tasa de éxito, tasa de fallo, tasa de omisión](#tasas-de-rendimiento-tasa-total-tasa-de-éxito-tasa-de-fallo-tasa-de-omisión)
+  - [Tasas de rendimiento: tasa total, tasa de finalización, tasa de éxito, tasa de fallo, tasa de omisión](#tasas-de-rendimiento-tasa-total-tasa-de-finalización-tasa-de-éxito-tasa-de-fallo-tasa-de-omisión)
   - [Desambiguación de la tasa de servicio](#desambiguación-de-la-tasa-de-servicio)
   - [Tasa de omisión](#tasa-de-omisión)
   - [Razón de errores](#razón-de-errores)
   - [Tiempo de entrega, tiempo de paso, tiempo de trabajo, tiempo de espera](#tiempo-de-entrega-tiempo-de-paso-tiempo-de-trabajo-tiempo-de-espera)
-  - [Notación estándar](#notación-estándar)
+  - [Notación de Kendall](#notación-de-kendall)
 - [Matemáticas de colas](#matemáticas-de-colas)
   - [La curva de utilización](#la-curva-de-utilización)
   - [Fórmula de Kingman](#fórmula-de-kingman)
@@ -115,41 +115,50 @@ La teoría de colas usa una notación con letras griegas.
 
 Nuestros equipos usan parte de la notación más popular; también añadimos notación propia que nos ayuda en los proyectos de software.
 
-Equivalencias entre nuestra notación y la notación estándar de los libros de texto:
+Nuestra notación y lo que significa cada símbolo:
 
-| Nuestra | Estándar | Significado |
-| ------- | -------- | ----------- |
-| κ       | L        | número medio de elementos en el sistema, en espera más en atención |
-| λ       | λ        | tasa de llegada de los elementos que entran en el sistema |
-| μ       | μ        | tasa de servicio, también llamada capacidad: con qué rapidez trabaja un servidor mientras está ocupado |
-| ρ       | ρ        | utilización: la fracción del tiempo en que los servidores están ocupados, λ / (c μ) |
-| χ       | X        | rendimiento, también llamado tasa de salida: producción observada, por cualquier motivo |
-| α       | ninguno  | tasa de éxito: producción observada que resulta bien |
-| β       | ninguno  | tasa de fallo: producción observada que resulta mal |
-| δ       | ninguno  | tasa de omisión, también llamada tasa de abandono: elementos que entraron y luego salieron sin ser atendidos |
-| ε       | ninguno  | razón de errores β / (α + β) |
-| τ       | W        | tiempo medio en el sistema, también llamado tiempo de entrega |
-| ω       | Wq       | tiempo medio de espera en la cola |
-| φ       | S        | tiempo medio de servicio, también llamado tiempo de trabajo; μ = 1 / S |
-| θ       | ninguno  | tiempo de paso entre finalizaciones; tiempo de paso medio ≈ 1 / χ en estado estacionario |
-
-Cuidado con los símbolos que coinciden al leer otras fuentes: σ suele significar desviación estándar, por eso usamos δ para la tasa de omisión; y θ a menudo significa la tasa de abandono en los modelos Erlang-A de centros de llamadas, mientras que nosotros usamos θ para el tiempo de paso.
+| Nuestra notación | Significado |
+| ---------------- | ----------- |
+| κ (kappa) | número de elementos en el sistema, en espera más en atención |
+| λ (lambda) | tasa de llegada de los elementos que entran al sistema |
+| μ (mu) | tasa de servicio, también llamada capacidad: qué rapidez trabaja un servidor mientras está ocupado |
+| ρ (rho) | utilización: la fracción del tiempo en que los servidores están ocupados, λ / (c μ) |
+| χ (ji) | rendimiento, también llamado tasa de salida: producción observada, por cualquier motivo |
+| α (alfa) | tasa de éxito: producción observada que resulta bien |
+| β (beta) | tasa de fallo: producción observada que resulta mal |
+| δ (delta) | tasa de finalización: éxito + fallo, elementos atendidos que resultan bien o mal |
+| σ (sigma) | tasa de omisión: elementos que entraron y luego salieron sin ser atendidos |
+| ε (épsilon) | razón de errores: β / (α + β) = β / δ |
+| τ (tau) | tiempo en el sistema, también llamado tiempo de entrega |
+| ω (omega) | tiempo de espera, también llamado tiempo en la cola |
+| φ (fi) | tiempo de trabajo, también llamado tiempo en el procesador, también llamado tiempo de servicio |
+| θ (theta) | tiempo de paso por finalizaciones; tiempo de paso medio ≈ 1 / χ en estado estacionario |
 
 ### Recuento
 
 Contamos elementos con frecuencia, y usamos esta notación:
 
-- κ (kappa): recuento de elementos en el sistema, es decir, los elementos en espera más los elementos en atención
+- κ (kappa): recuento de elementos en el sistema, es decir, los elementos en espera más los elementos en atención.
+
+![Diagrama: los elementos llegan a la tasa λ, hay κ elementos en el sistema y los elementos salen con el rendimiento χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Ejemplo:
 
-- κ = 100 significa que hay 100 elementos en el sistema.
+- κ = 10 significa exactamente 10
 
-- κ > 100 significa que hay más de 100 elementos en el sistema.
+- κ ≈ 10 significa aproximadamente 10
 
-- κ ≫ 100 significa que hay muchos más de 100 elementos en el sistema.
+- κ < 10 significa menos de 10
 
-Un recuento como κ = 100 es una instantánea de un momento. En la ley de Little, κ significa el recuento medio a largo plazo, que es la L de los libros de texto. El símbolo de los libros de texto para solo los elementos que esperan en la cola es Lq.
+- κ > 10 significa más de 10
+
+- κ ≪ 10 significa mucho menos de 10
+
+- κ ≫ 10 significa mucho más de 10
+
+El recuento κ (kappa) es una instantánea de un momento.
+
+El recuento medio κ̅ (kappa con barra) es un cálculo que promedia mediciones durante un periodo específico, por ejemplo midiendo cada hora durante dos semanas.
 
 ### Tasa de llegada, tasa de servicio
 
@@ -185,9 +194,9 @@ Ejemplos:
 
 - ρ > 1 significa que las llegadas superan la capacidad; la cola está creciendo.
 
-### Tasas de rendimiento: tasa total, tasa de éxito, tasa de fallo, tasa de omisión
+### Tasas de rendimiento: tasa total, tasa de finalización, tasa de éxito, tasa de fallo, tasa de omisión
 
-Las tasas de rendimiento miden la producción observada, es decir, los elementos que realmente salen de la cola. Se agrupan en cuatro categorías amplias:
+Las tasas de rendimiento miden la producción observada, es decir, los elementos que realmente salen de la cola. Se agrupan en cinco categorías amplias:
 
 - χ (ji): tasa total. Mide cuántos elementos por periodo salen de la cola por cualquier motivo: éxito, fallo, omisión, etc.
 
@@ -195,11 +204,23 @@ Las tasas de rendimiento miden la producción observada, es decir, los elementos
 
 - β (beta): tasa de fallo. Mide cuántos elementos por periodo resultan mal, p. ej. incorrectos, incompletos, rechazados.
 
-- δ (delta): tasa de omisión, también llamada tasa de abandono. Mide cuántos elementos por periodo entran en la cola y luego salen sin ser atendidos, p. ej. abandonos, deserciones.
+- δ (delta): tasa de finalización. Mide cuántos elementos por periodo son atendidos, ya sea que resulten bien o mal: éxito + fallo.
+
+- σ (sigma): tasa de omisión. Mide cuántos elementos por periodo entran a la cola y luego salen sin ser atendidos, p. ej. abandonos, deserciones.
+
+Tasa de finalización = tasa de éxito + tasa de fallo:
+
+- δ = α + β (se lee: delta es igual a alfa más beta)
+
+Tasa total = tasa de finalización + tasa de omisión:
+
+- χ = δ + σ (se lee: ji es igual a delta más sigma)
 
 Tasa total = tasa de éxito + tasa de fallo + tasa de omisión:
 
-- χ = α + β + δ (se lee: ji es igual a alfa más beta más delta)
+- χ = α + β + σ (se lee: ji es igual a alfa más beta más sigma)
+
+![Diagrama: los elementos salen del sistema como éxito α, fallo β u omisión σ; finalizados δ = α + β, así que χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Cada elemento contado en χ entró en el sistema, así que en estado estacionario la tasa total es igual a la tasa de llegada: χ ≈ λ. Por eso las tasas de rendimiento miden la producción, no la capacidad.
 
@@ -216,7 +237,7 @@ importante de hacer un seguimiento de los fallos y las omisiones.
 
 - Visión de procesamiento: la tasa de servicio incluye todo lo que la cola dedica tiempo a procesar, es decir, éxitos o fallos, pero no incluye las omisiones.
 
-- Visión tecnológica: en campos aplicados como la ingeniería de software, la tasa de servicio mide solo los éxitos, mientras que la tasa de errores mide los fallos, y la tasa de omisión mide los abandonos.
+- Visión tecnológica: en campos aplicados como la ingeniería de software, la tasa de servicio mide solo los éxitos, mientras que la tasa de errores mide las fallos, y la tasa de omisión mide las omisiones.
 
 Por eso conservamos μ para la capacidad, y añadimos tasas de producción observada junto a ella, en lugar de sustituirla:
 
@@ -232,7 +253,7 @@ Por eso conservamos μ para la capacidad, y añadimos tasas de producción obser
 
 Detalles de la tasa de omisión:
 
-- δ (delta): tasa de omisión, también llamada tasa de abandono. Mide cuántos elementos entran en la cola y luego salen sin ser atendidos.
+- σ (sigma): tasa de omisión. Mide cuántos elementos entran a la cola y luego salen sin ser atendidos.
 
 Una omisión ocurre cuando un elemento entra en la cola y luego sale sin ningún procesamiento significativo:
 
@@ -242,7 +263,7 @@ Una omisión ocurre cuando un elemento entra en la cola y luego sale sin ningún
 
 Dos comportamientos relacionados no son omisiones:
 
-- Desistimiento (balking): cuando un cliente decide no entrar en la cola porque el tiempo de espera amenaza con ser demasiado largo. Un elemento que desiste nunca entra en el sistema, así que queda fuera de los límites del sistema: no se cuenta en λ, χ ni δ. Si los desistimientos importan, como las ventas perdidas, cuéntelos por separado como llegadas rechazadas.
+- Desistimiento (balking): cuando un cliente decide no entrar a la cola porque el tiempo de espera amenaza con ser demasiado largo. Un elemento que desiste nunca entra al sistema, así que queda fuera de los límites del sistema: no se cuenta en λ, χ ni σ. Si los desistimientos importan, como las ventas perdidas, cuéntelos por separado como llegadas rechazadas.
 
 - Cambio de cola (jockeying): el cliente se queda en el sistema; ocurre cuando un cliente se cambia entre colas paralelas, como las cajas de un supermercado, para intentar esperar menos.
 
@@ -250,9 +271,11 @@ Dos comportamientos relacionados no son omisiones:
 
 La notación más importante que resume el éxito de una cola:
 
-- ε (épsilon): razón de errores = recuento de fallos / (recuento de éxitos + recuento de fallos) = β / (α + β)
+- ε (épsilon): razón de errores = recuento de fallos / (recuento de éxitos + recuento de fallos) = β / (α + β) = β / δ
 
-Las omisiones se excluyen, porque un elemento omitido nunca fue atendido, así que no resultó ni bien ni mal. Haga un seguimiento de las omisiones por separado mediante δ.
+Las omisiones se excluyen, porque un elemento omitido nunca fue atendido, así que no resultó ni bien ni mal. Dé seguimiento a las omisiones por separado mediante σ.
+
+![Diagrama: la tasa de finalización δ es la tasa de éxito α más la tasa de fallo β, y la razón de errores ε es la tasa de fallo β dividida por la tasa de finalización δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Ejemplos:
 
@@ -274,6 +297,8 @@ Hacemos un seguimiento de cuatro tiempos:
 
 - ω (omega): tiempo de espera = tiempo en que no se hace trabajo real, también llamado tiempo pendiente
 
+![Diagrama: el tiempo de entrega τ es el tiempo de espera ω seguido del tiempo de trabajo φ, así que τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Ejemplos:
 
 - τ = 5 s significa que un elemento se añade a la cola y se atiende 5 segundos después.
@@ -290,9 +315,9 @@ Relaciones:
 
 - θ medio ≈ 1 / χ: en estado estacionario, el tiempo de paso medio es el inverso de la tasa total. Un solo intervalo dice poco sobre la tasa; la media de muchos intervalos sí lo dice. En los ejemplos, si el tiempo de paso medio es 1 s, entonces χ ≈ 1 elemento por segundo.
 
-### Notación estándar
+### Notación de Kendall
 
-La notación estándar de la teoría de colas describe una cola mediante la notación de Kendall, que se escribe A/S/c/K/N/D:
+La notación de Kendall es otra notación de la teoría de colas que se escribe como A/S/c/K/N/D:
 
 - A: el proceso de llegada, es decir, la distribución del tiempo entre llegadas.
 
@@ -316,11 +341,13 @@ Letras comunes para A y S:
 
 Cuando se omiten los tres últimos, los valores predeterminados son K = ∞, N = ∞, D = FIFO. Por ejemplo, "M/M/1" significa llegadas de Poisson, tiempos de servicio exponenciales, un servidor, capacidad ilimitada, población ilimitada, y primero en entrar, primero en salir.
 
-La notación estándar también usa n para indicar el número de elementos en el sistema.
+Además:
+
+- n: el número de elementos en el sistema.
 
 ## Matemáticas de colas
 
-Las secciones de matemáticas usan los símbolos de los libros de texto, para que pueda compararlas con otras fuentes: S es el tiempo medio de servicio, que es nuestra φ, y μ = 1 / S es la capacidad de un servidor. Consulte la tabla de equivalencias en [notación de la teoría de colas](#notación-de-la-teoría-de-colas).
+Las secciones de matemáticas usan símbolos de libros de texto, para que pueda compararlos con otras fuentes: S es el tiempo media de servicio, que es nuestra φ, y μ = 1 / S es la capacidad de un servidor.
 
 ### La curva de utilización
 
@@ -411,7 +438,7 @@ Ejemplos:
 
 - Aμ: tasa de servicio de la actividad, también llamada capacidad: cuántos elementos puede completar un servidor por unidad de tiempo mientras está ocupado.
 
-- Aδ: tasa de omisión de la actividad, también llamada tasa de abandono: cuántos elementos se abandonan por unidad de tiempo.
+- Aσ: tasa de omisión de la actividad: cuántos elementos se abandonan por unidad de tiempo.
 
 - Aρ: razón de utilización de la actividad: la fracción del tiempo disponible en que los servidores están ocupados, es decir, tiempo ocupado ÷ tiempo disponible, o λ / (c μ).
 

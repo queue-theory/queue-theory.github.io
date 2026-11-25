@@ -15,12 +15,12 @@ Wetin dey inside:
   - [Count](#count)
   - [Arrival rate, service rate](#arrival-rate-service-rate)
   - [Utilization ratio wey dem still dey call traffic intensity](#utilization-ratio-wey-dem-still-dey-call-traffic-intensity)
-  - [Throughput rate dem: total rate, success rate, failure rate, skip rate](#throughput-rate-dem-total-rate-success-rate-failure-rate-skip-rate)
+  - [Throughput rate dem: total rate, finish rate, success rate, failure rate, skip rate](#throughput-rate-dem-total-rate-finish-rate-success-rate-failure-rate-skip-rate)
   - [Wetin service rate mean](#wetin-service-rate-mean)
   - [Skip rate](#skip-rate)
   - [Error ratio](#error-ratio)
   - [Lead time, step time, work time, wait time](#lead-time-step-time-work-time-wait-time)
-  - [Standard notation](#standard-notation)
+  - [Kendall notation](#kendall-notation)
 - [Queue math](#queue-math)
   - [Di utilization curve](#di-utilization-curve)
   - [Kingman formula](#kingman-formula)
@@ -109,41 +109,50 @@ Queue theory dey use notation wey get Greek letter dem.
 
 Our team dem dey use some of di popular notation; we still add some custom notation wey dey help us for software project dem.
 
-How our notation take match di standard textbook notation:
+Our own notation and wetin each symbol mean:
 
-| Our own | Standard | Wetin e mean                                                                      |
-| ------- | -------- | --------------------------------------------------------------------------------- |
-| κ       | L        | average number of item for di system, di ones wey dey wait plus di ones wey dem dey work on |
-| λ       | λ        | arrival rate of item wey dey enter di system                                      |
-| μ       | μ        | service rate, wey dem still dey call capacity: how fast one server dey work wen e dey busy |
-| ρ       | ρ        | utilization: di fraction of time wey di server dem dey busy, λ / (c μ)            |
-| χ       | X        | throughput, wey dem still dey call departure rate: output wey we see, for any reason |
-| α       | none     | success rate: output wey we see wey come out correct                              |
-| β       | none     | failure rate: output wey we see wey come out wrong                                |
-| δ       | none     | skip rate, wey dem still dey call dropout rate: item wey enter, then comot without service |
-| ε       | none     | error ratio β / (α + β)                                                           |
-| τ       | W        | average time for di system, wey dem still dey call lead time                      |
-| ω       | Wq       | average time wey item dey wait for di queue                                       |
-| φ       | S        | average service time, wey dem still dey call work time; μ = 1 / S                 |
-| θ       | none     | step time between one completion and di next; mean step time ≈ 1 / χ for steady state |
-
-Make you shine your eye for symbol wey clash wen you dey read other source: σ usually mean standard deviation, na why we dey use δ for skip rate, and θ often mean abandonment rate for Erlang-A call center model, but we dey use θ for step time.
+| Our own notation | Wetin e mean |
+| ---------------- | ------------ |
+| κ (kappa) | number of item dem for di system, di ones wey dey wait plus di ones wey dem dey work on |
+| λ (lambda) | arrival rate of item wey dey enter di system |
+| μ (mu) | service rate, wey dem still dey call capacity: how fast one server dey work wen e dey busy |
+| ρ (rho) | utilization: di fraction of time wey di server dem dey busy, λ / (c μ) |
+| χ (chi) | throughput, wey dem still dey call departure rate: output wey we see, for any reason |
+| α (alpha) | success rate: output wey we see wey come out correct |
+| β (beta) | failure rate: output wey we see wey come out wrong |
+| δ (delta) | finish rate: success + failure, item dem wey dem don serve, whether di result correct or wrong |
+| σ (sigma) | skip rate: item wey enter, then comot without service |
+| ε (epsilon) | error ratio: β / (α + β) = β / δ |
+| τ (tau) | time for di system, wey dem still dey call lead time |
+| ω (omega) | wait time, wey dem still dey call time for di queue |
+| φ (phi) | work time, wey dem still dey call time for di processor, wey dem still dey call service time |
+| θ (theta) | step time between one completion and di next; mean step time ≈ 1 / χ for steady state |
 
 ### Count
 
 We dey count item often, and we dey use dis notation:
 
-- κ (kappa): di count of item for di system, wey mean di item dem wey dey wait plus di item dem wey dem dey work on
+- κ (kappa): di count of item for di system, wey mean di item dem wey dey wait plus di item dem wey dem dey work on.
+
+![Diagram: item dem dey arrive for rate λ, κ item dey for di system, and item dem dey comot with throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Example:
 
-- κ = 100 mean say 100 item dey for di system.
+- κ = 10 mean say e dey exactly 10
 
-- κ > 100 mean say pass 100 item dey for di system.
+- κ ≈ 10 mean say e dey about 10
 
-- κ ≫ 100 mean say far pass 100 item dey for di system.
+- κ < 10 mean say e dey less than 10
 
-Count like κ = 100 na snapshot for one moment. For Little Law, κ mean di long-run average count, wey be di textbook L. Di textbook symbol for only di item dem wey dey wait for line na Lq.
+- κ > 10 mean say e dey more than 10
+
+- κ ≪ 10 mean say e dey far less than 10
+
+- κ ≫ 10 mean say e dey far more than 10
+
+Di count κ (kappa) na snapshot for one moment.
+
+Di average count κ̅ (kappa bar) na calculation wey dey take di average of measurement for one particular time, like to measure every hour for two weeks.
 
 ### Arrival rate, service rate
 
@@ -179,9 +188,9 @@ Example:
 
 - ρ > 1 mean say arrival pass capacity; di queue dey grow bigger.
 
-### Throughput rate dem: total rate, success rate, failure rate, skip rate
+### Throughput rate dem: total rate, finish rate, success rate, failure rate, skip rate
 
-Throughput rate dem dey measure di output wey we see, wey mean item dem wey really comot from di queue. Dem dey come in four big category:
+Throughput rate dem dey measure di output wey we see, wey mean item dem wey really comot from di queue. Dem dey come in five big category:
 
 - χ (chi): total rate. Dis one dey measure how many item for every time period dey comot from di queue for any reason: success, failure, skip, and so on.
 
@@ -189,11 +198,23 @@ Throughput rate dem dey measure di output wey we see, wey mean item dem wey real
 
 - β (beta): failure rate. Dis one dey measure how many item for every time period come out wrong, for example incorrect, incomplete, rejected.
 
-- δ (delta): skip rate, wey dem still dey call dropout rate. Dis one dey measure how many item for every time period enter di queue, then comot without service, for example abandonment, reneging.
+- δ (delta): finish rate. Dis one dey measure how many item for every time period dem serve, whether di result correct or wrong: success + failure.
+
+- σ (sigma): skip rate. Dis one dey measure how many item for every time period enter di queue, then comot without service, for example abandonment, reneging.
+
+Finish rate = success rate + failure rate:
+
+- δ = α + β (you go talk am: delta equals alpha plus beta)
+
+Total rate = finish rate + skip rate:
+
+- χ = δ + σ (you go talk am: chi equals delta plus sigma)
 
 Total rate = success rate + failure rate + skip rate:
 
-- χ = α + β + δ (you go talk am: chi equals alpha plus beta plus delta)
+- χ = α + β + σ (you go talk am: chi equals alpha plus beta plus sigma)
+
+![Diagram: item dem dey comot from di system as success α, failure β, or skip σ; finish δ = α + β, so χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Every item wey dem count for χ don enter di system, so for steady state di total rate equal di arrival rate: χ ≈ λ. Na why throughput rate dem dey measure output, no be capacity.
 
@@ -207,7 +228,7 @@ Dis one get historical root and e fit cause confusion and mistake, especially fo
 
 - Processing View: Di service rate include anytin wey di queue dey spend time to process, wey mean success or failure, but e no include skip.
 
-- Technology View: For applied field like software engineering, di service rate dey measure only success, but di error rate dey measure failure, and di skip rate dey measure dropout.
+- Technology View: For applied field like software engineering, di service rate dey measure only success, but di error rate dey measure failure, and di skip rate dey measure skip.
 
 So we dey keep μ for capacity, and we dey add di output rate dem wey we see join am, instead of to replace am:
 
@@ -223,7 +244,7 @@ Why we no go replace μ with χ or α? For stable queue, every item wey enter go
 
 Di details of skip rate:
 
-- δ (delta): skip rate, wey dem still dey call dropout rate. Dis one dey measure how many item enter di queue, then comot without anybody handle dem.
+- σ (sigma): skip rate. Dis one dey measure how many item enter di queue, then comot without dem process am.
 
 Skip na wen item enter di queue, then comot without any serious processing:
 
@@ -233,7 +254,7 @@ Skip na wen item enter di queue, then comot without any serious processing:
 
 Two behavior wey relate to am no be skip:
 
-- Balking: wen customer decide say e no go join di queue becos di waiting time fit too long. Item wey balk never enter di system, so e dey outside di system boundary: dem no dey count am for λ, χ, or δ. If balk dey important, like sales wey lost, then make you count dem separate as arrival wey dem turn back.
+- Balking: wen customer decide say e no go join di queue becos di waiting time fit too long. Item wey balk never enter di system, so e dey outside di system boundary: dem no dey count am for λ, χ, or σ. If balk dey important, like sales wey lost, then make you count dem separate as arrival wey dem turn back.
 
 - Jockeying: wen customer dey change from one parallel queue go another, like checkout lane, dey try find shorter waiting.
 
@@ -241,9 +262,11 @@ Two behavior wey relate to am no be skip:
 
 Di notation wey important pass wey dey summarize di success of queue:
 
-- ε (epsilon): error ratio = failure count / (success count + failure count) = β / (α + β)
+- ε (epsilon): error ratio = failure count / (success count + failure count) = β / (α + β) = β / δ
 
-Skip no dey inside, becos dem never serve item wey skip, so e no correct and e no wrong. Make you track skip separate with δ.
+Skip no dey inside, becos dem never serve item wey skip, so e no correct and e no wrong. Make you track skip separate with σ.
+
+![Diagram: di finish rate δ na di success rate α plus di failure rate β, and di error ratio ε na di failure rate β divide by di finish rate δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Example:
 
@@ -265,6 +288,8 @@ We dey track four kind time:
 
 - ω (omega): wait time = di time wey pass without real work, wey dem still dey call pending time
 
+![Diagram: di lead time τ na di wait time ω and then di work time φ, so τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Example:
 
 - τ = 5s mean say dem add item to di queue, then serve am 5 second later.
@@ -281,9 +306,9 @@ How dem relate:
 
 - mean θ ≈ 1 / χ: for steady state, di mean step time na di inverse of di total rate. One single gap no talk much about di rate; di average of plenty gap dey talk am. For di example dem, if di mean step time na 1s, then χ ≈ 1 item for every second.
 
-### Standard notation
+### Kendall notation
 
-Standard notation for queue theory dey describe queue with Kendall notation, wey dem dey write as A/S/c/K/N/D:
+Kendall notation na another notation for queueing theory, wey dem dey write as A/S/c/K/N/D:
 
 - A: di arrival process, wey mean di distribution of time between arrival dem.
 
@@ -307,11 +332,13 @@ Common letter dem for A and S:
 
 Wen dem no write di last three, di default na K = ∞, N = ∞, D = FIFO. For example, "M/M/1" mean Poisson arrival, exponential service time, one server, capacity wey no get limit, population wey no get limit, and first in first out.
 
-Standard notation still dey use n to mean di number of item for di system.
+Also:
+
+- n: di number of item for di system.
 
 ## Queue math
 
-Di math section dem dey use textbook symbol, so dat you fit compare dem with other source: S na di average service time, wey be our φ, and μ = 1 / S na di capacity of one server. Please see how di notation dem take match for [notation for queue theory](#notation-for-queue-theory).
+Di math section dem dey use textbook symbol, so dat you fit compare dem with other source: S na di average service time, wey be our φ, and μ = 1 / S na di capacity of one server.
 
 ### Di utilization curve
 
@@ -402,7 +429,7 @@ Example:
 
 - Aμ: Activity service rate, wey dem still dey call capacity: how many item one server fit complete for every time unit wen e dey busy.
 
-- Aδ: Activity skip rate, wey dem still dey call dropout rate: how many item dem abandon for every time unit.
+- Aσ: Activity skip rate: how many item dem abandon for every time unit.
 
 - Aρ: Activity utilization ratio: di fraction of available time wey di server dem dey busy, wey mean busy time ÷ available time, or λ / (c μ).
 

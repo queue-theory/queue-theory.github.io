@@ -20,12 +20,12 @@ Sommaire :
   - [Comptage](#comptage)
   - [Taux d'arrivée, taux de service](#taux-darrivée-taux-de-service)
   - [Taux d'utilisation, ou intensité du trafic](#taux-dutilisation-ou-intensité-du-trafic)
-  - [Taux de débit : taux total, taux de succès, taux d'échec, taux d'abandon](#taux-de-débit--taux-total-taux-de-succès-taux-déchec-taux-dabandon)
+  - [Taux de débit : taux total, taux d'achèvement, taux de succès, taux d'échec, taux d'abandon](#taux-de-débit--taux-total-taux-dachèvement-taux-de-succès-taux-déchec-taux-dabandon)
   - [Désambiguïsation du taux de service](#désambiguïsation-du-taux-de-service)
   - [Taux d'abandon](#taux-dabandon)
   - [Ratio d'erreur](#ratio-derreur)
   - [Délai de bout en bout, temps entre achèvements, temps de travail, temps d'attente](#délai-de-bout-en-bout-temps-entre-achèvements-temps-de-travail-temps-dattente)
-  - [Notation standard](#notation-standard)
+  - [Notation de Kendall](#notation-de-kendall)
 - [Mathématiques des files d'attente](#mathématiques-des-files-dattente)
   - [La courbe d'utilisation](#la-courbe-dutilisation)
   - [Formule de Kingman](#formule-de-kingman)
@@ -114,41 +114,50 @@ La théorie des files d'attente utilise une notation à base de lettres grecques
 
 Nos équipes utilisent une partie de la notation courante; nous ajoutons aussi une notation personnalisée qui nous aide dans les projets logiciels.
 
-Correspondance entre notre notation et la notation standard des manuels :
+Notre notation et ce que signifie chaque symbole :
 
-| Nôtre | Standard | Signification                                                                              |
-| ----- | -------- | ------------------------------------------------------------------------------------------ |
-| κ     | L        | nombre moyen d'éléments dans le système, en attente plus en cours de traitement            |
-| λ     | λ        | taux d'arrivée des éléments qui entrent dans le système                                    |
-| μ     | μ        | taux de service, ou capacité : vitesse de travail d'un serveur lorsqu'il est occupé        |
-| ρ     | ρ        | utilisation : fraction du temps pendant laquelle les serveurs sont occupés, λ / (c μ)      |
-| χ     | X        | débit, ou taux de départ : production observée, quelle qu'en soit la raison                |
-| α     | aucun    | taux de succès : production observée qui s'avère correcte                                  |
-| β     | aucun    | taux d'échec : production observée qui s'avère incorrecte                                  |
-| δ     | aucun    | taux d'abandon : éléments entrés, puis repartis sans avoir été servis                      |
-| ε     | aucun    | ratio d'erreur β / (α + β)                                                                 |
-| τ     | W        | temps moyen dans le système, ou délai de bout en bout                                      |
-| ω     | Wq       | temps moyen d'attente dans la file                                                         |
-| φ     | S        | temps de service moyen, ou temps de travail; μ = 1 / S                                    |
-| θ     | aucun    | temps entre deux achèvements; temps moyen ≈ 1 / χ en régime stationnaire                  |
-
-Prenez garde aux conflits de symboles lorsque vous lisez d'autres sources : σ désigne généralement l'écart type, c'est pourquoi nous utilisons δ pour le taux d'abandon, et θ désigne souvent le taux d'abandon dans les modèles de centres d'appels Erlang-A, alors que nous utilisons θ pour le temps entre achèvements.
+| Notre notation | Signification |
+| -------------- | ------------- |
+| κ (kappa) | nombre d'éléments dans le système, en attente plus en cours de traitement |
+| λ (lambda) | taux d'arrivée des éléments qui entrent dans le système |
+| μ (mu) | taux de service, ou capacité : vitesse de travail d'un serveur lorsqu'il est occupé |
+| ρ (rho) | utilisation : fraction du temps pendant laquelle les serveurs sont occupés, λ / (c μ) |
+| χ (chi) | débit, ou taux de départ : production observée, quelle qu'en soit la raison |
+| α (alpha) | taux de succès : production observée qui s'avère correcte |
+| β (bêta) | taux d'échec : production observée qui s'avère incorrecte |
+| δ (delta) | taux d'achèvement : succès + échec, éléments servis dont le résultat est bon ou mauvais |
+| σ (sigma) | taux d'abandon : éléments entrés, puis repartis sans avoir été servis |
+| ε (epsilon) | ratio d'erreur : β / (α + β) = β / δ |
+| τ (tau) | temps dans le système, ou délai de bout en bout |
+| ω (oméga) | temps d'attente, ou temps dans la file |
+| φ (phi) | temps de travail, ou temps dans le processeur, ou temps de service |
+| θ (thêta) | temps entre deux achèvements; temps moyen ≈ 1 / χ en régime stationnaire |
 
 ### Comptage
 
 Nous comptons souvent des éléments, et nous utilisons cette notation :
 
-- κ (kappa) : nombre d'éléments dans le système, c'est-à-dire les éléments en attente plus les éléments en cours de traitement
+- κ (kappa) : nombre d'éléments dans le système, c'est-à-dire les éléments en attente plus les éléments en cours de traitement.
+
+![Schéma : les éléments arrivent au taux λ, κ éléments sont dans le système, les éléments repartent avec le débit χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Exemple :
 
-- κ = 100 signifie qu'il y a 100 éléments dans le système.
+- κ = 10 signifie exactement 10
 
-- κ > 100 signifie qu'il y a plus de 100 éléments dans le système.
+- κ ≈ 10 signifie environ 10
 
-- κ ≫ 100 signifie qu'il y a beaucoup plus de 100 éléments dans le système.
+- κ < 10 signifie moins de 10
 
-Un comptage tel que κ = 100 est un instantané à un moment donné. Dans la loi de Little, κ désigne le nombre moyen à long terme, qui correspond au L des manuels. Le symbole des manuels pour les seuls éléments qui attendent dans la file est Lq.
+- κ > 10 signifie plus de 10
+
+- κ ≪ 10 signifie beaucoup moins de 10
+
+- κ ≫ 10 signifie beaucoup plus de 10
+
+Le comptage κ (kappa) est un instantané à un moment donné.
+
+Le comptage moyen κ̅ (kappa barre) est un calcul qui moyenne des mesures sur une période donnée, par exemple une mesure toutes les heures pendant deux semaines.
 
 ### Taux d'arrivée, taux de service
 
@@ -184,9 +193,9 @@ Exemples :
 
 - ρ > 1 signifie que les arrivées dépassent la capacité; la file s'allonge.
 
-### Taux de débit : taux total, taux de succès, taux d'échec, taux d'abandon
+### Taux de débit : taux total, taux d'achèvement, taux de succès, taux d'échec, taux d'abandon
 
-Les taux de débit mesurent la production observée, c'est-à-dire les éléments qui quittent effectivement la file. Ils se répartissent en quatre grandes catégories :
+Les taux de débit mesurent la production observée, c'est-à-dire les éléments qui quittent effectivement la file. Ils se répartissent en cinq grandes catégories :
 
 - χ (chi) : taux total. Il mesure combien d'éléments par unité de temps sortent de la file pour une raison quelconque : succès, échec, abandon, etc.
 
@@ -194,11 +203,23 @@ Les taux de débit mesurent la production observée, c'est-à-dire les élément
 
 - β (bêta) : taux d'échec. Il mesure combien d'éléments par période s'avèrent incorrects, par exemple faux, incomplets, rejetés.
 
-- δ (delta) : taux d'abandon. Il mesure combien d'éléments par période entrent dans la file, puis en sortent sans être servis, par exemple les abandons et les désistements.
+- δ (delta) : taux d'achèvement. Il mesure combien d'éléments par période sont servis, que le résultat soit bon ou mauvais : succès + échec.
+
+- σ (sigma) : taux d'abandon. Il mesure combien d'éléments par période entrent dans la file, puis en sortent sans être servis, par exemple les abandons et les désistements.
+
+Taux d'achèvement = taux de succès + taux d'échec :
+
+- δ = α + β (prononcé : delta égale alpha plus bêta)
+
+Taux total = taux d'achèvement + taux d'abandon :
+
+- χ = δ + σ (prononcé : chi égale delta plus sigma)
 
 Taux total = taux de succès + taux d'échec + taux d'abandon :
 
-- χ = α + β + δ (prononcé : chi égale alpha plus bêta plus delta)
+- χ = α + β + σ (prononcé : chi égale alpha plus bêta plus sigma)
+
+![Schéma : les éléments quittent le système sous forme de succès α, d'échec β ou d'abandon σ; achevés δ = α + β, donc χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Chaque élément compté dans χ est entré dans le système; en régime stationnaire, le taux total est donc égal au taux d'arrivée : χ ≈ λ. C'est pourquoi les taux de débit mesurent la production, et non la capacité.
 
@@ -215,7 +236,7 @@ des files d'attente avec un fort besoin de suivre les échecs et les abandons.
 
 - Vision du traitement : le taux de service inclut tout ce que la file passe du temps à traiter, c'est-à-dire les succès ou les échecs, mais n'inclut pas les abandons.
 
-- Vision technologique : dans les domaines appliqués comme le génie logiciel, le taux de service ne mesure que les succès, tandis que le taux d'erreur mesure les échecs et le taux d'abandon mesure les sorties prématurées.
+- Vision technologique : dans les domaines appliqués comme le génie logiciel, le taux de service ne mesure que les succès, tandis que le taux d'erreur mesure les échecs et le taux d'abandon mesure les abandons.
 
 C'est pourquoi nous conservons μ pour la capacité et ajoutons à ses côtés les taux de production observée, au lieu de le remplacer :
 
@@ -231,7 +252,7 @@ Pourquoi ne pas remplacer μ par χ ou α? Dans une file stable, chaque élémen
 
 Détails sur le taux d'abandon :
 
-- δ (delta) : taux d'abandon. Il mesure combien d'éléments entrent dans la file, puis en sortent sans avoir été traités.
+- σ (sigma) : taux d'abandon. Il mesure combien d'éléments entrent dans la file, puis en sortent sans avoir été traités.
 
 Un abandon se produit lorsqu'un élément entre dans la file, puis en sort sans traitement significatif :
 
@@ -241,7 +262,7 @@ Un abandon se produit lorsqu'un élément entre dans la file, puis en sort sans 
 
 Deux comportements apparentés ne sont pas des abandons :
 
-- Renoncement : lorsqu'un client décide de ne pas rejoindre la file parce que le temps d'attente risque d'être trop long. Un élément qui renonce n'entre jamais dans le système; il se trouve donc hors de la frontière du système : il n'est compté ni dans λ, ni dans χ, ni dans δ. Si les renoncements importent, par exemple en cas de ventes perdues, comptez-les séparément comme des arrivées refoulées.
+- Renoncement : lorsqu'un client décide de ne pas rejoindre la file parce que le temps d'attente risque d'être trop long. Un élément qui renonce n'entre jamais dans le système; il se trouve donc hors de la frontière du système : il n'est compté ni dans λ, ni dans χ, ni dans σ. Si les renoncements importent, par exemple en cas de ventes perdues, comptez-les séparément comme des arrivées refoulées.
 
 - Changement de file : lorsqu'un client passe d'une file parallèle à une autre, par exemple entre des caisses, pour tenter d'attendre moins longtemps.
 
@@ -249,9 +270,11 @@ Deux comportements apparentés ne sont pas des abandons :
 
 La notation la plus importante pour résumer le succès d'une file :
 
-- ε (epsilon) : ratio d'erreur = nombre d'échecs / (nombre de succès + nombre d'échecs) = β / (α + β)
+- ε (epsilon) : ratio d'erreur = nombre d'échecs / (nombre de succès + nombre d'échecs) = β / (α + β) = β / δ
 
-Les abandons sont exclus, car un élément abandonné n'a jamais été servi : il n'était donc ni correct ni incorrect. Suivez les abandons séparément au moyen de δ.
+Les abandons sont exclus, car un élément abandonné n'a jamais été servi : il n'était donc ni correct ni incorrect. Suivez les abandons séparément au moyen de σ.
+
+![Schéma : le taux d'achèvement δ est le taux de succès α plus le taux d'échec β, et le ratio d'erreur ε est le taux d'échec β divisé par le taux d'achèvement δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Exemples :
 
@@ -273,6 +296,8 @@ Nous suivons quatre temps :
 
 - ω (oméga) : temps d'attente = temps passé sans travail effectif, ou temps en suspens
 
+![Schéma : le délai de bout en bout τ est le temps d'attente ω suivi du temps de travail φ, donc τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Exemples :
 
 - τ = 5s signifie qu'un élément est ajouté à la file, puis servi 5 secondes plus tard.
@@ -289,9 +314,9 @@ Relations :
 
 - θ moyen ≈ 1 / χ : en régime stationnaire, le temps moyen entre achèvements est l'inverse du taux total. Un seul intervalle en dit peu sur le taux; la moyenne de nombreux intervalles en dit beaucoup. Dans les exemples, si le temps moyen entre achèvements est de 1s, alors χ ≈ 1 élément par seconde.
 
-### Notation standard
+### Notation de Kendall
 
-La notation standard de la théorie des files d'attente décrit une file au moyen de la notation de Kendall, écrite A/S/c/K/N/D :
+La notation de Kendall est une autre notation de la théorie des files d'attente, écrite A/S/c/K/N/D :
 
 - A : le processus d'arrivée, c'est-à-dire la distribution du temps entre les arrivées.
 
@@ -315,11 +340,13 @@ Lettres courantes pour A et S :
 
 Lorsque les trois derniers sont omis, les valeurs par défaut sont K = ∞, N = ∞, D = FIFO. Par exemple, « M/M/1 » signifie des arrivées poissonniennes, des temps de service exponentiels, un serveur, une capacité illimitée, une population illimitée, et premier entré, premier sorti.
 
-La notation standard utilise aussi n pour désigner le nombre d'éléments dans le système.
+Également :
+
+- n : le nombre d'éléments dans le système.
 
 ## Mathématiques des files d'attente
 
-Les sections de mathématiques utilisent les symboles des manuels, afin que vous puissiez les comparer avec d'autres sources : S est le temps de service moyen, qui est notre φ, et μ = 1 / S est la capacité d'un serveur. Voir la correspondance dans [notation de la théorie des files d'attente](#notation-de-la-théorie-des-files-dattente).
+Les sections de mathématiques utilisent les symboles des manuels, afin que vous puissiez les comparer avec d'autres sources : S est le temps de service moyen, qui est notre φ, et μ = 1 / S est la capacité d'un serveur.
 
 ### La courbe d'utilisation
 
@@ -410,7 +437,7 @@ Exemples :
 
 - Aμ : taux de service, ou capacité, de l'activité : combien d'éléments un serveur peut achever par unité de temps lorsqu'il est occupé.
 
-- Aδ : taux d'abandon de l'activité : combien d'éléments sont abandonnés par unité de temps.
+- Aσ : taux d'abandon de l'activité : combien d'éléments sont abandonnés par unité de temps.
 
 - Aρ : taux d'utilisation de l'activité : la fraction du temps disponible pendant laquelle les serveurs sont occupés, c'est-à-dire temps occupé ÷ temps disponible, ou λ / (c μ).
 

@@ -15,12 +15,12 @@ Contents:
   - [Coont](#coont)
   - [Arrival rate, service rate](#arrival-rate-service-rate)
   - [Utilisation ratio, aka traffic intensity](#utilisation-ratio-aka-traffic-intensity)
-  - [Throughput rates: total rate, success rate, failure rate, skip rate](#throughput-rates-total-rate-success-rate-failure-rate-skip-rate)
+  - [Throughput rates: total rate, duin rate, success rate, failure rate, skip rate](#throughput-rates-total-rate-duin-rate-success-rate-failure-rate-skip-rate)
   - [Whit service rate means](#whit-service-rate-means)
   - [Skip rate](#skip-rate)
   - [Error ratio](#error-ratio)
   - [Lead time, step time, wark time, wait time](#lead-time-step-time-wark-time-wait-time)
-  - [Staundart notation](#staundart-notation)
+  - [Kendall notation](#kendall-notation)
 - [Queue maths](#queue-maths)
   - [The utilisation curve](#the-utilisation-curve)
   - [Kingman's formula](#kingmans-formula)
@@ -109,41 +109,50 @@ Queue theory uises notation wi Greek letters.
 
 Oor teams uise some o the popular notation; we add some custom notation an aw that helps us wi software projects.
 
-Crosswalk fae oor notation tae the staundart textbook notation:
+Oor notation an whit each seembol means:
 
-| Oors | Staundart | Meanin                                                                       |
-| ---- | --------- | ---------------------------------------------------------------------------- |
-| κ    | L         | average nummer o items in the system, waitin plus bein wrocht on            |
-| λ    | λ         | arrival rate o items that enter the system                                   |
-| μ    | μ         | service rate, aka capacity: hoo quick ae server warks while it is thrang    |
-| ρ    | ρ         | utilisation: the fraction o time the servers are thrang, λ / (c μ)          |
-| χ    | X         | throughput, aka departure rate: observed output, fur onie reason            |
-| α    | nane      | success rate: observed output that turns oot richt                           |
-| β    | nane      | failure rate: observed output that turns oot wrang                           |
-| δ    | nane      | skip rate, aka dropoot rate: items that entered, then left wioot service    |
-| ε    | nane      | error ratio β / (α + β)                                                      |
-| τ    | W         | average time in the system, aka lead time                                    |
-| ω    | Wq        | average time waitin in the queue                                             |
-| φ    | S         | average service time, aka wark time; μ = 1 / S                               |
-| θ    | nane      | step time atween completions; mean step time ≈ 1 / χ in steady state        |
-
-Please tak tent o symbol clashes when you read ither sources: σ uisually means staundart deviation, which is how we uise δ fur skip rate, an θ aften means the abandonment rate in Erlang-A call centre models, whauras we uise θ fur step time.
+| Oor notation | Meanin |
+| ------------ | ------ |
+| κ (kappa) | nummer o items in the system, waitin plus bein wrocht on |
+| λ (lambda) | arrival rate o items that enter the system |
+| μ (mu) | service rate, aka capacity: hoo quick ae server warks while it is thrang |
+| ρ (rho) | utilisation: the fraction o time the servers are thrang, λ / (c μ) |
+| χ (chi) | throughput, aka departure rate: observed output, fur onie reason |
+| α (alpha) | success rate: observed output that turns oot richt |
+| β (beta) | failure rate: observed output that turns oot wrang |
+| δ (delta) | duin rate: success + failure, items that were served, whether the result is richt or wrang |
+| σ (sigma) | skip rate: items that entered, then left wioot service |
+| ε (epsilon) | error ratio: β / (α + β) = β / δ |
+| τ (tau) | time in the system, aka lead time |
+| ω (omega) | waitin time, aka time in the queue |
+| φ (phi) | wark time, aka time in the processor, aka service time |
+| θ (theta) | step time atween completions; mean step time ≈ 1 / χ in steady state |
 
 ### Coont
 
 We coont items aften, an we uise this notation:
 
-- κ (kappa): coont o items in the system, meanin items waitin plus items bein wrocht on
+- κ (kappa): coont o items in the system, meanin items waitin plus items bein wrocht on.
+
+![Diagram: items arrive at rate λ, κ items are in the system, items depairt at throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Example:
 
-- κ = 100 means there are 100 items in the system.
+- κ = 10 means exactly 10
 
-- κ > 100 means there are mair nor 100 items in the system.
+- κ ≈ 10 means aboot 10
 
-- κ ≫ 100 means there are mony mair nor 100 items in the system.
+- κ < 10 means less than 10
 
-A coont sic as κ = 100 is a snapshot at ae moment. In Little's Law, κ means the lang-run average coont, which is the textbook L. The textbook symbol fur jist the items waitin in line is Lq.
+- κ > 10 means mair than 10
+
+- κ ≪ 10 means muckle less than 10
+
+- κ ≫ 10 means muckle mair than 10
+
+The coont κ (kappa) is a snapshot at ae moment.
+
+The average coont κ̅ (kappa bar) is a calculation that averages measurements ower a specific period o time, sic as measurin ilka hoor fur twa weeks.
 
 ### Arrival rate, service rate
 
@@ -179,9 +188,9 @@ Examples:
 
 - ρ > 1 means arrivals exceed capacity; the queue is gettin bigger.
 
-### Throughput rates: total rate, success rate, failure rate, skip rate
+### Throughput rates: total rate, duin rate, success rate, failure rate, skip rate
 
-Throughput rates meisure observed output, meanin items that actually leave the queue. They come in fower braid categories:
+Throughput rates meisure observed output, meanin items that actually leave the queue. They come in five braid categories:
 
 - χ (chi): total rate. This meisures hoo mony items per time leave the queue fur onie reason: success, failure, skip, an sae on.
 
@@ -189,11 +198,23 @@ Throughput rates meisure observed output, meanin items that actually leave the q
 
 - β (beta): failure rate. This meisures hoo mony items per time period turn oot wrang, fur example incorrect, incomplete, rejected.
 
-- δ (delta): skip rate, aka dropoot rate. This meisures hoo mony items per time period enter the queue, then leave wioot bein served, fur example abandonments, reneges.
+- δ (delta): duin rate. This meisures hoo mony items per time period are served, whether the result is richt or wrang: success + failure.
+
+- σ (sigma): skip rate. This meisures hoo mony items per time period enter the queue, then leave wioot bein served, fur example abandonments, reneges.
+
+Duin rate = success rate + failure rate:
+
+- δ = α + β (said: delta equals alpha plus beta)
+
+Total rate = duin rate + skip rate:
+
+- χ = δ + σ (said: chi equals delta plus sigma)
 
 Total rate = success rate + failure rate + skip rate:
 
-- χ = α + β + δ (said: chi equals alpha plus beta plus delta)
+- χ = α + β + σ (said: chi equals alpha plus beta plus sigma)
+
+![Diagram: items leave the system as success α, failure β, or skip σ; duin δ = α + β, sae χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Ilka item coonted in χ entered the system, sae in steady state the total rate equals the arrival rate: χ ≈ λ. That is how throughput rates meisure output, no capacity.
 
@@ -207,7 +228,7 @@ This has historical ruits an can lead tae confusion an mistakes, maist o aw fur 
 
 - Processing View: The service rate includes whitever the queue spends time processin, meanin successes or failures, but disnae include skips.
 
-- Technology View: In applied fields sic as software engineerin, the service rate meisures anly successes, whauras the error rate meisures failures, an the skip rate meisures dropoots.
+- Technology View: In applied fields sic as software engineerin, the service rate meisures anly successes, whauras the error rate meisures failures, an the skip rate meisures skips.
 
 Sae we keep μ fur capacity, an we add observed output rates alangside it, raither nor replacin it:
 
@@ -223,7 +244,7 @@ How no replace μ wi χ or α? In a stable queue, ilka item that enters leaves i
 
 Skip rate details:
 
-- δ (delta): skip rate, aka dropoot rate. This meisures hoo mony items enter the queue, then leave wioot bein haundled.
+- σ (sigma): skip rate. This meisures hoo mony items enter the queue, then leave wioot bein processed.
 
 A skip is when an item enters the queue, then leaves wioot onie significant processin:
 
@@ -233,7 +254,7 @@ A skip is when an item enters the queue, then leaves wioot onie significant proc
 
 Twa relatit behaviours are no skips:
 
-- Balkin: when a customer decides no tae jyne the queue because the wait time threatens tae be ower lang. A balked item niver enters the system, sae it is ootwith the system boundary: it is no coonted in λ, χ, or δ. If balks maitter, sic as lost sales, then please coont them separately as turned-awa arrivals.
+- Balkin: when a customer decides no tae jyne the queue because the wait time threatens tae be ower lang. A balked item niver enters the system, sae it is ootwith the system boundary: it is no coonted in λ, χ, or σ. If balks maitter, sic as lost sales, then please coont them separately as turned-awa arrivals.
 
 - Jockeyin: when a customer switches atween parallel queues, sic as checkoot lanes, tryin tae get a shorter wait.
 
@@ -241,9 +262,11 @@ Twa relatit behaviours are no skips:
 
 The maist important notation that sums up a queue's success:
 
-- ε (epsilon): error ratio = failure coont / (success coont + failure coont) = β / (α + β)
+- ε (epsilon): error ratio = failure coont / (success coont + failure coont) = β / (α + β) = β / δ
 
-Skips are left oot, because a skipped item wis niver serviced, sae it wis neither richt nor wrang. Please track skips separately wi δ.
+Skips are left oot, because a skipped item wis niver serviced, sae it wis neither richt nor wrang. Please track skips separately wi σ.
+
+![Diagram: the duin rate δ is the success rate α plus the failure rate β, an the error ratio ε is the failure rate β dividit bi the duin rate δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Examples:
 
@@ -265,6 +288,8 @@ We track fower times:
 
 - ω (omega): wait time = time spent no daein actual wark, aka pendin time
 
+![Diagram: lead time τ is waitin time ω follaed bi wark time φ, sae τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Examples:
 
 - τ = 5s means an item is added tae the queue, then serviced 5 seconds later.
@@ -281,9 +306,9 @@ Relationships:
 
 - mean θ ≈ 1 / χ: in steady state, the mean step time is the inverse o the total rate. A single gap says little aboot the rate; the average o mony gaps says a lot. In the examples, if the mean step time is 1s, then χ ≈ 1 item per second.
 
-### Staundart notation
+### Kendall notation
 
-Staundart notation fur queuein theory describes a queue wi Kendall's notation, written as A/S/c/K/N/D:
+Kendall notation is anither notation fur queueing theory, written as A/S/c/K/N/D:
 
 - A: the arrival process, meanin the distribution o time atween arrivals.
 
@@ -307,11 +332,13 @@ Common letters fur A an S:
 
 When the last three are left oot, the defaults are K = ∞, N = ∞, D = FIFO. Fur example, "M/M/1" means Poisson arrivals, exponential service times, ae server, unlimitit capacity, unlimitit population, an first in first oot.
 
-Staundart notation uises n an aw tae mean the nummer o items in the system.
+Alsae:
+
+- n: the nummer o items in the system.
 
 ## Queue maths
 
-The maths sections uise textbook symbols, sae that you can compare them wi ither sources: S is the average service time, which is oor φ, an μ = 1 / S is ae server's capacity. Please see the crosswalk in [notation o queue theory](#notation-o-queue-theory).
+The maths sections uise textbook symbols, sae that you can compare them wi ither sources: S is the average service time, which is oor φ, an μ = 1 / S is ae server's capacity.
 
 ### The utilisation curve
 
@@ -402,7 +429,7 @@ Examples:
 
 - Aμ: Activity service rate, aka capacity: hoo mony items ae server can complete per time unit while thrang.
 
-- Aδ: Activity skip rate, aka dropoot rate: hoo mony items are abandoned per time unit.
+- Aσ: Activity skip rate: hoo mony items are abandoned per time unit.
 
 - Aρ: Activity utilisation ratio: the fraction o available time the servers are thrang, meanin thrang time ÷ available time, or λ / (c μ).
 

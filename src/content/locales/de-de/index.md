@@ -15,12 +15,12 @@ Inhalt:
   - [Anzahl](#anzahl)
   - [Ankunftsrate, Bedienrate](#ankunftsrate-bedienrate)
   - [Auslastungsgrad, auch Verkehrsintensität genannt](#auslastungsgrad-auch-verkehrsintensität-genannt)
-  - [Durchsatzraten: Gesamtrate, Erfolgsrate, Fehlerrate, Abbruchrate](#durchsatzraten-gesamtrate-erfolgsrate-fehlerrate-abbruchrate)
+  - [Durchsatzraten: Gesamtrate, Abschlussrate, Erfolgsrate, Fehlerrate, Abbruchrate](#durchsatzraten-gesamtrate-abschlussrate-erfolgsrate-fehlerrate-abbruchrate)
   - [Begriffsklärung Bedienrate](#begriffsklärung-bedienrate)
   - [Abbruchrate](#abbruchrate)
   - [Fehlerquote](#fehlerquote)
   - [Durchlaufzeit, Taktzeit, Arbeitszeit, Wartezeit](#durchlaufzeit-taktzeit-arbeitszeit-wartezeit)
-  - [Standardnotation](#standardnotation)
+  - [Kendall-Notation](#kendall-notation)
 - [Warteschlangenmathematik](#warteschlangenmathematik)
   - [Die Auslastungskurve](#die-auslastungskurve)
   - [Kingman-Formel](#kingman-formel)
@@ -109,41 +109,50 @@ Die Warteschlangentheorie verwendet eine Notation mit griechischen Buchstaben.
 
 Unsere Teams verwenden einen Teil der gängigen Notation; außerdem ergänzen wir eigene Notation, die uns bei Softwareprojekten hilft.
 
-Zuordnung unserer Notation zur Standardnotation der Lehrbücher:
+Unsere Notation und was jedes Symbol bedeutet:
 
-| Unsere | Standard | Bedeutung |
-| ---- | -------- | ----------------------------------------------------------------------- |
-| κ | L | durchschnittliche Anzahl der Elemente im System, wartend plus in Bearbeitung |
-| λ | λ | Ankunftsrate der Elemente, die in das System eintreten |
-| μ | μ | Bedienrate, auch Kapazität genannt: wie schnell ein Bediener arbeitet, während er beschäftigt ist |
-| ρ | ρ | Auslastung: der Anteil der Zeit, in der die Bediener beschäftigt sind, λ / (c μ) |
-| χ | X | Durchsatz, auch Abgangsrate genannt: beobachtete Ausgabe, aus beliebigem Grund |
-| α | keine | Erfolgsrate: beobachtete Ausgabe, die sich als richtig erweist |
-| β | keine | Fehlerrate: beobachtete Ausgabe, die sich als falsch erweist |
-| δ | keine | Abbruchrate, auch Ausfallrate genannt: Elemente, die eingetreten sind und dann unbedient gegangen sind |
-| ε | keine | Fehlerquote β / (α + β) |
-| τ | W | durchschnittliche Zeit im System, auch Durchlaufzeit genannt |
-| ω | Wq | durchschnittliche Wartezeit in der Warteschlange |
-| φ | S | durchschnittliche Bedienzeit, auch Arbeitszeit genannt; μ = 1 / S |
-| θ | keine | Taktzeit zwischen Fertigstellungen; mittlere Taktzeit ≈ 1 / χ im stationären Zustand |
-
-Achten Sie auf Symbolkonflikte, wenn Sie andere Quellen lesen: σ bedeutet üblicherweise Standardabweichung, weshalb wir δ für die Abbruchrate verwenden, und θ bedeutet in Erlang-A-Modellen für Callcenter oft die Abbruchrate, während wir θ für die Taktzeit verwenden.
+| Unsere Notation | Bedeutung |
+| --------------- | --------- |
+| κ (Kappa) | Anzahl der Elemente im System, wartend plus in Bearbeitung |
+| λ (Lambda) | Ankunftsrate der Elemente, die in das System eintreten |
+| μ (My) | Bedienrate, auch Kapazität genannt: wie schnell ein Bediener arbeitet, während er beschäftigt ist |
+| ρ (Rho) | Auslastung: der Anteil der Zeit, in der die Bediener beschäftigt sind, λ / (c μ) |
+| χ (Chi) | Durchsatz, auch Abgangsrate genannt: beobachtete Ausgabe, aus beliebigem Grund |
+| α (Alpha) | Erfolgsrate: beobachtete Ausgabe, die sich als richtig erweist |
+| β (Beta) | Fehlerrate: beobachtete Ausgabe, die sich als falsch erweist |
+| δ (Delta) | Abschlussrate: Erfolg + Fehler, bediente Elemente mit richtigem oder falschem Ergebnis |
+| σ (Sigma) | Abbruchrate: Elemente, die eingetreten sind und dann unbedient gegangen sind |
+| ε (Epsilon) | Fehlerquote: β / (α + β) = β / δ |
+| τ (Tau) | Zeit im System, auch Durchlaufzeit genannt |
+| ω (Omega) | Wartezeit, auch Zeit in der Warteschlange genannt |
+| φ (Phi) | Arbeitszeit, auch Zeit im Prozessor genannt, auch Bedienzeit genannt |
+| θ (Theta) | Taktzeit zwischen Fertigstellungen; mittlere Taktzeit ≈ 1 / χ im stationären Zustand |
 
 ### Anzahl
 
 Wir zählen häufig Elemente und verwenden dafür diese Notation:
 
-- κ (Kappa): Anzahl der Elemente im System, also wartende Elemente plus Elemente in Bearbeitung
+- κ (Kappa): Anzahl der Elemente im System, also wartende Elemente plus Elemente in Bearbeitung.
+
+![Diagramm: Elemente treffen mit der Rate λ ein, κ Elemente befinden sich im System, Elemente verlassen es mit dem Durchsatz χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Beispiel:
 
-- κ = 100 bedeutet, dass sich 100 Elemente im System befinden.
+- κ = 10 bedeutet genau 10
 
-- κ > 100 bedeutet, dass sich mehr als 100 Elemente im System befinden.
+- κ ≈ 10 bedeutet ungefähr 10
 
-- κ ≫ 100 bedeutet, dass sich sehr viel mehr als 100 Elemente im System befinden.
+- κ < 10 bedeutet weniger als 10
 
-Eine Anzahl wie κ = 100 ist eine Momentaufnahme zu einem Zeitpunkt. Im Gesetz von Little bedeutet κ die langfristige durchschnittliche Anzahl, also das L der Lehrbücher. Das Lehrbuchsymbol nur für die in der Schlange wartenden Elemente ist Lq.
+- κ > 10 bedeutet mehr als 10
+
+- κ ≪ 10 bedeutet viel weniger als 10
+
+- κ ≫ 10 bedeutet viel mehr als 10
+
+Die Anzahl κ (Kappa) ist eine Momentaufnahme zu einem Zeitpunkt.
+
+Die durchschnittliche Anzahl κ̅ (Kappa mit Strich) ist eine Berechnung, die Messungen über einen bestimmten Zeitraum mittelt, etwa stündliche Messungen über zwei Wochen.
 
 ### Ankunftsrate, Bedienrate
 
@@ -179,9 +188,9 @@ Beispiele:
 
 - ρ > 1 bedeutet, dass die Ankünfte die Kapazität übersteigen; die Warteschlange wird größer.
 
-### Durchsatzraten: Gesamtrate, Erfolgsrate, Fehlerrate, Abbruchrate
+### Durchsatzraten: Gesamtrate, Abschlussrate, Erfolgsrate, Fehlerrate, Abbruchrate
 
-Durchsatzraten messen die beobachtete Ausgabe, also Elemente, die die Warteschlange tatsächlich verlassen. Es gibt sie in vier großen Kategorien:
+Durchsatzraten messen die beobachtete Ausgabe, also Elemente, die die Warteschlange tatsächlich verlassen. Es gibt sie in fünf großen Kategorien:
 
 - χ (Chi): Gesamtrate. Sie misst, wie viele Elemente pro Zeiteinheit die Warteschlange aus beliebigem Grund verlassen: Erfolg, Fehler, Abbruch usw.
 
@@ -189,11 +198,23 @@ Durchsatzraten messen die beobachtete Ausgabe, also Elemente, die die Warteschla
 
 - β (Beta): Fehlerrate. Sie misst, wie viele Elemente pro Zeitraum sich als falsch erweisen, z. B. inkorrekt, unvollständig, abgelehnt.
 
-- δ (Delta): Abbruchrate, auch Ausfallrate genannt. Sie misst, wie viele Elemente pro Zeitraum in die Warteschlange eintreten und sie dann verlassen, ohne bedient zu werden, z. B. Abbrüche, vorzeitiges Verlassen.
+- δ (Delta): Abschlussrate. Sie misst, wie viele Elemente pro Zeitraum bedient werden, ob mit richtigem oder falschem Ergebnis: Erfolg + Fehler.
+
+- σ (Sigma): Abbruchrate. Sie misst, wie viele Elemente pro Zeitraum in die Warteschlange eintreten und sie dann verlassen, ohne bedient zu werden, z. B. Abbrüche, vorzeitiges Verlassen.
+
+Abschlussrate = Erfolgsrate + Fehlerrate:
+
+- δ = α + β (gesprochen: Delta gleich Alpha plus Beta)
+
+Gesamtrate = Abschlussrate + Abbruchrate:
+
+- χ = δ + σ (gesprochen: Chi gleich Delta plus Sigma)
 
 Gesamtrate = Erfolgsrate + Fehlerrate + Abbruchrate:
 
-- χ = α + β + δ (gesprochen: Chi gleich Alpha plus Beta plus Delta)
+- χ = α + β + σ (gesprochen: Chi gleich Alpha plus Beta plus Sigma)
+
+![Diagramm: Elemente verlassen das System als Erfolg α, Fehler β oder Abbruch σ; abgeschlossen δ = α + β, also χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Jedes in χ gezählte Element ist in das System eingetreten, daher entspricht die Gesamtrate im stationären Zustand der Ankunftsrate: χ ≈ λ. Deshalb messen Durchsatzraten die Ausgabe, nicht die Kapazität.
 
@@ -207,7 +228,7 @@ Das hat historische Wurzeln und kann zu Verwirrung und Fehlern führen, insbeson
 
 - Verarbeitungssicht: Die Bedienrate umfasst alles, womit die Warteschlange Bearbeitungszeit verbringt, also Erfolge oder Fehler, aber keine Abbrüche.
 
-- Technologische Sicht: In angewandten Bereichen wie der Softwaretechnik misst die Bedienrate nur Erfolge, während die Fehlerrate Fehler und die Abbruchrate Ausfälle misst.
+- Technologische Sicht: In angewandten Bereichen wie der Softwaretechnik misst die Bedienrate nur Erfolge, während die Fehlerrate Fehler und die Abbruchrate Abbrüche misst.
 
 Deshalb behalten wir μ für die Kapazität bei und ergänzen beobachtete Ausgaberaten daneben, anstatt μ zu ersetzen:
 
@@ -223,7 +244,7 @@ Warum μ nicht durch χ oder α ersetzen? In einer stabilen Warteschlange verlä
 
 Einzelheiten zur Abbruchrate:
 
-- δ (Delta): Abbruchrate, auch Ausfallrate genannt. Sie misst, wie viele Elemente in die Warteschlange eintreten und sie dann unbearbeitet verlassen.
+- σ (Sigma): Abbruchrate. Sie misst, wie viele Elemente in die Warteschlange eintreten und sie dann unbearbeitet verlassen.
 
 Ein Abbruch liegt vor, wenn ein Element in die Warteschlange eintritt und sie dann ohne nennenswerte Bearbeitung verlässt:
 
@@ -233,7 +254,7 @@ Ein Abbruch liegt vor, wenn ein Element in die Warteschlange eintritt und sie da
 
 Zwei verwandte Verhaltensweisen sind keine Abbrüche:
 
-- Abweisen (Balking): wenn ein Kunde beschließt, sich nicht in die Warteschlange einzureihen, weil die Wartezeit zu lang zu werden droht. Ein abgewiesenes Element tritt nie in das System ein, liegt also außerhalb der Systemgrenze: Es wird weder in λ noch in χ noch in δ gezählt. Wenn Abweisungen wichtig sind, etwa als entgangene Verkäufe, dann zählen Sie sie separat als abgewiesene Ankünfte.
+- Abweisen (Balking): wenn ein Kunde beschließt, sich nicht in die Warteschlange einzureihen, weil die Wartezeit zu lang zu werden droht. Ein abgewiesenes Element tritt nie in das System ein, liegt also außerhalb der Systemgrenze: Es wird weder in λ noch in χ noch in σ gezählt. Wenn Abweisungen wichtig sind, etwa als entgangene Verkäufe, dann zählen Sie sie separat als abgewiesene Ankünfte.
 
 - Wechseln (Jockeying): wenn ein Kunde zwischen parallelen Warteschlangen wechselt, etwa zwischen Kassen, um eine kürzere Wartezeit zu erreichen.
 
@@ -241,9 +262,11 @@ Zwei verwandte Verhaltensweisen sind keine Abbrüche:
 
 Die wichtigste Notation, die den Erfolg einer Warteschlange zusammenfasst:
 
-- ε (Epsilon): Fehlerquote = Fehleranzahl / (Erfolgsanzahl + Fehleranzahl) = β / (α + β)
+- ε (Epsilon): Fehlerquote = Fehleranzahl / (Erfolgsanzahl + Fehleranzahl) = β / (α + β) = β / δ
 
-Abbrüche sind ausgeschlossen, weil ein abgebrochenes Element nie bedient wurde und somit weder richtig noch falsch war. Verfolgen Sie Abbrüche separat über δ.
+Abbrüche sind ausgeschlossen, weil ein abgebrochenes Element nie bedient wurde und somit weder richtig noch falsch war. Verfolgen Sie Abbrüche separat über σ.
+
+![Diagramm: Die Abschlussrate δ ist die Erfolgsrate α plus die Fehlerrate β, und die Fehlerquote ε ist die Fehlerrate β geteilt durch die Abschlussrate δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Beispiele:
 
@@ -265,6 +288,8 @@ Wir verfolgen vier Zeiten:
 
 - ω (Omega): Wartezeit = Zeit, die nicht mit tatsächlicher Arbeit verbracht wird, auch Liegezeit genannt
 
+![Diagramm: Die Durchlaufzeit τ ist die Wartezeit ω gefolgt von der Arbeitszeit φ, also τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Beispiele:
 
 - τ = 5s bedeutet, dass ein Element zur Warteschlange hinzugefügt und 5 Sekunden später fertig bedient wird.
@@ -281,9 +306,9 @@ Zusammenhänge:
 
 - mittlere θ ≈ 1 / χ: Im stationären Zustand ist die mittlere Taktzeit der Kehrwert der Gesamtrate. Ein einzelner Abstand sagt wenig über die Rate aus; der Durchschnitt vieler Abstände dagegen schon. Wenn in den Beispielen die mittlere Taktzeit 1s beträgt, dann ist χ ≈ 1 Element pro Sekunde.
 
-### Standardnotation
+### Kendall-Notation
 
-Die Standardnotation der Warteschlangentheorie beschreibt eine Warteschlange mit der Kendall-Notation, geschrieben als A/S/c/K/N/D:
+Die Kendall-Notation ist eine andere Notation der Warteschlangentheorie, geschrieben als A/S/c/K/N/D:
 
 - A: der Ankunftsprozess, also die Verteilung der Zeit zwischen Ankünften.
 
@@ -307,11 +332,13 @@ Gängige Buchstaben für A und S:
 
 Wenn die letzten drei weggelassen werden, gelten die Standardwerte K = ∞, N = ∞, D = FIFO. Zum Beispiel bedeutet „M/M/1“ Poisson-Ankünfte, exponentialverteilte Bedienzeiten, einen Bediener, unbegrenzte Kapazität, unbegrenzte Population und First In First Out.
 
-Die Standardnotation verwendet außerdem n für die Anzahl der Elemente im System.
+Außerdem:
+
+- n: die Anzahl der Elemente im System.
 
 ## Warteschlangenmathematik
 
-Die Mathematik-Abschnitte verwenden Lehrbuchsymbole, damit Sie sie mit anderen Quellen vergleichen können: S ist die durchschnittliche Bedienzeit, also unser φ, und μ = 1 / S ist die Kapazität eines Bedieners. Siehe die Zuordnung in [Notation der Warteschlangentheorie](#notation-der-warteschlangentheorie).
+Die Mathematik-Abschnitte verwenden Lehrbuchsymbole, damit Sie sie mit anderen Quellen vergleichen können: S ist die durchschnittliche Bedienzeit, also unser φ, und μ = 1 / S ist die Kapazität eines Bedieners.
 
 ### Die Auslastungskurve
 
@@ -402,7 +429,7 @@ Beispiele:
 
 - Aμ: Bedienrate der Aktivität, auch Kapazität genannt: wie viele Elemente ein Bediener pro Zeiteinheit abschließen kann, während er beschäftigt ist.
 
-- Aδ: Abbruchrate der Aktivität, auch Ausfallrate genannt: wie viele Elemente pro Zeiteinheit abgebrochen werden.
+- Aσ: Abbruchrate der Aktivität: wie viele Elemente pro Zeiteinheit abgebrochen werden.
 
 - Aρ: Auslastungsgrad der Aktivität: der Anteil der verfügbaren Zeit, in der die Bediener beschäftigt sind, also beschäftigte Zeit ÷ verfügbare Zeit oder λ / (c μ).
 

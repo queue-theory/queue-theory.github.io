@@ -15,12 +15,12 @@ Cuprins:
   - [Număr](#număr)
   - [Rata de sosire, rata de servire](#rata-de-sosire-rata-de-servire)
   - [Raportul de utilizare, adică intensitatea traficului](#raportul-de-utilizare-adică-intensitatea-traficului)
-  - [Ratele de debit: rata totală, rata de succes, rata de eșec, rata de abandon](#ratele-de-debit-rata-totală-rata-de-succes-rata-de-eșec-rata-de-abandon)
+  - [Ratele de debit: rata totală, rata de finalizare, rata de succes, rata de eșec, rata de abandon](#ratele-de-debit-rata-totală-rata-de-finalizare-rata-de-succes-rata-de-eșec-rata-de-abandon)
   - [Dezambiguizarea ratei de servire](#dezambiguizarea-ratei-de-servire)
   - [Rata de abandon](#rata-de-abandon)
   - [Raportul de erori](#raportul-de-erori)
   - [Timpul de livrare, timpul de pas, timpul de lucru, timpul de așteptare](#timpul-de-livrare-timpul-de-pas-timpul-de-lucru-timpul-de-așteptare)
-  - [Notația standard](#notația-standard)
+  - [Notația Kendall](#notația-kendall)
 - [Matematica cozilor](#matematica-cozilor)
   - [Curba utilizării](#curba-utilizării)
   - [Formula lui Kingman](#formula-lui-kingman)
@@ -109,41 +109,50 @@ Teoria cozilor folosește o notație cu litere grecești.
 
 Echipele noastre folosesc o parte din notația populară; adăugăm și o notație proprie care ne ajută în proiectele software.
 
-Corespondența dintre notația noastră și notația standard din manuale:
+Notația noastră și semnificația fiecărui simbol:
 
-| A noastră | Standard | Semnificație                                                                          |
-| --------- | -------- | ------------------------------------------------------------------------------------- |
-| κ         | L        | numărul mediu de elemente din sistem, cele care așteaptă plus cele în lucru           |
-| λ         | λ        | rata de sosire a elementelor care intră în sistem                                     |
-| μ         | μ        | rata de servire, adică capacitatea: cât de repede lucrează un server cât este ocupat   |
-| ρ         | ρ        | utilizarea: fracțiunea de timp în care serverele sunt ocupate, λ / (c μ)              |
-| χ         | X        | debitul, adică rata de plecare: producția observată, din orice motiv                  |
-| α         | niciunul | rata de succes: producția observată care se dovedește corectă                         |
-| β         | niciunul | rata de eșec: producția observată care se dovedește greșită                           |
-| δ         | niciunul | rata de abandon: elemente care au intrat, apoi au plecat neservite                    |
-| ε         | niciunul | raportul de erori β / (α + β)                                                         |
-| τ         | W        | timpul mediu în sistem, adică timpul de livrare                                       |
-| ω         | Wq       | timpul mediu de așteptare în coadă                                                    |
-| φ         | S        | timpul mediu de servire, adică timpul de lucru; μ = 1 / S                             |
-| θ         | niciunul | timpul de pas între finalizări; timpul mediu de pas ≈ 1 / χ în regim staționar        |
-
-Vă rugăm să aveți grijă la conflictele de simboluri atunci când citiți alte surse: σ înseamnă de obicei abaterea standard, motiv pentru care folosim δ pentru rata de abandon, iar θ înseamnă adesea rata de abandon în modelele de call center Erlang-A, în timp ce noi folosim θ pentru timpul de pas.
+| Notația noastră | Semnificație |
+| --------------- | ------------ |
+| κ (kappa) | numărul de elemente din sistem, cele care așteaptă plus cele în lucru |
+| λ (lambda) | rata de sosire a elementelor care intră în sistem |
+| μ (mu) | rata de servire, adică capacitatea: cât de repede lucrează un server cât este ocupat |
+| ρ (rho) | utilizarea: fracțiunea de timp în care serverele sunt ocupate, λ / (c μ) |
+| χ (chi) | debitul, adică rata de plecare: producția observată, din orice motiv |
+| α (alpha) | rata de succes: producția observată care se dovedește corectă |
+| β (beta) | rata de eșec: producția observată care se dovedește greșită |
+| δ (delta) | rata de finalizare: succes + eșec, elemente servite, indiferent dacă rezultatul este corect sau greșit |
+| σ (sigma) | rata de abandon: elemente care au intrat, apoi au plecat neservite |
+| ε (epsilon) | raportul de erori: β / (α + β) = β / δ |
+| τ (tau) | timpul în sistem, adică timpul de livrare |
+| ω (omega) | timpul de așteptare, adică timpul în coadă |
+| φ (phi) | timpul de lucru, adică timpul în procesor, adică timpul de servire |
+| θ (theta) | timpul de pas între finalizări; timpul mediu de pas ≈ 1 / χ în regim staționar |
 
 ### Număr
 
 Numărăm des elemente și folosim această notație:
 
-- κ (kappa): numărul de elemente din sistem, adică elementele care așteaptă plus elementele în lucru
+- κ (kappa): numărul de elemente din sistem, adică elementele care așteaptă plus elementele în lucru.
+
+![Diagramă: elementele sosesc cu rata λ, în sistem sunt κ elemente, iar elementele pleacă cu debitul χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Exemplu:
 
-- κ = 100 înseamnă că există 100 de elemente în sistem.
+- κ = 10 înseamnă exact 10
 
-- κ > 100 înseamnă că există mai mult de 100 de elemente în sistem.
+- κ ≈ 10 înseamnă aproximativ 10
 
-- κ ≫ 100 înseamnă că există mult mai mult de 100 de elemente în sistem.
+- κ < 10 înseamnă mai puțin de 10
 
-Un număr precum κ = 100 este o fotografie de moment. În legea lui Little, κ înseamnă numărul mediu pe termen lung, care este L din manuale. Simbolul din manuale doar pentru elementele care așteaptă la coadă este Lq.
+- κ > 10 înseamnă mai mult de 10
+
+- κ ≪ 10 înseamnă mult mai puțin de 10
+
+- κ ≫ 10 înseamnă mult mai mult de 10
+
+Numărul κ (kappa) este o instantanee a unui moment.
+
+Numărul mediu κ̅ (kappa cu bară) este un calcul care face media măsurătorilor pe o perioadă de timp specifică, de exemplu măsurând în fiecare oră timp de două săptămâni.
 
 ### Rata de sosire, rata de servire
 
@@ -179,9 +188,9 @@ Exemple:
 
 - ρ > 1 înseamnă că sosirile depășesc capacitatea; coada se mărește.
 
-### Ratele de debit: rata totală, rata de succes, rata de eșec, rata de abandon
+### Ratele de debit: rata totală, rata de finalizare, rata de succes, rata de eșec, rata de abandon
 
-Ratele de debit măsoară producția observată, adică elementele care părăsesc efectiv coada. Ele se împart în patru categorii mari:
+Ratele de debit măsoară producția observată, adică elementele care părăsesc efectiv coada. Ele se împart în cinci categorii mari:
 
 - χ (chi): rata totală. Aceasta măsoară câte elemente pe unitatea de timp ies din coadă din orice motiv: succes, eșec, abandon etc.
 
@@ -189,11 +198,23 @@ Ratele de debit măsoară producția observată, adică elementele care părăse
 
 - β (beta): rata de eșec. Aceasta măsoară câte elemente pe perioadă de timp se dovedesc greșite, de exemplu inexacte, incomplete, respinse.
 
-- δ (delta): rata de abandon, cunoscută și ca rata de renunțare. Aceasta măsoară câte elemente pe perioadă de timp intră în coadă, apoi pleacă fără a fi servite, de exemplu abandonuri, renunțări.
+- δ (delta): rata de finalizare. Aceasta măsoară câte elemente pe perioadă de timp sunt servite, indiferent dacă rezultatul este corect sau greșit: succes + eșec.
+
+- σ (sigma): rata de abandon. Aceasta măsoară câte elemente pe perioadă de timp intră în coadă, apoi pleacă fără a fi servite, de exemplu abandonuri, renunțări.
+
+Rata de finalizare = rata de succes + rata de eșec:
+
+- δ = α + β (se pronunță: delta egal alpha plus beta)
+
+Rata totală = rata de finalizare + rata de abandon:
+
+- χ = δ + σ (se pronunță: chi egal delta plus sigma)
 
 Rata totală = rata de succes + rata de eșec + rata de abandon:
 
-- χ = α + β + δ (se pronunță: chi egal alpha plus beta plus delta)
+- χ = α + β + σ (se pronunță: chi egal alpha plus beta plus sigma)
+
+![Diagramă: elementele părăsesc sistemul ca succes α, eșec β sau abandon σ; finalizate δ = α + β, deci χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Fiecare element numărat în χ a intrat în sistem, așa că în regim staționar rata totală este egală cu rata de sosire: χ ≈ λ. De aceea ratele de debit măsoară producția, nu capacitatea.
 
@@ -210,7 +231,7 @@ semnificativă de a urmări eșecurile și abandonurile.
 
 - Perspectiva procesării: rata de servire include tot ceea ce coada petrece timp procesând, adică succesele sau eșecurile, dar nu include abandonurile.
 
-- Perspectiva tehnologică: în domenii aplicate precum ingineria software, rata de servire măsoară doar succesele, în timp ce rata de erori măsoară eșecurile, iar rata de abandon măsoară renunțările.
+- Perspectiva tehnologică: în domenii aplicate precum ingineria software, rata de servire măsoară doar succesele, în timp ce rata de erori măsoară eșecurile, iar rata de abandon măsoară abandonurile.
 
 Prin urmare, păstrăm μ pentru capacitate și adăugăm alături ratele de producție observată, în loc să îl înlocuim:
 
@@ -226,7 +247,7 @@ De ce să nu înlocuim μ cu χ sau α? Într-o coadă stabilă, fiecare element
 
 Detalii despre rata de abandon:
 
-- δ (delta): rata de abandon, cunoscută și ca rata de renunțare. Aceasta măsoară câte elemente intră în coadă, apoi pleacă negestionate.
+- σ (sigma): rata de abandon. Aceasta măsoară câte elemente intră în coadă, apoi pleacă fără a fi procesate.
 
 Un abandon are loc atunci când un element intră în coadă, apoi pleacă fără nicio procesare semnificativă:
 
@@ -236,7 +257,7 @@ Un abandon are loc atunci când un element intră în coadă, apoi pleacă făr�
 
 Două comportamente înrudite nu sunt abandonuri:
 
-- Refuzul (balking): atunci când un client decide să nu intre în coadă pentru că timpul de așteptare amenință să fie prea lung. Un element refuzat nu intră niciodată în sistem, deci se află în afara granițelor sistemului: nu este numărat în λ, χ sau δ. Dacă refuzurile contează, de exemplu ca vânzări pierdute, atunci numărați-le separat ca sosiri respinse.
+- Refuzul (balking): atunci când un client decide să nu intre în coadă pentru că timpul de așteptare amenință să fie prea lung. Un element refuzat nu intră niciodată în sistem, deci se află în afara granițelor sistemului: nu este numărat în λ, χ sau σ. Dacă refuzurile contează, de exemplu ca vânzări pierdute, atunci numărați-le separat ca sosiri respinse.
 
 - Schimbarea cozii (jockeying): atunci când un client trece de la o coadă paralelă la alta, de exemplu între casele de marcat, încercând să obțină o așteptare mai scurtă.
 
@@ -244,9 +265,11 @@ Două comportamente înrudite nu sunt abandonuri:
 
 Cea mai importantă notație care rezumă succesul unei cozi:
 
-- ε (epsilon): raportul de erori = numărul de eșecuri / (numărul de succese + numărul de eșecuri) = β / (α + β)
+- ε (epsilon): raportul de erori = numărul de eșecuri / (numărul de succese + numărul de eșecuri) = β / (α + β) = β / δ
 
-Abandonurile sunt excluse, deoarece un element abandonat nu a fost niciodată servit, deci nu a fost nici corect, nici greșit. Urmăriți abandonurile separat prin δ.
+Abandonurile sunt excluse, deoarece un element abandonat nu a fost niciodată servit, deci nu a fost nici corect, nici greșit. Urmăriți abandonurile separat prin σ.
+
+![Diagramă: rata de finalizare δ este rata de succes α plus rata de eșec β, iar raportul de erori ε este rata de eșec β împărțită la rata de finalizare δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Exemple:
 
@@ -268,6 +291,8 @@ Urmărim patru timpi:
 
 - ω (omega): timpul de așteptare = timpul petrecut fără muncă efectivă, cunoscut și ca timp în așteptare
 
+![Diagramă: timpul de livrare τ este timpul de așteptare ω urmat de timpul de lucru φ, deci τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Exemple:
 
 - τ = 5s înseamnă că un element este adăugat în coadă, apoi este servit 5 secunde mai târziu.
@@ -284,9 +309,9 @@ Relații:
 
 - θ mediu ≈ 1 / χ: în regim staționar, timpul mediu de pas este inversul ratei totale. Un singur interval spune puțin despre rată; media multor intervale spune mult. În exemple, dacă timpul mediu de pas este 1s, atunci χ ≈ 1 element pe secundă.
 
-### Notația standard
+### Notația Kendall
 
-Notația standard a teoriei cozilor descrie o coadă folosind notația lui Kendall, scrisă ca A/S/c/K/N/D:
+Notația Kendall este o altă notație a teoriei cozilor, scrisă ca A/S/c/K/N/D:
 
 - A: procesul de sosire, adică distribuția timpului dintre sosiri.
 
@@ -310,11 +335,13 @@ Litere uzuale pentru A și S:
 
 Când ultimele trei sunt omise, valorile implicite sunt K = ∞, N = ∞, D = FIFO. De exemplu, „M/M/1” înseamnă sosiri Poisson, timpi de servire exponențiali, un server, capacitate nelimitată, populație nelimitată și primul intrat, primul ieșit.
 
-Notația standard folosește și n pentru numărul de elemente din sistem.
+De asemenea:
+
+- n: numărul de elemente din sistem.
 
 ## Matematica cozilor
 
-Secțiunile de matematică folosesc simbolurile din manuale, astfel încât să le puteți compara cu alte surse: S este timpul mediu de servire, adică φ al nostru, iar μ = 1 / S este capacitatea unui server. Consultați corespondența din [notația teoriei cozilor](#notația-teoriei-cozilor).
+Secțiunile de matematică folosesc simbolurile din manuale, astfel încât să le puteți compara cu alte surse: S este timpul mediu de servire, adică φ al nostru, iar μ = 1 / S este capacitatea unui server.
 
 ### Curba utilizării
 
@@ -405,7 +432,7 @@ Exemple:
 
 - Aμ: rata de servire a activității, adică capacitatea: câte elemente poate finaliza un server pe unitatea de timp cât este ocupat.
 
-- Aδ: rata de abandon a activității, cunoscută și ca rata de renunțare: câte elemente sunt abandonate pe unitatea de timp.
+- Aσ: rata de abandon a activității: câte elemente sunt abandonate pe unitatea de timp.
 
 - Aρ: raportul de utilizare a activității: fracțiunea din timpul disponibil în care serverele sunt ocupate, adică timpul ocupat ÷ timpul disponibil, sau λ / (c μ).
 

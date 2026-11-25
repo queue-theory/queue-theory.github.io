@@ -15,12 +15,12 @@ Turinys:
   - [Skaičius](#skaičius)
   - [Atvykimo sparta, aptarnavimo sparta](#atvykimo-sparta-aptarnavimo-sparta)
   - [Apkrovos santykis, dar vadinamas srauto intensyvumu](#apkrovos-santykis-dar-vadinamas-srauto-intensyvumu)
-  - [Pralaidumo spartos: bendroji sparta, sėkmės sparta, nesėkmės sparta, praleidimo sparta](#pralaidumo-spartos-bendroji-sparta-sėkmės-sparta-nesėkmės-sparta-praleidimo-sparta)
+  - [Pralaidumo spartos: bendroji sparta, įvykdymo sparta, sėkmės sparta, nesėkmės sparta, praleidimo sparta](#pralaidumo-spartos-bendroji-sparta-įvykdymo-sparta-sėkmės-sparta-nesėkmės-sparta-praleidimo-sparta)
   - [Aptarnavimo spartos sąvokos patikslinimas](#aptarnavimo-spartos-sąvokos-patikslinimas)
   - [Praleidimo sparta](#praleidimo-sparta)
   - [Klaidų santykis](#klaidų-santykis)
   - [Įgyvendinimo trukmė, žingsnio laikas, darbo laikas, laukimo laikas](#įgyvendinimo-trukmė-žingsnio-laikas-darbo-laikas-laukimo-laikas)
-  - [Standartinis žymėjimas](#standartinis-žymėjimas)
+  - [Kendallo žymėjimas](#kendallo-žymėjimas)
 - [Eilių matematika](#eilių-matematika)
   - [Apkrovos kreivė](#apkrovos-kreivė)
   - [Kingmano formulė](#kingmano-formulė)
@@ -109,41 +109,50 @@ Eilių teorijoje vartojamas žymėjimas graikiškomis raidėmis.
 
 Mūsų komandos vartoja dalį populiaraus žymėjimo; be to, pridedame savo žymėjimą, kuris padeda programinės įrangos projektuose.
 
-Mūsų žymėjimo ir standartinio vadovėlinio žymėjimo atitikmenys:
+Mūsų žymėjimas ir kiekvieno simbolio reikšmė:
 
-| Mūsų | Standartinis | Reikšmė                                                                              |
-| ---- | ------------ | ------------------------------------------------------------------------------------ |
-| κ    | L            | vidutinis elementų skaičius sistemoje: laukiantys ir apdorojami                       |
-| λ    | λ            | į sistemą patenkančių elementų atvykimo sparta                                       |
-| μ    | μ            | aptarnavimo sparta, dar vadinama pajėgumu: kaip greitai dirba vienas užimtas serveris |
-| ρ    | ρ            | apkrova: laiko dalis, kai serveriai užimti, λ / (c μ)                                |
-| χ    | X            | pralaidumas, dar vadinamas išvykimo sparta: stebima išeiga dėl bet kokios priežasties |
-| α    | nėra         | sėkmės sparta: stebima išeiga, kuri pasirodo esanti teisinga                         |
-| β    | nėra         | nesėkmės sparta: stebima išeiga, kuri pasirodo esanti klaidinga                      |
-| δ    | nėra         | praleidimo sparta, dar vadinama pasitraukimo sparta: elementai, kurie pateko, bet išėjo neaptarnauti |
-| ε    | nėra         | klaidų santykis β / (α + β)                                                          |
-| τ    | W            | vidutinis laikas sistemoje, dar vadinamas įgyvendinimo trukme                        |
-| ω    | Wq           | vidutinis laukimo eilėje laikas                                                      |
-| φ    | S            | vidutinis aptarnavimo laikas, dar vadinamas darbo laiku; μ = 1 / S                   |
-| θ    | nėra         | žingsnio laikas tarp užbaigimų; stacionarioje būsenoje vidutinis žingsnio laikas ≈ 1 / χ |
-
-Skaitydami kitus šaltinius, saugokitės simbolių susikirtimų: σ paprastai reiškia standartinį nuokrypį, todėl praleidimo spartai žymėti vartojame δ, o θ „Erlang-A“ skambučių centrų modeliuose dažnai reiškia pasitraukimo spartą, tuo tarpu mes θ vartojame žingsnio laikui žymėti.
+| Mūsų žymėjimas | Reikšmė |
+| -------------- | ------- |
+| κ (kapa) | elementų skaičius sistemoje: laukiantys ir apdorojami |
+| λ (lambda) | į sistemą patenkančių elementų atvykimo sparta |
+| μ (miu) | aptarnavimo sparta, dar vadinama pajėgumu: kaip greitai dirba vienas užimtas serveris |
+| ρ (ro) | apkrova: laiko dalis, kai serveriai užimti, λ / (c μ) |
+| χ (chi) | pralaidumas, dar vadinamas išvykimo sparta: stebima išeiga dėl bet kokios priežasties |
+| α (alfa) | sėkmės sparta: stebima išeiga, kuri pasirodo esanti teisinga |
+| β (beta) | nesėkmės sparta: stebima išeiga, kuri pasirodo esanti klaidinga |
+| δ (delta) | įvykdymo sparta: sėkmė + nesėkmė, aptarnauti elementai, nesvarbu, ar rezultatas teisingas, ar klaidingas |
+| σ (sigma) | praleidimo sparta: elementai, kurie pateko, bet išėjo neaptarnauti |
+| ε (epsilon) | klaidų santykis: β / (α + β) = β / δ |
+| τ (tau) | laikas sistemoje, dar vadinamas įgyvendinimo trukme |
+| ω (omega) | laukimo laikas, dar vadinamas laiku eilėje |
+| φ (fi) | darbo laikas, dar vadinamas laiku procesoriuje, dar vadinamas aptarnavimo laiku |
+| θ (teta) | žingsnio laikas tarp užbaigimų; stacionarioje būsenoje vidutinis žingsnio laikas ≈ 1 / χ |
 
 ### Skaičius
 
 Elementus skaičiuojame dažnai ir vartojame tokį žymėjimą:
 
-- κ (kapa): elementų skaičius sistemoje, t. y. laukiantys elementai ir apdorojami elementai
+- κ (kapa): elementų skaičius sistemoje, t. y. laukiantys elementai ir apdorojami elementai.
+
+![Diagrama: elementai atvyksta sparta λ, sistemoje yra κ elementų, o elementai išeina pralaidumu χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Pavyzdys:
 
-- κ = 100 reiškia, kad sistemoje yra 100 elementų.
+- κ = 10 reiškia lygiai 10
 
-- κ > 100 reiškia, kad sistemoje yra daugiau nei 100 elementų.
+- κ ≈ 10 reiškia maždaug 10
 
-- κ ≫ 100 reiškia, kad sistemoje yra daug daugiau nei 100 elementų.
+- κ < 10 reiškia mažiau nei 10
 
-Skaičius, pvz., κ = 100, yra vieno momento momentinė nuotrauka. Little’o dėsnyje κ reiškia ilgalaikį vidutinį skaičių, t. y. vadovėlinį L. Vadovėlinis simbolis, žymintis tik eilėje laukiančius elementus, yra Lq.
+- κ > 10 reiškia daugiau nei 10
+
+- κ ≪ 10 reiškia gerokai mažiau nei 10
+
+- κ ≫ 10 reiškia gerokai daugiau nei 10
+
+Skaičius κ (kapa) yra vieno momento momentinė nuotrauka.
+
+Vidutinis skaičius κ̅ (kapa su brūkšniu) yra skaičiavimas, kuris suvidurkina matavimus per tam tikrą laikotarpį, pavyzdžiui, matuojant kas valandą dvi savaites.
 
 ### Atvykimo sparta, aptarnavimo sparta
 
@@ -179,9 +188,9 @@ Pavyzdžiai:
 
 - ρ > 1 reiškia, kad atvykimai viršija pajėgumą; eilė didėja.
 
-### Pralaidumo spartos: bendroji sparta, sėkmės sparta, nesėkmės sparta, praleidimo sparta
+### Pralaidumo spartos: bendroji sparta, įvykdymo sparta, sėkmės sparta, nesėkmės sparta, praleidimo sparta
 
-Pralaidumo spartos matuoja stebimą išeigą, t. y. elementus, kurie iš tikrųjų palieka eilę. Jos skirstomos į keturias plačias kategorijas:
+Pralaidumo spartos matuoja stebimą išeigą, t. y. elementus, kurie iš tikrųjų palieka eilę. Jos skirstomos į penkias plačias kategorijas:
 
 - χ (chi): bendroji sparta. Ji parodo, kiek elementų per laiko vienetą palieka eilę dėl bet kokios priežasties: sėkmės, nesėkmės, praleidimo ir pan.
 
@@ -189,11 +198,23 @@ Pralaidumo spartos matuoja stebimą išeigą, t. y. elementus, kurie iš tikrųj
 
 - β (beta): nesėkmės sparta. Ji parodo, kiek elementų per laikotarpį pasirodo esantys klaidingi, pvz., netikslūs, neužbaigti, atmesti.
 
-- δ (delta): praleidimo sparta, dar vadinama pasitraukimo sparta. Ji parodo, kiek elementų per laikotarpį patenka į eilę, o tada išeina neaptarnauti, pvz., pasitraukimai, atsisakymai.
+- δ (delta): įvykdymo sparta. Ji parodo, kiek elementų per laikotarpį aptarnaujama, nesvarbu, ar rezultatas teisingas, ar klaidingas: sėkmė + nesėkmė.
+
+- σ (sigma): praleidimo sparta. Ji parodo, kiek elementų per laikotarpį patenka į eilę, o tada išeina neaptarnauti, pvz., pasitraukimai, atsisakymai.
+
+Įvykdymo sparta = sėkmės sparta + nesėkmės sparta:
+
+- δ = α + β (tariama: delta lygu alfa plius beta)
+
+Bendroji sparta = įvykdymo sparta + praleidimo sparta:
+
+- χ = δ + σ (tariama: chi lygu delta plius sigma)
 
 Bendroji sparta = sėkmės sparta + nesėkmės sparta + praleidimo sparta:
 
-- χ = α + β + δ (tariama: chi lygu alfa plius beta plius delta)
+- χ = α + β + σ (tariama: chi lygu alfa plius beta plius sigma)
+
+![Diagrama: elementai palieka sistemą kaip sėkmė α, nesėkmė β arba praleidimas σ; įvykdyta δ = α + β, taigi χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kiekvienas į χ įskaičiuotas elementas buvo patekęs į sistemą, todėl stacionarioje būsenoje bendroji sparta lygi atvykimo spartai: χ ≈ λ. Štai kodėl pralaidumo spartos matuoja išeigą, o ne pajėgumą.
 
@@ -207,7 +228,7 @@ Tai turi istorines šaknis ir gali sukelti painiavą bei klaidų, ypač kontekst
 
 - Apdorojimo požiūris: aptarnavimo sparta apima viską, ką eilė apdoroja ir kam skiria laiko, t. y. sėkmes ar nesėkmes, bet neapima praleidimų.
 
-- Technologinis požiūris: taikomosiose srityse, pvz., programų inžinerijoje, aptarnavimo sparta matuoja tik sėkmes, o klaidų sparta matuoja nesėkmes, ir praleidimo sparta matuoja pasitraukimus.
+- Technologinis požiūris: taikomosiose srityse, pvz., programų inžinerijoje, aptarnavimo sparta matuoja tik sėkmes, o klaidų sparta matuoja nesėkmes, ir praleidimo sparta matuoja praleidimus.
 
 Todėl μ paliekame pajėgumui žymėti, o stebimos išeigos spartas pridedame šalia, užuot jį pakeitę:
 
@@ -223,7 +244,7 @@ Kodėl nepakeitus μ į χ arba α? Stabilioje eilėje kiekvienas patekęs eleme
 
 Praleidimo spartos išsamiau:
 
-- δ (delta): praleidimo sparta, dar vadinama pasitraukimo sparta. Ji parodo, kiek elementų patenka į eilę, o tada išeina neapdoroti.
+- σ (sigma): praleidimo sparta. Ji parodo, kiek elementų patenka į eilę, o tada išeina neapdoroti.
 
 Praleidimas – tai atvejis, kai elementas patenka į eilę, o tada išeina be jokio reikšmingo apdorojimo:
 
@@ -233,7 +254,7 @@ Praleidimas – tai atvejis, kai elementas patenka į eilę, o tada išeina be j
 
 Du susiję elgesio būdai nėra praleidimai:
 
-- Atgrasymas: kai klientas nusprendžia neprisijungti prie eilės, nes laukimo laikas grasina būti per ilgas. Atgrasytas elementas niekada nepatenka į sistemą, todėl yra už sistemos ribų: jis neįskaičiuojamas nei į λ, nei į χ, nei į δ. Jei atgrasymai svarbūs, pvz., dėl prarastų pardavimų, skaičiuokite juos atskirai kaip atstumtus atvykimus.
+- Atgrasymas: kai klientas nusprendžia neprisijungti prie eilės, nes laukimo laikas grasina būti per ilgas. Atgrasytas elementas niekada nepatenka į sistemą, todėl yra už sistemos ribų: jis neįskaičiuojamas nei į λ, nei į χ, nei į σ. Jei atgrasymai svarbūs, pvz., dėl prarastų pardavimų, skaičiuokite juos atskirai kaip atstumtus atvykimus.
 
 - Šokinėjimas tarp eilių: kai klientas pereina iš vienos lygiagrečios eilės į kitą, pvz., tarp kasų, siekdamas trumpesnio laukimo.
 
@@ -241,9 +262,11 @@ Du susiję elgesio būdai nėra praleidimai:
 
 Svarbiausias žymėjimas, apibendrinantis eilės sėkmę:
 
-- ε (epsilon): klaidų santykis = nesėkmių skaičius / (sėkmių skaičius + nesėkmių skaičius) = β / (α + β)
+- ε (epsilon): klaidų santykis = nesėkmių skaičius / (sėkmių skaičius + nesėkmių skaičius) = β / (α + β) = β / δ
 
-Praleidimai neįtraukiami, nes praleistas elementas niekada nebuvo aptarnautas, todėl jis nebuvo nei teisingas, nei klaidingas. Praleidimus stebėkite atskirai naudodami δ.
+Praleidimai neįtraukiami, nes praleistas elementas niekada nebuvo aptarnautas, todėl jis nebuvo nei teisingas, nei klaidingas. Praleidimus stebėkite atskirai naudodami σ.
+
+![Diagrama: įvykdymo sparta δ yra sėkmės sparta α plius nesėkmės sparta β, o klaidų santykis ε yra nesėkmės sparta β, padalyta iš įvykdymo spartos δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Pavyzdžiai:
 
@@ -265,6 +288,8 @@ Stebime keturis laikus:
 
 - ω (omega): laukimo laikas = laikas, kai tikras darbas nedirbamas, dar vadinamas laukimo būsenos laiku
 
+![Diagrama: įgyvendinimo trukmė τ yra laukimo laikas ω, po kurio seka darbo laikas φ, taigi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Pavyzdžiai:
 
 - τ = 5s reiškia, kad elementas įtraukiamas į eilę, o aptarnaujamas po 5 sekundžių.
@@ -281,9 +306,9 @@ Sąryšiai:
 
 - vidutinis θ ≈ 1 / χ: stacionarioje būsenoje vidutinis žingsnio laikas yra atvirkštinis bendrajai spartai. Vienas tarpas mažai ką pasako apie spartą; daugelio tarpų vidurkis pasako. Pavyzdžiuose, jei vidutinis žingsnio laikas yra 1s, tada χ ≈ 1 elementas per sekundę.
 
-### Standartinis žymėjimas
+### Kendallo žymėjimas
 
-Standartinis eilių teorijos žymėjimas aprašo eilę naudojant Kendallo žymėjimą, užrašomą kaip A/S/c/K/N/D:
+Kendallo žymėjimas yra kitoks eilių teorijos žymėjimas, užrašomas kaip A/S/c/K/N/D:
 
 - A: atvykimo procesas, t. y. laiko tarp atvykimų skirstinys.
 
@@ -307,11 +332,13 @@ Dažnos A ir S raidės:
 
 Kai trys paskutiniai praleidžiami, numatytosios reikšmės yra K = ∞, N = ∞, D = FIFO. Pavyzdžiui, „M/M/1“ reiškia Puasono atvykimus, eksponentinius aptarnavimo laikus, vieną serverį, neribotą talpą, neribotą populiaciją ir principą „pirmas atėjo, pirmas išėjo“.
 
-Standartiniame žymėjime n taip pat reiškia elementų skaičių sistemoje.
+Taip pat:
+
+- n: elementų skaičius sistemoje.
 
 ## Eilių matematika
 
-Matematikos skyriuose vartojami vadovėliniai simboliai, kad galėtumėte juos palyginti su kitais šaltiniais: S yra vidutinis aptarnavimo laikas, t. y. mūsų φ, o μ = 1 / S yra vieno serverio pajėgumas. Žr. atitikmenų lentelę skyriuje [eilių teorijos žymėjimas](#eilių-teorijos-žymėjimas).
+Matematikos skyriuose vartojami vadovėliniai simboliai, kad galėtumėte juos palyginti su kitais šaltiniais: S yra vidutinis aptarnavimo laikas, t. y. mūsų φ, o μ = 1 / S yra vieno serverio pajėgumas.
 
 ### Apkrovos kreivė
 
@@ -402,7 +429,7 @@ Pavyzdžiai:
 
 - Aμ: veiklos aptarnavimo sparta, dar vadinama pajėgumu: kiek elementų vienas serveris gali užbaigti per laiko vienetą, kai yra užimtas.
 
-- Aδ: veiklos praleidimo sparta, dar vadinama pasitraukimo sparta: kiek elementų apleidžiama per laiko vienetą.
+- Aσ: veiklos praleidimo sparta: kiek elementų apleidžiama per laiko vienetą.
 
 - Aρ: veiklos apkrovos santykis: turimo laiko dalis, kai serveriai užimti, t. y. užimtumo laikas ÷ turimas laikas, arba λ / (c μ).
 

@@ -21,12 +21,12 @@ Clàr-innse:
   - [Cunntas](#cunntas)
   - [Reat ruighinn, reat seirbheis](#reat-ruighinn-reat-seirbheis)
   - [Co-mheas cleachdaidh, no dèine trafaig](#co-mheas-cleachdaidh-no-dèine-trafaig)
-  - [Reataichean tro-chuir: reat iomlan, reat soirbheachais, reat fàillinn, reat leumaidh](#reataichean-tro-chuir-reat-iomlan-reat-soirbheachais-reat-fàillinn-reat-leumaidh)
+  - [Reataichean tro-chuir: reat iomlan, reat crìochnachaidh, reat soirbheachais, reat fàillinn, reat leumaidh](#reataichean-tro-chuir-reat-iomlan-reat-crìochnachaidh-reat-soirbheachais-reat-fàillinn-reat-leumaidh)
   - [Soilleireachadh air an reat seirbheis](#soilleireachadh-air-an-reat-seirbheis)
   - [Reat leumaidh](#reat-leumaidh)
   - [Co-mheas mhearachdan](#co-mheas-mhearachdan)
   - [Ùine luaidhe, ùine ceum, ùine obrach, ùine feitheimh](#ùine-luaidhe-ùine-ceum-ùine-obrach-ùine-feitheimh)
-  - [Comharrachadh àbhaisteach](#comharrachadh-àbhaisteach)
+  - [Comharrachadh Kendall](#comharrachadh-kendall)
 - [Matamataig nan ciudhaichean](#matamataig-nan-ciudhaichean)
   - [Lùb a' chleachdaidh](#lùb-a-chleachdaidh)
   - [Foirmle Kingman](#foirmle-kingman)
@@ -115,41 +115,50 @@ Bidh teòiridh nan ciudhaichean a' cleachdadh comharrachadh le litrichean Greuga
 
 Bidh na sgiobaidhean againn a' cleachdadh cuid den chomharrachadh chumanta; bidh sinn cuideachd a' cur ris comharrachadh sònraichte a chuidicheas sinn le pròiseactan bathair-bhog.
 
-Clàr-coimeis bhon chomharrachadh againn chun a' chomharrachaidh àbhaistich ann an leabhraichean-teagaisg:
+An comharrachadh againne agus na tha de chiall aig gach samhla:
 
-| Againne | Àbhaisteach | Ciall                                                                            |
-| ------- | ----------- | -------------------------------------------------------------------------------- |
-| κ       | L           | an àireamh chuibheasach de nithean san t-siostam, a' feitheamh agus fo obair      |
-| λ       | λ           | reat ruighinn nan nithean a thig a-steach dhan t-siostam                          |
-| μ       | μ           | reat seirbheis no comas: cho luath 's a dh'obraicheas aon fhrithealaiche nuair a tha e trang |
-| ρ       | ρ           | cleachdadh: a' chuibhreann den ùine a tha na frithealaichean trang, λ / (c μ)     |
-| χ       | X           | tro-chur no reat fàgail: an toradh a chithear, airson adhbhar sam bith            |
-| α       | chan eil    | reat soirbheachais: an toradh a chithear a tha ceart                              |
-| β       | chan eil    | reat fàillinn: an toradh a chithear a tha ceàrr                                   |
-| δ       | chan eil    | reat leumaidh no reat trèigsinn: nithean a thàinig a-steach agus a dh'fhalbh gun seirbheis |
-| ε       | chan eil    | co-mheas mhearachdan β / (α + β)                                                  |
-| τ       | W           | an ùine chuibheasach san t-siostam, no ùine luaidhe                               |
-| ω       | Wq          | an ùine chuibheasach a' feitheamh sa chiudha                                      |
-| φ       | S           | an ùine seirbheis chuibheasach, no ùine obrach; μ = 1 / S                         |
-| θ       | chan eil    | ùine ceum eadar crìochnachaidhean; ùine ceum mheadhanach ≈ 1 / χ ann an staid sheasmhach |
-
-Thoiribh an aire do chòmhstri shamhlaidhean nuair a leughas sibh tùsan eile: mar as trice tha σ a' ciallachadh claonadh àbhaisteach, agus sin as adhbhar gu bheil sinn a' cleachdadh δ airson reat leumaidh, agus gu tric tha θ a' ciallachadh reat trèigsinn ann am modailean ionad-gairm Erlang-A, ach tha sinne a' cleachdadh θ airson ùine ceum.
+| An comharrachadh againne | Ciall |
+| ------------------------ | ----- |
+| κ (kappa) | an àireamh de nithean san t-siostam, a' feitheamh agus fo obair |
+| λ (lambda) | reat ruighinn nan nithean a thig a-steach dhan t-siostam |
+| μ (mu) | reat seirbheis no comas: cho luath 's a dh'obraicheas aon fhrithealaiche nuair a tha e trang |
+| ρ (rho) | cleachdadh: a' chuibhreann den ùine a tha na frithealaichean trang, λ / (c μ) |
+| χ (chi) | tro-chur no reat fàgail: an toradh a chithear, airson adhbhar sam bith |
+| α (alpha) | reat soirbheachais: an toradh a chithear a tha ceart |
+| β (beta) | reat fàillinn: an toradh a chithear a tha ceàrr |
+| δ (delta) | reat crìochnachaidh: soirbheachas + fàillinn, nithean a fhuair seirbheis, ge bith an robh an toradh ceart no ceàrr |
+| σ (sigma) | reat leumaidh: nithean a thàinig a-steach agus a dh'fhalbh gun seirbheis |
+| ε (epsilon) | co-mheas mhearachdan: β / (α + β) = β / δ |
+| τ (tau) | an ùine san t-siostam, no ùine luaidhe |
+| ω (omega) | an ùine a' feitheamh, no ùine sa chiudha |
+| φ (phi) | an ùine obrach, no ùine sa phròiseasar, no ùine seirbheis |
+| θ (theta) | ùine ceum eadar crìochnachaidhean; ùine ceum mheadhanach ≈ 1 / χ ann an staid sheasmhach |
 
 ### Cunntas
 
 Bidh sinn a' cunntadh nithean gu tric, agus bidh sinn a' cleachdadh a' chomharrachaidh seo:
 
-- κ (kappa): cunntas nan nithean san t-siostam, is e sin na nithean a tha a' feitheamh agus na nithean a tha fo obair
+- κ (kappa): cunntas nan nithean san t-siostam, is e sin na nithean a tha a' feitheamh agus na nithean a tha fo obair.
+
+![Diagram: tha nithean a' ruighinn aig reat λ, tha κ nì san t-siostam, agus tha nithean a' fàgail aig tro-chur χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Eisimpleir:
 
-- Tha κ = 100 a' ciallachadh gu bheil 100 nì san t-siostam.
+- Tha κ = 10 a' ciallachadh dìreach 10
 
-- Tha κ > 100 a' ciallachadh gu bheil barrachd air 100 nì san t-siostam.
+- Tha κ ≈ 10 a' ciallachadh mu 10
 
-- Tha κ ≫ 100 a' ciallachadh gu bheil mòran a bharrachd air 100 nì san t-siostam.
+- Tha κ < 10 a' ciallachadh nas lugha na 10
 
-Tha cunntas mar κ = 100 na dhealbh-chlich aig aon mhionaid. Ann an Lagh Little, tha κ a' ciallachadh an cunntas cuibheasach thar ùine fhada, is e sin L nan leabhraichean-teagaisg. 'S e Lq samhla nan leabhraichean-teagaisg airson dìreach na nithean a tha a' feitheamh san t-sreath.
+- Tha κ > 10 a' ciallachadh barrachd air 10
+
+- Tha κ ≪ 10 a' ciallachadh tòrr nas lugha na 10
+
+- Tha κ ≫ 10 a' ciallachadh tòrr a bharrachd air 10
+
+Tha an cunntas κ (kappa) na dhealbh-chlich aig aon mhionaid.
+
+Is e cunntadh a th' anns a' chunntas chuibheasach κ̅ (kappa le bàr) a bheir cuibheasachd de thomhasan thar ùine shònraichte, mar eisimpleir tomhas gach uair a thìde airson dà sheachdain.
 
 ### Reat ruighinn, reat seirbheis
 
@@ -185,9 +194,9 @@ Eisimpleirean:
 
 - Tha ρ > 1 a' ciallachadh gu bheil na ruighinnean nas motha na an comas; tha an ciudha a' fàs nas motha.
 
-### Reataichean tro-chuir: reat iomlan, reat soirbheachais, reat fàillinn, reat leumaidh
+### Reataichean tro-chuir: reat iomlan, reat crìochnachaidh, reat soirbheachais, reat fàillinn, reat leumaidh
 
-Bidh reataichean tro-chuir a' tomhas an toraidh a chithear, is e sin na nithean a dh'fhàgas an ciudha dha-rìribh. Tha iad ann an ceithir roinnean farsaing:
+Bidh reataichean tro-chuir a' tomhas an toraidh a chithear, is e sin na nithean a dh'fhàgas an ciudha dha-rìribh. Tha iad ann an còig roinnean farsaing:
 
 - χ (chi): reat iomlan. Tha seo a' tomhas cia mheud nì anns gach aonad ùine a dh'fhàgas an ciudha airson adhbhar sam bith: soirbheachas, fàillinn, leum, msaa.
 
@@ -195,11 +204,23 @@ Bidh reataichean tro-chuir a' tomhas an toraidh a chithear, is e sin na nithean 
 
 - β (beta): reat fàillinn. Tha seo a' tomhas cia mheud nì anns gach ùine a tha ceàrr, m.e. mearachdach, neo-choileanta, air a dhiùltadh.
 
-- δ (delta): reat leumaidh, no reat trèigsinn. Tha seo a' tomhas cia mheud nì anns gach ùine a thig a-steach dhan chiudha agus a dh'fhalbhas gun a bhith air am frithealadh, m.e. trèigsinnean, tarraing-às.
+- δ (delta): reat crìochnachaidh. Tha seo a' tomhas cia mheud nì anns gach ùine a gheibh seirbheis, ge bith an robh an toradh ceart no ceàrr: soirbheachas + fàillinn.
+
+- σ (sigma): reat leumaidh. Tha seo a' tomhas cia mheud nì anns gach ùine a thig a-steach dhan chiudha agus a dh'fhalbhas gun a bhith air am frithealadh, m.e. trèigsinnean, tarraing-às.
+
+Reat crìochnachaidh = reat soirbheachais + reat fàillinn:
+
+- δ = α + β (air a ràdh: delta co-ionann ri alpha plus beta)
+
+Reat iomlan = reat crìochnachaidh + reat leumaidh:
+
+- χ = δ + σ (air a ràdh: chi co-ionann ri delta plus sigma)
 
 Reat iomlan = reat soirbheachais + reat fàillinn + reat leumaidh:
 
-- χ = α + β + δ (air a ràdh: chi co-ionann ri alpha plus beta plus delta)
+- χ = α + β + σ (air a ràdh: chi co-ionann ri alpha plus beta plus sigma)
+
+![Diagram: tha nithean a' fàgail an t-siostaim mar shoirbheachas α, fàillinn β no leum σ; crìochnaichte δ = α + β, mar sin χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Thàinig gach nì a tha air a chunntadh ann an χ a-steach dhan t-siostam, agus mar sin ann an staid sheasmhach tha an reat iomlan co-ionann ris an reat ruighinn: χ ≈ λ. Sin as adhbhar gu bheil reataichean tro-chuir a' tomhas toraidh, chan e comas.
 
@@ -216,7 +237,7 @@ air fàillinnean agus leuman a lorg.
 
 - Sealladh làimhseachaidh: Tha an reat seirbheis a' gabhail a-steach rud sam bith air a bheil an ciudha a' caitheamh ùine ga làimhseachadh, is e sin soirbheachasan no fàillinnean, ach chan eil e a' gabhail a-steach leuman.
 
-- Sealladh teicneòlais: Ann an raointean gnìomhach mar innleadaireachd bathair-bhog, tha an reat seirbheis a' tomhas dìreach soirbheachasan, fhad 's a tha an reat mhearachdan a' tomhas fàillinnean, agus an reat leumaidh a' tomhas trèigsinnean.
+- Sealladh teicneòlais: Ann an raointean gnìomhach mar innleadaireachd bathair-bhog, tha an reat seirbheis a' tomhas dìreach soirbheachasan, fhad 's a tha an reat mhearachdan a' tomhas fàillinnean, agus an reat leumaidh a' tomhas leumannan.
 
 Mar sin, cumaidh sinn μ airson comas, agus cuiridh sinn reataichean toraidh a chithear ri thaobh, seach a chur na àite:
 
@@ -232,7 +253,7 @@ Carson nach cuirear χ no α an àite μ? Ann an ciudha seasmhach, dh'fhàgas ga
 
 Mion-fhiosrachadh mun reat leumaidh:
 
-- δ (delta): reat leumaidh, no reat trèigsinn. Tha seo a' tomhas cia mheud nì a thig a-steach dhan chiudha agus a dh'fhalbhas gun a bhith air an làimhseachadh.
+- σ (sigma): reat leumaidh. Tha seo a' tomhas cia mheud nì a thig a-steach dhan chiudha agus a dh'fhalbhas gun a bhith air am pròiseasadh.
 
 'S e leum a th' ann nuair a thig nì a-steach dhan chiudha agus a dh'fhalbhas e gun làimhseachadh brìoghmhor sam bith:
 
@@ -242,7 +263,7 @@ Mion-fhiosrachadh mun reat leumaidh:
 
 Chan e leuman a th' ann an dà ghiùlan co-cheangailte:
 
-- Diùltadh: nuair a cho-dhùineas neach-ceannach gun a dhol a-steach dhan chiudha a chionn 's gu bheil coltas gum bi an ùine feitheimh ro fhada. Cha tig nì a chaidh a dhiùltadh a-steach dhan t-siostam idir, agus mar sin tha e taobh a-muigh crìoch an t-siostaim: chan eil e air a chunntadh ann an λ, χ, no δ. Ma tha diùltaidhean cudromach, leithid reic a chaidh a chall, cunntaibh iad air leth mar ruighinnean a chaidh a chur air falbh.
+- Diùltadh: nuair a cho-dhùineas neach-ceannach gun a dhol a-steach dhan chiudha a chionn 's gu bheil coltas gum bi an ùine feitheimh ro fhada. Cha tig nì a chaidh a dhiùltadh a-steach dhan t-siostam idir, agus mar sin tha e taobh a-muigh crìoch an t-siostaim: chan eil e air a chunntadh ann an λ, χ, no σ. Ma tha diùltaidhean cudromach, leithid reic a chaidh a chall, cunntaibh iad air leth mar ruighinnean a chaidh a chur air falbh.
 
 - Leum-eadar-chiudhaichean: nuair a ghluaiseas neach-ceannach eadar ciudhaichean co-shìnte, leithid loidhnichean pàighidh, a' feuchainn ri feitheamh nas giorra fhaighinn.
 
@@ -250,9 +271,11 @@ Chan e leuman a th' ann an dà ghiùlan co-cheangailte:
 
 An comharrachadh as cudromaiche a bheir geàrr-chunntas air soirbheachas ciudha:
 
-- ε (epsilon): co-mheas mhearachdan = cunntas fhàillinnean / (cunntas shoirbheachasan + cunntas fhàillinnean) = β / (α + β)
+- ε (epsilon): co-mheas mhearachdan = cunntas fhàillinnean / (cunntas shoirbheachasan + cunntas fhàillinnean) = β / (α + β) = β / δ
 
-Tha leuman air am fàgail a-mach, a chionn 's nach deach nì a leum seachad a fhrithealadh idir, agus mar sin cha robh e ceart no ceàrr. Lorgaibh leuman air leth tro δ.
+Tha leuman air am fàgail a-mach, a chionn 's nach deach nì a leum seachad a fhrithealadh idir, agus mar sin cha robh e ceart no ceàrr. Lorgaibh leuman air leth tro σ.
+
+![Diagram: is e an reat crìochnachaidh δ an reat soirbheachais α plus an reat fàillinn β, agus is e co-mheas mhearachdan ε an reat fàillinn β air a roinn leis an reat crìochnachaidh δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Eisimpleirean:
 
@@ -274,6 +297,8 @@ Bidh sinn a' lorg ceithir ùineachan:
 
 - ω (omega): ùine feitheimh = an ùine a thèid a chaitheamh gun fhìor obair a dhèanamh, no ùine ri feitheamh
 
+![Diagram: is e an ùine luaidhe τ an ùine feitheimh ω agus an uair sin an ùine obrach φ, mar sin τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Eisimpleirean:
 
 - Tha τ = 5s a' ciallachadh gu bheil nì air a chur ris a' chiudha, agus an uair sin air a fhrithealadh 5 diogan às dèidh sin.
@@ -290,9 +315,9 @@ Dàimhean:
 
 - θ meadhanach ≈ 1 / χ: ann an staid sheasmhach, tha an ùine ceum mheadhanach na h-àireamh tionndaidh den reat iomlan. Chan eil aon bheàrn ag innse mòran mun reat; tha cuibheas mòran bheàrnan ga innse. Anns na h-eisimpleirean, mas e 1s an ùine ceum mheadhanach, tha χ ≈ 1 nì gach diog.
 
-### Comharrachadh àbhaisteach
+### Comharrachadh Kendall
 
-Bidh an comharrachadh àbhaisteach airson teòiridh nan ciudhaichean a' mìneachadh ciudha le comharrachadh Kendall, air a sgrìobhadh mar A/S/c/K/N/D:
+Tha comharrachadh Kendall na chomharrachadh eile airson teòiridh nan ciudhaichean, air a sgrìobhadh mar A/S/c/K/N/D:
 
 - A: am pròiseas ruighinn, is e sin sgaoileadh na h-ùine eadar ruighinnean.
 
@@ -316,11 +341,13 @@ Litrichean cumanta airson A agus S:
 
 Nuair a tha na trì mu dheireadh air am fàgail a-mach, 's iad na roghainnean bunaiteach K = ∞, N = ∞, D = FIFO. Mar eisimpleir, tha "M/M/1" a' ciallachadh ruighinnean Poisson, ùineachan seirbheis eas-pheutach, aon fhrithealaiche, comas gun chrìoch, sluagh gun chrìoch, agus a' chiad fhear a-steach, a' chiad fhear a-mach.
 
-Bidh an comharrachadh àbhaisteach cuideachd a' cleachdadh n airson an àireamh de nithean san t-siostam.
+Cuideachd:
+
+- n: an àireamh de nithean san t-siostam.
 
 ## Matamataig nan ciudhaichean
 
-Bidh na h-earrannan matamataig a' cleachdadh samhlaidhean nan leabhraichean-teagaisg, gus an urrainn dhuibh an coimeas ri tùsan eile: 's e S an ùine seirbheis chuibheasach, is e sin an φ againne, agus 's e μ = 1 / S comas aon fhrithealaiche. Faicibh an clàr-coimeis ann an [comharrachadh teòiridh nan ciudhaichean](#comharrachadh-teòiridh-nan-ciudhaichean).
+Bidh na h-earrannan matamataig a' cleachdadh samhlaidhean nan leabhraichean-teagaisg, gus an urrainn dhuibh an coimeas ri tùsan eile: 's e S an ùine seirbheis chuibheasach, is e sin an φ againne, agus 's e μ = 1 / S comas aon fhrithealaiche.
 
 ### Lùb a' chleachdaidh
 
@@ -411,7 +438,7 @@ Eisimpleirean:
 
 - Aμ: reat seirbheis na gnìomhachd, no comas: cia mheud nì as urrainn do dh'aon fhrithealaiche a chrìochnachadh anns gach aonad ùine nuair a tha e trang.
 
-- Aδ: reat leumaidh na gnìomhachd, no reat trèigsinn: cia mheud nì a thèid a thrèigsinn anns gach aonad ùine.
+- Aσ: reat leumaidh na gnìomhachd: cia mheud nì a thèid a thrèigsinn anns gach aonad ùine.
 
 - Aρ: co-mheas cleachdaidh na gnìomhachd: a' chuibhreann den ùine a tha ri làimh a tha na frithealaichean trang, is e sin ùine thrang ÷ ùine a tha ri làimh, no λ / (c μ).
 

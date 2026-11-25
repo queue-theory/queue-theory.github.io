@@ -15,12 +15,12 @@ Innehåll:
   - [Antal](#antal)
   - [Ankomsttakt, betjäningstakt](#ankomsttakt-betjäningstakt)
   - [Utnyttjandegrad, även kallad trafikintensitet](#utnyttjandegrad-även-kallad-trafikintensitet)
-  - [Genomflödestakter: total takt, lyckandetakt, felfrekvens, avhoppstakt](#genomflödestakter-total-takt-lyckandetakt-felfrekvens-avhoppstakt)
+  - [Genomflödestakter: total takt, slutförandetakt, lyckandetakt, felfrekvens, avhoppstakt](#genomflödestakter-total-takt-slutförandetakt-lyckandetakt-felfrekvens-avhoppstakt)
   - [Förtydligande av betjäningstakt](#förtydligande-av-betjäningstakt)
   - [Avhoppstakt](#avhoppstakt)
   - [Felkvot](#felkvot)
   - [Ledtid, stegtid, arbetstid, väntetid](#ledtid-stegtid-arbetstid-väntetid)
-  - [Standardnotation](#standardnotation)
+  - [Kendalls notation](#kendalls-notation)
 - [Köernas matematik](#köernas-matematik)
   - [Utnyttjandekurvan](#utnyttjandekurvan)
   - [Kingmans formel](#kingmans-formel)
@@ -109,41 +109,50 @@ Köteorin använder notation med grekiska bokstäver.
 
 Våra team använder en del av den vanliga notationen; vi lägger också till egen notation som hjälper oss i mjukvaruprojekt.
 
-Jämförelse mellan vår notation och läroböckernas standardnotation:
+Vår notation och vad varje symbol betyder:
 
-| Vår | Standard | Betydelse                                                                         |
-| --- | -------- | --------------------------------------------------------------------------------- |
-| κ   | L        | genomsnittligt antal objekt i systemet, väntande plus de som bearbetas            |
-| λ   | λ        | ankomsttakt för objekt som kommer in i systemet                                   |
-| μ   | μ        | betjäningstakt, även kallad kapacitet: hur snabbt en server arbetar när den är upptagen |
-| ρ   | ρ        | utnyttjandegrad: andelen tid som servrarna är upptagna, λ / (c μ)                 |
-| χ   | X        | genomflöde, även kallat avgångstakt: observerat utflöde, oavsett orsak            |
-| α   | ingen    | lyckandetakt: observerat utflöde som visar sig vara rätt                          |
-| β   | ingen    | felfrekvens: observerat utflöde som visar sig vara fel                            |
-| δ   | ingen    | avhoppstakt: objekt som kom in och sedan lämnade utan att betjänas                |
-| ε   | ingen    | felkvot β / (α + β)                                                               |
-| τ   | W        | genomsnittlig tid i systemet, även kallad ledtid                                  |
-| ω   | Wq       | genomsnittlig väntetid i kön                                                      |
-| φ   | S        | genomsnittlig betjäningstid, även kallad arbetstid; μ = 1 / S                     |
-| θ   | ingen    | stegtid mellan slutföranden; genomsnittlig stegtid ≈ 1 / χ i stationärt tillstånd |
-
-Se upp för krockar mellan symboler när ni läser andra källor: σ betyder vanligtvis standardavvikelse, vilket är varför vi använder δ för avhoppstakt, och θ betyder ofta avhoppsfrekvensen i Erlang-A-modeller för kundtjänstcenter, medan vi använder θ för stegtid.
+| Vår notation | Betydelse |
+| ------------ | --------- |
+| κ (kappa) | antal objekt i systemet, väntande plus objekt som bearbetas |
+| λ (lambda) | ankomsttakt för objekt som kommer in i systemet |
+| μ (my) | betjäningstakt, även kallad kapacitet: hur snabbt en server arbetar när den är upptagen |
+| ρ (rho) | utnyttjandegrad: andelen tid som servrarna är upptagna, λ / (c μ) |
+| χ (chi) | genomflöde, även kallat avgångstakt: observerat utflöde, oavsett orsak |
+| α (alfa) | lyckandetakt: observerat utflöde som visar sig vara rätt |
+| β (beta) | felfrekvens: observerat utflöde som visar sig vara fel |
+| δ (delta) | slutförandetakt: lyckande + misslyckande, objekt som har betjänats, oavsett om resultatet är rätt eller fel |
+| σ (sigma) | avhoppstakt: objekt som kom in och sedan lämnade utan att betjänas |
+| ε (epsilon) | felkvot: β / (α + β) = β / δ |
+| τ (tau) | tid i systemet, även kallad ledtid |
+| ω (omega) | väntetid, även kallad tid i kön |
+| φ (fi) | arbetstid, även kallad tid i processorn, även kallad betjäningstid |
+| θ (theta) | stegtid mellan slutföranden; genomsnittlig stegtid ≈ 1 / χ i stationärt tillstånd |
 
 ### Antal
 
 Vi räknar objekt ofta, och vi använder den här notationen:
 
-- κ (kappa): antal objekt i systemet, det vill säga väntande objekt plus objekt som bearbetas
+- κ (kappa): antal objekt i systemet, det vill säga väntande objekt plus objekt som bearbetas.
+
+![Diagram: objekt anländer med takten λ, κ objekt finns i systemet och objekt lämnar det med genomflödet χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Exempel:
 
-- κ = 100 betyder att det finns 100 objekt i systemet.
+- κ = 10 betyder exakt 10
 
-- κ > 100 betyder att det finns fler än 100 objekt i systemet.
+- κ ≈ 10 betyder ungefär 10
 
-- κ ≫ 100 betyder att det finns många fler än 100 objekt i systemet.
+- κ < 10 betyder mindre än 10
 
-Ett antal som κ = 100 är en ögonblicksbild vid ett visst tillfälle. I Littles lag betyder κ det långsiktiga genomsnittliga antalet, vilket är lärobokens L. Lärobokens symbol för enbart de objekt som väntar i kön är Lq.
+- κ > 10 betyder mer än 10
+
+- κ ≪ 10 betyder mycket mindre än 10
+
+- κ ≫ 10 betyder mycket mer än 10
+
+Antalet κ (kappa) är en ögonblicksbild.
+
+Det genomsnittliga antalet κ̅ (kappa med streck) är en beräkning som tar medelvärdet av mätningar under en viss tidsperiod, till exempel genom att mäta varje timme i två veckor.
 
 ### Ankomsttakt, betjäningstakt
 
@@ -179,9 +188,9 @@ Exempel:
 
 - ρ > 1 betyder att ankomsterna överstiger kapaciteten; kön blir större.
 
-### Genomflödestakter: total takt, lyckandetakt, felfrekvens, avhoppstakt
+### Genomflödestakter: total takt, slutförandetakt, lyckandetakt, felfrekvens, avhoppstakt
 
-Genomflödestakter mäter observerat utflöde, det vill säga objekt som faktiskt lämnar kön. De delas in i fyra breda kategorier:
+Genomflödestakter mäter observerat utflöde, det vill säga objekt som faktiskt lämnar kön. De delas in i fem breda kategorier:
 
 - χ (chi): total takt. Den mäter hur många objekt per tidsenhet som lämnar kön oavsett orsak: lyckat, misslyckat, avhopp osv.
 
@@ -189,11 +198,23 @@ Genomflödestakter mäter observerat utflöde, det vill säga objekt som faktisk
 
 - β (beta): felfrekvens. Den mäter hur många objekt per tidsperiod som visar sig vara fel, t.ex. felaktiga, ofullständiga, avvisade.
 
-- δ (delta): avhoppstakt. Den mäter hur många objekt per tidsperiod som kommer in i kön och sedan lämnar den utan att betjänas, t.ex. övergivanden, avhopp under väntan.
+- δ (delta): slutförandetakt. Den mäter hur många objekt per tidsperiod som betjänas, oavsett om resultatet är rätt eller fel: lyckande + misslyckande.
+
+- σ (sigma): avhoppstakt. Den mäter hur många objekt per tidsperiod som kommer in i kön och sedan lämnar den utan att betjänas, t.ex. övergivanden, avhopp under väntan.
+
+Slutförandetakt = lyckandetakt + felfrekvens:
+
+- δ = α + β (uttalas: delta är lika med alfa plus beta)
+
+Total takt = slutförandetakt + avhoppstakt:
+
+- χ = δ + σ (uttalas: chi är lika med delta plus sigma)
 
 Total takt = lyckandetakt + felfrekvens + avhoppstakt:
 
-- χ = α + β + δ (uttalas: chi är lika med alfa plus beta plus delta)
+- χ = α + β + σ (uttalas: chi är lika med alfa plus beta plus sigma)
+
+![Diagram: objekt lämnar systemet som lyckande α, misslyckande β eller avhopp σ; slutfört δ = α + β, alltså χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Varje objekt som räknas i χ har kommit in i systemet, så i stationärt tillstånd är den totala takten lika med ankomsttakten: χ ≈ λ. Det är därför genomflödestakter mäter utflöde, inte kapacitet.
 
@@ -226,7 +247,7 @@ Varför inte ersätta μ med χ eller α? I en stabil kö lämnar varje objekt s
 
 Detaljer om avhoppstakt:
 
-- δ (delta): avhoppstakt. Den mäter hur många objekt som kommer in i kön och sedan lämnar den utan att hanteras.
+- σ (sigma): avhoppstakt. Den mäter hur många objekt som kommer in i kön och sedan lämnar den obearbetade.
 
 Ett avhopp är när ett objekt kommer in i kön och sedan lämnar den utan någon nämnvärd bearbetning:
 
@@ -236,7 +257,7 @@ Ett avhopp är när ett objekt kommer in i kön och sedan lämnar den utan någo
 
 Två närliggande beteenden räknas inte som avhopp:
 
-- Avstående (balking): när en kund bestämmer sig för att inte ställa sig i kön eftersom väntetiden riskerar att bli för lång. Ett objekt som avstår kommer aldrig in i systemet, så det ligger utanför systemgränsen: det räknas inte i λ, χ eller δ. Om avståenden spelar roll, till exempel som förlorad försäljning, räkna dem då separat som avvisade ankomster.
+- Avstående (balking): när en kund bestämmer sig för att inte ställa sig i kön eftersom väntetiden riskerar att bli för lång. Ett objekt som avstår kommer aldrig in i systemet, så det ligger utanför systemgränsen: det räknas inte i λ, χ eller σ. Om avståenden spelar roll, till exempel som förlorad försäljning, räkna dem då separat som avvisade ankomster.
 
 - Köbyte (jockeying): när en kund byter mellan parallella köer, till exempel kassaköer, för att försöka få kortare väntetid.
 
@@ -244,9 +265,11 @@ Två närliggande beteenden räknas inte som avhopp:
 
 Den viktigaste notationen som sammanfattar en kös framgång:
 
-- ε (epsilon): felkvot = antal misslyckanden / (antal lyckade + antal misslyckanden) = β / (α + β)
+- ε (epsilon): felkvot = antal misslyckanden / (antal lyckade + antal misslyckanden) = β / (α + β) = β / δ
 
-Avhopp räknas inte med, eftersom ett objekt som hoppat av aldrig betjänades, så det var varken rätt eller fel. Följ avhopp separat via δ.
+Avhopp räknas inte med, eftersom ett objekt som hoppat av aldrig betjänades, så det var varken rätt eller fel. Följ avhopp separat via σ.
+
+![Diagram: slutförandetakten δ är lyckandetakten α plus felfrekvensen β, och felkvoten ε är felfrekvensen β delad med slutförandetakten δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Exempel:
 
@@ -268,6 +291,8 @@ Vi följer fyra tider:
 
 - ω (omega): väntetid = tid som inte läggs på faktiskt arbete, även kallad vilotid
 
+![Diagram: ledtiden τ är väntetiden ω följd av arbetstiden φ, alltså τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Exempel:
 
 - τ = 5s betyder att ett objekt läggs till i kön och betjänas 5 sekunder senare.
@@ -284,9 +309,9 @@ Samband:
 
 - genomsnittlig θ ≈ 1 / χ: i stationärt tillstånd är den genomsnittliga stegtiden inversen av den totala takten. Ett enskilt mellanrum säger lite om takten; genomsnittet av många mellanrum säger mer. I exemplen gäller att om den genomsnittliga stegtiden är 1s, så är χ ≈ 1 objekt per sekund.
 
-### Standardnotation
+### Kendalls notation
 
-Köteorins standardnotation beskriver en kö med hjälp av Kendalls notation, skriven som A/S/c/K/N/D:
+Kendalls notation är en annan notation inom köteori, skriven som A/S/c/K/N/D:
 
 - A: ankomstprocessen, det vill säga fördelningen av tiden mellan ankomster.
 
@@ -310,11 +335,13 @@ Vanliga bokstäver för A och S:
 
 När de tre sista utelämnas är standardvärdena K = ∞, N = ∞, D = FIFO. Till exempel betyder "M/M/1" poissonfördelade ankomster, exponentialfördelade betjäningstider, en server, obegränsad kapacitet, obegränsad population och först in, först ut.
 
-Standardnotationen använder också n för antalet objekt i systemet.
+Dessutom:
+
+- n: antalet objekt i systemet.
 
 ## Köernas matematik
 
-Matematikavsnitten använder lärobokssymboler, så att ni kan jämföra dem med andra källor: S är den genomsnittliga betjäningstiden, vilket är vår φ, och μ = 1 / S är en servers kapacitet. Se jämförelsen i [köteorins notation](#köteorins-notation).
+Matematikavsnitten använder lärobokssymboler, så att ni kan jämföra dem med andra källor: S är den genomsnittliga betjäningstiden, vilket är vår φ, och μ = 1 / S är en servers kapacitet.
 
 ### Utnyttjandekurvan
 
@@ -405,7 +432,7 @@ Exempel:
 
 - Aμ: aktivitetens betjäningstakt, även kallad kapacitet: hur många objekt en server kan slutföra per tidsenhet när den är upptagen.
 
-- Aδ: aktivitetens avhoppstakt: hur många objekt som överges per tidsenhet.
+- Aσ: aktivitetens avhoppstakt: hur många objekt som överges per tidsenhet.
 
 - Aρ: aktivitetens utnyttjandegrad: andelen tillgänglig tid som servrarna är upptagna, det vill säga upptagen tid ÷ tillgänglig tid, eller λ / (c μ).
 

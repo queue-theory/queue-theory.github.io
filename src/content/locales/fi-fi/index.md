@@ -19,12 +19,12 @@ Sisällysluettelo:
   - [Määrä](#määrä)
   - [Saapumisnopeus, palvelunopeus](#saapumisnopeus-palvelunopeus)
   - [Käyttöaste eli liikenneintensiteetti](#käyttöaste-eli-liikenneintensiteetti)
-  - [Läpimenonopeudet: kokonaisnopeus, onnistumisnopeus, epäonnistumisnopeus, ohitusnopeus](#läpimenonopeudet-kokonaisnopeus-onnistumisnopeus-epäonnistumisnopeus-ohitusnopeus)
+  - [Läpimenonopeudet: kokonaisnopeus, valmistumisnopeus, onnistumisnopeus, epäonnistumisnopeus, ohitusnopeus](#läpimenonopeudet-kokonaisnopeus-valmistumisnopeus-onnistumisnopeus-epäonnistumisnopeus-ohitusnopeus)
   - [Palvelunopeuden käsitteen täsmennys](#palvelunopeuden-käsitteen-täsmennys)
   - [Ohitusnopeus](#ohitusnopeus)
   - [Virhesuhde](#virhesuhde)
   - [Läpimenoaika, askelaika, työaika, odotusaika](#läpimenoaika-askelaika-työaika-odotusaika)
-  - [Vakiomerkinnät](#vakiomerkinnät)
+  - [Kendallin merkintä](#kendallin-merkintä)
 - [Jonojen matematiikka](#jonojen-matematiikka)
   - [Käyttöastekäyrä](#käyttöastekäyrä)
   - [Kingmanin kaava](#kingmanin-kaava)
@@ -113,41 +113,50 @@ Jonoteoriassa käytetään kreikkalaisia kirjaimia sisältäviä merkintöjä.
 
 Tiimimme käyttävät joitakin suosittuja merkintöjä; lisäämme myös omia merkintöjä, jotka auttavat meitä ohjelmistoprojekteissa.
 
-Vastaavuustaulukko merkinnöistämme oppikirjojen vakiomerkintöihin:
+Meidän merkintämme ja se, mitä kukin symboli tarkoittaa:
 
-| Meidän | Vakio | Merkitys                                                                          |
-| ------ | ----- | --------------------------------------------------------------------------------- |
-| κ      | L     | järjestelmässä olevien kohteiden keskimääräinen määrä, odottavat ja työn alla olevat |
-| λ      | λ     | järjestelmään tulevien kohteiden saapumisnopeus                                   |
-| μ      | μ     | palvelunopeus eli kapasiteetti: kuinka nopeasti yksi palvelin työskentelee varattuna |
-| ρ      | ρ     | käyttöaste: osuus ajasta, jonka palvelimet ovat varattuina, λ / (c μ)             |
-| χ      | X     | läpimeno eli poistumisnopeus: havaittu tuotos mistä tahansa syystä                |
-| α      | ei ole | onnistumisnopeus: havaittu tuotos, joka osoittautuu oikeaksi                     |
-| β      | ei ole | epäonnistumisnopeus: havaittu tuotos, joka osoittautuu vääräksi                  |
-| δ      | ei ole | ohitusnopeus eli keskeytysnopeus: kohteet, jotka tulivat ja poistuivat palvelematta |
-| ε      | ei ole | virhesuhde β / (α + β)                                                           |
-| τ      | W     | keskimääräinen aika järjestelmässä eli läpimenoaika                               |
-| ω      | Wq    | keskimääräinen odotusaika jonossa                                                 |
-| φ      | S     | keskimääräinen palveluaika eli työaika; μ = 1 / S                                 |
-| θ      | ei ole | askelaika valmistumisten välillä; keskimääräinen askelaika ≈ 1 / χ tasapainotilassa |
-
-Varokaa symbolien päällekkäisyyksiä, kun luette muita lähteitä: σ tarkoittaa yleensä keskihajontaa, minkä vuoksi käytämme ohitusnopeudelle symbolia δ, ja θ tarkoittaa Erlang-A-puhelinpalvelumalleissa usein luopumisnopeutta, kun taas me käytämme θ:aa askelajalle.
+| Meidän merkintämme | Merkitys |
+| ------------------ | -------- |
+| κ (kappa) | järjestelmässä olevien kohteiden määrä, odottavat ja työn alla olevat |
+| λ (lambda) | järjestelmään tulevien kohteiden saapumisnopeus |
+| μ (mu) | palvelunopeus eli kapasiteetti: kuinka nopeasti yksi palvelin työskentelee varattuna |
+| ρ (rho) | käyttöaste: osuus ajasta, jonka palvelimet ovat varattuina, λ / (c μ) |
+| χ (khii) | läpimeno eli poistumisnopeus: havaittu tuotos mistä tahansa syystä |
+| α (alfa) | onnistumisnopeus: havaittu tuotos, joka osoittautuu oikeaksi |
+| β (beeta) | epäonnistumisnopeus: havaittu tuotos, joka osoittautuu vääräksi |
+| δ (delta) | valmistumisnopeus: onnistuminen + epäonnistuminen, palvellut kohteet, olipa tulos oikea tai väärä |
+| σ (sigma) | ohitusnopeus: kohteet, jotka tulivat ja poistuivat palvelematta |
+| ε (epsilon) | virhesuhde: β / (α + β) = β / δ |
+| τ (tau) | aika järjestelmässä eli läpimenoaika |
+| ω (oomega) | odotusaika eli aika jonossa |
+| φ (fii) | työaika eli aika suorittimessa eli palveluaika |
+| θ (theeta) | askelaika valmistumisten välillä; keskimääräinen askelaika ≈ 1 / χ tasapainotilassa |
 
 ### Määrä
 
 Laskemme kohteita usein, ja käytämme tätä merkintää:
 
-- κ (kappa): järjestelmässä olevien kohteiden määrä eli odottavat kohteet ja työn alla olevat kohteet yhteensä
+- κ (kappa): järjestelmässä olevien kohteiden määrä eli odottavat kohteet ja työn alla olevat kohteet yhteensä.
+
+![Kaavio: kohteet saapuvat nopeudella λ, järjestelmässä on κ kohdetta ja kohteet poistuvat läpimenolla χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Esimerkki:
 
-- κ = 100 tarkoittaa, että järjestelmässä on 100 kohdetta.
+- κ = 10 tarkoittaa tasan 10
 
-- κ > 100 tarkoittaa, että järjestelmässä on yli 100 kohdetta.
+- κ ≈ 10 tarkoittaa noin 10
 
-- κ ≫ 100 tarkoittaa, että järjestelmässä on paljon yli 100 kohdetta.
+- κ < 10 tarkoittaa alle 10
 
-Määrä, kuten κ = 100, on tilannekuva yhdeltä hetkeltä. Littlen laissa κ tarkoittaa pitkän aikavälin keskimääräistä määrää, joka on oppikirjojen L. Oppikirjojen symboli pelkästään jonossa odottaville kohteille on Lq.
+- κ > 10 tarkoittaa yli 10
+
+- κ ≪ 10 tarkoittaa paljon alle 10
+
+- κ ≫ 10 tarkoittaa paljon yli 10
+
+Määrä κ (kappa) on tilannekuva yhdeltä hetkeltä.
+
+Keskimääräinen määrä κ̅ (kappa viivalla) on laskelma, joka keskiarvoistaa mittauksia tietyltä ajanjaksolta, esimerkiksi mittaamalla joka tunti kahden viikon ajan.
 
 ### Saapumisnopeus, palvelunopeus
 
@@ -183,9 +192,9 @@ Esimerkkejä:
 
 - ρ > 1 tarkoittaa, että saapumiset ylittävät kapasiteetin; jono kasvaa.
 
-### Läpimenonopeudet: kokonaisnopeus, onnistumisnopeus, epäonnistumisnopeus, ohitusnopeus
+### Läpimenonopeudet: kokonaisnopeus, valmistumisnopeus, onnistumisnopeus, epäonnistumisnopeus, ohitusnopeus
 
-Läpimenonopeudet mittaavat havaittua tuotosta eli kohteita, jotka todella poistuvat jonosta. Ne jakautuvat neljään laajaan luokkaan:
+Läpimenonopeudet mittaavat havaittua tuotosta eli kohteita, jotka todella poistuvat jonosta. Ne jakautuvat viiteen laajaan luokkaan:
 
 - χ (khii): kokonaisnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä poistuu jonosta mistä tahansa syystä: onnistuminen, epäonnistuminen, ohitus jne.
 
@@ -193,11 +202,23 @@ Läpimenonopeudet mittaavat havaittua tuotosta eli kohteita, jotka todella poist
 
 - β (beeta): epäonnistumisnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä osoittautuu vääräksi, esimerkiksi virheelliseksi, keskeneräiseksi tai hylätyksi.
 
-- δ (delta): ohitusnopeus eli keskeytysnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä tulee jonoon ja poistuu sitten ilman palvelua, esimerkiksi luopumiset ja kesken jättämiset.
+- δ (delta): valmistumisnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä palvellaan, tulipa tulos oikea tai väärä: onnistuminen + epäonnistuminen.
+
+- σ (sigma): ohitusnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä tulee jonoon ja poistuu sitten ilman palvelua, esimerkiksi luopumiset ja kesken jättämiset.
+
+Valmistumisnopeus = onnistumisnopeus + epäonnistumisnopeus:
+
+- δ = α + β (lausutaan: delta on yhtä kuin alfa plus beeta)
+
+Kokonaisnopeus = valmistumisnopeus + ohitusnopeus:
+
+- χ = δ + σ (lausutaan: khii on yhtä kuin delta plus sigma)
 
 Kokonaisnopeus = onnistumisnopeus + epäonnistumisnopeus + ohitusnopeus:
 
-- χ = α + β + δ (lausutaan: khii on yhtä kuin alfa plus beeta plus delta)
+- χ = α + β + σ (lausutaan: khii on yhtä kuin alfa plus beeta plus sigma)
+
+![Kaavio: kohteet poistuvat järjestelmästä onnistumisena α, epäonnistumisena β tai ohituksena σ; valmistuneet δ = α + β, joten χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Jokainen χ:hin laskettu kohde on tullut järjestelmään, joten tasapainotilassa kokonaisnopeus on yhtä suuri kuin saapumisnopeus: χ ≈ λ. Siksi läpimenonopeudet mittaavat tuotosta eivätkä kapasiteettia.
 
@@ -214,7 +235,7 @@ epäonnistumisia ja ohituksia on tärkeää seurata.
 
 - Käsittelynäkökulma: palvelunopeus sisältää kaiken, mihin jono käyttää käsittelyaikaa, eli onnistumiset tai epäonnistumiset, mutta ei ohituksia.
 
-- Teknologianäkökulma: soveltavilla aloilla, kuten ohjelmistotekniikassa, palvelunopeus mittaa vain onnistumisia, kun taas virhenopeus mittaa epäonnistumisia ja ohitusnopeus keskeytyksiä.
+- Teknologianäkökulma: soveltavilla aloilla, kuten ohjelmistotekniikassa, palvelunopeus mittaa vain onnistumisia, kun taas virhenopeus mittaa epäonnistumisia ja ohitusnopeus ohituksia.
 
 Siksi säilytämme μ:n kapasiteetin merkintänä ja lisäämme havaitun tuotoksen nopeudet sen rinnalle sen sijaan, että korvaisimme sen:
 
@@ -230,7 +251,7 @@ Miksi μ:tä ei korvata χ:llä tai α:lla? Vakaassa jonossa jokainen sisään t
 
 Ohitusnopeuden yksityiskohdat:
 
-- δ (delta): ohitusnopeus eli keskeytysnopeus. Tämä mittaa, kuinka monta kohdetta tulee jonoon ja poistuu sitten käsittelemättä.
+- σ (sigma): ohitusnopeus. Tämä mittaa, kuinka monta kohdetta tulee jonoon ja poistuu sitten käsittelemättä.
 
 Ohitus tarkoittaa, että kohde tulee jonoon ja poistuu sitten ilman merkittävää käsittelyä:
 
@@ -240,7 +261,7 @@ Ohitus tarkoittaa, että kohde tulee jonoon ja poistuu sitten ilman merkittävä
 
 Kaksi lähisukuista käyttäytymistä eivät ole ohituksia:
 
-- Jonoon menemättä jättäminen (balking): asiakas päättää olla liittymättä jonoon, koska odotusaika uhkaa venyä liian pitkäksi. Jonoon menemättä jättänyt kohde ei koskaan tule järjestelmään, joten se on järjestelmän rajan ulkopuolella: sitä ei lasketa λ:aan, χ:hin eikä δ:aan. Jos tällaisilla tapauksilla on merkitystä, kuten menetetyillä myynneillä, laskekaa ne erikseen torjuttuina saapumisina.
+- Jonoon menemättä jättäminen (balking): asiakas päättää olla liittymättä jonoon, koska odotusaika uhkaa venyä liian pitkäksi. Jonoon menemättä jättänyt kohde ei koskaan tule järjestelmään, joten se on järjestelmän rajan ulkopuolella: sitä ei lasketa λ:aan, χ:hin eikä σ:aan. Jos tällaisilla tapauksilla on merkitystä, kuten menetetyillä myynneillä, laskekaa ne erikseen torjuttuina saapumisina.
 
 - Jonon vaihtaminen (jockeying): asiakas vaihtaa rinnakkaisten jonojen, kuten kassajonojen, välillä yrittäessään saada lyhyemmän odotuksen.
 
@@ -248,9 +269,11 @@ Kaksi lähisukuista käyttäytymistä eivät ole ohituksia:
 
 Tärkein jonon onnistumista tiivistävä merkintä:
 
-- ε (epsilon): virhesuhde = epäonnistumisten määrä / (onnistumisten määrä + epäonnistumisten määrä) = β / (α + β)
+- ε (epsilon): virhesuhde = epäonnistumisten määrä / (onnistumisten määrä + epäonnistumisten määrä) = β / (α + β) = β / δ
 
-Ohitukset jätetään pois, koska ohitettua kohdetta ei koskaan palveltu, joten se ei ollut oikein eikä väärin. Seuratkaa ohituksia erikseen δ:n avulla.
+Ohitukset jätetään pois, koska ohitettua kohdetta ei koskaan palveltu, joten se ei ollut oikein eikä väärin. Seuratkaa ohituksia erikseen σ:n avulla.
+
+![Kaavio: valmistumisnopeus δ on onnistumisnopeus α plus epäonnistumisnopeus β, ja virhesuhde ε on epäonnistumisnopeus β jaettuna valmistumisnopeudella δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Esimerkkejä:
 
@@ -272,6 +295,8 @@ Seuraamme neljää aikaa:
 
 - ω (oomega): odotusaika = aika, jolloin varsinaista työtä ei tehdä, eli vireilläoloaika
 
+![Kaavio: läpimenoaika τ on odotusaika ω ja sitä seuraava työaika φ, joten τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Esimerkkejä:
 
 - τ = 5s tarkoittaa, että kohde lisätään jonoon ja palvellaan 5 sekuntia myöhemmin.
@@ -288,9 +313,9 @@ Suhteet:
 
 - keskimääräinen θ ≈ 1 / χ: tasapainotilassa keskimääräinen askelaika on kokonaisnopeuden käänteisluku. Yksittäinen väli kertoo nopeudesta vähän; monen välin keskiarvo kertoo paljon. Esimerkeissä, jos keskimääräinen askelaika on 1s, niin χ ≈ 1 kohde sekunnissa.
 
-### Vakiomerkinnät
+### Kendallin merkintä
 
-Jonoteorian vakiomerkinnöissä jono kuvataan Kendallin merkinnällä, joka kirjoitetaan muodossa A/S/c/K/N/D:
+Kendallin merkintä on toinen jonoteorian merkintätapa, joka kirjoitetaan muodossa A/S/c/K/N/D:
 
 - A: saapumisprosessi eli saapumisten välisten aikojen jakauma.
 
@@ -314,11 +339,13 @@ Yleiset kirjaimet A:lle ja S:lle:
 
 Kun kolme viimeistä jätetään pois, oletusarvot ovat K = ∞, N = ∞, D = FIFO. Esimerkiksi ”M/M/1” tarkoittaa Poisson-saapumisia, eksponentiaalisia palveluaikoja, yhtä palvelinta, rajatonta kapasiteettia, rajatonta populaatiota ja periaatetta first in first out.
 
-Vakiomerkinnöissä n tarkoittaa myös järjestelmässä olevien kohteiden määrää.
+Myös:
+
+- n: järjestelmässä olevien kohteiden määrä.
 
 ## Jonojen matematiikka
 
-Matematiikkaosioissa käytetään oppikirjojen symboleja, jotta voitte verrata niitä muihin lähteisiin: S on keskimääräinen palveluaika, joka on meidän φ:mme, ja μ = 1 / S on yhden palvelimen kapasiteetti. Katsokaa vastaavuustaulukko osiosta [jonoteorian merkinnät](#jonoteorian-merkinnät).
+Matematiikkaosioissa käytetään oppikirjojen symboleja, jotta voitte verrata niitä muihin lähteisiin: S on keskimääräinen palveluaika, joka on meidän φ:mme, ja μ = 1 / S on yhden palvelimen kapasiteetti.
 
 ### Käyttöastekäyrä
 
@@ -409,7 +436,7 @@ Esimerkkejä:
 
 - Aμ: toiminnon palvelunopeus eli kapasiteetti: kuinka monta kohdetta yksi palvelin pystyy saamaan valmiiksi aikayksikössä ollessaan varattuna.
 
-- Aδ: toiminnon ohitusnopeus eli keskeytysnopeus: kuinka monesta kohteesta luovutaan aikayksikössä.
+- Aσ: toiminnon ohitusnopeus: kuinka monesta kohteesta luovutaan aikayksikössä.
 
 - Aρ: toiminnon käyttöaste: osuus käytettävissä olevasta ajasta, jonka palvelimet ovat varattuina, eli varattu aika ÷ käytettävissä oleva aika tai λ / (c μ).
 

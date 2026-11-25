@@ -15,12 +15,12 @@ Saturs:
   - [Skaits](#skaits)
   - [Ierašanās ātrums, apkalpošanas ātrums](#ierašanās-ātrums-apkalpošanas-ātrums)
   - [Noslodzes koeficients jeb satiksmes intensitāte](#noslodzes-koeficients-jeb-satiksmes-intensitāte)
-  - [Caurlaidspējas ātrumi: kopējais ātrums, veiksmes ātrums, neveiksmes ātrums, izlaišanas ātrums](#caurlaidspējas-ātrumi-kopējais-ātrums-veiksmes-ātrums-neveiksmes-ātrums-izlaišanas-ātrums)
+  - [Caurlaidspējas ātrumi: kopējais ātrums, pabeigšanas ātrums, veiksmes ātrums, neveiksmes ātrums, izlaišanas ātrums](#caurlaidspējas-ātrumi-kopējais-ātrums-pabeigšanas-ātrums-veiksmes-ātrums-neveiksmes-ātrums-izlaišanas-ātrums)
   - [Apkalpošanas ātruma jēdziena precizējums](#apkalpošanas-ātruma-jēdziena-precizējums)
   - [Izlaišanas ātrums](#izlaišanas-ātrums)
   - [Kļūdu attiecība](#kļūdu-attiecība)
   - [Izpildes laiks, soļa laiks, darba laiks, gaidīšanas laiks](#izpildes-laiks-soļa-laiks-darba-laiks-gaidīšanas-laiks)
-  - [Standarta apzīmējumi](#standarta-apzīmējumi)
+  - [Kendala apzīmējumi](#kendala-apzīmējumi)
 - [Rindu matemātika](#rindu-matemātika)
   - [Noslodzes līkne](#noslodzes-līkne)
   - [Kingmena formula](#kingmena-formula)
@@ -109,41 +109,50 @@ Rindu teorijā izmanto apzīmējumus ar grieķu burtiem.
 
 Mūsu komandas izmanto daļu no populārajiem apzīmējumiem; mēs arī pievienojam savus apzīmējumus, kas palīdz programmatūras projektos.
 
-Mūsu apzīmējumu atbilstība standarta mācību grāmatu apzīmējumiem:
+Mūsu apzīmējumi un katra simbola nozīme:
 
-| Mūsu | Standarta | Nozīme                                                                                 |
-| ---- | --------- | -------------------------------------------------------------------------------------- |
-| κ    | L         | vidējais elementu skaits sistēmā: gaidošie un apstrādājamie                             |
-| λ    | λ         | sistēmā ienākošo elementu ierašanās ātrums                                             |
-| μ    | μ         | apkalpošanas ātrums jeb jauda: cik ātri strādā viens aizņemts serveris                  |
-| ρ    | ρ         | noslodze: laika daļa, kad serveri ir aizņemti, λ / (c μ)                               |
-| χ    | X         | caurlaidspēja jeb aiziešanas ātrums: novērotā izvade jebkura iemesla dēļ               |
-| α    | nav       | veiksmes ātrums: novērotā izvade, kas izrādās pareiza                                  |
-| β    | nav       | neveiksmes ātrums: novērotā izvade, kas izrādās nepareiza                              |
-| δ    | nav       | izlaišanas ātrums jeb atkrišanas ātrums: elementi, kas ienāca, bet aizgāja neapkalpoti |
-| ε    | nav       | kļūdu attiecība β / (α + β)                                                            |
-| τ    | W         | vidējais laiks sistēmā jeb izpildes laiks                                              |
-| ω    | Wq        | vidējais gaidīšanas laiks rindā                                                        |
-| φ    | S         | vidējais apkalpošanas laiks jeb darba laiks; μ = 1 / S                                 |
-| θ    | nav       | soļa laiks starp pabeigšanām; līdzsvara stāvoklī vidējais soļa laiks ≈ 1 / χ           |
-
-Lasot citus avotus, uzmanieties no simbolu sadursmēm: σ parasti nozīmē standartnovirzi, tāpēc izlaišanas ātrumam mēs lietojam δ, un θ „Erlang-A“ zvanu centru modeļos bieži nozīmē atteikšanās ātrumu, savukārt mēs θ lietojam soļa laikam.
+| Mūsu apzīmējumi | Nozīme |
+| --------------- | ------ |
+| κ (kapa) | elementu skaits sistēmā: gaidošie un apstrādājamie |
+| λ (lambda) | sistēmā ienākošo elementu ierašanās ātrums |
+| μ (mī) | apkalpošanas ātrums jeb jauda: cik ātri strādā viens aizņemts serveris |
+| ρ (ro) | noslodze: laika daļa, kad serveri ir aizņemti, λ / (c μ) |
+| χ (hī) | caurlaidspēja jeb aiziešanas ātrums: novērotā izvade jebkura iemesla dēļ |
+| α (alfa) | veiksmes ātrums: novērotā izvade, kas izrādās pareiza |
+| β (beta) | neveiksmes ātrums: novērotā izvade, kas izrādās nepareiza |
+| δ (delta) | pabeigšanas ātrums: veiksme + neveiksme, apkalpotie elementi neatkarīgi no tā, vai rezultāts ir pareizs vai nepareizs |
+| σ (sigma) | izlaišanas ātrums: elementi, kas ienāca, bet aizgāja neapkalpoti |
+| ε (epsilons) | kļūdu attiecība: β / (α + β) = β / δ |
+| τ (tau) | laiks sistēmā jeb izpildes laiks |
+| ω (omega) | gaidīšanas laiks jeb laiks rindā |
+| φ (fī) | darba laiks jeb laiks procesorā jeb apkalpošanas laiks |
+| θ (teta) | soļa laiks starp pabeigšanām; līdzsvara stāvoklī vidējais soļa laiks ≈ 1 / χ |
 
 ### Skaits
 
 Mēs bieži skaitām elementus un lietojam šādu apzīmējumu:
 
-- κ (kapa): elementu skaits sistēmā, t. i., gaidošie elementi plus apstrādājamie elementi
+- κ (kapa): elementu skaits sistēmā, t. i., gaidošie elementi plus apstrādājamie elementi.
+
+![Diagramma: elementi ierodas ar ātrumu λ, sistēmā ir κ elementu, un elementi aiziet ar caurlaidspēju χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Piemērs:
 
-- κ = 100 nozīmē, ka sistēmā ir 100 elementu.
+- κ = 10 nozīmē tieši 10
 
-- κ > 100 nozīmē, ka sistēmā ir vairāk nekā 100 elementu.
+- κ ≈ 10 nozīmē aptuveni 10
 
-- κ ≫ 100 nozīmē, ka sistēmā ir daudz vairāk nekā 100 elementu.
+- κ < 10 nozīmē mazāk nekā 10
 
-Skaits, piemēram, κ = 100, ir viena brīža momentuzņēmums. Litla likumā κ nozīmē ilgtermiņa vidējo skaitu, t. i., mācību grāmatu L. Mācību grāmatu simbols tikai rindā gaidošajiem elementiem ir Lq.
+- κ > 10 nozīmē vairāk nekā 10
+
+- κ ≪ 10 nozīmē daudz mazāk nekā 10
+
+- κ ≫ 10 nozīmē daudz vairāk nekā 10
+
+Skaits κ (kapa) ir viena brīža momentuzņēmums.
+
+Vidējais skaits κ̅ (kapa ar svītru) ir aprēķins, kas vidēji aprēķina mērījumus noteiktā laika periodā, piemēram, mērot katru stundu divu nedēļu laikā.
 
 ### Ierašanās ātrums, apkalpošanas ātrums
 
@@ -179,9 +188,9 @@ Piemēri:
 
 - ρ > 1 nozīmē, ka ierašanās pārsniedz jaudu; rinda kļūst lielāka.
 
-### Caurlaidspējas ātrumi: kopējais ātrums, veiksmes ātrums, neveiksmes ātrums, izlaišanas ātrums
+### Caurlaidspējas ātrumi: kopējais ātrums, pabeigšanas ātrums, veiksmes ātrums, neveiksmes ātrums, izlaišanas ātrums
 
-Caurlaidspējas ātrumi mēra novēroto izvadi, t. i., elementus, kas faktiski atstāj rindu. Tie iedalās četrās plašās kategorijās:
+Caurlaidspējas ātrumi mēra novēroto izvadi, t. i., elementus, kas faktiski atstāj rindu. Tie iedalās piecās plašās kategorijās:
 
 - χ (hī): kopējais ātrums. Tas mēra, cik elementu laika vienībā atstāj rindu jebkura iemesla dēļ: veiksme, neveiksme, izlaišana u. c.
 
@@ -189,11 +198,23 @@ Caurlaidspējas ātrumi mēra novēroto izvadi, t. i., elementus, kas faktiski a
 
 - β (beta): neveiksmes ātrums. Tas mēra, cik elementu laika periodā izrādās nepareizi, piem., neprecīzi, nepabeigti, noraidīti.
 
-- δ (delta): izlaišanas ātrums jeb atkrišanas ātrums. Tas mēra, cik elementu laika periodā ienāk rindā un pēc tam aiziet neapkalpoti, piem., pamešana, atteikšanās.
+- δ (delta): pabeigšanas ātrums. Tas mēra, cik elementu laika periodā tiek apkalpoti neatkarīgi no tā, vai rezultāts ir pareizs vai nepareizs: veiksme + neveiksme.
+
+- σ (sigma): izlaišanas ātrums. Tas mēra, cik elementu laika periodā ienāk rindā un pēc tam aiziet neapkalpoti, piem., pamešana, atteikšanās.
+
+Pabeigšanas ātrums = veiksmes ātrums + neveiksmes ātrums:
+
+- δ = α + β (izrunā: delta ir vienāds ar alfa plus beta)
+
+Kopējais ātrums = pabeigšanas ātrums + izlaišanas ātrums:
+
+- χ = δ + σ (izrunā: hī ir vienāds ar delta plus sigma)
 
 Kopējais ātrums = veiksmes ātrums + neveiksmes ātrums + izlaišanas ātrums:
 
-- χ = α + β + δ (izrunā: hī ir vienāds ar alfa plus beta plus delta)
+- χ = α + β + σ (izrunā: hī ir vienāds ar alfa plus beta plus sigma)
+
+![Diagramma: elementi atstāj sistēmu kā veiksme α, neveiksme β vai izlaišana σ; pabeigti δ = α + β, tātad χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Katrs χ ieskaitītais elements ir ienācis sistēmā, tāpēc līdzsvara stāvoklī kopējais ātrums ir vienāds ar ierašanās ātrumu: χ ≈ λ. Tāpēc caurlaidspējas ātrumi mēra izvadi, nevis jaudu.
 
@@ -207,7 +228,7 @@ Tam ir vēsturiskas saknes, un tas var radīt neskaidrības un kļūdas, īpaši
 
 - Apstrādes skatījums: apkalpošanas ātrums ietver visu, kā apstrādei rinda velta laiku, t. i., veiksmes vai neveiksmes, bet neietver izlaišanas.
 
-- Tehnoloģiskais skatījums: lietišķajās jomās, piemēram, programmatūras inženierijā, apkalpošanas ātrums mēra tikai veiksmes, savukārt kļūdu ātrums mēra neveiksmes, un izlaišanas ātrums mēra atkrišanas.
+- Tehnoloģiskais skatījums: lietišķajās jomās, piemēram, programmatūras inženierijā, apkalpošanas ātrums mēra tikai veiksmes, savukārt kļūdu ātrums mēra neveiksmes, un izlaišanas ātrums mēra izlaišanas gadījumus.
 
 Tāpēc mēs saglabājam μ jaudai un pievienojam novērotās izvades ātrumus līdzās tam, nevis aizstājam to:
 
@@ -223,7 +244,7 @@ Kāpēc neaizstāt μ ar χ vai α? Stabilā rindā katrs elements, kas ienāk, 
 
 Sīkāk par izlaišanas ātrumu:
 
-- δ (delta): izlaišanas ātrums jeb atkrišanas ātrums. Tas mēra, cik elementu ienāk rindā un pēc tam aiziet neapstrādāti.
+- σ (sigma): izlaišanas ātrums. Tas mēra, cik elementu ienāk rindā un pēc tam aiziet neapstrādāti.
 
 Izlaišana ir tad, kad elements ienāk rindā un pēc tam aiziet bez jebkādas būtiskas apstrādes:
 
@@ -233,7 +254,7 @@ Izlaišana ir tad, kad elements ienāk rindā un pēc tam aiziet bez jebkādas b
 
 Divas saistītas uzvedības nav izlaišanas:
 
-- Atturēšanās: kad klients nolemj neiestāties rindā, jo gaidīšanas laiks draud būt pārāk ilgs. Atturējies elements nekad neienāk sistēmā, tāpēc tas atrodas ārpus sistēmas robežām: to neieskaita ne λ, ne χ, ne δ. Ja atturēšanās ir svarīga, piemēram, zaudētu pārdošanu dēļ, tad skaitiet tās atsevišķi kā atraidītas ierašanās.
+- Atturēšanās: kad klients nolemj neiestāties rindā, jo gaidīšanas laiks draud būt pārāk ilgs. Atturējies elements nekad neienāk sistēmā, tāpēc tas atrodas ārpus sistēmas robežām: to neieskaita ne λ, ne χ, ne σ. Ja atturēšanās ir svarīga, piemēram, zaudētu pārdošanu dēļ, tad skaitiet tās atsevišķi kā atraidītas ierašanās.
 
 - Pārlēkšana starp rindām: kad klients pārvietojas starp paralēlām rindām, piemēram, kasēm, cenšoties gaidīt īsāk.
 
@@ -241,9 +262,11 @@ Divas saistītas uzvedības nav izlaišanas:
 
 Svarīgākais apzīmējums, kas raksturo rindas veiksmi:
 
-- ε (epsilons): kļūdu attiecība = neveiksmju skaits / (veiksmju skaits + neveiksmju skaits) = β / (α + β)
+- ε (epsilons): kļūdu attiecība = neveiksmju skaits / (veiksmju skaits + neveiksmju skaits) = β / (α + β) = β / δ
 
-Izlaišanas netiek iekļautas, jo izlaists elements nekad netika apkalpots, tāpēc tas nebija ne pareizs, ne nepareizs. Izlaišanām sekojiet atsevišķi, izmantojot δ.
+Izlaišanas netiek iekļautas, jo izlaists elements nekad netika apkalpots, tāpēc tas nebija ne pareizs, ne nepareizs. Izlaišanām sekojiet atsevišķi, izmantojot σ.
+
+![Diagramma: pabeigšanas ātrums δ ir veiksmes ātrums α plus neveiksmes ātrums β, un kļūdu attiecība ε ir neveiksmes ātrums β, dalīts ar pabeigšanas ātrumu δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Piemēri:
 
@@ -265,6 +288,8 @@ Mēs sekojam četriem laikiem:
 
 - ω (omega): gaidīšanas laiks = laiks, kas pavadīts, neveicot faktisku darbu, jeb nogaides laiks
 
+![Diagramma: izpildes laiks τ ir gaidīšanas laiks ω, kam seko darba laiks φ, tātad τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Piemēri:
 
 - τ = 5s nozīmē, ka elements tiek pievienots rindai un apkalpots 5 sekundes vēlāk.
@@ -281,9 +306,9 @@ Sakarības:
 
 - vidējais θ ≈ 1 / χ: līdzsvara stāvoklī vidējais soļa laiks ir kopējā ātruma apgrieztā vērtība. Viena atstarpe maz ko pasaka par ātrumu; daudzu atstarpju vidējā vērtība pasaka. Piemēros, ja vidējais soļa laiks ir 1s, tad χ ≈ 1 elements sekundē.
 
-### Standarta apzīmējumi
+### Kendala apzīmējumi
 
-Standarta rindu teorijas apzīmējumi apraksta rindu, izmantojot Kendela apzīmējumu, ko raksta kā A/S/c/K/N/D:
+Kendala apzīmējumi ir cits rindu teorijas apzīmējumu veids, ko raksta kā A/S/c/K/N/D:
 
 - A: ierašanās process, t. i., laika starp ierašanām sadalījums.
 
@@ -307,11 +332,13 @@ Bieži lietotie burti A un S:
 
 Ja pēdējie trīs ir izlaisti, noklusējuma vērtības ir K = ∞, N = ∞, D = FIFO. Piemēram, „M/M/1“ nozīmē Puasona ierašanās, eksponenciālus apkalpošanas laikus, vienu serveri, neierobežotu ietilpību, neierobežotu populāciju un principu „pirmais iekšā, pirmais ārā“.
 
-Standarta apzīmējumos n arī nozīmē elementu skaitu sistēmā.
+Arī:
+
+- n: elementu skaits sistēmā.
 
 ## Rindu matemātika
 
-Matemātikas sadaļās izmantoti mācību grāmatu simboli, lai Jūs varētu tos salīdzināt ar citiem avotiem: S ir vidējais apkalpošanas laiks, t. i., mūsu φ, un μ = 1 / S ir viena servera jauda. Skatiet atbilstības tabulu sadaļā [rindu teorijas apzīmējumi](#rindu-teorijas-apzīmējumi).
+Matemātikas sadaļās izmantoti mācību grāmatu simboli, lai Jūs varētu tos salīdzināt ar citiem avotiem: S ir vidējais apkalpošanas laiks, t. i., mūsu φ, un μ = 1 / S ir viena servera jauda.
 
 ### Noslodzes līkne
 
@@ -402,7 +429,7 @@ Piemēri:
 
 - Aμ: darbības apkalpošanas ātrums jeb jauda: cik elementu viens serveris var pabeigt laika vienībā, kamēr tas ir aizņemts.
 
-- Aδ: darbības izlaišanas ātrums jeb atkrišanas ātrums: cik elementu tiek pamesti laika vienībā.
+- Aσ: darbības izlaišanas ātrums: cik elementu tiek pamesti laika vienībā.
 
 - Aρ: darbības noslodzes koeficients: pieejamā laika daļa, kad serveri ir aizņemti, t. i., aizņemtais laiks ÷ pieejamais laiks jeb λ / (c μ).
 

@@ -15,12 +15,12 @@ Nilalaman:
   - [Bilang](#bilang)
   - [Rate ng pagdating, rate ng serbisyo](#rate-ng-pagdating-rate-ng-serbisyo)
   - [Ratio ng utilisasyon, o intensidad ng trapiko](#ratio-ng-utilisasyon-o-intensidad-ng-trapiko)
-  - [Mga rate ng throughput: kabuuang rate, rate ng tagumpay, rate ng pagkabigo, rate ng paglaktaw](#mga-rate-ng-throughput-kabuuang-rate-rate-ng-tagumpay-rate-ng-pagkabigo-rate-ng-paglaktaw)
+  - [Mga rate ng throughput: kabuuang rate, rate ng pagkumpleto, rate ng tagumpay, rate ng pagkabigo, rate ng paglaktaw](#mga-rate-ng-throughput-kabuuang-rate-rate-ng-pagkumpleto-rate-ng-tagumpay-rate-ng-pagkabigo-rate-ng-paglaktaw)
   - [Paglilinaw sa rate ng serbisyo](#paglilinaw-sa-rate-ng-serbisyo)
   - [Rate ng paglaktaw](#rate-ng-paglaktaw)
   - [Ratio ng error](#ratio-ng-error)
   - [Lead time, step time, tagal ng trabaho, tagal ng paghihintay](#lead-time-step-time-tagal-ng-trabaho-tagal-ng-paghihintay)
-  - [Pamantayang notasyon](#pamantayang-notasyon)
+  - [Notasyon ni Kendall](#notasyon-ni-kendall)
 - [Matematika ng pila](#matematika-ng-pila)
   - [Ang kurba ng utilisasyon](#ang-kurba-ng-utilisasyon)
   - [Pormula ni Kingman](#pormula-ni-kingman)
@@ -109,41 +109,50 @@ Gumagamit ang teorya ng pila ng notasyong may mga letrang Griyego.
 
 Ginagamit ng aming mga koponan ang ilan sa mga sikat na notasyon; nagdaragdag din kami ng ilang pasadyang notasyon na tumutulong sa amin sa mga proyekto ng software.
 
-Paghahambing ng aming notasyon sa pamantayang notasyon ng mga aklat-aralin:
+Aming notasyon at ang kahulugan ng bawat simbolo:
 
-| Amin | Pamantayan | Kahulugan                                                                                          |
-| ---- | ---------- | -------------------------------------------------------------------------------------------------- |
-| κ    | L          | karaniwang bilang ng mga item sa sistema, naghihintay at pinagtatrabahuhan                          |
-| λ    | λ          | rate ng pagdating ng mga item na pumapasok sa sistema                                              |
-| μ    | μ          | rate ng serbisyo, o kapasidad: kung gaano kabilis gumagana ang isang server habang abala           |
-| ρ    | ρ          | utilisasyon: ang bahagi ng oras na abala ang mga server, λ / (c μ)                                 |
-| χ    | X          | throughput, o rate ng paglabas: nasusukat na output, sa anumang dahilan                            |
-| α    | wala       | rate ng tagumpay: nasusukat na output na lumalabas na tama                                         |
-| β    | wala       | rate ng pagkabigo: nasusukat na output na lumalabas na mali                                        |
-| δ    | wala       | rate ng paglaktaw, o rate ng pag-alis: mga item na pumasok, pagkatapos ay umalis nang hindi napagsilbihan |
-| ε    | wala       | ratio ng error β / (α + β)                                                                         |
-| τ    | W          | karaniwang tagal sa sistema, o lead time                                                           |
-| ω    | Wq         | karaniwang tagal ng paghihintay sa pila                                                            |
-| φ    | S          | karaniwang tagal ng serbisyo, o tagal ng trabaho; μ = 1 / S                                        |
-| θ    | wala       | step time sa pagitan ng mga pagkumpleto; karaniwang step time ≈ 1 / χ sa steady state             |
-
-Mag-ingat sa mga banggaan ng simbolo kapag nagbabasa kayo ng ibang sanggunian: karaniwang nangangahulugan ang σ ng standard deviation, kaya gumagamit kami ng δ para sa rate ng paglaktaw, at madalas na nangangahulugan ang θ ng rate ng pag-abandona sa mga modelong Erlang-A ng call center, samantalang gumagamit kami ng θ para sa step time.
+| Aming notasyon | Kahulugan |
+| -------------- | --------- |
+| κ (kappa) | bilang ng mga item sa sistema, mga naghihintay at mga pinagtatrabahuhan |
+| λ (lambda) | rate ng pagdating ng mga item na pumapasok sa sistema |
+| μ (mu) | rate ng serbisyo, o kapasidad: kung gaano kabilis gumagana ang isang server habang abala |
+| ρ (rho) | utilisasyon: ang bahagi ng oras na abala ang mga server, λ / (c μ) |
+| χ (chi) | throughput, o rate ng paglabas: nasusukat na output, sa anumang dahilan |
+| α (alpha) | rate ng tagumpay: nasusukat na output na lumalabas na tama |
+| β (beta) | rate ng pagkabigo: nasusukat na output na lumalabas na mali |
+| δ (delta) | rate ng pagkumpleto: tagumpay + pagkabigo, mga item na napagsilbihan, tama man o mali ang kinalabasan |
+| σ (sigma) | rate ng paglaktaw: mga item na pumasok, pagkatapos ay umalis nang hindi napagsilbihan |
+| ε (epsilon) | ratio ng error: β / (α + β) = β / δ |
+| τ (tau) | tagal sa sistema, o lead time |
+| ω (omega) | tagal ng paghihintay, o tagal sa pila |
+| φ (phi) | tagal ng trabaho, o tagal sa processor, o tagal ng serbisyo |
+| θ (theta) | step time sa pagitan ng mga pagkumpleto; karaniwang step time ≈ 1 / χ sa steady state |
 
 ### Bilang
 
 Madalas kaming nagbibilang ng mga item, at ginagamit namin ang notasyong ito:
 
-- κ (kappa): bilang ng mga item sa sistema, ibig sabihin ay mga item na naghihintay at mga item na pinagtatrabahuhan
+- κ (kappa): bilang ng mga item sa sistema, ibig sabihin ay mga item na naghihintay at mga item na pinagtatrabahuhan.
+
+![Diagram: dumarating ang mga item sa rate na λ, may κ na item sa sistema, at umaalis ang mga item sa throughput na χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Halimbawa:
 
-- κ = 100 ay nangangahulugang may 100 item sa sistema.
+- κ = 10 ay nangangahulugang eksaktong 10
 
-- κ > 100 ay nangangahulugang may higit sa 100 item sa sistema.
+- κ ≈ 10 ay nangangahulugang humigit-kumulang 10
 
-- κ ≫ 100 ay nangangahulugang may higit na higit sa 100 item sa sistema.
+- κ < 10 ay nangangahulugang mas kaunti sa 10
 
-Ang isang bilang tulad ng κ = 100 ay larawan ng isang sandali. Sa batas ni Little, ang κ ay nangangahulugan ng pangmatagalang karaniwang bilang, na siyang L ng mga aklat-aralin. Ang simbolo ng mga aklat-aralin para lamang sa mga item na naghihintay sa pila ay Lq.
+- κ > 10 ay nangangahulugang higit sa 10
+
+- κ ≪ 10 ay nangangahulugang mas kaunti nang malaki sa 10
+
+- κ ≫ 10 ay nangangahulugang mas marami nang malaki sa 10
+
+Ang bilang na κ (kappa) ay isang snapshot sa isang sandali.
+
+Ang karaniwang bilang na κ̅ (kappa na may guhit) ay isang kalkulasyon na kumukuha ng average ng mga sukat sa isang tiyak na yugto ng panahon, tulad ng pagsukat tuwing oras sa loob ng dalawang linggo.
 
 ### Rate ng pagdating, rate ng serbisyo
 
@@ -179,9 +188,9 @@ Mga halimbawa:
 
 - ρ > 1 ay nangangahulugang lumalampas ang mga pagdating sa kapasidad; lumalaki ang pila.
 
-### Mga rate ng throughput: kabuuang rate, rate ng tagumpay, rate ng pagkabigo, rate ng paglaktaw
+### Mga rate ng throughput: kabuuang rate, rate ng pagkumpleto, rate ng tagumpay, rate ng pagkabigo, rate ng paglaktaw
 
-Sinusukat ng mga rate ng throughput ang nasusukat na output, ibig sabihin ay ang mga item na talagang lumalabas sa pila. Nahahati ang mga ito sa apat na malalawak na kategorya:
+Sinusukat ng mga rate ng throughput ang nasusukat na output, ibig sabihin ay ang mga item na talagang lumalabas sa pila. Nahahati ang mga ito sa limang malalawak na kategorya:
 
 - χ (chi): kabuuang rate. Sinusukat nito kung ilang item bawat oras ang lumalabas sa pila sa anumang dahilan: tagumpay, pagkabigo, paglaktaw, at iba pa.
 
@@ -189,11 +198,23 @@ Sinusukat ng mga rate ng throughput ang nasusukat na output, ibig sabihin ay ang
 
 - β (beta): rate ng pagkabigo. Sinusukat nito kung ilang item bawat yugto ng oras ang lumalabas na mali, halimbawa, hindi wasto, hindi kumpleto, tinanggihan.
 
-- δ (delta): rate ng paglaktaw, o rate ng pag-alis. Sinusukat nito kung ilang item bawat yugto ng oras ang pumapasok sa pila, pagkatapos ay umaalis nang hindi napagsisilbihan, halimbawa, mga pag-abandona, mga pag-urong.
+- δ (delta): rate ng pagkumpleto. Sinusukat nito kung ilang item bawat yugto ng oras ang napagsisilbihan, tama man o mali ang kinalabasan: tagumpay + pagkabigo.
+
+- σ (sigma): rate ng paglaktaw. Sinusukat nito kung ilang item bawat yugto ng oras ang pumapasok sa pila, pagkatapos ay umaalis nang hindi napagsisilbihan, halimbawa ay pag-abandona at pag-urong.
+
+Rate ng pagkumpleto = rate ng tagumpay + rate ng pagkabigo:
+
+- δ = α + β (binibigkas: delta ay katumbas ng alpha dagdag beta)
+
+Kabuuang rate = rate ng pagkumpleto + rate ng paglaktaw:
+
+- χ = δ + σ (binibigkas: chi ay katumbas ng delta dagdag sigma)
 
 Kabuuang rate = rate ng tagumpay + rate ng pagkabigo + rate ng paglaktaw:
 
-- χ = α + β + δ (binibigkas: chi equals alpha plus beta plus delta)
+- χ = α + β + σ (binibigkas: chi ay katumbas ng alpha dagdag beta dagdag sigma)
+
+![Diagram: umaalis ang mga item sa sistema bilang tagumpay α, pagkabigo β, o paglaktaw σ; nakumpleto δ = α + β, kaya χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Pumasok sa sistema ang bawat item na binilang sa χ, kaya sa steady state ay katumbas ng kabuuang rate ang rate ng pagdating: χ ≈ λ. Iyan ang dahilan kung bakit output ang sinusukat ng mga rate ng throughput, hindi kapasidad.
 
@@ -210,7 +231,7 @@ subaybayan ang mga pagkabigo at paglaktaw.
 
 - Pananaw ng Pagproseso: Kasama sa rate ng serbisyo ang anumang pinaglalaanan ng oras ng pila sa pagproseso, ibig sabihin ay mga tagumpay o pagkabigo, ngunit hindi kasama ang mga paglaktaw.
 
-- Pananaw ng Teknolohiya: Sa mga inilalapat na larangan tulad ng software engineering, mga tagumpay lamang ang sinusukat ng rate ng serbisyo, samantalang ang mga pagkabigo ay sinusukat ng rate ng error, at ang mga pag-alis ay sinusukat ng rate ng paglaktaw.
+- Pananaw ng Teknolohiya: Sa mga inilalapat na larangan tulad ng software engineering, mga tagumpay lamang ang sinusukat ng rate ng serbisyo, samantalang ang mga pagkabigo ang sinusukat ng rate ng error, at ang mga paglaktaw ang sinusukat ng rate ng paglaktaw.
 
 Kaya pinananatili namin ang μ para sa kapasidad, at nagdaragdag kami ng mga rate ng nasusukat na output sa tabi nito, sa halip na palitan ito:
 
@@ -226,7 +247,7 @@ Bakit hindi palitan ang μ ng χ o α? Sa isang matatag na pila, ang bawat item 
 
 Mga detalye ng rate ng paglaktaw:
 
-- δ (delta): rate ng paglaktaw, o rate ng pag-alis. Sinusukat nito kung ilang item ang pumapasok sa pila, pagkatapos ay umaalis nang hindi naaasikaso.
+- σ (sigma): rate ng paglaktaw. Sinusukat nito kung ilang item ang pumapasok sa pila, pagkatapos ay umaalis nang hindi napoproseso.
 
 Ang paglaktaw ay kapag pumasok ang isang item sa pila, pagkatapos ay umalis nang walang makabuluhang pagproseso:
 
@@ -236,7 +257,7 @@ Ang paglaktaw ay kapag pumasok ang isang item sa pila, pagkatapos ay umalis nang
 
 May dalawang kaugnay na pag-uugali na hindi itinuturing na paglaktaw:
 
-- Pag-atras (balking): kapag nagpasya ang isang customer na huwag sumali sa pila dahil nagbabanta na masyadong mahaba ang paghihintay. Hindi kailanman pumapasok sa sistema ang isang umatras na item, kaya nasa labas ito ng hangganan ng sistema: hindi ito binibilang sa λ, χ, o δ. Kung mahalaga ang mga pag-atras, tulad ng mga nawalang benta, bilangin ang mga ito nang hiwalay bilang mga pagdating na hindi tinanggap.
+- Pag-atras (balking): kapag nagpasya ang isang customer na huwag sumali sa pila dahil nagbabanta na masyadong mahaba ang paghihintay. Hindi kailanman pumapasok sa sistema ang isang umatras na item, kaya nasa labas ito ng hangganan ng sistema: hindi ito binibilang sa λ, χ, o σ. Kung mahalaga ang mga pag-atras, tulad ng mga nawalang benta, bilangin ang mga ito nang hiwalay bilang mga pagdating na hindi tinanggap.
 
 - Paglipat-lipat (jockeying): kapag lumilipat ang isang customer sa pagitan ng magkakaagapay na pila, tulad ng mga linya sa checkout, upang subukang makakuha ng mas maikling paghihintay.
 
@@ -244,9 +265,11 @@ May dalawang kaugnay na pag-uugali na hindi itinuturing na paglaktaw:
 
 Ang pinakamahalagang notasyon na nagbubuod sa tagumpay ng isang pila:
 
-- ε (epsilon): ratio ng error = bilang ng pagkabigo / (bilang ng tagumpay + bilang ng pagkabigo) = β / (α + β)
+- ε (epsilon): ratio ng error = bilang ng pagkabigo / (bilang ng tagumpay + bilang ng pagkabigo) = β / (α + β) = β / δ
 
-Hindi kasama ang mga paglaktaw, dahil ang isang nilaktawang item ay hindi kailanman napagsilbihan, kaya hindi ito tama o mali. Subaybayan ang mga paglaktaw nang hiwalay sa pamamagitan ng δ.
+Hindi kasama ang mga paglaktaw, dahil ang isang nilaktawang item ay hindi kailanman napagsilbihan, kaya hindi ito tama o mali. Subaybayan ang mga paglaktaw nang hiwalay sa pamamagitan ng σ.
+
+![Diagram: ang rate ng pagkumpleto δ ay ang rate ng tagumpay α dagdag ang rate ng pagkabigo β, at ang ratio ng error ε ay ang rate ng pagkabigo β hinati sa rate ng pagkumpleto δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Mga halimbawa:
 
@@ -268,6 +291,8 @@ Apat na tagal ang aming sinusubaybayan:
 
 - ω (omega): tagal ng paghihintay = oras na hindi ginugol sa aktuwal na trabaho, o tagal ng pagkabinbin
 
+![Diagram: ang lead time τ ay ang tagal ng paghihintay ω na sinusundan ng tagal ng trabaho φ, kaya τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Mga halimbawa:
 
 - τ = 5s ay nangangahulugang idinagdag ang isang item sa pila, pagkatapos ay napagsilbihan pagkalipas ng 5 segundo.
@@ -284,9 +309,9 @@ Mga ugnayan:
 
 - karaniwang θ ≈ 1 / χ: sa steady state, ang karaniwang step time ay ang kabaligtaran ng kabuuang rate. Kaunti lamang ang sinasabi ng iisang puwang tungkol sa rate; mas marami ang sinasabi ng karaniwan ng maraming puwang. Sa mga halimbawa, kung 1s ang karaniwang step time, kung gayon χ ≈ 1 item bawat segundo.
 
-### Pamantayang notasyon
+### Notasyon ni Kendall
 
-Inilalarawan ng pamantayang notasyon para sa teorya ng pila ang isang pila sa pamamagitan ng notasyon ni Kendall, na isinusulat bilang A/S/c/K/N/D:
+Ang notasyon ni Kendall ay ibang notasyon ng teorya ng pila, na isinusulat bilang A/S/c/K/N/D:
 
 - A: ang proseso ng pagdating, ibig sabihin ay ang distribusyon ng oras sa pagitan ng mga pagdating.
 
@@ -310,11 +335,13 @@ Mga karaniwang letra para sa A at S:
 
 Kapag inalis ang huling tatlo, ang mga default ay K = ∞, N = ∞, D = FIFO. Halimbawa, ang “M/M/1” ay nangangahulugang mga pagdating na Poisson, mga eksponensiyal na tagal ng serbisyo, isang server, walang limitasyong kapasidad, walang limitasyong populasyon, at first in first out.
 
-Gumagamit din ang pamantayang notasyon ng n upang tukuyin ang bilang ng mga item sa sistema.
+Gayundin:
+
+- n: ang bilang ng mga item sa sistema.
 
 ## Matematika ng pila
 
-Gumagamit ang mga bahagi ng matematika ng mga simbolo ng aklat-aralin, upang maihambing ninyo ang mga ito sa ibang sanggunian: ang S ay ang karaniwang tagal ng serbisyo, na siyang aming φ, at ang μ = 1 / S ay ang kapasidad ng isang server. Pakitingnan ang paghahambing sa [notasyon ng teorya ng pila](#notasyon-ng-teorya-ng-pila).
+Gumagamit ang mga bahagi ng matematika ng mga simbolo ng aklat-aralin, upang maihambing ninyo ang mga ito sa ibang sanggunian: ang S ay ang karaniwang tagal ng serbisyo, na siyang aming φ, at ang μ = 1 / S ay ang kapasidad ng isang server.
 
 ### Ang kurba ng utilisasyon
 
@@ -405,7 +432,7 @@ Mga halimbawa:
 
 - Aμ: Rate ng serbisyo ng aktibidad, o kapasidad: kung ilang item ang kayang kumpletuhin ng isang server bawat yunit ng oras habang abala.
 
-- Aδ: Rate ng paglaktaw ng aktibidad, o rate ng pag-alis: kung ilang item ang inabandona bawat yunit ng oras.
+- Aσ: Rate ng paglaktaw ng aktibidad: kung ilang item ang inabandona bawat yunit ng oras.
 
 - Aρ: Ratio ng utilisasyon ng aktibidad: ang bahagi ng magagamit na oras na abala ang mga server, ibig sabihin ay oras na abala ÷ magagamit na oras, o λ / (c μ).
 

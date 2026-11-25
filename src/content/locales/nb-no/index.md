@@ -15,12 +15,12 @@ Innhold:
   - [Antall](#antall)
   - [Ankomstrate, tjenesterate](#ankomstrate-tjenesterate)
   - [Utnyttelsesgrad, også kalt trafikkintensitet](#utnyttelsesgrad-også-kalt-trafikkintensitet)
-  - [Gjennomstrømningsrater: total rate, suksessrate, feilrate, overhoppsrate](#gjennomstrømningsrater-total-rate-suksessrate-feilrate-overhoppsrate)
+  - [Gjennomstrømningsrater: total rate, fullføringsrate, suksessrate, feilrate, overhoppsrate](#gjennomstrømningsrater-total-rate-fullføringsrate-suksessrate-feilrate-overhoppsrate)
   - [Tvetydighet i begrepet tjenesterate](#tvetydighet-i-begrepet-tjenesterate)
   - [Overhoppsrate](#overhoppsrate)
   - [Feilandel](#feilandel)
   - [Ledetid, stegtid, arbeidstid, ventetid](#ledetid-stegtid-arbeidstid-ventetid)
-  - [Standardnotasjon](#standardnotasjon)
+  - [Kendalls notasjon](#kendalls-notasjon)
 - [Kømatematikk](#kømatematikk)
   - [Utnyttelseskurven](#utnyttelseskurven)
   - [Kingmans formel](#kingmans-formel)
@@ -109,41 +109,50 @@ Køteori bruker notasjon med greske bokstaver.
 
 Teamene våre bruker noe av den populære notasjonen; vi legger også til noe egen notasjon som hjelper oss med programvareprosjekter.
 
-Oversikt fra vår notasjon til standardnotasjonen i lærebøkene:
+Vår notasjon og hva hvert symbol betyr:
 
-| Vår | Standard | Betydning                                                                     |
-| --- | -------- | ----------------------------------------------------------------------------- |
-| κ   | L        | gjennomsnittlig antall elementer i systemet, de som venter pluss de som behandles |
-| λ   | λ        | ankomstrate for elementer som kommer inn i systemet                           |
-| μ   | μ        | tjenesterate, også kalt kapasitet: hvor raskt én server arbeider når den er opptatt |
-| ρ   | ρ        | utnyttelse: andelen av tiden serverne er opptatt, λ / (c μ)                   |
-| χ   | X        | gjennomstrømning, også kalt avgangsrate: observert utdata, uansett årsak      |
-| α   | ingen    | suksessrate: observert utdata som viser seg å være riktig                     |
-| β   | ingen    | feilrate: observert utdata som viser seg å være feil                          |
-| δ   | ingen    | overhoppsrate, også kalt frafallsrate: elementer som kom inn og deretter gikk uten å bli betjent |
-| ε   | ingen    | feilandel β / (α + β)                                                         |
-| τ   | W        | gjennomsnittlig tid i systemet, også kalt ledetid                             |
-| ω   | Wq       | gjennomsnittlig ventetid i køen                                               |
-| φ   | S        | gjennomsnittlig tjenestetid, også kalt arbeidstid; μ = 1 / S                  |
-| θ   | ingen    | stegtid mellom fullføringer; gjennomsnittlig stegtid ≈ 1 / χ i stabil tilstand |
-
-Vær oppmerksom på symbolkollisjoner når De leser andre kilder: σ betyr vanligvis standardavvik, og derfor bruker vi δ for overhoppsrate, og θ betyr ofte frafallsraten i Erlang-A-modeller for kundesentre, mens vi bruker θ for stegtid.
+| Vår notasjon | Betydning |
+| ------------ | --------- |
+| κ (kappa) | antall elementer i systemet, de som venter pluss de som behandles |
+| λ (lambda) | ankomstrate for elementer som kommer inn i systemet |
+| μ (my) | tjenesterate, også kalt kapasitet: hvor raskt én server arbeider når den er opptatt |
+| ρ (rho) | utnyttelse: andelen av tiden serverne er opptatt, λ / (c μ) |
+| χ (khi) | gjennomstrømning, også kalt avgangsrate: observert utdata, uansett årsak |
+| α (alfa) | suksessrate: observert utdata som viser seg å være riktig |
+| β (beta) | feilrate: observert utdata som viser seg å være feil |
+| δ (delta) | fullføringsrate: suksess + feil, elementer som er betjent, uansett om resultatet er riktig eller galt |
+| σ (sigma) | overhoppsrate: elementer som kom inn og deretter gikk uten å bli betjent |
+| ε (epsilon) | feilforhold: β / (α + β) = β / δ |
+| τ (tau) | tid i systemet, også kalt ledetid |
+| ω (omega) | ventetid, også kalt tid i køen |
+| φ (fi) | arbeidstid, også kalt tid i prosessoren, også kalt tjenestetid |
+| θ (theta) | stegtid mellom fullføringer; gjennomsnittlig stegtid ≈ 1 / χ i stabil tilstand |
 
 ### Antall
 
 Vi teller ofte elementer, og vi bruker denne notasjonen:
 
-- κ (kappa): antall elementer i systemet, det vil si elementer som venter pluss elementer som behandles
+- κ (kappa): antall elementer i systemet, det vil si elementer som venter pluss elementer som behandles.
+
+![Diagram: elementer ankommer med raten λ, κ elementer er i systemet, og elementer forlater det med gjennomstrømningen χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Eksempel:
 
-- κ = 100 betyr at det er 100 elementer i systemet.
+- κ = 10 betyr nøyaktig 10
 
-- κ > 100 betyr at det er mer enn 100 elementer i systemet.
+- κ ≈ 10 betyr omtrent 10
 
-- κ ≫ 100 betyr at det er mange flere enn 100 elementer i systemet.
+- κ < 10 betyr mindre enn 10
 
-Et antall som κ = 100 er et øyeblikksbilde. I Littles lov betyr κ det langsiktige gjennomsnittlige antallet, som er lærebøkenes L. Lærebøkenes symbol for bare de elementene som venter i køen, er Lq.
+- κ > 10 betyr mer enn 10
+
+- κ ≪ 10 betyr mye mindre enn 10
+
+- κ ≫ 10 betyr mye mer enn 10
+
+Antallet κ (kappa) er et øyeblikksbilde.
+
+Gjennomsnittlig antall κ̅ (kappa med strek) er en beregning som tar gjennomsnittet av målinger over en bestemt tidsperiode, for eksempel målinger hver time i to uker.
 
 ### Ankomstrate, tjenesterate
 
@@ -179,9 +188,9 @@ Eksempler:
 
 - ρ > 1 betyr at ankomstene overstiger kapasiteten; køen blir lengre.
 
-### Gjennomstrømningsrater: total rate, suksessrate, feilrate, overhoppsrate
+### Gjennomstrømningsrater: total rate, fullføringsrate, suksessrate, feilrate, overhoppsrate
 
-Gjennomstrømningsrater måler observert utdata, det vil si elementer som faktisk forlater køen. De finnes i fire brede kategorier:
+Gjennomstrømningsrater måler observert utdata, det vil si elementer som faktisk forlater køen. De finnes i fem brede kategorier:
 
 - χ (khi): total rate. Den måler hvor mange elementer per tidsenhet som forlater køen uansett årsak: suksess, feil, overhopp osv.
 
@@ -189,11 +198,23 @@ Gjennomstrømningsrater måler observert utdata, det vil si elementer som faktis
 
 - β (beta): feilrate. Den måler hvor mange elementer per tidsperiode som viser seg å være feil, f.eks. ukorrekte, ufullstendige, avviste.
 
-- δ (delta): overhoppsrate, også kalt frafallsrate. Den måler hvor mange elementer per tidsperiode som kommer inn i køen og deretter går uten å bli betjent, f.eks. avbrudd, frafall.
+- δ (delta): fullføringsrate. Den måler hvor mange elementer per tidsperiode som blir betjent, uansett om resultatet er riktig eller galt: suksess + feil.
+
+- σ (sigma): overhoppsrate. Den måler hvor mange elementer per tidsperiode som kommer inn i køen og deretter går uten å bli betjent, f.eks. avbrudd og frafall.
+
+Fullføringsrate = suksessrate + feilrate:
+
+- δ = α + β (uttales: delta er lik alfa pluss beta)
+
+Total rate = fullføringsrate + overhoppsrate:
+
+- χ = δ + σ (uttales: khi er lik delta pluss sigma)
 
 Total rate = suksessrate + feilrate + overhoppsrate:
 
-- χ = α + β + δ (uttales: khi er lik alfa pluss beta pluss delta)
+- χ = α + β + σ (uttales: khi er lik alfa pluss beta pluss sigma)
+
+![Diagram: elementer forlater systemet som suksess α, feil β eller overhopp σ; fullført δ = α + β, altså χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Hvert element som telles i χ, kom inn i systemet, så i stabil tilstand er den totale raten lik ankomstraten: χ ≈ λ. Det er derfor gjennomstrømningsrater måler utdata, ikke kapasitet.
 
@@ -207,7 +228,7 @@ Dette har historiske røtter og kan føre til forvirring og feil, særlig i samm
 
 - Behandlingssyn: Tjenesteraten omfatter det køen bruker tid på å behandle, det vil si suksesser eller feil, men ikke overhopp.
 
-- Teknologisyn: I anvendte fagfelt som programvareutvikling måler tjenesteraten bare suksesser, mens feilraten måler feil og overhoppsraten måler frafall.
+- Teknologisyn: I anvendte fagfelt som programvareutvikling måler tjenesteraten bare suksesser, mens feilraten måler feil og overhoppsraten måler overhopp.
 
 Derfor beholder vi μ for kapasitet, og vi legger til observerte utdatarater ved siden av den i stedet for å erstatte den:
 
@@ -223,7 +244,7 @@ Hvorfor ikke erstatte μ med χ eller α? I en stabil kø forlater hvert element
 
 Detaljer om overhoppsrate:
 
-- δ (delta): overhoppsrate, også kalt frafallsrate. Den måler hvor mange elementer som kommer inn i køen og deretter går uten å bli håndtert.
+- σ (sigma): overhoppsrate. Den måler hvor mange elementer som kommer inn i køen og deretter går uten å bli behandlet.
 
 Et overhopp er når et element kommer inn i køen og deretter går uten noen vesentlig behandling:
 
@@ -233,7 +254,7 @@ Et overhopp er når et element kommer inn i køen og deretter går uten noen ves
 
 To beslektede atferder er ikke overhopp:
 
-- Avvisning ved inngangen (balking): når en kunde bestemmer seg for ikke å stille seg i køen fordi ventetiden truer med å bli for lang. Et element som avstår, kommer aldri inn i systemet, så det er utenfor systemgrensen: det telles ikke i λ, χ eller δ. Hvis slike tilfeller betyr noe, for eksempel tapt salg, bør De telle dem separat som avviste ankomster.
+- Avvisning ved inngangen (balking): når en kunde bestemmer seg for ikke å stille seg i køen fordi ventetiden truer med å bli for lang. Et element som avstår, kommer aldri inn i systemet, så det er utenfor systemgrensen: det telles ikke i λ, χ eller σ. Hvis slike tilfeller betyr noe, for eksempel tapt salg, bør De telle dem separat som avviste ankomster.
 
 - Køhopping (jockeying): når en kunde bytter mellom parallelle køer, for eksempel kassekøer, for å prøve å få kortere ventetid.
 
@@ -241,9 +262,11 @@ To beslektede atferder er ikke overhopp:
 
 Den viktigste notasjonen som oppsummerer en køs suksess:
 
-- ε (epsilon): feilandel = antall feil / (antall suksesser + antall feil) = β / (α + β)
+- ε (epsilon): feilandel = antall feil / (antall suksesser + antall feil) = β / (α + β) = β / δ
 
-Overhopp er utelatt, fordi et overhoppet element aldri ble betjent, så det var verken riktig eller feil. Følg overhopp separat via δ.
+Overhopp er utelatt, fordi et overhoppet element aldri ble betjent, så det var verken riktig eller feil. Følg overhopp separat via σ.
+
+![Diagram: fullføringsraten δ er suksessraten α pluss feilraten β, og feilforholdet ε er feilraten β delt på fullføringsraten δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Eksempler:
 
@@ -265,6 +288,8 @@ Vi følger fire tider:
 
 - ω (omega): ventetid = tid som ikke brukes på faktisk arbeid, også kalt ventende tid
 
+![Diagram: ledetiden τ er ventetiden ω etterfulgt av arbeidstiden φ, altså τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Eksempler:
 
 - τ = 5s betyr at et element legges i køen og blir betjent 5 sekunder senere.
@@ -281,9 +306,9 @@ Sammenhenger:
 
 - gjennomsnittlig θ ≈ 1 / χ: i stabil tilstand er den gjennomsnittlige stegtiden den inverse av den totale raten. Ett enkelt mellomrom sier lite om raten; gjennomsnittet av mange mellomrom sier mer. I eksemplene, hvis den gjennomsnittlige stegtiden er 1s, er χ ≈ 1 element per sekund.
 
-### Standardnotasjon
+### Kendalls notasjon
 
-Standardnotasjonen i køteori beskriver en kø med Kendalls notasjon, skrevet som A/S/c/K/N/D:
+Kendalls notasjon er en annen notasjon i køteori, skrevet som A/S/c/K/N/D:
 
 - A: ankomstprosessen, det vil si fordelingen av tiden mellom ankomster.
 
@@ -307,11 +332,13 @@ Vanlige bokstaver for A og S:
 
 Når de tre siste utelates, er standardverdiene K = ∞, N = ∞, D = FIFO. For eksempel betyr «M/M/1» Poisson-ankomster, eksponentielle tjenestetider, én server, ubegrenset kapasitet, ubegrenset populasjon og først inn, først ut.
 
-Standardnotasjonen bruker også n for antall elementer i systemet.
+Også:
+
+- n: antall elementer i systemet.
 
 ## Kømatematikk
 
-Matematikkdelene bruker lærebøkenes symboler, slik at De kan sammenligne dem med andre kilder: S er den gjennomsnittlige tjenestetiden, som er vår φ, og μ = 1 / S er kapasiteten til én server. Se oversikten i [notasjon i køteori](#notasjon-i-køteori).
+Matematikkdelene bruker lærebøkenes symboler, slik at De kan sammenligne dem med andre kilder: S er den gjennomsnittlige tjenestetiden, som er vår φ, og μ = 1 / S er kapasiteten til én server.
 
 ### Utnyttelseskurven
 
@@ -402,7 +429,7 @@ Eksempler:
 
 - Aμ: tjenesterate for aktiviteten, også kalt kapasitet: hvor mange elementer én server kan fullføre per tidsenhet når den er opptatt.
 
-- Aδ: overhoppsrate for aktiviteten, også kalt frafallsrate: hvor mange elementer som oppgis per tidsenhet.
+- Aσ: overhoppsrate for aktiviteten: hvor mange elementer som oppgis per tidsenhet.
 
 - Aρ: utnyttelsesgrad for aktiviteten: andelen av tilgjengelig tid serverne er opptatt, det vil si opptatt tid ÷ tilgjengelig tid, eller λ / (c μ).
 

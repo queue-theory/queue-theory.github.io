@@ -15,12 +15,12 @@ Mục lục:
   - [Số lượng](#số-lượng)
   - [Tốc độ đến, tốc độ phục vụ](#tốc-độ-đến-tốc-độ-phục-vụ)
   - [Tỷ lệ sử dụng, còn gọi là cường độ lưu lượng](#tỷ-lệ-sử-dụng-còn-gọi-là-cường-độ-lưu-lượng)
-  - [Các tốc độ thông lượng: tốc độ tổng, tốc độ thành công, tốc độ thất bại, tốc độ bỏ qua](#các-tốc-độ-thông-lượng-tốc-độ-tổng-tốc-độ-thành-công-tốc-độ-thất-bại-tốc-độ-bỏ-qua)
+  - [Các tốc độ thông lượng: tốc độ tổng, tốc độ hoàn thành, tốc độ thành công, tốc độ thất bại, tốc độ bỏ qua](#các-tốc-độ-thông-lượng-tốc-độ-tổng-tốc-độ-hoàn-thành-tốc-độ-thành-công-tốc-độ-thất-bại-tốc-độ-bỏ-qua)
   - [Phân biệt nghĩa của tốc độ phục vụ](#phân-biệt-nghĩa-của-tốc-độ-phục-vụ)
   - [Tốc độ bỏ qua](#tốc-độ-bỏ-qua)
   - [Tỷ lệ lỗi](#tỷ-lệ-lỗi)
   - [Thời gian sản xuất, thời gian bước, thời gian làm việc, thời gian chờ](#thời-gian-sản-xuất-thời-gian-bước-thời-gian-làm-việc-thời-gian-chờ)
-  - [Ký hiệu chuẩn](#ký-hiệu-chuẩn)
+  - [Ký hiệu Kendall](#ký-hiệu-kendall)
 - [Toán học hàng đợi](#toán-học-hàng-đợi)
   - [Đường cong sử dụng](#đường-cong-sử-dụng)
   - [Công thức Kingman](#công-thức-kingman)
@@ -109,41 +109,50 @@ Lý thuyết hàng đợi sử dụng ký hiệu bằng các chữ cái Hy Lạp
 
 Các nhóm của chúng tôi dùng một số ký hiệu phổ biến; chúng tôi cũng bổ sung một số ký hiệu riêng giúp ích cho các dự án phần mềm.
 
-Bảng đối chiếu từ ký hiệu của chúng tôi sang ký hiệu chuẩn trong sách giáo khoa:
+Ký hiệu của chúng tôi và ý nghĩa của từng biểu tượng:
 
-| Của chúng tôi | Chuẩn | Ý nghĩa |
-| ---- | -------- | ----------------------------------------------------------------------- |
-| κ    | L        | số mục trung bình trong hệ thống, gồm mục đang chờ và mục đang được xử lý |
-| λ    | λ        | tốc độ đến của các mục đi vào hệ thống |
-| μ    | μ        | tốc độ phục vụ, còn gọi là năng lực: một máy phục vụ làm việc nhanh đến mức nào khi bận |
-| ρ    | ρ        | mức sử dụng: tỷ lệ thời gian các máy phục vụ bận, λ / (c μ) |
-| χ    | X        | thông lượng, còn gọi là tốc độ rời đi: đầu ra quan sát được, vì bất kỳ lý do gì |
-| α    | không có | tốc độ thành công: đầu ra quan sát được hóa ra đúng |
-| β    | không có | tốc độ thất bại: đầu ra quan sát được hóa ra sai |
-| δ    | không có | tốc độ bỏ qua, còn gọi là tốc độ rời bỏ: các mục đã vào rồi rời đi mà không được phục vụ |
-| ε    | không có | tỷ lệ lỗi β / (α + β) |
-| τ    | W        | thời gian trung bình trong hệ thống, còn gọi là thời gian sản xuất (lead time) |
-| ω    | Wq       | thời gian trung bình chờ trong hàng đợi |
-| φ    | S        | thời gian phục vụ trung bình, còn gọi là thời gian làm việc; μ = 1 / S |
-| θ    | không có | thời gian bước giữa các lần hoàn thành; thời gian bước trung bình ≈ 1 / χ ở trạng thái dừng |
-
-Hãy cẩn thận với các xung đột ký hiệu khi quý vị đọc các nguồn khác: σ thường có nghĩa là độ lệch chuẩn, đó là lý do chúng tôi dùng δ cho tốc độ bỏ qua, và θ thường có nghĩa là tốc độ bỏ cuộc trong các mô hình tổng đài Erlang-A, trong khi chúng tôi dùng θ cho thời gian bước.
+| Ký hiệu của chúng tôi | Ý nghĩa |
+| --------------------- | ------- |
+| κ (kappa) | số lượng mục trong hệ thống, gồm các mục đang chờ cộng với các mục đang được xử lý |
+| λ (lambda) | tốc độ đến của các mục đi vào hệ thống |
+| μ (mu) | tốc độ phục vụ, còn gọi là năng lực: một máy phục vụ làm việc nhanh đến mức nào khi bận |
+| ρ (rho) | mức sử dụng: tỷ lệ thời gian các máy phục vụ bận, λ / (c μ) |
+| χ (chi) | thông lượng, còn gọi là tốc độ rời đi: đầu ra quan sát được, vì bất kỳ lý do gì |
+| α (alpha) | tốc độ thành công: đầu ra quan sát được hóa ra đúng |
+| β (beta) | tốc độ thất bại: đầu ra quan sát được hóa ra sai |
+| δ (delta) | tốc độ hoàn thành: thành công + thất bại, các mục đã được phục vụ, dù kết quả đúng hay sai |
+| σ (sigma) | tốc độ bỏ qua: các mục đã vào rồi rời đi mà không được phục vụ |
+| ε (epsilon) | tỷ lệ lỗi: β / (α + β) = β / δ |
+| τ (tau) | thời gian trong hệ thống, còn gọi là thời gian sản xuất (lead time) |
+| ω (omega) | thời gian chờ, còn gọi là thời gian trong hàng đợi |
+| φ (phi) | thời gian làm việc, còn gọi là thời gian trong bộ xử lý, còn gọi là thời gian phục vụ |
+| θ (theta) | thời gian bước giữa các lần hoàn thành; thời gian bước trung bình ≈ 1 / χ ở trạng thái dừng |
 
 ### Số lượng
 
 Chúng tôi thường xuyên đếm các mục, và chúng tôi dùng ký hiệu sau:
 
-- κ (kappa): số lượng mục trong hệ thống, nghĩa là các mục đang chờ cộng với các mục đang được xử lý
+- κ (kappa): số lượng mục trong hệ thống, nghĩa là các mục đang chờ cộng với các mục đang được xử lý.
+
+![Sơ đồ: các mục đến với tốc độ λ, có κ mục trong hệ thống, và các mục rời đi với thông lượng χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Ví dụ:
 
-- κ = 100 có nghĩa là có 100 mục trong hệ thống.
+- κ = 10 có nghĩa là đúng 10
 
-- κ > 100 có nghĩa là có hơn 100 mục trong hệ thống.
+- κ ≈ 10 có nghĩa là khoảng 10
 
-- κ ≫ 100 có nghĩa là có nhiều hơn 100 mục rất nhiều trong hệ thống.
+- κ < 10 có nghĩa là ít hơn 10
 
-Một số lượng như κ = 100 là ảnh chụp nhanh tại một thời điểm. Trong định luật Little, κ có nghĩa là số lượng trung bình dài hạn, tức là L trong sách giáo khoa. Ký hiệu trong sách giáo khoa cho riêng các mục đang xếp hàng chờ là Lq.
+- κ > 10 có nghĩa là nhiều hơn 10
+
+- κ ≪ 10 có nghĩa là ít hơn 10 rất nhiều
+
+- κ ≫ 10 có nghĩa là nhiều hơn 10 rất nhiều
+
+Số lượng κ (kappa) là ảnh chụp nhanh tại một thời điểm.
+
+Số lượng trung bình κ̅ (kappa có gạch ngang) là một phép tính lấy trung bình các phép đo trong một khoảng thời gian cụ thể, chẳng hạn đo mỗi giờ trong hai tuần.
 
 ### Tốc độ đến, tốc độ phục vụ
 
@@ -179,9 +188,9 @@ Ví dụ:
 
 - ρ > 1 có nghĩa là lượng đến vượt quá năng lực; hàng đợi ngày càng dài ra.
 
-### Các tốc độ thông lượng: tốc độ tổng, tốc độ thành công, tốc độ thất bại, tốc độ bỏ qua
+### Các tốc độ thông lượng: tốc độ tổng, tốc độ hoàn thành, tốc độ thành công, tốc độ thất bại, tốc độ bỏ qua
 
-Các tốc độ thông lượng đo đầu ra quan sát được, nghĩa là các mục thực sự rời khỏi hàng đợi. Chúng thuộc bốn nhóm lớn:
+Các tốc độ thông lượng đo đầu ra quan sát được, nghĩa là các mục thực sự rời khỏi hàng đợi. Chúng thuộc năm nhóm lớn:
 
 - χ (chi): tốc độ tổng. Đại lượng này đo có bao nhiêu mục mỗi đơn vị thời gian rời khỏi hàng đợi vì bất kỳ lý do gì: thành công, thất bại, bỏ qua, v.v.
 
@@ -189,11 +198,23 @@ Các tốc độ thông lượng đo đầu ra quan sát được, nghĩa là c�
 
 - β (beta): tốc độ thất bại. Đại lượng này đo có bao nhiêu mục mỗi khoảng thời gian hóa ra sai, ví dụ không chính xác, không đầy đủ, bị từ chối.
 
-- δ (delta): tốc độ bỏ qua, còn gọi là tốc độ rời bỏ. Đại lượng này đo có bao nhiêu mục mỗi khoảng thời gian đi vào hàng đợi rồi rời đi mà không được phục vụ, ví dụ bỏ cuộc, rời hàng.
+- δ (delta): tốc độ hoàn thành. Đại lượng này đo có bao nhiêu mục mỗi khoảng thời gian được phục vụ, dù kết quả đúng hay sai: thành công + thất bại.
+
+- σ (sigma): tốc độ bỏ qua. Đại lượng này đo có bao nhiêu mục mỗi khoảng thời gian đi vào hàng đợi rồi rời đi mà không được phục vụ, ví dụ bỏ cuộc, rút lui.
+
+Tốc độ hoàn thành = tốc độ thành công + tốc độ thất bại:
+
+- δ = α + β (đọc là: delta bằng alpha cộng beta)
+
+Tốc độ tổng = tốc độ hoàn thành + tốc độ bỏ qua:
+
+- χ = δ + σ (đọc là: chi bằng delta cộng sigma)
 
 Tốc độ tổng = tốc độ thành công + tốc độ thất bại + tốc độ bỏ qua:
 
-- χ = α + β + δ (đọc là: chi bằng alpha cộng beta cộng delta)
+- χ = α + β + σ (đọc là: chi bằng alpha cộng beta cộng sigma)
+
+![Sơ đồ: các mục rời hệ thống dưới dạng thành công α, thất bại β hoặc bỏ qua σ; hoàn thành δ = α + β, do đó χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Mọi mục được tính trong χ đều đã đi vào hệ thống, nên ở trạng thái dừng, tốc độ tổng bằng tốc độ đến: χ ≈ λ. Đó là lý do các tốc độ thông lượng đo đầu ra chứ không đo năng lực.
 
@@ -207,7 +228,7 @@ Tùy theo ngữ cảnh và người thực hành, thuật ngữ "tốc độ ph�
 
 - Góc nhìn xử lý: Tốc độ phục vụ bao gồm mọi thứ mà hàng đợi dành thời gian xử lý, nghĩa là các lần thành công hoặc thất bại, nhưng không bao gồm các lần bỏ qua.
 
-- Góc nhìn công nghệ: Trong các lĩnh vực ứng dụng như kỹ thuật phần mềm, tốc độ phục vụ chỉ đo các lần thành công, trong khi tốc độ lỗi đo các lần thất bại, và tốc độ bỏ qua đo các lần rời bỏ.
+- Góc nhìn công nghệ: Trong các lĩnh vực ứng dụng như kỹ thuật phần mềm, tốc độ phục vụ chỉ đo các lần thành công, trong khi tốc độ lỗi đo các lần thất bại, và tốc độ bỏ qua đo các lần bỏ qua.
 
 Vì vậy, chúng tôi giữ μ cho năng lực, và bổ sung các tốc độ đầu ra quan sát được bên cạnh nó, thay vì thay thế nó:
 
@@ -223,7 +244,7 @@ Tại sao không thay μ bằng χ hoặc α? Trong một hàng đợi ổn đ�
 
 Chi tiết về tốc độ bỏ qua:
 
-- δ (delta): tốc độ bỏ qua, còn gọi là tốc độ rời bỏ. Đại lượng này đo có bao nhiêu mục đi vào hàng đợi rồi rời đi mà không được xử lý.
+- σ (sigma): tốc độ bỏ qua. Đại lượng này đo có bao nhiêu mục đi vào hàng đợi rồi rời đi mà không được xử lý.
 
 Bỏ qua là khi một mục đi vào hàng đợi rồi rời đi mà không được xử lý đáng kể:
 
@@ -233,7 +254,7 @@ Bỏ qua là khi một mục đi vào hàng đợi rồi rời đi mà không đ
 
 Hai hành vi liên quan không được coi là bỏ qua:
 
-- Từ chối vào hàng (balking): khi một khách hàng quyết định không tham gia hàng đợi vì thời gian chờ có nguy cơ quá dài. Một mục từ chối vào hàng không bao giờ đi vào hệ thống, nên nó nằm ngoài ranh giới hệ thống: nó không được tính trong λ, χ hay δ. Nếu các lần từ chối vào hàng là quan trọng, chẳng hạn như doanh số bị mất, thì hãy đếm chúng riêng như những lượt đến bị từ chối.
+- Từ chối vào hàng (balking): khi một khách hàng quyết định không tham gia hàng đợi vì thời gian chờ có nguy cơ quá dài. Một mục từ chối vào hàng không bao giờ đi vào hệ thống, nên nó nằm ngoài ranh giới hệ thống: nó không được tính trong λ, χ hay σ. Nếu các lần từ chối vào hàng là quan trọng, chẳng hạn như doanh số bị mất, thì hãy đếm chúng riêng như những lượt đến bị từ chối.
 
 - Chuyển hàng (jockeying): khi một khách hàng chuyển qua lại giữa các hàng đợi song song, chẳng hạn như các quầy thanh toán, để cố có thời gian chờ ngắn hơn.
 
@@ -241,9 +262,11 @@ Hai hành vi liên quan không được coi là bỏ qua:
 
 Ký hiệu quan trọng nhất để tóm tắt mức độ thành công của một hàng đợi:
 
-- ε (epsilon): tỷ lệ lỗi = số lần thất bại / (số lần thành công + số lần thất bại) = β / (α + β)
+- ε (epsilon): tỷ lệ lỗi = số lần thất bại / (số lần thành công + số lần thất bại) = β / (α + β) = β / δ
 
-Các lần bỏ qua bị loại trừ, vì một mục bị bỏ qua chưa bao giờ được phục vụ, nên nó không đúng cũng không sai. Hãy theo dõi các lần bỏ qua riêng qua δ.
+Các lần bỏ qua bị loại trừ, vì một mục bị bỏ qua chưa bao giờ được phục vụ, nên nó không đúng cũng không sai. Hãy theo dõi các lần bỏ qua riêng qua σ.
+
+![Sơ đồ: tốc độ hoàn thành δ là tốc độ thành công α cộng tốc độ thất bại β, và tỷ lệ lỗi ε là tốc độ thất bại β chia cho tốc độ hoàn thành δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Ví dụ:
 
@@ -265,6 +288,8 @@ Chúng tôi theo dõi bốn loại thời gian:
 
 - ω (omega): thời gian chờ = thời gian không làm công việc thực tế, còn gọi là thời gian treo
 
+![Sơ đồ: thời gian sản xuất τ là thời gian chờ ω nối tiếp bởi thời gian làm việc φ, do đó τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Ví dụ:
 
 - τ = 5s có nghĩa là một mục được thêm vào hàng đợi, rồi được phục vụ xong 5 giây sau.
@@ -281,9 +306,9 @@ Các mối quan hệ:
 
 - θ trung bình ≈ 1 / χ: ở trạng thái dừng, thời gian bước trung bình là nghịch đảo của tốc độ tổng. Một khoảng cách đơn lẻ nói lên rất ít về tốc độ; trung bình của nhiều khoảng cách mới nói lên điều đó. Trong các ví dụ, nếu thời gian bước trung bình là 1s, thì χ ≈ 1 mục mỗi giây.
 
-### Ký hiệu chuẩn
+### Ký hiệu Kendall
 
-Ký hiệu chuẩn của lý thuyết hàng đợi mô tả một hàng đợi bằng ký hiệu Kendall, viết dưới dạng A/S/c/K/N/D:
+Ký hiệu Kendall là một ký hiệu khác của lý thuyết hàng đợi, được viết là A/S/c/K/N/D:
 
 - A: quá trình đến, nghĩa là phân phối của khoảng thời gian giữa các lần đến.
 
@@ -307,11 +332,13 @@ Các chữ cái thông dụng cho A và S:
 
 Khi bỏ qua ba thành phần cuối, các giá trị mặc định là K = ∞, N = ∞, D = FIFO. Ví dụ, "M/M/1" có nghĩa là lượt đến Poisson, thời gian phục vụ theo phân phối mũ, một máy phục vụ, sức chứa không giới hạn, tổng thể không giới hạn, và vào trước ra trước.
 
-Ký hiệu chuẩn cũng dùng n để chỉ số mục trong hệ thống.
+Ngoài ra:
+
+- n: số lượng mục trong hệ thống.
 
 ## Toán học hàng đợi
 
-Các phần toán học dùng ký hiệu sách giáo khoa, để quý vị có thể so sánh với các nguồn khác: S là thời gian phục vụ trung bình, tức là φ của chúng tôi, và μ = 1 / S là năng lực của một máy phục vụ. Xem bảng đối chiếu trong [ký hiệu trong lý thuyết hàng đợi](#ký-hiệu-trong-lý-thuyết-hàng-đợi).
+Các phần toán học dùng ký hiệu sách giáo khoa, để quý vị có thể so sánh với các nguồn khác: S là thời gian phục vụ trung bình, tức là φ của chúng tôi, và μ = 1 / S là năng lực của một máy phục vụ.
 
 ### Đường cong sử dụng
 
@@ -402,7 +429,7 @@ Ví dụ:
 
 - Aμ: Tốc độ phục vụ của hoạt động, còn gọi là năng lực: một máy phục vụ có thể hoàn thành bao nhiêu mục mỗi đơn vị thời gian khi bận.
 
-- Aδ: Tốc độ bỏ qua của hoạt động, còn gọi là tốc độ rời bỏ: có bao nhiêu mục bị bỏ dở mỗi đơn vị thời gian.
+- Aσ: Tốc độ bỏ qua của hoạt động: có bao nhiêu mục bị bỏ dở mỗi đơn vị thời gian.
 
 - Aρ: Tỷ lệ sử dụng của hoạt động: tỷ lệ thời gian khả dụng mà các máy phục vụ bận, nghĩa là thời gian bận ÷ thời gian khả dụng, hoặc λ / (c μ).
 

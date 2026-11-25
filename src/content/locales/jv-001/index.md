@@ -20,12 +20,12 @@ Daftar isi:
   - [Cacah](#cacah)
   - [Laju kadhatengan, laju layanan](#laju-kadhatengan-laju-layanan)
   - [Rasio utilisasi utawi intensitas lalu lintas](#rasio-utilisasi-utawi-intensitas-lalu-lintas)
-  - [Laju throughput: laju total, laju kasil, laju gagal, laju lompat](#laju-throughput-laju-total-laju-kasil-laju-gagal-laju-lompat)
+  - [Laju throughput: laju total, laju rampung, laju kasil, laju gagal, laju lompat](#laju-throughput-laju-total-laju-rampung-laju-kasil-laju-gagal-laju-lompat)
   - [Disambiguasi laju layanan](#disambiguasi-laju-layanan)
   - [Laju lompat](#laju-lompat)
   - [Rasio kalepatan](#rasio-kalepatan)
   - [Lead time, wekdal langkah, wekdal makarya, wekdal ngentosi](#lead-time-wekdal-langkah-wekdal-makarya-wekdal-ngentosi)
-  - [Notasi standar](#notasi-standar)
+  - [Notasi Kendall](#notasi-kendall)
 - [Matematika antrian](#matematika-antrian)
   - [Kurva utilisasi](#kurva-utilisasi)
   - [Rumus Kingman](#rumus-kingman)
@@ -114,41 +114,50 @@ Teori antrian ngginakaken notasi kanthi aksara Yunani.
 
 Tim-tim kita ngginakaken sawetawis notasi ingkang kondhang; kita ugi nambahi sawetawis notasi piyambak ingkang mbiyantu kita wonten ing proyek piranti lunak.
 
-Tabel padhanan saking notasi kita dhateng notasi standar buku ajar:
+Notasi kita lan teges saben simbol:
 
-| Kita | Standar | Teges                                                                              |
-| ---- | ------- | ---------------------------------------------------------------------------------- |
-| κ    | L       | rata-rata cacah item wonten ing sistem, ingkang ngentosi tuwin ingkang dipungarap  |
-| λ    | λ       | laju kadhatengan item ingkang mlebet sistem                                         |
-| μ    | μ       | laju layanan utawi kapasitas: sepinten cepet satunggal server makarya nalika sibuk  |
-| ρ    | ρ       | utilisasi: perangan wekdal server sibuk, λ / (c μ)                                  |
-| χ    | X       | throughput utawi laju medal: asil ingkang dipunamati, kanthi alesan punapa kemawon |
-| α    | boten wonten | laju kasil: asil ingkang dipunamati ingkang leres                             |
-| β    | boten wonten | laju gagal: asil ingkang dipunamati ingkang lepat                             |
-| δ    | boten wonten | laju lompat utawi laju mundur: item ingkang mlebet, lajeng medal tanpa dipunladosi |
-| ε    | boten wonten | rasio kalepatan β / (α + β)                                                   |
-| τ    | W       | rata-rata wekdal wonten ing sistem utawi lead time                                  |
-| ω    | Wq      | rata-rata wekdal ngentosi wonten ing antrian                                        |
-| φ    | S       | rata-rata wekdal layanan utawi wekdal makarya; μ = 1 / S                            |
-| θ    | boten wonten | wekdal langkah ing antawisipun rampungan; rata-rata wekdal langkah ≈ 1 / χ ing kawontenan ajeg |
-
-Mangga dipunatos-atosi bab tabrakan simbol nalika maos sumber sanes: σ limrahipun ateges simpangan baku, punika sababipun kita ngginakaken δ kangge laju lompat, saha θ asring ateges laju nilaraken antrian wonten ing model call center Erlang-A, dene kita ngginakaken θ kangge wekdal langkah.
+| Notasi kita | Teges |
+| ----------- | ----- |
+| κ (kappa) | cacah item wonten ing sistem, ingkang ngentosi tuwin ingkang dipungarap |
+| λ (lambda) | laju kadhatengan item ingkang mlebet sistem |
+| μ (mu) | laju layanan utawi kapasitas: sepinten cepet satunggal server makarya nalika sibuk |
+| ρ (rho) | utilisasi: perangan wekdal server sibuk, λ / (c μ) |
+| χ (chi) | throughput utawi laju medal: asil ingkang dipunamati, kanthi alesan punapa kemawon |
+| α (alpha) | laju kasil: asil ingkang dipunamati ingkang leres |
+| β (beta) | laju gagal: asil ingkang dipunamati ingkang lepat |
+| δ (delta) | laju rampung: kasil + gagal, item ingkang sampun dipunladosi, mboten dados kasil utawi gagal |
+| σ (sigma) | laju lompat: item ingkang mlebet, lajeng medal tanpa dipunladosi |
+| ε (epsilon) | rasio kalepatan: β / (α + β) = β / δ |
+| τ (tau) | wekdal wonten ing sistem utawi lead time |
+| ω (omega) | wekdal ngentosi utawi wekdal wonten ing antrian |
+| φ (phi) | wekdal makarya utawi wekdal wonten ing prosesor utawi wekdal layanan |
+| θ (theta) | wekdal langkah ing antawisipun rampungan; rata-rata wekdal langkah ≈ 1 / χ ing kawontenan ajeg |
 
 ### Cacah
 
 Kita asring ngetang item, saha kita ngginakaken notasi punika:
 
-- κ (kappa): cacah item wonten ing sistem, tegesipun item ingkang ngentosi tuwin item ingkang saweg dipungarap
+- κ (kappa): cacah item wonten ing sistem, tegesipun item ingkang ngentosi tuwin item ingkang saweg dipungarap.
+
+![Diagram: item dugi kanthi laju λ, wonten κ item wonten ing sistem, saha item medal kanthi throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Tuladha:
 
-- κ = 100 tegesipun wonten 100 item wonten ing sistem.
+- κ = 10 tegesipun persis 10
 
-- κ > 100 tegesipun wonten langkung saking 100 item wonten ing sistem.
+- κ ≈ 10 tegesipun kirang langkung 10
 
-- κ ≫ 100 tegesipun wonten langkung kathah sanget saking 100 item wonten ing sistem.
+- κ < 10 tegesipun kirang saking 10
 
-Cacah kados κ = 100 punika potret ing satunggal wekdal. Wonten ing Hukum Little, κ ateges rata-rata cacah jangka panjang, inggih punika L ing buku ajar. Simbol buku ajar kangge item ingkang namung ngentosi wonten ing antrian inggih punika Lq.
+- κ > 10 tegesipun langkung saking 10
+
+- κ ≪ 10 tegesipun kathah kirangipun saking 10
+
+- κ ≫ 10 tegesipun kathah langkungipun saking 10
+
+Cacah κ (kappa) punika potret ing satunggal wekdal.
+
+Cacah rata-rata κ̅ (kappa nganggé garis) punika etungan ingkang ngrata-rata asil pangukuran ing satunggal periode wekdal, tuladhanipun ngukur saben jam salaminipun kalih minggu.
 
 ### Laju kadhatengan, laju layanan
 
@@ -184,9 +193,9 @@ Tuladha:
 
 - ρ > 1 tegesipun kadhatengan ngluwihi kapasitas; antrian saya ageng.
 
-### Laju throughput: laju total, laju kasil, laju gagal, laju lompat
+### Laju throughput: laju total, laju rampung, laju kasil, laju gagal, laju lompat
 
-Laju throughput ngukur asil ingkang dipunamati, tegesipun item ingkang saestu medal saking antrian. Laju punika wonten sekawan golongan ageng:
+Laju throughput ngukur asil ingkang dipunamati, tegesipun item ingkang saestu medal saking antrian. Laju punika wonten gangsal golongan ageng:
 
 - χ (chi): laju total. Punika ngukur sepinten item saben wekdal ingkang medal saking antrian kanthi alesan punapa kemawon: kasil, gagal, lompat, lan sanesipun.
 
@@ -194,11 +203,23 @@ Laju throughput ngukur asil ingkang dipunamati, tegesipun item ingkang saestu me
 
 - β (beta): laju gagal. Punika ngukur sepinten item saben periode wekdal ingkang dados lepat, tuladhanipun boten trep, boten jangkep, dipuntolak.
 
-- δ (delta): laju lompat utawi laju mundur. Punika ngukur sepinten item saben periode wekdal ingkang mlebet antrian, lajeng medal tanpa dipunladosi, tuladhanipun nilaraken antrian, mundur saking antrian.
+- δ (delta): laju rampung. Punika ngukur sepinten item saben periode wekdal ingkang dipunladosi, mboten dados kasil utawi gagal: kasil + gagal.
+
+- σ (sigma): laju lompat. Punika ngukur sepinten item saben periode wekdal ingkang mlebet antrian, lajeng medal tanpa dipunladosi, tuladhanipun nilaraken antrian, mundur saking antrian.
+
+Laju rampung = laju kasil + laju gagal:
+
+- δ = α + β (dipunwaos: delta sami kaliyan alpha tambah beta)
+
+Laju total = laju rampung + laju lompat:
+
+- χ = δ + σ (dipunwaos: chi sami kaliyan delta tambah sigma)
 
 Laju total = laju kasil + laju gagal + laju lompat:
 
-- χ = α + β + δ (dipunwaos: chi sami kaliyan alpha tambah beta tambah delta)
+- χ = α + β + σ (dipunwaos: chi sami kaliyan alpha tambah beta tambah sigma)
+
+![Diagram: item medal saking sistem minangka kasil α, gagal β, utawi lompat σ; rampung δ = α + β, dados χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Saben item ingkang dipunetang wonten ing χ sampun mlebet sistem, satemah ing kawontenan ajeg laju total sami kaliyan laju kadhatengan: χ ≈ λ. Punika sababipun laju throughput ngukur asil, sanes kapasitas.
 
@@ -215,7 +236,7 @@ mantau kagagalan saha lompatan.
 
 - Pandangan Pamrosesan: Laju layanan ngewrat punapa kemawon ingkang dipunproses antrian, tegesipun kasil utawi gagal, nanging boten ngewrat lompatan.
 
-- Pandangan Teknologi: Wonten ing bidang terapan kados rekayasa piranti lunak, laju layanan namung ngukur kasil, dene laju kalepatan ngukur kagagalan, saha laju lompat ngukur ingkang mundur.
+- Pandangan Teknologi: Wonten ing bidang terapan kados rekayasa piranti lunak, laju layanan namung ngukur kasil, dene laju kalepatan ngukur kagagalan, saha laju lompat ngukur ingkang dipunlompati.
 
 Pramila kita tetep ngginakaken μ kangge kapasitas, saha kita nambahi laju asil ingkang dipunamati ing sandhingipun, tinimbang nggentosi:
 
@@ -231,7 +252,7 @@ Kenging punapa μ boten dipungentosi χ utawi α? Wonten ing antrian ingkang aje
 
 Katrangan laju lompat:
 
-- δ (delta): laju lompat utawi laju mundur. Punika ngukur sepinten item ingkang mlebet antrian, lajeng medal tanpa dipunrampungaken.
+- σ (sigma): laju lompat. Punika ngukur sepinten item ingkang mlebet antrian, lajeng medal tanpa dipunproses.
 
 Lompat inggih punika nalika satunggal item mlebet antrian, lajeng medal tanpa pamrosesan ingkang wigati:
 
@@ -241,7 +262,7 @@ Lompat inggih punika nalika satunggal item mlebet antrian, lajeng medal tanpa pa
 
 Wonten kalih tumindak ingkang gegayutan nanging sanes lompat:
 
-- Wurung (balking): nalika pelanggan mutusaken boten mlebet antrian amargi wekdal ngentosi katingal badhe dangu sanget. Item ingkang wurung boten nate mlebet sistem, satemah wonten ing sanjawining wates sistem: boten dipunetang wonten ing λ, χ, utawi δ. Menawi wurung punika wigati, kados ta sadean ingkang ical, mangga dipunetang piyambak minangka kadhatengan ingkang dipuntolak.
+- Wurung (balking): nalika pelanggan mutusaken boten mlebet antrian amargi wekdal ngentosi katingal badhe dangu sanget. Item ingkang wurung boten nate mlebet sistem, satemah wonten ing sanjawining wates sistem: boten dipunetang wonten ing λ, χ, utawi σ. Menawi wurung punika wigati, kados ta sadean ingkang ical, mangga dipunetang piyambak minangka kadhatengan ingkang dipuntolak.
 
 - Pindhah-pindhah (jockeying): nalika pelanggan pindhah ing antawisipun antrian ingkang sejajar, kados ta jalur kasir, kangge ngupadi wekdal ngentosi ingkang langkung cekak.
 
@@ -249,9 +270,11 @@ Wonten kalih tumindak ingkang gegayutan nanging sanes lompat:
 
 Notasi ingkang paling wigati ingkang ngringkes kasilipun satunggal antrian:
 
-- ε (epsilon): rasio kalepatan = cacah gagal / (cacah kasil + cacah gagal) = β / (α + β)
+- ε (epsilon): rasio kalepatan = cacah gagal / (cacah kasil + cacah gagal) = β / (α + β) = β / δ
 
-Lompatan boten dipunlebetaken, amargi item ingkang dipunlompati boten nate dipunladosi, satemah boten leres saha boten lepat. Mangga lompatan dipunpantau piyambak lumantar δ.
+Lompatan boten dipunlebetaken, amargi item ingkang dipunlompati boten nate dipunladosi, satemah boten leres saha boten lepat. Mangga lompatan dipunpantau piyambak lumantar σ.
+
+![Diagram: laju rampung δ punika laju kasil α tambah laju gagal β, saha rasio kalepatan ε punika laju gagal β dipunbagi laju rampung δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Tuladha:
 
@@ -273,6 +296,8 @@ Kita mantau sekawan wekdal:
 
 - ω (omega): wekdal ngentosi = wekdal ingkang boten dipunginakaken kangge makarya saestu utawi wekdal tundha
 
+![Diagram: lead time τ punika wekdal ngentosi ω dipuntutugaken wekdal makarya φ, dados τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Tuladha:
 
 - τ = 5s tegesipun satunggal item dipunlebetaken dhateng antrian, lajeng dipunladosi 5 detik salajengipun.
@@ -289,9 +314,9 @@ Gegayutan:
 
 - rata-rata θ ≈ 1 / χ: ing kawontenan ajeg, rata-rata wekdal langkah punika kuwalikipun laju total. Satunggal longkangan boten nedahaken kathah babagan laju; rata-rata saking kathah longkangan nedahaken. Wonten ing tuladha, menawi rata-rata wekdal langkah 1s, lajeng χ ≈ 1 item saben detik.
 
-### Notasi standar
+### Notasi Kendall
 
-Notasi standar kangge teori antrian nggambaraken antrian kanthi ngginakaken notasi Kendall, ingkang dipunserat A/S/c/K/N/D:
+Notasi Kendall punika notasi sanes kangge teori antrian, ingkang dipunserat A/S/c/K/N/D:
 
 - A: proses kadhatengan, tegesipun distribusi wekdal ing antawisipun kadhatengan.
 
@@ -315,11 +340,13 @@ Aksara ingkang limrah kangge A lan S:
 
 Menawi tigang ingkang pungkasan boten dipunserat, gawanipun inggih punika K = ∞, N = ∞, D = FIFO. Tuladhanipun, „M/M/1“ tegesipun kadhatengan Poisson, wekdal layanan eksponensial, satunggal server, kapasitas tanpa wates, populasi tanpa wates, saha first in first out.
 
-Notasi standar ugi ngginakaken n kangge cacah item wonten ing sistem.
+Saha:
+
+- n: cacah item wonten ing sistem.
 
 ## Matematika antrian
 
-Pérangan matematika ngginakaken simbol buku ajar, supados panjenengan saged mbandhingaken kaliyan sumber sanes: S punika rata-rata wekdal layanan, inggih punika φ kita, saha μ = 1 / S punika kapasitas satunggal server. Mangga priksani tabel padhanan wonten ing [notasi teori antrian](#notasi-teori-antrian).
+Pérangan matematika ngginakaken simbol buku ajar, supados panjenengan saged mbandhingaken kaliyan sumber sanes: S punika rata-rata wekdal layanan, inggih punika φ kita, saha μ = 1 / S punika kapasitas satunggal server.
 
 ### Kurva utilisasi
 
@@ -410,7 +437,7 @@ Tuladha:
 
 - Aμ: laju layanan aktivitas utawi kapasitas: pinten item ingkang saged dipunrampungaken satunggal server saben satuan wekdal nalika sibuk.
 
-- Aδ: laju lompat aktivitas utawi laju mundur: pinten item ingkang dipuntilar saben satuan wekdal.
+- Aσ: laju lompat aktivitas: pinten item ingkang dipuntilar saben satuan wekdal.
 
 - Aρ: rasio utilisasi aktivitas: perangan wekdal ingkang kasedhiya nalika server sibuk, tegesipun wekdal sibuk ÷ wekdal ingkang kasedhiya, utawi λ / (c μ).
 

@@ -19,12 +19,12 @@ Aurkibidea:
   - [Zenbaketa](#zenbaketa)
   - [Iritsiera-tasa, zerbitzu-tasa](#iritsiera-tasa-zerbitzu-tasa)
   - [Erabilera-ratioa, trafiko-intentsitatea ere deitua](#erabilera-ratioa-trafiko-intentsitatea-ere-deitua)
-  - [Ekoizpen-tasak: tasa osoa, arrakasta-tasa, hutsegite-tasa, saltatze-tasa](#ekoizpen-tasak-tasa-osoa-arrakasta-tasa-hutsegite-tasa-saltatze-tasa)
+  - [Ekoizpen-tasak: tasa osoa, amaitze-tasa, arrakasta-tasa, hutsegite-tasa, saltatze-tasa](#ekoizpen-tasak-tasa-osoa-amaitze-tasa-arrakasta-tasa-hutsegite-tasa-saltatze-tasa)
   - [Zerbitzu-tasaren desanbiguazioa](#zerbitzu-tasaren-desanbiguazioa)
   - [Saltatze-tasa](#saltatze-tasa)
   - [Errore-ratioa](#errore-ratioa)
   - [Entrega-denbora, urrats-denbora, lan-denbora, itxaron-denbora](#entrega-denbora-urrats-denbora-lan-denbora-itxaron-denbora)
-  - [Notazio estandarra](#notazio-estandarra)
+  - [Kendall-en notazioa](#kendall-en-notazioa)
 - [Ilaren matematika](#ilaren-matematika)
   - [Erabilera-kurba](#erabilera-kurba)
   - [Kingmanen formula](#kingmanen-formula)
@@ -113,41 +113,50 @@ Ilara-teoriak letra grekoak dituen notazioa erabiltzen du.
 
 Gure taldeek notazio ezagun batzuk erabiltzen dituzte; gainera, software-proiektuetan laguntzen digun notazio pertsonalizatua gehitzen dugu.
 
-Gure notaziotik testuliburuetako notazio estandarrerako baliokidetza-taula:
+Gure notazioa eta ikur bakoitzaren esanahia:
 
-| Gurea | Estandarra | Esanahia                                                                                    |
-| ----- | ---------- | ------------------------------------------------------------------------------------------- |
-| κ     | L          | sistemako batez besteko elementu kopurua, itxaroten daudenak gehi lantzen ari direnak       |
-| λ     | λ          | sisteman sartzen diren elementuen iritsiera-tasa                                            |
-| μ     | μ          | zerbitzu-tasa, gaitasuna ere deitua: zerbitzari bat zein azkar ari den lanean lanpetuta dagoenean |
-| ρ     | ρ          | erabilera: zerbitzariak lanpetuta dauden denboraren zatikia, λ / (c μ)                      |
-| χ     | X          | ekoizpena, irteera-tasa ere deitua: behatutako irteera, edozein arrazoirengatik             |
-| α     | bat ere ez | arrakasta-tasa: zuzena gertatzen den behatutako irteera                                     |
-| β     | bat ere ez | hutsegite-tasa: okerra gertatzen den behatutako irteera                                     |
-| δ     | bat ere ez | saltatze-tasa, uzte-tasa ere deitua: sartu eta zerbitzatu gabe joan diren elementuak        |
-| ε     | bat ere ez | errore-ratioa β / (α + β)                                                                   |
-| τ     | W          | sisteman emandako batez besteko denbora, entrega-denbora ere deitua                         |
-| ω     | Wq         | ilaran itxaroten emandako batez besteko denbora                                             |
-| φ     | S          | batez besteko zerbitzu-denbora, lan-denbora ere deitua; μ = 1 / S                           |
-| θ     | bat ere ez | amaieren arteko urrats-denbora; urrats-denbora ertaina ≈ 1 / χ egoera egonkorrean           |
-
-Kontuz ikurren arteko talkekin beste iturri batzuk irakurtzen dituzunean: σ-k desbideratze estandarra esan nahi du normalean, eta horregatik erabiltzen dugu δ saltatze-tasarako; eta θ-k askotan uzte-tasa esan nahi du Erlang-A dei-zentroen ereduetan, guk, aldiz, θ urrats-denborarako erabiltzen dugu.
+| Gure notazioa | Esanahia |
+| ------------- | -------- |
+| κ (kappa) | sistemako elementuen kopurua, itxaroten daudenak gehi lantzen ari direnak |
+| λ (lambda) | sisteman sartzen diren elementuen iritsiera-tasa |
+| μ (mu) | zerbitzu-tasa, gaitasuna ere deitua: zerbitzari bat zein azkar ari den lanean lanpetuta dagoenean |
+| ρ (rho) | erabilera: zerbitzariak lanpetuta dauden denboraren zatikia, λ / (c μ) |
+| χ (chi) | ekoizpena, irteera-tasa ere deitua: behatutako irteera, edozein arrazoirengatik |
+| α (alpha) | arrakasta-tasa: zuzena gertatzen den behatutako irteera |
+| β (beta) | hutsegite-tasa: okerra gertatzen den behatutako irteera |
+| δ (delta) | amaitze-tasa: arrakasta + hutsegitea, zerbitzatutako elementuak, emaitza zuzena zein okerra izan |
+| σ (sigma) | saltatze-tasa: sartu eta zerbitzatu gabe joan diren elementuak |
+| ε (epsilon) | errore-erlazioa: β / (α + β) = β / δ |
+| τ (tau) | sisteman emandako denbora, entrega-denbora ere deitua |
+| ω (omega) | itxaron-denbora, ilaran emandako denbora ere deitua |
+| φ (phi) | lan-denbora, prozesadorean emandako denbora ere deitua, zerbitzu-denbora ere deitua |
+| θ (theta) | amaieren arteko urrats-denbora; urrats-denbora ertaina ≈ 1 / χ egoera egonkorrean |
 
 ### Zenbaketa
 
 Elementuak sarritan zenbatzen ditugu, eta notazio hau erabiltzen dugu:
 
-- κ (kappa): sistemako elementuen kopurua, hau da, itxaroten dauden elementuak gehi lantzen ari diren elementuak
+- κ (kappa): sistemako elementuen kopurua, hau da, itxaroten dauden elementuak gehi lantzen ari diren elementuak.
+
+![Diagrama: elementuak λ tasarekin iristen dira, sisteman κ elementu daude eta elementuak χ ekoizpenarekin irteten dira](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Adibidea:
 
-- κ = 100 esan nahi du sisteman 100 elementu daudela.
+- κ = 10 esan nahi du zehazki 10
 
-- κ > 100 esan nahi du sisteman 100 elementu baino gehiago daudela.
+- κ ≈ 10 esan nahi du gutxi gorabehera 10
 
-- κ ≫ 100 esan nahi du sisteman 100 elementu baino askoz gehiago daudela.
+- κ < 10 esan nahi du 10 baino gutxiago
 
-κ = 100 bezalako zenbaketa bat une bateko argazkia da. Littleren legean, κ-k epe luzeko batez besteko kopurua esan nahi du, hau da, testuliburuetako L. Ilaran itxaroten dauden elementuetarako soilik, testuliburuetako ikurra Lq da.
+- κ > 10 esan nahi du 10 baino gehiago
+
+- κ ≪ 10 esan nahi du 10 baino askoz gutxiago
+
+- κ ≫ 10 esan nahi du 10 baino askoz gehiago
+
+κ (kappa) kopurua une bateko argazkia da.
+
+Batez besteko κ̅ (kappa barradun) kopurua denbora-tarte zehatz bateko neurketen batez bestekoa egiten duen kalkulua da, adibidez bi astez ordu bakoitzean neurtuta.
 
 ### Iritsiera-tasa, zerbitzu-tasa
 
@@ -183,9 +192,9 @@ Adibideak:
 
 - ρ > 1 esan nahi du iritsierek gaitasuna gainditzen dutela; ilara handitzen ari da.
 
-### Ekoizpen-tasak: tasa osoa, arrakasta-tasa, hutsegite-tasa, saltatze-tasa
+### Ekoizpen-tasak: tasa osoa, amaitze-tasa, arrakasta-tasa, hutsegite-tasa, saltatze-tasa
 
-Ekoizpen-tasek behatutako irteera neurtzen dute, hau da, benetan ilaratik ateratzen diren elementuak. Lau kategoria nagusitan banatzen dira:
+Ekoizpen-tasek behatutako irteera neurtzen dute, hau da, benetan ilaratik ateratzen diren elementuak. Bost kategoria nagusitan banatzen dira:
 
 - χ (chi): tasa osoa. Denbora-unitateko zenbat elementu ateratzen diren ilaratik neurtzen du, edozein arrazoirengatik: arrakasta, hutsegitea, saltatzea eta abar.
 
@@ -193,11 +202,23 @@ Ekoizpen-tasek behatutako irteera neurtzen dute, hau da, benetan ilaratik aterat
 
 - β (beta): hutsegite-tasa. Denbora-tarte bakoitzeko zenbat elementu gertatzen diren oker neurtzen du, adibidez, okerrak, osatugabeak, baztertuak.
 
-- δ (delta): saltatze-tasa, uzte-tasa ere deitua. Denbora-tarte bakoitzeko zenbat elementu sartzen diren ilaran eta gero zerbitzatu gabe joaten diren neurtzen du, adibidez, abandonuak, erretiratzeak.
+- δ (delta): amaitze-tasa. Denbora-tarte bakoitzeko zenbat elementu zerbitzatzen diren neurtzen du, emaitza zuzena zein okerra izan: arrakasta + hutsegitea.
+
+- σ (sigma): saltatze-tasa. Denbora-tarte bakoitzeko zenbat elementu sartzen diren ilaran eta gero zerbitzatu gabe joaten diren neurtzen du, adibidez abandonuak eta atzera egiteak.
+
+Amaitze-tasa = arrakasta-tasa + hutsegite-tasa:
+
+- δ = α + β (ahoskatua: delta berdin alpha gehi beta)
+
+Tasa osoa = amaitze-tasa + saltatze-tasa:
+
+- χ = δ + σ (ahoskatua: chi berdin delta gehi sigma)
 
 Tasa osoa = arrakasta-tasa + hutsegite-tasa + saltatze-tasa:
 
-- χ = α + β + δ (ahoskatua: chi berdin alpha gehi beta gehi delta)
+- χ = α + β + σ (ahoskatua: chi berdin alpha gehi beta gehi sigma)
+
+![Diagrama: elementuak sistematik ateratzen dira arrakasta α, hutsegite β edo saltatze σ gisa; amaituak δ = α + β, beraz χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ-n zenbatutako elementu oro sisteman sartu zen; beraz, egoera egonkorrean tasa osoa iritsiera-tasaren berdina da: χ ≈ λ. Horregatik neurtzen dute ekoizpen-tasek irteera, eta ez gaitasuna.
 
@@ -214,7 +235,7 @@ ilara-teoria erabiltzen duten adituen artean.
 
 - Prozesatze-ikuspegia: zerbitzu-tasak ilarak prozesatzen denbora ematen duen guztia barne hartzen du, hau da, arrakastak edo hutsegiteak, baina ez ditu saltatzeak barne hartzen.
 
-- Ikuspegi teknologikoa: software-ingeniaritza bezalako arlo aplikatuetan, zerbitzu-tasak arrakastak soilik neurtzen ditu; errore-tasak, berriz, hutsegiteak neurtzen ditu, eta saltatze-tasak uzteak.
+- Ikuspegi teknologikoa: software-ingeniaritza bezalako arlo aplikatuetan, zerbitzu-tasak arrakastak soilik neurtzen ditu; errore-tasak, berriz, hutsegiteak, eta saltatze-tasak saltatzeak.
 
 Horregatik, μ gaitasunerako gordetzen dugu, eta behatutako irteera-tasak haren ondoan gehitzen ditugu, hura ordeztu beharrean:
 
@@ -230,7 +251,7 @@ Zergatik ez ordeztu μ χ-rekin edo α-rekin? Ilara egonkor batean, sartzen den 
 
 Saltatze-tasaren xehetasunak:
 
-- δ (delta): saltatze-tasa, uzte-tasa ere deitua. Zenbat elementu sartzen diren ilaran eta gero kudeatu gabe joaten diren neurtzen du.
+- σ (sigma): saltatze-tasa. Zenbat elementu sartzen diren ilaran eta gero prozesatu gabe joaten diren neurtzen du.
 
 Saltatzea gertatzen da elementu bat ilaran sartu eta gero prozesatze esanguratsurik gabe joaten denean:
 
@@ -240,7 +261,7 @@ Saltatzea gertatzen da elementu bat ilaran sartu eta gero prozesatze esanguratsu
 
 Erlazionatutako bi jokabide ez dira saltatzeak:
 
-- Uko egitea: bezero batek ilaran ez sartzea erabakitzen duenean, itxaron-denbora luzeegia izateko arriskua dagoelako. Uko egindako elementu bat ez da inoiz sisteman sartzen; beraz, sistemaren mugetatik kanpo dago: ez da λ-n, χ-n edo δ-n zenbatzen. Ukoek garrantzia badute, adibidez galdutako salmentek, zenbatu itzazu bereiz, baztertutako iritsiera gisa.
+- Uko egitea: bezero batek ilaran ez sartzea erabakitzen duenean, itxaron-denbora luzeegia izateko arriskua dagoelako. Uko egindako elementu bat ez da inoiz sisteman sartzen; beraz, sistemaren mugetatik kanpo dago: ez da λ-n, χ-n edo σ-n zenbatzen. Ukoek garrantzia badute, adibidez galdutako salmentek, zenbatu itzazu bereiz, baztertutako iritsiera gisa.
 
 - Ilaraz aldatzea: bezero bat ilara paraleloen artean aldatzen denean, adibidez kutxa-lerroen artean, itxaronaldi laburragoa lortzen saiatuz.
 
@@ -248,9 +269,11 @@ Erlazionatutako bi jokabide ez dira saltatzeak:
 
 Ilara baten arrakasta laburbiltzen duen notaziorik garrantzitsuena:
 
-- ε (epsilon): errore-ratioa = hutsegite kopurua / (arrakasta kopurua + hutsegite kopurua) = β / (α + β)
+- ε (epsilon): errore-ratioa = hutsegite kopurua / (arrakasta kopurua + hutsegite kopurua) = β / (α + β) = β / δ
 
-Saltatzeak kanpoan uzten dira, saltatutako elementu bat ez baitzen inoiz zerbitzatu; beraz, ez zen ez zuzena ez okerra izan. Jarraitu saltatzeak bereiz, δ-ren bidez.
+Saltatzeak kanpoan uzten dira, saltatutako elementu bat ez baitzen inoiz zerbitzatu; beraz, ez zen ez zuzena ez okerra izan. Jarraitu saltatzeak bereiz, σ-ren bidez.
+
+![Diagrama: amaitze-tasa δ arrakasta-tasa α gehi hutsegite-tasa β da, eta errore-erlazioa ε hutsegite-tasa β amaitze-tasa δ-rekin zatituta](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Adibideak:
 
@@ -272,6 +295,8 @@ Lau denbora jarraitzen ditugu:
 
 - ω (omega): itxaron-denbora = benetako lana egin gabe emandako denbora, zain-denbora ere deitua
 
+![Diagrama: entrega-denbora τ itxaron-denbora ω da, ondoren lan-denbora φ, beraz τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Adibideak:
 
 - τ = 5 s esan nahi du elementu bat ilarara gehitzen dela, eta 5 segundo geroago zerbitzatzen dela.
@@ -288,9 +313,9 @@ Erlazioak:
 
 - θ ertaina ≈ 1 / χ: egoera egonkorrean, urrats-denbora ertaina tasa osoaren alderantzizkoa da. Tarte bakar batek gutxi esaten du tasari buruz; tarte askoren batez bestekoak, berriz, asko. Adibideetan, urrats-denbora ertaina 1 s bada, orduan χ ≈ elementu 1 segundoko.
 
-### Notazio estandarra
+### Kendall-en notazioa
 
-Ilara-teoriaren notazio estandarrak ilara bat deskribatzen du Kendallen notazioa erabiliz, A/S/c/K/N/D gisa idatzita:
+Kendall-en notazioa ilara-teoriaren beste notazio bat da, A/S/c/K/N/D moduan idazten dena:
 
 - A: iritsiera-prozesua, hau da, iritsieren arteko denboraren banaketa.
 
@@ -314,11 +339,13 @@ A eta S-rako letra ohikoak:
 
 Azken hirurak ezabatzen direnean, lehenetsitako balioak K = ∞, N = ∞, D = FIFO dira. Adibidez, «M/M/1»-ek esan nahi du Poissonen iritsierak, zerbitzu-denbora esponentzialak, zerbitzari bat, gaitasun mugagabea, populazio mugagabea eta lehena sartzen dena, lehena ateratzen.
 
-Notazio estandarrak n ere erabiltzen du sistemako elementu kopurua adierazteko.
+Gainera:
+
+- n: sistemako elementuen kopurua.
 
 ## Ilaren matematika
 
-Matematika-atalek testuliburuetako ikurrak erabiltzen dituzte, beste iturri batzuekin alderatu ahal izan ditzazun: S batez besteko zerbitzu-denbora da, hau da, gure φ, eta μ = 1 / S zerbitzari baten gaitasuna da. Ikus baliokidetza-taula [ilara-teoriaren notazioa](#ilara-teoriaren-notazioa) atalean.
+Matematika-atalek testuliburuetako ikurrak erabiltzen dituzte, beste iturri batzuekin alderatu ahal izan ditzazun: S batez besteko zerbitzu-denbora da, hau da, gure φ, eta μ = 1 / S zerbitzari baten gaitasuna da.
 
 ### Erabilera-kurba
 
@@ -409,7 +436,7 @@ Adibideak:
 
 - Aμ: jardueraren zerbitzu-tasa, gaitasuna ere deitua: zerbitzari batek, lanpetuta dagoenean, denbora-unitateko zenbat elementu osa ditzakeen.
 
-- Aδ: jardueraren saltatze-tasa, uzte-tasa ere deitua: denbora-unitateko zenbat elementu abandonatzen diren.
+- Aσ: jardueraren saltatze-tasa: denbora-unitateko zenbat elementu abandonatzen diren.
 
 - Aρ: jardueraren erabilera-ratioa: zerbitzariak lanpetuta dauden denbora erabilgarriaren zatikia, hau da, lanpetutako denbora ÷ denbora erabilgarria, edo λ / (c μ).
 

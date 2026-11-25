@@ -15,12 +15,12 @@ Vsebina:
   - [Število](#število)
   - [Stopnja prihodov, stopnja strežbe](#stopnja-prihodov-stopnja-strežbe)
   - [Razmerje izkoriščenosti oz. intenzivnost prometa](#razmerje-izkoriščenosti-oz-intenzivnost-prometa)
-  - [Stopnje pretoka: skupna stopnja, stopnja uspeha, stopnja neuspeha, stopnja izpustitev](#stopnje-pretoka-skupna-stopnja-stopnja-uspeha-stopnja-neuspeha-stopnja-izpustitev)
+  - [Stopnje pretoka: skupna stopnja, stopnja dokončanja, stopnja uspeha, stopnja neuspeha, stopnja izpustitev](#stopnje-pretoka-skupna-stopnja-stopnja-dokončanja-stopnja-uspeha-stopnja-neuspeha-stopnja-izpustitev)
   - [Razjasnitev pojma stopnja strežbe](#razjasnitev-pojma-stopnja-strežbe)
   - [Stopnja izpustitev](#stopnja-izpustitev)
   - [Razmerje napak](#razmerje-napak)
   - [Pretočni čas, čas koraka, čas dela, čas čakanja](#pretočni-čas-čas-koraka-čas-dela-čas-čakanja)
-  - [Standardna notacija](#standardna-notacija)
+  - [Kendallov zapis](#kendallov-zapis)
 - [Matematika čakalnih vrst](#matematika-čakalnih-vrst)
   - [Krivulja izkoriščenosti](#krivulja-izkoriščenosti)
   - [Kingmanova formula](#kingmanova-formula)
@@ -109,41 +109,50 @@ Teorija čakalnih vrst uporablja notacijo z grškimi črkami.
 
 Naše ekipe uporabljajo del priljubljene notacije; dodajamo pa tudi nekaj lastne notacije, ki nam pomaga pri programskih projektih.
 
-Primerjava naše notacije s standardno učbeniško notacijo:
+Naš zapis in pomen vsakega simbola:
 
-| Naša | Standardna | Pomen                                                                         |
-| ---- | ---------- | ----------------------------------------------------------------------------- |
-| κ    | L          | povprečno število elementov v sistemu, čakajočih in tistih v obdelavi         |
-| λ    | λ          | stopnja prihodov elementov, ki vstopajo v sistem                              |
-| μ    | μ          | stopnja strežbe oz. zmogljivost: kako hitro dela en strežnik, ko je zaseden   |
-| ρ    | ρ          | izkoriščenost: delež časa, ko so strežniki zasedeni, λ / (c μ)                |
-| χ    | X          | pretok oz. stopnja odhodov: opazovani izhod iz kakršnega koli razloga         |
-| α    | nič        | stopnja uspeha: opazovani izhod, ki se izkaže za pravilnega                   |
-| β    | nič        | stopnja neuspeha: opazovani izhod, ki se izkaže za napačnega                  |
-| δ    | nič        | stopnja izpustitev oz. stopnja osipa: elementi, ki so vstopili in odšli nepostreženi |
-| ε    | nič        | razmerje napak β / (α + β)                                                    |
-| τ    | W          | povprečni čas v sistemu oz. pretočni čas                                      |
-| ω    | Wq         | povprečni čas čakanja v čakalni vrsti                                         |
-| φ    | S          | povprečni čas strežbe oz. čas dela; μ = 1 / S                                 |
-| θ    | nič        | čas koraka med zaključki; povprečni čas koraka ≈ 1 / χ v stacionarnem stanju  |
-
-Ko berete druge vire, bodite pozorni na spore simbolov: σ običajno pomeni standardni odklon, zato za stopnjo izpustitev uporabljamo δ, θ pa v modelih klicnih centrov Erlang-A pogosto pomeni stopnjo opustitev, medtem ko mi θ uporabljamo za čas koraka.
+| Naš zapis | Pomen |
+| --------- | ----- |
+| κ (kapa) | število elementov v sistemu, čakajočih in v obdelavi |
+| λ (lambda) | stopnja prihodov elementov, ki vstopajo v sistem |
+| μ (mi) | stopnja strežbe oz. zmogljivost: kako hitro dela en strežnik, ko je zaseden |
+| ρ (ro) | izkoriščenost: delež časa, ko so strežniki zasedeni, λ / (c μ) |
+| χ (hi) | pretok oz. stopnja odhodov: opazovani izhod iz kakršnega koli razloga |
+| α (alfa) | stopnja uspeha: opazovani izhod, ki se izkaže za pravilnega |
+| β (beta) | stopnja neuspeha: opazovani izhod, ki se izkaže za napačnega |
+| δ (delta) | stopnja dokončanja: uspeh + neuspeh, postreženi elementi, ne glede na to, ali je rezultat pravilen ali napačen |
+| σ (sigma) | stopnja izpustitev: elementi, ki so vstopili in odšli nepostreženi |
+| ε (epsilon) | razmerje napak: β / (α + β) = β / δ |
+| τ (tau) | čas v sistemu oz. pretočni čas |
+| ω (omega) | čas čakanja oz. čas v čakalni vrsti |
+| φ (fi) | čas dela oz. čas v procesorju oz. čas strežbe |
+| θ (theta) | čas koraka med zaključki; povprečni čas koraka ≈ 1 / χ v stacionarnem stanju |
 
 ### Število
 
 Elemente pogosto štejemo in pri tem uporabljamo to notacijo:
 
-- κ (kapa): število elementov v sistemu, torej čakajoči elementi in elementi v obdelavi
+- κ (kapa): število elementov v sistemu, torej čakajoči elementi in elementi v obdelavi.
+
+![Diagram: elementi prihajajo s stopnjo λ, v sistemu je κ elementov, elementi pa odhajajo s pretokom χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Primer:
 
-- κ = 100 pomeni, da je v sistemu 100 elementov.
+- κ = 10 pomeni natanko 10
 
-- κ > 100 pomeni, da je v sistemu več kot 100 elementov.
+- κ ≈ 10 pomeni približno 10
 
-- κ ≫ 100 pomeni, da je v sistemu veliko več kot 100 elementov.
+- κ < 10 pomeni manj kot 10
 
-Število, kot je κ = 100, je posnetek v enem trenutku. V Littlovem zakonu κ pomeni dolgoročno povprečno število, kar je učbeniški L. Učbeniški simbol samo za elemente, ki čakajo v vrsti, je Lq.
+- κ > 10 pomeni več kot 10
+
+- κ ≪ 10 pomeni veliko manj kot 10
+
+- κ ≫ 10 pomeni veliko več kot 10
+
+Število κ (kapa) je posnetek v enem trenutku.
+
+Povprečno število κ̅ (kapa s črto) je izračun, ki povpreči meritve v določenem časovnem obdobju, na primer z merjenjem vsako uro dva tedna.
 
 ### Stopnja prihodov, stopnja strežbe
 
@@ -179,9 +188,9 @@ Primeri:
 
 - ρ > 1 pomeni, da prihodi presegajo zmogljivost; čakalna vrsta se veča.
 
-### Stopnje pretoka: skupna stopnja, stopnja uspeha, stopnja neuspeha, stopnja izpustitev
+### Stopnje pretoka: skupna stopnja, stopnja dokončanja, stopnja uspeha, stopnja neuspeha, stopnja izpustitev
 
-Stopnje pretoka merijo opazovani izhod, torej elemente, ki dejansko zapustijo čakalno vrsto. Delimo jih v štiri široke kategorije:
+Stopnje pretoka merijo opazovani izhod, torej elemente, ki dejansko zapustijo čakalno vrsto. Delimo jih v pet širokih kategorij:
 
 - χ (hi): skupna stopnja. Ta meri, koliko elementov na čas zapusti čakalno vrsto iz kakršnega koli razloga: uspeh, neuspeh, izpustitev itd.
 
@@ -189,11 +198,23 @@ Stopnje pretoka merijo opazovani izhod, torej elemente, ki dejansko zapustijo č
 
 - β (beta): stopnja neuspeha. Ta meri, koliko elementov na časovno obdobje se izkaže za napačne, npr. netočne, nepopolne, zavrnjene.
 
-- δ (delta): stopnja izpustitev oz. stopnja osipa. Ta meri, koliko elementov na časovno obdobje vstopi v čakalno vrsto in jo nato zapusti, ne da bi bili postreženi, npr. opustitve, odstopi.
+- δ (delta): stopnja dokončanja. Ta meri, koliko elementov na časovno obdobje je postreženih, ne glede na to, ali je rezultat pravilen ali napačen: uspeh + neuspeh.
+
+- σ (sigma): stopnja izpustitev. Ta meri, koliko elementov na časovno obdobje vstopi v čakalno vrsto in jo nato zapusti, ne da bi bili postreženi, npr. opustitve, odstopi.
+
+Stopnja dokončanja = stopnja uspeha + stopnja neuspeha:
+
+- δ = α + β (izgovorjava: delta je enako alfa plus beta)
+
+Skupna stopnja = stopnja dokončanja + stopnja izpustitev:
+
+- χ = δ + σ (izgovorjava: hi je enako delta plus sigma)
 
 Skupna stopnja = stopnja uspeha + stopnja neuspeha + stopnja izpustitev:
 
-- χ = α + β + δ (izgovorjava: hi je enako alfa plus beta plus delta)
+- χ = α + β + σ (izgovorjava: hi je enako alfa plus beta plus sigma)
+
+![Diagram: elementi zapustijo sistem kot uspeh α, neuspeh β ali izpustitev σ; dokončano δ = α + β, torej χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Vsak element, štet v χ, je vstopil v sistem, zato je v stacionarnem stanju skupna stopnja enaka stopnji prihodov: χ ≈ λ. Zato stopnje pretoka merijo izhod, ne zmogljivosti.
 
@@ -210,7 +231,7 @@ pomembno spremljati neuspehe in izpustitve.
 
 - Obdelovalni pogled: stopnja strežbe vključuje vse, s čimer čakalna vrsta porabi čas za obdelavo, torej uspehe ali neuspehe, ne vključuje pa izpustitev.
 
-- Tehnološki pogled: na uporabnih področjih, kot je programsko inženirstvo, stopnja strežbe meri samo uspehe, stopnja napak meri neuspehe, stopnja izpustitev pa osip.
+- Tehnološki pogled: na uporabnih področjih, kot je programsko inženirstvo, stopnja strežbe meri samo uspehe, stopnja napak meri neuspehe, stopnja izpustitev pa izpustitve.
 
 Zato μ ohranimo za zmogljivost in mu dodamo stopnje opazovanega izhoda, namesto da bi ga z njimi nadomestili:
 
@@ -226,7 +247,7 @@ Zakaj μ ne nadomestimo s χ ali α? V stabilni čakalni vrsti vsak element, ki 
 
 Podrobnosti o stopnji izpustitev:
 
-- δ (delta): stopnja izpustitev oz. stopnja osipa. Ta meri, koliko elementov vstopi v čakalno vrsto in jo nato zapusti neobdelanih.
+- σ (sigma): stopnja izpustitev. Ta meri, koliko elementov vstopi v čakalno vrsto in jo nato zapusti neobdelanih.
 
 Izpustitev je, ko element vstopi v čakalno vrsto in jo nato zapusti brez kakršne koli pomembne obdelave:
 
@@ -236,7 +257,7 @@ Izpustitev je, ko element vstopi v čakalno vrsto in jo nato zapusti brez kakrš
 
 Dve sorodni vedenji nista izpustitvi:
 
-- Odvrnitev (balking): ko se stranka odloči, da se ne bo pridružila čakalni vrsti, ker grozi, da bo čakanje predolgo. Odvrnjeni element nikoli ne vstopi v sistem, zato je zunaj meje sistema: ni štet v λ, χ ali δ. Če so odvrnitve pomembne, na primer izgubljena prodaja, jih štejte ločeno kot zavrnjene prihode.
+- Odvrnitev (balking): ko se stranka odloči, da se ne bo pridružila čakalni vrsti, ker grozi, da bo čakanje predolgo. Odvrnjeni element nikoli ne vstopi v sistem, zato je zunaj meje sistema: ni štet v λ, χ ali σ. Če so odvrnitve pomembne, na primer izgubljena prodaja, jih štejte ločeno kot zavrnjene prihode.
 
 - Menjavanje vrst (jockeying): ko stranka prehaja med vzporednimi čakalnimi vrstami, na primer med blagajnami, da bi dosegla krajše čakanje.
 
@@ -244,9 +265,11 @@ Dve sorodni vedenji nista izpustitvi:
 
 Najpomembnejša notacija, ki povzema uspešnost čakalne vrste:
 
-- ε (epsilon): razmerje napak = število neuspehov / (število uspehov + število neuspehov) = β / (α + β)
+- ε (epsilon): razmerje napak = število neuspehov / (število uspehov + število neuspehov) = β / (α + β) = β / δ
 
-Izpustitve so izključene, ker izpuščeni element nikoli ni bil postrežen, zato ni bil ne pravilen ne napačen. Izpustitve spremljajte ločeno prek δ.
+Izpustitve so izključene, ker izpuščeni element nikoli ni bil postrežen, zato ni bil ne pravilen ne napačen. Izpustitve spremljajte ločeno prek σ.
+
+![Diagram: stopnja dokončanja δ je stopnja uspeha α plus stopnja neuspeha β, razmerje napak ε pa je stopnja neuspeha β, deljena s stopnjo dokončanja δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Primeri:
 
@@ -268,6 +291,8 @@ Spremljamo štiri čase:
 
 - ω (omega): čas čakanja = čas, ko se dejansko delo ne opravlja, oz. čas mirovanja
 
+![Diagram: pretočni čas τ je čas čakanja ω, ki mu sledi čas dela φ, torej τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Primeri:
 
 - τ = 5 s pomeni, da je element dodan v čakalno vrsto in nato postrežen 5 sekund pozneje.
@@ -284,9 +309,9 @@ Razmerja:
 
 - povprečni θ ≈ 1 / χ: v stacionarnem stanju je povprečni čas koraka obratna vrednost skupne stopnje. En sam presledek pove malo o stopnji; povprečje mnogih presledkov pove več. V primerih, če je povprečni čas koraka 1 s, potem je χ ≈ 1 element na sekundo.
 
-### Standardna notacija
+### Kendallov zapis
 
-Standardna notacija teorije čakalnih vrst opiše čakalno vrsto s Kendallovo notacijo, zapisano kot A/S/c/K/N/D:
+Kendallov zapis je drug zapis teorije čakalnih vrst, zapisan kot A/S/c/K/N/D:
 
 - A: proces prihodov, torej porazdelitev časa med prihodi.
 
@@ -310,11 +335,13 @@ Pogoste črke za A in S:
 
 Kadar so zadnje tri izpuščene, so privzete vrednosti K = ∞, N = ∞, D = FIFO. Na primer „M/M/1“ pomeni Poissonove prihode, eksponentne čase strežbe, en strežnik, neomejeno zmogljivost, neomejeno populacijo in prvi noter, prvi ven.
 
-Standardna notacija uporablja tudi n za število elementov v sistemu.
+Poleg tega:
+
+- n: število elementov v sistemu.
 
 ## Matematika čakalnih vrst
 
-Matematični razdelki uporabljajo učbeniške simbole, da jih lahko primerjate z drugimi viri: S je povprečni čas strežbe, kar je naš φ, μ = 1 / S pa je zmogljivost enega strežnika. Glejte primerjavo v [notaciji teorije čakalnih vrst](#notacija-teorije-čakalnih-vrst).
+Matematični razdelki uporabljajo učbeniške simbole, da jih lahko primerjate z drugimi viri: S je povprečni čas strežbe, kar je naš φ, μ = 1 / S pa je zmogljivost enega strežnika.
 
 ### Krivulja izkoriščenosti
 
@@ -405,7 +432,7 @@ Primeri:
 
 - Aμ: stopnja strežbe aktivnosti oz. zmogljivost: koliko elementov lahko en strežnik dokonča na časovno enoto, ko je zaseden.
 
-- Aδ: stopnja izpustitev aktivnosti oz. stopnja osipa: koliko elementov je opuščenih na časovno enoto.
+- Aσ: stopnja izpustitev aktivnosti: koliko elementov je opuščenih na časovno enoto.
 
 - Aρ: razmerje izkoriščenosti aktivnosti: delež razpoložljivega časa, ko so strežniki zasedeni, torej čas zasedenosti ÷ razpoložljivi čas ali λ / (c μ).
 

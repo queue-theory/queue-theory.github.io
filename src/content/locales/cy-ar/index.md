@@ -20,12 +20,12 @@ Cynnwys:
   - [Cyfrif](#cyfrif)
   - [Cyfradd cyrraedd, cyfradd gwasanaethu](#cyfradd-cyrraedd-cyfradd-gwasanaethu)
   - [Cymhareb defnydd, neu ddwyster traffig](#cymhareb-defnydd-neu-ddwyster-traffig)
-  - [Cyfraddau trwybwn: cyfradd gyfan, cyfradd llwyddo, cyfradd methu, cyfradd hepgor](#cyfraddau-trwybwn-cyfradd-gyfan-cyfradd-llwyddo-cyfradd-methu-cyfradd-hepgor)
+  - [Cyfraddau trwybwn: cyfradd gyfan, cyfradd gorffen, cyfradd llwyddo, cyfradd methu, cyfradd hepgor](#cyfraddau-trwybwn-cyfradd-gyfan-cyfradd-gorffen-cyfradd-llwyddo-cyfradd-methu-cyfradd-hepgor)
   - [Gwahaniaethu ystyron cyfradd gwasanaethu](#gwahaniaethu-ystyron-cyfradd-gwasanaethu)
   - [Cyfradd hepgor](#cyfradd-hepgor)
   - [Cymhareb gwallau](#cymhareb-gwallau)
   - [Amser arwain, amser cam, amser gwaith, amser aros](#amser-arwain-amser-cam-amser-gwaith-amser-aros)
-  - [Nodiant safonol](#nodiant-safonol)
+  - [Nodiant Kendall](#nodiant-kendall)
 - [Mathemateg ciwiau](#mathemateg-ciwiau)
   - [Y gromlin defnydd](#y-gromlin-defnydd)
   - [Fformiwla Kingman](#fformiwla-kingman)
@@ -114,41 +114,50 @@ Mae theori ciwiau yn defnyddio nodiant â llythrennau Groeg.
 
 Mae ein timau’n defnyddio rhywfaint o’r nodiant poblogaidd; rydym hefyd yn ychwanegu nodiant personol sy’n ein helpu gyda phrosiectau meddalwedd.
 
-Croesgyfeiriad o’n nodiant ni i nodiant safonol y gwerslyfrau:
+Ein nodiant ac ystyr pob symbol:
 
-| Ein nodiant | Safonol | Ystyr |
-| ----------- | ------- | ----- |
-| κ           | L       | nifer cyfartalog yr eitemau yn y system, sef y rhai sy’n aros a’r rhai sy’n cael eu trin |
-| λ           | λ       | cyfradd cyrraedd yr eitemau sy’n mynd i mewn i’r system |
-| μ           | μ       | cyfradd gwasanaethu, neu gapasiti: pa mor gyflym mae un gweinydd yn gweithio tra bydd yn brysur |
-| ρ           | ρ       | defnydd: y gyfran o’r amser y mae’r gweinyddion yn brysur, λ / (c μ) |
-| χ           | X       | trwybwn, neu gyfradd ymadael: allbwn a welwyd, am unrhyw reswm |
-| α           | dim     | cyfradd llwyddo: allbwn a welwyd sy’n troi allan yn iawn |
-| β           | dim     | cyfradd methu: allbwn a welwyd sy’n troi allan yn anghywir |
-| δ           | dim     | cyfradd hepgor, neu gyfradd gadael: eitemau a aeth i mewn, yna gadael heb wasanaeth |
-| ε           | dim     | cymhareb gwallau β / (α + β) |
-| τ           | W       | amser cyfartalog yn y system, neu amser arwain |
-| ω           | Wq      | amser cyfartalog yn aros yn y ciw |
-| φ           | S       | amser gwasanaethu cyfartalog, neu amser gwaith; μ = 1 / S |
-| θ           | dim     | amser cam rhwng cwblhau; amser cam cymedrig ≈ 1 / χ mewn cyflwr sefydlog |
-
-Byddwch yn wyliadwrus o symbolau sy’n gwrthdaro wrth ddarllen ffynonellau eraill: mae σ fel arfer yn golygu gwyriad safonol, a dyna pam rydym yn defnyddio δ ar gyfer y gyfradd hepgor; ac mae θ yn aml yn golygu’r gyfradd gefnu mewn modelau canolfannau galwadau Erlang-A, tra byddwn ni’n defnyddio θ ar gyfer amser cam.
+| Ein nodiant | Ystyr |
+| ----------- | ----- |
+| κ (kappa) | nifer yr eitemau yn y system, sef y rhai sy’n aros a’r rhai sy’n cael eu trin |
+| λ (lambda) | cyfradd cyrraedd yr eitemau sy’n mynd i mewn i’r system |
+| μ (mu) | cyfradd gwasanaethu, neu gapasiti: pa mor gyflym mae un gweinydd yn gweithio tra bydd yn brysur |
+| ρ (rho) | defnydd: y gyfran o’r amser y mae’r gweinyddion yn brysur, λ / (c μ) |
+| χ (chi) | trwybwn, neu gyfradd ymadael: allbwn a welwyd, am unrhyw reswm |
+| α (alffa) | cyfradd llwyddo: allbwn a welwyd sy’n troi allan yn iawn |
+| β (beta) | cyfradd methu: allbwn a welwyd sy’n troi allan yn anghywir |
+| δ (delta) | cyfradd gorffen: llwyddiant + methiant, eitemau a gafodd wasanaeth, boed yn gywir neu’n anghywir |
+| σ (sigma) | cyfradd hepgor: eitemau a aeth i mewn, yna gadael heb wasanaeth |
+| ε (epsilon) | cymhareb gwallau: β / (α + β) = β / δ |
+| τ (tau) | amser yn y system, neu amser arwain |
+| ω (omega) | amser yn aros, neu amser yn y ciw |
+| φ (phi) | amser yn gweithio, neu amser yn y prosesydd, neu amser gwasanaethu |
+| θ (theta) | amser cam rhwng cwblhau; amser cam cymedrig ≈ 1 / χ mewn cyflwr sefydlog |
 
 ### Cyfrif
 
 Rydym yn cyfrif eitemau’n aml, ac rydym yn defnyddio’r nodiant hwn:
 
-- κ (kappa): cyfrif yr eitemau yn y system, sef yr eitemau sy’n aros a’r eitemau sy’n cael eu trin
+- κ (kappa): cyfrif yr eitemau yn y system, sef yr eitemau sy’n aros ynghyd â’r eitemau sy’n cael eu trin.
+
+![Diagram: mae eitemau’n cyrraedd ar gyfradd λ, mae κ eitem yn y system, ac mae eitemau’n gadael ar drwybwn χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Enghraifft:
 
-- κ = 100 yn golygu bod 100 o eitemau yn y system.
+- κ = 10 yn golygu union 10
 
-- κ > 100 yn golygu bod mwy na 100 o eitemau yn y system.
+- κ ≈ 10 yn golygu tua 10
 
-- κ ≫ 100 yn golygu bod llawer mwy na 100 o eitemau yn y system.
+- κ < 10 yn golygu llai na 10
 
-Ciplun ar un adeg yw cyfrif fel κ = 100. Yn Neddf Little, mae κ yn golygu’r cyfrif cyfartalog hirdymor, sef L y gwerslyfrau. Symbol y gwerslyfrau ar gyfer yr eitemau sy’n aros yn y ciw yn unig yw Lq.
+- κ > 10 yn golygu mwy na 10
+
+- κ ≪ 10 yn golygu llawer llai na 10
+
+- κ ≫ 10 yn golygu llawer mwy na 10
+
+Ciplun ar un adeg yw’r cyfrif κ (kappa).
+
+Cyfrifiad sy’n cymryd cyfartaledd mesuriadau dros gyfnod penodol o amser yw’r cyfrif cyfartalog κ̅ (kappa bar), er enghraifft mesur bob awr am bythefnos.
 
 ### Cyfradd cyrraedd, cyfradd gwasanaethu
 
@@ -184,9 +193,9 @@ Enghreifftiau:
 
 - ρ > 1 yn golygu bod y cyrraedd yn fwy na’r capasiti; mae’r ciw yn mynd yn fwy.
 
-### Cyfraddau trwybwn: cyfradd gyfan, cyfradd llwyddo, cyfradd methu, cyfradd hepgor
+### Cyfraddau trwybwn: cyfradd gyfan, cyfradd gorffen, cyfradd llwyddo, cyfradd methu, cyfradd hepgor
 
-Mae cyfraddau trwybwn yn mesur yr allbwn a welwyd, sef yr eitemau sy’n gadael y ciw mewn gwirionedd. Maen nhw’n perthyn i bedwar categori bras:
+Mae cyfraddau trwybwn yn mesur yr allbwn a welwyd, sef yr eitemau sy’n gadael y ciw mewn gwirionedd. Maen nhw’n perthyn i bum categori bras:
 
 - χ (chi): cyfradd gyfan. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n gadael y ciw am unrhyw reswm: llwyddo, methu, hepgor, ac ati.
 
@@ -194,11 +203,23 @@ Mae cyfraddau trwybwn yn mesur yr allbwn a welwyd, sef yr eitemau sy’n gadael 
 
 - β (beta): cyfradd methu. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n troi allan yn anghywir, e.e. yn wallus, yn anghyflawn, wedi’u gwrthod.
 
-- δ (delta): cyfradd hepgor, neu gyfradd gadael. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n mynd i mewn i’r ciw, yna’n gadael heb gael eu gwasanaethu, e.e. yn cefnu, yn rhoi’r gorau iddi.
+- δ (delta): cyfradd gorffen. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n cael eu gwasanaethu, boed yn gywir neu’n anghywir: llwyddiant + methiant.
+
+- σ (sigma): cyfradd hepgor. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n mynd i mewn i’r ciw, yna’n gadael heb gael eu gwasanaethu, e.e. yn cefnu, yn rhoi’r gorau iddi.
+
+Cyfradd gorffen = cyfradd llwyddo + cyfradd methu:
+
+- δ = α + β (ynganiad: delta yn hafal i alffa adio beta)
+
+Cyfradd gyfan = cyfradd gorffen + cyfradd hepgor:
+
+- χ = δ + σ (ynganiad: chi yn hafal i delta adio sigma)
 
 Cyfradd gyfan = cyfradd llwyddo + cyfradd methu + cyfradd hepgor:
 
-- χ = α + β + δ (ynganiad: chi yn hafal i alffa adio beta adio delta)
+- χ = α + β + σ (ynganiad: chi yn hafal i alffa adio beta adio sigma)
+
+![Diagram: mae eitemau’n gadael y system fel llwyddiant α, methiant β neu hepgoriad σ; gorffenedig δ = α + β, felly χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Aeth pob eitem a gyfrifir yn χ i mewn i’r system, felly mewn cyflwr sefydlog mae’r gyfradd gyfan yn hafal i’r gyfradd cyrraedd: χ ≈ λ. Dyna pam mae cyfraddau trwybwn yn mesur allbwn, nid capasiti.
 
@@ -215,7 +236,7 @@ i olrhain methiannau a hepgoriadau.
 
 - Safbwynt Prosesu: Mae’r gyfradd gwasanaethu yn cynnwys beth bynnag y mae’r ciw yn treulio amser yn ei brosesu, sef llwyddiannau neu fethiannau, ond nid yw’n cynnwys hepgoriadau.
 
-- Safbwynt Technoleg: Mewn meysydd cymhwysol fel peirianneg meddalwedd, mae’r gyfradd gwasanaethu yn mesur llwyddiannau yn unig, tra bo’r gyfradd gwallau yn mesur methiannau, a’r gyfradd hepgor yn mesur gadawiadau.
+- Safbwynt Technoleg: Mewn meysydd cymhwysol fel peirianneg meddalwedd, mae’r gyfradd gwasanaethu yn mesur llwyddiannau yn unig, tra bo’r gyfradd gwallau yn mesur methiannau, a’r gyfradd hepgor yn mesur hepgoriadau.
 
 Felly rydym yn cadw μ ar gyfer capasiti, ac yn ychwanegu cyfraddau allbwn a welwyd ochr yn ochr ag ef, yn hytrach na’i ddisodli:
 
@@ -231,7 +252,7 @@ Pam na ddylid disodli μ â χ neu α? Mewn ciw sefydlog, mae pob eitem sy’n m
 
 Manylion y gyfradd hepgor:
 
-- δ (delta): cyfradd hepgor, neu gyfradd gadael. Mae hon yn mesur faint o eitemau sy’n mynd i mewn i’r ciw, yna’n gadael heb eu trin.
+- σ (sigma): cyfradd hepgor. Mae hon yn mesur faint o eitemau sy’n mynd i mewn i’r ciw, yna’n gadael heb gael eu trin.
 
 Hepgoriad yw pan fydd eitem yn mynd i mewn i’r ciw, yna’n gadael heb unrhyw brosesu sylweddol:
 
@@ -241,7 +262,7 @@ Hepgoriad yw pan fydd eitem yn mynd i mewn i’r ciw, yna’n gadael heb unrhyw 
 
 Nid hepgoriadau yw dau ymddygiad cysylltiedig:
 
-- Gwrthod ciwio (balking): pan fydd cwsmer yn penderfynu peidio ag ymuno â’r ciw oherwydd bod yr amser aros yn bygwth bod yn rhy hir. Nid yw eitem sy’n gwrthod ciwio byth yn mynd i mewn i’r system, felly mae y tu allan i ffin y system: nid yw’n cael ei chyfrif yn λ, χ, na δ. Os yw gwrthodiadau’n bwysig, fel gwerthiannau a gollwyd, cyfrifwch nhw ar wahân fel achosion o gyrraedd a drowyd ymaith.
+- Gwrthod ciwio (balking): pan fydd cwsmer yn penderfynu peidio ag ymuno â’r ciw oherwydd bod yr amser aros yn bygwth bod yn rhy hir. Nid yw eitem sy’n gwrthod ciwio byth yn mynd i mewn i’r system, felly mae y tu allan i ffin y system: nid yw’n cael ei chyfrif yn λ, χ, na σ. Os yw gwrthodiadau’n bwysig, fel gwerthiannau a gollwyd, cyfrifwch nhw ar wahân fel achosion o gyrraedd a drowyd ymaith.
 
 - Neidio rhwng ciwiau (jockeying): mae’r cwsmer yn aros yn y system; dyma pan fydd cwsmer yn newid rhwng ciwiau cyfochrog, fel lonydd talu, gan geisio cael amser aros byrrach.
 
@@ -249,9 +270,11 @@ Nid hepgoriadau yw dau ymddygiad cysylltiedig:
 
 Y nodiant pwysicaf sy’n crynhoi llwyddiant ciw:
 
-- ε (epsilon): cymhareb gwallau = cyfrif methiannau / (cyfrif llwyddiannau + cyfrif methiannau) = β / (α + β)
+- ε (epsilon): cymhareb gwallau = cyfrif methiannau / (cyfrif llwyddiannau + cyfrif methiannau) = β / (α + β) = β / δ
 
-Mae hepgoriadau wedi’u heithrio, oherwydd ni chafodd eitem a hepgorwyd erioed ei gwasanaethu, felly nid oedd yn iawn nac yn anghywir. Olrheiniwch hepgoriadau ar wahân drwy δ.
+Mae hepgoriadau wedi’u heithrio, oherwydd ni chafodd eitem a hepgorwyd erioed ei gwasanaethu, felly nid oedd yn iawn nac yn anghywir. Olrheiniwch hepgoriadau ar wahân drwy σ.
+
+![Diagram: y gyfradd gorffen δ yw’r gyfradd llwyddo α adio’r gyfradd methu β, a’r gymhareb gwallau ε yw’r gyfradd methu β wedi’i rhannu â’r gyfradd gorffen δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Enghreifftiau:
 
@@ -273,6 +296,8 @@ Rydym yn olrhain pedwar amser:
 
 - ω (omega): amser aros = amser a dreulir heb wneud gwaith go iawn, sef amser disgwyl
 
+![Diagram: amser arwain τ yw’r amser aros ω ac yna’r amser gwaith φ, felly τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Enghreifftiau:
 
 - τ = 5e yn golygu bod eitem yn cael ei hychwanegu at y ciw, yna’n cael ei gwasanaethu 5 eiliad yn ddiweddarach.
@@ -289,9 +314,9 @@ Perthnasoedd:
 
 - θ cymedrig ≈ 1 / χ: mewn cyflwr sefydlog, yr amser cam cymedrig yw gwrthdro’r gyfradd gyfan. Ychydig y mae un bwlch yn ei ddweud am y gyfradd; mae cyfartaledd llawer o fylchau yn dweud mwy. Yn yr enghreifftiau, os yw’r amser cam cymedrig yn 1e, yna χ ≈ 1 eitem yr eiliad.
 
-### Nodiant safonol
+### Nodiant Kendall
 
-Mae nodiant safonol theori ciwiau yn disgrifio ciw drwy ddefnyddio nodiant Kendall, a ysgrifennir fel A/S/c/K/N/D:
+Mae nodiant Kendall yn nodiant gwahanol ar gyfer theori ciwiau, a ysgrifennir fel A/S/c/K/N/D:
 
 - A: y broses gyrraedd, sef dosraniad yr amser rhwng cyrraedd.
 
@@ -315,11 +340,13 @@ Llythrennau cyffredin ar gyfer A ac S:
 
 Pan hepgorir y tri olaf, y rhagosodiadau yw K = ∞, N = ∞, D = FIFO. Er enghraifft, mae "M/M/1" yn golygu cyrraedd Poisson, amseroedd gwasanaethu esbonyddol, un gweinydd, capasiti diderfyn, poblogaeth ddiderfyn, a chyntaf i mewn, cyntaf allan.
 
-Mae nodiant safonol hefyd yn defnyddio n i olygu nifer yr eitemau yn y system.
+Hefyd:
+
+- n: nifer yr eitemau yn y system.
 
 ## Mathemateg ciwiau
 
-Mae’r adrannau mathemateg yn defnyddio symbolau’r gwerslyfrau, fel y gallwch eu cymharu â ffynonellau eraill: S yw’r amser gwasanaethu cyfartalog, sef ein φ ni, a μ = 1 / S yw capasiti un gweinydd. Gweler y tabl cyfatebiaeth yn [nodiant theori ciwiau](#nodiant-theori-ciwiau).
+Mae’r adrannau mathemateg yn defnyddio symbolau’r gwerslyfrau, fel y gallwch eu cymharu â ffynonellau eraill: S yw’r amser gwasanaethu cyfartalog, sef ein φ ni, a μ = 1 / S yw capasiti un gweinydd.
 
 ### Y gromlin defnydd
 
@@ -410,7 +437,7 @@ Enghreifftiau:
 
 - Aμ: Cyfradd gwasanaethu gweithgaredd, neu gapasiti: faint o eitemau y gall un gweinydd eu cwblhau fesul uned amser tra bydd yn brysur.
 
-- Aδ: Cyfradd hepgor gweithgaredd, neu gyfradd gadael: faint o eitemau sy’n cael eu gadael fesul uned amser.
+- Aσ: Cyfradd hepgor gweithgaredd: faint o eitemau sy’n cael eu gadael fesul uned amser.
 
 - Aρ: Cymhareb defnydd gweithgaredd: y gyfran o’r amser sydd ar gael y mae’r gweinyddion yn brysur, sef amser prysur ÷ amser ar gael, neu λ / (c μ).
 

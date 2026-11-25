@@ -15,12 +15,12 @@ Spis treści:
   - [Liczba](#liczba)
   - [Tempo przybywania, tempo obsługi](#tempo-przybywania-tempo-obsługi)
   - [Współczynnik wykorzystania, czyli natężenie ruchu](#współczynnik-wykorzystania-czyli-natężenie-ruchu)
-  - [Tempa przepustowości: tempo całkowite, tempo sukcesów, tempo porażek, tempo pominięć](#tempa-przepustowości-tempo-całkowite-tempo-sukcesów-tempo-porażek-tempo-pominięć)
+  - [Tempa przepustowości: tempo całkowite, tempo zakończeń, tempo sukcesów, tempo porażek, tempo pominięć](#tempa-przepustowości-tempo-całkowite-tempo-zakończeń-tempo-sukcesów-tempo-porażek-tempo-pominięć)
   - [Ujednoznacznienie tempa obsługi](#ujednoznacznienie-tempa-obsługi)
   - [Tempo pominięć](#tempo-pominięć)
   - [Wskaźnik błędów](#wskaźnik-błędów)
   - [Czas realizacji, czas kroku, czas pracy, czas oczekiwania](#czas-realizacji-czas-kroku-czas-pracy-czas-oczekiwania)
-  - [Notacja standardowa](#notacja-standardowa)
+  - [Notacja Kendalla](#notacja-kendalla)
 - [Matematyka kolejek](#matematyka-kolejek)
   - [Krzywa wykorzystania](#krzywa-wykorzystania)
   - [Wzór Kingmana](#wzór-kingmana)
@@ -109,41 +109,50 @@ Teoria kolejek używa notacji z literami greckimi.
 
 Nasze zespoły używają części popularnej notacji; dodajemy też własną notację, która pomaga nam w projektach programistycznych.
 
-Zestawienie naszej notacji ze standardową notacją podręcznikową:
+Nasza notacja i znaczenie każdego symbolu:
 
-| Nasza | Standardowa | Znaczenie                                                                        |
-| ----- | ----------- | -------------------------------------------------------------------------------- |
-| κ     | L           | średnia liczba elementów w systemie, oczekujących oraz obsługiwanych             |
-| λ     | λ           | tempo przybywania elementów wchodzących do systemu                               |
-| μ     | μ           | tempo obsługi, czyli wydajność: jak szybko pracuje jeden serwer, gdy jest zajęty |
-| ρ     | ρ           | wykorzystanie: część czasu, w której serwery są zajęte, λ / (c μ)                |
-| χ     | X           | przepustowość, czyli tempo wyjść: obserwowany wynik, z dowolnej przyczyny        |
-| α     | brak        | tempo sukcesów: obserwowany wynik, który okazuje się poprawny                    |
-| β     | brak        | tempo porażek: obserwowany wynik, który okazuje się błędny                       |
-| δ     | brak        | tempo pominięć, czyli tempo rezygnacji: elementy, które weszły i wyszły bez obsługi |
-| ε     | brak        | wskaźnik błędów β / (α + β)                                                      |
-| τ     | W           | średni czas w systemie, czyli czas realizacji                                    |
-| ω     | Wq          | średni czas oczekiwania w kolejce                                                |
-| φ     | S           | średni czas obsługi, czyli czas pracy; μ = 1 / S                                 |
-| θ     | brak        | czas kroku między zakończeniami; średni czas kroku ≈ 1 / χ w stanie ustalonym    |
-
-Proszę uważać na konflikty symboli podczas czytania innych źródeł: σ zwykle oznacza odchylenie standardowe, dlatego dla tempa pominięć używamy δ, a θ często oznacza tempo porzuceń w modelach Erlang-A dla call center, podczas gdy my używamy θ dla czasu kroku.
+| Nasza notacja | Znaczenie |
+| ------------- | --------- |
+| κ (kappa) | liczba elementów w systemie, oczekujących plus obsługiwanych |
+| λ (lambda) | tempo przybywania elementów wchodzących do systemu |
+| μ (mi) | tempo obsługi, czyli wydajność: jak szybko pracuje jeden serwer, gdy jest zajęty |
+| ρ (rho) | wykorzystanie: część czasu, w której serwery są zajęte, λ / (c μ) |
+| χ (chi) | przepustowość, czyli tempo wyjść: obserwowany wynik, z dowolnej przyczyny |
+| α (alfa) | tempo sukcesów: obserwowany wynik, który okazuje się poprawny |
+| β (beta) | tempo porażek: obserwowany wynik, który okazuje się błędny |
+| δ (delta) | tempo zakończeń: sukces + porażka, elementy obsłużone, niezależnie od tego, czy wynik jest poprawny, czy błędny |
+| σ (sigma) | tempo pominięć: elementy, które weszły i wyszły bez obsługi |
+| ε (epsilon) | współczynnik błędów: β / (α + β) = β / δ |
+| τ (tau) | czas w systemie, czyli czas realizacji |
+| ω (omega) | czas oczekiwania, czyli czas w kolejce |
+| φ (fi) | czas pracy, czyli czas w procesorze, czyli czas obsługi |
+| θ (theta) | czas kroku między zakończeniami; średni czas kroku ≈ 1 / χ w stanie ustalonym |
 
 ### Liczba
 
 Często liczymy elementy i używamy następującej notacji:
 
-- κ (kappa): liczba elementów w systemie, czyli elementy oczekujące plus elementy obsługiwane
+- κ (kappa): liczba elementów w systemie, czyli elementy oczekujące plus elementy obsługiwane.
+
+![Diagram: elementy przybywają w tempie λ, w systemie jest κ elementów, a elementy wychodzą z przepustowością χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Przykład:
 
-- κ = 100 oznacza, że w systemie jest 100 elementów.
+- κ = 10 oznacza dokładnie 10
 
-- κ > 100 oznacza, że w systemie jest więcej niż 100 elementów.
+- κ ≈ 10 oznacza około 10
 
-- κ ≫ 100 oznacza, że w systemie jest znacznie więcej niż 100 elementów.
+- κ < 10 oznacza mniej niż 10
 
-Liczba taka jak κ = 100 to migawka z jednej chwili. W prawie Little'a κ oznacza długoterminową średnią liczbę, czyli podręcznikowe L. Podręcznikowym symbolem samych elementów oczekujących w kolejce jest Lq.
+- κ > 10 oznacza więcej niż 10
+
+- κ ≪ 10 oznacza znacznie mniej niż 10
+
+- κ ≫ 10 oznacza znacznie więcej niż 10
+
+Liczba κ (kappa) to migawka z jednej chwili.
+
+Średnia liczba κ̅ (kappa z kreską) to obliczenie uśredniające pomiary z określonego okresu, na przykład pomiar co godzinę przez dwa tygodnie.
 
 ### Tempo przybywania, tempo obsługi
 
@@ -179,9 +188,9 @@ Przykłady:
 
 - ρ > 1 oznacza, że przybycia przekraczają wydajność; kolejka się wydłuża.
 
-### Tempa przepustowości: tempo całkowite, tempo sukcesów, tempo porażek, tempo pominięć
+### Tempa przepustowości: tempo całkowite, tempo zakończeń, tempo sukcesów, tempo porażek, tempo pominięć
 
-Tempa przepustowości mierzą obserwowany wynik, czyli elementy, które faktycznie opuszczają kolejkę. Dzielą się na cztery ogólne kategorie:
+Tempa przepustowości mierzą obserwowany wynik, czyli elementy, które faktycznie opuszczają kolejkę. Dzielą się na pięć ogólnych kategorii:
 
 - χ (chi): tempo całkowite. Mierzy, ile elementów w jednostce czasu opuszcza kolejkę z dowolnej przyczyny: sukces, porażka, pominięcie itp.
 
@@ -189,11 +198,23 @@ Tempa przepustowości mierzą obserwowany wynik, czyli elementy, które faktyczn
 
 - β (beta): tempo porażek. Mierzy, ile elementów w danym okresie okazuje się błędnych, np. nieprawidłowych, niekompletnych, odrzuconych.
 
-- δ (delta): tempo pominięć, czyli tempo rezygnacji. Mierzy, ile elementów w danym okresie wchodzi do kolejki, a następnie wychodzi bez obsługi, np. porzucenia, rezygnacje w trakcie oczekiwania.
+- δ (delta): tempo zakończeń. Mierzy, ile elementów w danym okresie zostaje obsłużonych, niezależnie od tego, czy wynik jest poprawny, czy błędny: sukces + porażka.
+
+- σ (sigma): tempo pominięć. Mierzy, ile elementów w danym okresie wchodzi do kolejki, a następnie wychodzi bez obsługi, np. porzucenia, rezygnacje.
+
+Tempo zakończeń = tempo sukcesów + tempo porażek:
+
+- δ = α + β (czytaj: delta równa się alfa plus beta)
+
+Tempo całkowite = tempo zakończeń + tempo pominięć:
+
+- χ = δ + σ (czytaj: chi równa się delta plus sigma)
 
 Tempo całkowite = tempo sukcesów + tempo porażek + tempo pominięć:
 
-- χ = α + β + δ (czytaj: chi równa się alfa plus beta plus delta)
+- χ = α + β + σ (czytaj: chi równa się alfa plus beta plus sigma)
+
+![Diagram: elementy opuszczają system jako sukces α, porażka β lub pominięcie σ; zakończone δ = α + β, zatem χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Każdy element policzony w χ wszedł do systemu, więc w stanie ustalonym tempo całkowite jest równe tempu przybywania: χ ≈ λ. Dlatego tempa przepustowości mierzą wynik, a nie wydajność.
 
@@ -210,7 +231,7 @@ potrzeba śledzenia porażek i pominięć.
 
 - Ujęcie przetwarzania: tempo obsługi obejmuje wszystko, na co kolejka poświęca czas przetwarzania, czyli sukcesy lub porażki, ale nie obejmuje pominięć.
 
-- Ujęcie technologiczne: w dziedzinach stosowanych, takich jak inżynieria oprogramowania, tempo obsługi mierzy tylko sukcesy, natomiast tempo błędów mierzy porażki, a tempo pominięć mierzy rezygnacje.
+- Ujęcie technologiczne: w dziedzinach stosowanych, takich jak inżynieria oprogramowania, tempo obsługi mierzy tylko sukcesy, natomiast tempo błędów mierzy porażki, a tempo pominięć mierzy pominięcia.
 
 Dlatego zachowujemy μ dla wydajności i dodajemy obok niego tempa obserwowanego wyniku, zamiast je nim zastępować:
 
@@ -226,7 +247,7 @@ Dlaczego nie zastąpić μ przez χ lub α? W stabilnej kolejce każdy element, 
 
 Szczegóły tempa pominięć:
 
-- δ (delta): tempo pominięć, czyli tempo rezygnacji. Mierzy, ile elementów wchodzi do kolejki, a następnie wychodzi bez obsługi.
+- σ (sigma): tempo pominięć. Mierzy, ile elementów wchodzi do kolejki, a następnie wychodzi bez przetworzenia.
 
 Pominięcie ma miejsce wtedy, gdy element wchodzi do kolejki, a następnie wychodzi bez istotnego przetworzenia:
 
@@ -236,7 +257,7 @@ Pominięcie ma miejsce wtedy, gdy element wchodzi do kolejki, a następnie wycho
 
 Dwa pokrewne zachowania nie są pominięciami:
 
-- Odmowa wejścia (balking): gdy klient postanawia nie dołączać do kolejki, ponieważ czas oczekiwania grozi tym, że będzie zbyt długi. Element, który odmówił wejścia, nigdy nie wchodzi do systemu, więc znajduje się poza granicą systemu: nie jest liczony w λ, χ ani δ. Jeśli odmowy wejścia mają znaczenie, na przykład jako utracona sprzedaż, należy liczyć je osobno jako odprawione przybycia.
+- Odmowa wejścia (balking): gdy klient postanawia nie dołączać do kolejki, ponieważ czas oczekiwania grozi tym, że będzie zbyt długi. Element, który odmówił wejścia, nigdy nie wchodzi do systemu, więc znajduje się poza granicą systemu: nie jest liczony w λ, χ ani σ. Jeśli odmowy wejścia mają znaczenie, na przykład jako utracona sprzedaż, należy liczyć je osobno jako odprawione przybycia.
 
 - Przechodzenie między kolejkami (jockeying): gdy klient przechodzi między równoległymi kolejkami, na przykład kasami, próbując skrócić oczekiwanie.
 
@@ -244,9 +265,11 @@ Dwa pokrewne zachowania nie są pominięciami:
 
 Najważniejsza notacja podsumowująca skuteczność kolejki:
 
-- ε (epsilon): wskaźnik błędów = liczba porażek / (liczba sukcesów + liczba porażek) = β / (α + β)
+- ε (epsilon): wskaźnik błędów = liczba porażek / (liczba sukcesów + liczba porażek) = β / (α + β) = β / δ
 
-Pominięcia są wyłączone, ponieważ pominięty element nigdy nie został obsłużony, więc nie był ani poprawny, ani błędny. Pominięcia należy śledzić osobno za pomocą δ.
+Pominięcia są wyłączone, ponieważ pominięty element nigdy nie został obsłużony, więc nie był ani poprawny, ani błędny. Pominięcia należy śledzić osobno za pomocą σ.
+
+![Diagram: tempo zakończeń δ to tempo sukcesów α plus tempo porażek β, a współczynnik błędów ε to tempo porażek β podzielone przez tempo zakończeń δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Przykłady:
 
@@ -268,6 +291,8 @@ Przykłady:
 
 - ω (omega): czas oczekiwania = czas, w którym nie wykonuje się faktycznej pracy, czyli czas zawieszenia
 
+![Diagram: czas realizacji τ to czas oczekiwania ω, po którym następuje czas pracy φ, zatem τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Przykłady:
 
 - τ = 5s oznacza, że element zostaje dodany do kolejki, a następnie obsłużony 5 sekund później.
@@ -284,9 +309,9 @@ Zależności:
 
 - średnie θ ≈ 1 / χ: w stanie ustalonym średni czas kroku jest odwrotnością tempa całkowitego. Pojedyncza przerwa niewiele mówi o tempie; średnia z wielu przerw mówi znacznie więcej. W przykładach, jeśli średni czas kroku wynosi 1s, to χ ≈ 1 element na sekundę.
 
-### Notacja standardowa
+### Notacja Kendalla
 
-Standardowa notacja teorii kolejek opisuje kolejkę za pomocą notacji Kendalla, zapisywanej jako A/S/c/K/N/D:
+Notacja Kendalla to inna notacja teorii kolejek, zapisywana jako A/S/c/K/N/D:
 
 - A: proces przybyć, czyli rozkład czasu między przybyciami.
 
@@ -310,11 +335,13 @@ Typowe litery dla A i S:
 
 Gdy trzy ostatnie są pominięte, wartości domyślne to K = ∞, N = ∞, D = FIFO. Na przykład „M/M/1” oznacza przybycia Poissona, wykładnicze czasy obsługi, jeden serwer, nieograniczoną pojemność, nieograniczoną populację oraz kolejność „pierwszy przyszedł, pierwszy obsłużony”.
 
-Notacja standardowa używa także n na oznaczenie liczby elementów w systemie.
+Ponadto:
+
+- n: liczba elementów w systemie.
 
 ## Matematyka kolejek
 
-Sekcje matematyczne używają symboli podręcznikowych, aby można je było porównać z innymi źródłami: S to średni czas obsługi, czyli nasze φ, a μ = 1 / S to wydajność jednego serwera. Zob. zestawienie w sekcji [notacja teorii kolejek](#notacja-teorii-kolejek).
+Sekcje matematyczne używają symboli podręcznikowych, aby można je było porównać z innymi źródłami: S to średni czas obsługi, czyli nasze φ, a μ = 1 / S to wydajność jednego serwera.
 
 ### Krzywa wykorzystania
 
@@ -405,7 +432,7 @@ Przykłady:
 
 - Aμ: tempo obsługi aktywności, czyli wydajność: ile elementów jeden serwer może ukończyć na jednostkę czasu, gdy jest zajęty.
 
-- Aδ: tempo pominięć aktywności, czyli tempo rezygnacji: ile elementów jest porzucanych na jednostkę czasu.
+- Aσ: tempo pominięć aktywności: ile elementów jest porzucanych na jednostkę czasu.
 
 - Aρ: współczynnik wykorzystania aktywności: część dostępnego czasu, w której serwery są zajęte, czyli czas zajętości ÷ czas dostępny, lub λ / (c μ).
 

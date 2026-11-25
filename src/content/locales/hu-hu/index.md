@@ -19,12 +19,12 @@ Tartalom:
   - [Darabszám](#darabszám)
   - [Érkezési ráta, kiszolgálási ráta](#érkezési-ráta-kiszolgálási-ráta)
   - [Kihasználtsági arány, más néven forgalmi intenzitás](#kihasználtsági-arány-más-néven-forgalmi-intenzitás)
-  - [Áteresztési ráták: teljes ráta, sikerességi ráta, hibaráta, kihagyási ráta](#áteresztési-ráták-teljes-ráta-sikerességi-ráta-hibaráta-kihagyási-ráta)
+  - [Áteresztési ráták: teljes ráta, befejezési ráta, sikerességi ráta, hibaráta, kihagyási ráta](#áteresztési-ráták-teljes-ráta-befejezési-ráta-sikerességi-ráta-hibaráta-kihagyási-ráta)
   - [A kiszolgálási ráta fogalmának tisztázása](#a-kiszolgálási-ráta-fogalmának-tisztázása)
   - [Kihagyási ráta](#kihagyási-ráta)
   - [Hibaarány](#hibaarány)
   - [Átfutási idő, lépésidő, munkaidő, várakozási idő](#átfutási-idő-lépésidő-munkaidő-várakozási-idő)
-  - [Standard jelölés](#standard-jelölés)
+  - [Kendall-féle jelölés](#kendall-féle-jelölés)
 - [A sorbanállás matematikája](#a-sorbanállás-matematikája)
   - [A kihasználtsági görbe](#a-kihasználtsági-görbe)
   - [Kingman képlete](#kingman-képlete)
@@ -113,41 +113,50 @@ A sorbanállás-elmélet görög betűket használó jelöléseket alkalmaz.
 
 Csapataink a népszerű jelölések egy részét használják; emellett néhány saját jelölést is bevezetünk, amelyek a szoftverprojektekben segítenek.
 
-Megfeleltetés a mi jelöléseink és a tankönyvi standard jelölések között:
+A mi jelölésünk és az egyes szimbólumok jelentése:
 
-| Mi | Standard | Jelentés |
-| --- | --- | --- |
-| κ | L | a rendszerben lévő elemek átlagos száma, a várakozók és a feldolgozás alatt állók együtt |
-| λ | λ | a rendszerbe belépő elemek érkezési rátája |
-| μ | μ | kiszolgálási ráta, más néven kapacitás: milyen gyorsan dolgozik egy kiszolgáló, amíg foglalt |
-| ρ | ρ | kihasználtság: az idő azon hányada, amikor a kiszolgálók foglaltak, λ / (c μ) |
-| χ | X | áteresztőképesség, más néven távozási ráta: megfigyelt kimenet, bármilyen okból |
-| α | nincs | sikerességi ráta: a helyesnek bizonyuló megfigyelt kimenet |
-| β | nincs | hibaráta: a hibásnak bizonyuló megfigyelt kimenet |
-| δ | nincs | kihagyási ráta, más néven lemorzsolódási ráta: belépett, majd kiszolgálatlanul távozó elemek |
-| ε | nincs | hibaarány β / (α + β) |
-| τ | W | a rendszerben töltött átlagos idő, más néven átfutási idő |
-| ω | Wq | a sorban várakozással töltött átlagos idő |
-| φ | S | átlagos kiszolgálási idő, más néven munkaidő; μ = 1 / S |
-| θ | nincs | lépésidő két befejezés között; az átlagos lépésidő ≈ 1 / χ állandósult állapotban |
-
-Más források olvasásakor ügyeljen a szimbólumütközésekre: a σ általában szórást jelent, ezért használjuk a δ-t a kihagyási rátára, a θ pedig az Erlang-A telefonos ügyfélszolgálati modellekben gyakran a lemondási rátát jelenti, míg mi a θ-t a lépésidőre használjuk.
+| A mi jelölésünk | Jelentés |
+| --------------- | -------- |
+| κ (kappa) | a rendszerben lévő elemek száma, a várakozók és a feldolgozás alatt állók együtt |
+| λ (lambda) | a rendszerbe belépő elemek érkezési rátája |
+| μ (mű) | kiszolgálási ráta, más néven kapacitás: milyen gyorsan dolgozik egy kiszolgáló, amíg foglalt |
+| ρ (rhó) | kihasználtság: az idő azon hányada, amikor a kiszolgálók foglaltak, λ / (c μ) |
+| χ (khí) | áteresztőképesség, más néven távozási ráta: megfigyelt kimenet, bármilyen okból |
+| α (alfa) | sikerességi ráta: a helyesnek bizonyuló megfigyelt kimenet |
+| β (béta) | hibaráta: a hibásnak bizonyuló megfigyelt kimenet |
+| δ (delta) | befejezési ráta: siker + hiba, kiszolgált elemek, akár helyes, akár hibás az eredmény |
+| σ (szigma) | kihagyási ráta: belépett, majd kiszolgálatlanul távozó elemek |
+| ε (epszilon) | hibaarány: β / (α + β) = β / δ |
+| τ (tau) | a rendszerben töltött idő, más néven átfutási idő |
+| ω (ómega) | várakozási idő, más néven a sorban töltött idő |
+| φ (fí) | munkaidő, más néven a processzorban töltött idő, más néven kiszolgálási idő |
+| θ (théta) | lépésidő két befejezés között; az átlagos lépésidő ≈ 1 / χ állandósult állapotban |
 
 ### Darabszám
 
 Gyakran számoljuk az elemeket, és ezt a jelölést használjuk:
 
-- κ (kappa): a rendszerben lévő elemek száma, vagyis a várakozó elemek és a feldolgozás alatt álló elemek együtt
+- κ (kappa): a rendszerben lévő elemek száma, vagyis a várakozó elemek és a feldolgozás alatt álló elemek együtt.
+
+![Ábra: az elemek λ rátával érkeznek, κ elem van a rendszerben, és az elemek χ áteresztéssel távoznak](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Példa:
 
-- κ = 100 azt jelenti, hogy 100 elem van a rendszerben.
+- κ = 10 azt jelenti, hogy pontosan 10
 
-- κ > 100 azt jelenti, hogy több mint 100 elem van a rendszerben.
+- κ ≈ 10 azt jelenti, hogy körülbelül 10
 
-- κ ≫ 100 azt jelenti, hogy jóval több mint 100 elem van a rendszerben.
+- κ < 10 azt jelenti, hogy kevesebb mint 10
 
-Az olyan darabszám, mint a κ = 100, egyetlen pillanat pillanatfelvétele. Little törvényében a κ a hosszú távú átlagos darabszámot jelenti, ami a tankönyvi L. A csak a sorban várakozó elemek tankönyvi szimbóluma az Lq.
+- κ > 10 azt jelenti, hogy több mint 10
+
+- κ ≪ 10 azt jelenti, hogy jóval kevesebb mint 10
+
+- κ ≫ 10 azt jelenti, hogy jóval több mint 10
+
+A κ (kappa) darabszám egyetlen pillanat pillanatfelvétele.
+
+Az átlagos κ̅ (kappa felülvonással) darabszám olyan számítás, amely egy meghatározott időszak mérési eredményeit átlagolja, például két héten át óránként mérve.
 
 ### Érkezési ráta, kiszolgálási ráta
 
@@ -183,9 +192,9 @@ Példák:
 
 - ρ > 1 azt jelenti, hogy az érkezések meghaladják a kapacitást; a sor egyre nagyobb.
 
-### Áteresztési ráták: teljes ráta, sikerességi ráta, hibaráta, kihagyási ráta
+### Áteresztési ráták: teljes ráta, befejezési ráta, sikerességi ráta, hibaráta, kihagyási ráta
 
-Az áteresztési ráták a megfigyelt kimenetet mérik, vagyis azokat az elemeket, amelyek ténylegesen elhagyják a sort. Négy fő kategóriájuk van:
+Az áteresztési ráták a megfigyelt kimenetet mérik, vagyis azokat az elemeket, amelyek ténylegesen elhagyják a sort. Öt fő kategóriájuk van:
 
 - χ (khí): teljes ráta. Ez azt méri, hány elem lép ki a sorból időegységenként bármilyen okból: siker, hiba, kihagyás stb.
 
@@ -193,11 +202,23 @@ Az áteresztési ráták a megfigyelt kimenetet mérik, vagyis azokat az elemeke
 
 - β (béta): hibaráta. Ez azt méri, időszakonként hány elem bizonyul hibásnak, például pontatlannak, hiányosnak, elutasítottnak.
 
-- δ (delta): kihagyási ráta, más néven lemorzsolódási ráta. Ez azt méri, időszakonként hány elem lép be a sorba, majd távozik kiszolgálás nélkül, például feladások, visszalépések.
+- δ (delta): befejezési ráta. Ez azt méri, időszakonként hány elemet szolgálnak ki, akár helyes, akár hibás az eredmény: siker + hiba.
+
+- σ (szigma): kihagyási ráta. Ez azt méri, időszakonként hány elem lép be a sorba, majd távozik kiszolgálás nélkül, például feladások, visszalépések.
+
+Befejezési ráta = sikerességi ráta + hibaráta:
+
+- δ = α + β (kiejtve: delta egyenlő alfa plusz béta)
+
+Teljes ráta = befejezési ráta + kihagyási ráta:
+
+- χ = δ + σ (kiejtve: khí egyenlő delta plusz szigma)
 
 Teljes ráta = sikerességi ráta + hibaráta + kihagyási ráta:
 
-- χ = α + β + δ (kiejtve: khí egyenlő alfa plusz béta plusz delta)
+- χ = α + β + σ (kiejtve: khí egyenlő alfa plusz béta plusz szigma)
+
+![Ábra: az elemek sikerként α, hibaként β vagy kihagyásként σ hagyják el a rendszert; befejezett δ = α + β, tehát χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Minden χ-ben számolt elem belépett a rendszerbe, így állandósult állapotban a teljes ráta egyenlő az érkezési rátával: χ ≈ λ. Ezért mérik az áteresztési ráták a kimenetet, nem pedig a kapacitást.
 
@@ -214,7 +235,7 @@ ahol jelentős igény van a hibák és a kihagyások nyomon követésére.
 
 - Feldolgozási nézőpont: A kiszolgálási ráta mindazt tartalmazza, amelynek feldolgozásával a sor időt tölt, vagyis a sikereket vagy a hibákat, de a kihagyásokat nem.
 
-- Technológiai nézőpont: Az alkalmazott területeken, például a szoftvermérnökségben, a kiszolgálási ráta csak a sikereket méri, míg a hibaráta a hibákat, a kihagyási ráta pedig a lemorzsolódásokat.
+- Technológiai nézőpont: Az alkalmazott területeken, például a szoftvermérnökségben, a kiszolgálási ráta csak a sikereket méri, míg a hibaráta a hibákat, a kihagyási ráta pedig a kihagyásokat.
 
 Ezért a μ-t megtartjuk a kapacitásra, és mellé vesszük fel a megfigyelt kimeneti rátákat, ahelyett hogy lecserélnénk:
 
@@ -230,7 +251,7 @@ Miért ne cserélnénk le a μ-t χ-re vagy α-ra? Egy stabil sorban minden bel�
 
 A kihagyási ráta részletei:
 
-- δ (delta): kihagyási ráta, más néven lemorzsolódási ráta. Ez azt méri, hány elem lép be a sorba, majd távozik kezeletlenül.
+- σ (szigma): kihagyási ráta. Ez azt méri, hány elem lép be a sorba, majd távozik feldolgozás nélkül.
 
 Kihagyásról akkor beszélünk, amikor egy elem belép a sorba, majd jelentős feldolgozás nélkül távozik:
 
@@ -240,7 +261,7 @@ Kihagyásról akkor beszélünk, amikor egy elem belép a sorba, majd jelentős 
 
 Két kapcsolódó viselkedés nem számít kihagyásnak:
 
-- Elriadás (balking): amikor egy ügyfél úgy dönt, hogy be sem áll a sorba, mert a várakozási idő túl hosszúnak ígérkezik. Az elriadt elem soha nem lép be a rendszerbe, így a rendszer határán kívül esik: nem számít bele a λ-ba, a χ-be vagy a δ-ba. Ha az elriadások számítanak, például elmaradt eladások miatt, akkor számolja őket külön, elutasított érkezésekként.
+- Elriadás (balking): amikor egy ügyfél úgy dönt, hogy be sem áll a sorba, mert a várakozási idő túl hosszúnak ígérkezik. Az elriadt elem soha nem lép be a rendszerbe, így a rendszer határán kívül esik: nem számít bele a λ-ba, a χ-be vagy a σ-ba. Ha az elriadások számítanak, például elmaradt eladások miatt, akkor számolja őket külön, elutasított érkezésekként.
 
 - Sorváltogatás (jockeying): amikor egy ügyfél párhuzamos sorok között vált, például pénztársorok között, rövidebb várakozást remélve.
 
@@ -248,9 +269,11 @@ Két kapcsolódó viselkedés nem számít kihagyásnak:
 
 A sor sikerességét összefoglaló legfontosabb jelölés:
 
-- ε (epszilon): hibaarány = hibák száma / (sikerek száma + hibák száma) = β / (α + β)
+- ε (epszilon): hibaarány = hibák száma / (sikerek száma + hibák száma) = β / (α + β) = β / δ
 
-A kihagyások nem számítanak bele, mert egy kihagyott elemet soha nem szolgáltak ki, így az sem helyes, sem hibás nem volt. A kihagyásokat külön kövesse a δ segítségével.
+A kihagyások nem számítanak bele, mert egy kihagyott elemet soha nem szolgáltak ki, így az sem helyes, sem hibás nem volt. A kihagyásokat külön kövesse a σ segítségével.
+
+![Ábra: a befejezési ráta δ a sikerességi ráta α plusz a hibaráta β, a hibaarány ε pedig a hibaráta β osztva a befejezési rátával δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Példák:
 
@@ -272,6 +295,8 @@ Négy időt követünk nyomon:
 
 - ω (ómega): várakozási idő = a tényleges munka nélkül töltött idő, más néven függőben lévő idő
 
+![Ábra: az átfutási idő τ a várakozási idő ω, amelyet a munkaidő φ követ, tehát τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Példák:
 
 - τ = 5s azt jelenti, hogy egy elem bekerül a sorba, majd 5 másodperccel később kiszolgálják.
@@ -288,9 +313,9 @@ Példák:
 
 - átlagos θ ≈ 1 / χ: állandósult állapotban az átlagos lépésidő a teljes ráta reciproka. Egyetlen köz keveset árul el a rátáról; sok köz átlaga viszont igen. A példákban, ha az átlagos lépésidő 1s, akkor χ ≈ 1 elem másodpercenként.
 
-### Standard jelölés
+### Kendall-féle jelölés
 
-A sorbanállás-elmélet standard jelölése a sort a Kendall-féle jelöléssel írja le, A/S/c/K/N/D formában:
+A Kendall-féle jelölés a sorbanállás-elmélet egy másik jelölése, A/S/c/K/N/D formában írva:
 
 - A: az érkezési folyamat, vagyis az érkezések közötti idő eloszlása.
 
@@ -314,11 +339,13 @@ Az A és az S szokásos betűi:
 
 Ha az utolsó hármat elhagyják, az alapértelmezések K = ∞, N = ∞, D = FIFO. Például az „M/M/1” Poisson-érkezéseket, exponenciális kiszolgálási időket, egy kiszolgálót, korlátlan kapacitást, korlátlan populációt és first in first out sorrendet jelent.
 
-A standard jelölés az n-t is használja a rendszerben lévő elemek számára.
+Továbbá:
+
+- n: a rendszerben lévő elemek száma.
 
 ## A sorbanállás matematikája
 
-A matematikai szakaszok tankönyvi szimbólumokat használnak, hogy Ön összevethesse őket más forrásokkal: az S az átlagos kiszolgálási idő, ami a mi φ-nk, a μ = 1 / S pedig egy kiszolgáló kapacitása. A megfeleltetés itt található: [a sorbanállás-elmélet jelölései](#a-sorbanállás-elmélet-jelölései).
+A matematikai szakaszok tankönyvi szimbólumokat használnak, hogy Ön összevethesse őket más forrásokkal: az S az átlagos kiszolgálási idő, ami a mi φ-nk, a μ = 1 / S pedig egy kiszolgáló kapacitása.
 
 ### A kihasználtsági görbe
 
@@ -409,7 +436,7 @@ Példák:
 
 - Aμ: a tevékenység kiszolgálási rátája, más néven kapacitás: hány elemet tud egy kiszolgáló befejezni időegységenként, amíg foglalt.
 
-- Aδ: a tevékenység kihagyási rátája, más néven lemorzsolódási ráta: hány elemet adnak fel időegységenként.
+- Aσ: a tevékenység kihagyási rátája: hány elemet adnak fel időegységenként.
 
 - Aρ: a tevékenység kihasználtsági aránya: a rendelkezésre álló idő azon hányada, amikor a kiszolgálók foglaltak, vagyis foglalt idő ÷ rendelkezésre álló idő, vagy λ / (c μ).
 

@@ -15,12 +15,12 @@ Inhoud:
   - [Aantal](#aantal)
   - [Aankomstsnelheid, bedieningssnelheid](#aankomstsnelheid-bedieningssnelheid)
   - [Bezettingsgraad, ook wel verkeersintensiteit](#bezettingsgraad-ook-wel-verkeersintensiteit)
-  - [Doorvoersnelheden: totale snelheid, successnelheid, faalsnelheid, uitvalsnelheid](#doorvoersnelheden-totale-snelheid-successnelheid-faalsnelheid-uitvalsnelheid)
+  - [Doorvoersnelheden: totale snelheid, voltooiingssnelheid, successnelheid, faalsnelheid, uitvalsnelheid](#doorvoersnelheden-totale-snelheid-voltooiingssnelheid-successnelheid-faalsnelheid-uitvalsnelheid)
   - [Verduidelijking van de bedieningssnelheid](#verduidelijking-van-de-bedieningssnelheid)
   - [Uitvalsnelheid](#uitvalsnelheid)
   - [Foutratio](#foutratio)
   - [Doorlooptijd, staptijd, werktijd, wachttijd](#doorlooptijd-staptijd-werktijd-wachttijd)
-  - [Standaardnotatie](#standaardnotatie)
+  - [Kendall-notatie](#kendall-notatie)
 - [Wachtrijwiskunde](#wachtrijwiskunde)
   - [De bezettingscurve](#de-bezettingscurve)
   - [De formule van Kingman](#de-formule-van-kingman)
@@ -109,41 +109,50 @@ De wachtrijtheorie gebruikt notatie met Griekse letters.
 
 Onze teams gebruiken een deel van de gangbare notatie; wij voegen ook eigen notatie toe die ons helpt bij softwareprojecten.
 
-Vergelijking van onze notatie met de standaardnotatie uit de handboeken:
+Onze notatie en wat elk symbool betekent:
 
-| Onze | Standaard | Betekenis                                                                          |
-| ---- | --------- | ---------------------------------------------------------------------------------- |
-| κ    | L         | gemiddeld aantal items in het systeem, wachtend plus in bewerking                 |
-| λ    | λ         | aankomstsnelheid van items die het systeem binnenkomen                             |
-| μ    | μ         | bedieningssnelheid, ook wel capaciteit: hoe snel één server werkt terwijl hij bezig is |
-| ρ    | ρ         | bezettingsgraad: het deel van de tijd dat de servers bezig zijn, λ / (c μ)         |
-| χ    | X         | doorvoer, ook wel vertreksnelheid: waargenomen uitvoer, om welke reden ook         |
-| α    | geen      | successnelheid: waargenomen uitvoer die goed blijkt te zijn                        |
-| β    | geen      | faalsnelheid: waargenomen uitvoer die fout blijkt te zijn                          |
-| δ    | geen      | uitvalsnelheid: items die binnenkwamen en daarna onbediend vertrokken              |
-| ε    | geen      | foutratio β / (α + β)                                                              |
-| τ    | W         | gemiddelde tijd in het systeem, ook wel doorlooptijd                               |
-| ω    | Wq        | gemiddelde wachttijd in de wachtrij                                                |
-| φ    | S         | gemiddelde bedieningstijd, ook wel werktijd; μ = 1 / S                             |
-| θ    | geen      | staptijd tussen voltooiingen; gemiddelde staptijd ≈ 1 / χ in evenwichtstoestand    |
-
-Let op botsende symbolen wanneer u andere bronnen leest: σ betekent meestal standaardafwijking, en daarom gebruiken wij δ voor de uitvalsnelheid, en θ betekent vaak de opgavesnelheid in Erlang-A-modellen voor callcenters, terwijl wij θ gebruiken voor de staptijd.
+| Onze notatie | Betekenis |
+| ------------ | --------- |
+| κ (kappa) | aantal items in het systeem, wachtende plus items in bewerking |
+| λ (lambda) | aankomstsnelheid van items die het systeem binnenkomen |
+| μ (mu) | bedieningssnelheid, ook wel capaciteit: hoe snel één server werkt terwijl hij bezig is |
+| ρ (rho) | bezettingsgraad: het deel van de tijd dat de servers bezig zijn, λ / (c μ) |
+| χ (chi) | doorvoer, ook wel vertreksnelheid: waargenomen uitvoer, om welke reden ook |
+| α (alfa) | successnelheid: waargenomen uitvoer die goed blijkt te zijn |
+| β (bèta) | faalsnelheid: waargenomen uitvoer die fout blijkt te zijn |
+| δ (delta) | voltooiingssnelheid: succes + fout, bediende items, ongeacht of het resultaat goed of fout is |
+| σ (sigma) | uitvalsnelheid: items die binnenkwamen en daarna onbediend vertrokken |
+| ε (epsilon) | foutenverhouding: β / (α + β) = β / δ |
+| τ (tau) | tijd in het systeem, ook wel doorlooptijd |
+| ω (omega) | wachttijd, ook wel tijd in de wachtrij |
+| φ (phi) | werktijd, ook wel tijd in de processor, ook wel bedieningstijd |
+| θ (thèta) | staptijd tussen voltooiingen; gemiddelde staptijd ≈ 1 / χ in evenwichtstoestand |
 
 ### Aantal
 
 Wij tellen items vaak, en wij gebruiken deze notatie:
 
-- κ (kappa): aantal items in het systeem, dat wil zeggen wachtende items plus items in bewerking
+- κ (kappa): aantal items in het systeem, dat wil zeggen wachtende items plus items in bewerking.
+
+![Diagram: items komen aan met snelheid λ, er zijn κ items in het systeem, en items vertrekken met doorvoer χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Voorbeeld:
 
-- κ = 100 betekent dat er 100 items in het systeem zijn.
+- κ = 10 betekent precies 10
 
-- κ > 100 betekent dat er meer dan 100 items in het systeem zijn.
+- κ ≈ 10 betekent ongeveer 10
 
-- κ ≫ 100 betekent dat er veel meer dan 100 items in het systeem zijn.
+- κ < 10 betekent minder dan 10
 
-Een aantal zoals κ = 100 is een momentopname. In de wet van Little betekent κ het gemiddelde aantal op lange termijn, wat de L uit de handboeken is. Het handboeksymbool voor alleen de items die in de rij wachten is Lq.
+- κ > 10 betekent meer dan 10
+
+- κ ≪ 10 betekent veel minder dan 10
+
+- κ ≫ 10 betekent veel meer dan 10
+
+Het aantal κ (kappa) is een momentopname.
+
+Het gemiddelde aantal κ̅ (kappa streep) is een berekening die metingen over een bepaalde periode middelt, bijvoorbeeld elk uur meten gedurende twee weken.
 
 ### Aankomstsnelheid, bedieningssnelheid
 
@@ -179,9 +188,9 @@ Voorbeelden:
 
 - ρ > 1 betekent dat de aankomsten de capaciteit overschrijden; de wachtrij wordt groter.
 
-### Doorvoersnelheden: totale snelheid, successnelheid, faalsnelheid, uitvalsnelheid
+### Doorvoersnelheden: totale snelheid, voltooiingssnelheid, successnelheid, faalsnelheid, uitvalsnelheid
 
-Doorvoersnelheden meten waargenomen uitvoer, dat wil zeggen items die de wachtrij daadwerkelijk verlaten. Ze vallen in vier brede categorieën:
+Doorvoersnelheden meten waargenomen uitvoer, dat wil zeggen items die de wachtrij daadwerkelijk verlaten. Ze vallen in vijf brede categorieën:
 
 - χ (chi): totale snelheid. Deze meet hoeveel items per tijdseenheid de wachtrij verlaten, om welke reden ook: succes, falen, uitval enz.
 
@@ -189,11 +198,23 @@ Doorvoersnelheden meten waargenomen uitvoer, dat wil zeggen items die de wachtri
 
 - β (bèta): faalsnelheid. Deze meet hoeveel items per tijdsperiode fout blijken te zijn, bijv. onjuist, onvolledig, afgewezen.
 
-- δ (delta): uitvalsnelheid. Deze meet hoeveel items per tijdsperiode de wachtrij binnenkomen en die daarna verlaten zonder te worden bediend, bijv. opgaven, afhakers.
+- δ (delta): voltooiingssnelheid. Deze meet hoeveel items per tijdsperiode worden bediend, ongeacht of het resultaat goed of fout is: succes + fout.
+
+- σ (sigma): uitvalsnelheid. Deze meet hoeveel items per tijdsperiode de wachtrij binnenkomen en die daarna verlaten zonder te worden bediend, bijv. opgaven, afhakers.
+
+Voltooiingssnelheid = successnelheid + faalsnelheid:
+
+- δ = α + β (uitgesproken: delta is gelijk aan alfa plus bèta)
+
+Totale snelheid = voltooiingssnelheid + uitvalsnelheid:
+
+- χ = δ + σ (uitgesproken: chi is gelijk aan delta plus sigma)
 
 Totale snelheid = successnelheid + faalsnelheid + uitvalsnelheid:
 
-- χ = α + β + δ (uitgesproken: chi is gelijk aan alfa plus bèta plus delta)
+- χ = α + β + σ (uitgesproken: chi is gelijk aan alfa plus bèta plus sigma)
+
+![Diagram: items verlaten het systeem als succes α, fout β of uitval σ; voltooid δ = α + β, dus χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Elk item dat in χ wordt geteld, is het systeem binnengekomen, dus in evenwichtstoestand is de totale snelheid gelijk aan de aankomstsnelheid: χ ≈ λ. Daarom meten doorvoersnelheden uitvoer, en geen capaciteit.
 
@@ -210,7 +231,7 @@ bestaat om fouten en uitval te volgen.
 
 - Verwerkingsvisie: De bedieningssnelheid omvat alles waaraan de wachtrij verwerkingstijd besteedt, dat wil zeggen successen of fouten, maar geen uitval.
 
-- Technologische visie: In toegepaste vakgebieden zoals software-engineering meet de bedieningssnelheid alleen successen, terwijl de foutsnelheid fouten meet en de uitvalsnelheid uitvallers meet.
+- Technologische visie: In toegepaste vakgebieden zoals software-engineering meet de bedieningssnelheid alleen successen, terwijl de foutsnelheid fouten meet en de uitvalsnelheid uitvallers.
 
 Daarom behouden wij μ voor capaciteit, en voegen wij snelheden voor waargenomen uitvoer ernaast toe, in plaats van μ te vervangen:
 
@@ -226,7 +247,7 @@ Waarom μ niet vervangen door χ of α? In een stabiele wachtrij verlaat elk ite
 
 Details over de uitvalsnelheid:
 
-- δ (delta): uitvalsnelheid. Deze meet hoeveel items de wachtrij binnenkomen en die daarna onafgehandeld verlaten.
+- σ (sigma): uitvalsnelheid. Deze meet hoeveel items de wachtrij binnenkomen en die daarna onverwerkt verlaten.
 
 Uitval is wanneer een item de wachtrij binnenkomt en die daarna verlaat zonder noemenswaardige verwerking:
 
@@ -236,7 +257,7 @@ Uitval is wanneer een item de wachtrij binnenkomt en die daarna verlaat zonder n
 
 Twee verwante gedragingen zijn geen uitval:
 
-- Afzien (balking): wanneer een klant besluit zich niet in de wachtrij te voegen omdat de wachttijd te lang dreigt te worden. Een item dat afziet, komt het systeem nooit binnen en valt dus buiten de systeemgrens: het wordt niet geteld in λ, χ of δ. Als afzien ertoe doet, bijvoorbeeld als gemiste verkoop, tel het dan apart als afgewezen aankomsten.
+- Afzien (balking): wanneer een klant besluit zich niet in de wachtrij te voegen omdat de wachttijd te lang dreigt te worden. Een item dat afziet, komt het systeem nooit binnen en valt dus buiten de systeemgrens: het wordt niet geteld in λ, χ of σ. Als afzien ertoe doet, bijvoorbeeld als gemiste verkoop, tel het dan apart als afgewezen aankomsten.
 
 - Rijwisselen (jockeying): wanneer een klant wisselt tussen parallelle wachtrijen, zoals kassarijen, om een kortere wachttijd te krijgen.
 
@@ -244,9 +265,11 @@ Twee verwante gedragingen zijn geen uitval:
 
 De belangrijkste notatie die het succes van een wachtrij samenvat:
 
-- ε (epsilon): foutratio = aantal fouten / (aantal successen + aantal fouten) = β / (α + β)
+- ε (epsilon): foutratio = aantal fouten / (aantal successen + aantal fouten) = β / (α + β) = β / δ
 
-Uitval wordt niet meegeteld, omdat een uitgevallen item nooit is bediend, dus het was goed noch fout. Volg uitval apart via δ.
+Uitval wordt niet meegeteld, omdat een uitgevallen item nooit is bediend, dus het was goed noch fout. Volg uitval apart via σ.
+
+![Diagram: de voltooiingssnelheid δ is de successnelheid α plus de faalsnelheid β, en de foutenverhouding ε is de faalsnelheid β gedeeld door de voltooiingssnelheid δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Voorbeelden:
 
@@ -268,6 +291,8 @@ Wij volgen vier tijden:
 
 - ω (omega): wachttijd = tijd die niet aan daadwerkelijk werk wordt besteed, ook wel wachtende tijd
 
+![Diagram: de doorlooptijd τ is de wachttijd ω gevolgd door de werktijd φ, dus τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Voorbeelden:
 
 - τ = 5s betekent dat een item aan de wachtrij wordt toegevoegd en 5 seconden later wordt bediend.
@@ -284,9 +309,9 @@ Verbanden:
 
 - gemiddelde θ ≈ 1 / χ: in evenwichtstoestand is de gemiddelde staptijd het omgekeerde van de totale snelheid. Eén enkele tussenruimte zegt weinig over de snelheid; het gemiddelde van veel tussenruimtes wel. In de voorbeelden geldt: als de gemiddelde staptijd 1s is, dan is χ ≈ 1 item per seconde.
 
-### Standaardnotatie
+### Kendall-notatie
 
-De standaardnotatie van de wachtrijtheorie beschrijft een wachtrij met behulp van de notatie van Kendall, geschreven als A/S/c/K/N/D:
+De Kendall-notatie is een andere notatie uit de wachtrijtheorie, geschreven als A/S/c/K/N/D:
 
 - A: het aankomstproces, dat wil zeggen de verdeling van de tijd tussen aankomsten.
 
@@ -310,11 +335,13 @@ Gangbare letters voor A en S:
 
 Wanneer de laatste drie worden weggelaten, zijn de standaardwaarden K = ∞, N = ∞, D = FIFO. Zo betekent "M/M/1" bijvoorbeeld poissonaankomsten, exponentieel verdeelde bedieningstijden, één server, onbeperkte capaciteit, onbeperkte populatie en first in, first out.
 
-De standaardnotatie gebruikt ook n voor het aantal items in het systeem.
+Ook:
+
+- n: het aantal items in het systeem.
 
 ## Wachtrijwiskunde
 
-De wiskundige secties gebruiken handboeksymbolen, zodat u ze met andere bronnen kunt vergelijken: S is de gemiddelde bedieningstijd, wat onze φ is, en μ = 1 / S is de capaciteit van één server. Zie de vergelijking in [notatie van de wachtrijtheorie](#notatie-van-de-wachtrijtheorie).
+De wiskundige secties gebruiken handboeksymbolen, zodat u ze met andere bronnen kunt vergelijken: S is de gemiddelde bedieningstijd, wat onze φ is, en μ = 1 / S is de capaciteit van één server.
 
 ### De bezettingscurve
 
@@ -405,7 +432,7 @@ Voorbeelden:
 
 - Aμ: bedieningssnelheid van de activiteit, ook wel capaciteit: hoeveel items één server per tijdseenheid kan voltooien terwijl hij bezig is.
 
-- Aδ: uitvalsnelheid van de activiteit: hoeveel items er per tijdseenheid worden opgegeven.
+- Aσ: uitvalsnelheid van de activiteit: hoeveel items er per tijdseenheid worden opgegeven.
 
 - Aρ: bezettingsgraad van de activiteit: het deel van de beschikbare tijd dat de servers bezig zijn, dat wil zeggen bezette tijd ÷ beschikbare tijd, of λ / (c μ).
 

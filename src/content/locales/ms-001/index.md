@@ -15,12 +15,12 @@ Kandungan:
   - [Kiraan](#kiraan)
   - [Kadar ketibaan, kadar perkhidmatan](#kadar-ketibaan-kadar-perkhidmatan)
   - [Nisbah penggunaan atau keamatan trafik](#nisbah-penggunaan-atau-keamatan-trafik)
-  - [Kadar daya pemprosesan: kadar jumlah, kadar kejayaan, kadar kegagalan, kadar langkau](#kadar-daya-pemprosesan-kadar-jumlah-kadar-kejayaan-kadar-kegagalan-kadar-langkau)
+  - [Kadar daya pemprosesan: kadar jumlah, kadar selesai, kadar kejayaan, kadar kegagalan, kadar langkau](#kadar-daya-pemprosesan-kadar-jumlah-kadar-selesai-kadar-kejayaan-kadar-kegagalan-kadar-langkau)
   - [Penjelasan istilah kadar perkhidmatan](#penjelasan-istilah-kadar-perkhidmatan)
   - [Kadar langkau](#kadar-langkau)
   - [Nisbah ralat](#nisbah-ralat)
   - [Masa pendahuluan, masa langkah, masa kerja, masa menunggu](#masa-pendahuluan-masa-langkah-masa-kerja-masa-menunggu)
-  - [Tatatanda standard](#tatatanda-standard)
+  - [Tatatanda Kendall](#tatatanda-kendall)
 - [Matematik baris gilir](#matematik-baris-gilir)
   - [Lengkung penggunaan](#lengkung-penggunaan)
   - [Formula Kingman](#formula-kingman)
@@ -109,41 +109,50 @@ Teori baris gilir menggunakan tatatanda dengan huruf Yunani.
 
 Pasukan kami menggunakan sebahagian tatatanda yang popular; kami juga menambah tatatanda tersendiri yang membantu kami dalam projek perisian.
 
-Padanan antara tatatanda kami dengan tatatanda buku teks standard:
+Tatatanda kami dan maksud setiap simbol:
 
-| Kami | Standard | Maksud                                                                          |
-| ---- | -------- | ------------------------------------------------------------------------------- |
-| κ    | L        | purata bilangan item dalam sistem, yang menunggu serta yang sedang dikerjakan    |
-| λ    | λ        | kadar ketibaan item yang memasuki sistem                                        |
-| μ    | μ        | kadar perkhidmatan atau kapasiti: kepantasan satu pelayan bekerja ketika sibuk  |
-| ρ    | ρ        | penggunaan: pecahan masa pelayan sibuk, λ / (c μ)                               |
-| χ    | X        | daya pemprosesan atau kadar pelepasan: output yang diperhatikan, atas apa jua sebab |
-| α    | tiada    | kadar kejayaan: output yang diperhatikan yang ternyata betul                    |
-| β    | tiada    | kadar kegagalan: output yang diperhatikan yang ternyata salah                   |
-| δ    | tiada    | kadar langkau atau kadar keciciran: item yang masuk, kemudian keluar tanpa dilayan |
-| ε    | tiada    | nisbah ralat β / (α + β)                                                        |
-| τ    | W        | purata masa dalam sistem atau masa pendahuluan                                  |
-| ω    | Wq       | purata masa menunggu dalam baris gilir                                          |
-| φ    | S        | purata masa perkhidmatan atau masa kerja; μ = 1 / S                             |
-| θ    | tiada    | masa langkah antara penyiapan; purata masa langkah ≈ 1 / χ dalam keadaan mantap |
-
-Sila berhati-hati dengan pertembungan simbol apabila anda membaca sumber lain: σ biasanya bermaksud sisihan piawai, sebab itulah kami menggunakan δ untuk kadar langkau, dan θ sering bermaksud kadar pengabaian dalam model pusat panggilan Erlang-A, manakala kami menggunakan θ untuk masa langkah.
+| Tatatanda kami | Maksud |
+| -------------- | ------ |
+| κ (kappa) | bilangan item dalam sistem, iaitu yang menunggu ditambah yang sedang dikerjakan |
+| λ (lambda) | kadar ketibaan item yang memasuki sistem |
+| μ (mu) | kadar perkhidmatan atau kapasiti: kepantasan satu pelayan bekerja ketika sibuk |
+| ρ (rho) | penggunaan: pecahan masa pelayan sibuk, λ / (c μ) |
+| χ (chi) | daya pemprosesan atau kadar pelepasan: output yang diperhatikan, atas apa jua sebab |
+| α (alpha) | kadar kejayaan: output yang diperhatikan yang ternyata betul |
+| β (beta) | kadar kegagalan: output yang diperhatikan yang ternyata salah |
+| δ (delta) | kadar selesai: kejayaan + kegagalan, item yang telah dilayan, sama ada hasilnya betul atau salah |
+| σ (sigma) | kadar langkau: item yang masuk, kemudian keluar tanpa dilayan |
+| ε (epsilon) | nisbah ralat: β / (α + β) = β / δ |
+| τ (tau) | masa dalam sistem atau masa pendahuluan |
+| ω (omega) | masa menunggu atau masa dalam baris gilir |
+| φ (phi) | masa kerja atau masa dalam pemproses atau masa perkhidmatan |
+| θ (theta) | masa langkah antara penyiapan; purata masa langkah ≈ 1 / χ dalam keadaan mantap |
 
 ### Kiraan
 
 Kami kerap mengira item, dan kami menggunakan tatatanda ini:
 
-- κ (kappa): kiraan item dalam sistem, iaitu item yang menunggu ditambah item yang sedang dikerjakan
+- κ (kappa): kiraan item dalam sistem, iaitu item yang menunggu ditambah item yang sedang dikerjakan.
+
+![Rajah: item tiba pada kadar λ, terdapat κ item dalam sistem, dan item keluar pada daya pemprosesan χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Contoh:
 
-- κ = 100 bermaksud terdapat 100 item dalam sistem.
+- κ = 10 bermaksud tepat 10
 
-- κ > 100 bermaksud terdapat lebih daripada 100 item dalam sistem.
+- κ ≈ 10 bermaksud kira-kira 10
 
-- κ ≫ 100 bermaksud terdapat jauh lebih daripada 100 item dalam sistem.
+- κ < 10 bermaksud kurang daripada 10
 
-Kiraan seperti κ = 100 ialah gambaran pada satu ketika. Dalam Hukum Little, κ bermaksud purata kiraan jangka panjang, iaitu L dalam buku teks. Simbol buku teks untuk item yang menunggu dalam barisan sahaja ialah Lq.
+- κ > 10 bermaksud lebih daripada 10
+
+- κ ≪ 10 bermaksud jauh kurang daripada 10
+
+- κ ≫ 10 bermaksud jauh lebih daripada 10
+
+Kiraan κ (kappa) ialah syot kilat pada satu ketika.
+
+Kiraan purata κ̅ (kappa bar) ialah pengiraan yang memurnikan ukuran sepanjang tempoh masa tertentu, contohnya mengukur setiap jam selama dua minggu.
 
 ### Kadar ketibaan, kadar perkhidmatan
 
@@ -179,9 +188,9 @@ Contoh:
 
 - ρ > 1 bermaksud ketibaan melebihi kapasiti; baris gilir semakin besar.
 
-### Kadar daya pemprosesan: kadar jumlah, kadar kejayaan, kadar kegagalan, kadar langkau
+### Kadar daya pemprosesan: kadar jumlah, kadar selesai, kadar kejayaan, kadar kegagalan, kadar langkau
 
-Kadar daya pemprosesan mengukur output yang diperhatikan, iaitu item yang benar-benar meninggalkan baris gilir. Kadar ini terbahagi kepada empat kategori umum:
+Kadar daya pemprosesan mengukur output yang diperhatikan, iaitu item yang benar-benar meninggalkan baris gilir. Kadar ini terbahagi kepada lima kategori umum:
 
 - χ (chi): kadar jumlah. Ini mengukur bilangan item bagi setiap unit masa yang keluar dari baris gilir atas apa jua sebab: kejayaan, kegagalan, langkau, dan sebagainya.
 
@@ -189,11 +198,23 @@ Kadar daya pemprosesan mengukur output yang diperhatikan, iaitu item yang benar-
 
 - β (beta): kadar kegagalan. Ini mengukur bilangan item bagi setiap tempoh masa yang ternyata salah, contohnya tidak tepat, tidak lengkap, ditolak.
 
-- δ (delta): kadar langkau atau kadar keciciran. Ini mengukur bilangan item bagi setiap tempoh masa yang memasuki baris gilir, kemudian keluar tanpa dilayan, contohnya pengabaian, penarikan diri.
+- δ (delta): kadar selesai. Ini mengukur bilangan item bagi setiap tempoh masa yang dilayan, sama ada hasilnya betul atau salah: kejayaan + kegagalan.
+
+- σ (sigma): kadar langkau. Ini mengukur bilangan item bagi setiap tempoh masa yang memasuki baris gilir, kemudian keluar tanpa dilayan, contohnya peninggalan, penarikan diri.
+
+Kadar selesai = kadar kejayaan + kadar kegagalan:
+
+- δ = α + β (disebut: delta sama dengan alpha tambah beta)
+
+Kadar jumlah = kadar selesai + kadar langkau:
+
+- χ = δ + σ (disebut: chi sama dengan delta tambah sigma)
 
 Kadar jumlah = kadar kejayaan + kadar kegagalan + kadar langkau:
 
-- χ = α + β + δ (disebut: chi sama dengan alpha tambah beta tambah delta)
+- χ = α + β + σ (disebut: chi sama dengan alpha tambah beta tambah sigma)
+
+![Rajah: item meninggalkan sistem sebagai kejayaan α, kegagalan β atau langkau σ; selesai δ = α + β, jadi χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Setiap item yang dikira dalam χ telah memasuki sistem, jadi dalam keadaan mantap kadar jumlah sama dengan kadar ketibaan: χ ≈ λ. Sebab itulah kadar daya pemprosesan mengukur output, bukan kapasiti.
 
@@ -207,7 +228,7 @@ Hal ini mempunyai akar sejarah dan boleh menyebabkan kekeliruan dan kesilapan, t
 
 - Pandangan Pemprosesan: Kadar perkhidmatan merangkumi apa sahaja yang diproses oleh baris gilir dengan menggunakan masa, iaitu kejayaan atau kegagalan, tetapi tidak merangkumi langkau.
 
-- Pandangan Teknologi: Dalam bidang gunaan seperti kejuruteraan perisian, kadar perkhidmatan hanya mengukur kejayaan, manakala kadar ralat mengukur kegagalan, dan kadar langkau mengukur keciciran.
+- Pandangan Teknologi: Dalam bidang gunaan seperti kejuruteraan perisian, kadar perkhidmatan hanya mengukur kejayaan, manakala kadar ralat mengukur kegagalan, dan kadar langkau mengukur item yang dilangkau.
 
 Oleh itu, kami mengekalkan μ untuk kapasiti, dan kami menambah kadar output yang diperhatikan di sampingnya, dan bukannya menggantikannya:
 
@@ -223,7 +244,7 @@ Mengapa tidak menggantikan μ dengan χ atau α? Dalam baris gilir yang stabil, 
 
 Butiran kadar langkau:
 
-- δ (delta): kadar langkau atau kadar keciciran. Ini mengukur bilangan item yang memasuki baris gilir, kemudian keluar tanpa dikendalikan.
+- σ (sigma): kadar langkau. Ini mengukur bilangan item yang memasuki baris gilir, kemudian keluar tanpa diproses.
 
 Langkau berlaku apabila sesuatu item memasuki baris gilir, kemudian keluar tanpa sebarang pemprosesan yang ketara:
 
@@ -233,7 +254,7 @@ Langkau berlaku apabila sesuatu item memasuki baris gilir, kemudian keluar tanpa
 
 Dua tingkah laku yang berkaitan bukan langkau:
 
-- Keengganan: apabila pelanggan memutuskan untuk tidak menyertai baris gilir kerana masa menunggu dijangka terlalu lama. Item yang enggan tidak pernah memasuki sistem, jadi ia berada di luar sempadan sistem: ia tidak dikira dalam λ, χ, atau δ. Jika keengganan penting, seperti jualan yang hilang, sila kira secara berasingan sebagai ketibaan yang ditolak.
+- Keengganan: apabila pelanggan memutuskan untuk tidak menyertai baris gilir kerana masa menunggu dijangka terlalu lama. Item yang enggan tidak pernah memasuki sistem, jadi ia berada di luar sempadan sistem: ia tidak dikira dalam λ, χ, atau σ. Jika keengganan penting, seperti jualan yang hilang, sila kira secara berasingan sebagai ketibaan yang ditolak.
 
 - Bertukar barisan: apabila pelanggan bertukar antara baris gilir selari, seperti lorong kaunter bayaran, untuk mendapatkan masa menunggu yang lebih singkat.
 
@@ -241,9 +262,11 @@ Dua tingkah laku yang berkaitan bukan langkau:
 
 Tatatanda paling penting yang meringkaskan kejayaan sesuatu baris gilir:
 
-- ε (epsilon): nisbah ralat = kiraan kegagalan / (kiraan kejayaan + kiraan kegagalan) = β / (α + β)
+- ε (epsilon): nisbah ralat = kiraan kegagalan / (kiraan kejayaan + kiraan kegagalan) = β / (α + β) = β / δ
 
-Langkau dikecualikan, kerana item yang dilangkau tidak pernah dilayan, jadi ia bukan betul dan bukan juga salah. Sila jejaki langkau secara berasingan melalui δ.
+Langkau dikecualikan, kerana item yang dilangkau tidak pernah dilayan, jadi ia bukan betul dan bukan juga salah. Sila jejaki langkau secara berasingan melalui σ.
+
+![Rajah: kadar selesai δ ialah kadar kejayaan α tambah kadar kegagalan β, dan nisbah ralat ε ialah kadar kegagalan β dibahagi kadar selesai δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Contoh:
 
@@ -265,6 +288,8 @@ Kami menjejaki empat jenis masa:
 
 - ω (omega): masa menunggu = masa yang digunakan tanpa melakukan kerja sebenar atau masa tertangguh
 
+![Rajah: masa pendahuluan τ ialah masa menunggu ω diikuti masa kerja φ, jadi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Contoh:
 
 - τ = 5s bermaksud sesuatu item ditambah ke baris gilir, kemudian dilayan 5 saat kemudian.
@@ -281,9 +306,9 @@ Hubungan:
 
 - purata θ ≈ 1 / χ: dalam keadaan mantap, purata masa langkah ialah songsangan kadar jumlah. Satu jurang tidak banyak memberitahu tentang kadar; purata banyak jurang memberitahunya. Dalam contoh, jika purata masa langkah ialah 1s, maka χ ≈ 1 item sesaat.
 
-### Tatatanda standard
+### Tatatanda Kendall
 
-Tatatanda standard untuk teori baris gilir menerangkan sesuatu baris gilir menggunakan tatatanda Kendall, yang ditulis sebagai A/S/c/K/N/D:
+Tatatanda Kendall ialah tatatanda lain bagi teori baris gilir, yang ditulis sebagai A/S/c/K/N/D:
 
 - A: proses ketibaan, iaitu taburan masa antara ketibaan.
 
@@ -307,11 +332,13 @@ Huruf biasa untuk A dan S:
 
 Apabila tiga yang terakhir ditinggalkan, nilai lalainya ialah K = ∞, N = ∞, D = FIFO. Sebagai contoh, “M/M/1” bermaksud ketibaan Poisson, masa perkhidmatan eksponen, satu pelayan, kapasiti tanpa had, populasi tanpa had, dan masuk dahulu keluar dahulu.
 
-Tatatanda standard juga menggunakan n untuk bermaksud bilangan item dalam sistem.
+Selain itu:
+
+- n: bilangan item dalam sistem.
 
 ## Matematik baris gilir
 
-Bahagian matematik menggunakan simbol buku teks, supaya anda boleh membandingkannya dengan sumber lain: S ialah purata masa perkhidmatan, iaitu φ kami, dan μ = 1 / S ialah kapasiti satu pelayan. Sila lihat jadual padanan dalam [tatatanda teori baris gilir](#tatatanda-teori-baris-gilir).
+Bahagian matematik menggunakan simbol buku teks, supaya anda boleh membandingkannya dengan sumber lain: S ialah purata masa perkhidmatan, iaitu φ kami, dan μ = 1 / S ialah kapasiti satu pelayan.
 
 ### Lengkung penggunaan
 
@@ -402,7 +429,7 @@ Contoh:
 
 - Aμ: Kadar perkhidmatan aktiviti atau kapasiti: berapa banyak item yang boleh disiapkan oleh satu pelayan bagi setiap unit masa ketika sibuk.
 
-- Aδ: Kadar langkau aktiviti atau kadar keciciran: berapa banyak item yang diabaikan bagi setiap unit masa.
+- Aσ: kadar langkau aktiviti: berapa banyak item yang diabaikan bagi setiap unit masa.
 
 - Aρ: Nisbah penggunaan aktiviti: pecahan masa tersedia ketika pelayan sibuk, iaitu masa sibuk ÷ masa tersedia, atau λ / (c μ).
 

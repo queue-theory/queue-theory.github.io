@@ -20,12 +20,12 @@ Clár ábhair:
   - [Líon](#líon)
   - [Ráta teachta, ráta seirbhíse](#ráta-teachta-ráta-seirbhíse)
   - [Cóimheas úsáide, nó déine tráchta](#cóimheas-úsáide-nó-déine-tráchta)
-  - [Rátaí tréchuir: ráta iomlán, ráta ratha, ráta teipe, ráta scipeála](#rátaí-tréchuir-ráta-iomlán-ráta-ratha-ráta-teipe-ráta-scipeála)
+  - [Rátaí tréchuir: ráta iomlán, ráta críochnaithe, ráta ratha, ráta teipe, ráta scipeála](#rátaí-tréchuir-ráta-iomlán-ráta-críochnaithe-ráta-ratha-ráta-teipe-ráta-scipeála)
   - [Idirdhealú ar an ráta seirbhíse](#idirdhealú-ar-an-ráta-seirbhíse)
   - [Ráta scipeála](#ráta-scipeála)
   - [Cóimheas earráide](#cóimheas-earráide)
   - [Am luaidhe, am céime, am oibre, am feithimh](#am-luaidhe-am-céime-am-oibre-am-feithimh)
-  - [Nodaireacht chaighdeánach](#nodaireacht-chaighdeánach)
+  - [Nodaireacht Kendall](#nodaireacht-kendall)
 - [Matamaitic na scuainí](#matamaitic-na-scuainí)
   - [An cuar úsáide](#an-cuar-úsáide)
   - [Foirmle Kingman](#foirmle-kingman)
@@ -114,41 +114,50 @@ Déanann cineálacha scuainí agus cineálacha seirbhíse cur síos ar an gcaoi 
 
 Úsáideann ár bhfoirne cuid den nodaireacht choitianta; cuirimid freisin nodaireacht shaincheaptha leis a chabhraíonn linn le tionscadail bogearraí.
 
-Comhfhreagras idir ár nodaireacht féin agus nodaireacht chaighdeánach na dtéacsleabhar:
+Ár nodaireacht agus brí gach siombail:
 
-| Ár gceann féin | Caighdeánach | Brí                                                                                  |
-| -------------- | ------------ | ------------------------------------------------------------------------------------ |
-| κ              | L            | meánlíon na míreanna sa chóras, ag feitheamh móide á n-oibriú                         |
-| λ              | λ            | ráta teachta na míreanna a théann isteach sa chóras                                  |
-| μ              | μ            | ráta seirbhíse, nó acmhainn: cé chomh tapa a oibríonn freastalaí amháin agus é gnóthach |
-| ρ              | ρ            | úsáid: an codán ama a bhíonn na freastalaithe gnóthach, λ / (c μ)                    |
-| χ              | X            | tréchur, nó ráta imeachta: an t-aschur a breathnaíodh, ar chúis ar bith              |
-| α              | dada         | ráta ratha: an t-aschur a breathnaíodh atá ceart                                     |
-| β              | dada         | ráta teipe: an t-aschur a breathnaíodh atá mícheart                                  |
-| δ              | dada         | ráta scipeála, nó ráta tréigthe: míreanna a tháinig isteach agus a d’imigh gan seirbhís |
-| ε              | dada         | cóimheas earráide β / (α + β)                                                        |
-| τ              | W            | meán-am sa chóras, nó am luaidhe                                                     |
-| ω              | Wq           | meán-am ag feitheamh sa scuaine                                                      |
-| φ              | S            | meán-am seirbhíse, nó am oibre; μ = 1 / S                                            |
-| θ              | dada         | am céime idir críochnuithe; meán-am céime ≈ 1 / χ i staid sheasta                    |
-
-Bígí airdeallach ar shiombailí a bhuaileann in aghaidh a chéile nuair a léann sibh foinsí eile: is gnách go gciallaíonn σ an diall caighdeánach, agus sin an fáth a n-úsáidimid δ don ráta scipeála; agus is minic a chiallaíonn θ an ráta tréigthe i samhlacha ionad glaonna Erlang-A, ach úsáidimidne θ don am céime.
+| Ár nodaireacht | Brí |
+| -------------- | --- |
+| κ (kappa) | líon na míreanna sa chóras, ag feitheamh móide á n-oibriú |
+| λ (lambda) | ráta teachta na míreanna a théann isteach sa chóras |
+| μ (mu) | ráta seirbhíse, nó acmhainn: cé chomh tapa a oibríonn freastalaí amháin agus é gnóthach |
+| ρ (rho) | úsáid: an codán ama a bhíonn na freastalaithe gnóthach, λ / (c μ) |
+| χ (chi) | tréchur, nó ráta imeachta: an t-aschur a breathnaíodh, ar chúis ar bith |
+| α (alpha) | ráta ratha: an t-aschur a breathnaíodh atá ceart |
+| β (beta) | ráta teipe: an t-aschur a breathnaíodh atá mícheart |
+| δ (delta) | ráta críochnaithe: rath + teip, míreanna a fuair seirbhís, bíodh toradh ceart nó mícheart orthu |
+| σ (sigma) | ráta scipeála: míreanna a tháinig isteach agus a d’imigh gan seirbhís |
+| ε (epsilon) | cóimheas earráide: β / (α + β) = β / δ |
+| τ (tau) | am sa chóras, nó am luaidhe |
+| ω (omega) | am ag feitheamh, nó am sa scuaine |
+| φ (phi) | am oibre, nó am sa phróiseálaí, nó am seirbhíse |
+| θ (theta) | am céime idir críochnuithe; meán-am céime ≈ 1 / χ i staid sheasta |
 
 ### Líon
 
 Is minic a chomhairímid míreanna, agus úsáidimid an nodaireacht seo:
 
-- κ (kappa): líon na míreanna sa chóras, is é sin míreanna ag feitheamh móide míreanna á n-oibriú
+- κ (kappa): líon na míreanna sa chóras, is é sin míreanna ag feitheamh móide míreanna á n-oibriú.
+
+![Léaráid: sroicheann míreanna ag ráta λ, tá κ mír sa chóras, agus fágann míreanna le tréchur χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Sampla:
 
-- Ciallaíonn κ = 100 go bhfuil 100 mír sa chóras.
+- Ciallaíonn κ = 10 go díreach 10
 
-- Ciallaíonn κ > 100 go bhfuil níos mó ná 100 mír sa chóras.
+- Ciallaíonn κ ≈ 10 thart ar 10
 
-- Ciallaíonn κ ≫ 100 go bhfuil i bhfad níos mó ná 100 mír sa chóras.
+- Ciallaíonn κ < 10 níos lú ná 10
 
-Is grianghraf ag nóiméad amháin é líon amhail κ = 100. I nDlí Little, ciallaíonn κ an meánlíon fadtréimhseach, arb é L na dtéacsleabhar é. Is é Lq siombail na dtéacsleabhar do na míreanna atá ag feitheamh sa scuaine amháin.
+- Ciallaíonn κ > 10 níos mó ná 10
+
+- Ciallaíonn κ ≪ 10 i bhfad níos lú ná 10
+
+- Ciallaíonn κ ≫ 10 i bhfad níos mó ná 10
+
+Is grianghraf ag nóiméad amháin é an líon κ (kappa).
+
+Is ríomh é an meánlíon κ̅ (kappa le barra) a ghlacann meán de thomhaiseanna thar tréimhse ama shonrach, mar shampla tomhas gach uair an chloig ar feadh coicíse.
 
 ### Ráta teachta, ráta seirbhíse
 
@@ -184,9 +193,9 @@ Samplaí:
 
 - Ciallaíonn ρ > 1 go sáraíonn na teachtaí an acmhainn; tá an scuaine ag éirí níos mó.
 
-### Rátaí tréchuir: ráta iomlán, ráta ratha, ráta teipe, ráta scipeála
+### Rátaí tréchuir: ráta iomlán, ráta críochnaithe, ráta ratha, ráta teipe, ráta scipeála
 
-Tomhaiseann rátaí tréchuir an t-aschur a breathnaíodh, is é sin na míreanna a fhágann an scuaine i ndáiríre. Tá ceithre chatagóir leathana acu:
+Tomhaiseann rátaí tréchuir an t-aschur a breathnaíodh, is é sin na míreanna a fhágann an scuaine i ndáiríre. Tá cúig chatagóir leathana acu:
 
 - χ (chi): ráta iomlán. Tomhaiseann sé seo cé mhéad mír in aghaidh an ama a fhágann an scuaine ar chúis ar bith: rath, teip, scipeáil, srl.
 
@@ -194,11 +203,23 @@ Tomhaiseann rátaí tréchuir an t-aschur a breathnaíodh, is é sin na míreann
 
 - β (beta): ráta teipe. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama atá mícheart, m.sh. míchruinn, neamhiomlán, diúltaithe.
 
-- δ (delta): ráta scipeála, nó ráta tréigthe. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama a théann isteach sa scuaine agus a fhágann í gan seirbhís a fháil, m.sh. tréigintí, cúluithe.
+- δ (delta): ráta críochnaithe. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama a gheobhaidh seirbhís, bíodh toradh ceart nó mícheart orthu: rath + teip.
+
+- σ (sigma): ráta scipeála. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama a théann isteach sa scuaine agus a fhágann í gan seirbhís a fháil, m.sh. tréigintí, cúluithe.
+
+Ráta críochnaithe = ráta ratha + ráta teipe:
+
+- δ = α + β (fuaimnítear: delta cothrom le alpha móide beta)
+
+Ráta iomlán = ráta críochnaithe + ráta scipeála:
+
+- χ = δ + σ (fuaimnítear: chi cothrom le delta móide sigma)
 
 Ráta iomlán = ráta ratha + ráta teipe + ráta scipeála:
 
-- χ = α + β + δ (fuaimnítear: chi cothrom le alpha móide beta móide delta)
+- χ = α + β + σ (fuaimnítear: chi cothrom le alpha móide beta móide sigma)
+
+![Léaráid: fágann míreanna an córas mar rath α, teip β nó scipeáil σ; críochnaithe δ = α + β, mar sin χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Tháinig gach mír a chomhairtear in χ isteach sa chóras, mar sin i staid sheasta is ionann an ráta iomlán agus an ráta teachta: χ ≈ λ. Sin an fáth a dtomhaiseann rátaí tréchuir aschur, ní acmhainn.
 
@@ -212,7 +233,7 @@ Tá fréamhacha stairiúla leis seo agus is féidir go mbeadh mearbhall agus bot
 
 - Dearcadh Próiseála: Áirítear sa ráta seirbhíse cibé rud a chaitheann an scuaine am á phróiseáil, is é sin ratha nó teipeanna, ach ní áirítear scipeálacha.
 
-- Dearcadh Teicneolaíochta: I réimsí feidhmeacha amhail innealtóireacht bogearraí, ní thomhaiseann an ráta seirbhíse ach ratha, agus tomhaiseann an ráta earráide teipeanna, agus tomhaiseann an ráta scipeála tréigintí.
+- Dearcadh Teicneolaíochta: I réimsí feidhmeacha amhail innealtóireacht bogearraí, ní thomhaiseann an ráta seirbhíse ach ratha, agus tomhaiseann an ráta earráide teipeanna, agus tomhaiseann an ráta scipeála scipeálacha.
 
 Dá bhrí sin coinnímid μ don acmhainn, agus cuirimid rátaí an aschuir a breathnaíodh leis, seachas é a athsholáthar:
 
@@ -228,7 +249,7 @@ Cén fáth nach gcuirimid χ nó α in ionad μ? I scuaine chobhsaí, fágann ga
 
 Sonraí an ráta scipeála:
 
-- δ (delta): ráta scipeála, nó ráta tréigthe. Tomhaiseann sé seo cé mhéad mír a théann isteach sa scuaine agus a fhágann í gan láimhseáil.
+- σ (sigma): ráta scipeála. Tomhaiseann sé seo cé mhéad mír a théann isteach sa scuaine agus a fhágann í gan próiseáil.
 
 Is scipeáil é nuair a théann mír isteach sa scuaine agus a fhágann sí í gan aon phróiseáil shuntasach:
 
@@ -238,7 +259,7 @@ Is scipeáil é nuair a théann mír isteach sa scuaine agus a fhágann sí í g
 
 Níl dhá iompar ghaolmhara ina scipeálacha:
 
-- Diúltú: nuair a shocraíonn custaiméir gan dul isteach sa scuaine toisc go bhfuil baol ann go mbeidh an t-am feithimh rófhada. Ní théann mír a dhiúltaigh isteach sa chóras riamh, mar sin tá sí lasmuigh de theorainn an chórais: ní chomhairtear í in λ, χ, ná δ. Má tá tábhacht le diúltuithe, amhail díolacháin a cailleadh, comhairigí ar leith iad mar theachtaí a seoladh ar shiúl.
+- Diúltú: nuair a shocraíonn custaiméir gan dul isteach sa scuaine toisc go bhfuil baol ann go mbeidh an t-am feithimh rófhada. Ní théann mír a dhiúltaigh isteach sa chóras riamh, mar sin tá sí lasmuigh de theorainn an chórais: ní chomhairtear í in λ, χ, ná σ. Má tá tábhacht le diúltuithe, amhail díolacháin a cailleadh, comhairigí ar leith iad mar theachtaí a seoladh ar shiúl.
 
 - Malartú scuaine: nuair a athraíonn custaiméir idir scuainí comhthreomhara, amhail línte seiceála amach, ag iarraidh am feithimh níos giorra a fháil.
 
@@ -246,9 +267,11 @@ Níl dhá iompar ghaolmhara ina scipeálacha:
 
 An nodaireacht is tábhachtaí a dhéanann achoimre ar rath scuaine:
 
-- ε (epsilon): cóimheas earráide = líon teipeanna / (líon ratha + líon teipeanna) = β / (α + β)
+- ε (epsilon): cóimheas earráide = líon teipeanna / (líon ratha + líon teipeanna) = β / (α + β) = β / δ
 
-Fágtar scipeálacha as, toisc nár tugadh seirbhís riamh do mhír a scipeáladh, mar sin ní raibh sí ceart ná mícheart. Rianaigí scipeálacha ar leith trí δ.
+Fágtar scipeálacha as, toisc nár tugadh seirbhís riamh do mhír a scipeáladh, mar sin ní raibh sí ceart ná mícheart. Rianaigí scipeálacha ar leith trí σ.
+
+![Léaráid: is é an ráta críochnaithe δ an ráta ratha α móide an ráta teipe β, agus is é an cóimheas earráide ε an ráta teipe β roinnte ar an ráta críochnaithe δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Samplaí:
 
@@ -270,6 +293,8 @@ Rianaímid ceithre am:
 
 - ω (omega): am feithimh = an t-am a chaitear gan fíorobair a dhéanamh, nó am ar feitheamh
 
+![Léaráid: is é an t-am luaidhe τ an t-am feithimh ω agus ansin an t-am oibre φ, mar sin τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Samplaí:
 
 - Ciallaíonn τ = 5s go gcuirtear mír leis an scuaine, agus go dtugtar seirbhís di 5 soicind ina dhiaidh sin.
@@ -286,9 +311,9 @@ Gaolta:
 
 - meán θ ≈ 1 / χ: i staid sheasta, is é an meán-am céime inbhéartach an ráta iomláin. Is beag a insíonn bearna aonair faoin ráta; insíonn meán go leor bearnaí. Sna samplaí, más 1s an meán-am céime, ansin χ ≈ 1 mír in aghaidh an tsoicind.
 
-### Nodaireacht chaighdeánach
+### Nodaireacht Kendall
 
-Déanann an nodaireacht chaighdeánach do theoiric na scuainí cur síos ar scuaine trí nodaireacht Kendall a úsáid, scríofa mar A/S/c/K/N/D:
+Is nodaireacht eile do theoiric na scuainí é nodaireacht Kendall, scríofa mar A/S/c/K/N/D:
 
 - A: an próiseas teachta, is é sin dáileadh an ama idir teachtaí.
 
@@ -312,11 +337,13 @@ Litreacha coitianta do A agus S:
 
 Nuair a fhágtar an triúr deireanach ar lár, is iad na réamhshocruithe K = ∞, N = ∞, D = FIFO. Mar shampla, ciallaíonn “M/M/1” teachtaí Poisson, amanna seirbhíse easpónantúla, freastalaí amháin, acmhainn gan teorainn, daonra gan teorainn, agus an chéad duine isteach an chéad duine amach.
 
-Úsáideann an nodaireacht chaighdeánach n freisin chun líon na míreanna sa chóras a chiallú.
+Freisin:
+
+- n: líon na míreanna sa chóras.
 
 ## Matamaitic na scuainí
 
-Úsáideann na codanna matamaitice siombailí na dtéacsleabhar, ionas gur féidir libh iad a chur i gcomparáid le foinsí eile: is é S an meán-am seirbhíse, arb é ár φ é, agus is é μ = 1 / S acmhainn freastalaí amháin. Féach an comhfhreagras in [nodaireacht theoiric na scuainí](#nodaireacht-theoiric-na-scuainí).
+Úsáideann na codanna matamaitice siombailí na dtéacsleabhar, ionas gur féidir libh iad a chur i gcomparáid le foinsí eile: is é S an meán-am seirbhíse, arb é ár φ é, agus is é μ = 1 / S acmhainn freastalaí amháin.
 
 ### An cuar úsáide
 
@@ -407,7 +434,7 @@ Samplaí:
 
 - Aμ: Ráta seirbhíse gníomhaíochta, nó acmhainn: cé mhéad mír is féidir le freastalaí amháin a chríochnú in aghaidh an aonaid ama agus é gnóthach.
 
-- Aδ: Ráta scipeála gníomhaíochta, nó ráta tréigthe: cé mhéad mír a thréigtear in aghaidh an aonaid ama.
+- Aσ: Ráta scipeála gníomhaíochta: cé mhéad mír a thréigtear in aghaidh an aonaid ama.
 
 - Aρ: Cóimheas úsáide gníomhaíochta: an codán den am atá ar fáil a bhíonn na freastalaithe gnóthach, is é sin am gnóthach ÷ am ar fáil, nó λ / (c μ).
 

@@ -15,12 +15,12 @@ Yaliyomo:
   - [Idadi](#idadi)
   - [Kiwango cha uwasili, kiwango cha huduma](#kiwango-cha-uwasili-kiwango-cha-huduma)
   - [Uwiano wa matumizi, yaani ukali wa trafiki](#uwiano-wa-matumizi-yaani-ukali-wa-trafiki)
-  - [Viwango vya upitishaji: kiwango cha jumla, kiwango cha mafanikio, kiwango cha kushindwa, kiwango cha kuachwa](#viwango-vya-upitishaji-kiwango-cha-jumla-kiwango-cha-mafanikio-kiwango-cha-kushindwa-kiwango-cha-kuachwa)
+  - [Viwango vya upitishaji: kiwango cha jumla, kiwango cha kukamilika, kiwango cha mafanikio, kiwango cha kushindwa, kiwango cha kuachwa](#viwango-vya-upitishaji-kiwango-cha-jumla-kiwango-cha-kukamilika-kiwango-cha-mafanikio-kiwango-cha-kushindwa-kiwango-cha-kuachwa)
   - [Ufafanuzi wa kiwango cha huduma](#ufafanuzi-wa-kiwango-cha-huduma)
   - [Kiwango cha kuachwa](#kiwango-cha-kuachwa)
   - [Uwiano wa makosa](#uwiano-wa-makosa)
   - [Muda wa jumla, muda wa hatua, muda wa kazi, muda wa kusubiri](#muda-wa-jumla-muda-wa-hatua-muda-wa-kazi-muda-wa-kusubiri)
-  - [Nukuu ya kawaida](#nukuu-ya-kawaida)
+  - [Nukuu ya Kendall](#nukuu-ya-kendall)
 - [Hisabati ya foleni](#hisabati-ya-foleni)
   - [Mkunjo wa matumizi](#mkunjo-wa-matumizi)
   - [Fomula ya Kingman](#fomula-ya-kingman)
@@ -109,41 +109,50 @@ Nadharia ya foleni hutumia nukuu zenye herufi za Kigiriki.
 
 Timu zetu hutumia baadhi ya nukuu maarufu; pia tunaongeza nukuu zetu maalum zinazotusaidia katika miradi ya programu.
 
-Ulinganisho wa nukuu zetu na nukuu za kawaida za vitabu vya kiada:
+Alama zetu na maana ya kila alama:
 
-| Zetu | Kawaida | Maana                                                                                  |
-| ---- | ------- | -------------------------------------------------------------------------------------- |
-| κ    | L       | idadi ya wastani ya vipengee katika mfumo, vinavyosubiri pamoja na vinavyoshughulikiwa |
-| λ    | λ       | kiwango cha uwasili wa vipengee vinavyoingia katika mfumo                              |
-| μ    | μ       | kiwango cha huduma, yaani uwezo: kasi ya seva moja inapofanya kazi                     |
-| ρ    | ρ       | matumizi: sehemu ya muda ambao seva zina shughuli, λ / (c μ)                            |
-| χ    | X       | kiwango cha upitishaji, yaani kiwango cha kuondoka: matokeo yanayoonekana, kwa sababu yoyote |
-| α    | hakuna  | kiwango cha mafanikio: matokeo yanayoonekana ambayo yanageuka kuwa sahihi              |
-| β    | hakuna  | kiwango cha kushindwa: matokeo yanayoonekana ambayo yanageuka kuwa makosa              |
-| δ    | hakuna  | kiwango cha kuachwa, yaani kiwango cha kujitoa: vipengee vilivyoingia, kisha vikaondoka bila kuhudumiwa |
-| ε    | hakuna  | uwiano wa makosa β / (α + β)                                                           |
-| τ    | W       | muda wa wastani katika mfumo, yaani muda wa jumla wa utekelezaji (lead time)            |
-| ω    | Wq      | muda wa wastani wa kusubiri katika foleni                                              |
-| φ    | S       | muda wa wastani wa huduma, yaani muda wa kazi; μ = 1 / S                               |
-| θ    | hakuna  | muda wa hatua kati ya ukamilishaji; muda wa wastani wa hatua ≈ 1 / χ katika hali tulivu |
-
-Jihadharini na migongano ya alama mnaposoma vyanzo vingine: σ kwa kawaida humaanisha mkengeuko sanifu, ndiyo sababu sisi tunatumia δ kwa kiwango cha kuachwa, na θ mara nyingi humaanisha kiwango cha kuachwa katika miundo ya vituo vya simu ya Erlang-A, ilhali sisi tunatumia θ kwa muda wa hatua.
+| Alama zetu | Maana |
+| ---------- | ----- |
+| κ (kappa) | idadi ya vipengee katika mfumo, vinavyosubiri pamoja na vinavyoshughulikiwa |
+| λ (lambda) | kiwango cha uwasili wa vipengee vinavyoingia katika mfumo |
+| μ (mu) | kiwango cha huduma, yaani uwezo: kasi ya seva moja inapofanya kazi |
+| ρ (rho) | matumizi: sehemu ya muda ambao seva zina shughuli, λ / (c μ) |
+| χ (chi) | kiwango cha upitishaji, yaani kiwango cha kuondoka: matokeo yanayoonekana, kwa sababu yoyote |
+| α (alpha) | kiwango cha mafanikio: matokeo yanayoonekana ambayo yanageuka kuwa sahihi |
+| β (beta) | kiwango cha kushindwa: matokeo yanayoonekana ambayo yanageuka kuwa makosa |
+| δ (delta) | kiwango cha kukamilika: mafanikio + kushindwa, vipengee vilivyohudumiwa, iwe matokeo ni sahihi au si sahihi |
+| σ (sigma) | kiwango cha kuachwa: vipengee vilivyoingia, kisha vikaondoka bila kuhudumiwa |
+| ε (epsilon) | uwiano wa makosa: β / (α + β) = β / δ |
+| τ (tau) | muda katika mfumo, yaani muda wa jumla wa utekelezaji (lead time) |
+| ω (omega) | muda wa kusubiri, yaani muda katika foleni |
+| φ (phi) | muda wa kazi, yaani muda katika kichakataji, yaani muda wa huduma |
+| θ (theta) | muda wa hatua kati ya ukamilishaji; muda wa wastani wa hatua ≈ 1 / χ katika hali tulivu |
 
 ### Idadi
 
 Tunahesabu vipengee mara kwa mara, na tunatumia nukuu hii:
 
-- κ (kappa): idadi ya vipengee katika mfumo, yaani vipengee vinavyosubiri pamoja na vipengee vinavyoshughulikiwa
+- κ (kappa): idadi ya vipengee katika mfumo, yaani vipengee vinavyosubiri pamoja na vipengee vinavyoshughulikiwa.
+
+![Mchoro: vipengee vinawasili kwa kiwango λ, kuna vipengee κ katika mfumo, na vipengee vinaondoka kwa upitishaji χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Mfano:
 
-- κ = 100 inamaanisha kuna vipengee 100 katika mfumo.
+- κ = 10 inamaanisha hasa 10
 
-- κ > 100 inamaanisha kuna vipengee zaidi ya 100 katika mfumo.
+- κ ≈ 10 inamaanisha takriban 10
 
-- κ ≫ 100 inamaanisha kuna vipengee vingi zaidi ya 100 katika mfumo.
+- κ < 10 inamaanisha chini ya 10
 
-Idadi kama κ = 100 ni picha ya papo hapo ya wakati mmoja. Katika Sheria ya Little, κ inamaanisha idadi ya wastani ya muda mrefu, ambayo ni L ya vitabu vya kiada. Alama ya vitabu vya kiada kwa vipengee vinavyosubiri kwenye mstari pekee ni Lq.
+- κ > 10 inamaanisha zaidi ya 10
+
+- κ ≪ 10 inamaanisha chini sana ya 10
+
+- κ ≫ 10 inamaanisha zaidi sana ya 10
+
+Idadi κ (kappa) ni picha ya papo hapo ya wakati mmoja.
+
+Idadi ya wastani κ̅ (kappa yenye mstari) ni hesabu inayochukua wastani wa vipimo katika kipindi maalum cha muda, kwa mfano kupima kila saa kwa wiki mbili.
 
 ### Kiwango cha uwasili, kiwango cha huduma
 
@@ -179,9 +188,9 @@ Mifano:
 
 - ρ > 1 inamaanisha uwasili unazidi uwezo; foleni inazidi kuwa kubwa.
 
-### Viwango vya upitishaji: kiwango cha jumla, kiwango cha mafanikio, kiwango cha kushindwa, kiwango cha kuachwa
+### Viwango vya upitishaji: kiwango cha jumla, kiwango cha kukamilika, kiwango cha mafanikio, kiwango cha kushindwa, kiwango cha kuachwa
 
-Viwango vya upitishaji hupima matokeo yanayoonekana, yaani vipengee ambavyo kwa kweli vinaondoka katika foleni. Viko katika makundi manne mapana:
+Viwango vya upitishaji hupima matokeo yanayoonekana, yaani vipengee ambavyo kwa kweli vinaondoka katika foleni. Viko katika makundi matano mapana:
 
 - χ (chi): kiwango cha jumla. Hiki kinapima ni vipengee vingapi kwa kila kipimo cha muda vinatoka katika foleni kwa sababu yoyote: mafanikio, kushindwa, kuachwa, n.k.
 
@@ -189,11 +198,23 @@ Viwango vya upitishaji hupima matokeo yanayoonekana, yaani vipengee ambavyo kwa 
 
 - β (beta): kiwango cha kushindwa. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinageuka kuwa makosa, kwa mfano visivyo sahihi, visivyokamilika, vilivyokataliwa.
 
-- δ (delta): kiwango cha kuachwa, yaani kiwango cha kujitoa. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinaingia katika foleni, kisha vinaondoka bila kuhudumiwa, kwa mfano kuachwa au kujitoa.
+- δ (delta): kiwango cha kukamilika. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinahudumiwa, iwe matokeo ni sahihi au si sahihi: mafanikio + kushindwa.
+
+- σ (sigma): kiwango cha kuachwa. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinaingia katika foleni, kisha vinaondoka bila kuhudumiwa, kwa mfano kuacha foleni, kujitoa.
+
+Kiwango cha kukamilika = kiwango cha mafanikio + kiwango cha kushindwa:
+
+- δ = α + β (hutamkwa: delta ni sawa na alpha jumlisha beta)
+
+Kiwango cha jumla = kiwango cha kukamilika + kiwango cha kuachwa:
+
+- χ = δ + σ (hutamkwa: chi ni sawa na delta jumlisha sigma)
 
 Kiwango cha jumla = kiwango cha mafanikio + kiwango cha kushindwa + kiwango cha kuachwa:
 
-- χ = α + β + δ (hutamkwa: chi ni sawa na alpha jumlisha beta jumlisha delta)
+- χ = α + β + σ (hutamkwa: chi ni sawa na alpha jumlisha beta jumlisha sigma)
+
+![Mchoro: vipengee vinaondoka katika mfumo kama mafanikio α, kushindwa β, au kuachwa σ; vilivyokamilika δ = α + β, hivyo χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kila kipengee kinachohesabiwa katika χ kiliingia katika mfumo, kwa hiyo katika hali tulivu kiwango cha jumla ni sawa na kiwango cha uwasili: χ ≈ λ. Ndiyo sababu viwango vya upitishaji hupima matokeo, si uwezo.
 
@@ -207,7 +228,7 @@ Jambo hili lina mizizi ya kihistoria na linaweza kusababisha mkanganyiko na mako
 
 - Mtazamo wa Uchakataji: Kiwango cha huduma kinajumuisha chochote ambacho foleni inatumia muda kukichakata, yaani mafanikio au kushindwa, lakini hakijumuishi vilivyoachwa.
 
-- Mtazamo wa Kiteknolojia: Katika nyanja za matumizi kama vile uhandisi wa programu, kiwango cha huduma hupima mafanikio pekee, ilhali kiwango cha makosa hupima kushindwa, na kiwango cha kuachwa hupima vilivyojitoa.
+- Mtazamo wa Kiteknolojia: Katika nyanja za matumizi kama vile uhandisi wa programu, kiwango cha huduma hupima mafanikio pekee, ilhali kiwango cha makosa hupima kushindwa, na kiwango cha kuachwa hupima vilivyoachwa.
 
 Kwa hiyo tunaibakiza μ kwa uwezo, na tunaongeza viwango vya matokeo yanayoonekana pembeni yake, badala ya kuibadilisha:
 
@@ -223,7 +244,7 @@ Kwa nini tusibadilishe μ kwa χ au α? Katika foleni thabiti, kila kipengee kin
 
 Maelezo ya kina ya kiwango cha kuachwa:
 
-- δ (delta): kiwango cha kuachwa, yaani kiwango cha kujitoa. Hiki kinapima ni vipengee vingapi vinaingia katika foleni, kisha vinaondoka bila kushughulikiwa.
+- σ (sigma): kiwango cha kuachwa. Hiki kinapima ni vipengee vingapi vinaingia katika foleni, kisha vinaondoka bila kushughulikiwa.
 
 Kuachwa ni pale kipengee kinapoingia katika foleni, kisha kinaondoka bila uchakataji wowote wa maana:
 
@@ -233,7 +254,7 @@ Kuachwa ni pale kipengee kinapoingia katika foleni, kisha kinaondoka bila uchaka
 
 Tabia mbili zinazohusiana si kuachwa:
 
-- Kusita (balking): pale mteja anapoamua kutojiunga na foleni kwa sababu muda wa kusubiri unaonekana kuwa mrefu mno. Kipengee kilichositasita hakiingii kamwe katika mfumo, kwa hiyo kiko nje ya mpaka wa mfumo: hakihesabiwi katika λ, χ, wala δ. Ikiwa kusita kuna umuhimu, kama vile mauzo yaliyopotea, basi kuhesabuni kando kama uwasili uliokataliwa.
+- Kusita (balking): pale mteja anapoamua kutojiunga na foleni kwa sababu muda wa kusubiri unaonekana kuwa mrefu mno. Kipengee kilichositasita hakiingii kamwe katika mfumo, kwa hiyo kiko nje ya mpaka wa mfumo: hakihesabiwi katika λ, χ, wala σ. Ikiwa kusita kuna umuhimu, kama vile mauzo yaliyopotea, basi kuhesabuni kando kama uwasili uliokataliwa.
 
 - Kuhamahama (jockeying): pale mteja anapohama kati ya foleni zinazofanana, kama vile njia za malipo, akijaribu kupata muda mfupi zaidi wa kusubiri.
 
@@ -241,9 +262,11 @@ Tabia mbili zinazohusiana si kuachwa:
 
 Nukuu muhimu zaidi inayofupisha mafanikio ya foleni:
 
-- ε (epsilon): uwiano wa makosa = idadi ya kushindwa / (idadi ya mafanikio + idadi ya kushindwa) = β / (α + β)
+- ε (epsilon): uwiano wa makosa = idadi ya kushindwa / (idadi ya mafanikio + idadi ya kushindwa) = β / (α + β) = β / δ
 
-Vilivyoachwa haviingizwi, kwa sababu kipengee kilichoachwa hakikuhudumiwa kamwe, kwa hiyo hakikuwa sahihi wala kosa. Fuatilieni vilivyoachwa kando kupitia δ.
+Vilivyoachwa haviingizwi, kwa sababu kipengee kilichoachwa hakikuhudumiwa kamwe, kwa hiyo hakikuwa sahihi wala kosa. Fuatilieni vilivyoachwa kando kupitia σ.
+
+![Mchoro: kiwango cha kukamilika δ ni kiwango cha mafanikio α jumlisha kiwango cha kushindwa β, na uwiano wa makosa ε ni kiwango cha kushindwa β kikigawanywa kwa kiwango cha kukamilika δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Mifano:
 
@@ -265,6 +288,8 @@ Tunafuatilia aina nne za muda:
 
 - ω (omega): muda wa kusubiri = muda unaotumika bila kufanya kazi halisi, yaani muda wa kungoja
 
+![Mchoro: muda wa jumla wa utekelezaji τ ni muda wa kusubiri ω ukifuatwa na muda wa kazi φ, hivyo τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Mifano:
 
 - τ = 5s inamaanisha kipengee kinaongezwa katika foleni, kisha kinahudumiwa sekunde 5 baadaye.
@@ -281,9 +306,9 @@ Mahusiano:
 
 - θ ya wastani ≈ 1 / χ: katika hali tulivu, muda wa wastani wa hatua ni kinyume cha kiwango cha jumla. Pengo moja peke yake halisemi mengi kuhusu kiwango; wastani wa mapengo mengi husema. Katika mifano, ikiwa muda wa wastani wa hatua ni 1s, basi χ ≈ kipengee 1 kwa sekunde.
 
-### Nukuu ya kawaida
+### Nukuu ya Kendall
 
-Nukuu ya kawaida ya nadharia ya foleni inaeleza foleni kwa kutumia nukuu ya Kendall, inayoandikwa kama A/S/c/K/N/D:
+Nukuu ya Kendall ni nukuu nyingine ya nadharia ya foleni, inayoandikwa kama A/S/c/K/N/D:
 
 - A: mchakato wa uwasili, yaani mgawanyo wa muda kati ya uwasili.
 
@@ -307,11 +332,13 @@ Herufi za kawaida kwa A na S:
 
 Herufi tatu za mwisho zinapoachwa, thamani chaguo-msingi ni K = ∞, N = ∞, D = FIFO. Kwa mfano, "M/M/1" inamaanisha uwasili wa Poisson, muda wa huduma wa kielelezo, seva moja, uwezo usio na kikomo, idadi ya watu isiyo na kikomo, na wa kwanza kuingia ni wa kwanza kutoka.
 
-Nukuu ya kawaida pia hutumia n kumaanisha idadi ya vipengee katika mfumo.
+Pia:
+
+- n: idadi ya vipengee katika mfumo.
 
 ## Hisabati ya foleni
 
-Sehemu za hisabati zinatumia alama za vitabu vya kiada, ili mweze kuzilinganisha na vyanzo vingine: S ni muda wa wastani wa huduma, ambao ni φ yetu, na μ = 1 / S ni uwezo wa seva moja. Tazameni ulinganisho katika [nukuu za nadharia ya foleni](#nukuu-za-nadharia-ya-foleni).
+Sehemu za hisabati zinatumia alama za vitabu vya kiada, ili mweze kuzilinganisha na vyanzo vingine: S ni muda wa wastani wa huduma, ambao ni φ yetu, na μ = 1 / S ni uwezo wa seva moja.
 
 ### Mkunjo wa matumizi
 
@@ -402,7 +429,7 @@ Mifano:
 
 - Aμ: Kiwango cha huduma cha shughuli, yaani uwezo: ni vipengee vingapi seva moja inaweza kukamilisha kwa kila kipimo cha muda inapokuwa na shughuli.
 
-- Aδ: Kiwango cha kuachwa cha shughuli, yaani kiwango cha kujitoa: ni vipengee vingapi vinaachwa kwa kila kipimo cha muda.
+- Aσ: Kiwango cha kuachwa cha shughuli: ni vipengee vingapi vinaachwa kwa kila kipimo cha muda.
 
 - Aρ: Uwiano wa matumizi wa shughuli: sehemu ya muda unaopatikana ambao seva zina shughuli, yaani muda wa shughuli ÷ muda unaopatikana, au λ / (c μ).
 

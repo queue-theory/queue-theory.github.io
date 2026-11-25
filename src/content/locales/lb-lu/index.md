@@ -15,12 +15,12 @@ Inhalt:
   - [Zuel](#zuel)
   - [Ukonftsrat, Servicerat](#ukonftsrat-servicerat)
   - [Auslaaschtungsgrad, och Verkéiersintensitéit genannt](#auslaaschtungsgrad-och-verkéiersintensitéit-genannt)
-  - [Duerchsazraten: Gesamtrat, Erfollegsrat, Feelerrat, Ofbriechrat](#duerchsazraten-gesamtrat-erfollegsrat-feelerrat-ofbriechrat)
+  - [Duerchsazraten: Gesamtrat, Ofschlossrat, Erfollegsrat, Feelerrat, Ofbriechrat](#duerchsazraten-gesamtrat-ofschlossrat-erfollegsrat-feelerrat-ofbriechrat)
   - [Kläerung vum Begrëff Servicerat](#kläerung-vum-begrëff-servicerat)
   - [Ofbriechrat](#ofbriechrat)
   - [Feelerquot](#feelerquot)
   - [Duerchlafzäit, Taktzäit, Aarbechtszäit, Waardezäit](#duerchlafzäit-taktzäit-aarbechtszäit-waardezäit)
-  - [Standardnotatioun](#standardnotatioun)
+  - [Kendall-Notatioun](#kendall-notatioun)
 - [Schlaangemathematik](#schlaangemathematik)
   - [D’Auslaaschtungskurv](#dauslaaschtungskurv)
   - [Kingman-Formel](#kingman-formel)
@@ -109,41 +109,50 @@ D’Schlaangentheorie benotzt eng Notatioun mat griichesche Buschtawen.
 
 Eis Équipë benotze en Deel vun der populärer Notatioun; mir ergänzen och eng eege Notatioun, déi eis bei Softwareprojeten hëlleft.
 
-Entspriechung vun eiser Notatioun zu der Standardnotatioun aus de Léierbicher:
+Eis Notatioun an d’Bedeitung vun all Symbol:
 
-| Eis | Standard | Bedeitung                                                                          |
-| --- | -------- | ---------------------------------------------------------------------------------- |
-| κ   | L        | duerchschnëttlech Zuel vun Elementer am System, waardend plus a Bearbechtung       |
-| λ   | λ        | Ukonftsrat vun den Elementer, déi an de System erakommen                           |
-| μ   | μ        | Servicerat, och Kapazitéit: wéi séier ee Server schafft, wann e beschäftegt ass    |
-| ρ   | ρ        | Auslaaschtung: den Undeel vun der Zäit, an deem d’Server beschäftegt sinn, λ / (c μ) |
-| χ   | X        | Duerchsaz, och Ofgangsrat: beobachten Output, aus egal wéi engem Grond             |
-| α   | keng     | Erfollegsrat: beobachten Output, deen sech als richteg erweist                     |
-| β   | keng     | Feelerrat: beobachten Output, deen sech als falsch erweist                         |
-| δ   | keng     | Ofbriechrat, och Ausfallrat: Elementer, déi erakomm sinn an onbedéngt fortgaange sinn |
-| ε   | keng     | Feelerquot β / (α + β)                                                             |
-| τ   | W        | duerchschnëttlech Zäit am System, och Duerchlafzäit                                |
-| ω   | Wq       | duerchschnëttlech Waardezäit an der Schlaang                                       |
-| φ   | S        | duerchschnëttlech Servicezäit, och Aarbechtszäit; μ = 1 / S                        |
-| θ   | keng     | Taktzäit tëscht Ofschlëss; mëttler Taktzäit ≈ 1 / χ am stationäre Zoustand         |
-
-Passt op Symbolkonflikter op, wann Dir aner Quelle liest: σ bedeit normalerweis d’Standardabweichung, dofir benotze mir δ fir d’Ofbriechrat, an θ bedeit an den Erlang-A-Modeller fir Callcenteren dacks d’Ofbriechrat, wärend mir θ fir d’Taktzäit benotzen.
+| Eis Notatioun | Bedeitung |
+| ------------- | --------- |
+| κ (Kappa) | Zuel vun Elementer am System, waardend plus a Bearbechtung |
+| λ (Lambda) | Ukonftsrat vun den Elementer, déi an de System erakommen |
+| μ (Mu) | Servicerat, och Kapazitéit: wéi séier ee Server schafft, wann e beschäftegt ass |
+| ρ (Rho) | Auslaaschtung: den Undeel vun der Zäit, an deem d’Server beschäftegt sinn, λ / (c μ) |
+| χ (Chi) | Duerchsaz, och Ofgangsrat: beobachten Output, aus egal wéi engem Grond |
+| α (Alpha) | Erfollegsrat: beobachten Output, deen sech als richteg erweist |
+| β (Beta) | Feelerrat: beobachten Output, deen sech als falsch erweist |
+| δ (Delta) | Ofschlossrat: Erfolleg + Feeler, Elementer, déi bedéngt goufen, egal ob d’Resultat richteg oder falsch ass |
+| σ (Sigma) | Ofbriechrat: Elementer, déi erakomm sinn an onbedéngt fortgaange sinn |
+| ε (Epsilon) | Feelerquot: β / (α + β) = β / δ |
+| τ (Tau) | Zäit am System, och Duerchlafzäit |
+| ω (Omega) | Waardezäit, och Zäit an der Schlaang |
+| φ (Phi) | Aarbechtszäit, och Zäit am Prozessor, och Servicezäit |
+| θ (Theta) | Taktzäit tëscht Ofschlëss; mëttler Taktzäit ≈ 1 / χ am stationäre Zoustand |
 
 ### Zuel
 
 Mir zielen dacks Elementer, a mir benotzen dës Notatioun:
 
-- κ (Kappa): Zuel vun den Elementer am System, dat heescht déi waardend Elementer plus déi Elementer, déi a Bearbechtung sinn
+- κ (Kappa): Zuel vun den Elementer am System, dat heescht déi waardend Elementer plus déi Elementer, déi a Bearbechtung sinn.
+
+![Diagramm: Elementer kommen mat der Rat λ un, κ Elementer sinn am System, an Elementer verloosse et mam Duerchsaz χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Beispill:
 
-- κ = 100 bedeit, datt et 100 Elementer am System gëtt.
+- κ = 10 bedeit exakt 10
 
-- κ > 100 bedeit, datt et méi wéi 100 Elementer am System gëtt.
+- κ ≈ 10 bedeit ongeféier 10
 
-- κ ≫ 100 bedeit, datt et vill méi wéi 100 Elementer am System gëtt.
+- κ < 10 bedeit manner wéi 10
 
-Eng Zuel wéi κ = 100 ass eng Momentopnam. Am Gesetz vu Little bedeit κ déi laangfristeg duerchschnëttlech Zuel, also d’L aus de Léierbicher. D’Symbol aus de Léierbicher fir nëmmen déi Elementer, déi an der Schlaang waarden, ass Lq.
+- κ > 10 bedeit méi wéi 10
+
+- κ ≪ 10 bedeit vill manner wéi 10
+
+- κ ≫ 10 bedeit vill méi wéi 10
+
+D’Zuel κ (Kappa) ass eng Momentopnam.
+
+Déi duerchschnëttlech Zuel κ̅ (Kappa mat Strach) ass eng Berechnung, déi Miessunge vun engem bestëmmten Zäitraum mëttelt, zum Beispill all Stonn zwou Wochen laang ze moossen.
 
 ### Ukonftsrat, Servicerat
 
@@ -179,9 +188,9 @@ Beispiller:
 
 - ρ > 1 bedeit, datt d’Ukonften d’Kapazitéit iwwersteigen; d’Schlaang gëtt ëmmer méi grouss.
 
-### Duerchsazraten: Gesamtrat, Erfollegsrat, Feelerrat, Ofbriechrat
+### Duerchsazraten: Gesamtrat, Ofschlossrat, Erfollegsrat, Feelerrat, Ofbriechrat
 
-Duerchsazrate moossen de beobachten Output, dat heescht d’Elementer, déi d’Schlaang wierklech verloossen. Et gëtt véier grouss Kategorien:
+Duerchsazrate moossen de beobachten Output, dat heescht d’Elementer, déi d’Schlaang wierklech verloossen. Et gëtt fënnef grouss Kategorien:
 
 - χ (Chi): Gesamtrat. Si moosst, wéi vill Elementer pro Zäit d’Schlaang aus egal wéi engem Grond verloossen: Erfolleg, Feeler, Ofbroch asw.
 
@@ -189,11 +198,23 @@ Duerchsazrate moossen de beobachten Output, dat heescht d’Elementer, déi d’
 
 - β (Beta): Feelerrat. Si moosst, wéi vill Elementer pro Zäitraum sech als falsch erweisen, z. B. inkorrekt, onkomplett, ofgeleent.
 
-- δ (Delta): Ofbriechrat, och Ausfallrat. Si moosst, wéi vill Elementer pro Zäitraum an d’Schlaang erakommen an se dann verloossen, ouni bedéngt ze ginn, z. B. Ofbréch, Réckzéier.
+- δ (Delta): Ofschlossrat. Si moosst, wéi vill Elementer pro Zäitraum bedéngt ginn, egal ob d’Resultat richteg oder falsch ass: Erfolleg + Feeler.
+
+- σ (Sigma): Ofbriechrat. Si moosst, wéi vill Elementer pro Zäitraum an d’Schlaang erakommen an se dann verloossen, ouni bedéngt ze ginn, z. B. Ofbréch, Réckzéier.
+
+Ofschlossrat = Erfollegsrat + Feelerrat:
+
+- δ = α + β (gëtt ausgeschwat: Delta ass gläich Alpha plus Beta)
+
+Gesamtrat = Ofschlossrat + Ofbriechrat:
+
+- χ = δ + σ (gëtt ausgeschwat: Chi ass gläich Delta plus Sigma)
 
 Gesamtrat = Erfollegsrat + Feelerrat + Ofbriechrat:
 
-- χ = α + β + δ (gëtt ausgeschwat: Chi ass gläich Alpha plus Beta plus Delta)
+- χ = α + β + σ (gëtt ausgeschwat: Chi ass gläich Alpha plus Beta plus Sigma)
+
+![Diagramm: Elementer verloosse de System als Erfolleg α, Feeler β oder Ofbriech σ; ofgeschloss δ = α + β, also χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 All Element, dat an χ gezielt gëtt, ass an de System erakomm; dofir ass d’Gesamtrat am stationäre Zoustand gläich der Ukonftsrat: χ ≈ λ. Dofir moosse Duerchsazraten den Output an net d’Kapazitéit.
 
@@ -210,7 +231,7 @@ Besoin gëtt, Feeler an Ofbréch ze verfollegen.
 
 - Veraarbechtungssiicht: D’Servicerat ëmfaasst alles, mat deem d’Schlaang Zäit fir d’Veraarbechtung verbréngt, dat heescht Erfolleger oder Feeler, mä keng Ofbréch.
 
-- Technologesch Siicht: An ugewandte Beräicher wéi der Softwareentwécklung moosst d’Servicerat nëmmen d’Erfolleger, wärend d’Feelerrat d’Feeler moosst an d’Ofbriechrat d’Ausfäll.
+- Technologesch Siicht: An ugewandte Beräicher wéi der Softwareentwécklung moosst d’Servicerat nëmmen d’Erfolleger, wärend d’Feelerrat d’Feeler moosst an d’Ofbriechrat d’Ofbréch.
 
 Dofir behale mir μ fir d’Kapazitéit, a mir setzen d’Rate vum beobachten Output dobäi, amplaz se ze ersetzen:
 
@@ -226,7 +247,7 @@ Firwat ersetze mir μ net duerch χ oder α? An enger stabeler Schlaang verléis
 
 Detailer zur Ofbriechrat:
 
-- δ (Delta): Ofbriechrat, och Ausfallrat. Si moosst, wéi vill Elementer an d’Schlaang erakommen an se dann onbearbecht verloossen.
+- σ (Sigma): Ofbriechrat. Si moosst, wéi vill Elementer an d’Schlaang erakommen an se dann onbearbecht verloossen.
 
 En Ofbroch ass, wann en Element an d’Schlaang erakënnt an se dann ouni nennenswäert Veraarbechtung verléisst:
 
@@ -236,7 +257,7 @@ En Ofbroch ass, wann en Element an d’Schlaang erakënnt an se dann ouni nennen
 
 Zwee verwandt Verhalen sinn keng Ofbréch:
 
-- Ofwénken (Balking): wann e Client decidéiert, sech net an d’Schlaang ze stellen, well d’Waardezäit dreet, ze laang ze ginn. En ofgewénkt Element kënnt ni an de System, also läit et ausserhalb vun der Systemgrenz: et gëtt net an λ, χ oder δ gezielt. Wann Ofwénke wichteg ass, zum Beispill bei verluerene Verkeef, da zielt dës Fäll w.e.g. separat als ofgewisen Ukonften.
+- Ofwénken (Balking): wann e Client decidéiert, sech net an d’Schlaang ze stellen, well d’Waardezäit dreet, ze laang ze ginn. En ofgewénkt Element kënnt ni an de System, also läit et ausserhalb vun der Systemgrenz: et gëtt net an λ, χ oder σ gezielt. Wann Ofwénke wichteg ass, zum Beispill bei verluerene Verkeef, da zielt dës Fäll w.e.g. separat als ofgewisen Ukonften.
 
 - Wiesselen (Jockeying): wann e Client tëscht parallele Schlaange wiesselt, zum Beispill tëscht Keesen, fir eng méi kuerz Waardezäit ze kréien.
 
@@ -244,9 +265,11 @@ Zwee verwandt Verhalen sinn keng Ofbréch:
 
 Déi wichtegst Notatioun, déi den Erfolleg vun enger Schlaang zesummefaasst:
 
-- ε (Epsilon): Feelerquot = Zuel vun de Feeler / (Zuel vun den Erfolleger + Zuel vun de Feeler) = β / (α + β)
+- ε (Epsilon): Feelerquot = Zuel vun de Feeler / (Zuel vun den Erfolleger + Zuel vun de Feeler) = β / (α + β) = β / δ
 
-Ofbréch ginn ausgeschloss, well en ofgebrachent Element ni bedéngt gouf, also war et weder richteg nach falsch. Verfollegt Ofbréch w.e.g. separat iwwer δ.
+Ofbréch ginn ausgeschloss, well en ofgebrachent Element ni bedéngt gouf, also war et weder richteg nach falsch. Verfollegt Ofbréch w.e.g. separat iwwer σ.
+
+![Diagramm: D’Ofschlossrat δ ass d’Erfollegsrat α plus d’Feelerrat β, an de Feelerquot ε ass d’Feelerrat β gedeelt duerch d’Ofschlossrat δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Beispiller:
 
@@ -268,6 +291,8 @@ Mir verfollege véier Zäiten:
 
 - ω (Omega): Waardezäit = Zäit, déi ouni eigentlech Aarbecht verbruecht gëtt, och Liegezäit genannt
 
+![Diagramm: D’Duerchlafzäit τ ass d’Waardezäit ω gefollegt vun der Aarbechtszäit φ, also τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Beispiller:
 
 - τ = 5s bedeit, datt en Element an d’Schlaang gesat gëtt an 5 Sekonne méi spéit bedéngt ass.
@@ -284,9 +309,9 @@ Zesummenhäng:
 
 - mëttler θ ≈ 1 / χ: am stationäre Zoustand ass déi mëttler Taktzäit den Inverse vun der Gesamtrat. Een eenzegen Ofstand seet wéineg iwwer d’Rat aus; den Duerchschnëtt vu ville Ofstänn awer schonn. An de Beispiller: wann déi mëttler Taktzäit 1s ass, dann ass χ ≈ 1 Element pro Sekonn.
 
-### Standardnotatioun
+### Kendall-Notatioun
 
-D’Standardnotatioun vun der Schlaangentheorie beschreift eng Schlaang mat der Kendall-Notatioun, geschriwwen als A/S/c/K/N/D:
+D’Kendall-Notatioun ass eng aner Notatioun vun der Schlaangentheorie, geschriwwen als A/S/c/K/N/D:
 
 - A: den Ukonftsprozess, dat heescht d’Verdeelung vun der Zäit tëscht den Ukonften.
 
@@ -310,11 +335,13 @@ Gängeg Buschtawe fir A an S:
 
 Wann déi lescht dräi ewechgelooss ginn, sinn d’Standardwäerter K = ∞, N = ∞, D = FIFO. Zum Beispill bedeit „M/M/1“ Poisson-Ukonften, exponentiell Servicezäiten, ee Server, onbegrenzt Kapazitéit, onbegrenzt Populatioun a First In First Out.
 
-D’Standardnotatioun benotzt och n fir d’Zuel vun den Elementer am System.
+Och:
+
+- n: d’Zuel vun den Elementer am System.
 
 ## Schlaangemathematik
 
-D’Mathematiksektioune benotzen d’Symboler aus de Léierbicher, fir datt Dir se mat anere Quelle vergläiche kënnt: S ass déi duerchschnëttlech Servicezäit, dat heescht eist φ, an μ = 1 / S ass d’Kapazitéit vun engem Server. Kuckt w.e.g. d’Entspriechung an der [Notatioun vun der Schlaangentheorie](#notatioun-vun-der-schlaangentheorie).
+D’Mathematiksektioune benotzen d’Symboler aus de Léierbicher, fir datt Dir se mat anere Quelle vergläiche kënnt: S ass déi duerchschnëttlech Servicezäit, dat heescht eist φ, an μ = 1 / S ass d’Kapazitéit vun engem Server.
 
 ### D’Auslaaschtungskurv
 
@@ -405,7 +432,7 @@ Beispiller:
 
 - Aμ: Servicerat vun der Aktivitéit, och Kapazitéit: wéi vill Elementer ee Server pro Zäitenheet ofschléisse kann, wann e beschäftegt ass.
 
-- Aδ: Ofbriechrat vun der Aktivitéit, och Ausfallrat: wéi vill Elementer pro Zäitenheet ofgebrach ginn.
+- Aσ: Ofbriechrat vun der Aktivitéit: wéi vill Elementer pro Zäitenheet ofgebrach ginn.
 
 - Aρ: Auslaaschtungsgrad vun der Aktivitéit: den Undeel vun der verfügbarer Zäit, an deem d’Server beschäftegt sinn, dat heescht beschäftegt Zäit ÷ verfügbar Zäit, oder λ / (c μ).
 

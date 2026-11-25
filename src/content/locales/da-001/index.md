@@ -19,12 +19,12 @@ Indhold:
   - [Antal](#antal)
   - [Ankomstrate, servicerate](#ankomstrate-servicerate)
   - [Udnyttelsesgrad, også kaldet trafikintensitet](#udnyttelsesgrad-også-kaldet-trafikintensitet)
-  - [Gennemløbsrater: samlet rate, succesrate, fejlrate, springrate](#gennemløbsrater-samlet-rate-succesrate-fejlrate-springrate)
+  - [Gennemløbsrater: samlet rate, færdigrate, succesrate, fejlrate, springrate](#gennemløbsrater-samlet-rate-færdigrate-succesrate-fejlrate-springrate)
   - [Tvetydighed i begrebet servicerate](#tvetydighed-i-begrebet-servicerate)
   - [Springrate](#springrate)
   - [Fejlforhold](#fejlforhold)
   - [Gennemløbstid, trintid, arbejdstid, ventetid](#gennemløbstid-trintid-arbejdstid-ventetid)
-  - [Standardnotation](#standardnotation)
+  - [Kendalls notation](#kendalls-notation)
 - [Kømatematik](#kømatematik)
   - [Udnyttelseskurven](#udnyttelseskurven)
   - [Kingmans formel](#kingmans-formel)
@@ -113,41 +113,50 @@ Køteori bruger notation med græske bogstaver.
 
 Vores teams bruger noget af den udbredte notation; vi tilføjer også noget egen notation, som hjælper os i softwareprojekter.
 
-Oversigt fra vores notation til lærebøgernes standardnotation:
+Vores notation og hvad hvert symbol betyder:
 
-| Vores | Standard | Betydning                                                                     |
-| ----- | -------- | ----------------------------------------------------------------------------- |
-| κ     | L        | gennemsnitligt antal elementer i systemet, ventende plus under behandling     |
-| λ     | λ        | ankomstrate for elementer, der kommer ind i systemet                          |
-| μ     | μ        | servicerate, også kaldet kapacitet: hvor hurtigt én server arbejder, når den er optaget |
-| ρ     | ρ        | udnyttelse: den andel af tiden, hvor serverne er optaget, λ / (c μ)           |
-| χ     | X        | gennemløb, også kaldet afgangsrate: observeret output, uanset årsag           |
-| α     | ingen    | succesrate: observeret output, der viser sig at være rigtigt                  |
-| β     | ingen    | fejlrate: observeret output, der viser sig at være forkert                    |
-| δ     | ingen    | springrate, også kaldet frafaldsrate: elementer, der kom ind og forlod køen ubetjent |
-| ε     | ingen    | fejlforhold β / (α + β)                                                       |
-| τ     | W        | gennemsnitlig tid i systemet, også kaldet gennemløbstid                       |
-| ω     | Wq       | gennemsnitlig ventetid i køen                                                 |
-| φ     | S        | gennemsnitlig servicetid, også kaldet arbejdstid; μ = 1 / S                   |
-| θ     | ingen    | trintid mellem færdiggørelser; gennemsnitlig trintid ≈ 1 / χ i stabil tilstand |
-
-Vær opmærksom på sammenfald af symboler, når De læser andre kilder: σ betyder normalt standardafvigelse, og derfor bruger vi δ for springrate, og θ betyder ofte frafaldsraten i Erlang-A-modeller for callcentre, mens vi bruger θ for trintid.
+| Vores notation | Betydning |
+| -------------- | --------- |
+| κ (kappa) | antal elementer i systemet, ventende plus under behandling |
+| λ (lambda) | ankomstrate for elementer, der kommer ind i systemet |
+| μ (mu) | servicerate, også kaldet kapacitet: hvor hurtigt én server arbejder, når den er optaget |
+| ρ (rho) | udnyttelse: den andel af tiden, hvor serverne er optaget, λ / (c μ) |
+| χ (chi) | gennemløb, også kaldet afgangsrate: observeret output, uanset årsag |
+| α (alpha) | succesrate: observeret output, der viser sig at være rigtigt |
+| β (beta) | fejlrate: observeret output, der viser sig at være forkert |
+| δ (delta) | færdigrate: succes + fejl, elementer der er betjent, uanset om resultatet er rigtigt eller forkert |
+| σ (sigma) | springrate: elementer, der kom ind og forlod køen ubetjent |
+| ε (epsilon) | fejlforhold: β / (α + β) = β / δ |
+| τ (tau) | tid i systemet, også kaldet gennemløbstid |
+| ω (omega) | ventetid, også kaldet tid i køen |
+| φ (phi) | arbejdstid, også kaldet tid i processoren, også kaldet servicetid |
+| θ (theta) | trintid mellem færdiggørelser; gennemsnitlig trintid ≈ 1 / χ i stabil tilstand |
 
 ### Antal
 
 Vi tæller ofte elementer, og vi bruger denne notation:
 
-- κ (kappa): antal elementer i systemet, dvs. ventende elementer plus elementer under behandling
+- κ (kappa): antal elementer i systemet, dvs. ventende elementer plus elementer under behandling.
+
+![Diagram: elementer ankommer med raten λ, der er κ elementer i systemet, og elementer forlader systemet med gennemløbet χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Eksempel:
 
-- κ = 100 betyder, at der er 100 elementer i systemet.
+- κ = 10 betyder præcis 10
 
-- κ > 100 betyder, at der er mere end 100 elementer i systemet.
+- κ ≈ 10 betyder cirka 10
 
-- κ ≫ 100 betyder, at der er mange flere end 100 elementer i systemet.
+- κ < 10 betyder mindre end 10
 
-Et antal som κ = 100 er et øjebliksbillede. I Littles lov betyder κ det langsigtede gennemsnitlige antal, som er lærebøgernes L. Lærebøgernes symbol for kun de elementer, der venter i køen, er Lq.
+- κ > 10 betyder mere end 10
+
+- κ ≪ 10 betyder meget mindre end 10
+
+- κ ≫ 10 betyder meget mere end 10
+
+Antallet κ (kappa) er et øjebliksbillede.
+
+Det gennemsnitlige antal κ̅ (kappa med streg) er en beregning, der tager gennemsnittet af målinger over en bestemt periode, f.eks. målinger hver time i to uger.
 
 ### Ankomstrate, servicerate
 
@@ -183,9 +192,9 @@ Eksempler:
 
 - ρ > 1 betyder, at ankomsterne overstiger kapaciteten; køen bliver større.
 
-### Gennemløbsrater: samlet rate, succesrate, fejlrate, springrate
+### Gennemløbsrater: samlet rate, færdigrate, succesrate, fejlrate, springrate
 
-Gennemløbsrater måler observeret output, dvs. elementer, der faktisk forlader køen. De findes i fire brede kategorier:
+Gennemløbsrater måler observeret output, dvs. elementer, der faktisk forlader køen. De findes i fem brede kategorier:
 
 - χ (chi): samlet rate. Den måler, hvor mange elementer pr. tidsenhed der forlader køen uanset årsag: succes, fejl, spring osv.
 
@@ -193,11 +202,23 @@ Gennemløbsrater måler observeret output, dvs. elementer, der faktisk forlader 
 
 - β (beta): fejlrate. Den måler, hvor mange elementer pr. tidsperiode der viser sig at være forkerte, f.eks. ukorrekte, ufuldstændige, afviste.
 
-- δ (delta): springrate, også kaldet frafaldsrate. Den måler, hvor mange elementer pr. tidsperiode der kommer ind i køen og derefter forlader den uden at blive betjent, f.eks. opgivelser og frafald.
+- δ (delta): færdigrate. Den måler, hvor mange elementer pr. tidsperiode der bliver betjent, uanset om resultatet er rigtigt eller forkert: succes + fejl.
+
+- σ (sigma): springrate. Den måler, hvor mange elementer pr. tidsperiode der kommer ind i køen og derefter forlader den uden at blive betjent, f.eks. opgivelser og frafald.
+
+Færdigrate = succesrate + fejlrate:
+
+- δ = α + β (udtales: delta er lig med alpha plus beta)
+
+Samlet rate = færdigrate + springrate:
+
+- χ = δ + σ (udtales: chi er lig med delta plus sigma)
 
 Samlet rate = succesrate + fejlrate + springrate:
 
-- χ = α + β + δ (udtales: chi er lig med alpha plus beta plus delta)
+- χ = α + β + σ (udtales: chi er lig med alpha plus beta plus sigma)
+
+![Diagram: elementer forlader systemet som succes α, fejl β eller spring σ; færdige δ = α + β, så χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Hvert element, der tælles i χ, er kommet ind i systemet, så i stabil tilstand er den samlede rate lig med ankomstraten: χ ≈ λ. Derfor måler gennemløbsrater output og ikke kapacitet.
 
@@ -214,7 +235,7 @@ for at følge fejl og spring.
 
 - Behandlingssynsvinkel: Serviceraten omfatter alt, hvad køen bruger tid på at behandle, dvs. succeser eller fejl, men omfatter ikke spring.
 
-- Teknologisk synsvinkel: I anvendte fagområder som softwareudvikling måler serviceraten kun succeser, mens fejlraten måler fejl, og springraten måler frafald.
+- Teknologisk synsvinkel: I anvendte fagområder som softwareudvikling måler serviceraten kun succeser, mens fejlraten måler fejl, og springraten måler spring.
 
 Derfor beholder vi μ for kapacitet og tilføjer rater for observeret output ved siden af i stedet for at erstatte den:
 
@@ -230,7 +251,7 @@ Hvorfor ikke erstatte μ med χ eller α? I en stabil kø forlader hvert element
 
 Detaljer om springrate:
 
-- δ (delta): springrate, også kaldet frafaldsrate. Den måler, hvor mange elementer der kommer ind i køen og derefter forlader den ubehandlet.
+- σ (sigma): springrate. Den måler, hvor mange elementer der kommer ind i køen og derefter forlader den ubehandlet.
 
 Et spring er, når et element kommer ind i køen og derefter forlader den uden nogen væsentlig behandling:
 
@@ -240,7 +261,7 @@ Et spring er, når et element kommer ind i køen og derefter forlader den uden n
 
 To beslægtede adfærdsmønstre er ikke spring:
 
-- Afvisning ved indgangen (balking): når en kunde beslutter ikke at stille sig i køen, fordi ventetiden truer med at blive for lang. Et afvist element kommer aldrig ind i systemet, så det ligger uden for systemets grænse: det tælles ikke med i λ, χ eller δ. Hvis afvisninger har betydning, f.eks. tabt salg, så tæl dem separat som bortviste ankomster.
+- Afvisning ved indgangen (balking): når en kunde beslutter ikke at stille sig i køen, fordi ventetiden truer med at blive for lang. Et afvist element kommer aldrig ind i systemet, så det ligger uden for systemets grænse: det tælles ikke med i λ, χ eller σ. Hvis afvisninger har betydning, f.eks. tabt salg, så tæl dem separat som bortviste ankomster.
 
 - Køskift (jockeying): når en kunde skifter mellem parallelle køer, f.eks. kasser i et supermarked, for at få en kortere ventetid.
 
@@ -248,9 +269,11 @@ To beslægtede adfærdsmønstre er ikke spring:
 
 Den vigtigste notation, der opsummerer en køs succes:
 
-- ε (epsilon): fejlforhold = antal fejl / (antal succeser + antal fejl) = β / (α + β)
+- ε (epsilon): fejlforhold = antal fejl / (antal succeser + antal fejl) = β / (α + β) = β / δ
 
-Spring er udeladt, fordi et sprunget element aldrig blev betjent, så det var hverken rigtigt eller forkert. Følg spring separat via δ.
+Spring er udeladt, fordi et sprunget element aldrig blev betjent, så det var hverken rigtigt eller forkert. Følg spring separat via σ.
+
+![Diagram: færdigraten δ er succesraten α plus fejlraten β, og fejlforholdet ε er fejlraten β divideret med færdigraten δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Eksempler:
 
@@ -272,6 +295,8 @@ Vi følger fire tider:
 
 - ω (omega): ventetid = tid, der ikke bruges på egentligt arbejde, også kaldet afventningstid
 
+![Diagram: gennemløbstiden τ er ventetiden ω efterfulgt af arbejdstiden φ, så τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Eksempler:
 
 - τ = 5s betyder, at et element tilføjes til køen og derefter betjenes 5 sekunder senere.
@@ -288,9 +313,9 @@ Sammenhænge:
 
 - gennemsnitlig θ ≈ 1 / χ: i stabil tilstand er den gennemsnitlige trintid den inverse af den samlede rate. Et enkelt mellemrum siger kun lidt om raten; gennemsnittet af mange mellemrum siger mere. I eksemplerne gælder det, at hvis den gennemsnitlige trintid er 1s, så er χ ≈ 1 element pr. sekund.
 
-### Standardnotation
+### Kendalls notation
 
-Standardnotationen i køteori beskriver en kø ved hjælp af Kendalls notation, skrevet som A/S/c/K/N/D:
+Kendalls notation er en anden notation i køteori, skrevet som A/S/c/K/N/D:
 
 - A: ankomstprocessen, dvs. fordelingen af tiden mellem ankomster.
 
@@ -314,11 +339,13 @@ Almindelige bogstaver for A og S:
 
 Når de sidste tre udelades, er standardværdierne K = ∞, N = ∞, D = FIFO. For eksempel betyder "M/M/1" Poisson-ankomster, eksponentielle servicetider, én server, ubegrænset kapacitet, ubegrænset population og first in first out.
 
-Standardnotationen bruger også n for antallet af elementer i systemet.
+Desuden:
+
+- n: antallet af elementer i systemet.
 
 ## Kømatematik
 
-Matematikafsnittene bruger lærebøgernes symboler, så De kan sammenligne dem med andre kilder: S er den gennemsnitlige servicetid, som er vores φ, og μ = 1 / S er én servers kapacitet. Se oversigten i [notation i køteori](#notation-i-køteori).
+Matematikafsnittene bruger lærebøgernes symboler, så De kan sammenligne dem med andre kilder: S er den gennemsnitlige servicetid, som er vores φ, og μ = 1 / S er én servers kapacitet.
 
 ### Udnyttelseskurven
 
@@ -409,7 +436,7 @@ Eksempler:
 
 - Aμ: aktivitetens servicerate, også kaldet kapacitet: hvor mange elementer én server kan færdiggøre pr. tidsenhed, mens den er optaget.
 
-- Aδ: aktivitetens springrate, også kaldet frafaldsrate: hvor mange elementer der opgives pr. tidsenhed.
+- Aσ: aktivitetens springrate: hvor mange elementer der opgives pr. tidsenhed.
 
 - Aρ: aktivitetens udnyttelsesgrad: den andel af den tilgængelige tid, hvor serverne er optaget, dvs. optaget tid ÷ tilgængelig tid eller λ / (c μ).
 

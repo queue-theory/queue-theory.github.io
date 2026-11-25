@@ -20,12 +20,12 @@ Daftar isi:
   - [Jumlah](#jumlah)
   - [Laju kedatangan, laju layanan](#laju-kedatangan-laju-layanan)
   - [Rasio utilisasi, atau intensitas lalu lintas](#rasio-utilisasi-atau-intensitas-lalu-lintas)
-  - [Laju throughput: laju total, laju keberhasilan, laju kegagalan, laju lewati](#laju-throughput-laju-total-laju-keberhasilan-laju-kegagalan-laju-lewati)
+  - [Laju throughput: laju total, laju selesai, laju keberhasilan, laju kegagalan, laju lewati](#laju-throughput-laju-total-laju-selesai-laju-keberhasilan-laju-kegagalan-laju-lewati)
   - [Disambiguasi laju layanan](#disambiguasi-laju-layanan)
   - [Laju lewati](#laju-lewati)
   - [Rasio kesalahan](#rasio-kesalahan)
   - [Lead time, waktu langkah, waktu kerja, waktu tunggu](#lead-time-waktu-langkah-waktu-kerja-waktu-tunggu)
-  - [Notasi standar](#notasi-standar)
+  - [Notasi Kendall](#notasi-kendall)
 - [Matematika antrean](#matematika-antrean)
   - [Kurva utilisasi](#kurva-utilisasi)
   - [Rumus Kingman](#rumus-kingman)
@@ -114,41 +114,50 @@ Teori antrean menggunakan notasi dengan huruf Yunani.
 
 Tim kami menggunakan sebagian notasi yang populer; kami juga menambahkan beberapa notasi khusus yang membantu kami dalam proyek perangkat lunak.
 
-Padanan notasi kami dengan notasi standar buku teks:
+Notasi kami dan arti setiap simbol:
 
-| Kami | Standar | Arti                                                                    |
-| ---- | -------- | ----------------------------------------------------------------------- |
-| κ    | L        | rata-rata jumlah item dalam sistem, yang menunggu ditambah yang sedang dikerjakan |
-| λ    | λ        | laju kedatangan item yang masuk ke sistem                               |
-| μ    | μ        | laju layanan, atau kapasitas: seberapa cepat satu server bekerja saat sibuk |
-| ρ    | ρ        | utilisasi: fraksi waktu server sibuk, λ / (c μ)                         |
-| χ    | X        | throughput, atau laju keberangkatan: keluaran yang teramati, karena alasan apa pun |
-| α    | tidak ada | laju keberhasilan: keluaran teramati yang ternyata benar               |
-| β    | tidak ada | laju kegagalan: keluaran teramati yang ternyata salah                  |
-| δ    | tidak ada | laju lewati, atau laju putus: item yang masuk, lalu pergi tanpa dilayani |
-| ε    | tidak ada | rasio kesalahan β / (α + β)                                            |
-| τ    | W        | rata-rata waktu dalam sistem, atau lead time                            |
-| ω    | Wq       | rata-rata waktu menunggu dalam antrean                                  |
-| φ    | S        | rata-rata waktu layanan, atau waktu kerja; μ = 1 / S                    |
-| θ    | tidak ada | waktu langkah antara penyelesaian; rata-rata waktu langkah ≈ 1 / χ dalam keadaan tunak |
-
-Waspadai bentrokan simbol saat Anda membaca sumber lain: σ biasanya berarti simpangan baku, itulah sebabnya kami menggunakan δ untuk laju lewati, dan θ sering berarti laju pengabaian dalam model pusat panggilan Erlang-A, sedangkan kami menggunakan θ untuk waktu langkah.
+| Notasi kami | Arti |
+| ----------- | ---- |
+| κ (kappa) | jumlah item dalam sistem, yang menunggu ditambah yang sedang dikerjakan |
+| λ (lambda) | laju kedatangan item yang masuk ke sistem |
+| μ (mu) | laju layanan, atau kapasitas: seberapa cepat satu server bekerja saat sibuk |
+| ρ (rho) | utilisasi: fraksi waktu server sibuk, λ / (c μ) |
+| χ (chi) | throughput, atau laju keberangkatan: keluaran yang teramati, karena alasan apa pun |
+| α (alpha) | laju keberhasilan: keluaran teramati yang ternyata benar |
+| β (beta) | laju kegagalan: keluaran teramati yang ternyata salah |
+| δ (delta) | laju selesai: keberhasilan + kegagalan, item yang telah dilayani, baik hasilnya benar maupun salah |
+| σ (sigma) | laju lewati: item yang masuk, lalu pergi tanpa dilayani |
+| ε (epsilon) | rasio kesalahan: β / (α + β) = β / δ |
+| τ (tau) | waktu dalam sistem, atau lead time |
+| ω (omega) | waktu menunggu, atau waktu dalam antrean |
+| φ (phi) | waktu kerja, atau waktu dalam prosesor, atau waktu layanan |
+| θ (theta) | waktu langkah antara penyelesaian; rata-rata waktu langkah ≈ 1 / χ dalam keadaan tunak |
 
 ### Jumlah
 
 Kami sering menghitung item, dan kami menggunakan notasi ini:
 
-- κ (kappa): jumlah item dalam sistem, yaitu item yang menunggu ditambah item yang sedang dikerjakan
+- κ (kappa): jumlah item dalam sistem, yaitu item yang menunggu ditambah item yang sedang dikerjakan.
+
+![Diagram: item datang dengan laju λ, ada κ item dalam sistem, dan item keluar dengan throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Contoh:
 
-- κ = 100 berarti ada 100 item dalam sistem.
+- κ = 10 berarti tepat 10
 
-- κ > 100 berarti ada lebih dari 100 item dalam sistem.
+- κ ≈ 10 berarti sekitar 10
 
-- κ ≫ 100 berarti ada jauh lebih dari 100 item dalam sistem.
+- κ < 10 berarti kurang dari 10
 
-Jumlah seperti κ = 100 adalah potret pada satu saat. Dalam Hukum Little, κ berarti rata-rata jumlah jangka panjang, yaitu L dalam buku teks. Simbol buku teks untuk item yang hanya menunggu dalam antrean adalah Lq.
+- κ > 10 berarti lebih dari 10
+
+- κ ≪ 10 berarti jauh kurang dari 10
+
+- κ ≫ 10 berarti jauh lebih dari 10
+
+Jumlah κ (kappa) adalah potret pada satu saat.
+
+Jumlah rata-rata κ̅ (kappa bar) adalah perhitungan yang merata-ratakan hasil pengukuran selama periode waktu tertentu, misalnya mengukur setiap jam selama dua minggu.
 
 ### Laju kedatangan, laju layanan
 
@@ -184,9 +193,9 @@ Contoh:
 
 - ρ > 1 berarti kedatangan melebihi kapasitas; antrean makin besar.
 
-### Laju throughput: laju total, laju keberhasilan, laju kegagalan, laju lewati
+### Laju throughput: laju total, laju selesai, laju keberhasilan, laju kegagalan, laju lewati
 
-Laju throughput mengukur keluaran yang teramati, yaitu item yang benar-benar meninggalkan antrean. Laju ini terbagi menjadi empat kategori besar:
+Laju throughput mengukur keluaran yang teramati, yaitu item yang benar-benar meninggalkan antrean. Laju ini terbagi menjadi lima kategori besar:
 
 - χ (chi): laju total. Ini mengukur berapa banyak item per waktu yang keluar dari antrean karena alasan apa pun: berhasil, gagal, dilewati, dan sebagainya.
 
@@ -194,11 +203,23 @@ Laju throughput mengukur keluaran yang teramati, yaitu item yang benar-benar men
 
 - β (beta): laju kegagalan. Ini mengukur berapa banyak item per periode waktu yang ternyata salah, misalnya keliru, tidak lengkap, ditolak.
 
-- δ (delta): laju lewati, atau laju putus. Ini mengukur berapa banyak item per periode waktu yang masuk ke antrean, lalu pergi tanpa dilayani, misalnya pengabaian, pengunduran diri.
+- δ (delta): laju selesai. Ini mengukur berapa banyak item per periode waktu yang dilayani, baik hasilnya benar maupun salah: keberhasilan + kegagalan.
+
+- σ (sigma): laju lewati. Ini mengukur berapa banyak item per periode waktu yang masuk ke antrean, lalu pergi tanpa dilayani, misalnya pengabaian, pengunduran diri.
+
+Laju selesai = laju keberhasilan + laju kegagalan:
+
+- δ = α + β (dibaca: delta sama dengan alpha ditambah beta)
+
+Laju total = laju selesai + laju lewati:
+
+- χ = δ + σ (dibaca: chi sama dengan delta ditambah sigma)
 
 Laju total = laju keberhasilan + laju kegagalan + laju lewati:
 
-- χ = α + β + δ (dibaca: chi sama dengan alpha ditambah beta ditambah delta)
+- χ = α + β + σ (dibaca: chi sama dengan alpha ditambah beta ditambah sigma)
+
+![Diagram: item meninggalkan sistem sebagai keberhasilan α, kegagalan β, atau lewati σ; selesai δ = α + β, sehingga χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Setiap item yang dihitung dalam χ telah masuk ke sistem, sehingga dalam keadaan tunak laju total sama dengan laju kedatangan: χ ≈ λ. Itulah sebabnya laju throughput mengukur keluaran, bukan kapasitas.
 
@@ -215,7 +236,7 @@ kebutuhan signifikan untuk melacak kegagalan dan item yang dilewati.
 
 - Pandangan pemrosesan: Laju layanan mencakup apa pun yang memakan waktu pemrosesan antrean, yaitu keberhasilan atau kegagalan, tetapi tidak mencakup item yang dilewati.
 
-- Pandangan teknologi: Dalam bidang terapan seperti rekayasa perangkat lunak, laju layanan hanya mengukur keberhasilan, sedangkan laju kesalahan mengukur kegagalan, dan laju lewati mengukur item yang putus.
+- Pandangan teknologi: Dalam bidang terapan seperti rekayasa perangkat lunak, laju layanan hanya mengukur keberhasilan, sedangkan laju kesalahan mengukur kegagalan, dan laju lewati mengukur item yang dilewati.
 
 Oleh karena itu, kami mempertahankan μ untuk kapasitas, dan kami menambahkan laju keluaran yang teramati di sampingnya, bukan menggantikannya:
 
@@ -231,7 +252,7 @@ Mengapa tidak mengganti μ dengan χ atau α? Dalam antrean yang stabil, setiap 
 
 Rincian laju lewati:
 
-- δ (delta): laju lewati, atau laju putus. Ini mengukur berapa banyak item yang masuk ke antrean, lalu pergi tanpa ditangani.
+- σ (sigma): laju lewati. Ini mengukur berapa banyak item yang masuk ke antrean, lalu pergi tanpa diproses.
 
 Lewati terjadi ketika sebuah item masuk ke antrean, lalu pergi tanpa pemrosesan yang berarti:
 
@@ -241,7 +262,7 @@ Lewati terjadi ketika sebuah item masuk ke antrean, lalu pergi tanpa pemrosesan 
 
 Dua perilaku terkait bukan termasuk lewati:
 
-- Penolakan bergabung (balking): ketika pelanggan memutuskan untuk tidak bergabung dengan antrean karena waktu tunggunya terancam terlalu lama. Item yang menolak bergabung tidak pernah masuk ke sistem, sehingga berada di luar batas sistem: item tersebut tidak dihitung dalam λ, χ, atau δ. Jika penolakan bergabung penting, seperti penjualan yang hilang, hitunglah secara terpisah sebagai kedatangan yang ditolak.
+- Penolakan bergabung (balking): ketika pelanggan memutuskan untuk tidak bergabung dengan antrean karena waktu tunggunya terancam terlalu lama. Item yang menolak bergabung tidak pernah masuk ke sistem, sehingga berada di luar batas sistem: item tersebut tidak dihitung dalam λ, χ, atau σ. Jika penolakan bergabung penting, seperti penjualan yang hilang, hitunglah secara terpisah sebagai kedatangan yang ditolak.
 
 - Perpindahan antrean (jockeying): ketika pelanggan berpindah di antara antrean paralel, seperti jalur kasir, untuk mencoba mendapatkan waktu tunggu yang lebih singkat.
 
@@ -249,9 +270,11 @@ Dua perilaku terkait bukan termasuk lewati:
 
 Notasi paling penting yang merangkum keberhasilan sebuah antrean:
 
-- ε (epsilon): rasio kesalahan = jumlah kegagalan / (jumlah keberhasilan + jumlah kegagalan) = β / (α + β)
+- ε (epsilon): rasio kesalahan = jumlah kegagalan / (jumlah keberhasilan + jumlah kegagalan) = β / (α + β) = β / δ
 
-Item yang dilewati dikecualikan, karena item yang dilewati tidak pernah dilayani, sehingga tidak benar dan tidak pula salah. Lacak item yang dilewati secara terpisah melalui δ.
+Item yang dilewati dikecualikan, karena item yang dilewati tidak pernah dilayani, sehingga tidak benar dan tidak pula salah. Lacak item yang dilewati secara terpisah melalui σ.
+
+![Diagram: laju selesai δ adalah laju keberhasilan α ditambah laju kegagalan β, dan rasio kesalahan ε adalah laju kegagalan β dibagi laju selesai δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Contoh:
 
@@ -273,6 +296,8 @@ Kami melacak empat waktu:
 
 - ω (omega): waktu tunggu = waktu yang dihabiskan tanpa melakukan pekerjaan sebenarnya, atau waktu tertunda
 
+![Diagram: lead time τ adalah waktu menunggu ω diikuti waktu kerja φ, sehingga τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Contoh:
 
 - τ = 5s berarti sebuah item ditambahkan ke antrean, lalu dilayani 5 detik kemudian.
@@ -289,9 +314,9 @@ Hubungan:
 
 - rata-rata θ ≈ 1 / χ: dalam keadaan tunak, rata-rata waktu langkah adalah kebalikan dari laju total. Satu jeda saja hanya sedikit menjelaskan laju; rata-rata dari banyak jeda menjelaskannya. Dalam contoh-contoh tersebut, jika rata-rata waktu langkah adalah 1s, maka χ ≈ 1 item per detik.
 
-### Notasi standar
+### Notasi Kendall
 
-Notasi standar teori antrean menggambarkan sebuah antrean menggunakan notasi Kendall, yang ditulis sebagai A/S/c/K/N/D:
+Notasi Kendall adalah notasi lain dalam teori antrean, yang ditulis sebagai A/S/c/K/N/D:
 
 - A: proses kedatangan, yaitu distribusi waktu antarkedatangan.
 
@@ -315,11 +340,13 @@ Huruf yang umum untuk A dan S:
 
 Jika tiga yang terakhir dihilangkan, nilai bawaannya adalah K = ∞, N = ∞, D = FIFO. Misalnya, "M/M/1" berarti kedatangan Poisson, waktu layanan eksponensial, satu server, kapasitas tak terbatas, populasi tak terbatas, dan yang pertama masuk pertama keluar.
 
-Notasi standar juga menggunakan n untuk menyatakan jumlah item dalam sistem.
+Selain itu:
+
+- n: jumlah item dalam sistem.
 
 ## Matematika antrean
 
-Bagian matematika menggunakan simbol buku teks, agar Anda dapat membandingkannya dengan sumber lain: S adalah rata-rata waktu layanan, yaitu φ kami, dan μ = 1 / S adalah kapasitas satu server. Lihat padanannya di [notasi teori antrean](#notasi-teori-antrean).
+Bagian matematika menggunakan simbol buku teks, agar Anda dapat membandingkannya dengan sumber lain: S adalah rata-rata waktu layanan, yaitu φ kami, dan μ = 1 / S adalah kapasitas satu server.
 
 ### Kurva utilisasi
 
@@ -410,7 +437,7 @@ Contoh:
 
 - Aμ: laju layanan aktivitas, atau kapasitas: berapa banyak item yang dapat diselesaikan satu server per satuan waktu saat sibuk.
 
-- Aδ: laju lewati aktivitas, atau laju putus: berapa banyak item yang diabaikan per satuan waktu.
+- Aσ: laju lewati aktivitas: berapa banyak item yang diabaikan per satuan waktu.
 
 - Aρ: rasio utilisasi aktivitas: fraksi waktu tersedia saat server sibuk, yaitu waktu sibuk ÷ waktu tersedia, atau λ / (c μ).
 

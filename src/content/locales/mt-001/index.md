@@ -15,12 +15,12 @@ Werrej:
   - [Għadd](#għadd)
   - [Rata ta’ wasla, rata ta’ servizz](#rata-ta-wasla-rata-ta-servizz)
   - [Proporzjon ta’ utilizzazzjoni jew intensità tat-traffiku](#proporzjon-ta-utilizzazzjoni-jew-intensità-tat-traffiku)
-  - [Rati ta’ throughput: rata totali, rata ta’ suċċess, rata ta’ falliment, rata ta’ qbiż](#rati-ta-throughput-rata-totali-rata-ta-suċċess-rata-ta-falliment-rata-ta-qbiż)
+  - [Rati ta’ throughput: rata totali, rata ta’ tlestija, rata ta’ suċċess, rata ta’ falliment, rata ta’ qbiż](#rati-ta-throughput-rata-totali-rata-ta-tlestija-rata-ta-suċċess-rata-ta-falliment-rata-ta-qbiż)
   - [Diżambigwazzjoni tar-rata ta’ servizz](#diżambigwazzjoni-tar-rata-ta-servizz)
   - [Rata ta’ qbiż](#rata-ta-qbiż)
   - [Proporzjon ta’ żbalji](#proporzjon-ta-żbalji)
   - [Ħin ta’ twassil, ħin tal-pass, ħin tax-xogħol, ħin ta’ stennija](#ħin-ta-twassil-ħin-tal-pass-ħin-tax-xogħol-ħin-ta-stennija)
-  - [Notazzjoni standard](#notazzjoni-standard)
+  - [Notazzjoni ta’ Kendall](#notazzjoni-ta-kendall)
 - [Matematika tal-kjuwijiet](#matematika-tal-kjuwijiet)
   - [Il-kurva tal-utilizzazzjoni](#il-kurva-tal-utilizzazzjoni)
   - [Il-formula ta’ Kingman](#il-formula-ta-kingman)
@@ -109,41 +109,50 @@ It-teorija tal-kjuwijiet tuża notazzjoni b’ittri Griegi.
 
 It-timijiet tagħna jużaw parti min-notazzjoni popolari; aħna nżidu wkoll xi notazzjoni personalizzata li tgħinna fil-proġetti tas-software.
 
-Tabella ta’ korrispondenza min-notazzjoni tagħna għan-notazzjoni standard tal-kotba tat-test:
+In-notazzjoni tagħna u t-tifsira ta’ kull simbolu:
 
-| Tagħna | Standard | Tifsira |
-| ------ | -------- | ------- |
-| κ | L | għadd medju ta’ oġġetti fis-sistema, dawk li qed jistennew flimkien ma’ dawk li qed jinħadmu |
-| λ | λ | rata ta’ wasla tal-oġġetti li jidħlu fis-sistema |
-| μ | μ | rata ta’ servizz jew kapaċità: kemm jaħdem malajr server wieħed meta jkun okkupat |
-| ρ | ρ | utilizzazzjoni: il-proporzjon tal-ħin li fih is-servers ikunu okkupati, λ / (c μ) |
-| χ | X | throughput jew rata ta’ tluq: l-output osservat, għal kwalunkwe raġuni |
-| α | xejn | rata ta’ suċċess: l-output osservat li joħroġ tajjeb |
-| β | xejn | rata ta’ falliment: l-output osservat li joħroġ ħażin |
-| δ | xejn | rata ta’ qbiż jew rata ta’ abbandun: oġġetti li daħlu, imbagħad telqu mingħajr servizz |
-| ε | xejn | proporzjon ta’ żbalji β / (α + β) |
-| τ | W | ħin medju fis-sistema jew ħin ta’ twassil |
-| ω | Wq | ħin medju ta’ stennija fil-kju |
-| φ | S | ħin medju ta’ servizz jew ħin tax-xogħol; μ = 1 / S |
-| θ | xejn | ħin tal-pass bejn tlestijiet; il-ħin medju tal-pass ≈ 1 / χ fi stat stabbli |
-
-Jekk jogħġbok oqgħod attent għal kunflitti fis-simboli meta taqra sorsi oħra: σ normalment tfisser id-devjazzjoni standard, u din hija r-raġuni għaliex aħna nużaw δ għar-rata ta’ qbiż; u θ spiss tfisser ir-rata ta’ abbandun fil-mudelli Erlang-A taċ-ċentri tat-telefonati, filwaqt li aħna nużaw θ għall-ħin tal-pass.
+| In-notazzjoni tagħna | Tifsira |
+| -------------------- | ------- |
+| κ (kappa) | għadd ta’ oġġetti fis-sistema, dawk li qed jistennew flimkien ma’ dawk li qed jinħadmu |
+| λ (lambda) | rata ta’ wasla tal-oġġetti li jidħlu fis-sistema |
+| μ (mu) | rata ta’ servizz jew kapaċità: kemm jaħdem malajr server wieħed meta jkun okkupat |
+| ρ (rho) | utilizzazzjoni: il-proporzjon tal-ħin li fih is-servers ikunu okkupati, λ / (c μ) |
+| χ (chi) | throughput jew rata ta’ tluq: l-output osservat, għal kwalunkwe raġuni |
+| α (alpha) | rata ta’ suċċess: l-output osservat li joħroġ tajjeb |
+| β (beta) | rata ta’ falliment: l-output osservat li joħroġ ħażin |
+| δ (delta) | rata ta’ tlestija: suċċess + falliment, oġġetti li ġew moqdija, kemm jekk ir-riżultat huwa tajjeb kif ukoll jekk żbaljat |
+| σ (sigma) | rata ta’ qbiż: oġġetti li daħlu, imbagħad telqu mingħajr servizz |
+| ε (epsilon) | proporzjon ta’ żbalji: β / (α + β) = β / δ |
+| τ (tau) | ħin fis-sistema jew ħin ta’ twassil |
+| ω (omega) | ħin ta’ stennija jew ħin fil-kju |
+| φ (phi) | ħin tax-xogħol jew ħin fil-proċessur jew ħin ta’ servizz |
+| θ (theta) | ħin tal-pass bejn tlestijiet; il-ħin medju tal-pass ≈ 1 / χ fi stat stabbli |
 
 ### Għadd
 
 Aħna ngħoddu l-oġġetti spiss, u nużaw din in-notazzjoni:
 
-- κ (kappa): għadd ta’ oġġetti fis-sistema, jiġifieri l-oġġetti li qed jistennew flimkien mal-oġġetti li qed jinħadmu
+- κ (kappa): għadd ta’ oġġetti fis-sistema, jiġifieri l-oġġetti li qed jistennew flimkien mal-oġġetti li qed jinħadmu.
+
+![Dijagramma: l-oġġetti jaslu bir-rata λ, hemm κ oġġetti fis-sistema, u l-oġġetti jitilqu bit-throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Eżempju:
 
-- κ = 100 tfisser li hemm 100 oġġett fis-sistema.
+- κ = 10 tfisser eżattament 10
 
-- κ > 100 tfisser li hemm aktar minn 100 oġġett fis-sistema.
+- κ ≈ 10 tfisser madwar 10
 
-- κ ≫ 100 tfisser li hemm ħafna aktar minn 100 oġġett fis-sistema.
+- κ < 10 tfisser inqas minn 10
 
-Għadd bħal κ = 100 huwa ritratt ta’ mument wieħed. Fil-Liġi ta’ Little, κ tfisser l-għadd medju fit-tul, li huwa L tal-kotba tat-test. Is-simbolu tal-kotba tat-test għall-oġġetti biss li qed jistennew fil-kju huwa Lq.
+- κ > 10 tfisser aktar minn 10
+
+- κ ≪ 10 tfisser ferm inqas minn 10
+
+- κ ≫ 10 tfisser ferm aktar minn 10
+
+L-għadd κ (kappa) huwa stampa ta’ mument wieħed.
+
+L-għadd medju κ̅ (kappa bil-linja) huwa kalkolu li jieħu l-medja ta’ kejl matul perjodu ta’ ħin speċifiku, per eżempju kejl kull siegħa għal ġimagħtejn.
 
 ### Rata ta’ wasla, rata ta’ servizz
 
@@ -179,9 +188,9 @@ Eżempji:
 
 - ρ > 1 tfisser li l-wasliet jaqbżu l-kapaċità; il-kju qed jikber.
 
-### Rati ta’ throughput: rata totali, rata ta’ suċċess, rata ta’ falliment, rata ta’ qbiż
+### Rati ta’ throughput: rata totali, rata ta’ tlestija, rata ta’ suċċess, rata ta’ falliment, rata ta’ qbiż
 
-Ir-rati ta’ throughput ikejlu l-output osservat, jiġifieri l-oġġetti li fil-fatt joħorġu mill-kju. Huma maqsuma f’erba’ kategoriji ġenerali:
+Ir-rati ta’ throughput ikejlu l-output osservat, jiġifieri l-oġġetti li fil-fatt joħorġu mill-kju. Huma maqsuma f’ħames kategoriji ġenerali:
 
 - χ (chi): rata totali. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin joħroġ mill-kju għal kwalunkwe raġuni: suċċess, falliment, qbiż, eċċ.
 
@@ -189,11 +198,23 @@ Ir-rati ta’ throughput ikejlu l-output osservat, jiġifieri l-oġġetti li fil
 
 - β (beta): rata ta’ falliment. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin joħroġ ħażin, pereżempju skorrett, mhux komplut, miċħud.
 
-- δ (delta): rata ta’ qbiż jew rata ta’ abbandun. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin jidħol fil-kju, imbagħad jitlaq mingħajr ma jiġi moqdi, pereżempju abbandunar, irtirar.
+- δ (delta): rata ta’ tlestija. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin jiġi moqdi, kemm jekk ir-riżultat huwa tajjeb kif ukoll jekk żbaljat: suċċess + falliment.
+
+- σ (sigma): rata ta’ qbiż. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin jidħol fil-kju, imbagħad jitlaq mingħajr ma jiġi moqdi, pereżempju abbandun, irtirar.
+
+Rata ta’ tlestija = rata ta’ suċċess + rata ta’ falliment:
+
+- δ = α + β (tinqara: delta daqs alpha flimkien ma’ beta)
+
+Rata totali = rata ta’ tlestija + rata ta’ qbiż:
+
+- χ = δ + σ (tinqara: chi daqs delta flimkien ma’ sigma)
 
 Rata totali = rata ta’ suċċess + rata ta’ falliment + rata ta’ qbiż:
 
-- χ = α + β + δ (tinqara: chi daqs alpha flimkien ma’ beta flimkien ma’ delta)
+- χ = α + β + σ (tinqara: chi daqs alpha flimkien ma’ beta flimkien ma’ sigma)
+
+![Dijagramma: l-oġġetti jitilqu mis-sistema bħala suċċess α, falliment β jew qbiż σ; mitmum δ = α + β, għalhekk χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kull oġġett li jingħadd f’χ daħal fis-sistema, għalhekk fi stat stabbli r-rata totali hija ugwali għar-rata ta’ wasla: χ ≈ λ. Din hija r-raġuni għaliex ir-rati ta’ throughput ikejlu l-output, mhux il-kapaċità.
 
@@ -208,7 +229,7 @@ Dan għandu għeruq storiċi u jista’ jwassal għal konfużjoni u żbalji, spe
 
 - Perspettiva tal-ipproċessar: ir-rata ta’ servizz tinkludi kull ma l-kju jqatta’ ħin jipproċessa, jiġifieri suċċessi jew fallimenti, iżda ma tinkludix il-qbiżiet.
 
-- Perspettiva teknoloġika: f’oqsma applikati bħall-inġinerija tas-software, ir-rata ta’ servizz tkejjel is-suċċessi biss, filwaqt li r-rata ta’ żbalji tkejjel il-fallimenti, u r-rata ta’ qbiż tkejjel l-abbandunar.
+- Perspettiva teknoloġika: f’oqsma applikati bħall-inġinerija tas-software, ir-rata ta’ servizz tkejjel is-suċċessi biss, filwaqt li r-rata ta’ żbalji tkejjel il-fallimenti, u r-rata ta’ qbiż tkejjel il-qbiżiet.
 
 Għalhekk inżommu μ għall-kapaċità, u nżidu r-rati tal-output osservat magħha, minflok ma nissostitwuha:
 
@@ -224,7 +245,7 @@ Għaliex ma nissostitwux μ b’χ jew b’α? F’kju stabbli, kull oġġett li
 
 Dettalji dwar ir-rata ta’ qbiż:
 
-- δ (delta): rata ta’ qbiż jew rata ta’ abbandun. Din tkejjel kemm-il oġġett jidħol fil-kju, imbagħad jitlaq mingħajr ma jiġi pproċessat.
+- σ (sigma): rata ta’ qbiż. Din tkejjel kemm-il oġġett jidħol fil-kju, imbagħad jitlaq mingħajr ma jiġi pproċessat.
 
 Qbiż iseħħ meta oġġett jidħol fil-kju, imbagħad jitlaq mingħajr ebda pproċessar sinifikanti:
 
@@ -234,7 +255,7 @@ Qbiż iseħħ meta oġġett jidħol fil-kju, imbagħad jitlaq mingħajr ebda ppr
 
 Żewġ imġiba relatati mhumiex qbiżiet:
 
-- Rifjut (balking): meta klijent jiddeċiedi li ma jidħolx fil-kju għax il-ħin ta’ stennija jhedded li jkun twil wisq. Oġġett rifjutat qatt ma jidħol fis-sistema, għalhekk ikun barra mill-konfini tas-sistema: ma jingħaddx f’λ, f’χ jew f’δ. Jekk ir-rifjuti huma importanti, bħal bejgħ mitluf, imbagħad għoddhom separatament bħala wasliet li ntbagħtu lura.
+- Rifjut (balking): meta klijent jiddeċiedi li ma jidħolx fil-kju għax il-ħin ta’ stennija jhedded li jkun twil wisq. Oġġett rifjutat qatt ma jidħol fis-sistema, għalhekk ikun barra mill-konfini tas-sistema: ma jingħaddx f’λ, f’χ jew f’σ. Jekk ir-rifjuti huma importanti, bħal bejgħ mitluf, imbagħad għoddhom separatament bħala wasliet li ntbagħtu lura.
 
 - Qlib (jockeying): meta klijent jaqleb bejn kjuwijiet paralleli, bħall-kaxxi f’supermarket, biex jipprova jistenna inqas.
 
@@ -242,9 +263,11 @@ Qbiż iseħħ meta oġġett jidħol fil-kju, imbagħad jitlaq mingħajr ebda ppr
 
 L-aktar notazzjoni importanti li tiġbor fil-qosor is-suċċess ta’ kju:
 
-- ε (epsilon): proporzjon ta’ żbalji = għadd ta’ fallimenti / (għadd ta’ suċċessi + għadd ta’ fallimenti) = β / (α + β)
+- ε (epsilon): proporzjon ta’ żbalji = għadd ta’ fallimenti / (għadd ta’ suċċessi + għadd ta’ fallimenti) = β / (α + β) = β / δ
 
-Il-qbiżiet huma esklużi, għax oġġett maqbuż qatt ma ġie moqdi, għalhekk la kien tajjeb u lanqas ħażin. Il-qbiżiet jiġu segwiti separatament permezz ta’ δ.
+Il-qbiżiet huma esklużi, għax oġġett maqbuż qatt ma ġie moqdi, għalhekk la kien tajjeb u lanqas ħażin. Il-qbiżiet jiġu segwiti separatament permezz ta’ σ.
+
+![Dijagramma: ir-rata ta’ tlestija δ hija r-rata ta’ suċċess α flimkien mar-rata ta’ falliment β, u l-proporzjon ta’ żbalji ε huwa r-rata ta’ falliment β diviża bir-rata ta’ tlestija δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Eżempji:
 
@@ -266,6 +289,8 @@ Aħna nsegwu erba’ ħinijiet:
 
 - ω (omega): ħin ta’ stennija = ħin li fih ma jsir l-ebda xogħol reali, jew ħin pendenti
 
+![Dijagramma: il-ħin ta’ twassil τ huwa l-ħin ta’ stennija ω segwit mill-ħin tax-xogħol φ, għalhekk τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Eżempji:
 
 - τ = 5s tfisser li oġġett jiżdied mal-kju, imbagħad jiġi moqdi 5 sekondi wara.
@@ -282,9 +307,9 @@ Relazzjonijiet:
 
 - θ medju ≈ 1 / χ: fi stat stabbli, il-ħin medju tal-pass huwa l-invers tar-rata totali. Distakk wieħed jgħid ftit dwar ir-rata; il-medja ta’ ħafna distakki tgħid ħafna. Fl-eżempji, jekk il-ħin medju tal-pass huwa 1s, imbagħad χ ≈ oġġett wieħed kull sekonda.
 
-### Notazzjoni standard
+### Notazzjoni ta’ Kendall
 
-In-notazzjoni standard għat-teorija tal-kjuwijiet tiddeskrivi kju billi tuża n-notazzjoni ta’ Kendall, miktuba bħala A/S/c/K/N/D:
+In-notazzjoni ta’ Kendall hija notazzjoni oħra tat-teorija tal-kjuwijiet, miktuba bħala A/S/c/K/N/D:
 
 - A: il-proċess tal-wasla, jiġifieri d-distribuzzjoni tal-ħin bejn il-wasliet.
 
@@ -308,11 +333,13 @@ Ittri komuni għal A u S:
 
 Meta l-aħħar tlieta jitħallew barra, il-valuri awtomatiċi huma K = ∞, N = ∞, D = FIFO. Pereżempju, “M/M/1” tfisser wasliet Poisson, ħinijiet tas-servizz esponenzjali, server wieħed, kapaċità bla limitu, popolazzjoni bla limitu, u l-ewwel li jidħol l-ewwel li joħroġ.
 
-In-notazzjoni standard tuża wkoll n biex tfisser in-numru ta’ oġġetti fis-sistema.
+Barra minn hekk:
+
+- n: l-għadd ta’ oġġetti fis-sistema.
 
 ## Matematika tal-kjuwijiet
 
-It-taqsimiet tal-matematika jużaw is-simboli tal-kotba tat-test, sabiex ikun possibbli li jitqabblu ma’ sorsi oħra: S huwa l-ħin medju tas-servizz, li huwa φ tagħna, u μ = 1 / S hija l-kapaċità ta’ server wieħed. Ara t-tabella ta’ korrispondenza fin-[notazzjoni tat-teorija tal-kjuwijiet](#notazzjoni-tat-teorija-tal-kjuwijiet).
+It-taqsimiet tal-matematika jużaw is-simboli tal-kotba tat-test, sabiex ikun possibbli li jitqabblu ma’ sorsi oħra: S huwa l-ħin medju tas-servizz, li huwa φ tagħna, u μ = 1 / S hija l-kapaċità ta’ server wieħed.
 
 ### Il-kurva tal-utilizzazzjoni
 
@@ -403,7 +430,7 @@ Eżempji:
 
 - Aμ: rata ta’ servizz tal-attività jew kapaċità: kemm-il oġġett jista’ jlesti server wieħed għal kull unità ta’ ħin meta jkun okkupat.
 
-- Aδ: rata ta’ qbiż tal-attività jew rata ta’ abbandun: kemm-il oġġett jiġi abbandunat għal kull unità ta’ ħin.
+- Aσ: rata ta’ qbiż tal-attività: kemm-il oġġett jiġi abbandunat għal kull unità ta’ ħin.
 
 - Aρ: proporzjon ta’ utilizzazzjoni tal-attività: il-proporzjon tal-ħin disponibbli li fih is-servers ikunu okkupati, jiġifieri ħin okkupat ÷ ħin disponibbli, jew λ / (c μ).
 

@@ -20,12 +20,12 @@ Indice:
   - [Conteggio](#conteggio)
   - [Tasso di arrivo, tasso di servizio](#tasso-di-arrivo-tasso-di-servizio)
   - [Rapporto di utilizzo, detto anche intensità di traffico](#rapporto-di-utilizzo-detto-anche-intensità-di-traffico)
-  - [Tassi di throughput: tasso totale, tasso di successo, tasso di fallimento, tasso di abbandono](#tassi-di-throughput-tasso-totale-tasso-di-successo-tasso-di-fallimento-tasso-di-abbandono)
+  - [Tassi di throughput: tasso totale, tasso di completamento, tasso di successo, tasso di fallimento, tasso di abbandono](#tassi-di-throughput-tasso-totale-tasso-di-completamento-tasso-di-successo-tasso-di-fallimento-tasso-di-abbandono)
   - [Ambiguità del tasso di servizio](#ambiguità-del-tasso-di-servizio)
   - [Tasso di abbandono](#tasso-di-abbandono)
   - [Rapporto di errore](#rapporto-di-errore)
   - [Lead time, tempo di passo, tempo di lavoro, tempo di attesa](#lead-time-tempo-di-passo-tempo-di-lavoro-tempo-di-attesa)
-  - [Notazione standard](#notazione-standard)
+  - [Notazione di Kendall](#notazione-di-kendall)
 - [Matematica delle code](#matematica-delle-code)
   - [La curva di utilizzo](#la-curva-di-utilizzo)
   - [La formula di Kingman](#la-formula-di-kingman)
@@ -114,41 +114,50 @@ La teoria delle code usa una notazione con lettere greche.
 
 I nostri team usano parte della notazione più diffusa; aggiungiamo anche una notazione personalizzata che ci aiuta nei progetti software.
 
-Corrispondenza tra la nostra notazione e la notazione standard dei manuali:
+La nostra notazione e il significato di ogni simbolo:
 
-| Nostra | Standard | Significato                                                                          |
-| ------ | -------- | ------------------------------------------------------------------------------------ |
-| κ      | L        | numero medio di elementi nel sistema, in attesa più in lavorazione                   |
-| λ      | λ        | tasso di arrivo degli elementi che entrano nel sistema                               |
-| μ      | μ        | tasso di servizio, detto anche capacità: quanto velocemente lavora un servente occupato |
-| ρ      | ρ        | utilizzo: la frazione di tempo in cui i serventi sono occupati, λ / (c μ)            |
-| χ      | X        | throughput, detto anche tasso di uscita: output osservato, per qualsiasi motivo      |
-| α      | nessuno  | tasso di successo: output osservato che risulta corretto                             |
-| β      | nessuno  | tasso di fallimento: output osservato che risulta errato                             |
-| δ      | nessuno  | tasso di abbandono: elementi entrati e poi usciti senza essere serviti               |
-| ε      | nessuno  | rapporto di errore β / (α + β)                                                       |
-| τ      | W        | tempo medio nel sistema, detto anche lead time                                       |
-| ω      | Wq       | tempo medio di attesa in coda                                                        |
-| φ      | S        | tempo medio di servizio, detto anche tempo di lavoro; μ = 1 / S                      |
-| θ      | nessuno  | tempo di passo tra completamenti; tempo di passo medio ≈ 1 / χ a regime              |
-
-Attenzione ai conflitti di simboli quando legge altre fonti: σ di solito indica la deviazione standard, ed è per questo che usiamo δ per il tasso di abbandono; θ indica spesso il tasso di abbandono nei modelli di call center Erlang-A, mentre noi usiamo θ per il tempo di passo.
+| La nostra notazione | Significato |
+| ------------------- | ----------- |
+| κ (kappa) | numero di elementi nel sistema, in attesa più in lavorazione |
+| λ (lambda) | tasso di arrivo degli elementi che entrano nel sistema |
+| μ (mu) | tasso di servizio, detto anche capacità: quanto velocemente lavora un servente occupato |
+| ρ (rho) | utilizzo: la frazione di tempo in cui i serventi sono occupati, λ / (c μ) |
+| χ (chi) | throughput, detto anche tasso di uscita: output osservato, per qualsiasi motivo |
+| α (alfa) | tasso di successo: output osservato che risulta corretto |
+| β (beta) | tasso di fallimento: output osservato che risulta errato |
+| δ (delta) | tasso di completamento: successo + fallimento, elementi serviti, con esito corretto o errato |
+| σ (sigma) | tasso di abbandono: elementi entrati e poi usciti senza essere serviti |
+| ε (epsilon) | rapporto di errore: β / (α + β) = β / δ |
+| τ (tau) | tempo nel sistema, detto anche lead time |
+| ω (omega) | tempo di attesa, detto anche tempo in coda |
+| φ (phi) | tempo di lavoro, detto anche tempo nel processore, detto anche tempo di servizio |
+| θ (theta) | tempo di passo tra completamenti; tempo di passo medio ≈ 1 / χ a regime |
 
 ### Conteggio
 
 Contiamo spesso gli elementi e usiamo questa notazione:
 
-- κ (kappa): numero di elementi nel sistema, cioè elementi in attesa più elementi in lavorazione
+- κ (kappa): numero di elementi nel sistema, cioè elementi in attesa più elementi in lavorazione.
+
+![Diagramma: gli elementi arrivano al tasso λ, κ elementi sono nel sistema e gli elementi escono con il throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Esempio:
 
-- κ = 100 significa che ci sono 100 elementi nel sistema.
+- κ = 10 significa esattamente 10
 
-- κ > 100 significa che ci sono più di 100 elementi nel sistema.
+- κ ≈ 10 significa circa 10
 
-- κ ≫ 100 significa che ci sono molti più di 100 elementi nel sistema.
+- κ < 10 significa meno di 10
 
-Un conteggio come κ = 100 è un'istantanea in un dato momento. Nella legge di Little, κ indica il conteggio medio di lungo periodo, che corrisponde alla L dei manuali. Il simbolo dei manuali per i soli elementi in attesa in fila è Lq.
+- κ > 10 significa più di 10
+
+- κ ≪ 10 significa molto meno di 10
+
+- κ ≫ 10 significa molto più di 10
+
+Il conteggio κ (kappa) è un'istantanea in un dato momento.
+
+Il conteggio medio κ̅ (kappa con barra) è un calcolo che fa la media di misurazioni su uno specifico periodo di tempo, ad esempio misurando ogni ora per due settimane.
 
 ### Tasso di arrivo, tasso di servizio
 
@@ -184,9 +193,9 @@ Esempi:
 
 - ρ > 1 significa che gli arrivi superano la capacità; la coda si sta allungando.
 
-### Tassi di throughput: tasso totale, tasso di successo, tasso di fallimento, tasso di abbandono
+### Tassi di throughput: tasso totale, tasso di completamento, tasso di successo, tasso di fallimento, tasso di abbandono
 
-I tassi di throughput misurano l'output osservato, cioè gli elementi che lasciano effettivamente la coda. Si dividono in quattro grandi categorie:
+I tassi di throughput misurano l'output osservato, cioè gli elementi che lasciano effettivamente la coda. Si dividono in cinque grandi categorie:
 
 - χ (chi): tasso totale. Misura quanti elementi per unità di tempo escono dalla coda per qualsiasi motivo: successo, fallimento, abbandono, ecc.
 
@@ -194,11 +203,23 @@ I tassi di throughput misurano l'output osservato, cioè gli elementi che lascia
 
 - β (beta): tasso di fallimento. Misura quanti elementi per periodo di tempo risultano errati, ad es. inesatti, incompleti, rifiutati.
 
-- δ (delta): tasso di abbandono, detto anche tasso di dropout. Misura quanti elementi per periodo di tempo entrano nella coda e poi escono senza essere serviti, ad es. abbandoni, rinunce.
+- δ (delta): tasso di completamento. Misura quanti elementi per periodo di tempo vengono serviti, con esito corretto o errato: successo + fallimento.
+
+- σ (sigma): tasso di abbandono. Misura quanti elementi per periodo di tempo entrano nella coda e poi escono senza essere serviti, ad es. abbandoni, rinunce.
+
+Tasso di completamento = tasso di successo + tasso di fallimento:
+
+- δ = α + β (si pronuncia: delta uguale alfa più beta)
+
+Tasso totale = tasso di completamento + tasso di abbandono:
+
+- χ = δ + σ (si pronuncia: chi uguale delta più sigma)
 
 Tasso totale = tasso di successo + tasso di fallimento + tasso di abbandono:
 
-- χ = α + β + δ (si pronuncia: chi uguale alfa più beta più delta)
+- χ = α + β + σ (si pronuncia: chi uguale alfa più beta più sigma)
+
+![Diagramma: gli elementi lasciano il sistema come successo α, fallimento β o abbandono σ; completati δ = α + β, quindi χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Ogni elemento contato in χ è entrato nel sistema, quindi a regime il tasso totale è uguale al tasso di arrivo: χ ≈ λ. Per questo i tassi di throughput misurano l'output, non la capacità.
 
@@ -215,7 +236,7 @@ monitorare fallimenti e abbandoni.
 
 - Visione dell'elaborazione: il tasso di servizio include tutto ciò che la coda impiega tempo a elaborare, cioè successi o fallimenti, ma non include gli abbandoni.
 
-- Visione tecnologica: in campi applicati come l'ingegneria del software, il tasso di servizio misura solo i successi, mentre il tasso di errore misura i fallimenti e il tasso di abbandono misura i dropout.
+- Visione tecnologica: in campi applicati come l'ingegneria del software, il tasso di servizio misura solo i successi, mentre il tasso di errore misura i fallimenti e il tasso di abbandono misura gli abbandoni.
 
 Perciò manteniamo μ per la capacità e vi aggiungiamo i tassi di output osservato, invece di sostituirlo:
 
@@ -231,7 +252,7 @@ Perché non sostituire μ con χ o α? In una coda stabile, ogni elemento che en
 
 Dettagli sul tasso di abbandono:
 
-- δ (delta): tasso di abbandono, detto anche tasso di dropout. Misura quanti elementi entrano nella coda e poi escono senza essere gestiti.
+- σ (sigma): tasso di abbandono. Misura quanti elementi entrano nella coda e poi escono senza essere elaborati.
 
 Un abbandono si ha quando un elemento entra nella coda e poi esce senza alcuna elaborazione significativa:
 
@@ -241,7 +262,7 @@ Un abbandono si ha quando un elemento entra nella coda e poi esce senza alcuna e
 
 Due comportamenti correlati non sono abbandoni:
 
-- Desistenza (balking): quando un cliente decide di non entrare nella coda perché il tempo di attesa rischia di essere troppo lungo. Un elemento che desiste non entra mai nel sistema, quindi è fuori dal confine del sistema: non viene contato in λ, χ o δ. Se le desistenze sono importanti, ad esempio come vendite perse, allora le conti separatamente come arrivi respinti.
+- Desistenza (balking): quando un cliente decide di non entrare nella coda perché il tempo di attesa rischia di essere troppo lungo. Un elemento che desiste non entra mai nel sistema, quindi è fuori dal confine del sistema: non viene contato in λ, χ o σ. Se le desistenze sono importanti, ad esempio come vendite perse, allora le conti separatamente come arrivi respinti.
 
 - Cambio di coda (jockeying): quando un cliente passa da una coda parallela all'altra, ad esempio tra le casse, cercando di ottenere un'attesa più breve.
 
@@ -249,9 +270,11 @@ Due comportamenti correlati non sono abbandoni:
 
 La notazione più importante che riassume il successo di una coda:
 
-- ε (epsilon): rapporto di errore = numero di fallimenti / (numero di successi + numero di fallimenti) = β / (α + β)
+- ε (epsilon): rapporto di errore = numero di fallimenti / (numero di successi + numero di fallimenti) = β / (α + β) = β / δ
 
-Gli abbandoni sono esclusi, perché un elemento abbandonato non è mai stato servito, quindi non è stato né corretto né errato. Monitori gli abbandoni separatamente tramite δ.
+Gli abbandoni sono esclusi, perché un elemento abbandonato non è mai stato servito, quindi non è stato né corretto né errato. Monitori gli abbandoni separatamente tramite σ.
+
+![Diagramma: il tasso di completamento δ è il tasso di successo α più il tasso di fallimento β, e il rapporto di errore ε è il tasso di fallimento β diviso per il tasso di completamento δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Esempi:
 
@@ -273,6 +296,8 @@ Monitoriamo quattro tempi:
 
 - ω (omega): tempo di attesa = tempo trascorso senza lavoro effettivo, detto anche tempo di sospensione
 
+![Diagramma: il lead time τ è il tempo di attesa ω seguito dal tempo di lavoro φ, quindi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Esempi:
 
 - τ = 5s significa che un elemento viene aggiunto alla coda e poi servito 5 secondi dopo.
@@ -289,9 +314,9 @@ Relazioni:
 
 - θ medio ≈ 1 / χ: a regime, il tempo di passo medio è l'inverso del tasso totale. Un singolo intervallo dice poco sul tasso; la media di molti intervalli dice molto. Negli esempi, se il tempo di passo medio è 1s, allora χ ≈ 1 elemento al secondo.
 
-### Notazione standard
+### Notazione di Kendall
 
-La notazione standard della teoria delle code descrive una coda usando la notazione di Kendall, scritta come A/S/c/K/N/D:
+La notazione di Kendall è un'altra notazione della teoria delle code, scritta come A/S/c/K/N/D:
 
 - A: il processo di arrivo, cioè la distribuzione del tempo tra gli arrivi.
 
@@ -315,11 +340,13 @@ Lettere comuni per A e S:
 
 Quando le ultime tre sono omesse, i valori predefiniti sono K = ∞, N = ∞, D = FIFO. Ad esempio, "M/M/1" significa arrivi di Poisson, tempi di servizio esponenziali, un servente, capacità illimitata, popolazione illimitata e first in first out.
 
-La notazione standard usa anche n per indicare il numero di elementi nel sistema.
+Inoltre:
+
+- n: il numero di elementi nel sistema.
 
 ## Matematica delle code
 
-Le sezioni di matematica usano i simboli dei manuali, così che Lei possa confrontarle con altre fonti: S è il tempo medio di servizio, che corrisponde al nostro φ, e μ = 1 / S è la capacità di un servente. Si veda la tabella di corrispondenza in [notazione della teoria delle code](#notazione-della-teoria-delle-code).
+Le sezioni di matematica usano i simboli dei manuali, così che Lei possa confrontarle con altre fonti: S è il tempo medio di servizio, che corrisponde al nostro φ, e μ = 1 / S è la capacità di un servente.
 
 ### La curva di utilizzo
 
@@ -410,7 +437,7 @@ Esempi:
 
 - Aμ: tasso di servizio dell'attività, detto anche capacità: quanti elementi un servente può completare per unità di tempo mentre è occupato.
 
-- Aδ: tasso di abbandono dell'attività, detto anche tasso di dropout: quanti elementi vengono abbandonati per unità di tempo.
+- Aσ: tasso di abbandono dell'attività: quanti elementi vengono abbandonati per unità di tempo.
 
 - Aρ: rapporto di utilizzo dell'attività: la frazione del tempo disponibile in cui i serventi sono occupati, cioè tempo occupato ÷ tempo disponibile, oppure λ / (c μ).
 

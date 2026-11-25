@@ -19,12 +19,12 @@ Efnisyfirlit:
   - [Fjöldi](#fjöldi)
   - [Komutíðni, þjónustutíðni](#komutíðni-þjónustutíðni)
   - [Nýtingarhlutfall, öðru nafni álagsstyrkur](#nýtingarhlutfall-öðru-nafni-álagsstyrkur)
-  - [Gegnumstreymistíðni: heildartíðni, árangurstíðni, villutíðni, slepptíðni](#gegnumstreymistíðni-heildartíðni-árangurstíðni-villutíðni-slepptíðni)
+  - [Gegnumstreymistíðni: heildartíðni, lokatíðni, árangurstíðni, villutíðni, slepptíðni](#gegnumstreymistíðni-heildartíðni-lokatíðni-árangurstíðni-villutíðni-slepptíðni)
   - [Margræðni hugtaksins þjónustutíðni](#margræðni-hugtaksins-þjónustutíðni)
   - [Slepptíðni](#slepptíðni)
   - [Villuhlutfall](#villuhlutfall)
   - [Heildartími, skreftími, vinnutími, biðtími](#heildartími-skreftími-vinnutími-biðtími)
-  - [Staðlað táknmál](#staðlað-táknmál)
+  - [Táknmál Kendalls](#táknmál-kendalls)
 - [Stærðfræði biðraða](#stærðfræði-biðraða)
   - [Nýtingarferillinn](#nýtingarferillinn)
   - [Formúla Kingmans](#formúla-kingmans)
@@ -113,41 +113,50 @@ Biðraðafræði notar táknmál með grískum bókstöfum.
 
 Teymin okkar nota hluta af algengasta táknmálinu; við bætum einnig við eigin táknum sem nýtast okkur í hugbúnaðarverkefnum.
 
-Samanburður á táknmáli okkar og stöðluðu táknmáli kennslubóka:
+Okkar táknmál og merking hvers tákns:
 
-| Okkar | Staðlað | Merking                                                                          |
-| ----- | ------- | -------------------------------------------------------------------------------- |
-| κ     | L       | meðalfjöldi atriða í kerfinu, þau sem bíða auk þeirra sem unnið er að            |
-| λ     | λ       | komutíðni atriða sem koma inn í kerfið                                           |
-| μ     | μ       | þjónustutíðni, öðru nafni afkastageta: hve hratt einn þjónn vinnur meðan hann er upptekinn |
-| ρ     | ρ       | nýting: hlutfall tímans sem þjónarnir eru uppteknir, λ / (c μ)                   |
-| χ     | X       | gegnumstreymi, öðru nafni brottfarartíðni: mæld afköst, af hvaða ástæðu sem er   |
-| α     | ekkert  | árangurstíðni: mæld afköst sem reynast rétt                                      |
-| β     | ekkert  | villutíðni: mæld afköst sem reynast röng                                         |
-| δ     | ekkert  | slepptíðni, öðru nafni brottfallstíðni: atriði sem komu inn og fóru óafgreidd    |
-| ε     | ekkert  | villuhlutfall β / (α + β)                                                        |
-| τ     | W       | meðaltími í kerfinu, öðru nafni heildartími                                      |
-| ω     | Wq      | meðalbiðtími í biðröðinni                                                        |
-| φ     | S       | meðalþjónustutími, öðru nafni vinnutími; μ = 1 / S                               |
-| θ     | ekkert  | skreftími milli loka; meðalskreftími ≈ 1 / χ í jafnvægisástandi                  |
-
-Gætið að árekstrum tákna þegar aðrar heimildir eru lesnar: σ merkir yfirleitt staðalfrávik, og þess vegna notum við δ fyrir slepptíðni, og θ merkir oft brottfallstíðni í Erlang-A líkönum fyrir símaver, en við notum θ fyrir skreftíma.
+| Okkar táknmál | Merking |
+| ------------- | ------- |
+| κ (kappa) | fjöldi atriða í kerfinu, þau sem bíða auk þeirra sem unnið er að |
+| λ (lambda) | komutíðni atriða sem koma inn í kerfið |
+| μ (mu) | þjónustutíðni, öðru nafni afkastageta: hve hratt einn þjónn vinnur meðan hann er upptekinn |
+| ρ (rho) | nýting: hlutfall tímans sem þjónarnir eru uppteknir, λ / (c μ) |
+| χ (chi) | gegnumstreymi, öðru nafni brottfarartíðni: mæld afköst, af hvaða ástæðu sem er |
+| α (alfa) | árangurstíðni: mæld afköst sem reynast rétt |
+| β (beta) | villutíðni: mæld afköst sem reynast röng |
+| δ (delta) | lokatíðni: árangur + villur, atriði sem fengu þjónustu, hvort sem niðurstaðan var rétt eða röng |
+| σ (sigma) | slepptíðni: atriði sem komu inn og fóru óafgreidd |
+| ε (epsilon) | villuhlutfall: β / (α + β) = β / δ |
+| τ (tá) | tími í kerfinu, öðru nafni heildartími |
+| ω (ómega) | biðtími, öðru nafni tími í biðröðinni |
+| φ (fí) | vinnutími, öðru nafni tími í örgjörvanum, öðru nafni þjónustutími |
+| θ (þeta) | skreftími milli loka; meðalskreftími ≈ 1 / χ í jafnvægisástandi |
 
 ### Fjöldi
 
 Við teljum atriði oft og notum þetta tákn:
 
-- κ (kappa): fjöldi atriða í kerfinu, þ.e. atriði sem bíða auk atriða sem unnið er að
+- κ (kappa): fjöldi atriða í kerfinu, þ.e. atriði sem bíða auk atriða sem unnið er að.
+
+![Skýringarmynd: atriði koma með tíðninni λ, κ atriði eru í kerfinu og atriði fara með gegnumstreyminu χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
 
 Dæmi:
 
-- κ = 100 merkir að 100 atriði eru í kerfinu.
+- κ = 10 merkir nákvæmlega 10
 
-- κ > 100 merkir að fleiri en 100 atriði eru í kerfinu.
+- κ ≈ 10 merkir um það bil 10
 
-- κ ≫ 100 merkir að miklu fleiri en 100 atriði eru í kerfinu.
+- κ < 10 merkir færri en 10
 
-Fjöldi eins og κ = 100 er skyndimynd á einu augnabliki. Í lögmáli Littles merkir κ meðalfjölda til langs tíma, sem er L í kennslubókum. Tákn kennslubóka fyrir einungis þau atriði sem bíða í röðinni er Lq.
+- κ > 10 merkir fleiri en 10
+
+- κ ≪ 10 merkir miklu færri en 10
+
+- κ ≫ 10 merkir miklu fleiri en 10
+
+Fjöldinn κ (kappa) er skyndimynd á einu augnabliki.
+
+Meðalfjöldinn κ̅ (kappa með striki) er útreikningur sem tekur meðaltal mælinga yfir tiltekið tímabil, til dæmis með því að mæla á klukkustundar fresti í tvær vikur.
 
 ### Komutíðni, þjónustutíðni
 
@@ -183,9 +192,9 @@ Dæmi:
 
 - ρ > 1 merkir að komur eru umfram afkastagetu; biðröðin stækkar.
 
-### Gegnumstreymistíðni: heildartíðni, árangurstíðni, villutíðni, slepptíðni
+### Gegnumstreymistíðni: heildartíðni, lokatíðni, árangurstíðni, villutíðni, slepptíðni
 
-Gegnumstreymistíðni mælir mæld afköst, þ.e. atriði sem fara raunverulega úr biðröðinni. Hún skiptist í fjóra meginflokka:
+Gegnumstreymistíðni mælir mæld afköst, þ.e. atriði sem fara raunverulega úr biðröðinni. Hún skiptist í fimm meginflokka:
 
 - χ (chi): heildartíðni. Hún mælir hve mörg atriði á tímaeiningu fara úr biðröðinni af hvaða ástæðu sem er: árangur, villa, slepping o.s.frv.
 
@@ -193,11 +202,23 @@ Gegnumstreymistíðni mælir mæld afköst, þ.e. atriði sem fara raunverulega 
 
 - β (beta): villutíðni. Hún mælir hve mörg atriði á tímabil reynast röng, t.d. röng, ófullgerð, hafnað.
 
-- δ (delta): slepptíðni, öðru nafni brottfallstíðni. Hún mælir hve mörg atriði á tímabil koma inn í biðröðina og fara síðan án þess að fá þjónustu, t.d. brotthvörf, uppgjafir.
+- δ (delta): lokatíðni. Hún mælir hve mörg atriði á tímabil fá þjónustu, hvort sem niðurstaðan er rétt eða röng: árangur + villur.
+
+- σ (sigma): slepptíðni. Hún mælir hve mörg atriði á tímabil koma inn í biðröðina og fara síðan án þess að fá þjónustu, t.d. brotthvörf, uppgjafir.
+
+Lokatíðni = árangurstíðni + villutíðni:
+
+- δ = α + β (borið fram: delta jafngildir alfa plús beta)
+
+Heildartíðni = lokatíðni + slepptíðni:
+
+- χ = δ + σ (borið fram: chi jafngildir delta plús sigma)
 
 Heildartíðni = árangurstíðni + villutíðni + slepptíðni:
 
-- χ = α + β + δ (borið fram: kí jafngildir alfa plús beta plús delta)
+- χ = α + β + σ (borið fram: chi jafngildir alfa plús beta plús sigma)
+
+![Skýringarmynd: atriði fara úr kerfinu sem árangur α, villa β eða sleppt σ; lokið δ = α + β, því χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Hvert atriði sem talið er í χ kom inn í kerfið, svo í jafnvægisástandi er heildartíðnin jöfn komutíðninni: χ ≈ λ. Þess vegna mælir gegnumstreymistíðni afköst, ekki afkastagetu.
 
@@ -214,7 +235,7 @@ villum og sleppingum.
 
 - Vinnslusjónarhorn: Þjónustutíðnin nær yfir allt sem biðröðin ver tíma í að vinna, þ.e. árangur eða villur, en ekki sleppingar.
 
-- Tæknilegt sjónarhorn: Í hagnýtum greinum eins og hugbúnaðarverkfræði mælir þjónustutíðnin aðeins árangur, en villutíðnin mælir villur og slepptíðnin mælir brottfall.
+- Tæknilegt sjónarhorn: Í hagnýtum greinum eins og hugbúnaðarverkfræði mælir þjónustutíðnin aðeins árangur, en villutíðnin mælir villur og slepptíðnin mælir slepptar færslur.
 
 Þess vegna höldum við μ fyrir afkastagetu og bætum mældri afkastatíðni við hlið hennar í stað þess að skipta henni út:
 
@@ -230,7 +251,7 @@ Hvers vegna ekki að skipta μ út fyrir χ eða α? Í stöðugri biðröð fer
 
 Nánar um slepptíðni:
 
-- δ (delta): slepptíðni, öðru nafni brottfallstíðni. Hún mælir hve mörg atriði koma inn í biðröðina og fara síðan óafgreidd.
+- σ (sigma): slepptíðni. Hún mælir hve mörg atriði koma inn í biðröðina og fara síðan án þess að vera unnin.
 
 Slepping á sér stað þegar atriði kemur inn í biðröðina og fer síðan án nokkurrar teljandi vinnslu:
 
@@ -240,7 +261,7 @@ Slepping á sér stað þegar atriði kemur inn í biðröðina og fer síðan �
 
 Tvær skyldar hegðanir eru ekki sleppingar:
 
-- Frávísun við komu (balking): þegar viðskiptavinur ákveður að fara ekki í biðröðina vegna þess að biðtíminn virðist ætla að verða of langur. Atriði sem hættir við komu kemur aldrei inn í kerfið, svo það er utan marka kerfisins: það er ekki talið í λ, χ eða δ. Ef slíkar frávísanir skipta máli, til dæmis töpuð sala, skal telja þær sérstaklega sem komur sem var vísað frá.
+- Frávísun við komu (balking): þegar viðskiptavinur ákveður að fara ekki í biðröðina vegna þess að biðtíminn virðist ætla að verða of langur. Atriði sem hættir við komu kemur aldrei inn í kerfið, svo það er utan marka kerfisins: það er ekki talið í λ, χ eða σ. Ef slíkar frávísanir skipta máli, til dæmis töpuð sala, skal telja þær sérstaklega sem komur sem var vísað frá.
 
 - Raðaskipti (jockeying): þegar viðskiptavinur skiptir á milli samhliða biðraða, til dæmis afgreiðslukassa, til að reyna að fá styttri bið.
 
@@ -248,9 +269,11 @@ Tvær skyldar hegðanir eru ekki sleppingar:
 
 Mikilvægasta táknið sem dregur saman árangur biðraðar:
 
-- ε (epsilon): villuhlutfall = fjöldi villna / (fjöldi árangurs + fjöldi villna) = β / (α + β)
+- ε (epsilon): villuhlutfall = fjöldi villna / (fjöldi árangurs + fjöldi villna) = β / (α + β) = β / δ
 
-Sleppingar eru undanskildar, því atriði sem var sleppt fékk aldrei þjónustu, svo það var hvorki rétt né rangt. Fylgist með sleppingum sérstaklega með δ.
+Sleppingar eru undanskildar, því atriði sem var sleppt fékk aldrei þjónustu, svo það var hvorki rétt né rangt. Fylgist með sleppingum sérstaklega með σ.
+
+![Skýringarmynd: lokatíðnin δ er árangurstíðnin α plús villutíðnin β, og villuhlutfallið ε er villutíðnin β deilt með lokatíðninni δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Dæmi:
 
@@ -272,6 +295,8 @@ Við fylgjumst með fjórum tímum:
 
 - ω (ómega): biðtími = tími sem fer ekki í raunverulega vinnu, öðru nafni bið
 
+![Skýringarmynd: heildartíminn τ er biðtíminn ω og síðan vinnutíminn φ, því τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+
 Dæmi:
 
 - τ = 5 s merkir að atriði er sett í biðröðina og afgreitt 5 sekúndum síðar.
@@ -288,9 +313,9 @@ Tengsl:
 
 - meðal-θ ≈ 1 / χ: í jafnvægisástandi er meðalskreftíminn andhverfa heildartíðninnar. Stakt bil segir lítið um tíðnina; meðaltal margra bila segir meira. Í dæmunum, ef meðalskreftíminn er 1 s, þá er χ ≈ 1 atriði á sekúndu.
 
-### Staðlað táknmál
+### Táknmál Kendalls
 
-Staðlað táknmál biðraðafræðinnar lýsir biðröð með táknmáli Kendalls, ritað A/S/c/K/N/D:
+Táknmál Kendalls er annað táknmál biðraðafræðinnar, ritað A/S/c/K/N/D:
 
 - A: komuferlið, þ.e. dreifing tímans milli koma.
 
@@ -314,11 +339,13 @@ Algengir bókstafir fyrir A og S:
 
 Þegar þremur síðustu er sleppt eru sjálfgefin gildi K = ∞, N = ∞, D = FIFO. Til dæmis merkir „M/M/1“ Poisson-komur, veldisvísisdreifða þjónustutíma, einn þjón, ótakmarkaða afkastagetu, ótakmarkað þýði og fyrst inn, fyrst út.
 
-Staðlað táknmál notar einnig n um fjölda atriða í kerfinu.
+Einnig:
+
+- n: fjöldi atriða í kerfinu.
 
 ## Stærðfræði biðraða
 
-Í stærðfræðihlutunum eru notuð tákn kennslubóka, svo að hægt sé að bera þau saman við aðrar heimildir: S er meðalþjónustutíminn, sem er okkar φ, og μ = 1 / S er afkastageta eins þjóns. Sjá samanburðinn í [táknmáli biðraðafræðinnar](#táknmál-biðraðafræðinnar).
+Í stærðfræðihlutunum eru notuð tákn kennslubóka, svo að hægt sé að bera þau saman við aðrar heimildir: S er meðalþjónustutíminn, sem er okkar φ, og μ = 1 / S er afkastageta eins þjóns.
 
 ### Nýtingarferillinn
 
@@ -409,7 +436,7 @@ Dæmi:
 
 - Aμ: þjónustutíðni virkni, öðru nafni afkastageta: hve mörgum atriðum einn þjónn getur lokið á hverja tímaeiningu meðan hann er upptekinn.
 
-- Aδ: slepptíðni virkni, öðru nafni brottfallstíðni: hve mörg atriði eru yfirgefin á hverja tímaeiningu.
+- Aσ: slepptíðni virkni: hve mörg atriði eru yfirgefin á hverja tímaeiningu.
 
 - Aρ: nýtingarhlutfall virkni: hlutfall tiltæks tíma sem þjónarnir eru uppteknir, þ.e. upptekinn tími ÷ tiltækur tími, eða λ / (c μ).
 
