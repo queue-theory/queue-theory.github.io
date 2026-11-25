@@ -136,7 +136,7 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 
 ![다이어그램: 시스템에는 κ개의 항목이 있습니다](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![다이어그램: 항목은 비율 λ로 도착하고 비율 χ로 떠납니다](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![다이어그램: 항목은 비율 λ로 도착하고, 비율 μ로 서비스를 받고, 비율 χ로 떠납니다](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 예시:
 
@@ -196,7 +196,7 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 
 처리율은 관측된 산출, 즉 실제로 큐를 떠나는 항목을 측정합니다. 크게 다섯 가지 범주가 있습니다.
 
-- χ(카이): 총 비율. 성공, 실패, 이탈 등 어떤 이유로든 단위 시간당 큐를 빠져나가는 항목 수를 측정합니다.
+- χ(카이): 퇴장률. 항목이 시스템에서 얼마나 빠르게 나가는지를 측정합니다.
 
 - α(알파): 성공률. 단위 기간당 올바른 것으로 판명된 항목 수를 측정합니다. 예: 정확함, 완료됨, 승인됨.
 
@@ -218,7 +218,7 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 
 - χ = α + β + σ (읽는 법: 카이는 알파 더하기 베타 더하기 시그마)
 
-![다이어그램: 항목은 성공 α, 실패 β 또는 이탈 σ로 시스템을 떠납니다. δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![다이어그램: 성공률 α, 실패율 β, 이탈률 σ; 완료율 δ = α + β; 퇴장률 χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 χ에 집계되는 모든 항목은 시스템에 들어온 항목이므로, 정상 상태에서 총 비율은 도착률과 같습니다: χ ≈ λ. 그렇기 때문에 처리율은 용량이 아니라 산출을 측정합니다.
 
@@ -238,7 +238,7 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 
 - μ(뮤): 서비스율, 일명 용량. 서버 하나가 바쁠 때 항목을 얼마나 빨리 처리할 수 있는지를 측정합니다.
 
-- χ(카이): 총 비율. 성공, 실패, 이탈 등 어떤 이유로든 단위 시간당 큐를 빠져나가는 항목 수를 측정합니다.
+- χ(카이): 퇴장률. 항목이 시스템에서 얼마나 빠르게 나가는지를 측정합니다.
 
 - α(알파): 성공률. 단위 기간당 올바른 것으로 판명된 항목 수를 측정합니다. 예: 정확함, 완료됨, 승인됨.
 
@@ -270,7 +270,7 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 
 이탈은 제외합니다. 이탈한 항목은 서비스를 받지 않았으므로 옳지도 그르지도 않기 때문입니다. 이탈은 σ로 따로 추적하십시오.
 
-![다이어그램: 완료율 δ는 성공률 α 더하기 실패율 β이고, 오류 비율 ε은 실패율 β를 완료율 δ로 나눈 값입니다](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![다이어그램: 오류 비율 ε은 실패율 β를 완료율 δ로 나눈 값입니다](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 예시:
 

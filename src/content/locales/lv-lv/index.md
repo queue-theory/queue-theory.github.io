@@ -136,7 +136,7 @@ Mēs bieži skaitām elementus un lietojam šādu apzīmējumu:
 
 ![Diagramma: sistēmā ir κ elementu](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramma: elementi ierodas ar ātrumu λ un aiziet ar ātrumu χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagramma: elementi ierodas ar ātrumu λ, tiek apkalpoti ar ātrumu μ un aiziet ar ātrumu χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Piemērs:
 
@@ -196,7 +196,7 @@ Piemēri:
 
 Caurlaidspējas ātrumi mēra novēroto izvadi, t. i., elementus, kas faktiski atstāj rindu. Tie iedalās piecās plašās kategorijās:
 
-- χ (hī): kopējais ātrums. Tas mēra, cik elementu laika vienībā atstāj rindu jebkura iemesla dēļ: veiksme, neveiksme, izlaišana u. c.
+- χ (hī): aiziešanas ātrums. Tas mēra, cik ātri elementi iziet no sistēmas.
 
 - α (alfa): veiksmes ātrums. Tas mēra, cik elementu laika periodā izrādās pareizi, piem., precīzi, pabeigti, pieņemti.
 
@@ -218,7 +218,7 @@ Kopējais ātrums = veiksmes ātrums + neveiksmes ātrums + izlaišanas ātrums:
 
 - χ = α + β + σ (izrunā: hī ir vienāds ar alfa plus beta plus sigma)
 
-![Diagramma: elementi atstāj sistēmu kā veiksme α, neveiksme β vai izlaišana σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagramma: veiksmes ātrums α, neveiksmes ātrums β, izlaišanas ātrums σ; pabeigšanas ātrums δ = α + β; aiziešanas ātrums χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Katrs χ ieskaitītais elements ir ienācis sistēmā, tāpēc līdzsvara stāvoklī kopējais ātrums ir vienāds ar ierašanās ātrumu: χ ≈ λ. Tāpēc caurlaidspējas ātrumi mēra izvadi, nevis jaudu.
 
@@ -238,7 +238,7 @@ Tāpēc mēs saglabājam μ jaudai un pievienojam novērotās izvades ātrumus l
 
 - μ (mī): apkalpošanas ātrums jeb jauda. Tas mēra, cik ātri viens serveris var apstrādāt elementus, kamēr tas ir aizņemts.
 
-- χ (hī): kopējais ātrums. Tas mēra, cik elementu laika vienībā atstāj rindu jebkura iemesla dēļ: veiksme, neveiksme, izlaišana u. c.
+- χ (hī): aiziešanas ātrums. Tas mēra, cik ātri elementi iziet no sistēmas.
 
 - α (alfa): veiksmes ātrums. Tas mēra, cik elementu laika periodā izrādās pareizi, piem., precīzi, pabeigti, pieņemti.
 
@@ -270,7 +270,7 @@ Svarīgākais apzīmējums, kas raksturo rindas veiksmi:
 
 Izlaišanas netiek iekļautas, jo izlaists elements nekad netika apkalpots, tāpēc tas nebija ne pareizs, ne nepareizs. Izlaišanām sekojiet atsevišķi, izmantojot σ.
 
-![Diagramma: pabeigšanas ātrums δ ir veiksmes ātrums α plus neveiksmes ātrums β, un kļūdu attiecība ε ir neveiksmes ātrums β, dalīts ar pabeigšanas ātrumu δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagramma: kļūdu attiecība ε ir neveiksmes ātrums β, dalīts ar pabeigšanas ātrumu δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Piemēri:
 

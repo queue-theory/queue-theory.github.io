@@ -142,7 +142,7 @@ Contamos elementos con frecuencia, y usamos esta notación:
 
 ![Diagrama: hay κ elementos en el sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagrama: los elementos llegan a la tasa λ y salen a la tasa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagrama: los elementos llegan a la tasa λ, se atienden a la tasa μ y salen a la tasa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Ejemplo:
 
@@ -202,7 +202,7 @@ Ejemplos:
 
 Las tasas de rendimiento miden la producción observada, es decir, los elementos que realmente salen de la cola. Se agrupan en cinco categorías amplias:
 
-- χ (ji): tasa total. Mide cuántos elementos por periodo salen de la cola por cualquier motivo: éxito, fallo, omisión, etc.
+- χ (ji): tasa de salida. Mide qué tan rápido salen los elementos del sistema.
 
 - α (alfa): tasa de éxito. Mide cuántos elementos por periodo resultan bien, p. ej. correctos, completos, aceptados.
 
@@ -224,7 +224,7 @@ Tasa total = tasa de éxito + tasa de fallo + tasa de omisión:
 
 - χ = α + β + σ (se lee: ji es igual a alfa más beta más sigma)
 
-![Diagrama: los elementos salen del sistema como éxito α, fallo β u omisión σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagrama: tasa de éxito α, tasa de fallo β, tasa de omisión σ; tasa de finalización δ = α + β; tasa de salida χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Cada elemento contado en χ entró en el sistema, así que en estado estacionario la tasa total es igual a la tasa de llegada: χ ≈ λ. Por eso las tasas de rendimiento miden la producción, no la capacidad.
 
@@ -247,7 +247,7 @@ Por eso conservamos μ para la capacidad, y añadimos tasas de producción obser
 
 - μ (mu): tasa de servicio, también llamada capacidad. Mide con qué rapidez un servidor puede atender elementos mientras está ocupado.
 
-- χ (ji): tasa total. Mide cuántos elementos por periodo salen de la cola por cualquier motivo: éxito, fallo, omisión, etc.
+- χ (ji): tasa de salida. Mide qué tan rápido salen los elementos del sistema.
 
 - α (alfa): tasa de éxito. Mide cuántos elementos por periodo resultan bien, p. ej. correctos, completos, aceptados.
 
@@ -279,7 +279,7 @@ La notación más importante que resume el éxito de una cola:
 
 Las omisiones se excluyen, porque un elemento omitido nunca fue atendido, así que no resultó ni bien ni mal. Dé seguimiento a las omisiones por separado mediante σ.
 
-![Diagrama: la tasa de finalización δ es la tasa de éxito α más la tasa de fallo β, y la razón de errores ε es la tasa de fallo β dividida por la tasa de finalización δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagrama: la razón de errores ε es la tasa de falla β dividida entre la tasa de finalización δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Ejemplos:
 

@@ -141,7 +141,7 @@ Bizim gösterimimiz ve her simgenin anlamı:
 
 ![Diyagram: sistemde κ öğe vardır](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diyagram: öğeler λ hızıyla gelir ve χ hızıyla ayrılır](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diyagram: öğeler λ hızıyla gelir, μ hızıyla hizmet alır ve χ hızıyla ayrılır](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Örnek:
 
@@ -201,7 +201,7 @@ Bir kuyruğu özetleyen en önemli gösterim:
 
 Çıktı hızları gözlenen çıktıyı, yani kuyruktan gerçekten ayrılan öğeleri ölçer. Beş geniş kategoride ele alınırlar:
 
-- χ (chi): toplam hız. Birim zamanda herhangi bir nedenle (başarı, başarısızlık, atlama vb.) kuyruktan kaç öğenin çıktığını ölçer.
+- χ (chi): ayrılış hızı. Öğelerin sistemden ne kadar hızlı çıktığını ölçer.
 
 - α (alpha): başarı hızı. Birim zamanda kaç öğenin doğru çıktığını ölçer; örneğin doğru, eksiksiz, kabul edilmiş.
 
@@ -223,7 +223,7 @@ Toplam hız = başarı hızı + başarısızlık hızı + atlama hızı:
 
 - χ = α + β + σ (okunuşu: chi eşittir alpha artı beta artı sigma)
 
-![Diyagram: öğeler sistemi başarı α, başarısızlık β veya atlama σ olarak terk eder; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diyagram: başarı hızı α, başarısızlık hızı β, atlama hızı σ; tamamlanma hızı δ = α + β; ayrılış hızı χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 χ içinde sayılan her öğe sisteme girmiştir; bu yüzden kararlı durumda toplam hız varış hızına eşittir: χ ≈ λ. Çıktı hızlarının kapasiteyi değil çıktıyı ölçmesinin nedeni budur.
 
@@ -246,7 +246,7 @@ Bu nedenle μ'yü kapasite için koruruz ve onun yerine koymak yerine yanına g�
 
 - μ (mu): hizmet hızı, diğer adıyla kapasite. Bir sunucunun meşgulken öğeleri ne kadar hızlı işleyebildiğini ölçer.
 
-- χ (chi): toplam hız. Birim zamanda herhangi bir nedenle (başarı, başarısızlık, atlama vb.) kuyruktan kaç öğenin çıktığını ölçer.
+- χ (chi): ayrılış hızı. Öğelerin sistemden ne kadar hızlı çıktığını ölçer.
 
 - α (alpha): başarı hızı. Birim zamanda kaç öğenin doğru çıktığını ölçer; örneğin doğru, eksiksiz, kabul edilmiş.
 
@@ -278,7 +278,7 @@ Bir kuyruğun başarısını özetleyen en önemli gösterim:
 
 Atlamalar hariç tutulur, çünkü atlanan bir öğeye hiç hizmet verilmemiştir; dolayısıyla ne doğrudur ne de yanlıştır. Atlamaları σ ile ayrıca takip edin.
 
-![Diyagram: tamamlanma hızı δ, başarı hızı α artı başarısızlık hızı β'dır; hata oranı ε ise başarısızlık hızı β'nın tamamlanma hızı δ'ya bölünmesidir](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diyagram: hata oranı ε, başarısızlık hızı β'nın tamamlanma hızı δ'ya bölünmesidir](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Örnekler:
 

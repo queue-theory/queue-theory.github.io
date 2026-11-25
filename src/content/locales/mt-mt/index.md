@@ -136,7 +136,7 @@ Aħna ngħoddu l-oġġetti spiss, u nużaw din in-notazzjoni:
 
 ![Dijagramma: hemm κ oġġetti fis-sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Dijagramma: l-oġġetti jaslu bir-rata λ u jitilqu bir-rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Dijagramma: l-oġġetti jaslu bir-rata λ, jiġu moqdija bir-rata μ u jitilqu bir-rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Eżempju:
 
@@ -196,7 +196,7 @@ Eżempji:
 
 Ir-rati ta’ throughput ikejlu l-output osservat, jiġifieri l-oġġetti li fil-fatt joħorġu mill-kju. Huma maqsuma f’ħames kategoriji ġenerali:
 
-- χ (chi): rata totali. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin joħroġ mill-kju għal kwalunkwe raġuni: suċċess, falliment, qbiż, eċċ.
+- χ (chi): rata ta’ tluq. Din tkejjel kemm l-oġġetti qed joħorġu malajr mis-sistema.
 
 - α (alpha): rata ta’ suċċess. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin joħroġ tajjeb, pereżempju korrett, komplut, aċċettat.
 
@@ -218,7 +218,7 @@ Rata totali = rata ta’ suċċess + rata ta’ falliment + rata ta’ qbiż:
 
 - χ = α + β + σ (tinqara: chi daqs alpha flimkien ma’ beta flimkien ma’ sigma)
 
-![Dijagramma: l-oġġetti jitilqu mis-sistema bħala suċċess α, falliment β jew qbiż σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Dijagramma: rata ta’ suċċess α, rata ta’ falliment β, rata ta’ qbiż σ; rata ta’ tlestija δ = α + β; rata ta’ tluq χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Kull oġġett li jingħadd f’χ daħal fis-sistema, għalhekk fi stat stabbli r-rata totali hija ugwali għar-rata ta’ wasla: χ ≈ λ. Din hija r-raġuni għaliex ir-rati ta’ throughput ikejlu l-output, mhux il-kapaċità.
 
@@ -239,7 +239,7 @@ Għalhekk inżommu μ għall-kapaċità, u nżidu r-rati tal-output osservat mag
 
 - μ (mu): rata ta’ servizz jew kapaċità. Din tkejjel kemm jista’ server wieħed jipproċessa oġġetti malajr meta jkun okkupat.
 
-- χ (chi): rata totali. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin joħroġ mill-kju għal kwalunkwe raġuni: suċċess, falliment, qbiż, eċċ.
+- χ (chi): rata ta’ tluq. Din tkejjel kemm l-oġġetti qed joħorġu malajr mis-sistema.
 
 - α (alpha): rata ta’ suċċess. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin joħroġ tajjeb, pereżempju korrett, komplut, aċċettat.
 
@@ -271,7 +271,7 @@ L-aktar notazzjoni importanti li tiġbor fil-qosor is-suċċess ta’ kju:
 
 Il-qbiżiet huma esklużi, għax oġġett maqbuż qatt ma ġie moqdi, għalhekk la kien tajjeb u lanqas ħażin. Il-qbiżiet jiġu segwiti separatament permezz ta’ σ.
 
-![Dijagramma: ir-rata ta’ tlestija δ hija r-rata ta’ suċċess α flimkien mar-rata ta’ falliment β, u l-proporzjon ta’ żbalji ε huwa r-rata ta’ falliment β diviża bir-rata ta’ tlestija δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Dijagramma: il-proporzjon ta’ żbalji ε huwa r-rata ta’ falliment β diviża bir-rata ta’ tlestija δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Eżempji:
 

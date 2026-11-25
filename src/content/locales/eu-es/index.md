@@ -140,7 +140,7 @@ Elementuak sarritan zenbatzen ditugu, eta notazio hau erabiltzen dugu:
 
 ![Diagrama: sisteman κ elementu daude](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagrama: elementuak λ tasarekin iristen dira eta χ tasarekin irteten dira](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagrama: elementuak λ tasarekin iristen dira, μ tasarekin zerbitzatzen dira eta χ tasarekin irteten dira](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Adibidea:
 
@@ -200,7 +200,7 @@ Adibideak:
 
 Ekoizpen-tasek behatutako irteera neurtzen dute, hau da, benetan ilaratik ateratzen diren elementuak. Bost kategoria nagusitan banatzen dira:
 
-- χ (chi): tasa osoa. Denbora-unitateko zenbat elementu ateratzen diren ilaratik neurtzen du, edozein arrazoirengatik: arrakasta, hutsegitea, saltatzea eta abar.
+- χ (chi): irteera-tasa. Elementuak sistematik zein azkar ateratzen diren neurtzen du.
 
 - α (alpha): arrakasta-tasa. Denbora-tarte bakoitzeko zenbat elementu gertatzen diren zuzen neurtzen du, adibidez, zuzenak, osoak, onartuak.
 
@@ -222,7 +222,7 @@ Tasa osoa = arrakasta-tasa + hutsegite-tasa + saltatze-tasa:
 
 - χ = α + β + σ (ahoskatua: chi berdin alpha gehi beta gehi sigma)
 
-![Diagrama: elementuak sistematik ateratzen dira arrakasta α, hutsegite β edo saltatze σ gisa; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagrama: arrakasta-tasa α, hutsegite-tasa β, saltatze-tasa σ; amaitze-tasa δ = α + β; irteera-tasa χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 χ-n zenbatutako elementu oro sisteman sartu zen; beraz, egoera egonkorrean tasa osoa iritsiera-tasaren berdina da: χ ≈ λ. Horregatik neurtzen dute ekoizpen-tasek irteera, eta ez gaitasuna.
 
@@ -245,7 +245,7 @@ Horregatik, μ gaitasunerako gordetzen dugu, eta behatutako irteera-tasak haren 
 
 - μ (mu): zerbitzu-tasa, gaitasuna ere deitua. Zerbitzari batek, lanpetuta dagoenean, elementuak zein azkar kudea ditzakeen neurtzen du.
 
-- χ (chi): tasa osoa. Denbora-unitateko zenbat elementu ateratzen diren ilaratik neurtzen du, edozein arrazoirengatik: arrakasta, hutsegitea, saltatzea eta abar.
+- χ (chi): irteera-tasa. Elementuak sistematik zein azkar ateratzen diren neurtzen du.
 
 - α (alpha): arrakasta-tasa. Denbora-tarte bakoitzeko zenbat elementu gertatzen diren zuzen neurtzen du, adibidez, zuzenak, osoak, onartuak.
 
@@ -277,7 +277,7 @@ Ilara baten arrakasta laburbiltzen duen notaziorik garrantzitsuena:
 
 Saltatzeak kanpoan uzten dira, saltatutako elementu bat ez baitzen inoiz zerbitzatu; beraz, ez zen ez zuzena ez okerra izan. Jarraitu saltatzeak bereiz, σ-ren bidez.
 
-![Diagrama: amaitze-tasa δ arrakasta-tasa α gehi hutsegite-tasa β da, eta errore-erlazioa ε hutsegite-tasa β amaitze-tasa δ-rekin zatituta](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagrama: errore-erlazioa ε hutsegite-tasa β amaitze-tasa δ-rekin zatituta](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Adibideak:
 

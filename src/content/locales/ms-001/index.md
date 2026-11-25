@@ -136,7 +136,7 @@ Kami kerap mengira item, dan kami menggunakan tatatanda ini:
 
 ![Rajah: terdapat κ item dalam sistem](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Rajah: item tiba pada kadar λ dan pergi pada kadar χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Rajah: item tiba pada kadar λ, dilayan pada kadar μ dan pergi pada kadar χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Contoh:
 
@@ -196,7 +196,7 @@ Contoh:
 
 Kadar daya pemprosesan mengukur output yang diperhatikan, iaitu item yang benar-benar meninggalkan baris gilir. Kadar ini terbahagi kepada lima kategori umum:
 
-- χ (chi): kadar jumlah. Ini mengukur bilangan item bagi setiap unit masa yang keluar dari baris gilir atas apa jua sebab: kejayaan, kegagalan, langkau, dan sebagainya.
+- χ (chi): kadar pemergian. Ini mengukur sepantas mana item keluar daripada sistem.
 
 - α (alpha): kadar kejayaan. Ini mengukur bilangan item bagi setiap tempoh masa yang ternyata betul, contohnya tepat, lengkap, diterima.
 
@@ -218,7 +218,7 @@ Kadar jumlah = kadar kejayaan + kadar kegagalan + kadar langkau:
 
 - χ = α + β + σ (disebut: chi sama dengan alpha tambah beta tambah sigma)
 
-![Rajah: item meninggalkan sistem sebagai kejayaan α, kegagalan β atau langkau σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Rajah: kadar kejayaan α, kadar kegagalan β, kadar langkau σ; kadar selesai δ = α + β; kadar pemergian χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Setiap item yang dikira dalam χ telah memasuki sistem, jadi dalam keadaan mantap kadar jumlah sama dengan kadar ketibaan: χ ≈ λ. Sebab itulah kadar daya pemprosesan mengukur output, bukan kapasiti.
 
@@ -238,7 +238,7 @@ Oleh itu, kami mengekalkan μ untuk kapasiti, dan kami menambah kadar output yan
 
 - μ (mu): kadar perkhidmatan atau kapasiti. Ini mengukur seberapa pantas satu pelayan boleh mengendalikan item ketika ia sibuk.
 
-- χ (chi): kadar jumlah. Ini mengukur bilangan item bagi setiap unit masa yang keluar dari baris gilir atas apa jua sebab: kejayaan, kegagalan, langkau, dan sebagainya.
+- χ (chi): kadar pemergian. Ini mengukur sepantas mana item keluar daripada sistem.
 
 - α (alpha): kadar kejayaan. Ini mengukur bilangan item bagi setiap tempoh masa yang ternyata betul, contohnya tepat, lengkap, diterima.
 
@@ -270,7 +270,7 @@ Tatatanda paling penting yang meringkaskan kejayaan sesuatu baris gilir:
 
 Langkau dikecualikan, kerana item yang dilangkau tidak pernah dilayan, jadi ia bukan betul dan bukan juga salah. Sila jejaki langkau secara berasingan melalui σ.
 
-![Rajah: kadar selesai δ ialah kadar kejayaan α tambah kadar kegagalan β, dan nisbah ralat ε ialah kadar kegagalan β dibahagi kadar selesai δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Rajah: nisbah ralat ε ialah kadar kegagalan β dibahagi kadar selesai δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Contoh:
 

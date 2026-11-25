@@ -136,7 +136,7 @@ We dey count item often, and we dey use dis notation:
 
 ![Diagram: κ item dey for di system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: item dem dey arrive for rate λ and dey comot for rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: item dem dey arrive for rate λ, dem dey serve dem for rate μ, and dem dey comot for rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Example:
 
@@ -196,7 +196,7 @@ Example:
 
 Throughput rate dem dey measure di output wey we see, wey mean item dem wey really comot from di queue. Dem dey come in five big category:
 
-- χ (chi): total rate. Dis one dey measure how many item for every time period dey comot from di queue for any reason: success, failure, skip, and so on.
+- χ (chi): departure rate. Dis one dey measure how fast item dem dey comot from di system.
 
 - α (alpha): success rate. Dis one dey measure how many item for every time period come out correct, for example correct, complete, accepted.
 
@@ -218,7 +218,7 @@ Total rate = success rate + failure rate + skip rate:
 
 - χ = α + β + σ (you go talk am: chi equals alpha plus beta plus sigma)
 
-![Diagram: item dem dey comot from di system as success α, failure β, or skip σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: success rate α, failure rate β, skip rate σ; finish rate δ = α + β; departure rate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Every item wey dem count for χ don enter di system, so for steady state di total rate equal di arrival rate: χ ≈ λ. Na why throughput rate dem dey measure output, no be capacity.
 
@@ -238,7 +238,7 @@ So we dey keep μ for capacity, and we dey add di output rate dem wey we see joi
 
 - μ (mu): service rate, wey dem still dey call capacity. Dis one dey measure how fast one server fit handle item wen e dey busy.
 
-- χ (chi): total rate. Dis one dey measure how many item for every time period dey comot from di queue for any reason: success, failure, skip, and so on.
+- χ (chi): departure rate. Dis one dey measure how fast item dem dey comot from di system.
 
 - α (alpha): success rate. Dis one dey measure how many item for every time period come out correct, for example correct, complete, accepted.
 
@@ -270,7 +270,7 @@ Di notation wey important pass wey dey summarize di success of queue:
 
 Skip no dey inside, becos dem never serve item wey skip, so e no correct and e no wrong. Make you track skip separate with σ.
 
-![Diagram: di finish rate δ na di success rate α plus di failure rate β, and di error ratio ε na di failure rate β divide by di finish rate δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: di error ratio ε na di failure rate β divide by di finish rate δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Example:
 

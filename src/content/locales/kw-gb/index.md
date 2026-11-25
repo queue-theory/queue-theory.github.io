@@ -136,7 +136,7 @@ Ni a nivera taklow yn fenowgh, ha ni a dhevnydh an notyans ma:
 
 ![Diagram: y fydh κ takel y’n system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: taklow a dheu orth toth λ ha’n taklow a as orth toth χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: taklow a dheu orth toth λ, a vydh servys orth toth μ, hag a as orth toth χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Ensampel:
 
@@ -196,7 +196,7 @@ Ensamplow:
 
 Tothow dhe-ves a vusur eskor gwelys, hen yw taklow a as an lost yn hwir. I a dheu yn pymp rann ledan:
 
-- χ (chi): toth dien. Hemma a vusur pes taklow pub termyn a as an lost rag acheson vyth: sewena, fyllel, lamma, h.e.
+- χ (chi): toth dibarth. Hemma a vusur fatel skaf yw an taklow ow kerdhes mes a’n system.
 
 - α (alpha): toth sewena. Hemma a vusur pes taklow pub spys termyn a dhe vos ewn, rag ensampel kewar, kowlwrys, degemerys.
 
@@ -218,7 +218,7 @@ Toth dien = toth sewena + toth fyllel + toth lamma:
 
 - χ = α + β + σ (leverys: chi yw kehaval dhe alpha ha beta ha sigma)
 
-![Diagram: taklow a as an system avel sewena α, fyllel β po lamma σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: toth sewena α, toth fyllel β, toth lamma σ; toth gorfennys δ = α + β; toth dibarth χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Pub takel nivers yn χ a entras y’n system, ytho yn studh sad an toth dien yw kehaval dhe’n toth devedhyans: χ ≈ λ. Rakhenna tothow dhe-ves a vusur eskor, ha nyns yw dalgh.
 
@@ -238,7 +238,7 @@ Rakhenna ni a with μ rag dalgh, ha ni a geworr tothow eskor gwelys ryb y denewe
 
 - μ (mu): toth servis po dalgh. Hemma a vusur pes uskis y hyll unn servell dyghtya taklow ha hi bysi.
 
-- χ (chi): toth dien. Hemma a vusur pes taklow pub termyn a as an lost rag acheson vyth: sewena, fyllel, lamma, h.e.
+- χ (chi): toth dibarth. Hemma a vusur fatel skaf yw an taklow ow kerdhes mes a’n system.
 
 - α (alpha): toth sewena. Hemma a vusur pes taklow pub spys termyn a dhe vos ewn, rag ensampel kewar, kowlwrys, degemerys.
 
@@ -270,7 +270,7 @@ An notyans moyha posek a gomprehend sewena lost:
 
 Lammow yw keas yn-mes, drefenn na veu takel lammys servys bynitha, ytho nyns o naneyl ewn na kamm. Holyewgh lammow a-dhidro dre σ.
 
-![Diagram: an toth gorfennys δ yw an toth sewena α ha’n toth fyllel β, ha’n kevradh kammow ε yw an toth fyllel β rynnys dhe’n toth gorfennys δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: an kevradh kammow ε yw an toth fyllel β rynnys dhe’n toth gorfennys δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Ensamplow:
 

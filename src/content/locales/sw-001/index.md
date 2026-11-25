@@ -136,7 +136,7 @@ Tunahesabu vipengee mara kwa mara, na tunatumia nukuu hii:
 
 ![Mchoro: kuna vipengee κ katika mfumo](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Mchoro: vipengee vinawasili kwa kiwango λ na kuondoka kwa kiwango χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Mchoro: vipengee vinawasili kwa kiwango λ, vinahudumiwa kwa kiwango μ na kuondoka kwa kiwango χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Mfano:
 
@@ -196,7 +196,7 @@ Mifano:
 
 Viwango vya upitishaji hupima matokeo yanayoonekana, yaani vipengee ambavyo kwa kweli vinaondoka katika foleni. Viko katika makundi matano mapana:
 
-- χ (chi): kiwango cha jumla. Hiki kinapima ni vipengee vingapi kwa kila kipimo cha muda vinatoka katika foleni kwa sababu yoyote: mafanikio, kushindwa, kuachwa, n.k.
+- χ (chi): kiwango cha kuondoka. Hiki kinapima kasi ambayo vipengee vinatoka katika mfumo.
 
 - α (alpha): kiwango cha mafanikio. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinageuka kuwa sahihi, kwa mfano sahihi, kamili, vilivyokubaliwa.
 
@@ -218,7 +218,7 @@ Kiwango cha jumla = kiwango cha mafanikio + kiwango cha kushindwa + kiwango cha 
 
 - χ = α + β + σ (hutamkwa: chi ni sawa na alpha jumlisha beta jumlisha sigma)
 
-![Mchoro: vipengee vinaondoka katika mfumo kama mafanikio α, kushindwa β, au kuachwa σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Mchoro: kiwango cha mafanikio α, kiwango cha kushindwa β, kiwango cha kuachwa σ; kiwango cha kukamilika δ = α + β; kiwango cha kuondoka χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Kila kipengee kinachohesabiwa katika χ kiliingia katika mfumo, kwa hiyo katika hali tulivu kiwango cha jumla ni sawa na kiwango cha uwasili: χ ≈ λ. Ndiyo sababu viwango vya upitishaji hupima matokeo, si uwezo.
 
@@ -238,7 +238,7 @@ Kwa hiyo tunaibakiza μ kwa uwezo, na tunaongeza viwango vya matokeo yanayooneka
 
 - μ (mu): kiwango cha huduma, yaani uwezo. Hiki kinapima kasi ambayo seva moja inaweza kushughulikia vipengee inapokuwa na shughuli.
 
-- χ (chi): kiwango cha jumla. Hiki kinapima ni vipengee vingapi kwa kila kipimo cha muda vinatoka katika foleni kwa sababu yoyote: mafanikio, kushindwa, kuachwa, n.k.
+- χ (chi): kiwango cha kuondoka. Hiki kinapima kasi ambayo vipengee vinatoka katika mfumo.
 
 - α (alpha): kiwango cha mafanikio. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinageuka kuwa sahihi, kwa mfano sahihi, kamili, vilivyokubaliwa.
 
@@ -270,7 +270,7 @@ Nukuu muhimu zaidi inayofupisha mafanikio ya foleni:
 
 Vilivyoachwa haviingizwi, kwa sababu kipengee kilichoachwa hakikuhudumiwa kamwe, kwa hiyo hakikuwa sahihi wala kosa. Fuatilieni vilivyoachwa kando kupitia σ.
 
-![Mchoro: kiwango cha kukamilika δ ni kiwango cha mafanikio α jumlisha kiwango cha kushindwa β, na uwiano wa makosa ε ni kiwango cha kushindwa β kikigawanywa kwa kiwango cha kukamilika δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Mchoro: uwiano wa makosa ε ni kiwango cha kushindwa β kikigawanywa kwa kiwango cha kukamilika δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Mifano:
 

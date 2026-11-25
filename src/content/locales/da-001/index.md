@@ -140,7 +140,7 @@ Vi tæller ofte elementer, og vi bruger denne notation:
 
 ![Diagram: der er κ elementer i systemet](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: elementer ankommer med raten λ og forlader systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlader systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Eksempel:
 
@@ -200,7 +200,7 @@ Eksempler:
 
 Gennemløbsrater måler observeret output, dvs. elementer, der faktisk forlader køen. De findes i fem brede kategorier:
 
-- χ (chi): samlet rate. Den måler, hvor mange elementer pr. tidsenhed der forlader køen uanset årsag: succes, fejl, spring osv.
+- χ (chi): afgangsrate. Den måler, hvor hurtigt elementer forlader systemet.
 
 - α (alpha): succesrate. Den måler, hvor mange elementer pr. tidsperiode der viser sig at være rigtige, f.eks. korrekte, fuldstændige, accepterede.
 
@@ -222,7 +222,7 @@ Samlet rate = succesrate + fejlrate + springrate:
 
 - χ = α + β + σ (udtales: chi er lig med alpha plus beta plus sigma)
 
-![Diagram: elementer forlader systemet som succes α, fejl β eller spring σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: succesrate α, fejlrate β, springrate σ; færdigrate δ = α + β; afgangsrate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Hvert element, der tælles i χ, er kommet ind i systemet, så i stabil tilstand er den samlede rate lig med ankomstraten: χ ≈ λ. Derfor måler gennemløbsrater output og ikke kapacitet.
 
@@ -245,7 +245,7 @@ Derfor beholder vi μ for kapacitet og tilføjer rater for observeret output ved
 
 - μ (mu): servicerate, også kaldet kapacitet. Den måler, hvor hurtigt én server kan håndtere elementer, mens den er optaget.
 
-- χ (chi): samlet rate. Den måler, hvor mange elementer pr. tidsenhed der forlader køen uanset årsag: succes, fejl, spring osv.
+- χ (chi): afgangsrate. Den måler, hvor hurtigt elementer forlader systemet.
 
 - α (alpha): succesrate. Den måler, hvor mange elementer pr. tidsperiode der viser sig at være rigtige, f.eks. korrekte, fuldstændige, accepterede.
 
@@ -277,7 +277,7 @@ Den vigtigste notation, der opsummerer en køs succes:
 
 Spring er udeladt, fordi et sprunget element aldrig blev betjent, så det var hverken rigtigt eller forkert. Følg spring separat via σ.
 
-![Diagram: færdigraten δ er succesraten α plus fejlraten β, og fejlforholdet ε er fejlraten β divideret med færdigraten δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: fejlforholdet ε er fejlraten β divideret med færdigraten δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Eksempler:
 

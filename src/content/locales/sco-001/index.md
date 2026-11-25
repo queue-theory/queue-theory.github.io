@@ -136,7 +136,7 @@ We coont items aften, an we uise this notation:
 
 ![Diagram: κ items are in the system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: items arrive at rate λ an depairt at rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: items arrive at rate λ, are served at rate μ, an depairt at rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Example:
 
@@ -196,7 +196,7 @@ Examples:
 
 Throughput rates meisure observed output, meanin items that actually leave the queue. They come in five braid categories:
 
-- χ (chi): total rate. This meisures hoo mony items per time leave the queue fur onie reason: success, failure, skip, an sae on.
+- χ (chi): departure rate. This meisures hoo fast items are exitin the system.
 
 - α (alpha): success rate. This meisures hoo mony items per time period turn oot richt, fur example correct, complete, accepted.
 
@@ -218,7 +218,7 @@ Total rate = success rate + failure rate + skip rate:
 
 - χ = α + β + σ (said: chi equals alpha plus beta plus sigma)
 
-![Diagram: items leave the system as success α, failure β, or skip σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: success rate α, failure rate β, skip rate σ; duin rate δ = α + β; departure rate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Ilka item coonted in χ entered the system, sae in steady state the total rate equals the arrival rate: χ ≈ λ. That is how throughput rates meisure output, no capacity.
 
@@ -238,7 +238,7 @@ Sae we keep μ fur capacity, an we add observed output rates alangside it, raith
 
 - μ (mu): service rate, aka capacity. This meisures hoo quick ae server can haundle items while it is thrang.
 
-- χ (chi): total rate. This meisures hoo mony items per time leave the queue fur onie reason: success, failure, skip, an sae on.
+- χ (chi): departure rate. This meisures hoo fast items are exitin the system.
 
 - α (alpha): success rate. This meisures hoo mony items per time period turn oot richt, fur example correct, complete, accepted.
 
@@ -270,7 +270,7 @@ The maist important notation that sums up a queue's success:
 
 Skips are left oot, because a skipped item wis niver serviced, sae it wis neither richt nor wrang. Please track skips separately wi σ.
 
-![Diagram: the duin rate δ is the success rate α plus the failure rate β, an the error ratio ε is the failure rate β dividit bi the duin rate δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: the error ratio ε is the failure rate β dividit bi the duin rate δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Examples:
 

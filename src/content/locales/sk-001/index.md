@@ -136,7 +136,7 @@ Položky počítame často a používame túto notáciu:
 
 ![Diagram: v systéme je κ položiek](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: položky prichádzajú mierou λ a odchádzajú mierou χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: položky prichádzajú mierou λ, obsluhujú sa mierou μ a odchádzajú mierou χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Príklad:
 
@@ -196,7 +196,7 @@ Príklady:
 
 Miery priepustnosti merajú pozorovaný výstup, teda položky, ktoré skutočne opustia front. Delia sa do piatich širokých kategórií:
 
-- χ (chí): celková miera. Meria, koľko položiek za jednotku času opustí front z akéhokoľvek dôvodu: úspech, zlyhanie, vynechanie atď.
+- χ (chí): intenzita odchodov. Meria, ako rýchlo položky opúšťajú systém.
 
 - α (alfa): miera úspechu. Meria, koľko položiek za časové obdobie dopadne správne, napr. správne, úplné, prijaté.
 
@@ -218,7 +218,7 @@ Celková miera = miera úspechu + miera zlyhaní + miera vynechaní:
 
 - χ = α + β + σ (vyslovuje sa: chí sa rovná alfa plus beta plus sigma)
 
-![Diagram: položky opúšťajú systém ako úspech α, zlyhanie β alebo vynechanie σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: miera úspechu α, miera zlyhaní β, miera vynechaní σ; miera dokončení δ = α + β; intenzita odchodov χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Každá položka započítaná v χ vstúpila do systému, takže v ustálenom stave sa celková miera rovná intenzite príchodov: χ ≈ λ. Preto miery priepustnosti merajú výstup, nie kapacitu.
 
@@ -238,7 +238,7 @@ Preto ponechávame μ pre kapacitu a popri nej pridávame miery pozorovaného v�
 
 - μ (mí): intenzita obsluhy alias kapacita. Meria, ako rýchlo dokáže jeden server spracúvať položky, keď je vyťažený.
 
-- χ (chí): celková miera. Meria, koľko položiek za jednotku času opustí front z akéhokoľvek dôvodu: úspech, zlyhanie, vynechanie atď.
+- χ (chí): intenzita odchodov. Meria, ako rýchlo položky opúšťajú systém.
 
 - α (alfa): miera úspechu. Meria, koľko položiek za časové obdobie dopadne správne, napr. správne, úplné, prijaté.
 
@@ -270,7 +270,7 @@ Najdôležitejšia notácia, ktorá zhŕňa úspešnosť frontu:
 
 Vynechania sú vylúčené, pretože vynechaná položka nikdy nebola obslúžená, takže nebola ani správna, ani nesprávna. Vynechania sledujte samostatne pomocou σ.
 
-![Diagram: miera dokončení δ je miera úspechu α plus miera zlyhaní β a pomer chýb ε je miera zlyhaní β delená mierou dokončení δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: pomer chýb ε je miera zlyhaní β delená mierou dokončení δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Príklady:
 

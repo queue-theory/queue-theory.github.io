@@ -140,7 +140,7 @@ Gyakran számoljuk az elemeket, és ezt a jelölést használjuk:
 
 ![Ábra: κ elem van a rendszerben](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Ábra: az elemek λ rátával érkeznek és χ rátával távoznak](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Ábra: az elemek λ rátával érkeznek, μ rátával szolgálják ki őket, és χ rátával távoznak](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Példa:
 
@@ -200,7 +200,7 @@ Példák:
 
 Az áteresztési ráták a megfigyelt kimenetet mérik, vagyis azokat az elemeket, amelyek ténylegesen elhagyják a sort. Öt fő kategóriájuk van:
 
-- χ (khí): teljes ráta. Ez azt méri, hány elem lép ki a sorból időegységenként bármilyen okból: siker, hiba, kihagyás stb.
+- χ (khí): távozási ráta. Azt méri, milyen gyorsan hagyják el az elemek a rendszert.
 
 - α (alfa): sikerességi ráta. Ez azt méri, időszakonként hány elem bizonyul helyesnek, például pontosnak, teljesnek, elfogadottnak.
 
@@ -222,7 +222,7 @@ Teljes ráta = sikerességi ráta + hibaráta + kihagyási ráta:
 
 - χ = α + β + σ (kiejtve: khí egyenlő alfa plusz béta plusz szigma)
 
-![Ábra: az elemek sikerként α, hibaként β vagy kihagyásként σ hagyják el a rendszert; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Ábra: sikerességi ráta α, hibaráta β, kihagyási ráta σ; befejezési ráta δ = α + β; távozási ráta χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Minden χ-ben számolt elem belépett a rendszerbe, így állandósult állapotban a teljes ráta egyenlő az érkezési rátával: χ ≈ λ. Ezért mérik az áteresztési ráták a kimenetet, nem pedig a kapacitást.
 
@@ -245,7 +245,7 @@ Ezért a μ-t megtartjuk a kapacitásra, és mellé vesszük fel a megfigyelt ki
 
 - μ (mű): kiszolgálási ráta, más néven kapacitás. Ez azt méri, milyen gyorsan tud egy kiszolgáló elemeket kezelni, amíg foglalt.
 
-- χ (khí): teljes ráta. Ez azt méri, hány elem lép ki a sorból időegységenként bármilyen okból: siker, hiba, kihagyás stb.
+- χ (khí): távozási ráta. Azt méri, milyen gyorsan hagyják el az elemek a rendszert.
 
 - α (alfa): sikerességi ráta. Ez azt méri, időszakonként hány elem bizonyul helyesnek, például pontosnak, teljesnek, elfogadottnak.
 
@@ -277,7 +277,7 @@ A sor sikerességét összefoglaló legfontosabb jelölés:
 
 A kihagyások nem számítanak bele, mert egy kihagyott elemet soha nem szolgáltak ki, így az sem helyes, sem hibás nem volt. A kihagyásokat külön kövesse a σ segítségével.
 
-![Ábra: a befejezési ráta δ a sikerességi ráta α plusz a hibaráta β, a hibaarány ε pedig a hibaráta β osztva a befejezési rátával δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Ábra: a hibaarány ε a hibaráta β osztva a befejezési rátával δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Példák:
 

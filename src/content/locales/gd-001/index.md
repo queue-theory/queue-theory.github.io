@@ -142,7 +142,7 @@ Bidh sinn a' cunntadh nithean gu tric, agus bidh sinn a' cleachdadh a' chomharra
 
 ![Diagram: tha κ nì san t-siostam](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: tha nithean a' ruighinn aig reat λ agus a' fàgail aig reat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: tha nithean a' ruighinn aig reat λ, a' faighinn seirbheis aig reat μ agus a' fàgail aig reat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Eisimpleir:
 
@@ -202,7 +202,7 @@ Eisimpleirean:
 
 Bidh reataichean tro-chuir a' tomhas an toraidh a chithear, is e sin na nithean a dh'fhàgas an ciudha dha-rìribh. Tha iad ann an còig roinnean farsaing:
 
-- χ (chi): reat iomlan. Tha seo a' tomhas cia mheud nì anns gach aonad ùine a dh'fhàgas an ciudha airson adhbhar sam bith: soirbheachas, fàillinn, leum, msaa.
+- χ (chi): reat falbhaidh. Tha seo a' tomhas dè cho luath 's a tha nithean a' fàgail an t-siostaim.
 
 - α (alpha): reat soirbheachais. Tha seo a' tomhas cia mheud nì anns gach ùine a tha ceart, m.e. ceart, coileanta, air gabhail ris.
 
@@ -224,7 +224,7 @@ Reat iomlan = reat soirbheachais + reat fàillinn + reat leumaidh:
 
 - χ = α + β + σ (air a ràdh: chi co-ionann ri alpha plus beta plus sigma)
 
-![Diagram: tha nithean a' fàgail an t-siostaim mar shoirbheachas α, fàillinn β no leum σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: reat soirbheachais α, reat fàillinn β, reat leumaidh σ; reat crìochnachaidh δ = α + β; reat falbhaidh χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Thàinig gach nì a tha air a chunntadh ann an χ a-steach dhan t-siostam, agus mar sin ann an staid sheasmhach tha an reat iomlan co-ionann ris an reat ruighinn: χ ≈ λ. Sin as adhbhar gu bheil reataichean tro-chuir a' tomhas toraidh, chan e comas.
 
@@ -247,7 +247,7 @@ Mar sin, cumaidh sinn μ airson comas, agus cuiridh sinn reataichean toraidh a c
 
 - μ (mu): reat seirbheis, no comas. Tha seo a' tomhas cho luath 's as urrainn do dh'aon fhrithealaiche nithean a làimhseachadh nuair a tha e trang.
 
-- χ (chi): reat iomlan. Tha seo a' tomhas cia mheud nì anns gach aonad ùine a dh'fhàgas an ciudha airson adhbhar sam bith: soirbheachas, fàillinn, leum, msaa.
+- χ (chi): reat falbhaidh. Tha seo a' tomhas dè cho luath 's a tha nithean a' fàgail an t-siostaim.
 
 - α (alpha): reat soirbheachais. Tha seo a' tomhas cia mheud nì anns gach ùine a tha ceart, m.e. ceart, coileanta, air gabhail ris.
 
@@ -279,7 +279,7 @@ An comharrachadh as cudromaiche a bheir geàrr-chunntas air soirbheachas ciudha:
 
 Tha leuman air am fàgail a-mach, a chionn 's nach deach nì a leum seachad a fhrithealadh idir, agus mar sin cha robh e ceart no ceàrr. Lorgaibh leuman air leth tro σ.
 
-![Diagram: is e an reat crìochnachaidh δ an reat soirbheachais α plus an reat fàillinn β, agus is e co-mheas mhearachdan ε an reat fàillinn β air a roinn leis an reat crìochnachaidh δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: is e co-mheas mhearachdan ε an reat fàillinn β air a roinn leis an reat crìochnachaidh δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Eisimpleirean:
 

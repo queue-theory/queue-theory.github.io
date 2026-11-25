@@ -140,7 +140,7 @@ Við teljum atriði oft og notum þetta tákn:
 
 ![Skýringarmynd: κ atriði eru í kerfinu](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Skýringarmynd: atriði koma með tíðninni λ og fara með tíðninni χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Skýringarmynd: atriði koma með tíðninni λ, fá þjónustu með tíðninni μ og fara með tíðninni χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Dæmi:
 
@@ -200,7 +200,7 @@ Dæmi:
 
 Gegnumstreymistíðni mælir mæld afköst, þ.e. atriði sem fara raunverulega úr biðröðinni. Hún skiptist í fimm meginflokka:
 
-- χ (chi): heildartíðni. Hún mælir hve mörg atriði á tímaeiningu fara úr biðröðinni af hvaða ástæðu sem er: árangur, villa, slepping o.s.frv.
+- χ (chi): brottfaratíðni. Hún mælir hversu hratt atriði fara út úr kerfinu.
 
 - α (alfa): árangurstíðni. Hún mælir hve mörg atriði á tímabil reynast rétt, t.d. rétt, fullunnin, samþykkt.
 
@@ -222,7 +222,7 @@ Heildartíðni = árangurstíðni + villutíðni + slepptíðni:
 
 - χ = α + β + σ (borið fram: chi jafngildir alfa plús beta plús sigma)
 
-![Skýringarmynd: atriði fara úr kerfinu sem árangur α, villa β eða sleppt σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Skýringarmynd: árangurstíðni α, villutíðni β, slepptíðni σ; lokatíðni δ = α + β; brottfaratíðni χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Hvert atriði sem talið er í χ kom inn í kerfið, svo í jafnvægisástandi er heildartíðnin jöfn komutíðninni: χ ≈ λ. Þess vegna mælir gegnumstreymistíðni afköst, ekki afkastagetu.
 
@@ -245,7 +245,7 @@ villum og sleppingum.
 
 - μ (mu): þjónustutíðni, öðru nafni afkastageta. Hún mælir hve hratt einn þjónn getur afgreitt atriði meðan hann er upptekinn.
 
-- χ (chi): heildartíðni. Hún mælir hve mörg atriði á tímaeiningu fara úr biðröðinni af hvaða ástæðu sem er: árangur, villa, slepping o.s.frv.
+- χ (chi): brottfaratíðni. Hún mælir hversu hratt atriði fara út úr kerfinu.
 
 - α (alfa): árangurstíðni. Hún mælir hve mörg atriði á tímabil reynast rétt, t.d. rétt, fullunnin, samþykkt.
 
@@ -277,7 +277,7 @@ Mikilvægasta táknið sem dregur saman árangur biðraðar:
 
 Sleppingar eru undanskildar, því atriði sem var sleppt fékk aldrei þjónustu, svo það var hvorki rétt né rangt. Fylgist með sleppingum sérstaklega með σ.
 
-![Skýringarmynd: lokatíðnin δ er árangurstíðnin α plús villutíðnin β, og villuhlutfallið ε er villutíðnin β deilt með lokatíðninni δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Skýringarmynd: villuhlutfallið ε er villutíðnin β deilt með lokatíðninni δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Dæmi:
 

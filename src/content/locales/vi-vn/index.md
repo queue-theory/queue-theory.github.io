@@ -136,7 +136,7 @@ Chúng tôi thường xuyên đếm các mục, và chúng tôi dùng ký hiệu
 
 ![Sơ đồ: có κ mục trong hệ thống](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Sơ đồ: các mục đến với tốc độ λ và rời đi với tốc độ χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Sơ đồ: các mục đến với tốc độ λ, được phục vụ với tốc độ μ và rời đi với tốc độ χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Ví dụ:
 
@@ -196,7 +196,7 @@ Ví dụ:
 
 Các tốc độ thông lượng đo đầu ra quan sát được, nghĩa là các mục thực sự rời khỏi hàng đợi. Chúng thuộc năm nhóm lớn:
 
-- χ (chi): tốc độ tổng. Đại lượng này đo có bao nhiêu mục mỗi đơn vị thời gian rời khỏi hàng đợi vì bất kỳ lý do gì: thành công, thất bại, bỏ qua, v.v.
+- χ (chi): tốc độ rời đi. Đại lượng này đo các mục thoát khỏi hệ thống nhanh đến mức nào.
 
 - α (alpha): tốc độ thành công. Đại lượng này đo có bao nhiêu mục mỗi khoảng thời gian hóa ra đúng, ví dụ chính xác, đầy đủ, được chấp nhận.
 
@@ -218,7 +218,7 @@ Tốc độ tổng = tốc độ thành công + tốc độ thất bại + tốc
 
 - χ = α + β + σ (đọc là: chi bằng alpha cộng beta cộng sigma)
 
-![Sơ đồ: các mục rời hệ thống dưới dạng thành công α, thất bại β hoặc bỏ qua σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Sơ đồ: tốc độ thành công α, tốc độ thất bại β, tốc độ bỏ qua σ; tốc độ hoàn thành δ = α + β; tốc độ rời đi χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Mọi mục được tính trong χ đều đã đi vào hệ thống, nên ở trạng thái dừng, tốc độ tổng bằng tốc độ đến: χ ≈ λ. Đó là lý do các tốc độ thông lượng đo đầu ra chứ không đo năng lực.
 
@@ -238,7 +238,7 @@ Vì vậy, chúng tôi giữ μ cho năng lực, và bổ sung các tốc độ 
 
 - μ (mu): tốc độ phục vụ, còn gọi là năng lực. Đại lượng này đo một máy phục vụ có thể xử lý các mục nhanh đến mức nào khi nó bận.
 
-- χ (chi): tốc độ tổng. Đại lượng này đo có bao nhiêu mục mỗi đơn vị thời gian rời khỏi hàng đợi vì bất kỳ lý do gì: thành công, thất bại, bỏ qua, v.v.
+- χ (chi): tốc độ rời đi. Đại lượng này đo các mục thoát khỏi hệ thống nhanh đến mức nào.
 
 - α (alpha): tốc độ thành công. Đại lượng này đo có bao nhiêu mục mỗi khoảng thời gian hóa ra đúng, ví dụ chính xác, đầy đủ, được chấp nhận.
 
@@ -270,7 +270,7 @@ Ký hiệu quan trọng nhất để tóm tắt mức độ thành công của m
 
 Các lần bỏ qua bị loại trừ, vì một mục bị bỏ qua chưa bao giờ được phục vụ, nên nó không đúng cũng không sai. Hãy theo dõi các lần bỏ qua riêng qua σ.
 
-![Sơ đồ: tốc độ hoàn thành δ là tốc độ thành công α cộng tốc độ thất bại β, và tỷ lệ lỗi ε là tốc độ thất bại β chia cho tốc độ hoàn thành δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Sơ đồ: tỷ lệ lỗi ε là tốc độ thất bại β chia cho tốc độ hoàn thành δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Ví dụ:
 

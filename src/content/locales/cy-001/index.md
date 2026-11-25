@@ -141,7 +141,7 @@ Rydym yn cyfrif eitemau’n aml, ac rydym yn defnyddio’r nodiant hwn:
 
 ![Diagram: mae κ eitem yn y system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: mae eitemau’n cyrraedd ar gyfradd λ ac yn gadael ar gyfradd χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: mae eitemau’n cyrraedd ar gyfradd λ, yn cael eu gwasanaethu ar gyfradd μ, ac yn gadael ar gyfradd χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Enghraifft:
 
@@ -201,7 +201,7 @@ Enghreifftiau:
 
 Mae cyfraddau trwybwn yn mesur yr allbwn a welwyd, sef yr eitemau sy’n gadael y ciw mewn gwirionedd. Maen nhw’n perthyn i bum categori bras:
 
-- χ (chi): cyfradd gyfan. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n gadael y ciw am unrhyw reswm: llwyddo, methu, hepgor, ac ati.
+- χ (chi): cyfradd ymadael. Mae hon yn mesur pa mor gyflym y mae eitemau’n gadael y system.
 
 - α (alffa): cyfradd llwyddo. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n troi allan yn iawn, e.e. yn gywir, yn gyflawn, wedi’u derbyn.
 
@@ -223,7 +223,7 @@ Cyfradd gyfan = cyfradd llwyddo + cyfradd methu + cyfradd hepgor:
 
 - χ = α + β + σ (ynganiad: chi yn hafal i alffa adio beta adio sigma)
 
-![Diagram: mae eitemau’n gadael y system fel llwyddiant α, methiant β neu hepgoriad σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: cyfradd llwyddo α, cyfradd methu β, cyfradd hepgor σ; cyfradd gorffen δ = α + β; cyfradd ymadael χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Aeth pob eitem a gyfrifir yn χ i mewn i’r system, felly mewn cyflwr sefydlog mae’r gyfradd gyfan yn hafal i’r gyfradd cyrraedd: χ ≈ λ. Dyna pam mae cyfraddau trwybwn yn mesur allbwn, nid capasiti.
 
@@ -246,7 +246,7 @@ Felly rydym yn cadw μ ar gyfer capasiti, ac yn ychwanegu cyfraddau allbwn a wel
 
 - μ (mu): cyfradd gwasanaethu, neu gapasiti. Mae hon yn mesur pa mor gyflym y gall un gweinydd drin eitemau tra bydd yn brysur.
 
-- χ (chi): cyfradd gyfan. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n gadael y ciw am unrhyw reswm: llwyddo, methu, hepgor, ac ati.
+- χ (chi): cyfradd ymadael. Mae hon yn mesur pa mor gyflym y mae eitemau’n gadael y system.
 
 - α (alffa): cyfradd llwyddo. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n troi allan yn iawn, e.e. yn gywir, yn gyflawn, wedi’u derbyn.
 
@@ -278,7 +278,7 @@ Y nodiant pwysicaf sy’n crynhoi llwyddiant ciw:
 
 Mae hepgoriadau wedi’u heithrio, oherwydd ni chafodd eitem a hepgorwyd erioed ei gwasanaethu, felly nid oedd yn iawn nac yn anghywir. Olrheiniwch hepgoriadau ar wahân drwy σ.
 
-![Diagram: y gyfradd gorffen δ yw’r gyfradd llwyddo α adio’r gyfradd methu β, a’r gymhareb gwallau ε yw’r gyfradd methu β wedi’i rhannu â’r gyfradd gorffen δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: y gymhareb gwallau ε yw’r gyfradd methu β wedi’i rhannu â’r gyfradd gorffen δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Enghreifftiau:
 

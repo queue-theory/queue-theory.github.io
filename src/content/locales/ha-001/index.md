@@ -140,7 +140,7 @@ Muna yawan ƙidaya abubuwa, kuma muna amfani da wannan alamar:
 
 ![Zane: akwai abubuwa κ a cikin tsarin](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Zane: abubuwa suna zuwa da yawan λ kuma suna fita da yawan χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Zane: abubuwa suna zuwa da yawan λ, ana yi musu sabis da yawan μ, kuma suna fita da yawan χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Misali:
 
@@ -200,7 +200,7 @@ Misalai:
 
 Yawan fitarwa yana auna fitarwar da aka lura, wato abubuwan da suka fita daga layi a zahiri. Suna zuwa cikin manyan rukunoni biyar:
 
-- χ (chi): jimillar yawa. Wannan yana auna abubuwa nawa a kowane lokaci ke fita daga layi saboda kowane dalili: nasara, gazawa, tsallakewa, da sauransu.
+- χ (chi): yawan ficewa. Wannan yana auna yadda abubuwa ke fita daga tsarin da sauri.
 
 - α (alpha): yawan nasara. Wannan yana auna abubuwa nawa a kowane tsawon lokaci suka zama daidai misali sahihai, cikakku, karɓaɓɓu.
 
@@ -222,7 +222,7 @@ Jimillar yawa = yawan nasara + yawan gazawa + yawan tsallakewa:
 
 - χ = α + β + σ (ana furtawa: chi daidai da alpha da beta da sigma)
 
-![Zane: abubuwa suna fita daga tsarin a matsayin nasara α, gazawa β ko tsallakewa σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Zane: yawan nasara α, yawan gazawa β, yawan tsallakewa σ; yawan kammalawa δ = α + β; yawan ficewa χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Kowane abu da aka ƙidaya a cikin χ ya shiga tsarin, don haka a cikin daidaitaccen yanayi jimillar yawa daidai take da yawan isowa: χ ≈ λ. Shi ya sa yawan fitarwa ke auna fitarwa, ba ƙarfi ba.
 
@@ -245,7 +245,7 @@ Saboda haka muna ajiye μ don ƙarfi, kuma muna ƙara yawan fitarwar da aka lura
 
 - μ (mu): yawan sabis wato ƙarfi. Wannan yana auna saurin da mai sabis ɗaya zai iya sarrafa abubuwa yayin da yake aiki.
 
-- χ (chi): jimillar yawa. Wannan yana auna abubuwa nawa a kowane lokaci ke fita daga layi saboda kowane dalili: nasara, gazawa, tsallakewa, da sauransu.
+- χ (chi): yawan ficewa. Wannan yana auna yadda abubuwa ke fita daga tsarin da sauri.
 
 - α (alpha): yawan nasara. Wannan yana auna abubuwa nawa a kowane tsawon lokaci suka zama daidai misali sahihai, cikakku, karɓaɓɓu.
 
@@ -277,7 +277,7 @@ Alamar da ta fi muhimmanci wadda ke taƙaita nasarar layi:
 
 An cire tsallakewa, domin ba a taɓa yi wa abin da aka tsallake sabis ba, don haka bai zama daidai ba kuma bai zama ba daidai ba. Ku bi diddigin tsallakewa daban ta hanyar σ.
 
-![Zane: yawan kammalawa δ shi ne yawan nasara α da yawan gazawa β, kuma rabon kuskure ε shi ne yawan gazawa β a raba da yawan kammalawa δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Zane: rabon kuskure ε shi ne yawan gazawa β a raba da yawan kammalawa δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Misalai:
 

@@ -136,7 +136,7 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 
 ![示意图：系统里向有 κ 只条目](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![示意图：条目以速率 λ 到达，以速率 χ 离开](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![示意图：条目以速率 λ 到达，以速率 μ 得着服务，以速率 χ 离开](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 例子：
 
@@ -196,7 +196,7 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 
 吞吐率衡量观测到个产出，就是真正离开队列个条目。大体上分五类：
 
-- χ（chi）：总率。衡量每个单位时间有多少条目离开队列，勿管是成功、失败、跳过还是别个原因。
+- χ（chi）：离开率。衡量条目离开系统个速度有多快。
 
 - α（alpha）：成功率。衡量每个单位时间有多少条目结果是对个，比方讲正确、完整、拨接受。
 
@@ -218,7 +218,7 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 
 - χ = α + β + σ（读作：chi 等于 alpha 加 beta 加 sigma）
 
-![示意图：条目以成功 α、失败 β 或者跳过 σ 个形式离开系统；δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![示意图：成功率 α，失败率 β，跳过率 σ；完成率 δ = α + β；离开率 χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 算进 χ 个每只条目侪进过系统，所以辣稳态个辰光总率等于到达率：χ ≈ λ。搿个就是为啥吞吐率衡量个是产出，勿是容量。
 
@@ -238,7 +238,7 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 
 - μ（mu）：服务率，又叫容量。衡量一只服务台辣忙个辰光处理条目有多少快。
 
-- χ（chi）：总率。衡量每个单位时间有多少条目离开队列，勿管是成功、失败、跳过还是别个原因。
+- χ（chi）：离开率。衡量条目离开系统个速度有多快。
 
 - α（alpha）：成功率。衡量每个单位时间有多少条目结果是对个，比方讲正确、完整、拨接受。
 
@@ -270,7 +270,7 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 
 跳过勿算辣里向，因为跳过个条目从来呒没得着服务，所以既勿算对，也勿算错。请用 σ 来单独跟踪跳过。
 
-![示意图：完成率 δ 是成功率 α 加失败率 β，错误比率 ε 是失败率 β 除以完成率 δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![示意图：错误比率 ε 是失败率 β 除以完成率 δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 例子：
 

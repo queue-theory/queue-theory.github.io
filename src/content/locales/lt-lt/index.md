@@ -136,7 +136,7 @@ Elementus skaičiuojame dažnai ir vartojame tokį žymėjimą:
 
 ![Diagrama: sistemoje yra κ elementų](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagrama: elementai atvyksta sparta λ ir išeina sparta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagrama: elementai atvyksta sparta λ, aptarnaujami sparta μ ir išeina sparta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Pavyzdys:
 
@@ -196,7 +196,7 @@ Pavyzdžiai:
 
 Pralaidumo spartos matuoja stebimą išeigą, t. y. elementus, kurie iš tikrųjų palieka eilę. Jos skirstomos į penkias plačias kategorijas:
 
-- χ (chi): bendroji sparta. Ji parodo, kiek elementų per laiko vienetą palieka eilę dėl bet kokios priežasties: sėkmės, nesėkmės, praleidimo ir pan.
+- χ (chi): išvykimo sparta. Ji parodo, kaip greitai elementai išeina iš sistemos.
 
 - α (alfa): sėkmės sparta. Ji parodo, kiek elementų per laikotarpį pasirodo esantys teisingi, pvz., tikslūs, užbaigti, priimti.
 
@@ -218,7 +218,7 @@ Bendroji sparta = sėkmės sparta + nesėkmės sparta + praleidimo sparta:
 
 - χ = α + β + σ (tariama: chi lygu alfa plius beta plius sigma)
 
-![Diagrama: elementai palieka sistemą kaip sėkmė α, nesėkmė β arba praleidimas σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagrama: sėkmės sparta α, nesėkmės sparta β, praleidimo sparta σ; įvykdymo sparta δ = α + β; išvykimo sparta χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Kiekvienas į χ įskaičiuotas elementas buvo patekęs į sistemą, todėl stacionarioje būsenoje bendroji sparta lygi atvykimo spartai: χ ≈ λ. Štai kodėl pralaidumo spartos matuoja išeigą, o ne pajėgumą.
 
@@ -238,7 +238,7 @@ Todėl μ paliekame pajėgumui žymėti, o stebimos išeigos spartas pridedame �
 
 - μ (miu): aptarnavimo sparta, dar vadinama pajėgumu. Ji parodo, kaip greitai vienas serveris gali apdoroti elementus, kai yra užimtas.
 
-- χ (chi): bendroji sparta. Ji parodo, kiek elementų per laiko vienetą palieka eilę dėl bet kokios priežasties: sėkmės, nesėkmės, praleidimo ir pan.
+- χ (chi): išvykimo sparta. Ji parodo, kaip greitai elementai išeina iš sistemos.
 
 - α (alfa): sėkmės sparta. Ji parodo, kiek elementų per laikotarpį pasirodo esantys teisingi, pvz., tikslūs, užbaigti, priimti.
 
@@ -270,7 +270,7 @@ Svarbiausias žymėjimas, apibendrinantis eilės sėkmę:
 
 Praleidimai neįtraukiami, nes praleistas elementas niekada nebuvo aptarnautas, todėl jis nebuvo nei teisingas, nei klaidingas. Praleidimus stebėkite atskirai naudodami σ.
 
-![Diagrama: įvykdymo sparta δ yra sėkmės sparta α plius nesėkmės sparta β, o klaidų santykis ε yra nesėkmės sparta β, padalyta iš įvykdymo spartos δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagrama: klaidų santykis ε yra nesėkmės sparta β, padalyta iš įvykdymo spartos δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Pavyzdžiai:
 

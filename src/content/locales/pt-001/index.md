@@ -136,7 +136,7 @@ Contamos itens com frequência e usamos esta notação:
 
 ![Diagrama: há κ itens no sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagrama: os itens chegam à taxa λ e saem à taxa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagrama: os itens chegam à taxa λ, são atendidos à taxa μ e saem à taxa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Exemplo:
 
@@ -196,7 +196,7 @@ Exemplos:
 
 As taxas de vazão medem a produção observada, ou seja, os itens que efetivamente saem da fila. Elas se dividem em cinco grandes categorias:
 
-- χ (qui): taxa total. Mede quantos itens por unidade de tempo saem da fila por qualquer motivo: sucesso, falha, desistência etc.
+- χ (qui): taxa de saída. Mede a rapidez com que os itens saem do sistema.
 
 - α (alfa): taxa de sucesso. Mede quantos itens por período de tempo se revelam corretos, por exemplo certos, completos, aceitos.
 
@@ -218,7 +218,7 @@ Taxa total = taxa de sucesso + taxa de falha + taxa de desistência:
 
 - χ = α + β + σ (lê-se: qui é igual a alfa mais beta mais sigma)
 
-![Diagrama: os itens saem do sistema como sucesso α, falha β ou desistência σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagrama: taxa de sucesso α, taxa de falha β, taxa de desistência σ; taxa de conclusão δ = α + β; taxa de saída χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Todo item contado em χ entrou no sistema, portanto, em regime estacionário, a taxa total é igual à taxa de chegada: χ ≈ λ. É por isso que as taxas de vazão medem a produção, e não a capacidade.
 
@@ -238,7 +238,7 @@ Por isso mantemos μ para a capacidade e acrescentamos ao lado dele as taxas de 
 
 - μ (mi): taxa de atendimento, também chamada capacidade. Mede a rapidez com que um servidor consegue tratar itens enquanto está ocupado.
 
-- χ (qui): taxa total. Mede quantos itens por unidade de tempo saem da fila por qualquer motivo: sucesso, falha, desistência etc.
+- χ (qui): taxa de saída. Mede a rapidez com que os itens saem do sistema.
 
 - α (alfa): taxa de sucesso. Mede quantos itens por período de tempo se revelam corretos, por exemplo certos, completos, aceitos.
 
@@ -270,7 +270,7 @@ A notação mais importante que resume o sucesso de uma fila:
 
 As desistências são excluídas, porque um item que desistiu nunca foi atendido, portanto não foi nem correto nem incorreto. Acompanhe as desistências separadamente por meio de σ.
 
-![Diagrama: a taxa de conclusão δ é a taxa de sucesso α mais a taxa de falha β, e a razão de erro ε é a taxa de falha β dividida pela taxa de conclusão δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagrama: a razão de erro ε é a taxa de falha β dividida pela taxa de conclusão δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Exemplos:
 

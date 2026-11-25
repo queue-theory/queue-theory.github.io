@@ -140,7 +140,7 @@ Naša notacija i značenje svakog simbola:
 
 ![Dijagram: u sustavu je κ stavki](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Dijagram: stavke stižu stopom λ i odlaze stopom χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Dijagram: stavke stižu stopom λ, poslužuju se stopom μ i odlaze stopom χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Primjer:
 
@@ -200,7 +200,7 @@ Primjeri:
 
 Stope propusnosti mjere opaženi izlaz, odnosno stavke koje stvarno napuštaju red. Postoji pet širokih kategorija:
 
-- χ (hi): ukupna stopa. Mjeri koliko stavki po jedinici vremena izlazi iz reda iz bilo kojeg razloga: uspjeh, neuspjeh, preskakanje itd.
+- χ (hi): stopa odlazaka. Mjeri koliko brzo stavke izlaze iz sustava.
 
 - α (alfa): stopa uspjeha. Mjeri koliko se stavki po razdoblju pokaže ispravnima, npr. točnima, potpunima, prihvaćenima.
 
@@ -222,7 +222,7 @@ Ukupna stopa = stopa uspjeha + stopa neuspjeha + stopa preskakanja:
 
 - χ = α + β + σ (izgovara se: hi je jednako alfa plus beta plus sigma)
 
-![Dijagram: stavke napuštaju sustav kao uspjeh α, neuspjeh β ili preskakanje σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Dijagram: stopa uspjeha α, stopa neuspjeha β, stopa preskakanja σ; stopa dovršenosti δ = α + β; stopa odlazaka χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Svaka stavka uračunata u χ ušla je u sustav, pa je u stacionarnom stanju ukupna stopa jednaka stopi dolazaka: χ ≈ λ. Zato stope propusnosti mjere izlaz, a ne kapacitet.
 
@@ -245,7 +245,7 @@ Zato μ zadržavamo za kapacitet i uz njega dodajemo stope opaženog izlaza, umj
 
 - μ (mi): stopa posluživanja odnosno kapacitet. Mjeri koliko brzo jedan poslužitelj može obrađivati stavke dok je zauzet.
 
-- χ (hi): ukupna stopa. Mjeri koliko stavki po jedinici vremena izlazi iz reda iz bilo kojeg razloga: uspjeh, neuspjeh, preskakanje itd.
+- χ (hi): stopa odlazaka. Mjeri koliko brzo stavke izlaze iz sustava.
 
 - α (alfa): stopa uspjeha. Mjeri koliko se stavki po razdoblju pokaže ispravnima, npr. točnima, potpunima, prihvaćenima.
 
@@ -277,7 +277,7 @@ Najvažnija notacija koja sažima uspješnost reda:
 
 Preskakanja su isključena jer preskočena stavka nikada nije poslužena, pa nije bila ni ispravna ni neispravna. Preskakanja pratite zasebno putem σ.
 
-![Dijagram: stopa dovršenosti δ je stopa uspjeha α plus stopa neuspjeha β, a omjer pogrešaka ε je stopa neuspjeha β podijeljena stopom dovršenosti δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Dijagram: omjer pogrešaka ε je stopa neuspjeha β podijeljena stopom dovršenosti δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Primjeri:
 

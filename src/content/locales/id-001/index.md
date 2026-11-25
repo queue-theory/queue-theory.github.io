@@ -141,7 +141,7 @@ Kami sering menghitung item, dan kami menggunakan notasi ini:
 
 ![Diagram: ada κ item dalam sistem](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: item datang dengan laju λ dan pergi dengan laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: item datang dengan laju λ, dilayani dengan laju μ, dan pergi dengan laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Contoh:
 
@@ -201,7 +201,7 @@ Contoh:
 
 Laju throughput mengukur keluaran yang teramati, yaitu item yang benar-benar meninggalkan antrean. Laju ini terbagi menjadi lima kategori besar:
 
-- χ (chi): laju total. Ini mengukur berapa banyak item per waktu yang keluar dari antrean karena alasan apa pun: berhasil, gagal, dilewati, dan sebagainya.
+- χ (chi): laju keberangkatan. Ini mengukur seberapa cepat item keluar dari sistem.
 
 - α (alpha): laju keberhasilan. Ini mengukur berapa banyak item per periode waktu yang ternyata benar, misalnya tepat, lengkap, diterima.
 
@@ -223,7 +223,7 @@ Laju total = laju keberhasilan + laju kegagalan + laju lewati:
 
 - χ = α + β + σ (dibaca: chi sama dengan alpha ditambah beta ditambah sigma)
 
-![Diagram: item meninggalkan sistem sebagai keberhasilan α, kegagalan β, atau lewati σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: laju keberhasilan α, laju kegagalan β, laju lewati σ; laju selesai δ = α + β; laju keberangkatan χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Setiap item yang dihitung dalam χ telah masuk ke sistem, sehingga dalam keadaan tunak laju total sama dengan laju kedatangan: χ ≈ λ. Itulah sebabnya laju throughput mengukur keluaran, bukan kapasitas.
 
@@ -246,7 +246,7 @@ Oleh karena itu, kami mempertahankan μ untuk kapasitas, dan kami menambahkan la
 
 - μ (mu): laju layanan, atau kapasitas. Ini mengukur seberapa cepat satu server dapat menangani item saat sedang sibuk.
 
-- χ (chi): laju total. Ini mengukur berapa banyak item per waktu yang keluar dari antrean karena alasan apa pun: berhasil, gagal, dilewati, dan sebagainya.
+- χ (chi): laju keberangkatan. Ini mengukur seberapa cepat item keluar dari sistem.
 
 - α (alpha): laju keberhasilan. Ini mengukur berapa banyak item per periode waktu yang ternyata benar, misalnya tepat, lengkap, diterima.
 
@@ -278,7 +278,7 @@ Notasi paling penting yang merangkum keberhasilan sebuah antrean:
 
 Item yang dilewati dikecualikan, karena item yang dilewati tidak pernah dilayani, sehingga tidak benar dan tidak pula salah. Lacak item yang dilewati secara terpisah melalui σ.
 
-![Diagram: laju selesai δ adalah laju keberhasilan α ditambah laju kegagalan β, dan rasio kesalahan ε adalah laju kegagalan β dibagi laju selesai δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: rasio kesalahan ε adalah laju kegagalan β dibagi laju selesai δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Contoh:
 

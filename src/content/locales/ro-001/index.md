@@ -136,7 +136,7 @@ Numărăm des elemente și folosim această notație:
 
 ![Diagramă: în sistem sunt κ elemente](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramă: elementele sosesc cu rata λ și pleacă cu rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagramă: elementele sosesc cu rata λ, sunt servite cu rata μ și pleacă cu rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Exemplu:
 
@@ -196,7 +196,7 @@ Exemple:
 
 Ratele de debit măsoară producția observată, adică elementele care părăsesc efectiv coada. Ele se împart în cinci categorii mari:
 
-- χ (chi): rata totală. Aceasta măsoară câte elemente pe unitatea de timp ies din coadă din orice motiv: succes, eșec, abandon etc.
+- χ (chi): rata de plecare. Aceasta măsoară cât de repede ies elementele din sistem.
 
 - α (alpha): rata de succes. Aceasta măsoară câte elemente pe perioadă de timp se dovedesc corecte, de exemplu exacte, complete, acceptate.
 
@@ -218,7 +218,7 @@ Rata totală = rata de succes + rata de eșec + rata de abandon:
 
 - χ = α + β + σ (se pronunță: chi egal alpha plus beta plus sigma)
 
-![Diagramă: elementele părăsesc sistemul ca succes α, eșec β sau abandon σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagramă: rata de succes α, rata de eșec β, rata de abandon σ; rata de finalizare δ = α + β; rata de plecare χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Fiecare element numărat în χ a intrat în sistem, așa că în regim staționar rata totală este egală cu rata de sosire: χ ≈ λ. De aceea ratele de debit măsoară producția, nu capacitatea.
 
@@ -241,7 +241,7 @@ Prin urmare, păstrăm μ pentru capacitate și adăugăm alături ratele de pro
 
 - μ (mu): rata de servire, adică capacitatea. Aceasta măsoară cât de repede poate gestiona un server elementele cât timp este ocupat.
 
-- χ (chi): rata totală. Aceasta măsoară câte elemente pe unitatea de timp ies din coadă din orice motiv: succes, eșec, abandon etc.
+- χ (chi): rata de plecare. Aceasta măsoară cât de repede ies elementele din sistem.
 
 - α (alpha): rata de succes. Aceasta măsoară câte elemente pe perioadă de timp se dovedesc corecte, de exemplu exacte, complete, acceptate.
 
@@ -273,7 +273,7 @@ Cea mai importantă notație care rezumă succesul unei cozi:
 
 Abandonurile sunt excluse, deoarece un element abandonat nu a fost niciodată servit, deci nu a fost nici corect, nici greșit. Urmăriți abandonurile separat prin σ.
 
-![Diagramă: rata de finalizare δ este rata de succes α plus rata de eșec β, iar raportul de erori ε este rata de eșec β împărțită la rata de finalizare δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagramă: raportul de erori ε este rata de eșec β împărțită la rata de finalizare δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Exemple:
 

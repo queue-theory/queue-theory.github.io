@@ -141,7 +141,7 @@ Is minic a chomhairímid míreanna, agus úsáidimid an nodaireacht seo:
 
 ![Léaráid: tá κ mír sa chóras](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Léaráid: sroicheann míreanna ag ráta λ agus fágann siad ag ráta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Léaráid: sroicheann míreanna ag ráta λ, faigheann siad seirbhís ag ráta μ agus fágann siad ag ráta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Sampla:
 
@@ -201,7 +201,7 @@ Samplaí:
 
 Tomhaiseann rátaí tréchuir an t-aschur a breathnaíodh, is é sin na míreanna a fhágann an scuaine i ndáiríre. Tá cúig chatagóir leathana acu:
 
-- χ (chi): ráta iomlán. Tomhaiseann sé seo cé mhéad mír in aghaidh an ama a fhágann an scuaine ar chúis ar bith: rath, teip, scipeáil, srl.
+- χ (chi): ráta imeachta. Tomhaiseann sé seo cé chomh tapaidh is a fhágann míreanna an córas.
 
 - α (alpha): ráta ratha. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama atá ceart, m.sh. cruinn, iomlán, glactha.
 
@@ -223,7 +223,7 @@ Ráta iomlán = ráta ratha + ráta teipe + ráta scipeála:
 
 - χ = α + β + σ (fuaimnítear: chi cothrom le alpha móide beta móide sigma)
 
-![Léaráid: fágann míreanna an córas mar rath α, teip β nó scipeáil σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Léaráid: ráta ratha α, ráta teipe β, ráta scipeála σ; ráta críochnaithe δ = α + β; ráta imeachta χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Tháinig gach mír a chomhairtear in χ isteach sa chóras, mar sin i staid sheasta is ionann an ráta iomlán agus an ráta teachta: χ ≈ λ. Sin an fáth a dtomhaiseann rátaí tréchuir aschur, ní acmhainn.
 
@@ -243,7 +243,7 @@ Dá bhrí sin coinnímid μ don acmhainn, agus cuirimid rátaí an aschuir a bre
 
 - μ (mu): ráta seirbhíse, nó acmhainn. Tomhaiseann sé seo cé chomh tapa is féidir le freastalaí amháin míreanna a láimhseáil agus é gnóthach.
 
-- χ (chi): ráta iomlán. Tomhaiseann sé seo cé mhéad mír in aghaidh an ama a fhágann an scuaine ar chúis ar bith: rath, teip, scipeáil, srl.
+- χ (chi): ráta imeachta. Tomhaiseann sé seo cé chomh tapaidh is a fhágann míreanna an córas.
 
 - α (alpha): ráta ratha. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama atá ceart, m.sh. cruinn, iomlán, glactha.
 
@@ -275,7 +275,7 @@ An nodaireacht is tábhachtaí a dhéanann achoimre ar rath scuaine:
 
 Fágtar scipeálacha as, toisc nár tugadh seirbhís riamh do mhír a scipeáladh, mar sin ní raibh sí ceart ná mícheart. Rianaigí scipeálacha ar leith trí σ.
 
-![Léaráid: is é an ráta críochnaithe δ an ráta ratha α móide an ráta teipe β, agus is é an cóimheas earráide ε an ráta teipe β roinnte ar an ráta críochnaithe δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Léaráid: is é an cóimheas earráide ε an ráta teipe β roinnte ar an ráta críochnaithe δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Samplaí:
 

@@ -136,7 +136,7 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 
 ![図：システム内には κ 個の項目があります](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![図：項目はレート λ で到着し、レート χ で出ていきます](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![図：項目はレート λ で到着し、レート μ でサービスを受け、レート χ で出ていきます](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 例：
 
@@ -196,7 +196,7 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 
 スループット率は観測された出力、つまり実際にキューから出ていく項目を測ります。大きく五つのカテゴリーに分けられます。
 
-- χ（カイ）：総率。理由（成功、失敗、スキップなど）を問わず、単位時間あたりにいくつの項目がキューから出るかを測ります。
+- χ（カイ）：退出率。システムから項目がどれだけの速さで出ていくかを測ります。
 
 - α（アルファ）：成功率。単位期間あたりにいくつの項目が正しい結果（正確、完全、承認済みなど）となるかを測ります。
 
@@ -218,7 +218,7 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 
 - χ = α + β + σ（読み方：カイ イコール アルファ プラス ベータ プラス シグマ）
 
-![図：項目は成功 α、失敗 β、またはスキップ σ としてシステムを出ていく。δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![図：成功率 α，失敗率 β，スキップ率 σ；完了率 δ = α + β；退出率 χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 χ に数えられるすべての項目はシステムに入ってきたものなので、定常状態では総率は到着率と等しくなります：χ ≈ λ。だからこそ、スループット率は処理能力ではなく出力を測るのです。
 
@@ -238,7 +238,7 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 
 - μ（ミュー）：サービス率、別名処理能力。1 台のサーバーが稼働中にどれだけ速く項目を処理できるかを測ります。
 
-- χ（カイ）：総率。理由（成功、失敗、スキップなど）を問わず、単位時間あたりにいくつの項目がキューから出るかを測ります。
+- χ（カイ）：退出率。システムから項目がどれだけの速さで出ていくかを測ります。
 
 - α（アルファ）：成功率。単位期間あたりにいくつの項目が正しい結果（正確、完全、承認済みなど）となるかを測ります。
 
@@ -270,7 +270,7 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 
 スキップは除外されます。スキップされた項目は一度もサービスを受けていないため、正しくも誤りでもないからです。スキップは σ で別に追跡してください。
 
-![図：完了率 δ は成功率 α と失敗率 β の和であり、エラー比率 ε は失敗率 β を完了率 δ で割ったもの](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![図：エラー比率 ε は失敗率 β を完了率 δ で割ったもの](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 例：
 

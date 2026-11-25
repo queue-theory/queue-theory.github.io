@@ -136,7 +136,7 @@ Mir zielen dacks Elementer, a mir benotzen dës Notatioun:
 
 ![Diagramm: κ Elementer sinn am System](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramm: Elementer kommen mat der Rat λ un a verloosse et mat der Rat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagramm: Elementer kommen mat der Rat λ un, ginn mat der Rat μ bedéngt a verloosse et mat der Rat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Beispill:
 
@@ -196,7 +196,7 @@ Beispiller:
 
 Duerchsazrate moossen de beobachten Output, dat heescht d’Elementer, déi d’Schlaang wierklech verloossen. Et gëtt fënnef grouss Kategorien:
 
-- χ (Chi): Gesamtrat. Si moosst, wéi vill Elementer pro Zäit d’Schlaang aus egal wéi engem Grond verloossen: Erfolleg, Feeler, Ofbroch asw.
+- χ (Chi): Ofgangsrat. Si moosst, wéi séier Elementer d’System verloossen.
 
 - α (Alpha): Erfollegsrat. Si moosst, wéi vill Elementer pro Zäitraum sech als richteg erweisen, z. B. korrekt, komplett, ugeholl.
 
@@ -218,7 +218,7 @@ Gesamtrat = Erfollegsrat + Feelerrat + Ofbriechrat:
 
 - χ = α + β + σ (gëtt ausgeschwat: Chi ass gläich Alpha plus Beta plus Sigma)
 
-![Diagramm: Elementer verloosse de System als Erfolleg α, Feeler β oder Ofbriech σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagramm: Erfollegsrat α, Feelerrat β, Ofbriechrat σ; Ofschlossrat δ = α + β; Ofgangsrat χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 All Element, dat an χ gezielt gëtt, ass an de System erakomm; dofir ass d’Gesamtrat am stationäre Zoustand gläich der Ukonftsrat: χ ≈ λ. Dofir moosse Duerchsazraten den Output an net d’Kapazitéit.
 
@@ -241,7 +241,7 @@ Dofir behale mir μ fir d’Kapazitéit, a mir setzen d’Rate vum beobachten Ou
 
 - μ (Mu): Servicerat, och Kapazitéit. Si moosst, wéi séier ee Server Elementer bearbechte kann, wann e beschäftegt ass.
 
-- χ (Chi): Gesamtrat. Si moosst, wéi vill Elementer pro Zäit d’Schlaang aus egal wéi engem Grond verloossen: Erfolleg, Feeler, Ofbroch asw.
+- χ (Chi): Ofgangsrat. Si moosst, wéi séier Elementer d’System verloossen.
 
 - α (Alpha): Erfollegsrat. Si moosst, wéi vill Elementer pro Zäitraum sech als richteg erweisen, z. B. korrekt, komplett, ugeholl.
 
@@ -273,7 +273,7 @@ Déi wichtegst Notatioun, déi den Erfolleg vun enger Schlaang zesummefaasst:
 
 Ofbréch ginn ausgeschloss, well en ofgebrachent Element ni bedéngt gouf, also war et weder richteg nach falsch. Verfollegt Ofbréch w.e.g. separat iwwer σ.
 
-![Diagramm: D’Ofschlossrat δ ass d’Erfollegsrat α plus d’Feelerrat β, an de Feelerquot ε ass d’Feelerrat β gedeelt duerch d’Ofschlossrat δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagramm: de Feelerquot ε ass d’Feelerrat β gedeelt duerch d’Ofschlossrat δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Beispiller:
 

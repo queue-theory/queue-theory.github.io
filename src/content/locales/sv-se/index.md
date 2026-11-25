@@ -136,7 +136,7 @@ Vi räknar objekt ofta, och vi använder den här notationen:
 
 ![Diagram: κ objekt finns i systemet](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: objekt anländer med takten λ och lämnar systemet med takten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: objekt anländer med takten λ, betjänas med takten μ och lämnar systemet med takten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Exempel:
 
@@ -196,7 +196,7 @@ Exempel:
 
 Genomflödestakter mäter observerat utflöde, det vill säga objekt som faktiskt lämnar kön. De delas in i fem breda kategorier:
 
-- χ (chi): total takt. Den mäter hur många objekt per tidsenhet som lämnar kön oavsett orsak: lyckat, misslyckat, avhopp osv.
+- χ (chi): avgångstakt. Den mäter hur snabbt objekt lämnar systemet.
 
 - α (alfa): lyckandetakt. Den mäter hur många objekt per tidsperiod som visar sig vara rätt, t.ex. korrekta, kompletta, godkända.
 
@@ -218,7 +218,7 @@ Total takt = lyckandetakt + felfrekvens + avhoppstakt:
 
 - χ = α + β + σ (uttalas: chi är lika med alfa plus beta plus sigma)
 
-![Diagram: objekt lämnar systemet som lyckande α, misslyckande β eller avhopp σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: lyckandetakt α, felfrekvens β, avhoppstakt σ; slutförandetakt δ = α + β; avgångstakt χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Varje objekt som räknas i χ har kommit in i systemet, så i stationärt tillstånd är den totala takten lika med ankomsttakten: χ ≈ λ. Det är därför genomflödestakter mäter utflöde, inte kapacitet.
 
@@ -241,7 +241,7 @@ Därför behåller vi μ för kapacitet, och vi lägger till takter för observe
 
 - μ (my): betjäningstakt, även kallad kapacitet. Den mäter hur snabbt en server kan hantera objekt när den är upptagen.
 
-- χ (chi): total takt. Den mäter hur många objekt per tidsenhet som lämnar kön oavsett orsak: lyckat, misslyckat, avhopp osv.
+- χ (chi): avgångstakt. Den mäter hur snabbt objekt lämnar systemet.
 
 - α (alfa): lyckandetakt. Den mäter hur många objekt per tidsperiod som visar sig vara rätt, t.ex. korrekta, kompletta, godkända.
 
@@ -273,7 +273,7 @@ Den viktigaste notationen som sammanfattar en kös framgång:
 
 Avhopp räknas inte med, eftersom ett objekt som hoppat av aldrig betjänades, så det var varken rätt eller fel. Följ avhopp separat via σ.
 
-![Diagram: slutförandetakten δ är lyckandetakten α plus felfrekvensen β, och felkvoten ε är felfrekvensen β delad med slutförandetakten δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: felkvoten ε är felfrekvensen β delad med slutförandetakten δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Exempel:
 

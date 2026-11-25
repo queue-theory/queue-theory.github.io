@@ -141,7 +141,7 @@ Contiamo spesso gli elementi e usiamo questa notazione:
 
 ![Diagramma: κ elementi sono nel sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramma: gli elementi arrivano al tasso λ ed escono al tasso χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagramma: gli elementi arrivano al tasso λ, vengono serviti al tasso μ ed escono al tasso χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Esempio:
 
@@ -201,7 +201,7 @@ Esempi:
 
 I tassi di throughput misurano l'output osservato, cioè gli elementi che lasciano effettivamente la coda. Si dividono in cinque grandi categorie:
 
-- χ (chi): tasso totale. Misura quanti elementi per unità di tempo escono dalla coda per qualsiasi motivo: successo, fallimento, abbandono, ecc.
+- χ (chi): tasso di uscita. Misura quanto velocemente gli elementi escono dal sistema.
 
 - α (alfa): tasso di successo. Misura quanti elementi per periodo di tempo risultano corretti, ad es. esatti, completi, accettati.
 
@@ -223,7 +223,7 @@ Tasso totale = tasso di successo + tasso di fallimento + tasso di abbandono:
 
 - χ = α + β + σ (si pronuncia: chi uguale alfa più beta più sigma)
 
-![Diagramma: gli elementi lasciano il sistema come successo α, fallimento β o abbandono σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagramma: tasso di successo α, tasso di fallimento β, tasso di abbandono σ; tasso di completamento δ = α + β; tasso di uscita χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Ogni elemento contato in χ è entrato nel sistema, quindi a regime il tasso totale è uguale al tasso di arrivo: χ ≈ λ. Per questo i tassi di throughput misurano l'output, non la capacità.
 
@@ -246,7 +246,7 @@ Perciò manteniamo μ per la capacità e vi aggiungiamo i tassi di output osserv
 
 - μ (mu): tasso di servizio, detto anche capacità. Misura quanto velocemente un servente può gestire gli elementi mentre è occupato.
 
-- χ (chi): tasso totale. Misura quanti elementi per unità di tempo escono dalla coda per qualsiasi motivo: successo, fallimento, abbandono, ecc.
+- χ (chi): tasso di uscita. Misura quanto velocemente gli elementi escono dal sistema.
 
 - α (alfa): tasso di successo. Misura quanti elementi per periodo di tempo risultano corretti, ad es. esatti, completi, accettati.
 
@@ -278,7 +278,7 @@ La notazione più importante che riassume il successo di una coda:
 
 Gli abbandoni sono esclusi, perché un elemento abbandonato non è mai stato servito, quindi non è stato né corretto né errato. Monitori gli abbandoni separatamente tramite σ.
 
-![Diagramma: il tasso di completamento δ è il tasso di successo α più il tasso di fallimento β, e il rapporto di errore ε è il tasso di fallimento β diviso per il tasso di completamento δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagramma: il rapporto di errore ε è il tasso di fallimento β diviso per il tasso di completamento δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Esempi:
 

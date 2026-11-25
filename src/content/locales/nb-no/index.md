@@ -136,7 +136,7 @@ Vi teller ofte elementer, og vi bruker denne notasjonen:
 
 ![Diagram: κ elementer er i systemet](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: elementer ankommer med raten λ og forlater systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlater systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Eksempel:
 
@@ -196,7 +196,7 @@ Eksempler:
 
 Gjennomstrømningsrater måler observert utdata, det vil si elementer som faktisk forlater køen. De finnes i fem brede kategorier:
 
-- χ (khi): total rate. Den måler hvor mange elementer per tidsenhet som forlater køen uansett årsak: suksess, feil, overhopp osv.
+- χ (khi): avgangsrate. Den måler hvor raskt elementer forlater systemet.
 
 - α (alfa): suksessrate. Den måler hvor mange elementer per tidsperiode som viser seg å være riktige, f.eks. korrekte, fullstendige, godkjente.
 
@@ -218,7 +218,7 @@ Total rate = suksessrate + feilrate + overhoppsrate:
 
 - χ = α + β + σ (uttales: khi er lik alfa pluss beta pluss sigma)
 
-![Diagram: elementer forlater systemet som suksess α, feil β eller overhopp σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: suksessrate α, feilrate β, overhoppsrate σ; fullføringsrate δ = α + β; avgangsrate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Hvert element som telles i χ, kom inn i systemet, så i stabil tilstand er den totale raten lik ankomstraten: χ ≈ λ. Det er derfor gjennomstrømningsrater måler utdata, ikke kapasitet.
 
@@ -238,7 +238,7 @@ Derfor beholder vi μ for kapasitet, og vi legger til observerte utdatarater ved
 
 - μ (my): tjenesterate, også kalt kapasitet. Den måler hvor raskt én server kan håndtere elementer når den er opptatt.
 
-- χ (khi): total rate. Den måler hvor mange elementer per tidsenhet som forlater køen uansett årsak: suksess, feil, overhopp osv.
+- χ (khi): avgangsrate. Den måler hvor raskt elementer forlater systemet.
 
 - α (alfa): suksessrate. Den måler hvor mange elementer per tidsperiode som viser seg å være riktige, f.eks. korrekte, fullstendige, godkjente.
 
@@ -270,7 +270,7 @@ Den viktigste notasjonen som oppsummerer en køs suksess:
 
 Overhopp er utelatt, fordi et overhoppet element aldri ble betjent, så det var verken riktig eller feil. Følg overhopp separat via σ.
 
-![Diagram: fullføringsraten δ er suksessraten α pluss feilraten β, og feilforholdet ε er feilraten β delt på fullføringsraten δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: feilforholdet ε er feilraten β delt på fullføringsraten δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Eksempler:
 

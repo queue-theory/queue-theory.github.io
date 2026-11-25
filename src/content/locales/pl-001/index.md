@@ -136,7 +136,7 @@ Często liczymy elementy i używamy następującej notacji:
 
 ![Diagram: w systemie jest κ elementów](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: elementy przybywają w tempie λ i wychodzą w tempie χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: elementy przybywają w tempie λ, są obsługiwane w tempie μ i wychodzą w tempie χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Przykład:
 
@@ -196,7 +196,7 @@ Przykłady:
 
 Tempa przepustowości mierzą obserwowany wynik, czyli elementy, które faktycznie opuszczają kolejkę. Dzielą się na pięć ogólnych kategorii:
 
-- χ (chi): tempo całkowite. Mierzy, ile elementów w jednostce czasu opuszcza kolejkę z dowolnej przyczyny: sukces, porażka, pominięcie itp.
+- χ (chi): tempo opuszczania. Mierzy, jak szybko elementy wychodzą z systemu.
 
 - α (alfa): tempo sukcesów. Mierzy, ile elementów w danym okresie okazuje się poprawnych, np. prawidłowych, kompletnych, zaakceptowanych.
 
@@ -218,7 +218,7 @@ Tempo całkowite = tempo sukcesów + tempo porażek + tempo pominięć:
 
 - χ = α + β + σ (czytaj: chi równa się alfa plus beta plus sigma)
 
-![Diagram: elementy opuszczają system jako sukces α, porażka β lub pominięcie σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: tempo sukcesów α, tempo porażek β, tempo pominięć σ; tempo zakończeń δ = α + β; tempo opuszczania χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Każdy element policzony w χ wszedł do systemu, więc w stanie ustalonym tempo całkowite jest równe tempu przybywania: χ ≈ λ. Dlatego tempa przepustowości mierzą wynik, a nie wydajność.
 
@@ -241,7 +241,7 @@ Dlatego zachowujemy μ dla wydajności i dodajemy obok niego tempa obserwowanego
 
 - μ (mi): tempo obsługi, czyli wydajność. Mierzy, jak szybko jeden serwer może obsługiwać elementy, gdy jest zajęty.
 
-- χ (chi): tempo całkowite. Mierzy, ile elementów w jednostce czasu opuszcza kolejkę z dowolnej przyczyny: sukces, porażka, pominięcie itp.
+- χ (chi): tempo opuszczania. Mierzy, jak szybko elementy wychodzą z systemu.
 
 - α (alfa): tempo sukcesów. Mierzy, ile elementów w danym okresie okazuje się poprawnych, np. prawidłowych, kompletnych, zaakceptowanych.
 
@@ -273,7 +273,7 @@ Najważniejsza notacja podsumowująca skuteczność kolejki:
 
 Pominięcia są wyłączone, ponieważ pominięty element nigdy nie został obsłużony, więc nie był ani poprawny, ani błędny. Pominięcia należy śledzić osobno za pomocą σ.
 
-![Diagram: tempo zakończeń δ to tempo sukcesów α plus tempo porażek β, a współczynnik błędów ε to tempo porażek β podzielone przez tempo zakończeń δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: współczynnik błędów ε to tempo porażek β podzielone przez tempo zakończeń δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Przykłady:
 

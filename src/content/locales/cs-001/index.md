@@ -140,7 +140,7 @@ Položky počítáme často a používáme tuto notaci:
 
 ![Diagram: v systému je κ položek](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: položky přicházejí mírou λ a odcházejí mírou χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagram: položky přicházejí mírou λ, obsluhují se mírou μ a odcházejí mírou χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Příklad:
 
@@ -200,7 +200,7 @@ Příklady:
 
 Míry propustnosti měří pozorovaný výstup, tedy položky, které skutečně opouštějí frontu. Dělí se do pěti širokých kategorií:
 
-- χ (chí): celková míra. Měří, kolik položek za jednotku času opustí frontu z jakéhokoli důvodu: úspěch, selhání, vynechání atd.
+- χ (chí): intenzita odchodů. Měří, jak rychle položky opouštějí systém.
 
 - α (alfa): míra úspěchu. Měří, kolik položek za časové období dopadne dobře, např. správně, úplně, přijato.
 
@@ -222,7 +222,7 @@ Celková míra = míra úspěchu + míra selhání + míra vynechání:
 
 - χ = α + β + σ (čte se: chí se rovná alfa plus beta plus sigma)
 
-![Diagram: položky opouštějí systém jako úspěch α, selhání β nebo vynechání σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagram: míra úspěchu α, míra selhání β, míra vynechání σ; míra dokončení δ = α + β; intenzita odchodů χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Každá položka započtená do χ vstoupila do systému, takže v ustáleném stavu se celková míra rovná intenzitě příchodů: χ ≈ λ. Proto míry propustnosti měří výstup, nikoli kapacitu.
 
@@ -245,7 +245,7 @@ Proto ponecháváme μ pro kapacitu a pozorované míry výstupu přidáváme ve
 
 - μ (mí): intenzita obsluhy neboli kapacita. Měří, jak rychle dokáže jeden server zpracovávat položky, když je vytížen.
 
-- χ (chí): celková míra. Měří, kolik položek za jednotku času opustí frontu z jakéhokoli důvodu: úspěch, selhání, vynechání atd.
+- χ (chí): intenzita odchodů. Měří, jak rychle položky opouštějí systém.
 
 - α (alfa): míra úspěchu. Měří, kolik položek za časové období dopadne dobře, např. správně, úplně, přijato.
 
@@ -277,7 +277,7 @@ Nejdůležitější notace, která shrnuje úspěšnost fronty:
 
 Vynechání se nezapočítávají, protože vynechaná položka nebyla nikdy obsloužena, takže nebyla ani správná, ani chybná. Vynechání sledujte zvlášť pomocí σ.
 
-![Diagram: míra dokončení δ je míra úspěchu α plus míra selhání β a poměr chyb ε je míra selhání β dělená mírou dokončení δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagram: poměr chyb ε je míra selhání β dělená mírou dokončení δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Příklady:
 

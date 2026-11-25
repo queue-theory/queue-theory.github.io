@@ -136,7 +136,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 ![示意圖：系統入面有 κ 個項目](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![示意圖：項目以速率 λ 到達，以速率 χ 離開](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![示意圖：項目以速率 λ 到達，以速率 μ 獲得服務，以速率 χ 離開](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 例子：
 
@@ -196,7 +196,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 吞吐率量度觀察到嘅輸出，即係真正離開隊列嘅項目。大致分為五類：
 
-- χ（chi）：總率。量度每單位時間有幾多項目因為任何原因離開隊列：成功、失敗、跳過等等。
+- χ（chi）：離開率。量度項目離開系統有幾快。
 
 - α（alpha）：成功率。量度每段時間有幾多項目結果正確，例如正確、完整、獲接納。
 
@@ -218,7 +218,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 - χ = α + β + σ（讀法：chi 等於 alpha 加 beta 加 sigma）
 
-![示意圖：項目以成功 α、失敗 β 或者跳過 σ 嘅形式離開系統；δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![示意圖：成功率 α，失敗率 β，跳過率 σ；完成率 δ = α + β；離開率 χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 χ 計入嘅每一個項目都進入過系統，所以喺穩態下總率等於到達率：χ ≈ λ。因此吞吐率量度嘅係輸出，而唔係容量。
 
@@ -238,7 +238,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 - μ（mu）：服務率，又稱容量。量度一個服務台喺忙碌嗰陣處理項目嘅速度有幾快。
 
-- χ（chi）：總率。量度每單位時間有幾多項目因為任何原因離開隊列：成功、失敗、跳過等等。
+- χ（chi）：離開率。量度項目離開系統有幾快。
 
 - α（alpha）：成功率。量度每段時間有幾多項目結果正確，例如正確、完整、獲接納。
 
@@ -270,7 +270,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 跳過唔計算在內，因為被跳過嘅項目從來未獲服務，所以無所謂對錯。請用 σ 另外追蹤跳過。
 
-![示意圖：完成率 δ 係成功率 α 加失敗率 β，錯誤比率 ε 係失敗率 β 除以完成率 δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![示意圖：錯誤比率 ε 係失敗率 β 除以完成率 δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 例子：
 

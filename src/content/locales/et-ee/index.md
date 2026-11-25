@@ -140,7 +140,7 @@ Loendame üksusi sageli ja kasutame järgmist tähistust:
 
 ![Diagramm: süsteemis on κ üksust](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramm: üksused saabuvad kiirusega λ ja lahkuvad kiirusega χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagramm: üksused saabuvad kiirusega λ, teenindatakse kiirusega μ ja lahkuvad kiirusega χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Näide:
 
@@ -200,7 +200,7 @@ Näited:
 
 Läbilaskekiirused mõõdavad täheldatud väljundit, st üksusi, mis tegelikult järjekorrast lahkuvad. Need jagunevad viieks laiaks kategooriaks:
 
-- χ (hii): kogukiirus. See mõõdab, mitu üksust ajaühikus väljub järjekorrast mis tahes põhjusel: õnnestumine, ebaõnnestumine, vahelejätmine jne.
+- χ (hii): lahkumiskiirus. See mõõdab, kui kiiresti üksused süsteemist väljuvad.
 
 - α (alfa): õnnestumiskiirus. See mõõdab, mitu üksust ajaühikus osutub õigeks, nt korrektseks, täielikuks, aktsepteerituks.
 
@@ -222,7 +222,7 @@ Kogukiirus = õnnestumiskiirus + ebaõnnestumiskiirus + vahelejätmiskiirus:
 
 - χ = α + β + σ (hääldatakse: hii võrdub alfa pluss beeta pluss sigma)
 
-![Diagramm: üksused lahkuvad süsteemist õnnestumisena α, ebaõnnestumisena β või vahelejätmisena σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagramm: õnnestumiskiirus α, ebaõnnestumiskiirus β, vahelejätmiskiirus σ; lõpetamiskiirus δ = α + β; lahkumiskiirus χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Iga χ-s loendatud üksus on süsteemi sisenenud, seega püsiseisundis võrdub kogukiirus saabumiskiirusega: χ ≈ λ. Seetõttu mõõdavad läbilaskekiirused väljundit, mitte võimsust.
 
@@ -245,7 +245,7 @@ Seetõttu jätame μ võimsuse tähistamiseks ja lisame selle kõrvale täheldat
 
 - μ (müü): teeninduskiirus ehk võimsus. See mõõdab, kui kiiresti üks teenindaja suudab hõivatuna üksusi käsitleda.
 
-- χ (hii): kogukiirus. See mõõdab, mitu üksust ajaühikus väljub järjekorrast mis tahes põhjusel: õnnestumine, ebaõnnestumine, vahelejätmine jne.
+- χ (hii): lahkumiskiirus. See mõõdab, kui kiiresti üksused süsteemist väljuvad.
 
 - α (alfa): õnnestumiskiirus. See mõõdab, mitu üksust ajaühikus osutub õigeks, nt korrektseks, täielikuks, aktsepteerituks.
 
@@ -277,7 +277,7 @@ Kõige olulisem tähistus, mis järjekorra edukust kokku võtab:
 
 Vahelejätmised jäetakse välja, sest vahele jäetud üksust ei teenindatud kunagi, seega ei olnud see ei õige ega vale. Jälgige vahelejätmisi eraldi σ abil.
 
-![Diagramm: lõpetamiskiirus δ on õnnestumiskiirus α pluss ebaõnnestumiskiirus β ning veasuhe ε on ebaõnnestumiskiirus β jagatud lõpetamiskiirusega δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagramm: veasuhe ε on ebaõnnestumiskiirus β jagatud lõpetamiskiirusega δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Näited:
 

@@ -136,7 +136,7 @@ Wir zählen häufig Elemente und verwenden dafür diese Notation:
 
 ![Diagramm: κ Elemente befinden sich im System](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramm: Elemente treffen mit der Rate λ ein und verlassen das System mit der Rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
+![Diagramm: Elemente treffen mit der Rate λ ein, werden mit der Rate μ bedient und verlassen das System mit der Rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Beispiel:
 
@@ -196,7 +196,7 @@ Beispiele:
 
 Durchsatzraten messen die beobachtete Ausgabe, also Elemente, die die Warteschlange tatsächlich verlassen. Es gibt sie in fünf großen Kategorien:
 
-- χ (Chi): Gesamtrate. Sie misst, wie viele Elemente pro Zeiteinheit die Warteschlange aus beliebigem Grund verlassen: Erfolg, Fehler, Abbruch usw.
+- χ (Chi): Abgangsrate. Sie misst, wie schnell Elemente das System verlassen.
 
 - α (Alpha): Erfolgsrate. Sie misst, wie viele Elemente pro Zeitraum sich als richtig erweisen, z. B. korrekt, vollständig, angenommen.
 
@@ -218,7 +218,7 @@ Gesamtrate = Erfolgsrate + Fehlerrate + Abbruchrate:
 
 - χ = α + β + σ (gesprochen: Chi gleich Alpha plus Beta plus Sigma)
 
-![Diagramm: Elemente verlassen das System als Erfolg α, Fehler β oder Abbruch σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
+![Diagramm: Erfolgsrate α, Fehlerrate β, Abbruchrate σ; Abschlussrate δ = α + β; Abgangsrate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
 
 Jedes in χ gezählte Element ist in das System eingetreten, daher entspricht die Gesamtrate im stationären Zustand der Ankunftsrate: χ ≈ λ. Deshalb messen Durchsatzraten die Ausgabe, nicht die Kapazität.
 
@@ -238,7 +238,7 @@ Deshalb behalten wir μ für die Kapazität bei und ergänzen beobachtete Ausgab
 
 - μ (My): Bedienrate, auch Kapazität genannt. Sie misst, wie schnell ein Bediener Elemente bearbeiten kann, während er beschäftigt ist.
 
-- χ (Chi): Gesamtrate. Sie misst, wie viele Elemente pro Zeiteinheit die Warteschlange aus beliebigem Grund verlassen: Erfolg, Fehler, Abbruch usw.
+- χ (Chi): Abgangsrate. Sie misst, wie schnell Elemente das System verlassen.
 
 - α (Alpha): Erfolgsrate. Sie misst, wie viele Elemente pro Zeitraum sich als richtig erweisen, z. B. korrekt, vollständig, angenommen.
 
@@ -270,7 +270,7 @@ Die wichtigste Notation, die den Erfolg einer Warteschlange zusammenfasst:
 
 Abbrüche sind ausgeschlossen, weil ein abgebrochenes Element nie bedient wurde und somit weder richtig noch falsch war. Verfolgen Sie Abbrüche separat über σ.
 
-![Diagramm: Die Abschlussrate δ ist die Erfolgsrate α plus die Fehlerrate β, und die Fehlerquote ε ist die Fehlerrate β geteilt durch die Abschlussrate δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
+![Diagramm: die Fehlerquote ε ist die Fehlerrate β geteilt durch die Abschlussrate δ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-epsilon-error.svg)
 
 Beispiele:
 
