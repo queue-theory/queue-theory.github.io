@@ -19,11 +19,11 @@ Sisukord:
   - [Arv](#arv)
   - [Saabumiskiirus, teeninduskiirus, lahkumiskiirus](#saabumiskiirus-teeninduskiirus-lahkumiskiirus)
   - [Kasutusaste ehk liiklusintensiivsus](#kasutusaste-ehk-liiklusintensiivsus)
-  - [Läbilaskekiirused: kogukiirus, lõpetamiskiirus, õnnestumiskiirus, ebaõnnestumiskiirus, vahelejätmiskiirus](#läbilaskekiirused-kogukiirus-lõpetamiskiirus-õnnestumiskiirus-ebaõnnestumiskiirus-vahelejätmiskiirus)
+  - [Läbilaskekiirused: lahkumiskiirus, lõpetamiskiirus, õnnestumiskiirus, ebaõnnestumiskiirus, vahelejätmiskiirus](#läbilaskekiirused-lahkumiskiirus-lõpetamiskiirus-õnnestumiskiirus-ebaõnnestumiskiirus-vahelejätmiskiirus)
   - [Teeninduskiiruse mõiste täpsustamine](#teeninduskiiruse-mõiste-täpsustamine)
   - [Vahelejätmiskiirus](#vahelejätmiskiirus)
   - [Veasuhe](#veasuhe)
-  - [Läbimisaeg, sammuaeg, tööaeg, ooteaeg](#läbimisaeg-sammuaeg-tööaeg-ooteaeg)
+  - [Läbimisaeg, ooteaeg, tööaeg, sammuaeg](#läbimisaeg-ooteaeg-tööaeg-sammuaeg)
   - [Kendalli tähistus](#kendalli-tähistus)
 - [Järjekordade matemaatika](#järjekordade-matemaatika)
   - [Kasutusastme kõver](#kasutusastme-kõver)
@@ -168,7 +168,7 @@ Kõige olulisem tähistus:
 
 - χ (hii): lahkumiskiirus. See mõõdab, kui kiiresti üksused süsteemist väljuvad.
 
-![Diagramm: üksused saabuvad kiirusega λ, teenindatakse kiirusega μ ja lahkuvad kiirusega χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagramm: üksused saabuvad kiirusega λ, teenindatakse kiirusega μ ja lahkuvad kiirusega χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Üldised näited traditsiooniliste ühe teenindajaga järjekordade kohta:
 
@@ -196,7 +196,7 @@ Näited:
 
 - ρ > 1 tähendab, et saabumised ületavad võimsust; järjekord suureneb.
 
-### Läbilaskekiirused: kogukiirus, lõpetamiskiirus, õnnestumiskiirus, ebaõnnestumiskiirus, vahelejätmiskiirus
+### Läbilaskekiirused: lahkumiskiirus, lõpetamiskiirus, õnnestumiskiirus, ebaõnnestumiskiirus, vahelejätmiskiirus
 
 Läbilaskekiirused mõõdavad täheldatud väljundit, st üksusi, mis tegelikult järjekorrast lahkuvad. Need jagunevad viieks laiaks kategooriaks:
 
@@ -210,6 +210,8 @@ Läbilaskekiirused mõõdavad täheldatud väljundit, st üksusi, mis tegelikult
 
 - σ (sigma): vahelejätmiskiirus. See mõõdab, mitu üksust ajaühikus siseneb järjekorda ja lahkub seejärel teenindamata, nt loobumised, ootamisest loobumised.
 
+![Diagramm: lahkumiskiirus χ = lõpetamiskiirus δ + vahelejätmiskiirus σ; lõpetamiskiirus δ = õnnestumiskiirus α + ebaõnnestumiskiirus β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Lõpetamiskiirus = õnnestumiskiirus + ebaõnnestumiskiirus:
 
 - δ = α + β (hääldatakse: delta võrdub alfa pluss beeta)
@@ -221,8 +223,6 @@ Kogukiirus = lõpetamiskiirus + vahelejätmiskiirus:
 Kogukiirus = õnnestumiskiirus + ebaõnnestumiskiirus + vahelejätmiskiirus:
 
 - χ = α + β + σ (hääldatakse: hii võrdub alfa pluss beeta pluss sigma)
-
-![Diagramm: lahkumiskiirus χ = lõpetamiskiirus δ + vahelejätmiskiirus σ; lõpetamiskiirus δ = õnnestumiskiirus α + ebaõnnestumiskiirus β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Iga χ-s loendatud üksus on süsteemi sisenenud, seega püsiseisundis võrdub kogukiirus saabumiskiirusega: χ ≈ λ. Seetõttu mõõdavad läbilaskekiirused väljundit, mitte võimsust.
 
@@ -287,23 +287,23 @@ Näited:
 
 - ε = 1 tähendab, et igal teenindusel on viga.
 
-### Läbimisaeg, sammuaeg, tööaeg, ooteaeg
+### Läbimisaeg, ooteaeg, tööaeg, sammuaeg
 
 Jälgime nelja aega:
 
-- τ (tau): läbimisaeg = järjekorra algusest järjekorra lõpuni
+- τ (tau): aeg süsteemis ehk läbimisaeg ehk algusest lõpuni.
 
 - θ (teeta): sammuaeg = ühest lõpetamisest järgmise lõpetamiseni; üks sammuaeg on üks vahe ja keskmine sammuaeg on keskmine vahe
 
-- φ (fii): tööaeg = tegeliku töö tegemisele kulunud aeg ehk töötlemisaeg
-
 - ω (oomega): ooteaeg = aeg, mil tegelikku tööd ei tehta, ehk ootel olemise aeg
 
-![Diagramm: läbimisaeg τ on ooteaeg ω, millele järgneb tööaeg φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fii): tööaeg = tegeliku töö tegemisele kulunud aeg ehk töötlemisaeg
+
+![Diagramm: läbimisaeg τ, ooteaeg ω, tööaeg φ, sammuaeg θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Näited:
 
-- τ = 5 s tähendab, et üksus lisatakse järjekorda ja teenindatakse 5 sekundit hiljem.
+- τ = 5 s tähendab, et üksus siseneb süsteemi ja väljub sellest 5 sekundit hiljem.
 
 - ω = 4 s tähendab, et üksus ootab järjekorras 4 sekundit ja seejärel algab töö.
 

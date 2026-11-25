@@ -15,11 +15,11 @@ Inhalt:
   - [Zuel](#zuel)
   - [Ukonftsrat, Servicerat, Ofgangsrat](#ukonftsrat-servicerat-ofgangsrat)
   - [Auslaaschtungsgrad, och Verkéiersintensitéit genannt](#auslaaschtungsgrad-och-verkéiersintensitéit-genannt)
-  - [Duerchsazraten: Gesamtrat, Ofschlossrat, Erfollegsrat, Feelerrat, Ofbriechrat](#duerchsazraten-gesamtrat-ofschlossrat-erfollegsrat-feelerrat-ofbriechrat)
+  - [Duerchsazraten: Ofgangsrat, Ofschlossrat, Erfollegsrat, Feelerrat, Ofbriechrat](#duerchsazraten-ofgangsrat-ofschlossrat-erfollegsrat-feelerrat-ofbriechrat)
   - [Kläerung vum Begrëff Servicerat](#kläerung-vum-begrëff-servicerat)
   - [Ofbriechrat](#ofbriechrat)
   - [Feelerquot](#feelerquot)
-  - [Duerchlafzäit, Taktzäit, Aarbechtszäit, Waardezäit](#duerchlafzäit-taktzäit-aarbechtszäit-waardezäit)
+  - [Duerchlafzäit, Waardezäit, Aarbechtszäit, Taktzäit](#duerchlafzäit-waardezäit-aarbechtszäit-taktzäit)
   - [Kendall-Notatioun](#kendall-notatioun)
 - [Schlaangemathematik](#schlaangemathematik)
   - [D’Auslaaschtungskurv](#dauslaaschtungskurv)
@@ -164,7 +164,7 @@ Déi wichtegst Notatioun:
 
 - χ (Chi): Ofgangsrat. Si moosst, wéi séier Elementer d’System verloossen.
 
-![Diagramm: Elementer kommen mat der Rat λ un, ginn mat der Rat μ bedéngt a verloosse et mat der Rat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagramm: Elementer kommen mat der Rat λ un, ginn mat der Rat μ bedéngt a verloosse et mat der Rat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Beispiller vun allgemenge Reegele fir traditionell Schlaange mat engem Server:
 
@@ -192,7 +192,7 @@ Beispiller:
 
 - ρ > 1 bedeit, datt d’Ukonften d’Kapazitéit iwwersteigen; d’Schlaang gëtt ëmmer méi grouss.
 
-### Duerchsazraten: Gesamtrat, Ofschlossrat, Erfollegsrat, Feelerrat, Ofbriechrat
+### Duerchsazraten: Ofgangsrat, Ofschlossrat, Erfollegsrat, Feelerrat, Ofbriechrat
 
 Duerchsazrate moossen de beobachten Output, dat heescht d’Elementer, déi d’Schlaang wierklech verloossen. Et gëtt fënnef grouss Kategorien:
 
@@ -206,6 +206,8 @@ Duerchsazrate moossen de beobachten Output, dat heescht d’Elementer, déi d’
 
 - σ (Sigma): Ofbriechrat. Si moosst, wéi vill Elementer pro Zäitraum an d’Schlaang erakommen an se dann verloossen, ouni bedéngt ze ginn, z. B. Ofbréch, Réckzéier.
 
+![Diagramm: Ofgangsrat χ = Ofschlossrat δ + Ofbriechrat σ; Ofschlossrat δ = Erfollegsrat α + Feelerrat β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Ofschlossrat = Erfollegsrat + Feelerrat:
 
 - δ = α + β (gëtt ausgeschwat: Delta ass gläich Alpha plus Beta)
@@ -217,8 +219,6 @@ Gesamtrat = Ofschlossrat + Ofbriechrat:
 Gesamtrat = Erfollegsrat + Feelerrat + Ofbriechrat:
 
 - χ = α + β + σ (gëtt ausgeschwat: Chi ass gläich Alpha plus Beta plus Sigma)
-
-![Diagramm: Ofgangsrat χ = Ofschlossrat δ + Ofbriechrat σ; Ofschlossrat δ = Erfollegsrat α + Feelerrat β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 All Element, dat an χ gezielt gëtt, ass an de System erakomm; dofir ass d’Gesamtrat am stationäre Zoustand gläich der Ukonftsrat: χ ≈ λ. Dofir moosse Duerchsazraten den Output an net d’Kapazitéit.
 
@@ -283,23 +283,23 @@ Beispiller:
 
 - ε = 1 bedeit, datt all Service e Feeler huet.
 
-### Duerchlafzäit, Taktzäit, Aarbechtszäit, Waardezäit
+### Duerchlafzäit, Waardezäit, Aarbechtszäit, Taktzäit
 
 Mir verfollege véier Zäiten:
 
-- τ (Tau): Duerchlafzäit = vum Ufank vun der Schlaang bis zum Enn vun der Schlaang
+- τ (Tau): Zäit am System, och Duerchlafzäit, och vum Ufank bis zum Enn.
 
 - θ (Theta): Taktzäit = vun engem Ofschloss bis zum nächsten Ofschloss; eng Taktzäit ass een Ofstand, an déi mëttler Taktzäit ass den duerchschnëttlechen Ofstand
 
-- φ (Phi): Aarbechtszäit = Zäit, déi mat eigentlecher Aarbecht verbruecht gëtt, och Veraarbechtungszäit genannt
-
 - ω (Omega): Waardezäit = Zäit, déi ouni eigentlech Aarbecht verbruecht gëtt, och Liegezäit genannt
 
-![Diagramm: D’Duerchlafzäit τ ass d’Waardezäit ω gefollegt vun der Aarbechtszäit φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (Phi): Aarbechtszäit = Zäit, déi mat eigentlecher Aarbecht verbruecht gëtt, och Veraarbechtungszäit genannt
+
+![Diagramm: Duerchlafzäit τ, Waardezäit ω, Aarbechtszäit φ, Taktzäit θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Beispiller:
 
-- τ = 5s bedeit, datt en Element an d’Schlaang gesat gëtt an 5 Sekonne méi spéit bedéngt ass.
+- τ = 5s bedeit, datt en Element an de System erakënnt an et 5 Sekonnen méi spéit erëm verléisst.
 
 - ω = 4s bedeit, datt en Element 4 Sekonnen an der Schlaang waart, an dann ufänkt d’Aarbecht.
 

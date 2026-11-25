@@ -20,11 +20,11 @@ Clár ábhair:
   - [Líon](#líon)
   - [Ráta teachta, ráta seirbhíse, ráta imeachta](#ráta-teachta-ráta-seirbhíse-ráta-imeachta)
   - [Cóimheas úsáide, nó déine tráchta](#cóimheas-úsáide-nó-déine-tráchta)
-  - [Rátaí tréchuir: ráta iomlán, ráta críochnaithe, ráta ratha, ráta teipe, ráta scipeála](#rátaí-tréchuir-ráta-iomlán-ráta-críochnaithe-ráta-ratha-ráta-teipe-ráta-scipeála)
+  - [Rátaí tréchuir: ráta imeachta, ráta críochnaithe, ráta ratha, ráta teipe, ráta scipeála](#rátaí-tréchuir-ráta-imeachta-ráta-críochnaithe-ráta-ratha-ráta-teipe-ráta-scipeála)
   - [Idirdhealú ar an ráta seirbhíse](#idirdhealú-ar-an-ráta-seirbhíse)
   - [Ráta scipeála](#ráta-scipeála)
   - [Cóimheas earráide](#cóimheas-earráide)
-  - [Am luaidhe, am céime, am oibre, am feithimh](#am-luaidhe-am-céime-am-oibre-am-feithimh)
+  - [Am luaidhe, am feithimh, am oibre, am céime](#am-luaidhe-am-feithimh-am-oibre-am-céime)
   - [Nodaireacht Kendall](#nodaireacht-kendall)
 - [Matamaitic na scuainí](#matamaitic-na-scuainí)
   - [An cuar úsáide](#an-cuar-úsáide)
@@ -169,7 +169,7 @@ An nodaireacht is tábhachtaí:
 
 - χ (chi): ráta imeachta. Tomhaiseann sé seo cé chomh tapaidh is a fhágann míreanna an córas.
 
-![Léaráid: sroicheann míreanna ag ráta λ, faigheann siad seirbhís ag ráta μ agus fágann siad ag ráta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Léaráid: sroicheann míreanna ag ráta λ, faigheann siad seirbhís ag ráta μ agus fágann siad ag ráta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Samplaí de ghinearáltachtaí do ghnáthscuainí le freastalaí amháin:
 
@@ -197,7 +197,7 @@ Samplaí:
 
 - Ciallaíonn ρ > 1 go sáraíonn na teachtaí an acmhainn; tá an scuaine ag éirí níos mó.
 
-### Rátaí tréchuir: ráta iomlán, ráta críochnaithe, ráta ratha, ráta teipe, ráta scipeála
+### Rátaí tréchuir: ráta imeachta, ráta críochnaithe, ráta ratha, ráta teipe, ráta scipeála
 
 Tomhaiseann rátaí tréchuir an t-aschur a breathnaíodh, is é sin na míreanna a fhágann an scuaine i ndáiríre. Tá cúig chatagóir leathana acu:
 
@@ -211,6 +211,8 @@ Tomhaiseann rátaí tréchuir an t-aschur a breathnaíodh, is é sin na míreann
 
 - σ (sigma): ráta scipeála. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama a théann isteach sa scuaine agus a fhágann í gan seirbhís a fháil, m.sh. tréigintí, cúluithe.
 
+![Léaráid: ráta imeachta χ = ráta críochnaithe δ + ráta scipeála σ; ráta críochnaithe δ = ráta ratha α + ráta teipe β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Ráta críochnaithe = ráta ratha + ráta teipe:
 
 - δ = α + β (fuaimnítear: delta cothrom le alpha móide beta)
@@ -222,8 +224,6 @@ Ráta iomlán = ráta críochnaithe + ráta scipeála:
 Ráta iomlán = ráta ratha + ráta teipe + ráta scipeála:
 
 - χ = α + β + σ (fuaimnítear: chi cothrom le alpha móide beta móide sigma)
-
-![Léaráid: ráta imeachta χ = ráta críochnaithe δ + ráta scipeála σ; ráta críochnaithe δ = ráta ratha α + ráta teipe β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Tháinig gach mír a chomhairtear in χ isteach sa chóras, mar sin i staid sheasta is ionann an ráta iomlán agus an ráta teachta: χ ≈ λ. Sin an fáth a dtomhaiseann rátaí tréchuir aschur, ní acmhainn.
 
@@ -285,23 +285,23 @@ Samplaí:
 
 - Ciallaíonn ε = 1 go bhfuil earráid i ngach seirbhís.
 
-### Am luaidhe, am céime, am oibre, am feithimh
+### Am luaidhe, am feithimh, am oibre, am céime
 
 Rianaímid ceithre am:
 
-- τ (tau): am luaidhe = ó thús na scuaine go críoch na scuaine
+- τ (tau): am sa chóras, nó am luaidhe, nó ón tús go dtí an deireadh.
 
 - θ (theta): am céime = ó chríochnú amháin go dtí an chéad chríochnú eile; is bearna amháin é am céime amháin, agus is é an meán-am céime an mheánbhearna
 
-- φ (phi): am oibre = an t-am a chaitear ag déanamh fíoroibre, nó am próiseála
-
 - ω (omega): am feithimh = an t-am a chaitear gan fíorobair a dhéanamh, nó am ar feitheamh
 
-![Léaráid: is é an t-am luaidhe τ an t-am feithimh ω agus ansin an t-am oibre φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): am oibre = an t-am a chaitear ag déanamh fíoroibre, nó am próiseála
+
+![Léaráid: am luaidhe τ, am feithimh ω, am oibre φ, am céime θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Samplaí:
 
-- Ciallaíonn τ = 5s go gcuirtear mír leis an scuaine, agus go dtugtar seirbhís di 5 soicind ina dhiaidh sin.
+- Ciallaíonn τ = 5s go dtéann mír isteach sa chóras, agus go bhfágann sí an córas 5 soicind ina dhiaidh sin.
 
 - Ciallaíonn ω = 4s go bhfanann mír sa scuaine ar feadh 4 soicind, agus ansin go dtosaíonn an obair.
 

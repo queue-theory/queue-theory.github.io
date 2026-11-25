@@ -20,11 +20,11 @@ Cynnwys:
   - [Cyfrif](#cyfrif)
   - [Cyfradd cyrraedd, cyfradd gwasanaethu, cyfradd ymadael](#cyfradd-cyrraedd-cyfradd-gwasanaethu-cyfradd-ymadael)
   - [Cymhareb defnydd, neu ddwyster traffig](#cymhareb-defnydd-neu-ddwyster-traffig)
-  - [Cyfraddau trwybwn: cyfradd gyfan, cyfradd gorffen, cyfradd llwyddo, cyfradd methu, cyfradd hepgor](#cyfraddau-trwybwn-cyfradd-gyfan-cyfradd-gorffen-cyfradd-llwyddo-cyfradd-methu-cyfradd-hepgor)
+  - [Cyfraddau trwybwn: cyfradd ymadael, cyfradd gorffen, cyfradd llwyddo, cyfradd methu, cyfradd hepgor](#cyfraddau-trwybwn-cyfradd-ymadael-cyfradd-gorffen-cyfradd-llwyddo-cyfradd-methu-cyfradd-hepgor)
   - [Gwahaniaethu ystyron cyfradd gwasanaethu](#gwahaniaethu-ystyron-cyfradd-gwasanaethu)
   - [Cyfradd hepgor](#cyfradd-hepgor)
   - [Cymhareb gwallau](#cymhareb-gwallau)
-  - [Amser arwain, amser cam, amser gwaith, amser aros](#amser-arwain-amser-cam-amser-gwaith-amser-aros)
+  - [Amser arwain, amser aros, amser gwaith, amser cam](#amser-arwain-amser-aros-amser-gwaith-amser-cam)
   - [Nodiant Kendall](#nodiant-kendall)
 - [Mathemateg ciwiau](#mathemateg-ciwiau)
   - [Y gromlin defnydd](#y-gromlin-defnydd)
@@ -169,7 +169,7 @@ Y nodiant pwysicaf:
 
 - χ (chi): cyfradd ymadael. Mae hon yn mesur pa mor gyflym y mae eitemau’n gadael y system.
 
-![Diagram: mae eitemau’n cyrraedd ar gyfradd λ, yn cael eu gwasanaethu ar gyfradd μ, ac yn gadael ar gyfradd χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: mae eitemau’n cyrraedd ar gyfradd λ, yn cael eu gwasanaethu ar gyfradd μ, ac yn gadael ar gyfradd χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Enghreifftiau o egwyddorion cyffredinol ar gyfer ciwiau traddodiadol ag un gweinydd:
 
@@ -197,7 +197,7 @@ Enghreifftiau:
 
 - ρ > 1 yn golygu bod y cyrraedd yn fwy na’r capasiti; mae’r ciw yn mynd yn fwy.
 
-### Cyfraddau trwybwn: cyfradd gyfan, cyfradd gorffen, cyfradd llwyddo, cyfradd methu, cyfradd hepgor
+### Cyfraddau trwybwn: cyfradd ymadael, cyfradd gorffen, cyfradd llwyddo, cyfradd methu, cyfradd hepgor
 
 Mae cyfraddau trwybwn yn mesur yr allbwn a welwyd, sef yr eitemau sy’n gadael y ciw mewn gwirionedd. Maen nhw’n perthyn i bum categori bras:
 
@@ -211,6 +211,8 @@ Mae cyfraddau trwybwn yn mesur yr allbwn a welwyd, sef yr eitemau sy’n gadael 
 
 - σ (sigma): cyfradd hepgor. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n mynd i mewn i’r ciw, yna’n gadael heb gael eu gwasanaethu, e.e. yn cefnu, yn rhoi’r gorau iddi.
 
+![Diagram: cyfradd ymadael χ = cyfradd gorffen δ + cyfradd hepgor σ; cyfradd gorffen δ = cyfradd llwyddo α + cyfradd methu β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Cyfradd gorffen = cyfradd llwyddo + cyfradd methu:
 
 - δ = α + β (ynganiad: delta yn hafal i alffa adio beta)
@@ -222,8 +224,6 @@ Cyfradd gyfan = cyfradd gorffen + cyfradd hepgor:
 Cyfradd gyfan = cyfradd llwyddo + cyfradd methu + cyfradd hepgor:
 
 - χ = α + β + σ (ynganiad: chi yn hafal i alffa adio beta adio sigma)
-
-![Diagram: cyfradd ymadael χ = cyfradd gorffen δ + cyfradd hepgor σ; cyfradd gorffen δ = cyfradd llwyddo α + cyfradd methu β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Aeth pob eitem a gyfrifir yn χ i mewn i’r system, felly mewn cyflwr sefydlog mae’r gyfradd gyfan yn hafal i’r gyfradd cyrraedd: χ ≈ λ. Dyna pam mae cyfraddau trwybwn yn mesur allbwn, nid capasiti.
 
@@ -288,23 +288,23 @@ Enghreifftiau:
 
 - ε = 1 yn golygu bod gwall gan bob gwasanaeth.
 
-### Amser arwain, amser cam, amser gwaith, amser aros
+### Amser arwain, amser aros, amser gwaith, amser cam
 
 Rydym yn olrhain pedwar amser:
 
-- τ (tau): amser arwain = o ddechrau’r ciw i ddiwedd y ciw
+- τ (tau): amser yn y system, neu amser arwain, neu o’r dechrau i’r diwedd.
 
 - θ (theta): amser cam = o un gorffeniad i’r gorffeniad nesaf; un bwlch yw un amser cam, a’r amser cam cymedrig yw cyfartaledd y bylchau
 
-- φ (phi): amser gwaith = amser a dreulir yn gwneud gwaith go iawn, sef amser prosesu
-
 - ω (omega): amser aros = amser a dreulir heb wneud gwaith go iawn, sef amser disgwyl
 
-![Diagram: amser arwain τ yw’r amser aros ω ac yna’r amser gwaith φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): amser gwaith = amser a dreulir yn gwneud gwaith go iawn, sef amser prosesu
+
+![Diagram: amser arwain τ, amser aros ω, amser gwaith φ, amser cam θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Enghreifftiau:
 
-- τ = 5e yn golygu bod eitem yn cael ei hychwanegu at y ciw, yna’n cael ei gwasanaethu 5 eiliad yn ddiweddarach.
+- τ = 5e yn golygu bod eitem yn mynd i mewn i’r system, yna’n gadael y system 5 eiliad yn ddiweddarach.
 
 - ω = 4e yn golygu bod eitem yn aros yn y ciw am 4 eiliad, yna mae’r gwaith yn dechrau.
 

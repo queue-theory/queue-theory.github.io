@@ -15,11 +15,11 @@ Kandungan:
   - [Kiraan](#kiraan)
   - [Kadar ketibaan, kadar perkhidmatan, kadar pemergian](#kadar-ketibaan-kadar-perkhidmatan-kadar-pemergian)
   - [Nisbah penggunaan atau keamatan trafik](#nisbah-penggunaan-atau-keamatan-trafik)
-  - [Kadar daya pemprosesan: kadar jumlah, kadar selesai, kadar kejayaan, kadar kegagalan, kadar langkau](#kadar-daya-pemprosesan-kadar-jumlah-kadar-selesai-kadar-kejayaan-kadar-kegagalan-kadar-langkau)
+  - [Kadar daya pemprosesan: kadar pemergian, kadar selesai, kadar kejayaan, kadar kegagalan, kadar langkau](#kadar-daya-pemprosesan-kadar-pemergian-kadar-selesai-kadar-kejayaan-kadar-kegagalan-kadar-langkau)
   - [Penjelasan istilah kadar perkhidmatan](#penjelasan-istilah-kadar-perkhidmatan)
   - [Kadar langkau](#kadar-langkau)
   - [Nisbah ralat](#nisbah-ralat)
-  - [Masa pendahuluan, masa langkah, masa kerja, masa menunggu](#masa-pendahuluan-masa-langkah-masa-kerja-masa-menunggu)
+  - [Masa pendahuluan, masa menunggu, masa kerja, masa langkah](#masa-pendahuluan-masa-menunggu-masa-kerja-masa-langkah)
   - [Tatatanda Kendall](#tatatanda-kendall)
 - [Matematik baris gilir](#matematik-baris-gilir)
   - [Lengkung penggunaan](#lengkung-penggunaan)
@@ -164,7 +164,7 @@ Tatatanda yang paling penting:
 
 - χ (chi): kadar pemergian. Ini mengukur sepantas mana item keluar daripada sistem.
 
-![Rajah: item tiba pada kadar λ, dilayan pada kadar μ dan pergi pada kadar χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Rajah: item tiba pada kadar λ, dilayan pada kadar μ dan pergi pada kadar χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Contoh kelaziman umum untuk baris gilir tradisional dengan satu pelayan:
 
@@ -192,7 +192,7 @@ Contoh:
 
 - ρ > 1 bermaksud ketibaan melebihi kapasiti; baris gilir semakin besar.
 
-### Kadar daya pemprosesan: kadar jumlah, kadar selesai, kadar kejayaan, kadar kegagalan, kadar langkau
+### Kadar daya pemprosesan: kadar pemergian, kadar selesai, kadar kejayaan, kadar kegagalan, kadar langkau
 
 Kadar daya pemprosesan mengukur output yang diperhatikan, iaitu item yang benar-benar meninggalkan baris gilir. Kadar ini terbahagi kepada lima kategori umum:
 
@@ -206,6 +206,8 @@ Kadar daya pemprosesan mengukur output yang diperhatikan, iaitu item yang benar-
 
 - σ (sigma): kadar langkau. Ini mengukur bilangan item bagi setiap tempoh masa yang memasuki baris gilir, kemudian keluar tanpa dilayan, contohnya peninggalan, penarikan diri.
 
+![Rajah: kadar pemergian χ = kadar selesai δ + kadar langkau σ; kadar selesai δ = kadar kejayaan α + kadar kegagalan β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Kadar selesai = kadar kejayaan + kadar kegagalan:
 
 - δ = α + β (disebut: delta sama dengan alpha tambah beta)
@@ -217,8 +219,6 @@ Kadar jumlah = kadar selesai + kadar langkau:
 Kadar jumlah = kadar kejayaan + kadar kegagalan + kadar langkau:
 
 - χ = α + β + σ (disebut: chi sama dengan alpha tambah beta tambah sigma)
-
-![Rajah: kadar pemergian χ = kadar selesai δ + kadar langkau σ; kadar selesai δ = kadar kejayaan α + kadar kegagalan β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Setiap item yang dikira dalam χ telah memasuki sistem, jadi dalam keadaan mantap kadar jumlah sama dengan kadar ketibaan: χ ≈ λ. Sebab itulah kadar daya pemprosesan mengukur output, bukan kapasiti.
 
@@ -280,23 +280,23 @@ Contoh:
 
 - ε = 1 bermaksud setiap perkhidmatan mempunyai ralat.
 
-### Masa pendahuluan, masa langkah, masa kerja, masa menunggu
+### Masa pendahuluan, masa menunggu, masa kerja, masa langkah
 
 Kami menjejaki empat jenis masa:
 
-- τ (tau): masa pendahuluan = dari permulaan baris gilir hingga penamat baris gilir
+- τ (tau): masa dalam sistem atau masa pendahuluan atau dari awal hingga akhir.
 
 - θ (theta): masa langkah = dari satu penyiapan hingga penyiapan seterusnya; satu masa langkah ialah satu jurang, dan purata masa langkah ialah purata jurang
 
-- φ (phi): masa kerja = masa yang digunakan untuk melakukan kerja sebenar atau masa pemprosesan
-
 - ω (omega): masa menunggu = masa yang digunakan tanpa melakukan kerja sebenar atau masa tertangguh
 
-![Rajah: masa pendahuluan τ ialah masa menunggu ω diikuti masa kerja φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): masa kerja = masa yang digunakan untuk melakukan kerja sebenar atau masa pemprosesan
+
+![Rajah: masa pendahuluan τ, masa menunggu ω, masa kerja φ, masa langkah θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Contoh:
 
-- τ = 5s bermaksud sesuatu item ditambah ke baris gilir, kemudian dilayan 5 saat kemudian.
+- τ = 5s bermaksud sesuatu item memasuki sistem, kemudian keluar daripada sistem 5 saat kemudian.
 
 - ω = 4s bermaksud sesuatu item menunggu dalam baris gilir selama 4 saat, kemudian kerja bermula.
 

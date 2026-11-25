@@ -15,11 +15,11 @@ Vsebina:
   - [Število](#število)
   - [Stopnja prihodov, stopnja strežbe, stopnja odhodov](#stopnja-prihodov-stopnja-strežbe-stopnja-odhodov)
   - [Razmerje izkoriščenosti oz. intenzivnost prometa](#razmerje-izkoriščenosti-oz-intenzivnost-prometa)
-  - [Stopnje pretoka: skupna stopnja, stopnja dokončanja, stopnja uspeha, stopnja neuspeha, stopnja izpustitev](#stopnje-pretoka-skupna-stopnja-stopnja-dokončanja-stopnja-uspeha-stopnja-neuspeha-stopnja-izpustitev)
+  - [Stopnje pretoka: stopnja odhodov, stopnja dokončanja, stopnja uspeha, stopnja neuspeha, stopnja izpustitev](#stopnje-pretoka-stopnja-odhodov-stopnja-dokončanja-stopnja-uspeha-stopnja-neuspeha-stopnja-izpustitev)
   - [Razjasnitev pojma stopnja strežbe](#razjasnitev-pojma-stopnja-strežbe)
   - [Stopnja izpustitev](#stopnja-izpustitev)
   - [Razmerje napak](#razmerje-napak)
-  - [Pretočni čas, čas koraka, čas dela, čas čakanja](#pretočni-čas-čas-koraka-čas-dela-čas-čakanja)
+  - [Pretočni čas, čas čakanja, čas dela, čas koraka](#pretočni-čas-čas-čakanja-čas-dela-čas-koraka)
   - [Kendallov zapis](#kendallov-zapis)
 - [Matematika čakalnih vrst](#matematika-čakalnih-vrst)
   - [Krivulja izkoriščenosti](#krivulja-izkoriščenosti)
@@ -164,7 +164,7 @@ Najpomembnejša notacija:
 
 - χ (hi): stopnja odhodov. Ta meri, kako hitro elementi zapuščajo sistem.
 
-![Diagram: elementi prihajajo s stopnjo λ, so postreženi s stopnjo μ in odhajajo s stopnjo χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: elementi prihajajo s stopnjo λ, so postreženi s stopnjo μ in odhajajo s stopnjo χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Primeri splošnih pravil za tradicionalne čakalne vrste z enim strežnikom:
 
@@ -192,7 +192,7 @@ Primeri:
 
 - ρ > 1 pomeni, da prihodi presegajo zmogljivost; čakalna vrsta se veča.
 
-### Stopnje pretoka: skupna stopnja, stopnja dokončanja, stopnja uspeha, stopnja neuspeha, stopnja izpustitev
+### Stopnje pretoka: stopnja odhodov, stopnja dokončanja, stopnja uspeha, stopnja neuspeha, stopnja izpustitev
 
 Stopnje pretoka merijo opazovani izhod, torej elemente, ki dejansko zapustijo čakalno vrsto. Delimo jih v pet širokih kategorij:
 
@@ -206,6 +206,8 @@ Stopnje pretoka merijo opazovani izhod, torej elemente, ki dejansko zapustijo č
 
 - σ (sigma): stopnja izpustitev. Ta meri, koliko elementov na časovno obdobje vstopi v čakalno vrsto in jo nato zapusti, ne da bi bili postreženi, npr. opustitve, odstopi.
 
+![Diagram: stopnja odhodov χ = stopnja dokončanja δ + stopnja izpustitev σ; stopnja dokončanja δ = stopnja uspeha α + stopnja neuspeha β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Stopnja dokončanja = stopnja uspeha + stopnja neuspeha:
 
 - δ = α + β (izgovorjava: delta je enako alfa plus beta)
@@ -217,8 +219,6 @@ Skupna stopnja = stopnja dokončanja + stopnja izpustitev:
 Skupna stopnja = stopnja uspeha + stopnja neuspeha + stopnja izpustitev:
 
 - χ = α + β + σ (izgovorjava: hi je enako alfa plus beta plus sigma)
-
-![Diagram: stopnja odhodov χ = stopnja dokončanja δ + stopnja izpustitev σ; stopnja dokončanja δ = stopnja uspeha α + stopnja neuspeha β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Vsak element, štet v χ, je vstopil v sistem, zato je v stacionarnem stanju skupna stopnja enaka stopnji prihodov: χ ≈ λ. Zato stopnje pretoka merijo izhod, ne zmogljivosti.
 
@@ -283,23 +283,23 @@ Primeri:
 
 - ε = 1 pomeni, da ima vsaka strežba napako.
 
-### Pretočni čas, čas koraka, čas dela, čas čakanja
+### Pretočni čas, čas čakanja, čas dela, čas koraka
 
 Spremljamo štiri čase:
 
-- τ (tau): pretočni čas = od začetka čakalne vrste do konca čakalne vrste
+- τ (tau): čas v sistemu oz. pretočni čas oz. od začetka do konca.
 
 - θ (theta): čas koraka = od enega zaključka do naslednjega zaključka; en čas koraka je en presledek, povprečni čas koraka pa je povprečni presledek
 
-- φ (fi): čas dela = čas, porabljen za dejansko delo, oz. čas obdelave
-
 - ω (omega): čas čakanja = čas, ko se dejansko delo ne opravlja, oz. čas mirovanja
 
-![Diagram: pretočni čas τ je čas čakanja ω, ki mu sledi čas dela φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fi): čas dela = čas, porabljen za dejansko delo, oz. čas obdelave
+
+![Diagram: pretočni čas τ, čas čakanja ω, čas dela φ, čas koraka θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Primeri:
 
-- τ = 5 s pomeni, da je element dodan v čakalno vrsto in nato postrežen 5 sekund pozneje.
+- τ = 5 s pomeni, da element vstopi v sistem in ga 5 sekund pozneje zapusti.
 
 - ω = 4 s pomeni, da element čaka v čakalni vrsti 4 sekunde, nato se delo začne.
 

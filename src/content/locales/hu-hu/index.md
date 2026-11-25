@@ -19,11 +19,11 @@ Tartalom:
   - [Darabszám](#darabszám)
   - [Érkezési ráta, kiszolgálási ráta, távozási ráta](#érkezési-ráta-kiszolgálási-ráta-távozási-ráta)
   - [Kihasználtsági arány, más néven forgalmi intenzitás](#kihasználtsági-arány-más-néven-forgalmi-intenzitás)
-  - [Áteresztési ráták: teljes ráta, befejezési ráta, sikerességi ráta, hibaráta, kihagyási ráta](#áteresztési-ráták-teljes-ráta-befejezési-ráta-sikerességi-ráta-hibaráta-kihagyási-ráta)
+  - [Áteresztési ráták: távozási ráta, befejezési ráta, sikerességi ráta, hibaráta, kihagyási ráta](#áteresztési-ráták-távozási-ráta-befejezési-ráta-sikerességi-ráta-hibaráta-kihagyási-ráta)
   - [A kiszolgálási ráta fogalmának tisztázása](#a-kiszolgálási-ráta-fogalmának-tisztázása)
   - [Kihagyási ráta](#kihagyási-ráta)
   - [Hibaarány](#hibaarány)
-  - [Átfutási idő, lépésidő, munkaidő, várakozási idő](#átfutási-idő-lépésidő-munkaidő-várakozási-idő)
+  - [Átfutási idő, várakozási idő, munkaidő, lépésidő](#átfutási-idő-várakozási-idő-munkaidő-lépésidő)
   - [Kendall-féle jelölés](#kendall-féle-jelölés)
 - [A sorbanállás matematikája](#a-sorbanállás-matematikája)
   - [A kihasználtsági görbe](#a-kihasználtsági-görbe)
@@ -168,7 +168,7 @@ A legfontosabb jelölés:
 
 - χ (khí): távozási ráta. Azt méri, milyen gyorsan hagyják el az elemek a rendszert.
 
-![Ábra: az elemek λ rátával érkeznek, μ rátával szolgálják ki őket, és χ rátával távoznak](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Ábra: az elemek λ rátával érkeznek, μ rátával szolgálják ki őket, és χ rátával távoznak](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Általános példák hagyományos, egy kiszolgálós sorokra:
 
@@ -196,7 +196,7 @@ Példák:
 
 - ρ > 1 azt jelenti, hogy az érkezések meghaladják a kapacitást; a sor egyre nagyobb.
 
-### Áteresztési ráták: teljes ráta, befejezési ráta, sikerességi ráta, hibaráta, kihagyási ráta
+### Áteresztési ráták: távozási ráta, befejezési ráta, sikerességi ráta, hibaráta, kihagyási ráta
 
 Az áteresztési ráták a megfigyelt kimenetet mérik, vagyis azokat az elemeket, amelyek ténylegesen elhagyják a sort. Öt fő kategóriájuk van:
 
@@ -210,6 +210,8 @@ Az áteresztési ráták a megfigyelt kimenetet mérik, vagyis azokat az elemeke
 
 - σ (szigma): kihagyási ráta. Ez azt méri, időszakonként hány elem lép be a sorba, majd távozik kiszolgálás nélkül, például feladások, visszalépések.
 
+![Ábra: távozási ráta χ = befejezési ráta δ + kihagyási ráta σ; befejezési ráta δ = sikerességi ráta α + hibaráta β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Befejezési ráta = sikerességi ráta + hibaráta:
 
 - δ = α + β (kiejtve: delta egyenlő alfa plusz béta)
@@ -221,8 +223,6 @@ Teljes ráta = befejezési ráta + kihagyási ráta:
 Teljes ráta = sikerességi ráta + hibaráta + kihagyási ráta:
 
 - χ = α + β + σ (kiejtve: khí egyenlő alfa plusz béta plusz szigma)
-
-![Ábra: távozási ráta χ = befejezési ráta δ + kihagyási ráta σ; befejezési ráta δ = sikerességi ráta α + hibaráta β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Minden χ-ben számolt elem belépett a rendszerbe, így állandósult állapotban a teljes ráta egyenlő az érkezési rátával: χ ≈ λ. Ezért mérik az áteresztési ráták a kimenetet, nem pedig a kapacitást.
 
@@ -287,23 +287,23 @@ Példák:
 
 - ε = 1 azt jelenti, hogy minden kiszolgálásban hiba van.
 
-### Átfutási idő, lépésidő, munkaidő, várakozási idő
+### Átfutási idő, várakozási idő, munkaidő, lépésidő
 
 Négy időt követünk nyomon:
 
-- τ (tau): átfutási idő = a sorba lépéstől a sor végéig
+- τ (tau): a rendszerben töltött idő, más néven átfutási idő, más néven az elejétől a végéig.
 
 - θ (théta): lépésidő = az egyik befejezéstől a következő befejezésig; egy lépésidő egy köz, az átlagos lépésidő pedig az átlagos köz
 
-- φ (fí): munkaidő = a tényleges munkával töltött idő, más néven feldolgozási idő
-
 - ω (ómega): várakozási idő = a tényleges munka nélkül töltött idő, más néven függőben lévő idő
 
-![Ábra: az átfutási idő τ a várakozási idő ω, amelyet a munkaidő φ követ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fí): munkaidő = a tényleges munkával töltött idő, más néven feldolgozási idő
+
+![Ábra: átfutási idő τ, várakozási idő ω, munkaidő φ, lépésidő θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Példák:
 
-- τ = 5s azt jelenti, hogy egy elem bekerül a sorba, majd 5 másodperccel később kiszolgálják.
+- τ = 5s azt jelenti, hogy egy elem belép a rendszerbe, majd 5 másodperccel később kilép belőle.
 
 - ω = 4s azt jelenti, hogy egy elem 4 másodpercig várakozik a sorban, majd megkezdődik a munka.
 

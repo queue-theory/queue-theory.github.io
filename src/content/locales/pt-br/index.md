@@ -15,11 +15,11 @@ Sumário:
   - [Contagem](#contagem)
   - [Taxa de chegada, taxa de atendimento, taxa de saída](#taxa-de-chegada-taxa-de-atendimento-taxa-de-saída)
   - [Razão de utilização, também chamada intensidade de tráfego](#razão-de-utilização-também-chamada-intensidade-de-tráfego)
-  - [Taxas de vazão: taxa total, taxa de conclusão, taxa de sucesso, taxa de falha, taxa de desistência](#taxas-de-vazão-taxa-total-taxa-de-conclusão-taxa-de-sucesso-taxa-de-falha-taxa-de-desistência)
+  - [Taxas de vazão: taxa de saída, taxa de conclusão, taxa de sucesso, taxa de falha, taxa de desistência](#taxas-de-vazão-taxa-de-saída-taxa-de-conclusão-taxa-de-sucesso-taxa-de-falha-taxa-de-desistência)
   - [Desambiguação da taxa de atendimento](#desambiguação-da-taxa-de-atendimento)
   - [Taxa de desistência](#taxa-de-desistência)
   - [Razão de erro](#razão-de-erro)
-  - [Tempo de atravessamento, tempo de passo, tempo de trabalho, tempo de espera](#tempo-de-atravessamento-tempo-de-passo-tempo-de-trabalho-tempo-de-espera)
+  - [Tempo de atravessamento, tempo de espera, tempo de trabalho, tempo de passo](#tempo-de-atravessamento-tempo-de-espera-tempo-de-trabalho-tempo-de-passo)
   - [Notação de Kendall](#notação-de-kendall)
 - [Matemática das filas](#matemática-das-filas)
   - [A curva de utilização](#a-curva-de-utilização)
@@ -164,7 +164,7 @@ A notação mais importante:
 
 - χ (qui): taxa de saída. Mede a rapidez com que os itens saem do sistema.
 
-![Diagrama: os itens chegam à taxa λ, são atendidos à taxa μ e saem à taxa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagrama: os itens chegam à taxa λ, são atendidos à taxa μ e saem à taxa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Exemplos de generalidades para filas tradicionais com um servidor:
 
@@ -192,7 +192,7 @@ Exemplos:
 
 - ρ > 1 significa que as chegadas excedem a capacidade; a fila está aumentando.
 
-### Taxas de vazão: taxa total, taxa de conclusão, taxa de sucesso, taxa de falha, taxa de desistência
+### Taxas de vazão: taxa de saída, taxa de conclusão, taxa de sucesso, taxa de falha, taxa de desistência
 
 As taxas de vazão medem a produção observada, ou seja, os itens que efetivamente saem da fila. Elas se dividem em cinco grandes categorias:
 
@@ -206,6 +206,8 @@ As taxas de vazão medem a produção observada, ou seja, os itens que efetivame
 
 - σ (sigma): taxa de desistência. Mede quantos itens por período de tempo entram na fila e depois saem sem serem atendidos, por exemplo abandonos, desistências.
 
+![Diagrama: taxa de saída χ = taxa de conclusão δ + taxa de desistência σ; taxa de conclusão δ = taxa de sucesso α + taxa de falha β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Taxa de conclusão = taxa de sucesso + taxa de falha:
 
 - δ = α + β (lê-se: delta é igual a alfa mais beta)
@@ -217,8 +219,6 @@ Taxa total = taxa de conclusão + taxa de desistência:
 Taxa total = taxa de sucesso + taxa de falha + taxa de desistência:
 
 - χ = α + β + σ (lê-se: qui é igual a alfa mais beta mais sigma)
-
-![Diagrama: taxa de saída χ = taxa de conclusão δ + taxa de desistência σ; taxa de conclusão δ = taxa de sucesso α + taxa de falha β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Todo item contado em χ entrou no sistema, portanto, em regime estacionário, a taxa total é igual à taxa de chegada: χ ≈ λ. É por isso que as taxas de vazão medem a produção, e não a capacidade.
 
@@ -280,23 +280,23 @@ Exemplos:
 
 - ε = 1 significa que todo atendimento tem um erro.
 
-### Tempo de atravessamento, tempo de passo, tempo de trabalho, tempo de espera
+### Tempo de atravessamento, tempo de espera, tempo de trabalho, tempo de passo
 
 Acompanhamos quatro tempos:
 
-- τ (tau): tempo de atravessamento (lead time) = do início da fila até o fim da fila
+- τ (tau): tempo no sistema, também chamado tempo de atravessamento (lead time), também chamado do início ao fim.
 
 - θ (teta): tempo de passo = de uma conclusão até a conclusão seguinte; um tempo de passo é um intervalo, e o tempo de passo médio é o intervalo médio
 
-- φ (fi): tempo de trabalho = tempo gasto fazendo trabalho efetivo, também chamado tempo de processamento
-
 - ω (ômega): tempo de espera = tempo gasto sem fazer trabalho efetivo, também chamado tempo pendente
 
-![Diagrama: o tempo de atravessamento τ é o tempo de espera ω seguido do tempo de trabalho φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fi): tempo de trabalho = tempo gasto fazendo trabalho efetivo, também chamado tempo de processamento
+
+![Diagrama: tempo de atravessamento τ, tempo de espera ω, tempo de trabalho φ, tempo de passo θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Exemplos:
 
-- τ = 5s significa que um item é adicionado à fila e atendido 5 segundos depois.
+- τ = 5s significa que um item entra no sistema e sai dele 5 segundos depois.
 
 - ω = 4s significa que um item espera na fila por 4 segundos e então o trabalho começa.
 

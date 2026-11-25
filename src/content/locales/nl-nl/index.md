@@ -15,11 +15,11 @@ Inhoud:
   - [Aantal](#aantal)
   - [Aankomstsnelheid, bedieningssnelheid, vertreksnelheid](#aankomstsnelheid-bedieningssnelheid-vertreksnelheid)
   - [Bezettingsgraad, ook wel verkeersintensiteit](#bezettingsgraad-ook-wel-verkeersintensiteit)
-  - [Doorvoersnelheden: totale snelheid, voltooiingssnelheid, successnelheid, faalsnelheid, uitvalsnelheid](#doorvoersnelheden-totale-snelheid-voltooiingssnelheid-successnelheid-faalsnelheid-uitvalsnelheid)
+  - [Doorvoersnelheden: vertreksnelheid, voltooiingssnelheid, successnelheid, faalsnelheid, uitvalsnelheid](#doorvoersnelheden-vertreksnelheid-voltooiingssnelheid-successnelheid-faalsnelheid-uitvalsnelheid)
   - [Verduidelijking van de bedieningssnelheid](#verduidelijking-van-de-bedieningssnelheid)
   - [Uitvalsnelheid](#uitvalsnelheid)
   - [Foutratio](#foutratio)
-  - [Doorlooptijd, staptijd, werktijd, wachttijd](#doorlooptijd-staptijd-werktijd-wachttijd)
+  - [Doorlooptijd, wachttijd, werktijd, staptijd](#doorlooptijd-wachttijd-werktijd-staptijd)
   - [Kendall-notatie](#kendall-notatie)
 - [Wachtrijwiskunde](#wachtrijwiskunde)
   - [De bezettingscurve](#de-bezettingscurve)
@@ -164,7 +164,7 @@ De belangrijkste notatie:
 
 - χ (chi): vertreksnelheid. Deze meet hoe snel items het systeem verlaten.
 
-![Diagram: items komen aan met snelheid λ, worden bediend met snelheid μ en vertrekken met snelheid χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: items komen aan met snelheid λ, worden bediend met snelheid μ en vertrekken met snelheid χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Voorbeelden van algemene regels voor traditionele wachtrijen met één server:
 
@@ -192,7 +192,7 @@ Voorbeelden:
 
 - ρ > 1 betekent dat de aankomsten de capaciteit overschrijden; de wachtrij wordt groter.
 
-### Doorvoersnelheden: totale snelheid, voltooiingssnelheid, successnelheid, faalsnelheid, uitvalsnelheid
+### Doorvoersnelheden: vertreksnelheid, voltooiingssnelheid, successnelheid, faalsnelheid, uitvalsnelheid
 
 Doorvoersnelheden meten waargenomen uitvoer, dat wil zeggen items die de wachtrij daadwerkelijk verlaten. Ze vallen in vijf brede categorieën:
 
@@ -206,6 +206,8 @@ Doorvoersnelheden meten waargenomen uitvoer, dat wil zeggen items die de wachtri
 
 - σ (sigma): uitvalsnelheid. Deze meet hoeveel items per tijdsperiode de wachtrij binnenkomen en die daarna verlaten zonder te worden bediend, bijv. opgaven, afhakers.
 
+![Diagram: vertreksnelheid χ = voltooiingssnelheid δ + uitvalsnelheid σ; voltooiingssnelheid δ = successnelheid α + faalsnelheid β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Voltooiingssnelheid = successnelheid + faalsnelheid:
 
 - δ = α + β (uitgesproken: delta is gelijk aan alfa plus bèta)
@@ -217,8 +219,6 @@ Totale snelheid = voltooiingssnelheid + uitvalsnelheid:
 Totale snelheid = successnelheid + faalsnelheid + uitvalsnelheid:
 
 - χ = α + β + σ (uitgesproken: chi is gelijk aan alfa plus bèta plus sigma)
-
-![Diagram: vertreksnelheid χ = voltooiingssnelheid δ + uitvalsnelheid σ; voltooiingssnelheid δ = successnelheid α + faalsnelheid β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Elk item dat in χ wordt geteld, is het systeem binnengekomen, dus in evenwichtstoestand is de totale snelheid gelijk aan de aankomstsnelheid: χ ≈ λ. Daarom meten doorvoersnelheden uitvoer, en geen capaciteit.
 
@@ -283,23 +283,23 @@ Voorbeelden:
 
 - ε = 1 betekent dat elke bediening een fout bevat.
 
-### Doorlooptijd, staptijd, werktijd, wachttijd
+### Doorlooptijd, wachttijd, werktijd, staptijd
 
 Wij volgen vier tijden:
 
-- τ (tau): doorlooptijd = van het begin van de wachtrij tot het einde van de wachtrij
+- τ (tau): tijd in het systeem, ook wel doorlooptijd, ook wel van begin tot eind.
 
 - θ (thèta): staptijd = van de ene voltooiing tot de volgende voltooiing; één staptijd is één tussenruimte, en de gemiddelde staptijd is de gemiddelde tussenruimte
 
-- φ (phi): werktijd = tijd besteed aan daadwerkelijk werk, ook wel verwerkingstijd
-
 - ω (omega): wachttijd = tijd die niet aan daadwerkelijk werk wordt besteed, ook wel wachtende tijd
 
-![Diagram: de doorlooptijd τ is de wachttijd ω gevolgd door de werktijd φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): werktijd = tijd besteed aan daadwerkelijk werk, ook wel verwerkingstijd
+
+![Diagram: doorlooptijd τ, wachttijd ω, werktijd φ, staptijd θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Voorbeelden:
 
-- τ = 5s betekent dat een item aan de wachtrij wordt toegevoegd en 5 seconden later wordt bediend.
+- τ = 5s betekent dat een item het systeem binnenkomt en het 5 seconden later weer verlaat.
 
 - ω = 4s betekent dat een item 4 seconden in de wachtrij wacht, waarna het werk begint.
 

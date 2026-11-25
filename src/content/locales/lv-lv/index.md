@@ -15,11 +15,11 @@ Saturs:
   - [Skaits](#skaits)
   - [Ierašanās ātrums, apkalpošanas ātrums, aiziešanas ātrums](#ierašanās-ātrums-apkalpošanas-ātrums-aiziešanas-ātrums)
   - [Noslodzes koeficients jeb satiksmes intensitāte](#noslodzes-koeficients-jeb-satiksmes-intensitāte)
-  - [Caurlaidspējas ātrumi: kopējais ātrums, pabeigšanas ātrums, veiksmes ātrums, neveiksmes ātrums, izlaišanas ātrums](#caurlaidspējas-ātrumi-kopējais-ātrums-pabeigšanas-ātrums-veiksmes-ātrums-neveiksmes-ātrums-izlaišanas-ātrums)
+  - [Caurlaidspējas ātrumi: aiziešanas ātrums, pabeigšanas ātrums, veiksmes ātrums, neveiksmes ātrums, izlaišanas ātrums](#caurlaidspējas-ātrumi-aiziešanas-ātrums-pabeigšanas-ātrums-veiksmes-ātrums-neveiksmes-ātrums-izlaišanas-ātrums)
   - [Apkalpošanas ātruma jēdziena precizējums](#apkalpošanas-ātruma-jēdziena-precizējums)
   - [Izlaišanas ātrums](#izlaišanas-ātrums)
   - [Kļūdu attiecība](#kļūdu-attiecība)
-  - [Izpildes laiks, soļa laiks, darba laiks, gaidīšanas laiks](#izpildes-laiks-soļa-laiks-darba-laiks-gaidīšanas-laiks)
+  - [Izpildes laiks, gaidīšanas laiks, darba laiks, soļa laiks](#izpildes-laiks-gaidīšanas-laiks-darba-laiks-soļa-laiks)
   - [Kendala apzīmējumi](#kendala-apzīmējumi)
 - [Rindu matemātika](#rindu-matemātika)
   - [Noslodzes līkne](#noslodzes-līkne)
@@ -164,7 +164,7 @@ Svarīgākie apzīmējumi:
 
 - χ (hī): aiziešanas ātrums. Tas mēra, cik ātri elementi iziet no sistēmas.
 
-![Diagramma: elementi ierodas ar ātrumu λ, tiek apkalpoti ar ātrumu μ un aiziet ar ātrumu χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagramma: elementi ierodas ar ātrumu λ, tiek apkalpoti ar ātrumu μ un aiziet ar ātrumu χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Vispārīgu likumsakarību piemēri tradicionālām rindām ar vienu serveri:
 
@@ -192,7 +192,7 @@ Piemēri:
 
 - ρ > 1 nozīmē, ka ierašanās pārsniedz jaudu; rinda kļūst lielāka.
 
-### Caurlaidspējas ātrumi: kopējais ātrums, pabeigšanas ātrums, veiksmes ātrums, neveiksmes ātrums, izlaišanas ātrums
+### Caurlaidspējas ātrumi: aiziešanas ātrums, pabeigšanas ātrums, veiksmes ātrums, neveiksmes ātrums, izlaišanas ātrums
 
 Caurlaidspējas ātrumi mēra novēroto izvadi, t. i., elementus, kas faktiski atstāj rindu. Tie iedalās piecās plašās kategorijās:
 
@@ -206,6 +206,8 @@ Caurlaidspējas ātrumi mēra novēroto izvadi, t. i., elementus, kas faktiski a
 
 - σ (sigma): izlaišanas ātrums. Tas mēra, cik elementu laika periodā ienāk rindā un pēc tam aiziet neapkalpoti, piem., pamešana, atteikšanās.
 
+![Diagramma: aiziešanas ātrums χ = pabeigšanas ātrums δ + izlaišanas ātrums σ; pabeigšanas ātrums δ = veiksmes ātrums α + neveiksmes ātrums β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Pabeigšanas ātrums = veiksmes ātrums + neveiksmes ātrums:
 
 - δ = α + β (izrunā: delta ir vienāds ar alfa plus beta)
@@ -217,8 +219,6 @@ Kopējais ātrums = pabeigšanas ātrums + izlaišanas ātrums:
 Kopējais ātrums = veiksmes ātrums + neveiksmes ātrums + izlaišanas ātrums:
 
 - χ = α + β + σ (izrunā: hī ir vienāds ar alfa plus beta plus sigma)
-
-![Diagramma: aiziešanas ātrums χ = pabeigšanas ātrums δ + izlaišanas ātrums σ; pabeigšanas ātrums δ = veiksmes ātrums α + neveiksmes ātrums β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Katrs χ ieskaitītais elements ir ienācis sistēmā, tāpēc līdzsvara stāvoklī kopējais ātrums ir vienāds ar ierašanās ātrumu: χ ≈ λ. Tāpēc caurlaidspējas ātrumi mēra izvadi, nevis jaudu.
 
@@ -280,23 +280,23 @@ Piemēri:
 
 - ε = 1 nozīmē, ka katrai apkalpošanai ir kļūda.
 
-### Izpildes laiks, soļa laiks, darba laiks, gaidīšanas laiks
+### Izpildes laiks, gaidīšanas laiks, darba laiks, soļa laiks
 
 Mēs sekojam četriem laikiem:
 
-- τ (tau): izpildes laiks = no rindas sākuma līdz rindas beigām
+- τ (tau): laiks sistēmā jeb izpildes laiks jeb no sākuma līdz beigām.
 
 - θ (teta): soļa laiks = no vienas pabeigšanas līdz nākamajai pabeigšanai; viens soļa laiks ir viena atstarpe, un vidējais soļa laiks ir vidējā atstarpe
 
-- φ (fī): darba laiks = laiks, kas pavadīts, veicot faktisku darbu, jeb apstrādes laiks
-
 - ω (omega): gaidīšanas laiks = laiks, kas pavadīts, neveicot faktisku darbu, jeb nogaides laiks
 
-![Diagramma: izpildes laiks τ ir gaidīšanas laiks ω, kam seko darba laiks φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fī): darba laiks = laiks, kas pavadīts, veicot faktisku darbu, jeb apstrādes laiks
+
+![Diagramma: izpildes laiks τ, gaidīšanas laiks ω, darba laiks φ, soļa laiks θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Piemēri:
 
-- τ = 5s nozīmē, ka elements tiek pievienots rindai un apkalpots 5 sekundes vēlāk.
+- τ = 5s nozīmē, ka elements ienāk sistēmā un pēc 5 sekundēm to atstāj.
 
 - ω = 4s nozīmē, ka elements gaida rindā 4 sekundes, un tad sākas darbs.
 

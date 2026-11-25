@@ -20,11 +20,11 @@ Indice:
   - [Conteggio](#conteggio)
   - [Tasso di arrivo, tasso di servizio, tasso di uscita](#tasso-di-arrivo-tasso-di-servizio-tasso-di-uscita)
   - [Rapporto di utilizzo, detto anche intensità di traffico](#rapporto-di-utilizzo-detto-anche-intensità-di-traffico)
-  - [Tassi di throughput: tasso totale, tasso di completamento, tasso di successo, tasso di fallimento, tasso di abbandono](#tassi-di-throughput-tasso-totale-tasso-di-completamento-tasso-di-successo-tasso-di-fallimento-tasso-di-abbandono)
+  - [Tassi di throughput: tasso di uscita, tasso di completamento, tasso di successo, tasso di fallimento, tasso di abbandono](#tassi-di-throughput-tasso-di-uscita-tasso-di-completamento-tasso-di-successo-tasso-di-fallimento-tasso-di-abbandono)
   - [Ambiguità del tasso di servizio](#ambiguità-del-tasso-di-servizio)
   - [Tasso di abbandono](#tasso-di-abbandono)
   - [Rapporto di errore](#rapporto-di-errore)
-  - [Lead time, tempo di passo, tempo di lavoro, tempo di attesa](#lead-time-tempo-di-passo-tempo-di-lavoro-tempo-di-attesa)
+  - [Lead time, tempo di attesa, tempo di lavoro, tempo di passo](#lead-time-tempo-di-attesa-tempo-di-lavoro-tempo-di-passo)
   - [Notazione di Kendall](#notazione-di-kendall)
 - [Matematica delle code](#matematica-delle-code)
   - [La curva di utilizzo](#la-curva-di-utilizzo)
@@ -169,7 +169,7 @@ La notazione più importante:
 
 - χ (chi): tasso di uscita. Misura quanto velocemente gli elementi escono dal sistema.
 
-![Diagramma: gli elementi arrivano al tasso λ, vengono serviti al tasso μ ed escono al tasso χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagramma: gli elementi arrivano al tasso λ, vengono serviti al tasso μ ed escono al tasso χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Esempi di regole generali per code tradizionali con un solo servente:
 
@@ -197,7 +197,7 @@ Esempi:
 
 - ρ > 1 significa che gli arrivi superano la capacità; la coda si sta allungando.
 
-### Tassi di throughput: tasso totale, tasso di completamento, tasso di successo, tasso di fallimento, tasso di abbandono
+### Tassi di throughput: tasso di uscita, tasso di completamento, tasso di successo, tasso di fallimento, tasso di abbandono
 
 I tassi di throughput misurano l'output osservato, cioè gli elementi che lasciano effettivamente la coda. Si dividono in cinque grandi categorie:
 
@@ -211,6 +211,8 @@ I tassi di throughput misurano l'output osservato, cioè gli elementi che lascia
 
 - σ (sigma): tasso di abbandono. Misura quanti elementi per periodo di tempo entrano nella coda e poi escono senza essere serviti, ad es. abbandoni, rinunce.
 
+![Diagramma: tasso di uscita χ = tasso di completamento δ + tasso di abbandono σ; tasso di completamento δ = tasso di successo α + tasso di fallimento β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Tasso di completamento = tasso di successo + tasso di fallimento:
 
 - δ = α + β (si pronuncia: delta uguale alfa più beta)
@@ -222,8 +224,6 @@ Tasso totale = tasso di completamento + tasso di abbandono:
 Tasso totale = tasso di successo + tasso di fallimento + tasso di abbandono:
 
 - χ = α + β + σ (si pronuncia: chi uguale alfa più beta più sigma)
-
-![Diagramma: tasso di uscita χ = tasso di completamento δ + tasso di abbandono σ; tasso di completamento δ = tasso di successo α + tasso di fallimento β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Ogni elemento contato in χ è entrato nel sistema, quindi a regime il tasso totale è uguale al tasso di arrivo: χ ≈ λ. Per questo i tassi di throughput misurano l'output, non la capacità.
 
@@ -288,23 +288,23 @@ Esempi:
 
 - ε = 1 significa che ogni servizio presenta un errore.
 
-### Lead time, tempo di passo, tempo di lavoro, tempo di attesa
+### Lead time, tempo di attesa, tempo di lavoro, tempo di passo
 
 Monitoriamo quattro tempi:
 
-- τ (tau): lead time = dall'ingresso nella coda all'uscita dalla coda
+- τ (tau): tempo nel sistema, detto anche lead time, detto anche dall'inizio alla fine.
 
 - θ (theta): tempo di passo = da un completamento al completamento successivo; un tempo di passo è un intervallo, e il tempo di passo medio è l'intervallo medio
 
-- φ (phi): tempo di lavoro = tempo dedicato al lavoro effettivo, detto anche tempo di elaborazione
-
 - ω (omega): tempo di attesa = tempo trascorso senza lavoro effettivo, detto anche tempo di sospensione
 
-![Diagramma: il lead time τ è il tempo di attesa ω seguito dal tempo di lavoro φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): tempo di lavoro = tempo dedicato al lavoro effettivo, detto anche tempo di elaborazione
+
+![Diagramma: lead time τ, tempo di attesa ω, tempo di lavoro φ, tempo di passo θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Esempi:
 
-- τ = 5s significa che un elemento viene aggiunto alla coda e poi servito 5 secondi dopo.
+- τ = 5s significa che un elemento entra nel sistema e ne esce 5 secondi dopo.
 
 - ω = 4s significa che un elemento attende in coda per 4 secondi, poi inizia il lavoro.
 

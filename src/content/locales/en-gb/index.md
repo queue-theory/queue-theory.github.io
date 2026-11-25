@@ -19,11 +19,11 @@ Contents:
   - [Count](#count)
   - [Arrival rate, service rate, departure rate](#arrival-rate-service-rate-departure-rate)
   - [Utilisation ratio a.k.a. traffic intensity](#utilisation-ratio-aka-traffic-intensity)
-  - [Throughput rates: total rate, done rate, success rate, failure rate, skip rate](#throughput-rates-total-rate-done-rate-success-rate-failure-rate-skip-rate)
+  - [Throughput rates: departure rate, done rate, success rate, failure rate, skip rate](#throughput-rates-departure-rate-done-rate-success-rate-failure-rate-skip-rate)
   - [Service rate disambiguation](#service-rate-disambiguation)
   - [Skip rate](#skip-rate)
   - [Error ratio](#error-ratio)
-  - [Lead time, step time, work time, wait time](#lead-time-step-time-work-time-wait-time)
+  - [Lead time, wait time, work time, step time](#lead-time-wait-time-work-time-step-time)
   - [Kendall's notation](#kendalls-notation)
 - [Queue maths](#queue-maths)
   - [The utilisation curve](#the-utilisation-curve)
@@ -168,7 +168,7 @@ The most important notation:
 
 - χ (chi): departure rate. This measures how fast items are exiting the system.
 
-![Diagram: items arrive at rate λ, are served at rate μ, and depart at rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: items arrive at rate λ, are served at rate μ, and depart at rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Examples of generalities for traditional queues with one server:
 
@@ -196,7 +196,7 @@ Examples:
 
 - ρ > 1 means arrivals exceed capacity; the queue is getting larger.
 
-### Throughput rates: total rate, done rate, success rate, failure rate, skip rate
+### Throughput rates: departure rate, done rate, success rate, failure rate, skip rate
 
 Throughput rates measure observed output, meaning items that actually leave the queue. They come in five broad categories:
 
@@ -210,6 +210,8 @@ Throughput rates measure observed output, meaning items that actually leave the 
 
 - σ (sigma): skip rate. This measures how many items per time period enter the queue, then leave without being served, e.g. abandonments, reneges.
 
+![Diagram: departure rate χ = done rate δ + skip rate σ; done rate δ = success rate α + failure rate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Done rate = success rate + failure rate:
 
 - δ = α + β (pronounced: delta equals alpha plus beta)
@@ -221,8 +223,6 @@ Total rate = done rate + skip rate:
 Total rate = success rate + failure rate + skip rate:
 
 - χ = α + β + σ (pronounced: chi equals alpha plus beta plus sigma)
-
-![Diagram: departure rate χ = done rate δ + skip rate σ; done rate δ = success rate α + failure rate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Every item counted in χ entered the system, so in steady state the total rate equals the arrival rate: χ ≈ λ. That is why throughput rates measure output, not capacity.
 
@@ -287,23 +287,23 @@ Examples:
 
 - ε = 1 means every service has an error.
 
-### Lead time, step time, work time, wait time
+### Lead time, wait time, work time, step time
 
 We track four times:
 
-- τ (tau): lead time = from start of queue to finish of queue
+- τ (tau): time in the system a.k.a. lead time a.k.a. from start to finish.
 
 - θ (theta): step time = from one finish to the next finish; one step time is one gap, and the mean step time is the average gap
 
-- φ (phi): work time = time spent doing actual work a.k.a. processing time
-
 - ω (omega): wait time = time spent not doing actual work a.k.a. pending time
 
-![Diagram: lead time τ is wait time ω followed by work time φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): work time = time spent doing actual work a.k.a. processing time
+
+![Diagram: lead time τ, wait time ω, work time φ, step time θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Examples:
 
-- τ = 5s means an item is added to the queue, then serviced 5 seconds later.
+- τ = 5s means an item enters the system, then exits the system 5 seconds later.
 
 - ω = 4s means an item waits in the queue for 4 seconds, then work starts.
 

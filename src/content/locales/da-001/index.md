@@ -19,11 +19,11 @@ Indhold:
   - [Antal](#antal)
   - [Ankomstrate, servicerate, afgangsrate](#ankomstrate-servicerate-afgangsrate)
   - [Udnyttelsesgrad, også kaldet trafikintensitet](#udnyttelsesgrad-også-kaldet-trafikintensitet)
-  - [Gennemløbsrater: samlet rate, færdigrate, succesrate, fejlrate, springrate](#gennemløbsrater-samlet-rate-færdigrate-succesrate-fejlrate-springrate)
+  - [Gennemløbsrater: afgangsrate, færdigrate, succesrate, fejlrate, springrate](#gennemløbsrater-afgangsrate-færdigrate-succesrate-fejlrate-springrate)
   - [Tvetydighed i begrebet servicerate](#tvetydighed-i-begrebet-servicerate)
   - [Springrate](#springrate)
   - [Fejlforhold](#fejlforhold)
-  - [Gennemløbstid, trintid, arbejdstid, ventetid](#gennemløbstid-trintid-arbejdstid-ventetid)
+  - [Gennemløbstid, ventetid, arbejdstid, trintid](#gennemløbstid-ventetid-arbejdstid-trintid)
   - [Kendalls notation](#kendalls-notation)
 - [Kømatematik](#kømatematik)
   - [Udnyttelseskurven](#udnyttelseskurven)
@@ -168,7 +168,7 @@ Den vigtigste notation:
 
 - χ (chi): afgangsrate. Den måler, hvor hurtigt elementer forlader systemet.
 
-![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlader systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlader systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Eksempler på generelle forhold for traditionelle køer med én server:
 
@@ -196,7 +196,7 @@ Eksempler:
 
 - ρ > 1 betyder, at ankomsterne overstiger kapaciteten; køen bliver større.
 
-### Gennemløbsrater: samlet rate, færdigrate, succesrate, fejlrate, springrate
+### Gennemløbsrater: afgangsrate, færdigrate, succesrate, fejlrate, springrate
 
 Gennemløbsrater måler observeret output, dvs. elementer, der faktisk forlader køen. De findes i fem brede kategorier:
 
@@ -210,6 +210,8 @@ Gennemløbsrater måler observeret output, dvs. elementer, der faktisk forlader 
 
 - σ (sigma): springrate. Den måler, hvor mange elementer pr. tidsperiode der kommer ind i køen og derefter forlader den uden at blive betjent, f.eks. opgivelser og frafald.
 
+![Diagram: afgangsrate χ = færdigrate δ + springrate σ; færdigrate δ = succesrate α + fejlrate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Færdigrate = succesrate + fejlrate:
 
 - δ = α + β (udtales: delta er lig med alpha plus beta)
@@ -221,8 +223,6 @@ Samlet rate = færdigrate + springrate:
 Samlet rate = succesrate + fejlrate + springrate:
 
 - χ = α + β + σ (udtales: chi er lig med alpha plus beta plus sigma)
-
-![Diagram: afgangsrate χ = færdigrate δ + springrate σ; færdigrate δ = succesrate α + fejlrate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Hvert element, der tælles i χ, er kommet ind i systemet, så i stabil tilstand er den samlede rate lig med ankomstraten: χ ≈ λ. Derfor måler gennemløbsrater output og ikke kapacitet.
 
@@ -287,23 +287,23 @@ Eksempler:
 
 - ε = 1 betyder, at hver betjening har en fejl.
 
-### Gennemløbstid, trintid, arbejdstid, ventetid
+### Gennemløbstid, ventetid, arbejdstid, trintid
 
 Vi følger fire tider:
 
-- τ (tau): gennemløbstid = fra køens start til køens afslutning
+- τ (tau): tid i systemet, også kaldet gennemløbstid, også kaldet fra start til slut.
 
 - θ (theta): trintid = fra én færdiggørelse til den næste færdiggørelse; én trintid er ét mellemrum, og den gennemsnitlige trintid er det gennemsnitlige mellemrum
 
-- φ (phi): arbejdstid = tid brugt på egentligt arbejde, også kaldet behandlingstid
-
 - ω (omega): ventetid = tid, der ikke bruges på egentligt arbejde, også kaldet afventningstid
 
-![Diagram: gennemløbstiden τ er ventetiden ω efterfulgt af arbejdstiden φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): arbejdstid = tid brugt på egentligt arbejde, også kaldet behandlingstid
+
+![Diagram: gennemløbstid τ, ventetid ω, arbejdstid φ, trintid θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Eksempler:
 
-- τ = 5s betyder, at et element tilføjes til køen og derefter betjenes 5 sekunder senere.
+- τ = 5s betyder, at et element kommer ind i systemet og forlader det 5 sekunder senere.
 
 - ω = 4s betyder, at et element venter i køen i 4 sekunder, hvorefter arbejdet begynder.
 

@@ -19,11 +19,11 @@ Efnisyfirlit:
   - [Fjöldi](#fjöldi)
   - [Komutíðni, þjónustutíðni, brottfaratíðni](#komutíðni-þjónustutíðni-brottfaratíðni)
   - [Nýtingarhlutfall, öðru nafni álagsstyrkur](#nýtingarhlutfall-öðru-nafni-álagsstyrkur)
-  - [Gegnumstreymistíðni: heildartíðni, lokatíðni, árangurstíðni, villutíðni, slepptíðni](#gegnumstreymistíðni-heildartíðni-lokatíðni-árangurstíðni-villutíðni-slepptíðni)
+  - [Gegnumstreymistíðni: brottfaratíðni, lokatíðni, árangurstíðni, villutíðni, slepptíðni](#gegnumstreymistíðni-brottfaratíðni-lokatíðni-árangurstíðni-villutíðni-slepptíðni)
   - [Margræðni hugtaksins þjónustutíðni](#margræðni-hugtaksins-þjónustutíðni)
   - [Slepptíðni](#slepptíðni)
   - [Villuhlutfall](#villuhlutfall)
-  - [Heildartími, skreftími, vinnutími, biðtími](#heildartími-skreftími-vinnutími-biðtími)
+  - [Heildartími, biðtími, vinnutími, skreftími](#heildartími-biðtími-vinnutími-skreftími)
   - [Táknmál Kendalls](#táknmál-kendalls)
 - [Stærðfræði biðraða](#stærðfræði-biðraða)
   - [Nýtingarferillinn](#nýtingarferillinn)
@@ -168,7 +168,7 @@ Mikilvægasta táknmálið:
 
 - χ (chi): brottfaratíðni. Hún mælir hversu hratt atriði fara út úr kerfinu.
 
-![Skýringarmynd: atriði koma með tíðninni λ, fá þjónustu með tíðninni μ og fara með tíðninni χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Skýringarmynd: atriði koma með tíðninni λ, fá þjónustu með tíðninni μ og fara með tíðninni χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Dæmi um almenn atriði fyrir hefðbundnar biðraðir með einum þjóni:
 
@@ -196,7 +196,7 @@ Dæmi:
 
 - ρ > 1 merkir að komur eru umfram afkastagetu; biðröðin stækkar.
 
-### Gegnumstreymistíðni: heildartíðni, lokatíðni, árangurstíðni, villutíðni, slepptíðni
+### Gegnumstreymistíðni: brottfaratíðni, lokatíðni, árangurstíðni, villutíðni, slepptíðni
 
 Gegnumstreymistíðni mælir mæld afköst, þ.e. atriði sem fara raunverulega úr biðröðinni. Hún skiptist í fimm meginflokka:
 
@@ -210,6 +210,8 @@ Gegnumstreymistíðni mælir mæld afköst, þ.e. atriði sem fara raunverulega 
 
 - σ (sigma): slepptíðni. Hún mælir hve mörg atriði á tímabil koma inn í biðröðina og fara síðan án þess að fá þjónustu, t.d. brotthvörf, uppgjafir.
 
+![Skýringarmynd: brottfaratíðni χ = lokatíðni δ + slepptíðni σ; lokatíðni δ = árangurstíðni α + villutíðni β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Lokatíðni = árangurstíðni + villutíðni:
 
 - δ = α + β (borið fram: delta jafngildir alfa plús beta)
@@ -221,8 +223,6 @@ Heildartíðni = lokatíðni + slepptíðni:
 Heildartíðni = árangurstíðni + villutíðni + slepptíðni:
 
 - χ = α + β + σ (borið fram: chi jafngildir alfa plús beta plús sigma)
-
-![Skýringarmynd: brottfaratíðni χ = lokatíðni δ + slepptíðni σ; lokatíðni δ = árangurstíðni α + villutíðni β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Hvert atriði sem talið er í χ kom inn í kerfið, svo í jafnvægisástandi er heildartíðnin jöfn komutíðninni: χ ≈ λ. Þess vegna mælir gegnumstreymistíðni afköst, ekki afkastagetu.
 
@@ -287,23 +287,23 @@ Dæmi:
 
 - ε = 1 merkir að öll þjónusta er með villu.
 
-### Heildartími, skreftími, vinnutími, biðtími
+### Heildartími, biðtími, vinnutími, skreftími
 
 Við fylgjumst með fjórum tímum:
 
-- τ (tá): heildartími = frá upphafi biðraðar til loka biðraðar
+- τ (tá): tími í kerfinu, öðru nafni heildartími, öðru nafni frá upphafi til enda.
 
 - θ (þeta): skreftími = frá einum lokum til næstu loka; einn skreftími er eitt bil og meðalskreftíminn er meðalbilið
 
-- φ (fí): vinnutími = tími sem fer í raunverulega vinnu, öðru nafni vinnslutími
-
 - ω (ómega): biðtími = tími sem fer ekki í raunverulega vinnu, öðru nafni bið
 
-![Skýringarmynd: heildartíminn τ er biðtíminn ω og síðan vinnutíminn φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fí): vinnutími = tími sem fer í raunverulega vinnu, öðru nafni vinnslutími
+
+![Skýringarmynd: heildartími τ, biðtími ω, vinnutími φ, skreftími θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Dæmi:
 
-- τ = 5 s merkir að atriði er sett í biðröðina og afgreitt 5 sekúndum síðar.
+- τ = 5 s merkir að atriði kemur inn í kerfið og fer úr því 5 sekúndum síðar.
 
 - ω = 4 s merkir að atriði bíður í biðröðinni í 4 sekúndur og síðan hefst vinnan.
 

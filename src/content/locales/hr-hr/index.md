@@ -19,11 +19,11 @@ Sadržaj:
   - [Broj](#broj)
   - [Stopa dolazaka, stopa posluživanja, stopa odlazaka](#stopa-dolazaka-stopa-posluživanja-stopa-odlazaka)
   - [Omjer iskorištenosti odnosno intenzitet prometa](#omjer-iskorištenosti-odnosno-intenzitet-prometa)
-  - [Stope propusnosti: ukupna stopa, stopa dovršenosti, stopa uspjeha, stopa neuspjeha, stopa preskakanja](#stope-propusnosti-ukupna-stopa-stopa-dovršenosti-stopa-uspjeha-stopa-neuspjeha-stopa-preskakanja)
+  - [Stope propusnosti: stopa odlazaka, stopa dovršenosti, stopa uspjeha, stopa neuspjeha, stopa preskakanja](#stope-propusnosti-stopa-odlazaka-stopa-dovršenosti-stopa-uspjeha-stopa-neuspjeha-stopa-preskakanja)
   - [Razjašnjenje pojma stope posluživanja](#razjašnjenje-pojma-stope-posluživanja)
   - [Stopa preskakanja](#stopa-preskakanja)
   - [Omjer pogrešaka](#omjer-pogrešaka)
-  - [Vrijeme isporuke, vrijeme koraka, vrijeme rada, vrijeme čekanja](#vrijeme-isporuke-vrijeme-koraka-vrijeme-rada-vrijeme-čekanja)
+  - [Vrijeme isporuke, vrijeme čekanja, vrijeme rada, vrijeme koraka](#vrijeme-isporuke-vrijeme-čekanja-vrijeme-rada-vrijeme-koraka)
   - [Kendallova notacija](#kendallova-notacija)
 - [Matematika redova čekanja](#matematika-redova-čekanja)
   - [Krivulja iskorištenosti](#krivulja-iskorištenosti)
@@ -168,7 +168,7 @@ Najvažnija notacija:
 
 - χ (hi): stopa odlazaka. Mjeri koliko brzo stavke izlaze iz sustava.
 
-![Dijagram: stavke stižu stopom λ, poslužuju se stopom μ i odlaze stopom χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Dijagram: stavke stižu stopom λ, poslužuju se stopom μ i odlaze stopom χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Primjeri općih pravila za tradicionalne redove s jednim poslužiteljem:
 
@@ -196,7 +196,7 @@ Primjeri:
 
 - ρ > 1 znači da dolasci premašuju kapacitet; red se povećava.
 
-### Stope propusnosti: ukupna stopa, stopa dovršenosti, stopa uspjeha, stopa neuspjeha, stopa preskakanja
+### Stope propusnosti: stopa odlazaka, stopa dovršenosti, stopa uspjeha, stopa neuspjeha, stopa preskakanja
 
 Stope propusnosti mjere opaženi izlaz, odnosno stavke koje stvarno napuštaju red. Postoji pet širokih kategorija:
 
@@ -210,6 +210,8 @@ Stope propusnosti mjere opaženi izlaz, odnosno stavke koje stvarno napuštaju r
 
 - σ (sigma): stopa preskakanja. Mjeri koliko stavki po razdoblju uđe u red, a zatim ode a da nisu poslužene, npr. napuštanja, odustajanja.
 
+![Dijagram: stopa odlazaka χ = stopa dovršenosti δ + stopa preskakanja σ; stopa dovršenosti δ = stopa uspjeha α + stopa neuspjeha β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Stopa dovršenosti = stopa uspjeha + stopa neuspjeha:
 
 - δ = α + β (izgovara se: delta je jednako alfa plus beta)
@@ -221,8 +223,6 @@ Ukupna stopa = stopa dovršenosti + stopa preskakanja:
 Ukupna stopa = stopa uspjeha + stopa neuspjeha + stopa preskakanja:
 
 - χ = α + β + σ (izgovara se: hi je jednako alfa plus beta plus sigma)
-
-![Dijagram: stopa odlazaka χ = stopa dovršenosti δ + stopa preskakanja σ; stopa dovršenosti δ = stopa uspjeha α + stopa neuspjeha β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Svaka stavka uračunata u χ ušla je u sustav, pa je u stacionarnom stanju ukupna stopa jednaka stopi dolazaka: χ ≈ λ. Zato stope propusnosti mjere izlaz, a ne kapacitet.
 
@@ -287,23 +287,23 @@ Primjeri:
 
 - ε = 1 znači da svako posluživanje ima pogrešku.
 
-### Vrijeme isporuke, vrijeme koraka, vrijeme rada, vrijeme čekanja
+### Vrijeme isporuke, vrijeme čekanja, vrijeme rada, vrijeme koraka
 
 Pratimo četiri vremena:
 
-- τ (tau): vrijeme isporuke = od ulaska u red do izlaska iz reda
+- τ (tau): vrijeme u sustavu odnosno vrijeme isporuke odnosno od početka do kraja.
 
 - θ (theta): vrijeme koraka = od jednog završetka do sljedećeg završetka; jedno vrijeme koraka jedan je razmak, a prosječno vrijeme koraka prosječni je razmak
 
-- φ (fi): vrijeme rada = vrijeme utrošeno na stvarni rad odnosno vrijeme obrade
-
 - ω (omega): vrijeme čekanja = vrijeme u kojem se ne obavlja stvarni rad odnosno vrijeme na čekanju
 
-![Dijagram: vrijeme isporuke τ je vrijeme čekanja ω nakon kojeg slijedi vrijeme rada φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fi): vrijeme rada = vrijeme utrošeno na stvarni rad odnosno vrijeme obrade
+
+![Dijagram: vrijeme isporuke τ, vrijeme čekanja ω, vrijeme rada φ, vrijeme koraka θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Primjeri:
 
-- τ = 5s znači da je stavka dodana u red, a zatim poslužena 5 sekundi kasnije.
+- τ = 5s znači da stavka uđe u sustav, a zatim ga napusti 5 sekundi kasnije.
 
 - ω = 4s znači da stavka čeka u redu 4 sekunde, a zatim počinje rad.
 

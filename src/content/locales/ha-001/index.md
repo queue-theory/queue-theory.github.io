@@ -19,11 +19,11 @@ Abubuwan da ke ciki:
   - [Ƙidaya](#ƙidaya)
   - [Yawan isowa, yawan sabis, yawan ficewa](#yawan-isowa-yawan-sabis-yawan-ficewa)
   - [Rabon amfani wato ƙarfin zirga-zirga](#rabon-amfani-wato-ƙarfin-zirga-zirga)
-  - [Yawan fitarwa: jimillar yawa, yawan kammalawa, yawan nasara, yawan gazawa, yawan tsallakewa](#yawan-fitarwa-jimillar-yawa-yawan-kammalawa-yawan-nasara-yawan-gazawa-yawan-tsallakewa)
+  - [Yawan fitarwa: yawan ficewa, yawan kammalawa, yawan nasara, yawan gazawa, yawan tsallakewa](#yawan-fitarwa-yawan-ficewa-yawan-kammalawa-yawan-nasara-yawan-gazawa-yawan-tsallakewa)
   - [Bayyana ma'anar yawan sabis](#bayyana-maanar-yawan-sabis)
   - [Yawan tsallakewa](#yawan-tsallakewa)
   - [Rabon kuskure](#rabon-kuskure)
-  - [Lokacin jagora, lokacin mataki, lokacin aiki, lokacin jira](#lokacin-jagora-lokacin-mataki-lokacin-aiki-lokacin-jira)
+  - [Lokacin jagora, lokacin jira, lokacin aiki, lokacin mataki](#lokacin-jagora-lokacin-jira-lokacin-aiki-lokacin-mataki)
   - [Alamomin Kendall](#alamomin-kendall)
 - [Lissafin layi](#lissafin-layi)
   - [Lanƙwasan amfani](#lanƙwasan-amfani)
@@ -168,7 +168,7 @@ Alamomi mafi muhimmanci:
 
 - χ (chi): yawan ficewa. Wannan yana auna yadda abubuwa ke fita daga tsarin da sauri.
 
-![Zane: abubuwa suna zuwa da yawan λ, ana yi musu sabis da yawan μ, kuma suna fita da yawan χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Zane: abubuwa suna zuwa da yawan λ, ana yi musu sabis da yawan μ, kuma suna fita da yawan χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Misalan ƙa'idoji na gama-gari don layukan gargajiya masu mai sabis ɗaya:
 
@@ -196,7 +196,7 @@ Misalai:
 
 - ρ > 1 yana nufin isowa ta zarce ƙarfi; layin yana ƙara girma.
 
-### Yawan fitarwa: jimillar yawa, yawan kammalawa, yawan nasara, yawan gazawa, yawan tsallakewa
+### Yawan fitarwa: yawan ficewa, yawan kammalawa, yawan nasara, yawan gazawa, yawan tsallakewa
 
 Yawan fitarwa yana auna fitarwar da aka lura, wato abubuwan da suka fita daga layi a zahiri. Suna zuwa cikin manyan rukunoni biyar:
 
@@ -210,6 +210,8 @@ Yawan fitarwa yana auna fitarwar da aka lura, wato abubuwan da suka fita daga la
 
 - σ (sigma): yawan tsallakewa. Wannan yana auna abubuwa nawa a kowane tsawon lokaci ke shiga layi, sannan su fita ba tare da an yi musu sabis ba, misali barin layi, janyewa.
 
+![Zane: yawan ficewa χ = yawan kammalawa δ + yawan tsallakewa σ; yawan kammalawa δ = yawan nasara α + yawan gazawa β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Yawan kammalawa = yawan nasara + yawan gazawa:
 
 - δ = α + β (ana furtawa: delta daidai da alpha da beta)
@@ -221,8 +223,6 @@ Jimillar yawa = yawan kammalawa + yawan tsallakewa:
 Jimillar yawa = yawan nasara + yawan gazawa + yawan tsallakewa:
 
 - χ = α + β + σ (ana furtawa: chi daidai da alpha da beta da sigma)
-
-![Zane: yawan ficewa χ = yawan kammalawa δ + yawan tsallakewa σ; yawan kammalawa δ = yawan nasara α + yawan gazawa β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kowane abu da aka ƙidaya a cikin χ ya shiga tsarin, don haka a cikin daidaitaccen yanayi jimillar yawa daidai take da yawan isowa: χ ≈ λ. Shi ya sa yawan fitarwa ke auna fitarwa, ba ƙarfi ba.
 
@@ -287,23 +287,23 @@ Misalai:
 
 - ε = 1 yana nufin kowane sabis yana da kuskure.
 
-### Lokacin jagora, lokacin mataki, lokacin aiki, lokacin jira
+### Lokacin jagora, lokacin jira, lokacin aiki, lokacin mataki
 
 Muna bin diddigin lokuta huɗu:
 
-- τ (tau): lokacin jagora = daga farkon layi zuwa ƙarshen layi
+- τ (tau): lokaci a cikin tsarin wato lokacin jagora wato daga farko zuwa ƙarshe.
 
 - θ (theta): lokacin mataki = daga kammalawa ɗaya zuwa kammalawa ta gaba; lokacin mataki ɗaya tazara ɗaya ce, kuma matsakaicin lokacin mataki shi ne matsakaicin tazara
 
-- φ (phi): lokacin aiki = lokacin da aka kashe ana yin ainihin aiki wato lokacin sarrafawa
-
 - ω (omega): lokacin jira = lokacin da aka kashe ba tare da yin ainihin aiki ba wato lokacin dakon
 
-![Zane: lokacin jagora τ shi ne lokacin jira ω sai kuma lokacin aiki φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): lokacin aiki = lokacin da aka kashe ana yin ainihin aiki wato lokacin sarrafawa
+
+![Zane: lokacin jagora τ, lokacin jira ω, lokacin aiki φ, lokacin mataki θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Misalai:
 
-- τ = 5s yana nufin an ƙara wani abu cikin layi, sannan aka yi masa sabis daƙiƙa 5 bayan haka.
+- τ = 5s yana nufin wani abu yana shiga tsarin, sannan ya fita daga tsarin bayan daƙiƙa 5.
 
 - ω = 4s yana nufin wani abu yana jira a cikin layi na daƙiƙa 4, sannan aiki ya fara.
 

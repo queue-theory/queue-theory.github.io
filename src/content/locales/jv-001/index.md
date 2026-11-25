@@ -20,11 +20,11 @@ Daftar isi:
   - [Cacah](#cacah)
   - [Laju kadhatengan, laju layanan, laju budhal](#laju-kadhatengan-laju-layanan-laju-budhal)
   - [Rasio utilisasi utawi intensitas lalu lintas](#rasio-utilisasi-utawi-intensitas-lalu-lintas)
-  - [Laju throughput: laju total, laju rampung, laju kasil, laju gagal, laju lompat](#laju-throughput-laju-total-laju-rampung-laju-kasil-laju-gagal-laju-lompat)
+  - [Laju throughput: laju budhal, laju rampung, laju kasil, laju gagal, laju lompat](#laju-throughput-laju-budhal-laju-rampung-laju-kasil-laju-gagal-laju-lompat)
   - [Disambiguasi laju layanan](#disambiguasi-laju-layanan)
   - [Laju lompat](#laju-lompat)
   - [Rasio kalepatan](#rasio-kalepatan)
-  - [Lead time, wekdal langkah, wekdal makarya, wekdal ngentosi](#lead-time-wekdal-langkah-wekdal-makarya-wekdal-ngentosi)
+  - [Lead time, wekdal ngentosi, wekdal makarya, wekdal langkah](#lead-time-wekdal-ngentosi-wekdal-makarya-wekdal-langkah)
   - [Notasi Kendall](#notasi-kendall)
 - [Matematika antrian](#matematika-antrian)
   - [Kurva utilisasi](#kurva-utilisasi)
@@ -169,7 +169,7 @@ Notasi ingkang paling wigati:
 
 - χ (chi): laju budhal. Punika ngukur sepinten cepet item medal saking sistem.
 
-![Diagram: item dugi kanthi laju λ, dipunladosi kanthi laju μ, saha medal kanthi laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: item dugi kanthi laju λ, dipunladosi kanthi laju μ, saha medal kanthi laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Tuladha kawontenan umum kangge antrian tradisional kanthi satunggal server:
 
@@ -197,7 +197,7 @@ Tuladha:
 
 - ρ > 1 tegesipun kadhatengan ngluwihi kapasitas; antrian saya ageng.
 
-### Laju throughput: laju total, laju rampung, laju kasil, laju gagal, laju lompat
+### Laju throughput: laju budhal, laju rampung, laju kasil, laju gagal, laju lompat
 
 Laju throughput ngukur asil ingkang dipunamati, tegesipun item ingkang saestu medal saking antrian. Laju punika wonten gangsal golongan ageng:
 
@@ -211,6 +211,8 @@ Laju throughput ngukur asil ingkang dipunamati, tegesipun item ingkang saestu me
 
 - σ (sigma): laju lompat. Punika ngukur sepinten item saben periode wekdal ingkang mlebet antrian, lajeng medal tanpa dipunladosi, tuladhanipun nilaraken antrian, mundur saking antrian.
 
+![Diagram: laju budhal χ = laju rampung δ + laju lompat σ; laju rampung δ = laju kasil α + laju gagal β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Laju rampung = laju kasil + laju gagal:
 
 - δ = α + β (dipunwaos: delta sami kaliyan alpha tambah beta)
@@ -222,8 +224,6 @@ Laju total = laju rampung + laju lompat:
 Laju total = laju kasil + laju gagal + laju lompat:
 
 - χ = α + β + σ (dipunwaos: chi sami kaliyan alpha tambah beta tambah sigma)
-
-![Diagram: laju budhal χ = laju rampung δ + laju lompat σ; laju rampung δ = laju kasil α + laju gagal β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Saben item ingkang dipunetang wonten ing χ sampun mlebet sistem, satemah ing kawontenan ajeg laju total sami kaliyan laju kadhatengan: χ ≈ λ. Punika sababipun laju throughput ngukur asil, sanes kapasitas.
 
@@ -288,23 +288,23 @@ Tuladha:
 
 - ε = 1 tegesipun saben layanan wonten kalepatanipun.
 
-### Lead time, wekdal langkah, wekdal makarya, wekdal ngentosi
+### Lead time, wekdal ngentosi, wekdal makarya, wekdal langkah
 
 Kita mantau sekawan wekdal:
 
-- τ (tau): lead time = saking wiwitan antrian dumugi pungkasan antrian
+- τ (tau): wekdal wonten ing sistem utawi lead time utawi saking wiwitan dumugi pungkasan.
 
 - θ (theta): wekdal langkah = saking satunggal rampungan dumugi rampungan salajengipun; satunggal wekdal langkah punika satunggal longkangan, saha rata-rata wekdal langkah punika rata-rata longkangan
 
-- φ (phi): wekdal makarya = wekdal ingkang dipunginakaken kangge makarya saestu utawi wekdal pamrosesan
-
 - ω (omega): wekdal ngentosi = wekdal ingkang boten dipunginakaken kangge makarya saestu utawi wekdal tundha
 
-![Diagram: lead time τ punika wekdal ngentosi ω dipuntutugaken wekdal makarya φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): wekdal makarya = wekdal ingkang dipunginakaken kangge makarya saestu utawi wekdal pamrosesan
+
+![Diagram: lead time τ, wekdal ngentosi ω, wekdal makarya φ, wekdal langkah θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Tuladha:
 
-- τ = 5s tegesipun satunggal item dipunlebetaken dhateng antrian, lajeng dipunladosi 5 detik salajengipun.
+- τ = 5s tegesipun satunggal item mlebet sistem, lajeng medal saking sistem 5 detik salajengipun.
 
 - ω = 4s tegesipun satunggal item ngentosi wonten ing antrian 4 detik, lajeng padamelan dipunwiwiti.
 

@@ -20,11 +20,11 @@ hatlarımız bunlar arasındadır.
   - [Sayım](#sayım)
   - [Varış hızı, hizmet hızı, ayrılış hızı](#varış-hızı-hizmet-hızı-ayrılış-hızı)
   - [Kullanım oranı, diğer adıyla trafik yoğunluğu](#kullanım-oranı-diğer-adıyla-trafik-yoğunluğu)
-  - [Çıktı hızları: toplam hız, tamamlanma hızı, başarı hızı, başarısızlık hızı, atlama hızı](#çıktı-hızları-toplam-hız-tamamlanma-hızı-başarı-hızı-başarısızlık-hızı-atlama-hızı)
+  - [Çıktı hızları: ayrılış hızı, tamamlanma hızı, başarı hızı, başarısızlık hızı, atlama hızı](#çıktı-hızları-ayrılış-hızı-tamamlanma-hızı-başarı-hızı-başarısızlık-hızı-atlama-hızı)
   - [Hizmet hızı kavramının netleştirilmesi](#hizmet-hızı-kavramının-netleştirilmesi)
   - [Atlama hızı](#atlama-hızı)
   - [Hata oranı](#hata-oranı)
-  - [Teslim süresi, adım süresi, çalışma süresi, bekleme süresi](#teslim-süresi-adım-süresi-çalışma-süresi-bekleme-süresi)
+  - [Teslim süresi, bekleme süresi, çalışma süresi, adım süresi](#teslim-süresi-bekleme-süresi-çalışma-süresi-adım-süresi)
   - [Kendall gösterimi](#kendall-gösterimi)
 - [Kuyruk matematiği](#kuyruk-matematiği)
   - [Kullanım eğrisi](#kullanım-eğrisi)
@@ -169,7 +169,7 @@ En önemli gösterim:
 
 - χ (chi): ayrılış hızı. Öğelerin sistemden ne kadar hızlı çıktığını ölçer.
 
-![Diyagram: öğeler λ hızıyla gelir, μ hızıyla hizmet alır ve χ hızıyla ayrılır](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diyagram: öğeler λ hızıyla gelir, μ hızıyla hizmet alır ve χ hızıyla ayrılır](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Tek sunuculu geleneksel kuyruklar için genel durum örnekleri:
 
@@ -197,7 +197,7 @@ Bir kuyruğu özetleyen en önemli gösterim:
 
 - ρ > 1, varışların kapasiteyi aştığı anlamına gelir; kuyruk büyümektedir.
 
-### Çıktı hızları: toplam hız, tamamlanma hızı, başarı hızı, başarısızlık hızı, atlama hızı
+### Çıktı hızları: ayrılış hızı, tamamlanma hızı, başarı hızı, başarısızlık hızı, atlama hızı
 
 Çıktı hızları gözlenen çıktıyı, yani kuyruktan gerçekten ayrılan öğeleri ölçer. Beş geniş kategoride ele alınırlar:
 
@@ -211,6 +211,8 @@ Bir kuyruğu özetleyen en önemli gösterim:
 
 - σ (sigma): atlama hızı. Birim zamanda kaç öğenin kuyruğa girip hizmet almadan ayrıldığını ölçer; örneğin vazgeçmeler, yarıda bırakmalar.
 
+![Diyagram: ayrılış hızı χ = tamamlanma hızı δ + atlama hızı σ; tamamlanma hızı δ = başarı hızı α + başarısızlık hızı β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Tamamlanma hızı = başarı hızı + başarısızlık hızı:
 
 - δ = α + β (okunuşu: delta eşittir alpha artı beta)
@@ -222,8 +224,6 @@ Toplam hız = tamamlanma hızı + atlama hızı:
 Toplam hız = başarı hızı + başarısızlık hızı + atlama hızı:
 
 - χ = α + β + σ (okunuşu: chi eşittir alpha artı beta artı sigma)
-
-![Diyagram: ayrılış hızı χ = tamamlanma hızı δ + atlama hızı σ; tamamlanma hızı δ = başarı hızı α + başarısızlık hızı β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ içinde sayılan her öğe sisteme girmiştir; bu yüzden kararlı durumda toplam hız varış hızına eşittir: χ ≈ λ. Çıktı hızlarının kapasiteyi değil çıktıyı ölçmesinin nedeni budur.
 
@@ -288,23 +288,23 @@ Atlamalar hariç tutulur, çünkü atlanan bir öğeye hiç hizmet verilmemişti
 
 - ε = 1, her hizmette hata olduğu anlamına gelir.
 
-### Teslim süresi, adım süresi, çalışma süresi, bekleme süresi
+### Teslim süresi, bekleme süresi, çalışma süresi, adım süresi
 
 Dört süreyi takip ederiz:
 
-- τ (tau): teslim süresi = kuyruğun başlangıcından kuyruğun bitişine kadar
+- τ (tau): sistemde geçen süre, diğer adıyla teslim süresi, diğer adıyla baştan sona.
 
 - θ (theta): adım süresi = bir bitişten bir sonraki bitişe kadar; bir adım süresi tek bir aralıktır, ortalama adım süresi ise ortalama aralıktır
 
-- φ (phi): çalışma süresi = fiilî iş yapmaya harcanan süre, diğer adıyla işlem süresi
-
 - ω (omega): bekleme süresi = fiilî iş yapılmadan geçen süre, diğer adıyla askıda kalma süresi
 
-![Diyagram: teslim süresi τ, bekleme süresi ω ve ardından gelen çalışma süresi φ'dir](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): çalışma süresi = fiilî iş yapmaya harcanan süre, diğer adıyla işlem süresi
+
+![Diyagram: teslim süresi τ, bekleme süresi ω, çalışma süresi φ, adım süresi θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Örnekler:
 
-- τ = 5 sn, bir öğenin kuyruğa eklendiği ve 5 saniye sonra hizmetinin tamamlandığı anlamına gelir.
+- τ = 5 sn, bir öğenin sisteme girdiği ve 5 saniye sonra sistemden çıktığı anlamına gelir.
 
 - ω = 4 sn, bir öğenin kuyrukta 4 saniye beklediği ve ardından üzerinde çalışılmaya başlandığı anlamına gelir.
 

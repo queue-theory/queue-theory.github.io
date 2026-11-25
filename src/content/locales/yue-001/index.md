@@ -15,11 +15,11 @@
   - [數量](#數量)
   - [到達率、服務率、離開率](#到達率服務率離開率)
   - [使用率，又稱流量強度](#使用率又稱流量強度)
-  - [吞吐率：總率、完成率、成功率、失敗率、跳過率](#吞吐率總率完成率成功率失敗率跳過率)
+  - [吞吐率：離開率、完成率、成功率、失敗率、跳過率](#吞吐率離開率完成率成功率失敗率跳過率)
   - [服務率釋疑](#服務率釋疑)
   - [跳過率](#跳過率)
   - [錯誤比率](#錯誤比率)
-  - [前置時間、步進時間、工作時間、等候時間](#前置時間步進時間工作時間等候時間)
+  - [前置時間、等候時間、工作時間、步進時間](#前置時間等候時間工作時間步進時間)
   - [肯德爾符號](#肯德爾符號)
 - [隊列數學](#隊列數學)
   - [使用率曲線](#使用率曲線)
@@ -164,7 +164,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 - χ（chi）：離開率。量度項目離開系統有幾快。
 
-![示意圖：項目以速率 λ 到達，以速率 μ 獲得服務，以速率 χ 離開](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![示意圖：項目以速率 λ 到達，以速率 μ 獲得服務，以速率 χ 離開](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 以下係單一服務台嘅傳統隊列嘅一般情況：
 
@@ -192,7 +192,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 - ρ > 1 表示到達量超過容量；隊列會愈嚟愈長。
 
-### 吞吐率：總率、完成率、成功率、失敗率、跳過率
+### 吞吐率：離開率、完成率、成功率、失敗率、跳過率
 
 吞吐率量度觀察到嘅輸出，即係真正離開隊列嘅項目。大致分為五類：
 
@@ -206,6 +206,8 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 - σ（sigma）：跳過率。量度每段時間有幾多項目進入咗隊列，但未獲服務就離開，例如放棄、中途退出。
 
+![示意圖：離開率 χ = 完成率 δ + 跳過率 σ；完成率 δ = 成功率 α + 失敗率 β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 完成率 = 成功率 + 失敗率：
 
 - δ = α + β（讀法：delta 等於 alpha 加 beta）
@@ -217,8 +219,6 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 總率 = 成功率 + 失敗率 + 跳過率：
 
 - χ = α + β + σ（讀法：chi 等於 alpha 加 beta 加 sigma）
-
-![示意圖：離開率 χ = 完成率 δ + 跳過率 σ；完成率 δ = 成功率 α + 失敗率 β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ 計入嘅每一個項目都進入過系統，所以喺穩態下總率等於到達率：χ ≈ λ。因此吞吐率量度嘅係輸出，而唔係容量。
 
@@ -280,23 +280,23 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 - ε = 1 表示每次服務都有錯誤。
 
-### 前置時間、步進時間、工作時間、等候時間
+### 前置時間、等候時間、工作時間、步進時間
 
 我哋追蹤四種時間：
 
-- τ（tau）：前置時間 = 由隊列開始到隊列結束
+- τ（tau）：喺系統入面嘅時間，又稱前置時間，又稱由頭到尾。
 
 - θ（theta）：步進時間 = 由一次完成到下一次完成；一個步進時間就係一個間隔，平均步進時間就係平均間隔
 
-- φ（phi）：工作時間 = 真正用嚟做嘢嘅時間，又稱處理時間
-
 - ω（omega）：等候時間 = 冇真正做嘢嘅時間，又稱待處理時間
 
-![示意圖：前置時間 τ 係等候時間 ω 加工作時間 φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ（phi）：工作時間 = 真正用嚟做嘢嘅時間，又稱處理時間
+
+![示意圖：前置時間 τ，等候時間 ω，工作時間 φ，步進時間 θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 例子：
 
-- τ = 5s 表示一個項目加入隊列，5 秒之後完成服務。
+- τ = 5s 表示一個項目進入系統，5 秒之後離開系統。
 
 - ω = 4s 表示一個項目喺隊列入面等 4 秒，然後先開始處理。
 

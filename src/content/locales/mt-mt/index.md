@@ -15,11 +15,11 @@ Werrej:
   - [Għadd](#għadd)
   - [Rata ta’ wasla, rata ta’ servizz, rata ta’ tluq](#rata-ta-wasla-rata-ta-servizz-rata-ta-tluq)
   - [Proporzjon ta’ utilizzazzjoni jew intensità tat-traffiku](#proporzjon-ta-utilizzazzjoni-jew-intensità-tat-traffiku)
-  - [Rati ta’ throughput: rata totali, rata ta’ tlestija, rata ta’ suċċess, rata ta’ falliment, rata ta’ qbiż](#rati-ta-throughput-rata-totali-rata-ta-tlestija-rata-ta-suċċess-rata-ta-falliment-rata-ta-qbiż)
+  - [Rati ta’ throughput: rata ta’ tluq, rata ta’ tlestija, rata ta’ suċċess, rata ta’ falliment, rata ta’ qbiż](#rati-ta-throughput-rata-ta-tluq-rata-ta-tlestija-rata-ta-suċċess-rata-ta-falliment-rata-ta-qbiż)
   - [Diżambigwazzjoni tar-rata ta’ servizz](#diżambigwazzjoni-tar-rata-ta-servizz)
   - [Rata ta’ qbiż](#rata-ta-qbiż)
   - [Proporzjon ta’ żbalji](#proporzjon-ta-żbalji)
-  - [Ħin ta’ twassil, ħin tal-pass, ħin tax-xogħol, ħin ta’ stennija](#ħin-ta-twassil-ħin-tal-pass-ħin-tax-xogħol-ħin-ta-stennija)
+  - [Ħin ta’ twassil, ħin ta’ stennija, ħin tax-xogħol, ħin tal-pass](#ħin-ta-twassil-ħin-ta-stennija-ħin-tax-xogħol-ħin-tal-pass)
   - [Notazzjoni ta’ Kendall](#notazzjoni-ta-kendall)
 - [Matematika tal-kjuwijiet](#matematika-tal-kjuwijiet)
   - [Il-kurva tal-utilizzazzjoni](#il-kurva-tal-utilizzazzjoni)
@@ -164,7 +164,7 @@ L-aktar notazzjoni importanti:
 
 - χ (chi): rata ta’ tluq. Din tkejjel kemm l-oġġetti qed joħorġu malajr mis-sistema.
 
-![Dijagramma: l-oġġetti jaslu bir-rata λ, jiġu moqdija bir-rata μ u jitilqu bir-rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Dijagramma: l-oġġetti jaslu bir-rata λ, jiġu moqdija bir-rata μ u jitilqu bir-rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Eżempji ta’ regoli ġenerali għal kjuwijiet tradizzjonali b’server wieħed:
 
@@ -192,7 +192,7 @@ Eżempji:
 
 - ρ > 1 tfisser li l-wasliet jaqbżu l-kapaċità; il-kju qed jikber.
 
-### Rati ta’ throughput: rata totali, rata ta’ tlestija, rata ta’ suċċess, rata ta’ falliment, rata ta’ qbiż
+### Rati ta’ throughput: rata ta’ tluq, rata ta’ tlestija, rata ta’ suċċess, rata ta’ falliment, rata ta’ qbiż
 
 Ir-rati ta’ throughput ikejlu l-output osservat, jiġifieri l-oġġetti li fil-fatt joħorġu mill-kju. Huma maqsuma f’ħames kategoriji ġenerali:
 
@@ -206,6 +206,8 @@ Ir-rati ta’ throughput ikejlu l-output osservat, jiġifieri l-oġġetti li fil
 
 - σ (sigma): rata ta’ qbiż. Din tkejjel kemm-il oġġett għal kull perjodu ta’ ħin jidħol fil-kju, imbagħad jitlaq mingħajr ma jiġi moqdi, pereżempju abbandun, irtirar.
 
+![Dijagramma: rata ta’ tluq χ = rata ta’ tlestija δ + rata ta’ qbiż σ; rata ta’ tlestija δ = rata ta’ suċċess α + rata ta’ falliment β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Rata ta’ tlestija = rata ta’ suċċess + rata ta’ falliment:
 
 - δ = α + β (tinqara: delta daqs alpha flimkien ma’ beta)
@@ -217,8 +219,6 @@ Rata totali = rata ta’ tlestija + rata ta’ qbiż:
 Rata totali = rata ta’ suċċess + rata ta’ falliment + rata ta’ qbiż:
 
 - χ = α + β + σ (tinqara: chi daqs alpha flimkien ma’ beta flimkien ma’ sigma)
-
-![Dijagramma: rata ta’ tluq χ = rata ta’ tlestija δ + rata ta’ qbiż σ; rata ta’ tlestija δ = rata ta’ suċċess α + rata ta’ falliment β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kull oġġett li jingħadd f’χ daħal fis-sistema, għalhekk fi stat stabbli r-rata totali hija ugwali għar-rata ta’ wasla: χ ≈ λ. Din hija r-raġuni għaliex ir-rati ta’ throughput ikejlu l-output, mhux il-kapaċità.
 
@@ -281,23 +281,23 @@ Eżempji:
 
 - ε = 1 tfisser li kull servizz għandu żball.
 
-### Ħin ta’ twassil, ħin tal-pass, ħin tax-xogħol, ħin ta’ stennija
+### Ħin ta’ twassil, ħin ta’ stennija, ħin tax-xogħol, ħin tal-pass
 
 Aħna nsegwu erba’ ħinijiet:
 
-- τ (tau): ħin ta’ twassil = mill-bidu tal-kju sat-tmiem tal-kju
+- τ (tau): ħin fis-sistema jew ħin ta’ twassil jew mill-bidu sat-tmiem.
 
 - θ (theta): ħin tal-pass = minn tlestija waħda sat-tlestija li jmiss; ħin tal-pass wieħed huwa distakk wieħed, u l-ħin medju tal-pass huwa d-distakk medju
 
-- φ (phi): ħin tax-xogħol = ħin li jintuża biex isir xogħol reali, jew ħin tal-ipproċessar
-
 - ω (omega): ħin ta’ stennija = ħin li fih ma jsir l-ebda xogħol reali, jew ħin pendenti
 
-![Dijagramma: il-ħin ta’ twassil τ huwa l-ħin ta’ stennija ω segwit mill-ħin tax-xogħol φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): ħin tax-xogħol = ħin li jintuża biex isir xogħol reali, jew ħin tal-ipproċessar
+
+![Dijagramma: ħin ta’ twassil τ, ħin ta’ stennija ω, ħin tax-xogħol φ, ħin tal-pass θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Eżempji:
 
-- τ = 5s tfisser li oġġett jiżdied mal-kju, imbagħad jiġi moqdi 5 sekondi wara.
+- τ = 5s tfisser li oġġett jidħol fis-sistema, imbagħad johroġ mis-sistema 5 sekondi wara.
 
 - ω = 4s tfisser li oġġett jistenna fil-kju għal 4 sekondi, imbagħad jibda x-xogħol.
 

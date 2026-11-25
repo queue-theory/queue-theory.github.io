@@ -15,11 +15,11 @@ Wetin dey inside:
   - [Count](#count)
   - [Arrival rate, service rate, departure rate](#arrival-rate-service-rate-departure-rate)
   - [Utilization ratio wey dem still dey call traffic intensity](#utilization-ratio-wey-dem-still-dey-call-traffic-intensity)
-  - [Throughput rate dem: total rate, finish rate, success rate, failure rate, skip rate](#throughput-rate-dem-total-rate-finish-rate-success-rate-failure-rate-skip-rate)
+  - [Throughput rate dem: departure rate, finish rate, success rate, failure rate, skip rate](#throughput-rate-dem-departure-rate-finish-rate-success-rate-failure-rate-skip-rate)
   - [Wetin service rate mean](#wetin-service-rate-mean)
   - [Skip rate](#skip-rate)
   - [Error ratio](#error-ratio)
-  - [Lead time, step time, work time, wait time](#lead-time-step-time-work-time-wait-time)
+  - [Lead time, wait time, work time, step time](#lead-time-wait-time-work-time-step-time)
   - [Kendall notation](#kendall-notation)
 - [Queue math](#queue-math)
   - [Di utilization curve](#di-utilization-curve)
@@ -164,7 +164,7 @@ Di notation wey important pass:
 
 - χ (chi): departure rate. Dis one dey measure how fast item dem dey comot from di system.
 
-![Diagram: item dem dey arrive for rate λ, dem dey serve dem for rate μ, and dem dey comot for rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: item dem dey arrive for rate λ, dem dey serve dem for rate μ, and dem dey comot for rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Example of general tins for traditional queue wey get one server:
 
@@ -192,7 +192,7 @@ Example:
 
 - ρ > 1 mean say arrival pass capacity; di queue dey grow bigger.
 
-### Throughput rate dem: total rate, finish rate, success rate, failure rate, skip rate
+### Throughput rate dem: departure rate, finish rate, success rate, failure rate, skip rate
 
 Throughput rate dem dey measure di output wey we see, wey mean item dem wey really comot from di queue. Dem dey come in five big category:
 
@@ -206,6 +206,8 @@ Throughput rate dem dey measure di output wey we see, wey mean item dem wey real
 
 - σ (sigma): skip rate. Dis one dey measure how many item for every time period enter di queue, then comot without service, for example abandonment, reneging.
 
+![Diagram: departure rate χ = finish rate δ + skip rate σ; finish rate δ = success rate α + failure rate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Finish rate = success rate + failure rate:
 
 - δ = α + β (you go talk am: delta equals alpha plus beta)
@@ -217,8 +219,6 @@ Total rate = finish rate + skip rate:
 Total rate = success rate + failure rate + skip rate:
 
 - χ = α + β + σ (you go talk am: chi equals alpha plus beta plus sigma)
-
-![Diagram: departure rate χ = finish rate δ + skip rate σ; finish rate δ = success rate α + failure rate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Every item wey dem count for χ don enter di system, so for steady state di total rate equal di arrival rate: χ ≈ λ. Na why throughput rate dem dey measure output, no be capacity.
 
@@ -280,23 +280,23 @@ Example:
 
 - ε = 1 mean say every service get error.
 
-### Lead time, step time, work time, wait time
+### Lead time, wait time, work time, step time
 
 We dey track four kind time:
 
-- τ (tau): lead time = from di start of di queue reach di finish of di queue
+- τ (tau): time for di system, wey dem still dey call lead time, wey dem still dey call from start reach finish.
 
 - θ (theta): step time = from one finish reach di next finish; one step time na one gap, and di mean step time na di average gap
 
-- φ (phi): work time = di time wey dem spend to do real work, wey dem still dey call processing time
-
 - ω (omega): wait time = di time wey pass without real work, wey dem still dey call pending time
 
-![Diagram: di lead time τ na di wait time ω and then di work time φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): work time = di time wey dem spend to do real work, wey dem still dey call processing time
+
+![Diagram: lead time τ, wait time ω, work time φ, step time θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Example:
 
-- τ = 5s mean say dem add item to di queue, then serve am 5 second later.
+- τ = 5s mean say one item enter di system, then comot from di system 5 seconds later.
 
 - ω = 4s mean say item wait for di queue for 4 second, then work start.
 

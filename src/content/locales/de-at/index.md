@@ -15,11 +15,11 @@ Inhalt:
   - [Anzahl](#anzahl)
   - [Ankunftsrate, Bedienrate, Abgangsrate](#ankunftsrate-bedienrate-abgangsrate)
   - [Auslastungsgrad, auch Verkehrsintensität genannt](#auslastungsgrad-auch-verkehrsintensität-genannt)
-  - [Durchsatzraten: Gesamtrate, Abschlussrate, Erfolgsrate, Fehlerrate, Abbruchrate](#durchsatzraten-gesamtrate-abschlussrate-erfolgsrate-fehlerrate-abbruchrate)
+  - [Durchsatzraten: Abgangsrate, Abschlussrate, Erfolgsrate, Fehlerrate, Abbruchrate](#durchsatzraten-abgangsrate-abschlussrate-erfolgsrate-fehlerrate-abbruchrate)
   - [Begriffsklärung Bedienrate](#begriffsklärung-bedienrate)
   - [Abbruchrate](#abbruchrate)
   - [Fehlerquote](#fehlerquote)
-  - [Durchlaufzeit, Taktzeit, Arbeitszeit, Wartezeit](#durchlaufzeit-taktzeit-arbeitszeit-wartezeit)
+  - [Durchlaufzeit, Wartezeit, Arbeitszeit, Taktzeit](#durchlaufzeit-wartezeit-arbeitszeit-taktzeit)
   - [Kendall-Notation](#kendall-notation)
 - [Warteschlangenmathematik](#warteschlangenmathematik)
   - [Die Auslastungskurve](#die-auslastungskurve)
@@ -164,7 +164,7 @@ Die wichtigste Notation:
 
 - χ (Chi): Abgangsrate. Sie misst, wie schnell Elemente das System verlassen.
 
-![Diagramm: Elemente treffen mit der Rate λ ein, werden mit der Rate μ bedient und verlassen das System mit der Rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagramm: Elemente treffen mit der Rate λ ein, werden mit der Rate μ bedient und verlassen das System mit der Rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Beispiele für allgemeine Aussagen über klassische Warteschlangen mit einem Bediener:
 
@@ -192,7 +192,7 @@ Beispiele:
 
 - ρ > 1 bedeutet, dass die Ankünfte die Kapazität übersteigen; die Warteschlange wird größer.
 
-### Durchsatzraten: Gesamtrate, Abschlussrate, Erfolgsrate, Fehlerrate, Abbruchrate
+### Durchsatzraten: Abgangsrate, Abschlussrate, Erfolgsrate, Fehlerrate, Abbruchrate
 
 Durchsatzraten messen die beobachtete Ausgabe, also Elemente, die die Warteschlange tatsächlich verlassen. Es gibt sie in fünf großen Kategorien:
 
@@ -206,6 +206,8 @@ Durchsatzraten messen die beobachtete Ausgabe, also Elemente, die die Warteschla
 
 - σ (Sigma): Abbruchrate. Sie misst, wie viele Elemente pro Zeitraum in die Warteschlange eintreten und sie dann verlassen, ohne bedient zu werden, z. B. Abbrüche, vorzeitiges Verlassen.
 
+![Diagramm: Abgangsrate χ = Abschlussrate δ + Abbruchrate σ; Abschlussrate δ = Erfolgsrate α + Fehlerrate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Abschlussrate = Erfolgsrate + Fehlerrate:
 
 - δ = α + β (gesprochen: Delta gleich Alpha plus Beta)
@@ -217,8 +219,6 @@ Gesamtrate = Abschlussrate + Abbruchrate:
 Gesamtrate = Erfolgsrate + Fehlerrate + Abbruchrate:
 
 - χ = α + β + σ (gesprochen: Chi gleich Alpha plus Beta plus Sigma)
-
-![Diagramm: Abgangsrate χ = Abschlussrate δ + Abbruchrate σ; Abschlussrate δ = Erfolgsrate α + Fehlerrate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Jedes in χ gezählte Element ist in das System eingetreten, daher entspricht die Gesamtrate im stationären Zustand der Ankunftsrate: χ ≈ λ. Deshalb messen Durchsatzraten die Ausgabe, nicht die Kapazität.
 
@@ -280,23 +280,23 @@ Beispiele:
 
 - ε = 1 bedeutet, dass jede Bedienung einen Fehler aufweist.
 
-### Durchlaufzeit, Taktzeit, Arbeitszeit, Wartezeit
+### Durchlaufzeit, Wartezeit, Arbeitszeit, Taktzeit
 
 Wir verfolgen vier Zeiten:
 
-- τ (Tau): Durchlaufzeit = vom Eintritt in die Warteschlange bis zum Abschluss
+- τ (Tau): Zeit im System, auch Durchlaufzeit genannt, auch vom Anfang bis zum Ende genannt.
 
 - θ (Theta): Taktzeit = von einem Abschluss bis zum nächsten Abschluss; eine Taktzeit ist ein Abstand, und die mittlere Taktzeit ist der durchschnittliche Abstand
 
-- φ (Phi): Arbeitszeit = Zeit, die mit tatsächlicher Arbeit verbracht wird, auch Bearbeitungszeit genannt
-
 - ω (Omega): Wartezeit = Zeit, die nicht mit tatsächlicher Arbeit verbracht wird, auch Liegezeit genannt
 
-![Diagramm: Die Durchlaufzeit τ ist die Wartezeit ω gefolgt von der Arbeitszeit φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (Phi): Arbeitszeit = Zeit, die mit tatsächlicher Arbeit verbracht wird, auch Bearbeitungszeit genannt
+
+![Diagramm: Durchlaufzeit τ, Wartezeit ω, Arbeitszeit φ, Taktzeit θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Beispiele:
 
-- τ = 5s bedeutet, dass ein Element zur Warteschlange hinzugefügt und 5 Sekunden später fertig bedient wird.
+- τ = 5s bedeutet, dass ein Element in das System eintritt und es 5 Sekunden später wieder verlässt.
 
 - ω = 4s bedeutet, dass ein Element 4 Sekunden in der Warteschlange wartet und dann die Arbeit beginnt.
 

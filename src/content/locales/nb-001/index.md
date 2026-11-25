@@ -15,11 +15,11 @@ Innhold:
   - [Antall](#antall)
   - [Ankomstrate, tjenesterate, avgangsrate](#ankomstrate-tjenesterate-avgangsrate)
   - [Utnyttelsesgrad, også kalt trafikkintensitet](#utnyttelsesgrad-også-kalt-trafikkintensitet)
-  - [Gjennomstrømningsrater: total rate, fullføringsrate, suksessrate, feilrate, overhoppsrate](#gjennomstrømningsrater-total-rate-fullføringsrate-suksessrate-feilrate-overhoppsrate)
+  - [Gjennomstrømningsrater: avgangsrate, fullføringsrate, suksessrate, feilrate, overhoppsrate](#gjennomstrømningsrater-avgangsrate-fullføringsrate-suksessrate-feilrate-overhoppsrate)
   - [Tvetydighet i begrepet tjenesterate](#tvetydighet-i-begrepet-tjenesterate)
   - [Overhoppsrate](#overhoppsrate)
   - [Feilandel](#feilandel)
-  - [Ledetid, stegtid, arbeidstid, ventetid](#ledetid-stegtid-arbeidstid-ventetid)
+  - [Ledetid, ventetid, arbeidstid, stegtid](#ledetid-ventetid-arbeidstid-stegtid)
   - [Kendalls notasjon](#kendalls-notasjon)
 - [Kømatematikk](#kømatematikk)
   - [Utnyttelseskurven](#utnyttelseskurven)
@@ -164,7 +164,7 @@ Den viktigste notasjonen:
 
 - χ (khi): avgangsrate. Den måler hvor raskt elementer forlater systemet.
 
-![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlater systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlater systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Eksempler på generelle regler for tradisjonelle køer med én server:
 
@@ -192,7 +192,7 @@ Eksempler:
 
 - ρ > 1 betyr at ankomstene overstiger kapasiteten; køen blir lengre.
 
-### Gjennomstrømningsrater: total rate, fullføringsrate, suksessrate, feilrate, overhoppsrate
+### Gjennomstrømningsrater: avgangsrate, fullføringsrate, suksessrate, feilrate, overhoppsrate
 
 Gjennomstrømningsrater måler observert utdata, det vil si elementer som faktisk forlater køen. De finnes i fem brede kategorier:
 
@@ -206,6 +206,8 @@ Gjennomstrømningsrater måler observert utdata, det vil si elementer som faktis
 
 - σ (sigma): overhoppsrate. Den måler hvor mange elementer per tidsperiode som kommer inn i køen og deretter går uten å bli betjent, f.eks. avbrudd og frafall.
 
+![Diagram: avgangsrate χ = fullføringsrate δ + overhoppsrate σ; fullføringsrate δ = suksessrate α + feilrate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Fullføringsrate = suksessrate + feilrate:
 
 - δ = α + β (uttales: delta er lik alfa pluss beta)
@@ -217,8 +219,6 @@ Total rate = fullføringsrate + overhoppsrate:
 Total rate = suksessrate + feilrate + overhoppsrate:
 
 - χ = α + β + σ (uttales: khi er lik alfa pluss beta pluss sigma)
-
-![Diagram: avgangsrate χ = fullføringsrate δ + overhoppsrate σ; fullføringsrate δ = suksessrate α + feilrate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Hvert element som telles i χ, kom inn i systemet, så i stabil tilstand er den totale raten lik ankomstraten: χ ≈ λ. Det er derfor gjennomstrømningsrater måler utdata, ikke kapasitet.
 
@@ -280,23 +280,23 @@ Eksempler:
 
 - ε = 1 betyr at hver tjeneste har en feil.
 
-### Ledetid, stegtid, arbeidstid, ventetid
+### Ledetid, ventetid, arbeidstid, stegtid
 
 Vi følger fire tider:
 
-- τ (tau): ledetid = fra starten av køen til slutten av køen
+- τ (tau): tid i systemet, også kalt ledetid, også kalt fra start til slutt.
 
 - θ (theta): stegtid = fra én fullføring til neste fullføring; én stegtid er ett mellomrom, og den gjennomsnittlige stegtiden er det gjennomsnittlige mellomrommet
 
-- φ (fi): arbeidstid = tid brukt på faktisk arbeid, også kalt behandlingstid
-
 - ω (omega): ventetid = tid som ikke brukes på faktisk arbeid, også kalt ventende tid
 
-![Diagram: ledetiden τ er ventetiden ω etterfulgt av arbeidstiden φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fi): arbeidstid = tid brukt på faktisk arbeid, også kalt behandlingstid
+
+![Diagram: ledetid τ, ventetid ω, arbeidstid φ, stegtid θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Eksempler:
 
-- τ = 5s betyr at et element legges i køen og blir betjent 5 sekunder senere.
+- τ = 5s betyr at et element kommer inn i systemet og forlater det 5 sekunder senere.
 
 - ω = 4s betyr at et element venter i køen i 4 sekunder, og deretter starter arbeidet.
 

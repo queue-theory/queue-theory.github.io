@@ -20,11 +20,11 @@ Daftar isi:
   - [Jumlah](#jumlah)
   - [Laju kedatangan, laju layanan, laju keberangkatan](#laju-kedatangan-laju-layanan-laju-keberangkatan)
   - [Rasio utilisasi, atau intensitas lalu lintas](#rasio-utilisasi-atau-intensitas-lalu-lintas)
-  - [Laju throughput: laju total, laju selesai, laju keberhasilan, laju kegagalan, laju lewati](#laju-throughput-laju-total-laju-selesai-laju-keberhasilan-laju-kegagalan-laju-lewati)
+  - [Laju throughput: laju keberangkatan, laju selesai, laju keberhasilan, laju kegagalan, laju lewati](#laju-throughput-laju-keberangkatan-laju-selesai-laju-keberhasilan-laju-kegagalan-laju-lewati)
   - [Disambiguasi laju layanan](#disambiguasi-laju-layanan)
   - [Laju lewati](#laju-lewati)
   - [Rasio kesalahan](#rasio-kesalahan)
-  - [Lead time, waktu langkah, waktu kerja, waktu tunggu](#lead-time-waktu-langkah-waktu-kerja-waktu-tunggu)
+  - [Lead time, waktu tunggu, waktu kerja, waktu langkah](#lead-time-waktu-tunggu-waktu-kerja-waktu-langkah)
   - [Notasi Kendall](#notasi-kendall)
 - [Matematika antrean](#matematika-antrean)
   - [Kurva utilisasi](#kurva-utilisasi)
@@ -169,7 +169,7 @@ Notasi yang paling penting:
 
 - χ (chi): laju keberangkatan. Ini mengukur seberapa cepat item keluar dari sistem.
 
-![Diagram: item datang dengan laju λ, dilayani dengan laju μ, dan pergi dengan laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: item datang dengan laju λ, dilayani dengan laju μ, dan pergi dengan laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Contoh generalisasi untuk antrean tradisional dengan satu server:
 
@@ -197,7 +197,7 @@ Contoh:
 
 - ρ > 1 berarti kedatangan melebihi kapasitas; antrean makin besar.
 
-### Laju throughput: laju total, laju selesai, laju keberhasilan, laju kegagalan, laju lewati
+### Laju throughput: laju keberangkatan, laju selesai, laju keberhasilan, laju kegagalan, laju lewati
 
 Laju throughput mengukur keluaran yang teramati, yaitu item yang benar-benar meninggalkan antrean. Laju ini terbagi menjadi lima kategori besar:
 
@@ -211,6 +211,8 @@ Laju throughput mengukur keluaran yang teramati, yaitu item yang benar-benar men
 
 - σ (sigma): laju lewati. Ini mengukur berapa banyak item per periode waktu yang masuk ke antrean, lalu pergi tanpa dilayani, misalnya pengabaian, pengunduran diri.
 
+![Diagram: laju keberangkatan χ = laju selesai δ + laju lewati σ; laju selesai δ = laju keberhasilan α + laju kegagalan β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Laju selesai = laju keberhasilan + laju kegagalan:
 
 - δ = α + β (dibaca: delta sama dengan alpha ditambah beta)
@@ -222,8 +224,6 @@ Laju total = laju selesai + laju lewati:
 Laju total = laju keberhasilan + laju kegagalan + laju lewati:
 
 - χ = α + β + σ (dibaca: chi sama dengan alpha ditambah beta ditambah sigma)
-
-![Diagram: laju keberangkatan χ = laju selesai δ + laju lewati σ; laju selesai δ = laju keberhasilan α + laju kegagalan β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Setiap item yang dihitung dalam χ telah masuk ke sistem, sehingga dalam keadaan tunak laju total sama dengan laju kedatangan: χ ≈ λ. Itulah sebabnya laju throughput mengukur keluaran, bukan kapasitas.
 
@@ -288,23 +288,23 @@ Contoh:
 
 - ε = 1 berarti setiap layanan mengalami kesalahan.
 
-### Lead time, waktu langkah, waktu kerja, waktu tunggu
+### Lead time, waktu tunggu, waktu kerja, waktu langkah
 
 Kami melacak empat waktu:
 
-- τ (tau): lead time = dari awal antrean hingga akhir antrean
+- τ (tau): waktu dalam sistem, atau lead time, atau dari awal hingga akhir.
 
 - θ (theta): waktu langkah = dari satu penyelesaian hingga penyelesaian berikutnya; satu waktu langkah adalah satu jeda, dan rata-rata waktu langkah adalah rata-rata jeda
 
-- φ (phi): waktu kerja = waktu yang dihabiskan untuk melakukan pekerjaan sebenarnya, atau waktu pemrosesan
-
 - ω (omega): waktu tunggu = waktu yang dihabiskan tanpa melakukan pekerjaan sebenarnya, atau waktu tertunda
 
-![Diagram: lead time τ adalah waktu menunggu ω diikuti waktu kerja φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): waktu kerja = waktu yang dihabiskan untuk melakukan pekerjaan sebenarnya, atau waktu pemrosesan
+
+![Diagram: lead time τ, waktu tunggu ω, waktu kerja φ, waktu langkah θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Contoh:
 
-- τ = 5s berarti sebuah item ditambahkan ke antrean, lalu dilayani 5 detik kemudian.
+- τ = 5s berarti sebuah item masuk ke sistem, lalu keluar dari sistem 5 detik kemudian.
 
 - ω = 4s berarti sebuah item menunggu dalam antrean selama 4 detik, lalu pekerjaan dimulai.
 

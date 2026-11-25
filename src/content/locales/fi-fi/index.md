@@ -19,11 +19,11 @@ Sisällysluettelo:
   - [Määrä](#määrä)
   - [Saapumisnopeus, palvelunopeus, poistumisnopeus](#saapumisnopeus-palvelunopeus-poistumisnopeus)
   - [Käyttöaste eli liikenneintensiteetti](#käyttöaste-eli-liikenneintensiteetti)
-  - [Läpimenonopeudet: kokonaisnopeus, valmistumisnopeus, onnistumisnopeus, epäonnistumisnopeus, ohitusnopeus](#läpimenonopeudet-kokonaisnopeus-valmistumisnopeus-onnistumisnopeus-epäonnistumisnopeus-ohitusnopeus)
+  - [Läpimenonopeudet: poistumisnopeus, valmistumisnopeus, onnistumisnopeus, epäonnistumisnopeus, ohitusnopeus](#läpimenonopeudet-poistumisnopeus-valmistumisnopeus-onnistumisnopeus-epäonnistumisnopeus-ohitusnopeus)
   - [Palvelunopeuden käsitteen täsmennys](#palvelunopeuden-käsitteen-täsmennys)
   - [Ohitusnopeus](#ohitusnopeus)
   - [Virhesuhde](#virhesuhde)
-  - [Läpimenoaika, askelaika, työaika, odotusaika](#läpimenoaika-askelaika-työaika-odotusaika)
+  - [Läpimenoaika, odotusaika, työaika, askelaika](#läpimenoaika-odotusaika-työaika-askelaika)
   - [Kendallin merkintä](#kendallin-merkintä)
 - [Jonojen matematiikka](#jonojen-matematiikka)
   - [Käyttöastekäyrä](#käyttöastekäyrä)
@@ -168,7 +168,7 @@ Tärkeimmät merkinnät:
 
 - χ (khii): poistumisnopeus. Se mittaa, kuinka nopeasti kohteet poistuvat järjestelmästä.
 
-![Kaavio: kohteet saapuvat nopeudella λ, palvellaan nopeudella μ ja poistuvat nopeudella χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Kaavio: kohteet saapuvat nopeudella λ, palvellaan nopeudella μ ja poistuvat nopeudella χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Esimerkkejä yleisistä periaatteista perinteisille yhden palvelimen jonoille:
 
@@ -196,7 +196,7 @@ Esimerkkejä:
 
 - ρ > 1 tarkoittaa, että saapumiset ylittävät kapasiteetin; jono kasvaa.
 
-### Läpimenonopeudet: kokonaisnopeus, valmistumisnopeus, onnistumisnopeus, epäonnistumisnopeus, ohitusnopeus
+### Läpimenonopeudet: poistumisnopeus, valmistumisnopeus, onnistumisnopeus, epäonnistumisnopeus, ohitusnopeus
 
 Läpimenonopeudet mittaavat havaittua tuotosta eli kohteita, jotka todella poistuvat jonosta. Ne jakautuvat viiteen laajaan luokkaan:
 
@@ -210,6 +210,8 @@ Läpimenonopeudet mittaavat havaittua tuotosta eli kohteita, jotka todella poist
 
 - σ (sigma): ohitusnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä tulee jonoon ja poistuu sitten ilman palvelua, esimerkiksi luopumiset ja kesken jättämiset.
 
+![Kaavio: poistumisnopeus χ = valmistumisnopeus δ + ohitusnopeus σ; valmistumisnopeus δ = onnistumisnopeus α + epäonnistumisnopeus β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Valmistumisnopeus = onnistumisnopeus + epäonnistumisnopeus:
 
 - δ = α + β (lausutaan: delta on yhtä kuin alfa plus beeta)
@@ -221,8 +223,6 @@ Kokonaisnopeus = valmistumisnopeus + ohitusnopeus:
 Kokonaisnopeus = onnistumisnopeus + epäonnistumisnopeus + ohitusnopeus:
 
 - χ = α + β + σ (lausutaan: khii on yhtä kuin alfa plus beeta plus sigma)
-
-![Kaavio: poistumisnopeus χ = valmistumisnopeus δ + ohitusnopeus σ; valmistumisnopeus δ = onnistumisnopeus α + epäonnistumisnopeus β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Jokainen χ:hin laskettu kohde on tullut järjestelmään, joten tasapainotilassa kokonaisnopeus on yhtä suuri kuin saapumisnopeus: χ ≈ λ. Siksi läpimenonopeudet mittaavat tuotosta eivätkä kapasiteettia.
 
@@ -287,23 +287,23 @@ Esimerkkejä:
 
 - ε = 1 tarkoittaa, että jokaisessa palvelussa on virhe.
 
-### Läpimenoaika, askelaika, työaika, odotusaika
+### Läpimenoaika, odotusaika, työaika, askelaika
 
 Seuraamme neljää aikaa:
 
-- τ (tau): läpimenoaika = jonon alusta jonon loppuun
+- τ (tau): aika järjestelmässä eli läpimenoaika eli alusta loppuun.
 
 - θ (theeta): askelaika = yhdestä valmistumisesta seuraavaan valmistumiseen; yksi askelaika on yksi väli, ja keskimääräinen askelaika on välien keskiarvo
 
-- φ (fii): työaika = varsinaiseen työhön käytetty aika eli käsittelyaika
-
 - ω (oomega): odotusaika = aika, jolloin varsinaista työtä ei tehdä, eli vireilläoloaika
 
-![Kaavio: läpimenoaika τ on odotusaika ω ja sitä seuraava työaika φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fii): työaika = varsinaiseen työhön käytetty aika eli käsittelyaika
+
+![Kaavio: läpimenoaika τ, odotusaika ω, työaika φ, askelaika θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Esimerkkejä:
 
-- τ = 5s tarkoittaa, että kohde lisätään jonoon ja palvellaan 5 sekuntia myöhemmin.
+- τ = 5s tarkoittaa, että kohde tulee järjestelmään ja poistuu siitä 5 sekuntia myöhemmin.
 
 - ω = 4s tarkoittaa, että kohde odottaa jonossa 4 sekuntia, minkä jälkeen työ alkaa.
 

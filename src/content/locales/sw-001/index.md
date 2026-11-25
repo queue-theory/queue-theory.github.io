@@ -15,11 +15,11 @@ Yaliyomo:
   - [Idadi](#idadi)
   - [Kiwango cha uwasili, kiwango cha huduma, kiwango cha kuondoka](#kiwango-cha-uwasili-kiwango-cha-huduma-kiwango-cha-kuondoka)
   - [Uwiano wa matumizi, yaani ukali wa trafiki](#uwiano-wa-matumizi-yaani-ukali-wa-trafiki)
-  - [Viwango vya upitishaji: kiwango cha jumla, kiwango cha kukamilika, kiwango cha mafanikio, kiwango cha kushindwa, kiwango cha kuachwa](#viwango-vya-upitishaji-kiwango-cha-jumla-kiwango-cha-kukamilika-kiwango-cha-mafanikio-kiwango-cha-kushindwa-kiwango-cha-kuachwa)
+  - [Viwango vya upitishaji: kiwango cha kuondoka, kiwango cha kukamilika, kiwango cha mafanikio, kiwango cha kushindwa, kiwango cha kuachwa](#viwango-vya-upitishaji-kiwango-cha-kuondoka-kiwango-cha-kukamilika-kiwango-cha-mafanikio-kiwango-cha-kushindwa-kiwango-cha-kuachwa)
   - [Ufafanuzi wa kiwango cha huduma](#ufafanuzi-wa-kiwango-cha-huduma)
   - [Kiwango cha kuachwa](#kiwango-cha-kuachwa)
   - [Uwiano wa makosa](#uwiano-wa-makosa)
-  - [Muda wa jumla, muda wa hatua, muda wa kazi, muda wa kusubiri](#muda-wa-jumla-muda-wa-hatua-muda-wa-kazi-muda-wa-kusubiri)
+  - [Muda wa jumla, muda wa kusubiri, muda wa kazi, muda wa hatua](#muda-wa-jumla-muda-wa-kusubiri-muda-wa-kazi-muda-wa-hatua)
   - [Nukuu ya Kendall](#nukuu-ya-kendall)
 - [Hisabati ya foleni](#hisabati-ya-foleni)
   - [Mkunjo wa matumizi](#mkunjo-wa-matumizi)
@@ -164,7 +164,7 @@ Nukuu muhimu zaidi:
 
 - χ (chi): kiwango cha kuondoka. Hiki kinapima kasi ambayo vipengee vinatoka katika mfumo.
 
-![Mchoro: vipengee vinawasili kwa kiwango λ, vinahudumiwa kwa kiwango μ na kuondoka kwa kiwango χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Mchoro: vipengee vinawasili kwa kiwango λ, vinahudumiwa kwa kiwango μ na kuondoka kwa kiwango χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Mifano ya kanuni za jumla kwa foleni za kawaida zenye seva moja:
 
@@ -192,7 +192,7 @@ Mifano:
 
 - ρ > 1 inamaanisha uwasili unazidi uwezo; foleni inazidi kuwa kubwa.
 
-### Viwango vya upitishaji: kiwango cha jumla, kiwango cha kukamilika, kiwango cha mafanikio, kiwango cha kushindwa, kiwango cha kuachwa
+### Viwango vya upitishaji: kiwango cha kuondoka, kiwango cha kukamilika, kiwango cha mafanikio, kiwango cha kushindwa, kiwango cha kuachwa
 
 Viwango vya upitishaji hupima matokeo yanayoonekana, yaani vipengee ambavyo kwa kweli vinaondoka katika foleni. Viko katika makundi matano mapana:
 
@@ -206,6 +206,8 @@ Viwango vya upitishaji hupima matokeo yanayoonekana, yaani vipengee ambavyo kwa 
 
 - σ (sigma): kiwango cha kuachwa. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinaingia katika foleni, kisha vinaondoka bila kuhudumiwa, kwa mfano kuacha foleni, kujitoa.
 
+![Mchoro: kiwango cha kuondoka χ = kiwango cha kukamilika δ + kiwango cha kuachwa σ; kiwango cha kukamilika δ = kiwango cha mafanikio α + kiwango cha kushindwa β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Kiwango cha kukamilika = kiwango cha mafanikio + kiwango cha kushindwa:
 
 - δ = α + β (hutamkwa: delta ni sawa na alpha jumlisha beta)
@@ -217,8 +219,6 @@ Kiwango cha jumla = kiwango cha kukamilika + kiwango cha kuachwa:
 Kiwango cha jumla = kiwango cha mafanikio + kiwango cha kushindwa + kiwango cha kuachwa:
 
 - χ = α + β + σ (hutamkwa: chi ni sawa na alpha jumlisha beta jumlisha sigma)
-
-![Mchoro: kiwango cha kuondoka χ = kiwango cha kukamilika δ + kiwango cha kuachwa σ; kiwango cha kukamilika δ = kiwango cha mafanikio α + kiwango cha kushindwa β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kila kipengee kinachohesabiwa katika χ kiliingia katika mfumo, kwa hiyo katika hali tulivu kiwango cha jumla ni sawa na kiwango cha uwasili: χ ≈ λ. Ndiyo sababu viwango vya upitishaji hupima matokeo, si uwezo.
 
@@ -280,23 +280,23 @@ Mifano:
 
 - ε = 1 inamaanisha kila huduma ina kosa.
 
-### Muda wa jumla, muda wa hatua, muda wa kazi, muda wa kusubiri
+### Muda wa jumla, muda wa kusubiri, muda wa kazi, muda wa hatua
 
 Tunafuatilia aina nne za muda:
 
-- τ (tau): muda wa jumla wa utekelezaji (lead time) = kuanzia mwanzo wa foleni hadi mwisho wa foleni
+- τ (tau): muda katika mfumo, yaani muda wa jumla wa utekelezaji (lead time), yaani kuanzia mwanzo hadi mwisho.
 
 - θ (theta): muda wa hatua = kuanzia ukamilishaji mmoja hadi ukamilishaji unaofuata; muda mmoja wa hatua ni pengo moja, na muda wa wastani wa hatua ni pengo la wastani
 
-- φ (phi): muda wa kazi = muda unaotumika kufanya kazi halisi, yaani muda wa uchakataji
-
 - ω (omega): muda wa kusubiri = muda unaotumika bila kufanya kazi halisi, yaani muda wa kungoja
 
-![Mchoro: muda wa jumla wa utekelezaji τ ni muda wa kusubiri ω ukifuatwa na muda wa kazi φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): muda wa kazi = muda unaotumika kufanya kazi halisi, yaani muda wa uchakataji
+
+![Mchoro: muda wa jumla τ, muda wa kusubiri ω, muda wa kazi φ, muda wa hatua θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Mifano:
 
-- τ = 5s inamaanisha kipengee kinaongezwa katika foleni, kisha kinahudumiwa sekunde 5 baadaye.
+- τ = 5s inamaanisha kipengee kinaingia katika mfumo, kisha kinatoka katika mfumo sekunde 5 baadaye.
 
 - ω = 4s inamaanisha kipengee kinasubiri katika foleni kwa sekunde 4, kisha kazi inaanza.
 

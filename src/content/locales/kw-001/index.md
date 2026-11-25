@@ -15,11 +15,11 @@ Synsas:
   - [Niver](#niver)
   - [Toth devedhyans, toth servis, toth dibarth](#toth-devedhyans-toth-servis-toth-dibarth)
   - [Kevradh devnydh po nerth trafik](#kevradh-devnydh-po-nerth-trafik)
-  - [Tothow dhe-ves: toth dien, toth gorfennys, toth sewena, toth fyllel, toth lamma](#tothow-dhe-ves-toth-dien-toth-gorfennys-toth-sewena-toth-fyllel-toth-lamma)
+  - [Tothow dhe-ves: toth dibarth, toth gorfennys, toth sewena, toth fyllel, toth lamma](#tothow-dhe-ves-toth-dibarth-toth-gorfennys-toth-sewena-toth-fyllel-toth-lamma)
   - [Styryans toth servis](#styryans-toth-servis)
   - [Toth lamma](#toth-lamma)
   - [Kevradh kammow](#kevradh-kammow)
-  - [Termyn ledya, termyn pas, termyn ober, termyn gortos](#termyn-ledya-termyn-pas-termyn-ober-termyn-gortos)
+  - [Termyn ledya, termyn gortos, termyn ober, termyn pas](#termyn-ledya-termyn-gortos-termyn-ober-termyn-pas)
   - [Notyans Kendall](#notyans-kendall)
 - [Matematek lostow](#matematek-lostow)
   - [An linen gromm a dhevnydh](#an-linen-gromm-a-dhevnydh)
@@ -164,7 +164,7 @@ An notyans moyha posek:
 
 - χ (chi): toth dibarth. Hemma a vusur fatel skaf yw an taklow ow kerdhes mes a’n system.
 
-![Diagram: taklow a dheu orth toth λ, a vydh servys orth toth μ, hag a as orth toth χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: taklow a dheu orth toth λ, a vydh servys orth toth μ, hag a as orth toth χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Ensamplow a reolyow kemmyn rag lostow hengovek gans unn servell:
 
@@ -192,7 +192,7 @@ Ensamplow:
 
 - ρ > 1 a styr bos an devedhyansow dres an dalgh; yma an lost ow mos ha brassa.
 
-### Tothow dhe-ves: toth dien, toth gorfennys, toth sewena, toth fyllel, toth lamma
+### Tothow dhe-ves: toth dibarth, toth gorfennys, toth sewena, toth fyllel, toth lamma
 
 Tothow dhe-ves a vusur eskor gwelys, hen yw taklow a as an lost yn hwir. I a dheu yn pymp rann ledan:
 
@@ -206,6 +206,8 @@ Tothow dhe-ves a vusur eskor gwelys, hen yw taklow a as an lost yn hwir. I a dhe
 
 - σ (sigma): toth lamma. Hemma a vusur pes taklow pub spys termyn a entr y’n lost, ena a as heb bos servys, rag ensampel forsakyansow, tennansow-war-dhelergh.
 
+![Diagram: toth dibarth χ = toth gorfennys δ + toth lamma σ; toth gorfennys δ = toth sewena α + toth fyllel β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Toth gorfennys = toth sewena + toth fyllel:
 
 - δ = α + β (leverys: delta yw kehaval dhe alpha ha beta)
@@ -217,8 +219,6 @@ Toth dien = toth gorfennys + toth lamma:
 Toth dien = toth sewena + toth fyllel + toth lamma:
 
 - χ = α + β + σ (leverys: chi yw kehaval dhe alpha ha beta ha sigma)
-
-![Diagram: toth dibarth χ = toth gorfennys δ + toth lamma σ; toth gorfennys δ = toth sewena α + toth fyllel β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Pub takel nivers yn χ a entras y’n system, ytho yn studh sad an toth dien yw kehaval dhe’n toth devedhyans: χ ≈ λ. Rakhenna tothow dhe-ves a vusur eskor, ha nyns yw dalgh.
 
@@ -280,23 +280,23 @@ Ensamplow:
 
 - ε = 1 a styr bos kamm yn pub servis.
 
-### Termyn ledya, termyn pas, termyn ober, termyn gortos
+### Termyn ledya, termyn gortos, termyn ober, termyn pas
 
 Ni a hol peswar termyn:
 
-- τ (tau): termyn ledya = a dhalleth an lost bys yn diwedh an lost
+- τ (tau): termyn y’n system po termyn ledya po dhalleth bys yn diwedh.
 
 - θ (theta): termyn pas = a unn diwedh bys y’n diwedh nessa; unn termyn pas yw unn aswa, ha’n termyn pas mayn yw an aswa mayn
 
-- φ (phi): termyn ober = termyn spenys ow kul ober gwir po termyn dyghtyans
-
 - ω (omega): termyn gortos = termyn spenys heb gul ober gwir po termyn ow kortos
 
-![Diagram: an termyn ledya τ yw an termyn ow kortos ω ha ena an termyn ober φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): termyn ober = termyn spenys ow kul ober gwir po termyn dyghtyans
+
+![Diagram: termyn ledya τ, termyn gortos ω, termyn ober φ, termyn pas θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Ensamplow:
 
-- τ = 5s a styr bos takel keworrys dhe’n lost, ena servys 5 eylen diwettha.
+- τ = 5s a styr bos takel ow tos y’n system, ena ow kerdhes mes anodho 5 eylen wosa hedna.
 
 - ω = 4s a styr bos takel ow kortos y’n lost dres 4 eylen, ena an ober a dhalleth.
 

@@ -15,11 +15,11 @@ Spis treści:
   - [Liczba](#liczba)
   - [Tempo przybywania, tempo obsługi, tempo opuszczania](#tempo-przybywania-tempo-obsługi-tempo-opuszczania)
   - [Współczynnik wykorzystania, czyli natężenie ruchu](#współczynnik-wykorzystania-czyli-natężenie-ruchu)
-  - [Tempa przepustowości: tempo całkowite, tempo zakończeń, tempo sukcesów, tempo porażek, tempo pominięć](#tempa-przepustowości-tempo-całkowite-tempo-zakończeń-tempo-sukcesów-tempo-porażek-tempo-pominięć)
+  - [Tempa przepustowości: tempo opuszczania, tempo zakończeń, tempo sukcesów, tempo porażek, tempo pominięć](#tempa-przepustowości-tempo-opuszczania-tempo-zakończeń-tempo-sukcesów-tempo-porażek-tempo-pominięć)
   - [Ujednoznacznienie tempa obsługi](#ujednoznacznienie-tempa-obsługi)
   - [Tempo pominięć](#tempo-pominięć)
   - [Wskaźnik błędów](#wskaźnik-błędów)
-  - [Czas realizacji, czas kroku, czas pracy, czas oczekiwania](#czas-realizacji-czas-kroku-czas-pracy-czas-oczekiwania)
+  - [Czas realizacji, czas oczekiwania, czas pracy, czas kroku](#czas-realizacji-czas-oczekiwania-czas-pracy-czas-kroku)
   - [Notacja Kendalla](#notacja-kendalla)
 - [Matematyka kolejek](#matematyka-kolejek)
   - [Krzywa wykorzystania](#krzywa-wykorzystania)
@@ -164,7 +164,7 @@ Najważniejsza notacja:
 
 - χ (chi): tempo opuszczania. Mierzy, jak szybko elementy wychodzą z systemu.
 
-![Diagram: elementy przybywają w tempie λ, są obsługiwane w tempie μ i wychodzą w tempie χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: elementy przybywają w tempie λ, są obsługiwane w tempie μ i wychodzą w tempie χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Przykłady ogólnych zależności dla tradycyjnych kolejek z jednym serwerem:
 
@@ -192,7 +192,7 @@ Przykłady:
 
 - ρ > 1 oznacza, że przybycia przekraczają wydajność; kolejka się wydłuża.
 
-### Tempa przepustowości: tempo całkowite, tempo zakończeń, tempo sukcesów, tempo porażek, tempo pominięć
+### Tempa przepustowości: tempo opuszczania, tempo zakończeń, tempo sukcesów, tempo porażek, tempo pominięć
 
 Tempa przepustowości mierzą obserwowany wynik, czyli elementy, które faktycznie opuszczają kolejkę. Dzielą się na pięć ogólnych kategorii:
 
@@ -206,6 +206,8 @@ Tempa przepustowości mierzą obserwowany wynik, czyli elementy, które faktyczn
 
 - σ (sigma): tempo pominięć. Mierzy, ile elementów w danym okresie wchodzi do kolejki, a następnie wychodzi bez obsługi, np. porzucenia, rezygnacje.
 
+![Diagram: tempo opuszczania χ = tempo zakończeń δ + tempo pominięć σ; tempo zakończeń δ = tempo sukcesów α + tempo porażek β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Tempo zakończeń = tempo sukcesów + tempo porażek:
 
 - δ = α + β (czytaj: delta równa się alfa plus beta)
@@ -217,8 +219,6 @@ Tempo całkowite = tempo zakończeń + tempo pominięć:
 Tempo całkowite = tempo sukcesów + tempo porażek + tempo pominięć:
 
 - χ = α + β + σ (czytaj: chi równa się alfa plus beta plus sigma)
-
-![Diagram: tempo opuszczania χ = tempo zakończeń δ + tempo pominięć σ; tempo zakończeń δ = tempo sukcesów α + tempo porażek β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Każdy element policzony w χ wszedł do systemu, więc w stanie ustalonym tempo całkowite jest równe tempu przybywania: χ ≈ λ. Dlatego tempa przepustowości mierzą wynik, a nie wydajność.
 
@@ -283,23 +283,23 @@ Przykłady:
 
 - ε = 1 oznacza, że każda obsługa zawiera błąd.
 
-### Czas realizacji, czas kroku, czas pracy, czas oczekiwania
+### Czas realizacji, czas oczekiwania, czas pracy, czas kroku
 
 Śledzimy cztery czasy:
 
-- τ (tau): czas realizacji = od początku kolejki do końca kolejki
+- τ (tau): czas w systemie, czyli czas realizacji, czyli od początku do końca.
 
 - θ (theta): czas kroku = od jednego zakończenia do następnego zakończenia; jeden czas kroku to jedna przerwa, a średni czas kroku to średnia przerwa
 
-- φ (fi): czas pracy = czas poświęcony na faktyczną pracę, czyli czas przetwarzania
-
 - ω (omega): czas oczekiwania = czas, w którym nie wykonuje się faktycznej pracy, czyli czas zawieszenia
 
-![Diagram: czas realizacji τ to czas oczekiwania ω, po którym następuje czas pracy φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fi): czas pracy = czas poświęcony na faktyczną pracę, czyli czas przetwarzania
+
+![Diagram: czas realizacji τ, czas oczekiwania ω, czas pracy φ, czas kroku θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Przykłady:
 
-- τ = 5s oznacza, że element zostaje dodany do kolejki, a następnie obsłużony 5 sekund później.
+- τ = 5s oznacza, że element wchodzi do systemu, a po 5 sekundach z niego wychodzi.
 
 - ω = 4s oznacza, że element czeka w kolejce 4 sekundy, a następnie rozpoczyna się praca.
 

@@ -21,11 +21,11 @@ Clàr-innse:
   - [Cunntas](#cunntas)
   - [Reat ruighinn, reat seirbheis, reat falbhaidh](#reat-ruighinn-reat-seirbheis-reat-falbhaidh)
   - [Co-mheas cleachdaidh, no dèine trafaig](#co-mheas-cleachdaidh-no-dèine-trafaig)
-  - [Reataichean tro-chuir: reat iomlan, reat crìochnachaidh, reat soirbheachais, reat fàillinn, reat leumaidh](#reataichean-tro-chuir-reat-iomlan-reat-crìochnachaidh-reat-soirbheachais-reat-fàillinn-reat-leumaidh)
+  - [Reataichean tro-chuir: reat falbhaidh, reat crìochnachaidh, reat soirbheachais, reat fàillinn, reat leumaidh](#reataichean-tro-chuir-reat-falbhaidh-reat-crìochnachaidh-reat-soirbheachais-reat-fàillinn-reat-leumaidh)
   - [Soilleireachadh air an reat seirbheis](#soilleireachadh-air-an-reat-seirbheis)
   - [Reat leumaidh](#reat-leumaidh)
   - [Co-mheas mhearachdan](#co-mheas-mhearachdan)
-  - [Ùine luaidhe, ùine ceum, ùine obrach, ùine feitheimh](#ùine-luaidhe-ùine-ceum-ùine-obrach-ùine-feitheimh)
+  - [Ùine luaidhe, ùine feitheimh, ùine obrach, ùine ceum](#ùine-luaidhe-ùine-feitheimh-ùine-obrach-ùine-ceum)
   - [Comharrachadh Kendall](#comharrachadh-kendall)
 - [Matamataig nan ciudhaichean](#matamataig-nan-ciudhaichean)
   - [Lùb a' chleachdaidh](#lùb-a-chleachdaidh)
@@ -170,7 +170,7 @@ An comharrachadh as cudromaiche:
 
 - χ (chi): reat falbhaidh. Tha seo a' tomhas dè cho luath 's a tha nithean a' fàgail an t-siostaim.
 
-![Diagram: tha nithean a' ruighinn aig reat λ, a' faighinn seirbheis aig reat μ agus a' fàgail aig reat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: tha nithean a' ruighinn aig reat λ, a' faighinn seirbheis aig reat μ agus a' fàgail aig reat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Eisimpleirean de choitcheannachdan airson ciudhaichean traidiseanta le aon fhrithealaiche:
 
@@ -198,7 +198,7 @@ Eisimpleirean:
 
 - Tha ρ > 1 a' ciallachadh gu bheil na ruighinnean nas motha na an comas; tha an ciudha a' fàs nas motha.
 
-### Reataichean tro-chuir: reat iomlan, reat crìochnachaidh, reat soirbheachais, reat fàillinn, reat leumaidh
+### Reataichean tro-chuir: reat falbhaidh, reat crìochnachaidh, reat soirbheachais, reat fàillinn, reat leumaidh
 
 Bidh reataichean tro-chuir a' tomhas an toraidh a chithear, is e sin na nithean a dh'fhàgas an ciudha dha-rìribh. Tha iad ann an còig roinnean farsaing:
 
@@ -212,6 +212,8 @@ Bidh reataichean tro-chuir a' tomhas an toraidh a chithear, is e sin na nithean 
 
 - σ (sigma): reat leumaidh. Tha seo a' tomhas cia mheud nì anns gach ùine a thig a-steach dhan chiudha agus a dh'fhalbhas gun a bhith air am frithealadh, m.e. trèigsinnean, tarraing-às.
 
+![Diagram: reat falbhaidh χ = reat crìochnachaidh δ + reat leumaidh σ; reat crìochnachaidh δ = reat soirbheachais α + reat fàillinn β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Reat crìochnachaidh = reat soirbheachais + reat fàillinn:
 
 - δ = α + β (air a ràdh: delta co-ionann ri alpha plus beta)
@@ -223,8 +225,6 @@ Reat iomlan = reat crìochnachaidh + reat leumaidh:
 Reat iomlan = reat soirbheachais + reat fàillinn + reat leumaidh:
 
 - χ = α + β + σ (air a ràdh: chi co-ionann ri alpha plus beta plus sigma)
-
-![Diagram: reat falbhaidh χ = reat crìochnachaidh δ + reat leumaidh σ; reat crìochnachaidh δ = reat soirbheachais α + reat fàillinn β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Thàinig gach nì a tha air a chunntadh ann an χ a-steach dhan t-siostam, agus mar sin ann an staid sheasmhach tha an reat iomlan co-ionann ris an reat ruighinn: χ ≈ λ. Sin as adhbhar gu bheil reataichean tro-chuir a' tomhas toraidh, chan e comas.
 
@@ -289,23 +289,23 @@ Eisimpleirean:
 
 - Tha ε = 1 a' ciallachadh gu bheil mearachd anns gach seirbheis.
 
-### Ùine luaidhe, ùine ceum, ùine obrach, ùine feitheimh
+### Ùine luaidhe, ùine feitheimh, ùine obrach, ùine ceum
 
 Bidh sinn a' lorg ceithir ùineachan:
 
-- τ (tau): ùine luaidhe = bho thoiseach a' chiudha gu deireadh a' chiudha
+- τ (tau): an ùine san t-siostam, no ùine luaidhe, no on toiseach chun deireadh.
 
 - θ (theta): ùine ceum = bho aon chrìochnachadh chun an ath chrìochnachaidh; tha aon ùine ceum na aon bheàrn, agus 's e an ùine ceum mheadhanach a' bheàrn chuibheasach
 
-- φ (phi): ùine obrach = an ùine a thèid a chaitheamh a' dèanamh fìor obair, no ùine làimhseachaidh
-
 - ω (omega): ùine feitheimh = an ùine a thèid a chaitheamh gun fhìor obair a dhèanamh, no ùine ri feitheamh
 
-![Diagram: is e an ùine luaidhe τ an ùine feitheimh ω agus an uair sin an ùine obrach φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): ùine obrach = an ùine a thèid a chaitheamh a' dèanamh fìor obair, no ùine làimhseachaidh
+
+![Diagram: ùine luaidhe τ, ùine feitheimh ω, ùine obrach φ, ùine ceum θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Eisimpleirean:
 
-- Tha τ = 5s a' ciallachadh gu bheil nì air a chur ris a' chiudha, agus an uair sin air a fhrithealadh 5 diogan às dèidh sin.
+- Tha τ = 5s a' ciallachadh gu bheil nì a' dol a-steach dhan t-siostam, agus a' fàgail an t-siostaim 5 diogan às dèidh sin.
 
 - Tha ω = 4s a' ciallachadh gu bheil nì a' feitheamh sa chiudha airson 4 diogan, agus an uair sin tòisichidh an obair.
 

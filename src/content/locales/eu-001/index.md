@@ -19,11 +19,11 @@ Aurkibidea:
   - [Zenbaketa](#zenbaketa)
   - [Iritsiera-tasa, zerbitzu-tasa, irteera-tasa](#iritsiera-tasa-zerbitzu-tasa-irteera-tasa)
   - [Erabilera-ratioa, trafiko-intentsitatea ere deitua](#erabilera-ratioa-trafiko-intentsitatea-ere-deitua)
-  - [Ekoizpen-tasak: tasa osoa, amaitze-tasa, arrakasta-tasa, hutsegite-tasa, saltatze-tasa](#ekoizpen-tasak-tasa-osoa-amaitze-tasa-arrakasta-tasa-hutsegite-tasa-saltatze-tasa)
+  - [Ekoizpen-tasak: irteera-tasa, amaitze-tasa, arrakasta-tasa, hutsegite-tasa, saltatze-tasa](#ekoizpen-tasak-irteera-tasa-amaitze-tasa-arrakasta-tasa-hutsegite-tasa-saltatze-tasa)
   - [Zerbitzu-tasaren desanbiguazioa](#zerbitzu-tasaren-desanbiguazioa)
   - [Saltatze-tasa](#saltatze-tasa)
   - [Errore-ratioa](#errore-ratioa)
-  - [Entrega-denbora, urrats-denbora, lan-denbora, itxaron-denbora](#entrega-denbora-urrats-denbora-lan-denbora-itxaron-denbora)
+  - [Entrega-denbora, itxaron-denbora, lan-denbora, urrats-denbora](#entrega-denbora-itxaron-denbora-lan-denbora-urrats-denbora)
   - [Kendall-en notazioa](#kendall-en-notazioa)
 - [Ilaren matematika](#ilaren-matematika)
   - [Erabilera-kurba](#erabilera-kurba)
@@ -168,7 +168,7 @@ Notaziorik garrantzitsuena:
 
 - χ (chi): irteera-tasa. Elementuak sistematik zein azkar ateratzen diren neurtzen du.
 
-![Diagrama: elementuak λ tasarekin iristen dira, μ tasarekin zerbitzatzen dira eta χ tasarekin irteten dira](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagrama: elementuak λ tasarekin iristen dira, μ tasarekin zerbitzatzen dira eta χ tasarekin irteten dira](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Zerbitzari bakarreko ilara tradizionalen orokortasunen adibideak:
 
@@ -196,7 +196,7 @@ Adibideak:
 
 - ρ > 1 esan nahi du iritsierek gaitasuna gainditzen dutela; ilara handitzen ari da.
 
-### Ekoizpen-tasak: tasa osoa, amaitze-tasa, arrakasta-tasa, hutsegite-tasa, saltatze-tasa
+### Ekoizpen-tasak: irteera-tasa, amaitze-tasa, arrakasta-tasa, hutsegite-tasa, saltatze-tasa
 
 Ekoizpen-tasek behatutako irteera neurtzen dute, hau da, benetan ilaratik ateratzen diren elementuak. Bost kategoria nagusitan banatzen dira:
 
@@ -210,6 +210,8 @@ Ekoizpen-tasek behatutako irteera neurtzen dute, hau da, benetan ilaratik aterat
 
 - σ (sigma): saltatze-tasa. Denbora-tarte bakoitzeko zenbat elementu sartzen diren ilaran eta gero zerbitzatu gabe joaten diren neurtzen du, adibidez abandonuak eta atzera egiteak.
 
+![Diagrama: irteera-tasa χ = amaitze-tasa δ + saltatze-tasa σ; amaitze-tasa δ = arrakasta-tasa α + hutsegite-tasa β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Amaitze-tasa = arrakasta-tasa + hutsegite-tasa:
 
 - δ = α + β (ahoskatua: delta berdin alpha gehi beta)
@@ -221,8 +223,6 @@ Tasa osoa = amaitze-tasa + saltatze-tasa:
 Tasa osoa = arrakasta-tasa + hutsegite-tasa + saltatze-tasa:
 
 - χ = α + β + σ (ahoskatua: chi berdin alpha gehi beta gehi sigma)
-
-![Diagrama: irteera-tasa χ = amaitze-tasa δ + saltatze-tasa σ; amaitze-tasa δ = arrakasta-tasa α + hutsegite-tasa β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ-n zenbatutako elementu oro sisteman sartu zen; beraz, egoera egonkorrean tasa osoa iritsiera-tasaren berdina da: χ ≈ λ. Horregatik neurtzen dute ekoizpen-tasek irteera, eta ez gaitasuna.
 
@@ -287,23 +287,23 @@ Adibideak:
 
 - ε = 1 esan nahi du zerbitzu guztiek errore bat dutela.
 
-### Entrega-denbora, urrats-denbora, lan-denbora, itxaron-denbora
+### Entrega-denbora, itxaron-denbora, lan-denbora, urrats-denbora
 
 Lau denbora jarraitzen ditugu:
 
-- τ (tau): entrega-denbora = ilararen hasieratik ilararen amaierara
+- τ (tau): sisteman emandako denbora, entrega-denbora ere deitua, hasieratik amaierara ere deitua.
 
 - θ (theta): urrats-denbora = amaiera batetik hurrengo amaierara; urrats-denbora bat tarte bat da, eta urrats-denbora ertaina batez besteko tartea da
 
-- φ (phi): lan-denbora = benetako lana egiten emandako denbora, prozesatze-denbora ere deitua
-
 - ω (omega): itxaron-denbora = benetako lana egin gabe emandako denbora, zain-denbora ere deitua
 
-![Diagrama: entrega-denbora τ itxaron-denbora ω da, ondoren lan-denbora φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): lan-denbora = benetako lana egiten emandako denbora, prozesatze-denbora ere deitua
+
+![Diagrama: entrega-denbora τ, itxaron-denbora ω, lan-denbora φ, urrats-denbora θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Adibideak:
 
-- τ = 5 s esan nahi du elementu bat ilarara gehitzen dela, eta 5 segundo geroago zerbitzatzen dela.
+- τ = 5 s esan nahi du elementu bat sisteman sartzen dela eta 5 segundo geroago sistematik irteten dela.
 
 - ω = 4 s esan nahi du elementu batek 4 segundo itxaroten duela ilaran, eta gero lana hasten dela.
 

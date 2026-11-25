@@ -20,11 +20,11 @@ Sommaire :
   - [Comptage](#comptage)
   - [Taux d'arrivée, taux de service, taux de départ](#taux-darrivée-taux-de-service-taux-de-départ)
   - [Taux d'utilisation, ou intensité du trafic](#taux-dutilisation-ou-intensité-du-trafic)
-  - [Taux de débit : taux total, taux d'achèvement, taux de succès, taux d'échec, taux d'abandon](#taux-de-débit--taux-total-taux-dachèvement-taux-de-succès-taux-déchec-taux-dabandon)
+  - [Taux de débit : taux de départ, taux d'achèvement, taux de succès, taux d'échec, taux d'abandon](#taux-de-débit--taux-de-départ-taux-dachèvement-taux-de-succès-taux-déchec-taux-dabandon)
   - [Désambiguïsation du taux de service](#désambiguïsation-du-taux-de-service)
   - [Taux d'abandon](#taux-dabandon)
   - [Ratio d'erreur](#ratio-derreur)
-  - [Délai de bout en bout, temps entre achèvements, temps de travail, temps d'attente](#délai-de-bout-en-bout-temps-entre-achèvements-temps-de-travail-temps-dattente)
+  - [Délai de bout en bout, temps d'attente, temps de travail, temps entre achèvements](#délai-de-bout-en-bout-temps-dattente-temps-de-travail-temps-entre-achèvements)
   - [Notation de Kendall](#notation-de-kendall)
 - [Mathématiques des files d'attente](#mathématiques-des-files-dattente)
   - [La courbe d'utilisation](#la-courbe-dutilisation)
@@ -169,7 +169,7 @@ La notation la plus importante :
 
 - χ (chi) : taux de départ. Il mesure la vitesse à laquelle les éléments sortent du système.
 
-![Schéma : les éléments arrivent au taux λ, sont servis au taux μ et repartent au taux χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Schéma : les éléments arrivent au taux λ, sont servis au taux μ et repartent au taux χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Exemples de généralités pour les files traditionnelles à un seul serveur :
 
@@ -197,7 +197,7 @@ Exemples :
 
 - ρ > 1 signifie que les arrivées dépassent la capacité ; la file s'allonge.
 
-### Taux de débit : taux total, taux d'achèvement, taux de succès, taux d'échec, taux d'abandon
+### Taux de débit : taux de départ, taux d'achèvement, taux de succès, taux d'échec, taux d'abandon
 
 Les taux de débit mesurent la production observée, c'est-à-dire les éléments qui quittent effectivement la file. Ils se répartissent en cinq grandes catégories :
 
@@ -211,6 +211,8 @@ Les taux de débit mesurent la production observée, c'est-à-dire les élément
 
 - σ (sigma) : taux d'abandon. Il mesure combien d'éléments par période entrent dans la file, puis en sortent sans être servis, par exemple les abandons et les désistements.
 
+![Schéma : taux de départ χ = taux d'achèvement δ + taux d'abandon σ; taux d'achèvement δ = taux de succès α + taux d'échec β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Taux d'achèvement = taux de succès + taux d'échec :
 
 - δ = α + β (prononcé : delta égale alpha plus bêta)
@@ -222,8 +224,6 @@ Taux total = taux d'achèvement + taux d'abandon :
 Taux total = taux de succès + taux d'échec + taux d'abandon :
 
 - χ = α + β + σ (prononcé : chi égale alpha plus bêta plus sigma)
-
-![Schéma : taux de départ χ = taux d'achèvement δ + taux d'abandon σ; taux d'achèvement δ = taux de succès α + taux d'échec β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Chaque élément compté dans χ est entré dans le système ; en régime stationnaire, le taux total est donc égal au taux d'arrivée : χ ≈ λ. C'est pourquoi les taux de débit mesurent la production, et non la capacité.
 
@@ -288,23 +288,23 @@ Exemples :
 
 - ε = 1 signifie que chaque service comporte une erreur.
 
-### Délai de bout en bout, temps entre achèvements, temps de travail, temps d'attente
+### Délai de bout en bout, temps d'attente, temps de travail, temps entre achèvements
 
 Nous suivons quatre temps :
 
-- τ (tau) : délai de bout en bout = du début de la file à la fin de la file
+- τ (tau) : temps dans le système, ou délai de bout en bout, ou du début à la fin.
 
 - θ (thêta) : temps entre achèvements = d'un achèvement à l'achèvement suivant ; un temps entre achèvements correspond à un intervalle, et le temps moyen entre achèvements est l'intervalle moyen
 
-- φ (phi) : temps de travail = temps consacré au travail effectif, ou temps de traitement
-
 - ω (oméga) : temps d'attente = temps passé sans travail effectif, ou temps en suspens
 
-![Schéma : le délai de bout en bout τ est le temps d'attente ω suivi du temps de travail φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi) : temps de travail = temps consacré au travail effectif, ou temps de traitement
+
+![Schéma : délai de bout en bout τ, temps d'attente ω, temps de travail φ, temps entre achèvements θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Exemples :
 
-- τ = 5s signifie qu'un élément est ajouté à la file, puis servi 5 secondes plus tard.
+- τ = 5s signifie qu'un élément entre dans le système, puis en sort 5 secondes plus tard.
 
 - ω = 4s signifie qu'un élément attend dans la file pendant 4 secondes, puis le travail commence.
 

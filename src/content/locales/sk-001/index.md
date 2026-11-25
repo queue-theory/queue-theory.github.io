@@ -15,11 +15,11 @@ Obsah:
   - [Počet](#počet)
   - [Intenzita príchodov, intenzita obsluhy, intenzita odchodov](#intenzita-príchodov-intenzita-obsluhy-intenzita-odchodov)
   - [Pomer vyťaženia alias intenzita prevádzky](#pomer-vyťaženia-alias-intenzita-prevádzky)
-  - [Miery priepustnosti: celková miera, miera dokončení, miera úspechu, miera zlyhaní, miera vynechaní](#miery-priepustnosti-celková-miera-miera-dokončení-miera-úspechu-miera-zlyhaní-miera-vynechaní)
+  - [Miery priepustnosti: intenzita odchodov, miera dokončení, miera úspechu, miera zlyhaní, miera vynechaní](#miery-priepustnosti-intenzita-odchodov-miera-dokončení-miera-úspechu-miera-zlyhaní-miera-vynechaní)
   - [Rozlíšenie významov intenzity obsluhy](#rozlíšenie-významov-intenzity-obsluhy)
   - [Miera vynechaní](#miera-vynechaní)
   - [Pomer chýb](#pomer-chýb)
-  - [Priebežný čas, čas kroku, pracovný čas, čas čakania](#priebežný-čas-čas-kroku-pracovný-čas-čas-čakania)
+  - [Priebežný čas, čas čakania, pracovný čas, čas kroku](#priebežný-čas-čas-čakania-pracovný-čas-čas-kroku)
   - [Kendallova notácia](#kendallova-notácia)
 - [Matematika front](#matematika-front)
   - [Krivka vyťaženia](#krivka-vyťaženia)
@@ -164,7 +164,7 @@ Najdôležitejšia notácia:
 
 - χ (chí): intenzita odchodov. Meria, ako rýchlo položky opúšťajú systém.
 
-![Diagram: položky prichádzajú mierou λ, obsluhujú sa mierou μ a odchádzajú mierou χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: položky prichádzajú mierou λ, obsluhujú sa mierou μ a odchádzajú mierou χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Príklady všeobecných pravidiel pre tradičné fronty s jedným serverom:
 
@@ -192,7 +192,7 @@ Príklady:
 
 - ρ > 1 znamená, že príchody prevyšujú kapacitu; front sa zväčšuje.
 
-### Miery priepustnosti: celková miera, miera dokončení, miera úspechu, miera zlyhaní, miera vynechaní
+### Miery priepustnosti: intenzita odchodov, miera dokončení, miera úspechu, miera zlyhaní, miera vynechaní
 
 Miery priepustnosti merajú pozorovaný výstup, teda položky, ktoré skutočne opustia front. Delia sa do piatich širokých kategórií:
 
@@ -206,6 +206,8 @@ Miery priepustnosti merajú pozorovaný výstup, teda položky, ktoré skutočne
 
 - σ (sigma): miera vynechaní. Meria, koľko položiek za časové obdobie vstúpi do frontu a potom odíde bez obsluhy, napr. opustenia, odstúpenia.
 
+![Diagram: intenzita odchodov χ = miera dokončení δ + miera vynechaní σ; miera dokončení δ = miera úspechu α + miera zlyhaní β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Miera dokončení = miera úspechu + miera zlyhaní:
 
 - δ = α + β (vyslovuje sa: delta sa rovná alfa plus beta)
@@ -217,8 +219,6 @@ Celková miera = miera dokončení + miera vynechaní:
 Celková miera = miera úspechu + miera zlyhaní + miera vynechaní:
 
 - χ = α + β + σ (vyslovuje sa: chí sa rovná alfa plus beta plus sigma)
-
-![Diagram: intenzita odchodov χ = miera dokončení δ + miera vynechaní σ; miera dokončení δ = miera úspechu α + miera zlyhaní β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Každá položka započítaná v χ vstúpila do systému, takže v ustálenom stave sa celková miera rovná intenzite príchodov: χ ≈ λ. Preto miery priepustnosti merajú výstup, nie kapacitu.
 
@@ -280,23 +280,23 @@ Príklady:
 
 - ε = 1 znamená, že každá obsluha má chybu.
 
-### Priebežný čas, čas kroku, pracovný čas, čas čakania
+### Priebežný čas, čas čakania, pracovný čas, čas kroku
 
 Sledujeme štyri časy:
 
-- τ (tau): priebežný čas = od začiatku frontu po koniec frontu
+- τ (tau): čas v systéme alias priebežný čas alias od začiatku do konca.
 
 - θ (théta): čas kroku = od jedného dokončenia po ďalšie dokončenie; jeden čas kroku je jedna medzera a priemerný čas kroku je priemerná medzera
 
-- φ (fí): pracovný čas = čas strávený skutočnou prácou alias čas spracovania
-
 - ω (omega): čas čakania = čas strávený bez skutočnej práce alias čas nečinnosti
 
-![Diagram: priebežný čas τ je čas čakania ω nasledovaný pracovným časom φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fí): pracovný čas = čas strávený skutočnou prácou alias čas spracovania
+
+![Diagram: priebežný čas τ, čas čakania ω, pracovný čas φ, čas kroku θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Príklady:
 
-- τ = 5 s znamená, že položka je pridaná do frontu a obslúžená o 5 sekúnd neskôr.
+- τ = 5 s znamená, že položka vstúpi do systému a o 5 sekúnd neskôr z neho odíde.
 
 - ω = 4 s znamená, že položka čaká vo fronte 4 sekundy a potom sa začne práca.
 

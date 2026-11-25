@@ -15,11 +15,11 @@ Turinys:
   - [Skaičius](#skaičius)
   - [Atvykimo sparta, aptarnavimo sparta, išvykimo sparta](#atvykimo-sparta-aptarnavimo-sparta-išvykimo-sparta)
   - [Apkrovos santykis, dar vadinamas srauto intensyvumu](#apkrovos-santykis-dar-vadinamas-srauto-intensyvumu)
-  - [Pralaidumo spartos: bendroji sparta, įvykdymo sparta, sėkmės sparta, nesėkmės sparta, praleidimo sparta](#pralaidumo-spartos-bendroji-sparta-įvykdymo-sparta-sėkmės-sparta-nesėkmės-sparta-praleidimo-sparta)
+  - [Pralaidumo spartos: išvykimo sparta, įvykdymo sparta, sėkmės sparta, nesėkmės sparta, praleidimo sparta](#pralaidumo-spartos-išvykimo-sparta-įvykdymo-sparta-sėkmės-sparta-nesėkmės-sparta-praleidimo-sparta)
   - [Aptarnavimo spartos sąvokos patikslinimas](#aptarnavimo-spartos-sąvokos-patikslinimas)
   - [Praleidimo sparta](#praleidimo-sparta)
   - [Klaidų santykis](#klaidų-santykis)
-  - [Įgyvendinimo trukmė, žingsnio laikas, darbo laikas, laukimo laikas](#įgyvendinimo-trukmė-žingsnio-laikas-darbo-laikas-laukimo-laikas)
+  - [Įgyvendinimo trukmė, laukimo laikas, darbo laikas, žingsnio laikas](#įgyvendinimo-trukmė-laukimo-laikas-darbo-laikas-žingsnio-laikas)
   - [Kendallo žymėjimas](#kendallo-žymėjimas)
 - [Eilių matematika](#eilių-matematika)
   - [Apkrovos kreivė](#apkrovos-kreivė)
@@ -164,7 +164,7 @@ Svarbiausias žymėjimas:
 
 - χ (chi): išvykimo sparta. Ji parodo, kaip greitai elementai išeina iš sistemos.
 
-![Diagrama: elementai atvyksta sparta λ, aptarnaujami sparta μ ir išeina sparta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagrama: elementai atvyksta sparta λ, aptarnaujami sparta μ ir išeina sparta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Bendrųjų dėsningumų pavyzdžiai tradicinėms eilėms su vienu serveriu:
 
@@ -192,7 +192,7 @@ Pavyzdžiai:
 
 - ρ > 1 reiškia, kad atvykimai viršija pajėgumą; eilė didėja.
 
-### Pralaidumo spartos: bendroji sparta, įvykdymo sparta, sėkmės sparta, nesėkmės sparta, praleidimo sparta
+### Pralaidumo spartos: išvykimo sparta, įvykdymo sparta, sėkmės sparta, nesėkmės sparta, praleidimo sparta
 
 Pralaidumo spartos matuoja stebimą išeigą, t. y. elementus, kurie iš tikrųjų palieka eilę. Jos skirstomos į penkias plačias kategorijas:
 
@@ -206,6 +206,8 @@ Pralaidumo spartos matuoja stebimą išeigą, t. y. elementus, kurie iš tikrųj
 
 - σ (sigma): praleidimo sparta. Ji parodo, kiek elementų per laikotarpį patenka į eilę, o tada išeina neaptarnauti, pvz., pasitraukimai, atsisakymai.
 
+![Diagrama: išvykimo sparta χ = įvykdymo sparta δ + praleidimo sparta σ; įvykdymo sparta δ = sėkmės sparta α + nesėkmės sparta β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Įvykdymo sparta = sėkmės sparta + nesėkmės sparta:
 
 - δ = α + β (tariama: delta lygu alfa plius beta)
@@ -217,8 +219,6 @@ Bendroji sparta = įvykdymo sparta + praleidimo sparta:
 Bendroji sparta = sėkmės sparta + nesėkmės sparta + praleidimo sparta:
 
 - χ = α + β + σ (tariama: chi lygu alfa plius beta plius sigma)
-
-![Diagrama: išvykimo sparta χ = įvykdymo sparta δ + praleidimo sparta σ; įvykdymo sparta δ = sėkmės sparta α + nesėkmės sparta β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kiekvienas į χ įskaičiuotas elementas buvo patekęs į sistemą, todėl stacionarioje būsenoje bendroji sparta lygi atvykimo spartai: χ ≈ λ. Štai kodėl pralaidumo spartos matuoja išeigą, o ne pajėgumą.
 
@@ -280,23 +280,23 @@ Pavyzdžiai:
 
 - ε = 1 reiškia, kad kiekvienas aptarnavimas turi klaidą.
 
-### Įgyvendinimo trukmė, žingsnio laikas, darbo laikas, laukimo laikas
+### Įgyvendinimo trukmė, laukimo laikas, darbo laikas, žingsnio laikas
 
 Stebime keturis laikus:
 
-- τ (tau): įgyvendinimo trukmė = nuo eilės pradžios iki eilės pabaigos
+- τ (tau): laikas sistemoje, dar vadinamas įgyvendinimo trukme, dar vadinamas nuo pradžios iki pabaigos.
 
 - θ (teta): žingsnio laikas = nuo vieno užbaigimo iki kito užbaigimo; vienas žingsnio laikas yra vienas tarpas, o vidutinis žingsnio laikas yra vidutinis tarpas
 
-- φ (fi): darbo laikas = laikas, skirtas tikram darbui, dar vadinamas apdorojimo laiku
-
 - ω (omega): laukimo laikas = laikas, kai tikras darbas nedirbamas, dar vadinamas laukimo būsenos laiku
 
-![Diagrama: įgyvendinimo trukmė τ yra laukimo laikas ω, po kurio seka darbo laikas φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fi): darbo laikas = laikas, skirtas tikram darbui, dar vadinamas apdorojimo laiku
+
+![Diagrama: įgyvendinimo trukmė τ, laukimo laikas ω, darbo laikas φ, žingsnio laikas θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Pavyzdžiai:
 
-- τ = 5s reiškia, kad elementas įtraukiamas į eilę, o aptarnaujamas po 5 sekundžių.
+- τ = 5s reiškia, kad elementas patenka į sistemą ir po 5 sekundžių ją palieka.
 
 - ω = 4s reiškia, kad elementas eilėje laukia 4 sekundes, o tada pradedamas darbas.
 

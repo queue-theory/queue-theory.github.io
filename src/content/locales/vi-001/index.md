@@ -15,11 +15,11 @@ Mục lục:
   - [Số lượng](#số-lượng)
   - [Tốc độ đến, tốc độ phục vụ, tốc độ rời đi](#tốc-độ-đến-tốc-độ-phục-vụ-tốc-độ-rời-đi)
   - [Tỷ lệ sử dụng, còn gọi là cường độ lưu lượng](#tỷ-lệ-sử-dụng-còn-gọi-là-cường-độ-lưu-lượng)
-  - [Các tốc độ thông lượng: tốc độ tổng, tốc độ hoàn thành, tốc độ thành công, tốc độ thất bại, tốc độ bỏ qua](#các-tốc-độ-thông-lượng-tốc-độ-tổng-tốc-độ-hoàn-thành-tốc-độ-thành-công-tốc-độ-thất-bại-tốc-độ-bỏ-qua)
+  - [Các tốc độ thông lượng: tốc độ rời đi, tốc độ hoàn thành, tốc độ thành công, tốc độ thất bại, tốc độ bỏ qua](#các-tốc-độ-thông-lượng-tốc-độ-rời-đi-tốc-độ-hoàn-thành-tốc-độ-thành-công-tốc-độ-thất-bại-tốc-độ-bỏ-qua)
   - [Phân biệt nghĩa của tốc độ phục vụ](#phân-biệt-nghĩa-của-tốc-độ-phục-vụ)
   - [Tốc độ bỏ qua](#tốc-độ-bỏ-qua)
   - [Tỷ lệ lỗi](#tỷ-lệ-lỗi)
-  - [Thời gian sản xuất, thời gian bước, thời gian làm việc, thời gian chờ](#thời-gian-sản-xuất-thời-gian-bước-thời-gian-làm-việc-thời-gian-chờ)
+  - [Thời gian sản xuất, thời gian chờ, thời gian làm việc, thời gian bước](#thời-gian-sản-xuất-thời-gian-chờ-thời-gian-làm-việc-thời-gian-bước)
   - [Ký hiệu Kendall](#ký-hiệu-kendall)
 - [Toán học hàng đợi](#toán-học-hàng-đợi)
   - [Đường cong sử dụng](#đường-cong-sử-dụng)
@@ -164,7 +164,7 @@ Ký hiệu quan trọng nhất:
 
 - χ (chi): tốc độ rời đi. Đại lượng này đo các mục thoát khỏi hệ thống nhanh đến mức nào.
 
-![Sơ đồ: các mục đến với tốc độ λ, được phục vụ với tốc độ μ và rời đi với tốc độ χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Sơ đồ: các mục đến với tốc độ λ, được phục vụ với tốc độ μ và rời đi với tốc độ χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Ví dụ về các quy luật chung cho hàng đợi truyền thống có một máy phục vụ:
 
@@ -192,7 +192,7 @@ Ví dụ:
 
 - ρ > 1 có nghĩa là lượng đến vượt quá năng lực; hàng đợi ngày càng dài ra.
 
-### Các tốc độ thông lượng: tốc độ tổng, tốc độ hoàn thành, tốc độ thành công, tốc độ thất bại, tốc độ bỏ qua
+### Các tốc độ thông lượng: tốc độ rời đi, tốc độ hoàn thành, tốc độ thành công, tốc độ thất bại, tốc độ bỏ qua
 
 Các tốc độ thông lượng đo đầu ra quan sát được, nghĩa là các mục thực sự rời khỏi hàng đợi. Chúng thuộc năm nhóm lớn:
 
@@ -206,6 +206,8 @@ Các tốc độ thông lượng đo đầu ra quan sát được, nghĩa là c�
 
 - σ (sigma): tốc độ bỏ qua. Đại lượng này đo có bao nhiêu mục mỗi khoảng thời gian đi vào hàng đợi rồi rời đi mà không được phục vụ, ví dụ bỏ cuộc, rút lui.
 
+![Sơ đồ: tốc độ rời đi χ = tốc độ hoàn thành δ + tốc độ bỏ qua σ; tốc độ hoàn thành δ = tốc độ thành công α + tốc độ thất bại β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Tốc độ hoàn thành = tốc độ thành công + tốc độ thất bại:
 
 - δ = α + β (đọc là: delta bằng alpha cộng beta)
@@ -217,8 +219,6 @@ Tốc độ tổng = tốc độ hoàn thành + tốc độ bỏ qua:
 Tốc độ tổng = tốc độ thành công + tốc độ thất bại + tốc độ bỏ qua:
 
 - χ = α + β + σ (đọc là: chi bằng alpha cộng beta cộng sigma)
-
-![Sơ đồ: tốc độ rời đi χ = tốc độ hoàn thành δ + tốc độ bỏ qua σ; tốc độ hoàn thành δ = tốc độ thành công α + tốc độ thất bại β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Mọi mục được tính trong χ đều đã đi vào hệ thống, nên ở trạng thái dừng, tốc độ tổng bằng tốc độ đến: χ ≈ λ. Đó là lý do các tốc độ thông lượng đo đầu ra chứ không đo năng lực.
 
@@ -280,23 +280,23 @@ Ví dụ:
 
 - ε = 1 có nghĩa là mọi lần phục vụ đều có lỗi.
 
-### Thời gian sản xuất, thời gian bước, thời gian làm việc, thời gian chờ
+### Thời gian sản xuất, thời gian chờ, thời gian làm việc, thời gian bước
 
 Chúng tôi theo dõi bốn loại thời gian:
 
-- τ (tau): thời gian sản xuất (lead time) = từ lúc bắt đầu vào hàng đợi đến lúc hoàn tất khỏi hàng đợi
+- τ (tau): thời gian trong hệ thống, còn gọi là thời gian sản xuất (lead time), còn gọi là từ đầu đến cuối.
 
 - θ (theta): thời gian bước = từ một lần hoàn thành đến lần hoàn thành tiếp theo; một thời gian bước là một khoảng cách, và thời gian bước trung bình là khoảng cách trung bình
 
-- φ (phi): thời gian làm việc = thời gian dành cho công việc thực tế, còn gọi là thời gian xử lý
-
 - ω (omega): thời gian chờ = thời gian không làm công việc thực tế, còn gọi là thời gian treo
 
-![Sơ đồ: thời gian sản xuất τ là thời gian chờ ω nối tiếp bởi thời gian làm việc φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): thời gian làm việc = thời gian dành cho công việc thực tế, còn gọi là thời gian xử lý
+
+![Sơ đồ: thời gian sản xuất τ, thời gian chờ ω, thời gian làm việc φ, thời gian bước θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Ví dụ:
 
-- τ = 5s có nghĩa là một mục được thêm vào hàng đợi, rồi được phục vụ xong 5 giây sau.
+- τ = 5s có nghĩa là một mục đi vào hệ thống, rồi rời khỏi hệ thống 5 giây sau đó.
 
 - ω = 4s có nghĩa là một mục chờ trong hàng đợi 4 giây, rồi công việc bắt đầu.
 

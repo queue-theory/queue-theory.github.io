@@ -15,11 +15,11 @@ Innehåll:
   - [Antal](#antal)
   - [Ankomsttakt, betjäningstakt, avgångstakt](#ankomsttakt-betjäningstakt-avgångstakt)
   - [Utnyttjandegrad, även kallad trafikintensitet](#utnyttjandegrad-även-kallad-trafikintensitet)
-  - [Genomflödestakter: total takt, slutförandetakt, lyckandetakt, felfrekvens, avhoppstakt](#genomflödestakter-total-takt-slutförandetakt-lyckandetakt-felfrekvens-avhoppstakt)
+  - [Genomflödestakter: avgångstakt, slutförandetakt, lyckandetakt, felfrekvens, avhoppstakt](#genomflödestakter-avgångstakt-slutförandetakt-lyckandetakt-felfrekvens-avhoppstakt)
   - [Förtydligande av betjäningstakt](#förtydligande-av-betjäningstakt)
   - [Avhoppstakt](#avhoppstakt)
   - [Felkvot](#felkvot)
-  - [Ledtid, stegtid, arbetstid, väntetid](#ledtid-stegtid-arbetstid-väntetid)
+  - [Ledtid, väntetid, arbetstid, stegtid](#ledtid-väntetid-arbetstid-stegtid)
   - [Kendalls notation](#kendalls-notation)
 - [Köernas matematik](#köernas-matematik)
   - [Utnyttjandekurvan](#utnyttjandekurvan)
@@ -164,7 +164,7 @@ Den viktigaste notationen:
 
 - χ (chi): avgångstakt. Den mäter hur snabbt objekt lämnar systemet.
 
-![Diagram: objekt anländer med takten λ, betjänas med takten μ och lämnar systemet med takten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: objekt anländer med takten λ, betjänas med takten μ och lämnar systemet med takten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Exempel på generella förhållanden för traditionella köer med en server:
 
@@ -192,7 +192,7 @@ Exempel:
 
 - ρ > 1 betyder att ankomsterna överstiger kapaciteten; kön blir större.
 
-### Genomflödestakter: total takt, slutförandetakt, lyckandetakt, felfrekvens, avhoppstakt
+### Genomflödestakter: avgångstakt, slutförandetakt, lyckandetakt, felfrekvens, avhoppstakt
 
 Genomflödestakter mäter observerat utflöde, det vill säga objekt som faktiskt lämnar kön. De delas in i fem breda kategorier:
 
@@ -206,6 +206,8 @@ Genomflödestakter mäter observerat utflöde, det vill säga objekt som faktisk
 
 - σ (sigma): avhoppstakt. Den mäter hur många objekt per tidsperiod som kommer in i kön och sedan lämnar den utan att betjänas, t.ex. övergivanden, avhopp under väntan.
 
+![Diagram: avgångstakt χ = slutförandetakt δ + avhoppstakt σ; slutförandetakt δ = lyckandetakt α + felfrekvens β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Slutförandetakt = lyckandetakt + felfrekvens:
 
 - δ = α + β (uttalas: delta är lika med alfa plus beta)
@@ -217,8 +219,6 @@ Total takt = slutförandetakt + avhoppstakt:
 Total takt = lyckandetakt + felfrekvens + avhoppstakt:
 
 - χ = α + β + σ (uttalas: chi är lika med alfa plus beta plus sigma)
-
-![Diagram: avgångstakt χ = slutförandetakt δ + avhoppstakt σ; slutförandetakt δ = lyckandetakt α + felfrekvens β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Varje objekt som räknas i χ har kommit in i systemet, så i stationärt tillstånd är den totala takten lika med ankomsttakten: χ ≈ λ. Det är därför genomflödestakter mäter utflöde, inte kapacitet.
 
@@ -283,23 +283,23 @@ Exempel:
 
 - ε = 1 betyder att varje betjäning har ett fel.
 
-### Ledtid, stegtid, arbetstid, väntetid
+### Ledtid, väntetid, arbetstid, stegtid
 
 Vi följer fyra tider:
 
-- τ (tau): ledtid = från början av kön till slutet av kön
+- τ (tau): tid i systemet, även kallad ledtid, även kallad från början till slut.
 
 - θ (theta): stegtid = från ett slutförande till nästa slutförande; en stegtid är ett mellanrum, och den genomsnittliga stegtiden är det genomsnittliga mellanrummet
 
-- φ (fi): arbetstid = tid som läggs på faktiskt arbete, även kallad bearbetningstid
-
 - ω (omega): väntetid = tid som inte läggs på faktiskt arbete, även kallad vilotid
 
-![Diagram: ledtiden τ är väntetiden ω följd av arbetstiden φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fi): arbetstid = tid som läggs på faktiskt arbete, även kallad bearbetningstid
+
+![Diagram: ledtid τ, väntetid ω, arbetstid φ, stegtid θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Exempel:
 
-- τ = 5s betyder att ett objekt läggs till i kön och betjänas 5 sekunder senare.
+- τ = 5s betyder att ett objekt kommer in i systemet och lämnar det 5 sekunder senare.
 
 - ω = 4s betyder att ett objekt väntar i kön i 4 sekunder, och sedan börjar arbetet.
 

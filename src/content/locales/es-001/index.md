@@ -20,11 +20,11 @@ Contenido:
   - [Conteo](#conteo)
   - [Tasa de llegada, tasa de servicio, tasa de salida](#tasa-de-llegada-tasa-de-servicio-tasa-de-salida)
   - [Razón de utilización, también llamada intensidad de tráfico](#razón-de-utilización-también-llamada-intensidad-de-tráfico)
-  - [Tasas de rendimiento: tasa total, tasa de finalización, tasa de éxito, tasa de falla, tasa de omisión](#tasas-de-rendimiento-tasa-total-tasa-de-finalización-tasa-de-éxito-tasa-de-falla-tasa-de-omisión)
+  - [Tasas de rendimiento: tasa de salida, tasa de finalización, tasa de éxito, tasa de falla, tasa de omisión](#tasas-de-rendimiento-tasa-de-salida-tasa-de-finalización-tasa-de-éxito-tasa-de-falla-tasa-de-omisión)
   - [Desambiguación de la tasa de servicio](#desambiguación-de-la-tasa-de-servicio)
   - [Tasa de omisión](#tasa-de-omisión)
   - [Razón de errores](#razón-de-errores)
-  - [Tiempo de entrega, tiempo de paso, tiempo de trabajo, tiempo de espera](#tiempo-de-entrega-tiempo-de-paso-tiempo-de-trabajo-tiempo-de-espera)
+  - [Tiempo de entrega, tiempo de espera, tiempo de trabajo, tiempo de paso](#tiempo-de-entrega-tiempo-de-espera-tiempo-de-trabajo-tiempo-de-paso)
   - [Notación de Kendall](#notación-de-kendall)
 - [Matemáticas de colas](#matemáticas-de-colas)
   - [La curva de utilización](#la-curva-de-utilización)
@@ -170,7 +170,7 @@ La notación más importante:
 
 - χ (ji): tasa de salida. Mide qué tan rápido salen los elementos del sistema.
 
-![Diagrama: los elementos llegan a la tasa λ, se atienden a la tasa μ y salen a la tasa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagrama: los elementos llegan a la tasa λ, se atienden a la tasa μ y salen a la tasa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Ejemplos de generalidades para colas tradicionales con un servidor:
 
@@ -198,7 +198,7 @@ Ejemplos:
 
 - ρ > 1 significa que las llegadas superan la capacidad; la cola está creciendo.
 
-### Tasas de rendimiento: tasa total, tasa de finalización, tasa de éxito, tasa de falla, tasa de omisión
+### Tasas de rendimiento: tasa de salida, tasa de finalización, tasa de éxito, tasa de falla, tasa de omisión
 
 Las tasas de rendimiento miden la producción observada, es decir, los elementos que realmente salen de la cola. Se agrupan en cinco categorías amplias:
 
@@ -212,6 +212,8 @@ Las tasas de rendimiento miden la producción observada, es decir, los elementos
 
 - σ (sigma): tasa de omisión. Mide cuántos elementos por periodo entran a la cola y luego salen sin ser atendidos, p. ej. abandonos, deserciones.
 
+![Diagrama: tasa de salida χ = tasa de finalización δ + tasa de omisión σ; tasa de finalización δ = tasa de éxito α + tasa de falla β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Tasa de finalización = tasa de éxito + tasa de falla:
 
 - δ = α + β (se lee: delta es igual a alfa más beta)
@@ -223,8 +225,6 @@ Tasa total = tasa de finalización + tasa de omisión:
 Tasa total = tasa de éxito + tasa de falla + tasa de omisión:
 
 - χ = α + β + σ (se lee: ji es igual a alfa más beta más sigma)
-
-![Diagrama: tasa de salida χ = tasa de finalización δ + tasa de omisión σ; tasa de finalización δ = tasa de éxito α + tasa de falla β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Cada elemento contado en χ entró al sistema, así que en estado estacionario la tasa total es igual a la tasa de llegada: χ ≈ λ. Por eso las tasas de rendimiento miden la producción, no la capacidad.
 
@@ -289,23 +289,23 @@ Ejemplos:
 
 - ε = 1 significa que todos los servicios tienen un error.
 
-### Tiempo de entrega, tiempo de paso, tiempo de trabajo, tiempo de espera
+### Tiempo de entrega, tiempo de espera, tiempo de trabajo, tiempo de paso
 
 Damos seguimiento a cuatro tiempos:
 
-- τ (tau): tiempo de entrega = desde el inicio de la cola hasta el final de la cola
+- τ (tau): tiempo en el sistema, también llamado tiempo de entrega, también llamado de principio a fin.
 
 - θ (theta): tiempo de paso = desde una finalización hasta la siguiente finalización; un tiempo de paso es un intervalo, y el tiempo de paso medio es el promedio de los intervalos
 
-- φ (fi): tiempo de trabajo = tiempo dedicado a hacer trabajo real, también llamado tiempo de procesamiento
-
 - ω (omega): tiempo de espera = tiempo en que no se hace trabajo real, también llamado tiempo pendiente
 
-![Diagrama: el tiempo de entrega τ es el tiempo de espera ω seguido del tiempo de trabajo φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (fi): tiempo de trabajo = tiempo dedicado a hacer trabajo real, también llamado tiempo de procesamiento
+
+![Diagrama: tiempo de entrega τ, tiempo de espera ω, tiempo de trabajo φ, tiempo de paso θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Ejemplos:
 
-- τ = 5 s significa que un elemento se agrega a la cola y se atiende 5 segundos después.
+- τ = 5 s significa que un elemento entra al sistema y sale de él 5 segundos después.
 
 - ω = 4 s significa que un elemento espera en la cola 4 segundos y luego empieza el trabajo.
 

@@ -15,11 +15,11 @@ Cuprins:
   - [Număr](#număr)
   - [Rata de sosire, rata de servire, rata de plecare](#rata-de-sosire-rata-de-servire-rata-de-plecare)
   - [Raportul de utilizare, adică intensitatea traficului](#raportul-de-utilizare-adică-intensitatea-traficului)
-  - [Ratele de debit: rata totală, rata de finalizare, rata de succes, rata de eșec, rata de abandon](#ratele-de-debit-rata-totală-rata-de-finalizare-rata-de-succes-rata-de-eșec-rata-de-abandon)
+  - [Ratele de debit: rata de plecare, rata de finalizare, rata de succes, rata de eșec, rata de abandon](#ratele-de-debit-rata-de-plecare-rata-de-finalizare-rata-de-succes-rata-de-eșec-rata-de-abandon)
   - [Dezambiguizarea ratei de servire](#dezambiguizarea-ratei-de-servire)
   - [Rata de abandon](#rata-de-abandon)
   - [Raportul de erori](#raportul-de-erori)
-  - [Timpul de livrare, timpul de pas, timpul de lucru, timpul de așteptare](#timpul-de-livrare-timpul-de-pas-timpul-de-lucru-timpul-de-așteptare)
+  - [Timpul de livrare, timpul de așteptare, timpul de lucru, timpul de pas](#timpul-de-livrare-timpul-de-așteptare-timpul-de-lucru-timpul-de-pas)
   - [Notația Kendall](#notația-kendall)
 - [Matematica cozilor](#matematica-cozilor)
   - [Curba utilizării](#curba-utilizării)
@@ -164,7 +164,7 @@ Cea mai importantă notație:
 
 - χ (chi): rata de plecare. Aceasta măsoară cât de repede ies elementele din sistem.
 
-![Diagramă: elementele sosesc cu rata λ, sunt servite cu rata μ și pleacă cu rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagramă: elementele sosesc cu rata λ, sunt servite cu rata μ și pleacă cu rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Exemple de generalități pentru cozile tradiționale cu un singur server:
 
@@ -192,7 +192,7 @@ Exemple:
 
 - ρ > 1 înseamnă că sosirile depășesc capacitatea; coada se mărește.
 
-### Ratele de debit: rata totală, rata de finalizare, rata de succes, rata de eșec, rata de abandon
+### Ratele de debit: rata de plecare, rata de finalizare, rata de succes, rata de eșec, rata de abandon
 
 Ratele de debit măsoară producția observată, adică elementele care părăsesc efectiv coada. Ele se împart în cinci categorii mari:
 
@@ -206,6 +206,8 @@ Ratele de debit măsoară producția observată, adică elementele care părăse
 
 - σ (sigma): rata de abandon. Aceasta măsoară câte elemente pe perioadă de timp intră în coadă, apoi pleacă fără a fi servite, de exemplu abandonuri, renunțări.
 
+![Diagramă: rata de plecare χ = rata de finalizare δ + rata de abandon σ; rata de finalizare δ = rata de succes α + rata de eșec β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Rata de finalizare = rata de succes + rata de eșec:
 
 - δ = α + β (se pronunță: delta egal alpha plus beta)
@@ -217,8 +219,6 @@ Rata totală = rata de finalizare + rata de abandon:
 Rata totală = rata de succes + rata de eșec + rata de abandon:
 
 - χ = α + β + σ (se pronunță: chi egal alpha plus beta plus sigma)
-
-![Diagramă: rata de plecare χ = rata de finalizare δ + rata de abandon σ; rata de finalizare δ = rata de succes α + rata de eșec β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Fiecare element numărat în χ a intrat în sistem, așa că în regim staționar rata totală este egală cu rata de sosire: χ ≈ λ. De aceea ratele de debit măsoară producția, nu capacitatea.
 
@@ -283,23 +283,23 @@ Exemple:
 
 - ε = 1 înseamnă că fiecare servire are o eroare.
 
-### Timpul de livrare, timpul de pas, timpul de lucru, timpul de așteptare
+### Timpul de livrare, timpul de așteptare, timpul de lucru, timpul de pas
 
 Urmărim patru timpi:
 
-- τ (tau): timpul de livrare = de la începutul cozii până la finalul cozii
+- τ (tau): timpul în sistem, adică timpul de livrare, adică de la început până la sfârșit.
 
 - θ (theta): timpul de pas = de la o finalizare până la următoarea finalizare; un timp de pas este un interval, iar timpul mediu de pas este intervalul mediu
 
-- φ (phi): timpul de lucru = timpul petrecut făcând muncă efectivă, cunoscut și ca timp de procesare
-
 - ω (omega): timpul de așteptare = timpul petrecut fără muncă efectivă, cunoscut și ca timp în așteptare
 
-![Diagramă: timpul de livrare τ este timpul de așteptare ω urmat de timpul de lucru φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): timpul de lucru = timpul petrecut făcând muncă efectivă, cunoscut și ca timp de procesare
+
+![Diagramă: timpul de livrare τ, timpul de așteptare ω, timpul de lucru φ, timpul de pas θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Exemple:
 
-- τ = 5s înseamnă că un element este adăugat în coadă, apoi este servit 5 secunde mai târziu.
+- τ = 5s înseamnă că un element intră în sistem, apoi iese din sistem 5 secunde mai târziu.
 
 - ω = 4s înseamnă că un element așteaptă în coadă 4 secunde, apoi începe lucrul.
 

@@ -15,11 +15,11 @@ Nilalaman:
   - [Bilang](#bilang)
   - [Rate ng pagdating, rate ng serbisyo, rate ng pag-alis](#rate-ng-pagdating-rate-ng-serbisyo-rate-ng-pag-alis)
   - [Ratio ng utilisasyon, o intensidad ng trapiko](#ratio-ng-utilisasyon-o-intensidad-ng-trapiko)
-  - [Mga rate ng throughput: kabuuang rate, rate ng pagkumpleto, rate ng tagumpay, rate ng pagkabigo, rate ng paglaktaw](#mga-rate-ng-throughput-kabuuang-rate-rate-ng-pagkumpleto-rate-ng-tagumpay-rate-ng-pagkabigo-rate-ng-paglaktaw)
+  - [Mga rate ng throughput: rate ng pag-alis, rate ng pagkumpleto, rate ng tagumpay, rate ng pagkabigo, rate ng paglaktaw](#mga-rate-ng-throughput-rate-ng-pag-alis-rate-ng-pagkumpleto-rate-ng-tagumpay-rate-ng-pagkabigo-rate-ng-paglaktaw)
   - [Paglilinaw sa rate ng serbisyo](#paglilinaw-sa-rate-ng-serbisyo)
   - [Rate ng paglaktaw](#rate-ng-paglaktaw)
   - [Ratio ng error](#ratio-ng-error)
-  - [Lead time, step time, tagal ng trabaho, tagal ng paghihintay](#lead-time-step-time-tagal-ng-trabaho-tagal-ng-paghihintay)
+  - [Lead time, tagal ng paghihintay, tagal ng trabaho, step time](#lead-time-tagal-ng-paghihintay-tagal-ng-trabaho-step-time)
   - [Notasyon ni Kendall](#notasyon-ni-kendall)
 - [Matematika ng pila](#matematika-ng-pila)
   - [Ang kurba ng utilisasyon](#ang-kurba-ng-utilisasyon)
@@ -164,7 +164,7 @@ Ang pinakamahalagang notasyon:
 
 - χ (chi): rate ng pag-alis. Sinusukat nito kung gaano kabilis lumalabas ang mga item sa sistema.
 
-![Diagram: dumarating ang mga item sa rate na λ, napagsisilbihan sa rate na μ, at umaalis sa rate na χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
+![Diagram: dumarating ang mga item sa rate na λ, napagsisilbihan sa rate na μ, at umaalis sa rate na χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-mu-service-chi-departure.svg)
 
 Mga halimbawa ng pangkalahatang tuntunin para sa mga tradisyonal na pila na may iisang server:
 
@@ -192,7 +192,7 @@ Mga halimbawa:
 
 - ρ > 1 ay nangangahulugang lumalampas ang mga pagdating sa kapasidad; lumalaki ang pila.
 
-### Mga rate ng throughput: kabuuang rate, rate ng pagkumpleto, rate ng tagumpay, rate ng pagkabigo, rate ng paglaktaw
+### Mga rate ng throughput: rate ng pag-alis, rate ng pagkumpleto, rate ng tagumpay, rate ng pagkabigo, rate ng paglaktaw
 
 Sinusukat ng mga rate ng throughput ang nasusukat na output, ibig sabihin ay ang mga item na talagang lumalabas sa pila. Nahahati ang mga ito sa limang malalawak na kategorya:
 
@@ -206,6 +206,8 @@ Sinusukat ng mga rate ng throughput ang nasusukat na output, ibig sabihin ay ang
 
 - σ (sigma): rate ng paglaktaw. Sinusukat nito kung ilang item bawat yugto ng oras ang pumapasok sa pila, pagkatapos ay umaalis nang hindi napagsisilbihan, halimbawa ay pag-abandona at pag-urong.
 
+![Diagram: rate ng pag-alis χ = rate ng pagkumpleto δ + rate ng paglaktaw σ; rate ng pagkumpleto δ = rate ng tagumpay α + rate ng pagkabigo β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+
 Rate ng pagkumpleto = rate ng tagumpay + rate ng pagkabigo:
 
 - δ = α + β (binibigkas: delta ay katumbas ng alpha dagdag beta)
@@ -217,8 +219,6 @@ Kabuuang rate = rate ng pagkumpleto + rate ng paglaktaw:
 Kabuuang rate = rate ng tagumpay + rate ng pagkabigo + rate ng paglaktaw:
 
 - χ = α + β + σ (binibigkas: chi ay katumbas ng alpha dagdag beta dagdag sigma)
-
-![Diagram: rate ng pag-alis χ = rate ng pagkumpleto δ + rate ng paglaktaw σ; rate ng pagkumpleto δ = rate ng tagumpay α + rate ng pagkabigo β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Pumasok sa sistema ang bawat item na binilang sa χ, kaya sa steady state ay katumbas ng kabuuang rate ang rate ng pagdating: χ ≈ λ. Iyan ang dahilan kung bakit output ang sinusukat ng mga rate ng throughput, hindi kapasidad.
 
@@ -283,23 +283,23 @@ Mga halimbawa:
 
 - ε = 1 ay nangangahulugang may error ang bawat serbisyo.
 
-### Lead time, step time, tagal ng trabaho, tagal ng paghihintay
+### Lead time, tagal ng paghihintay, tagal ng trabaho, step time
 
 Apat na tagal ang aming sinusubaybayan:
 
-- τ (tau): lead time = mula sa simula ng pila hanggang sa pagtatapos ng pila
+- τ (tau): tagal sa sistema, o lead time, o mula simula hanggang katapusan.
 
 - θ (theta): step time = mula sa isang pagtatapos hanggang sa susunod na pagtatapos; ang isang step time ay isang puwang, at ang karaniwang step time ay ang karaniwang puwang
 
-- φ (phi): tagal ng trabaho = oras na ginugol sa aktuwal na trabaho, o tagal ng pagproseso
-
 - ω (omega): tagal ng paghihintay = oras na hindi ginugol sa aktuwal na trabaho, o tagal ng pagkabinbin
 
-![Diagram: ang lead time τ ay ang tagal ng paghihintay ω na sinusundan ng tagal ng trabaho φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+- φ (phi): tagal ng trabaho = oras na ginugol sa aktuwal na trabaho, o tagal ng pagproseso
+
+![Diagram: lead time τ, tagal ng paghihintay ω, tagal ng trabaho φ, step time θ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time-theta-step-time.svg)
 
 Mga halimbawa:
 
-- τ = 5s ay nangangahulugang idinagdag ang isang item sa pila, pagkatapos ay napagsilbihan pagkalipas ng 5 segundo.
+- τ = 5s ay nangangahulugang pumapasok ang isang item sa sistema, pagkatapos ay lumalabas sa sistema pagkalipas ng 5 segundo.
 
 - ω = 4s ay nangangahulugang naghihintay ang isang item sa pila nang 4 na segundo, pagkatapos ay nagsisimula ang trabaho.
 
