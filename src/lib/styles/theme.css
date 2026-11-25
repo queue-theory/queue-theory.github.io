@@ -1,7 +1,7 @@
 /* ============================================================================
  * queue-theory.github.io — site stylesheet
  *
- * Deliberately small. The active Lily theme (one of 45, swapped at runtime
+ * Deliberately small. The active Lily theme (one of 65, swapped at runtime
  * by ThemePicker.svelte via <link id="lily-theme">, default set in
  * app.html) already styles every Lily catalog class hook — colour, border,
  * radius, shadow, and typography tokens as `--color-*` and `--lily-*`
@@ -79,8 +79,8 @@ body {
 }
 
 /* Links use the theme's text colour, underlined: the accent (primary) colour
- * fails WCAG AA contrast on the page or card background in about half of the
- * 45 themes (checked with axe-core on every theme). */
+ * fails WCAG AA contrast on the page or card background in about half of
+ * the first 45 themes (checked with axe-core on every one). */
 a {
 	color: var(--color-base-content);
 	text-decoration: underline;
