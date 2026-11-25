@@ -13,7 +13,7 @@ Synsas:
   - [Eghennow lost hag eghennow servis](#eghennow-lost-hag-eghennow-servis)
 - [Notyans tybyans lostow](#notyans-tybyans-lostow)
   - [Niver](#niver)
-  - [Toth devedhyans, toth servis](#toth-devedhyans-toth-servis)
+  - [Toth devedhyans, toth servis, toth dibarth](#toth-devedhyans-toth-servis-toth-dibarth)
   - [Kevradh devnydh po nerth trafik](#kevradh-devnydh-po-nerth-trafik)
   - [Tothow dhe-ves: toth dien, toth gorfennys, toth sewena, toth fyllel, toth lamma](#tothow-dhe-ves-toth-dien-toth-gorfennys-toth-sewena-toth-fyllel-toth-lamma)
   - [Styryans toth servis](#styryans-toth-servis)
@@ -134,7 +134,9 @@ Ni a nivera taklow yn fenowgh, ha ni a dhevnydh an notyans ma:
 
 - κ (kappa): niver a daklow y’n system, hen yw taklow ow kortos ha taklow ow pos oberys.
 
-![Diagram: taklow a dheu orth toth λ, y fydh κ takel y’n system, ha taklow a as gans dhe-ves χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: y fydh κ takel y’n system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: taklow a dheu orth toth λ ha’n taklow a as orth toth χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Ensampel:
 
@@ -154,13 +156,15 @@ An niver κ (kappa) yw skeusen orth unn prys.
 
 An niver mayn κ̅ (kappa gans barr) yw jydhyans a gemmer mayn a vusurow dres termyn kevrennys, rag ensampel musur pub our rag dhew seythen.
 
-### Toth devedhyans, toth servis
+### Toth devedhyans, toth servis, toth dibarth
 
 An notyans moyha posek:
 
-- λ (lambda): toth devedhyans. Hemma a vusur pes uskis yth usi taklow nowydh ow tos y’n lost.
+- λ (lambda): toth devedhyans. Hemma a vusur fatel skaf yw an taklow ow entra y’n system.
 
 - μ (mu): toth servis po dalgh. Hemma a vusur pes uskis y hyll unn servell dyghtya taklow ha hi bysi.
+
+- χ (chi): toth dibarth. Hemma a vusur fatel skaf yw an taklow ow kerdhes mes a’n system.
 
 Ensamplow a reolyow kemmyn rag lostow hengovek gans unn servell:
 
@@ -214,7 +218,7 @@ Toth dien = toth sewena + toth fyllel + toth lamma:
 
 - χ = α + β + σ (leverys: chi yw kehaval dhe alpha ha beta ha sigma)
 
-![Diagram: taklow a as an system avel sewena α, fyllel β po lamma σ; gorfennys δ = α + β, yndella χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: taklow a as an system avel sewena α, fyllel β po lamma σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Pub takel nivers yn χ a entras y’n system, ytho yn studh sad an toth dien yw kehaval dhe’n toth devedhyans: χ ≈ λ. Rakhenna tothow dhe-ves a vusur eskor, ha nyns yw dalgh.
 

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <title id="t">α, β, δ, σ, χ</title>
+  <desc id="d">Items leave the system as successes at rate α, failures at rate β, or skips at rate σ. Done rate δ groups α and β, and departure rate χ groups all three: χ = δ + σ = α + β + σ.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#334155"/></marker></defs>
+  <rect width="800" height="400" fill="#ffffff"/>
+
+  <!-- items leave the system and fan out -->
+  <line x1="12" y1="200" x2="143" y2="200" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M150 200 V70 H233" fill="none" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M150 200 H233" fill="none" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M150 200 V330 H233" fill="none" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- α β σ -->
+  <text x="320" y="103" text-anchor="middle" font-size="96" font-weight="700" fill="#15803d">α</text>
+  <text x="320" y="233" text-anchor="middle" font-size="96" font-weight="700" fill="#b91c1c">β</text>
+  <text x="320" y="363" text-anchor="middle" font-size="96" font-weight="700" fill="#6d28d9">σ</text>
+
+  <!-- δ groups α and β -->
+  <path d="M388 42 H400 V265 H388" fill="none" stroke="#0369a1" stroke-width="3"/>
+  <line x1="400" y1="153" x2="413" y2="153" stroke="#0369a1" stroke-width="3"/>
+  <text x="470" y="186" text-anchor="middle" font-size="96" font-weight="700" fill="#0369a1">δ</text>
+
+  <!-- χ groups all outputs -->
+  <path d="M548 42 H560 V372 H548" fill="none" stroke="#b45309" stroke-width="3"/>
+  <line x1="560" y1="207" x2="573" y2="207" stroke="#b45309" stroke-width="3"/>
+  <text x="650" y="240" text-anchor="middle" font-size="96" font-weight="700" fill="#b45309">χ</text>
+</svg>

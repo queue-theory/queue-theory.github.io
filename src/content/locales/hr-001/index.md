@@ -17,7 +17,7 @@ Sadržaj:
   - [Vrste redova i vrste posluživanja](#vrste-redova-i-vrste-posluživanja)
 - [Notacija teorije redova čekanja](#notacija-teorije-redova-čekanja)
   - [Broj](#broj)
-  - [Stopa dolazaka, stopa posluživanja](#stopa-dolazaka-stopa-posluživanja)
+  - [Stopa dolazaka, stopa posluživanja, stopa odlazaka](#stopa-dolazaka-stopa-posluživanja-stopa-odlazaka)
   - [Omjer iskorištenosti odnosno intenzitet prometa](#omjer-iskorištenosti-odnosno-intenzitet-prometa)
   - [Stope propusnosti: ukupna stopa, stopa dovršenosti, stopa uspjeha, stopa neuspjeha, stopa preskakanja](#stope-propusnosti-ukupna-stopa-stopa-dovršenosti-stopa-uspjeha-stopa-neuspjeha-stopa-preskakanja)
   - [Razjašnjenje pojma stope posluživanja](#razjašnjenje-pojma-stope-posluživanja)
@@ -138,7 +138,9 @@ Naša notacija i značenje svakog simbola:
 
 - κ (kapa): broj stavki u sustavu, odnosno stavke koje čekaju plus stavke na kojima se radi.
 
-![Dijagram: stavke stižu stopom λ, u sustavu je κ stavki, a stavke odlaze propusnošću χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Dijagram: u sustavu je κ stavki](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Dijagram: stavke stižu stopom λ i odlaze stopom χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Primjer:
 
@@ -158,13 +160,15 @@ Broj κ (kapa) snimka je jednog trenutka.
 
 Prosječni broj κ̅ (kapa s crtom) izračun je koji uprosječuje mjerenja tijekom određenog razdoblja, na primjer mjerenje svaki sat tijekom dva tjedna.
 
-### Stopa dolazaka, stopa posluživanja
+### Stopa dolazaka, stopa posluživanja, stopa odlazaka
 
 Najvažnija notacija:
 
-- λ (lambda): stopa dolazaka. Mjeri koliko brzo nove stavke ulaze u red.
+- λ (lambda): stopa dolazaka. Mjeri koliko brzo stavke ulaze u sustav.
 
 - μ (mi): stopa posluživanja odnosno kapacitet. Mjeri koliko brzo jedan poslužitelj može obrađivati stavke dok je zauzet.
+
+- χ (hi): stopa odlazaka. Mjeri koliko brzo stavke izlaze iz sustava.
 
 Primjeri općih pravila za tradicionalne redove s jednim poslužiteljem:
 
@@ -218,7 +222,7 @@ Ukupna stopa = stopa uspjeha + stopa neuspjeha + stopa preskakanja:
 
 - χ = α + β + σ (izgovara se: hi je jednako alfa plus beta plus sigma)
 
-![Dijagram: stavke napuštaju sustav kao uspjeh α, neuspjeh β ili preskakanje σ; dovršeno δ = α + β, dakle χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Dijagram: stavke napuštaju sustav kao uspjeh α, neuspjeh β ili preskakanje σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Svaka stavka uračunata u χ ušla je u sustav, pa je u stacionarnom stanju ukupna stopa jednaka stopi dolazaka: χ ≈ λ. Zato stope propusnosti mjere izlaz, a ne kapacitet.
 

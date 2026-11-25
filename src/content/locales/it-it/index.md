@@ -18,7 +18,7 @@ Indice:
   - [Tipi di coda e tipi di servizio](#tipi-di-coda-e-tipi-di-servizio)
 - [Notazione della teoria delle code](#notazione-della-teoria-delle-code)
   - [Conteggio](#conteggio)
-  - [Tasso di arrivo, tasso di servizio](#tasso-di-arrivo-tasso-di-servizio)
+  - [Tasso di arrivo, tasso di servizio, tasso di uscita](#tasso-di-arrivo-tasso-di-servizio-tasso-di-uscita)
   - [Rapporto di utilizzo, detto anche intensità di traffico](#rapporto-di-utilizzo-detto-anche-intensità-di-traffico)
   - [Tassi di throughput: tasso totale, tasso di completamento, tasso di successo, tasso di fallimento, tasso di abbandono](#tassi-di-throughput-tasso-totale-tasso-di-completamento-tasso-di-successo-tasso-di-fallimento-tasso-di-abbandono)
   - [Ambiguità del tasso di servizio](#ambiguità-del-tasso-di-servizio)
@@ -139,7 +139,9 @@ Contiamo spesso gli elementi e usiamo questa notazione:
 
 - κ (kappa): numero di elementi nel sistema, cioè elementi in attesa più elementi in lavorazione.
 
-![Diagramma: gli elementi arrivano al tasso λ, κ elementi sono nel sistema e gli elementi escono con il throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagramma: κ elementi sono nel sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagramma: gli elementi arrivano al tasso λ ed escono al tasso χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Esempio:
 
@@ -159,13 +161,15 @@ Il conteggio κ (kappa) è un'istantanea in un dato momento.
 
 Il conteggio medio κ̅ (kappa con barra) è un calcolo che fa la media di misurazioni su uno specifico periodo di tempo, ad esempio misurando ogni ora per due settimane.
 
-### Tasso di arrivo, tasso di servizio
+### Tasso di arrivo, tasso di servizio, tasso di uscita
 
 La notazione più importante:
 
-- λ (lambda): tasso di arrivo. Misura quanto velocemente arrivano nuovi elementi nella coda.
+- λ (lambda): tasso di arrivo. Misura quanto velocemente gli elementi entrano nel sistema.
 
 - μ (mu): tasso di servizio, detto anche capacità. Misura quanto velocemente un servente può gestire gli elementi mentre è occupato.
+
+- χ (chi): tasso di uscita. Misura quanto velocemente gli elementi escono dal sistema.
 
 Esempi di regole generali per code tradizionali con un solo servente:
 
@@ -219,7 +223,7 @@ Tasso totale = tasso di successo + tasso di fallimento + tasso di abbandono:
 
 - χ = α + β + σ (si pronuncia: chi uguale alfa più beta più sigma)
 
-![Diagramma: gli elementi lasciano il sistema come successo α, fallimento β o abbandono σ; completati δ = α + β, quindi χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagramma: gli elementi lasciano il sistema come successo α, fallimento β o abbandono σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Ogni elemento contato in χ è entrato nel sistema, quindi a regime il tasso totale è uguale al tasso di arrivo: χ ≈ λ. Per questo i tassi di throughput misurano l'output, non la capacità.
 

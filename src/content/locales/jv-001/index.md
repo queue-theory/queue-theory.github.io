@@ -18,7 +18,7 @@ Daftar isi:
   - [Jinis antrian lan jinis layanan](#jinis-antrian-lan-jinis-layanan)
 - [Notasi teori antrian](#notasi-teori-antrian)
   - [Cacah](#cacah)
-  - [Laju kadhatengan, laju layanan](#laju-kadhatengan-laju-layanan)
+  - [Laju kadhatengan, laju layanan, laju budhal](#laju-kadhatengan-laju-layanan-laju-budhal)
   - [Rasio utilisasi utawi intensitas lalu lintas](#rasio-utilisasi-utawi-intensitas-lalu-lintas)
   - [Laju throughput: laju total, laju rampung, laju kasil, laju gagal, laju lompat](#laju-throughput-laju-total-laju-rampung-laju-kasil-laju-gagal-laju-lompat)
   - [Disambiguasi laju layanan](#disambiguasi-laju-layanan)
@@ -139,7 +139,9 @@ Kita asring ngetang item, saha kita ngginakaken notasi punika:
 
 - κ (kappa): cacah item wonten ing sistem, tegesipun item ingkang ngentosi tuwin item ingkang saweg dipungarap.
 
-![Diagram: item dugi kanthi laju λ, wonten κ item wonten ing sistem, saha item medal kanthi throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: wonten κ item wonten ing sistem](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: item dugi kanthi laju λ saha medal kanthi laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Tuladha:
 
@@ -159,13 +161,15 @@ Cacah κ (kappa) punika potret ing satunggal wekdal.
 
 Cacah rata-rata κ̅ (kappa nganggé garis) punika etungan ingkang ngrata-rata asil pangukuran ing satunggal periode wekdal, tuladhanipun ngukur saben jam salaminipun kalih minggu.
 
-### Laju kadhatengan, laju layanan
+### Laju kadhatengan, laju layanan, laju budhal
 
 Notasi ingkang paling wigati:
 
-- λ (lambda): laju kadhatengan. Punika ngukur sepinten cepet item enggal mlebet dhateng antrian.
+- λ (lambda): laju kadhatengan. Punika ngukur sepinten cepet item mlebet sistem.
 
 - μ (mu): laju layanan utawi kapasitas. Punika ngukur sepinten cepet satunggal server saged ngrampungaken item nalika sibuk.
+
+- χ (chi): laju budhal. Punika ngukur sepinten cepet item medal saking sistem.
 
 Tuladha kawontenan umum kangge antrian tradisional kanthi satunggal server:
 
@@ -219,7 +223,7 @@ Laju total = laju kasil + laju gagal + laju lompat:
 
 - χ = α + β + σ (dipunwaos: chi sami kaliyan alpha tambah beta tambah sigma)
 
-![Diagram: item medal saking sistem minangka kasil α, gagal β, utawi lompat σ; rampung δ = α + β, dados χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: item medal saking sistem minangka kasil α, gagal β, utawi lompat σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Saben item ingkang dipunetang wonten ing χ sampun mlebet sistem, satemah ing kawontenan ajeg laju total sami kaliyan laju kadhatengan: χ ≈ λ. Punika sababipun laju throughput ngukur asil, sanes kapasitas.
 

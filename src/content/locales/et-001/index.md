@@ -17,7 +17,7 @@ Sisukord:
   - [Järjekorra tüübid ja teenindustüübid](#järjekorra-tüübid-ja-teenindustüübid)
 - [Järjekorrateooria tähistus](#järjekorrateooria-tähistus)
   - [Arv](#arv)
-  - [Saabumiskiirus, teeninduskiirus](#saabumiskiirus-teeninduskiirus)
+  - [Saabumiskiirus, teeninduskiirus, lahkumiskiirus](#saabumiskiirus-teeninduskiirus-lahkumiskiirus)
   - [Kasutusaste ehk liiklusintensiivsus](#kasutusaste-ehk-liiklusintensiivsus)
   - [Läbilaskekiirused: kogukiirus, lõpetamiskiirus, õnnestumiskiirus, ebaõnnestumiskiirus, vahelejätmiskiirus](#läbilaskekiirused-kogukiirus-lõpetamiskiirus-õnnestumiskiirus-ebaõnnestumiskiirus-vahelejätmiskiirus)
   - [Teeninduskiiruse mõiste täpsustamine](#teeninduskiiruse-mõiste-täpsustamine)
@@ -138,7 +138,9 @@ Loendame üksusi sageli ja kasutame järgmist tähistust:
 
 - κ (kapa): süsteemis olevate üksuste arv, st ootavad üksused pluss töös olevad üksused.
 
-![Diagramm: üksused saabuvad kiirusega λ, süsteemis on κ üksust ja üksused lahkuvad läbilaskega χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagramm: süsteemis on κ üksust](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagramm: üksused saabuvad kiirusega λ ja lahkuvad kiirusega χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Näide:
 
@@ -158,13 +160,15 @@ Arv κ (kapa) on hetktõmmis ühest hetkest.
 
 Keskmine arv κ̅ (kapa kriipsuga) on arvutus, mis võtab keskmise mõõtmistest teatud ajavahemiku jooksul, näiteks mõõtes iga tunni tagant kahe nädala vältel.
 
-### Saabumiskiirus, teeninduskiirus
+### Saabumiskiirus, teeninduskiirus, lahkumiskiirus
 
 Kõige olulisem tähistus:
 
-- λ (lambda): saabumiskiirus. See mõõdab, kui kiiresti uued üksused järjekorda saabuvad.
+- λ (lambda): saabumiskiirus. See mõõdab, kui kiiresti üksused süsteemi sisenevad.
 
 - μ (müü): teeninduskiirus ehk võimsus. See mõõdab, kui kiiresti üks teenindaja suudab hõivatuna üksusi käsitleda.
+
+- χ (hii): lahkumiskiirus. See mõõdab, kui kiiresti üksused süsteemist väljuvad.
 
 Üldised näited traditsiooniliste ühe teenindajaga järjekordade kohta:
 
@@ -218,7 +222,7 @@ Kogukiirus = õnnestumiskiirus + ebaõnnestumiskiirus + vahelejätmiskiirus:
 
 - χ = α + β + σ (hääldatakse: hii võrdub alfa pluss beeta pluss sigma)
 
-![Diagramm: üksused lahkuvad süsteemist õnnestumisena α, ebaõnnestumisena β või vahelejätmisena σ; lõpetatud δ = α + β, seega χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagramm: üksused lahkuvad süsteemist õnnestumisena α, ebaõnnestumisena β või vahelejätmisena σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Iga χ-s loendatud üksus on süsteemi sisenenud, seega püsiseisundis võrdub kogukiirus saabumiskiirusega: χ ≈ λ. Seetõttu mõõdavad läbilaskekiirused väljundit, mitte võimsust.
 

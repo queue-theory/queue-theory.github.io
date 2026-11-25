@@ -13,7 +13,7 @@ Mục lục:
   - [Loại hàng đợi và loại phục vụ](#loại-hàng-đợi-và-loại-phục-vụ)
 - [Ký hiệu trong lý thuyết hàng đợi](#ký-hiệu-trong-lý-thuyết-hàng-đợi)
   - [Số lượng](#số-lượng)
-  - [Tốc độ đến, tốc độ phục vụ](#tốc-độ-đến-tốc-độ-phục-vụ)
+  - [Tốc độ đến, tốc độ phục vụ, tốc độ rời đi](#tốc-độ-đến-tốc-độ-phục-vụ-tốc-độ-rời-đi)
   - [Tỷ lệ sử dụng, còn gọi là cường độ lưu lượng](#tỷ-lệ-sử-dụng-còn-gọi-là-cường-độ-lưu-lượng)
   - [Các tốc độ thông lượng: tốc độ tổng, tốc độ hoàn thành, tốc độ thành công, tốc độ thất bại, tốc độ bỏ qua](#các-tốc-độ-thông-lượng-tốc-độ-tổng-tốc-độ-hoàn-thành-tốc-độ-thành-công-tốc-độ-thất-bại-tốc-độ-bỏ-qua)
   - [Phân biệt nghĩa của tốc độ phục vụ](#phân-biệt-nghĩa-của-tốc-độ-phục-vụ)
@@ -134,7 +134,9 @@ Chúng tôi thường xuyên đếm các mục, và chúng tôi dùng ký hiệu
 
 - κ (kappa): số lượng mục trong hệ thống, nghĩa là các mục đang chờ cộng với các mục đang được xử lý.
 
-![Sơ đồ: các mục đến với tốc độ λ, có κ mục trong hệ thống, và các mục rời đi với thông lượng χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Sơ đồ: có κ mục trong hệ thống](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Sơ đồ: các mục đến với tốc độ λ và rời đi với tốc độ χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Ví dụ:
 
@@ -154,13 +156,15 @@ Số lượng κ (kappa) là ảnh chụp nhanh tại một thời điểm.
 
 Số lượng trung bình κ̅ (kappa có gạch ngang) là một phép tính lấy trung bình các phép đo trong một khoảng thời gian cụ thể, chẳng hạn đo mỗi giờ trong hai tuần.
 
-### Tốc độ đến, tốc độ phục vụ
+### Tốc độ đến, tốc độ phục vụ, tốc độ rời đi
 
 Ký hiệu quan trọng nhất:
 
-- λ (lambda): tốc độ đến. Đại lượng này đo các mục mới đi vào hàng đợi nhanh đến mức nào.
+- λ (lambda): tốc độ đến. Đại lượng này đo các mục đi vào hệ thống nhanh đến mức nào.
 
 - μ (mu): tốc độ phục vụ, còn gọi là năng lực. Đại lượng này đo một máy phục vụ có thể xử lý các mục nhanh đến mức nào khi nó bận.
+
+- χ (chi): tốc độ rời đi. Đại lượng này đo các mục thoát khỏi hệ thống nhanh đến mức nào.
 
 Ví dụ về các quy luật chung cho hàng đợi truyền thống có một máy phục vụ:
 
@@ -214,7 +218,7 @@ Tốc độ tổng = tốc độ thành công + tốc độ thất bại + tốc
 
 - χ = α + β + σ (đọc là: chi bằng alpha cộng beta cộng sigma)
 
-![Sơ đồ: các mục rời hệ thống dưới dạng thành công α, thất bại β hoặc bỏ qua σ; hoàn thành δ = α + β, do đó χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Sơ đồ: các mục rời hệ thống dưới dạng thành công α, thất bại β hoặc bỏ qua σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Mọi mục được tính trong χ đều đã đi vào hệ thống, nên ở trạng thái dừng, tốc độ tổng bằng tốc độ đến: χ ≈ λ. Đó là lý do các tốc độ thông lượng đo đầu ra chứ không đo năng lực.
 

@@ -17,7 +17,7 @@ Aurkibidea:
   - [Ilara motak eta zerbitzu motak](#ilara-motak-eta-zerbitzu-motak)
 - [Ilara-teoriaren notazioa](#ilara-teoriaren-notazioa)
   - [Zenbaketa](#zenbaketa)
-  - [Iritsiera-tasa, zerbitzu-tasa](#iritsiera-tasa-zerbitzu-tasa)
+  - [Iritsiera-tasa, zerbitzu-tasa, irteera-tasa](#iritsiera-tasa-zerbitzu-tasa-irteera-tasa)
   - [Erabilera-ratioa, trafiko-intentsitatea ere deitua](#erabilera-ratioa-trafiko-intentsitatea-ere-deitua)
   - [Ekoizpen-tasak: tasa osoa, amaitze-tasa, arrakasta-tasa, hutsegite-tasa, saltatze-tasa](#ekoizpen-tasak-tasa-osoa-amaitze-tasa-arrakasta-tasa-hutsegite-tasa-saltatze-tasa)
   - [Zerbitzu-tasaren desanbiguazioa](#zerbitzu-tasaren-desanbiguazioa)
@@ -138,7 +138,9 @@ Elementuak sarritan zenbatzen ditugu, eta notazio hau erabiltzen dugu:
 
 - κ (kappa): sistemako elementuen kopurua, hau da, itxaroten dauden elementuak gehi lantzen ari diren elementuak.
 
-![Diagrama: elementuak λ tasarekin iristen dira, sisteman κ elementu daude eta elementuak χ ekoizpenarekin irteten dira](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagrama: sisteman κ elementu daude](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagrama: elementuak λ tasarekin iristen dira eta χ tasarekin irteten dira](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Adibidea:
 
@@ -158,13 +160,15 @@ Adibidea:
 
 Batez besteko κ̅ (kappa barradun) kopurua denbora-tarte zehatz bateko neurketen batez bestekoa egiten duen kalkulua da, adibidez bi astez ordu bakoitzean neurtuta.
 
-### Iritsiera-tasa, zerbitzu-tasa
+### Iritsiera-tasa, zerbitzu-tasa, irteera-tasa
 
 Notaziorik garrantzitsuena:
 
-- λ (lambda): iritsiera-tasa. Elementu berriak ilarara zein azkar iristen diren neurtzen du.
+- λ (lambda): iritsiera-tasa. Elementuak sisteman zein azkar sartzen diren neurtzen du.
 
 - μ (mu): zerbitzu-tasa, gaitasuna ere deitua. Zerbitzari batek, lanpetuta dagoenean, elementuak zein azkar kudea ditzakeen neurtzen du.
+
+- χ (chi): irteera-tasa. Elementuak sistematik zein azkar ateratzen diren neurtzen du.
 
 Zerbitzari bakarreko ilara tradizionalen orokortasunen adibideak:
 
@@ -218,7 +222,7 @@ Tasa osoa = arrakasta-tasa + hutsegite-tasa + saltatze-tasa:
 
 - χ = α + β + σ (ahoskatua: chi berdin alpha gehi beta gehi sigma)
 
-![Diagrama: elementuak sistematik ateratzen dira arrakasta α, hutsegite β edo saltatze σ gisa; amaituak δ = α + β, beraz χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagrama: elementuak sistematik ateratzen dira arrakasta α, hutsegite β edo saltatze σ gisa; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 χ-n zenbatutako elementu oro sisteman sartu zen; beraz, egoera egonkorrean tasa osoa iritsiera-tasaren berdina da: χ ≈ λ. Horregatik neurtzen dute ekoizpen-tasek irteera, eta ez gaitasuna.
 

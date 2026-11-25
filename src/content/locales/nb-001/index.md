@@ -13,7 +13,7 @@ Innhold:
   - [Køtyper og tjenestetyper](#køtyper-og-tjenestetyper)
 - [Notasjon i køteori](#notasjon-i-køteori)
   - [Antall](#antall)
-  - [Ankomstrate, tjenesterate](#ankomstrate-tjenesterate)
+  - [Ankomstrate, tjenesterate, avgangsrate](#ankomstrate-tjenesterate-avgangsrate)
   - [Utnyttelsesgrad, også kalt trafikkintensitet](#utnyttelsesgrad-også-kalt-trafikkintensitet)
   - [Gjennomstrømningsrater: total rate, fullføringsrate, suksessrate, feilrate, overhoppsrate](#gjennomstrømningsrater-total-rate-fullføringsrate-suksessrate-feilrate-overhoppsrate)
   - [Tvetydighet i begrepet tjenesterate](#tvetydighet-i-begrepet-tjenesterate)
@@ -134,7 +134,9 @@ Vi teller ofte elementer, og vi bruker denne notasjonen:
 
 - κ (kappa): antall elementer i systemet, det vil si elementer som venter pluss elementer som behandles.
 
-![Diagram: elementer ankommer med raten λ, κ elementer er i systemet, og elementer forlater det med gjennomstrømningen χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: κ elementer er i systemet](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: elementer ankommer med raten λ og forlater systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Eksempel:
 
@@ -154,13 +156,15 @@ Antallet κ (kappa) er et øyeblikksbilde.
 
 Gjennomsnittlig antall κ̅ (kappa med strek) er en beregning som tar gjennomsnittet av målinger over en bestemt tidsperiode, for eksempel målinger hver time i to uker.
 
-### Ankomstrate, tjenesterate
+### Ankomstrate, tjenesterate, avgangsrate
 
 Den viktigste notasjonen:
 
-- λ (lambda): ankomstrate. Den måler hvor raskt nye elementer kommer inn i køen.
+- λ (lambda): ankomstrate. Den måler hvor raskt elementer kommer inn i systemet.
 
 - μ (my): tjenesterate, også kalt kapasitet. Den måler hvor raskt én server kan håndtere elementer når den er opptatt.
+
+- χ (khi): avgangsrate. Den måler hvor raskt elementer forlater systemet.
 
 Eksempler på generelle regler for tradisjonelle køer med én server:
 
@@ -214,7 +218,7 @@ Total rate = suksessrate + feilrate + overhoppsrate:
 
 - χ = α + β + σ (uttales: khi er lik alfa pluss beta pluss sigma)
 
-![Diagram: elementer forlater systemet som suksess α, feil β eller overhopp σ; fullført δ = α + β, altså χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: elementer forlater systemet som suksess α, feil β eller overhopp σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Hvert element som telles i χ, kom inn i systemet, så i stabil tilstand er den totale raten lik ankomstraten: χ ≈ λ. Det er derfor gjennomstrømningsrater måler utdata, ikke kapasitet.
 

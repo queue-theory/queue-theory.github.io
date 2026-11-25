@@ -13,7 +13,7 @@ Kandungan:
   - [Jenis baris gilir dan jenis perkhidmatan](#jenis-baris-gilir-dan-jenis-perkhidmatan)
 - [Tatatanda teori baris gilir](#tatatanda-teori-baris-gilir)
   - [Kiraan](#kiraan)
-  - [Kadar ketibaan, kadar perkhidmatan](#kadar-ketibaan-kadar-perkhidmatan)
+  - [Kadar ketibaan, kadar perkhidmatan, kadar pemergian](#kadar-ketibaan-kadar-perkhidmatan-kadar-pemergian)
   - [Nisbah penggunaan atau keamatan trafik](#nisbah-penggunaan-atau-keamatan-trafik)
   - [Kadar daya pemprosesan: kadar jumlah, kadar selesai, kadar kejayaan, kadar kegagalan, kadar langkau](#kadar-daya-pemprosesan-kadar-jumlah-kadar-selesai-kadar-kejayaan-kadar-kegagalan-kadar-langkau)
   - [Penjelasan istilah kadar perkhidmatan](#penjelasan-istilah-kadar-perkhidmatan)
@@ -134,7 +134,9 @@ Kami kerap mengira item, dan kami menggunakan tatatanda ini:
 
 - κ (kappa): kiraan item dalam sistem, iaitu item yang menunggu ditambah item yang sedang dikerjakan.
 
-![Rajah: item tiba pada kadar λ, terdapat κ item dalam sistem, dan item keluar pada daya pemprosesan χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Rajah: terdapat κ item dalam sistem](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Rajah: item tiba pada kadar λ dan pergi pada kadar χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Contoh:
 
@@ -154,13 +156,15 @@ Kiraan κ (kappa) ialah syot kilat pada satu ketika.
 
 Kiraan purata κ̅ (kappa bar) ialah pengiraan yang memurnikan ukuran sepanjang tempoh masa tertentu, contohnya mengukur setiap jam selama dua minggu.
 
-### Kadar ketibaan, kadar perkhidmatan
+### Kadar ketibaan, kadar perkhidmatan, kadar pemergian
 
 Tatatanda yang paling penting:
 
-- λ (lambda): kadar ketibaan. Ini mengukur seberapa pantas item baharu masuk ke dalam baris gilir.
+- λ (lambda): kadar ketibaan. Ini mengukur sepantas mana item memasuki sistem.
 
 - μ (mu): kadar perkhidmatan atau kapasiti. Ini mengukur seberapa pantas satu pelayan boleh mengendalikan item ketika ia sibuk.
+
+- χ (chi): kadar pemergian. Ini mengukur sepantas mana item keluar daripada sistem.
 
 Contoh kelaziman umum untuk baris gilir tradisional dengan satu pelayan:
 
@@ -214,7 +218,7 @@ Kadar jumlah = kadar kejayaan + kadar kegagalan + kadar langkau:
 
 - χ = α + β + σ (disebut: chi sama dengan alpha tambah beta tambah sigma)
 
-![Rajah: item meninggalkan sistem sebagai kejayaan α, kegagalan β atau langkau σ; selesai δ = α + β, jadi χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Rajah: item meninggalkan sistem sebagai kejayaan α, kegagalan β atau langkau σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Setiap item yang dikira dalam χ telah memasuki sistem, jadi dalam keadaan mantap kadar jumlah sama dengan kadar ketibaan: χ ≈ λ. Sebab itulah kadar daya pemprosesan mengukur output, bukan kapasiti.
 

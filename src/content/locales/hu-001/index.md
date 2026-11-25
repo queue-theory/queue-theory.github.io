@@ -17,7 +17,7 @@ Tartalom:
   - [Sortípusok és kiszolgálási típusok](#sortípusok-és-kiszolgálási-típusok)
 - [A sorbanállás-elmélet jelölései](#a-sorbanállás-elmélet-jelölései)
   - [Darabszám](#darabszám)
-  - [Érkezési ráta, kiszolgálási ráta](#érkezési-ráta-kiszolgálási-ráta)
+  - [Érkezési ráta, kiszolgálási ráta, távozási ráta](#érkezési-ráta-kiszolgálási-ráta-távozási-ráta)
   - [Kihasználtsági arány, más néven forgalmi intenzitás](#kihasználtsági-arány-más-néven-forgalmi-intenzitás)
   - [Áteresztési ráták: teljes ráta, befejezési ráta, sikerességi ráta, hibaráta, kihagyási ráta](#áteresztési-ráták-teljes-ráta-befejezési-ráta-sikerességi-ráta-hibaráta-kihagyási-ráta)
   - [A kiszolgálási ráta fogalmának tisztázása](#a-kiszolgálási-ráta-fogalmának-tisztázása)
@@ -138,7 +138,9 @@ Gyakran számoljuk az elemeket, és ezt a jelölést használjuk:
 
 - κ (kappa): a rendszerben lévő elemek száma, vagyis a várakozó elemek és a feldolgozás alatt álló elemek együtt.
 
-![Ábra: az elemek λ rátával érkeznek, κ elem van a rendszerben, és az elemek χ áteresztéssel távoznak](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Ábra: κ elem van a rendszerben](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Ábra: az elemek λ rátával érkeznek és χ rátával távoznak](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Példa:
 
@@ -158,13 +160,15 @@ A κ (kappa) darabszám egyetlen pillanat pillanatfelvétele.
 
 Az átlagos κ̅ (kappa felülvonással) darabszám olyan számítás, amely egy meghatározott időszak mérési eredményeit átlagolja, például két héten át óránként mérve.
 
-### Érkezési ráta, kiszolgálási ráta
+### Érkezési ráta, kiszolgálási ráta, távozási ráta
 
 A legfontosabb jelölés:
 
-- λ (lambda): érkezési ráta. Ez azt méri, milyen gyorsan érkeznek új elemek a sorba.
+- λ (lambda): érkezési ráta. Azt méri, milyen gyorsan lépnek be az elemek a rendszerbe.
 
 - μ (mű): kiszolgálási ráta, más néven kapacitás. Ez azt méri, milyen gyorsan tud egy kiszolgáló elemeket kezelni, amíg foglalt.
+
+- χ (khí): távozási ráta. Azt méri, milyen gyorsan hagyják el az elemek a rendszert.
 
 Általános példák hagyományos, egy kiszolgálós sorokra:
 
@@ -218,7 +222,7 @@ Teljes ráta = sikerességi ráta + hibaráta + kihagyási ráta:
 
 - χ = α + β + σ (kiejtve: khí egyenlő alfa plusz béta plusz szigma)
 
-![Ábra: az elemek sikerként α, hibaként β vagy kihagyásként σ hagyják el a rendszert; befejezett δ = α + β, tehát χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Ábra: az elemek sikerként α, hibaként β vagy kihagyásként σ hagyják el a rendszert; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Minden χ-ben számolt elem belépett a rendszerbe, így állandósult állapotban a teljes ráta egyenlő az érkezési rátával: χ ≈ λ. Ezért mérik az áteresztési ráták a kimenetet, nem pedig a kapacitást.
 

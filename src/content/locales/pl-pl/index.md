@@ -13,7 +13,7 @@ Spis treści:
   - [Typy kolejek i typy obsługi](#typy-kolejek-i-typy-obsługi)
 - [Notacja teorii kolejek](#notacja-teorii-kolejek)
   - [Liczba](#liczba)
-  - [Tempo przybywania, tempo obsługi](#tempo-przybywania-tempo-obsługi)
+  - [Tempo przybywania, tempo obsługi, tempo opuszczania](#tempo-przybywania-tempo-obsługi-tempo-opuszczania)
   - [Współczynnik wykorzystania, czyli natężenie ruchu](#współczynnik-wykorzystania-czyli-natężenie-ruchu)
   - [Tempa przepustowości: tempo całkowite, tempo zakończeń, tempo sukcesów, tempo porażek, tempo pominięć](#tempa-przepustowości-tempo-całkowite-tempo-zakończeń-tempo-sukcesów-tempo-porażek-tempo-pominięć)
   - [Ujednoznacznienie tempa obsługi](#ujednoznacznienie-tempa-obsługi)
@@ -134,7 +134,9 @@ Często liczymy elementy i używamy następującej notacji:
 
 - κ (kappa): liczba elementów w systemie, czyli elementy oczekujące plus elementy obsługiwane.
 
-![Diagram: elementy przybywają w tempie λ, w systemie jest κ elementów, a elementy wychodzą z przepustowością χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: w systemie jest κ elementów](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: elementy przybywają w tempie λ i wychodzą w tempie χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Przykład:
 
@@ -154,13 +156,15 @@ Liczba κ (kappa) to migawka z jednej chwili.
 
 Średnia liczba κ̅ (kappa z kreską) to obliczenie uśredniające pomiary z określonego okresu, na przykład pomiar co godzinę przez dwa tygodnie.
 
-### Tempo przybywania, tempo obsługi
+### Tempo przybywania, tempo obsługi, tempo opuszczania
 
 Najważniejsza notacja:
 
-- λ (lambda): tempo przybywania. Mierzy, jak szybko nowe elementy napływają do kolejki.
+- λ (lambda): tempo przybywania. Mierzy, jak szybko elementy wchodzą do systemu.
 
 - μ (mi): tempo obsługi, czyli wydajność. Mierzy, jak szybko jeden serwer może obsługiwać elementy, gdy jest zajęty.
+
+- χ (chi): tempo opuszczania. Mierzy, jak szybko elementy wychodzą z systemu.
 
 Przykłady ogólnych zależności dla tradycyjnych kolejek z jednym serwerem:
 
@@ -214,7 +218,7 @@ Tempo całkowite = tempo sukcesów + tempo porażek + tempo pominięć:
 
 - χ = α + β + σ (czytaj: chi równa się alfa plus beta plus sigma)
 
-![Diagram: elementy opuszczają system jako sukces α, porażka β lub pominięcie σ; zakończone δ = α + β, zatem χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: elementy opuszczają system jako sukces α, porażka β lub pominięcie σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Każdy element policzony w χ wszedł do systemu, więc w stanie ustalonym tempo całkowite jest równe tempu przybywania: χ ≈ λ. Dlatego tempa przepustowości mierzą wynik, a nie wydajność.
 

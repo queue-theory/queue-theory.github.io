@@ -18,7 +18,7 @@ Contenido:
   - [Tipos de cola y tipos de servicio](#tipos-de-cola-y-tipos-de-servicio)
 - [Notación de la teoría de colas](#notación-de-la-teoría-de-colas)
   - [Recuento](#recuento)
-  - [Tasa de llegada, tasa de servicio](#tasa-de-llegada-tasa-de-servicio)
+  - [Tasa de llegada, tasa de servicio, tasa de salida](#tasa-de-llegada-tasa-de-servicio-tasa-de-salida)
   - [Razón de utilización, también llamada intensidad de tráfico](#razón-de-utilización-también-llamada-intensidad-de-tráfico)
   - [Tasas de rendimiento: tasa total, tasa de finalización, tasa de éxito, tasa de fallo, tasa de omisión](#tasas-de-rendimiento-tasa-total-tasa-de-finalización-tasa-de-éxito-tasa-de-fallo-tasa-de-omisión)
   - [Desambiguación de la tasa de servicio](#desambiguación-de-la-tasa-de-servicio)
@@ -140,7 +140,9 @@ Contamos elementos con frecuencia, y usamos esta notación:
 
 - κ (kappa): recuento de elementos en el sistema, es decir, los elementos en espera más los elementos en atención.
 
-![Diagrama: los elementos llegan a la tasa λ, hay κ elementos en el sistema y los elementos salen con el rendimiento χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagrama: hay κ elementos en el sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagrama: los elementos llegan a la tasa λ y salen a la tasa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Ejemplo:
 
@@ -160,13 +162,15 @@ El recuento κ (kappa) es una instantánea de un momento.
 
 El recuento medio κ̅ (kappa con barra) es un cálculo que promedia mediciones durante un periodo específico, por ejemplo midiendo cada hora durante dos semanas.
 
-### Tasa de llegada, tasa de servicio
+### Tasa de llegada, tasa de servicio, tasa de salida
 
 La notación más importante:
 
-- λ (lambda): tasa de llegada. Mide con qué rapidez entran elementos nuevos a la cola.
+- λ (lambda): tasa de llegada. Mide qué tan rápido entran los elementos al sistema.
 
 - μ (mu): tasa de servicio, también llamada capacidad. Mide con qué rapidez un servidor puede atender elementos mientras está ocupado.
+
+- χ (ji): tasa de salida. Mide qué tan rápido salen los elementos del sistema.
 
 Ejemplos de generalidades para colas tradicionales con un servidor:
 
@@ -220,7 +224,7 @@ Tasa total = tasa de éxito + tasa de fallo + tasa de omisión:
 
 - χ = α + β + σ (se lee: ji es igual a alfa más beta más sigma)
 
-![Diagrama: los elementos salen del sistema como éxito α, fallo β u omisión σ; finalizados δ = α + β, así que χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagrama: los elementos salen del sistema como éxito α, fallo β u omisión σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Cada elemento contado en χ entró en el sistema, así que en estado estacionario la tasa total es igual a la tasa de llegada: χ ≈ λ. Por eso las tasas de rendimiento miden la producción, no la capacidad.
 

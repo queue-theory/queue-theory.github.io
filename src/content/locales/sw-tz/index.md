@@ -13,7 +13,7 @@ Yaliyomo:
   - [Aina za foleni na aina za huduma](#aina-za-foleni-na-aina-za-huduma)
 - [Nukuu za nadharia ya foleni](#nukuu-za-nadharia-ya-foleni)
   - [Idadi](#idadi)
-  - [Kiwango cha uwasili, kiwango cha huduma](#kiwango-cha-uwasili-kiwango-cha-huduma)
+  - [Kiwango cha uwasili, kiwango cha huduma, kiwango cha kuondoka](#kiwango-cha-uwasili-kiwango-cha-huduma-kiwango-cha-kuondoka)
   - [Uwiano wa matumizi, yaani ukali wa trafiki](#uwiano-wa-matumizi-yaani-ukali-wa-trafiki)
   - [Viwango vya upitishaji: kiwango cha jumla, kiwango cha kukamilika, kiwango cha mafanikio, kiwango cha kushindwa, kiwango cha kuachwa](#viwango-vya-upitishaji-kiwango-cha-jumla-kiwango-cha-kukamilika-kiwango-cha-mafanikio-kiwango-cha-kushindwa-kiwango-cha-kuachwa)
   - [Ufafanuzi wa kiwango cha huduma](#ufafanuzi-wa-kiwango-cha-huduma)
@@ -134,7 +134,9 @@ Tunahesabu vipengee mara kwa mara, na tunatumia nukuu hii:
 
 - κ (kappa): idadi ya vipengee katika mfumo, yaani vipengee vinavyosubiri pamoja na vipengee vinavyoshughulikiwa.
 
-![Mchoro: vipengee vinawasili kwa kiwango λ, kuna vipengee κ katika mfumo, na vipengee vinaondoka kwa upitishaji χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Mchoro: kuna vipengee κ katika mfumo](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Mchoro: vipengee vinawasili kwa kiwango λ na kuondoka kwa kiwango χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Mfano:
 
@@ -154,13 +156,15 @@ Idadi κ (kappa) ni picha ya papo hapo ya wakati mmoja.
 
 Idadi ya wastani κ̅ (kappa yenye mstari) ni hesabu inayochukua wastani wa vipimo katika kipindi maalum cha muda, kwa mfano kupima kila saa kwa wiki mbili.
 
-### Kiwango cha uwasili, kiwango cha huduma
+### Kiwango cha uwasili, kiwango cha huduma, kiwango cha kuondoka
 
 Nukuu muhimu zaidi:
 
-- λ (lambda): kiwango cha uwasili. Hiki kinapima kasi ambayo vipengee vipya vinaingia katika foleni.
+- λ (lambda): kiwango cha uwasili. Hiki kinapima kasi ambayo vipengee vinaingia katika mfumo.
 
 - μ (mu): kiwango cha huduma, yaani uwezo. Hiki kinapima kasi ambayo seva moja inaweza kushughulikia vipengee inapokuwa na shughuli.
+
+- χ (chi): kiwango cha kuondoka. Hiki kinapima kasi ambayo vipengee vinatoka katika mfumo.
 
 Mifano ya kanuni za jumla kwa foleni za kawaida zenye seva moja:
 
@@ -214,7 +218,7 @@ Kiwango cha jumla = kiwango cha mafanikio + kiwango cha kushindwa + kiwango cha 
 
 - χ = α + β + σ (hutamkwa: chi ni sawa na alpha jumlisha beta jumlisha sigma)
 
-![Mchoro: vipengee vinaondoka katika mfumo kama mafanikio α, kushindwa β, au kuachwa σ; vilivyokamilika δ = α + β, hivyo χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Mchoro: vipengee vinaondoka katika mfumo kama mafanikio α, kushindwa β, au kuachwa σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Kila kipengee kinachohesabiwa katika χ kiliingia katika mfumo, kwa hiyo katika hali tulivu kiwango cha jumla ni sawa na kiwango cha uwasili: χ ≈ λ. Ndiyo sababu viwango vya upitishaji hupima matokeo, si uwezo.
 

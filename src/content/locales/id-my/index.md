@@ -18,7 +18,7 @@ Daftar isi:
   - [Jenis antrean dan jenis layanan](#jenis-antrean-dan-jenis-layanan)
 - [Notasi teori antrean](#notasi-teori-antrean)
   - [Jumlah](#jumlah)
-  - [Laju kedatangan, laju layanan](#laju-kedatangan-laju-layanan)
+  - [Laju kedatangan, laju layanan, laju keberangkatan](#laju-kedatangan-laju-layanan-laju-keberangkatan)
   - [Rasio utilisasi, atau intensitas lalu lintas](#rasio-utilisasi-atau-intensitas-lalu-lintas)
   - [Laju throughput: laju total, laju selesai, laju keberhasilan, laju kegagalan, laju lewati](#laju-throughput-laju-total-laju-selesai-laju-keberhasilan-laju-kegagalan-laju-lewati)
   - [Disambiguasi laju layanan](#disambiguasi-laju-layanan)
@@ -139,7 +139,9 @@ Kami sering menghitung item, dan kami menggunakan notasi ini:
 
 - κ (kappa): jumlah item dalam sistem, yaitu item yang menunggu ditambah item yang sedang dikerjakan.
 
-![Diagram: item datang dengan laju λ, ada κ item dalam sistem, dan item keluar dengan throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: ada κ item dalam sistem](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: item datang dengan laju λ dan pergi dengan laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Contoh:
 
@@ -159,13 +161,15 @@ Jumlah κ (kappa) adalah potret pada satu saat.
 
 Jumlah rata-rata κ̅ (kappa bar) adalah perhitungan yang merata-ratakan hasil pengukuran selama periode waktu tertentu, misalnya mengukur setiap jam selama dua minggu.
 
-### Laju kedatangan, laju layanan
+### Laju kedatangan, laju layanan, laju keberangkatan
 
 Notasi yang paling penting:
 
-- λ (lambda): laju kedatangan. Ini mengukur seberapa cepat item baru masuk ke antrean.
+- λ (lambda): laju kedatangan. Ini mengukur seberapa cepat item masuk ke sistem.
 
 - μ (mu): laju layanan, atau kapasitas. Ini mengukur seberapa cepat satu server dapat menangani item saat sedang sibuk.
+
+- χ (chi): laju keberangkatan. Ini mengukur seberapa cepat item keluar dari sistem.
 
 Contoh generalisasi untuk antrean tradisional dengan satu server:
 
@@ -219,7 +223,7 @@ Laju total = laju keberhasilan + laju kegagalan + laju lewati:
 
 - χ = α + β + σ (dibaca: chi sama dengan alpha ditambah beta ditambah sigma)
 
-![Diagram: item meninggalkan sistem sebagai keberhasilan α, kegagalan β, atau lewati σ; selesai δ = α + β, sehingga χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: item meninggalkan sistem sebagai keberhasilan α, kegagalan β, atau lewati σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Setiap item yang dihitung dalam χ telah masuk ke sistem, sehingga dalam keadaan tunak laju total sama dengan laju kedatangan: χ ≈ λ. Itulah sebabnya laju throughput mengukur keluaran, bukan kapasitas.
 

@@ -13,7 +13,7 @@
   - [队列类型与服务类型](#队列类型与服务类型)
 - [排队论符号](#排队论符号)
   - [计数](#计数)
-  - [到达率与服务率](#到达率与服务率)
+  - [到达率与服务率、离开率](#到达率与服务率离开率)
   - [利用率，又称交通强度](#利用率又称交通强度)
   - [吞吐率：总率、完成率、成功率、失败率、跳过率](#吞吐率总率完成率成功率失败率跳过率)
   - [服务率的歧义](#服务率的歧义)
@@ -134,7 +134,9 @@ SJF 和 SRPT 能使平均等待时间最小，但可能让长作业无限期地�
 
 - κ（kappa）：系统中的条目计数，即等待中的条目加上正在处理的条目。
 
-![示意图：条目以速率 λ 到达，系统中有 κ 个条目，条目以吞吐率 χ 离开](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![示意图：系统中有 κ 个条目](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![示意图：条目以速率 λ 到达，以速率 χ 离开](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 示例：
 
@@ -154,13 +156,15 @@ SJF 和 SRPT 能使平均等待时间最小，但可能让长作业无限期地�
 
 平均计数 κ̅（kappa加横线）是对某一特定时间段内的测量值取平均的计算结果，例如连续两周每小时测量一次。
 
-### 到达率与服务率
+### 到达率与服务率、离开率
 
 最重要的符号：
 
-- λ（lambda）：到达率。衡量新条目进入队列的速度。
+- λ（lambda）：到达率。衡量条目进入系统的速度有多快。
 
 - μ（mu）：服务率，又称容量。衡量单个服务台在忙碌时处理条目的速度。
+
+- χ（chi）：离开率。衡量条目离开系统的速度有多快。
 
 单服务台传统队列的一般规律示例：
 
@@ -214,7 +218,7 @@ SJF 和 SRPT 能使平均等待时间最小，但可能让长作业无限期地�
 
 - χ = α + β + σ（读作：chi 等于 alpha 加 beta 加 sigma）
 
-![示意图：条目以成功 α、失败 β 或跳过 σ 的形式离开系统；完成 δ = α + β，因此 χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![示意图：条目以成功 α、失败 β 或跳过 σ 的形式离开系统；δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 计入 χ 的每个条目都曾进入系统，因此在稳态下总率等于到达率：χ ≈ λ。这就是为什么吞吐率衡量的是产出，而不是容量。
 

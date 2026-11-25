@@ -13,7 +13,7 @@ Sumário:
   - [Tipos de fila e tipos de atendimento](#tipos-de-fila-e-tipos-de-atendimento)
 - [Notação da teoria das filas](#notação-da-teoria-das-filas)
   - [Contagem](#contagem)
-  - [Taxa de chegada, taxa de atendimento](#taxa-de-chegada-taxa-de-atendimento)
+  - [Taxa de chegada, taxa de atendimento, taxa de saída](#taxa-de-chegada-taxa-de-atendimento-taxa-de-saída)
   - [Razão de utilização, também chamada intensidade de tráfego](#razão-de-utilização-também-chamada-intensidade-de-tráfego)
   - [Taxas de vazão: taxa total, taxa de conclusão, taxa de sucesso, taxa de falha, taxa de desistência](#taxas-de-vazão-taxa-total-taxa-de-conclusão-taxa-de-sucesso-taxa-de-falha-taxa-de-desistência)
   - [Desambiguação da taxa de atendimento](#desambiguação-da-taxa-de-atendimento)
@@ -134,7 +134,9 @@ Contamos itens com frequência e usamos esta notação:
 
 - κ (kappa): contagem de itens no sistema, ou seja, itens esperando mais itens em atendimento.
 
-![Diagrama: os itens chegam à taxa λ, há κ itens no sistema e os itens saem com a vazão χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagrama: há κ itens no sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagrama: os itens chegam à taxa λ e saem à taxa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Exemplo:
 
@@ -154,13 +156,15 @@ A contagem κ (kappa) é um instantâneo de um momento.
 
 A contagem média κ̅ (kappa com barra) é um cálculo que faz a média de medições ao longo de um período específico, por exemplo medindo a cada hora durante duas semanas.
 
-### Taxa de chegada, taxa de atendimento
+### Taxa de chegada, taxa de atendimento, taxa de saída
 
 A notação mais importante:
 
-- λ (lambda): taxa de chegada. Mede a rapidez com que novos itens entram na fila.
+- λ (lambda): taxa de chegada. Mede a rapidez com que os itens entram no sistema.
 
 - μ (mi): taxa de atendimento, também chamada capacidade. Mede a rapidez com que um servidor consegue tratar itens enquanto está ocupado.
+
+- χ (qui): taxa de saída. Mede a rapidez com que os itens saem do sistema.
 
 Exemplos de generalidades para filas tradicionais com um servidor:
 
@@ -214,7 +218,7 @@ Taxa total = taxa de sucesso + taxa de falha + taxa de desistência:
 
 - χ = α + β + σ (lê-se: qui é igual a alfa mais beta mais sigma)
 
-![Diagrama: os itens saem do sistema como sucesso α, falha β ou desistência σ; concluídos δ = α + β, portanto χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagrama: os itens saem do sistema como sucesso α, falha β ou desistência σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Todo item contado em χ entrou no sistema, portanto, em regime estacionário, a taxa total é igual à taxa de chegada: χ ≈ λ. É por isso que as taxas de vazão medem a produção, e não a capacidade.
 

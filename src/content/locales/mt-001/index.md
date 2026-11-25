@@ -13,7 +13,7 @@ Werrej:
   - [Tipi ta’ kjuwijiet u tipi ta’ servizz](#tipi-ta-kjuwijiet-u-tipi-ta-servizz)
 - [Notazzjoni tat-teorija tal-kjuwijiet](#notazzjoni-tat-teorija-tal-kjuwijiet)
   - [Għadd](#għadd)
-  - [Rata ta’ wasla, rata ta’ servizz](#rata-ta-wasla-rata-ta-servizz)
+  - [Rata ta’ wasla, rata ta’ servizz, rata ta’ tluq](#rata-ta-wasla-rata-ta-servizz-rata-ta-tluq)
   - [Proporzjon ta’ utilizzazzjoni jew intensità tat-traffiku](#proporzjon-ta-utilizzazzjoni-jew-intensità-tat-traffiku)
   - [Rati ta’ throughput: rata totali, rata ta’ tlestija, rata ta’ suċċess, rata ta’ falliment, rata ta’ qbiż](#rati-ta-throughput-rata-totali-rata-ta-tlestija-rata-ta-suċċess-rata-ta-falliment-rata-ta-qbiż)
   - [Diżambigwazzjoni tar-rata ta’ servizz](#diżambigwazzjoni-tar-rata-ta-servizz)
@@ -134,7 +134,9 @@ Aħna ngħoddu l-oġġetti spiss, u nużaw din in-notazzjoni:
 
 - κ (kappa): għadd ta’ oġġetti fis-sistema, jiġifieri l-oġġetti li qed jistennew flimkien mal-oġġetti li qed jinħadmu.
 
-![Dijagramma: l-oġġetti jaslu bir-rata λ, hemm κ oġġetti fis-sistema, u l-oġġetti jitilqu bit-throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Dijagramma: hemm κ oġġetti fis-sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Dijagramma: l-oġġetti jaslu bir-rata λ u jitilqu bir-rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Eżempju:
 
@@ -154,13 +156,15 @@ L-għadd κ (kappa) huwa stampa ta’ mument wieħed.
 
 L-għadd medju κ̅ (kappa bil-linja) huwa kalkolu li jieħu l-medja ta’ kejl matul perjodu ta’ ħin speċifiku, per eżempju kejl kull siegħa għal ġimagħtejn.
 
-### Rata ta’ wasla, rata ta’ servizz
+### Rata ta’ wasla, rata ta’ servizz, rata ta’ tluq
 
 L-aktar notazzjoni importanti:
 
-- λ (lambda): rata ta’ wasla. Din tkejjel kemm qed jidħlu malajr oġġetti ġodda fil-kju.
+- λ (lambda): rata ta’ wasla. Din tkejjel kemm l-oġġetti qed jidħlu malajr fis-sistema.
 
 - μ (mu): rata ta’ servizz jew kapaċità. Din tkejjel kemm jista’ server wieħed jipproċessa oġġetti malajr meta jkun okkupat.
+
+- χ (chi): rata ta’ tluq. Din tkejjel kemm l-oġġetti qed joħorġu malajr mis-sistema.
 
 Eżempji ta’ regoli ġenerali għal kjuwijiet tradizzjonali b’server wieħed:
 
@@ -214,7 +218,7 @@ Rata totali = rata ta’ suċċess + rata ta’ falliment + rata ta’ qbiż:
 
 - χ = α + β + σ (tinqara: chi daqs alpha flimkien ma’ beta flimkien ma’ sigma)
 
-![Dijagramma: l-oġġetti jitilqu mis-sistema bħala suċċess α, falliment β jew qbiż σ; mitmum δ = α + β, għalhekk χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Dijagramma: l-oġġetti jitilqu mis-sistema bħala suċċess α, falliment β jew qbiż σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Kull oġġett li jingħadd f’χ daħal fis-sistema, għalhekk fi stat stabbli r-rata totali hija ugwali għar-rata ta’ wasla: χ ≈ λ. Din hija r-raġuni għaliex ir-rati ta’ throughput ikejlu l-output, mhux il-kapaċità.
 

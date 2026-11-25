@@ -18,7 +18,7 @@ Cynnwys:
   - [Mathau o giwiau a mathau o wasanaeth](#mathau-o-giwiau-a-mathau-o-wasanaeth)
 - [Nodiant theori ciwiau](#nodiant-theori-ciwiau)
   - [Cyfrif](#cyfrif)
-  - [Cyfradd cyrraedd, cyfradd gwasanaethu](#cyfradd-cyrraedd-cyfradd-gwasanaethu)
+  - [Cyfradd cyrraedd, cyfradd gwasanaethu, cyfradd ymadael](#cyfradd-cyrraedd-cyfradd-gwasanaethu-cyfradd-ymadael)
   - [Cymhareb defnydd, neu ddwyster traffig](#cymhareb-defnydd-neu-ddwyster-traffig)
   - [Cyfraddau trwybwn: cyfradd gyfan, cyfradd gorffen, cyfradd llwyddo, cyfradd methu, cyfradd hepgor](#cyfraddau-trwybwn-cyfradd-gyfan-cyfradd-gorffen-cyfradd-llwyddo-cyfradd-methu-cyfradd-hepgor)
   - [Gwahaniaethu ystyron cyfradd gwasanaethu](#gwahaniaethu-ystyron-cyfradd-gwasanaethu)
@@ -139,7 +139,9 @@ Rydym yn cyfrif eitemau’n aml, ac rydym yn defnyddio’r nodiant hwn:
 
 - κ (kappa): cyfrif yr eitemau yn y system, sef yr eitemau sy’n aros ynghyd â’r eitemau sy’n cael eu trin.
 
-![Diagram: mae eitemau’n cyrraedd ar gyfradd λ, mae κ eitem yn y system, ac mae eitemau’n gadael ar drwybwn χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: mae κ eitem yn y system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: mae eitemau’n cyrraedd ar gyfradd λ ac yn gadael ar gyfradd χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Enghraifft:
 
@@ -159,13 +161,15 @@ Ciplun ar un adeg yw’r cyfrif κ (kappa).
 
 Cyfrifiad sy’n cymryd cyfartaledd mesuriadau dros gyfnod penodol o amser yw’r cyfrif cyfartalog κ̅ (kappa bar), er enghraifft mesur bob awr am bythefnos.
 
-### Cyfradd cyrraedd, cyfradd gwasanaethu
+### Cyfradd cyrraedd, cyfradd gwasanaethu, cyfradd ymadael
 
 Y nodiant pwysicaf:
 
-- λ (lambda): cyfradd cyrraedd. Mae hon yn mesur pa mor gyflym mae eitemau newydd yn dod i mewn i’r ciw.
+- λ (lambda): cyfradd cyrraedd. Mae hon yn mesur pa mor gyflym y mae eitemau’n mynd i mewn i’r system.
 
 - μ (mu): cyfradd gwasanaethu, neu gapasiti. Mae hon yn mesur pa mor gyflym y gall un gweinydd drin eitemau tra bydd yn brysur.
+
+- χ (chi): cyfradd ymadael. Mae hon yn mesur pa mor gyflym y mae eitemau’n gadael y system.
 
 Enghreifftiau o egwyddorion cyffredinol ar gyfer ciwiau traddodiadol ag un gweinydd:
 
@@ -219,7 +223,7 @@ Cyfradd gyfan = cyfradd llwyddo + cyfradd methu + cyfradd hepgor:
 
 - χ = α + β + σ (ynganiad: chi yn hafal i alffa adio beta adio sigma)
 
-![Diagram: mae eitemau’n gadael y system fel llwyddiant α, methiant β neu hepgoriad σ; gorffenedig δ = α + β, felly χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: mae eitemau’n gadael y system fel llwyddiant α, methiant β neu hepgoriad σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Aeth pob eitem a gyfrifir yn χ i mewn i’r system, felly mewn cyflwr sefydlog mae’r gyfradd gyfan yn hafal i’r gyfradd cyrraedd: χ ≈ λ. Dyna pam mae cyfraddau trwybwn yn mesur allbwn, nid capasiti.
 

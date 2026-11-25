@@ -18,7 +18,7 @@ Clár ábhair:
   - [Cineálacha scuainí agus cineálacha seirbhíse](#cineálacha-scuainí-agus-cineálacha-seirbhíse)
 - [Nodaireacht theoiric na scuainí](#nodaireacht-theoiric-na-scuainí)
   - [Líon](#líon)
-  - [Ráta teachta, ráta seirbhíse](#ráta-teachta-ráta-seirbhíse)
+  - [Ráta teachta, ráta seirbhíse, ráta imeachta](#ráta-teachta-ráta-seirbhíse-ráta-imeachta)
   - [Cóimheas úsáide, nó déine tráchta](#cóimheas-úsáide-nó-déine-tráchta)
   - [Rátaí tréchuir: ráta iomlán, ráta críochnaithe, ráta ratha, ráta teipe, ráta scipeála](#rátaí-tréchuir-ráta-iomlán-ráta-críochnaithe-ráta-ratha-ráta-teipe-ráta-scipeála)
   - [Idirdhealú ar an ráta seirbhíse](#idirdhealú-ar-an-ráta-seirbhíse)
@@ -139,7 +139,9 @@ Is minic a chomhairímid míreanna, agus úsáidimid an nodaireacht seo:
 
 - κ (kappa): líon na míreanna sa chóras, is é sin míreanna ag feitheamh móide míreanna á n-oibriú.
 
-![Léaráid: sroicheann míreanna ag ráta λ, tá κ mír sa chóras, agus fágann míreanna le tréchur χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Léaráid: tá κ mír sa chóras](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Léaráid: sroicheann míreanna ag ráta λ agus fágann siad ag ráta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Sampla:
 
@@ -159,13 +161,15 @@ Is grianghraf ag nóiméad amháin é an líon κ (kappa).
 
 Is ríomh é an meánlíon κ̅ (kappa le barra) a ghlacann meán de thomhaiseanna thar tréimhse ama shonrach, mar shampla tomhas gach uair an chloig ar feadh coicíse.
 
-### Ráta teachta, ráta seirbhíse
+### Ráta teachta, ráta seirbhíse, ráta imeachta
 
 An nodaireacht is tábhachtaí:
 
-- λ (lambda): ráta teachta. Tomhaiseann sé seo cé chomh tapa a thagann míreanna nua isteach sa scuaine.
+- λ (lambda): ráta teachta. Tomhaiseann sé seo cé chomh tapaidh is a théann míreanna isteach sa chóras.
 
 - μ (mu): ráta seirbhíse, nó acmhainn. Tomhaiseann sé seo cé chomh tapa is féidir le freastalaí amháin míreanna a láimhseáil agus é gnóthach.
+
+- χ (chi): ráta imeachta. Tomhaiseann sé seo cé chomh tapaidh is a fhágann míreanna an córas.
 
 Samplaí de ghinearáltachtaí do ghnáthscuainí le freastalaí amháin:
 
@@ -219,7 +223,7 @@ Ráta iomlán = ráta ratha + ráta teipe + ráta scipeála:
 
 - χ = α + β + σ (fuaimnítear: chi cothrom le alpha móide beta móide sigma)
 
-![Léaráid: fágann míreanna an córas mar rath α, teip β nó scipeáil σ; críochnaithe δ = α + β, mar sin χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Léaráid: fágann míreanna an córas mar rath α, teip β nó scipeáil σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Tháinig gach mír a chomhairtear in χ isteach sa chóras, mar sin i staid sheasta is ionann an ráta iomlán agus an ráta teachta: χ ≈ λ. Sin an fáth a dtomhaiseann rátaí tréchuir aschur, ní acmhainn.
 

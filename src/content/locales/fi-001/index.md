@@ -17,7 +17,7 @@ Sisällysluettelo:
   - [Jonotyypit ja palvelutyypit](#jonotyypit-ja-palvelutyypit)
 - [Jonoteorian merkinnät](#jonoteorian-merkinnät)
   - [Määrä](#määrä)
-  - [Saapumisnopeus, palvelunopeus](#saapumisnopeus-palvelunopeus)
+  - [Saapumisnopeus, palvelunopeus, poistumisnopeus](#saapumisnopeus-palvelunopeus-poistumisnopeus)
   - [Käyttöaste eli liikenneintensiteetti](#käyttöaste-eli-liikenneintensiteetti)
   - [Läpimenonopeudet: kokonaisnopeus, valmistumisnopeus, onnistumisnopeus, epäonnistumisnopeus, ohitusnopeus](#läpimenonopeudet-kokonaisnopeus-valmistumisnopeus-onnistumisnopeus-epäonnistumisnopeus-ohitusnopeus)
   - [Palvelunopeuden käsitteen täsmennys](#palvelunopeuden-käsitteen-täsmennys)
@@ -138,7 +138,9 @@ Laskemme kohteita usein, ja käytämme tätä merkintää:
 
 - κ (kappa): järjestelmässä olevien kohteiden määrä eli odottavat kohteet ja työn alla olevat kohteet yhteensä.
 
-![Kaavio: kohteet saapuvat nopeudella λ, järjestelmässä on κ kohdetta ja kohteet poistuvat läpimenolla χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Kaavio: järjestelmässä on κ kohdetta](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Kaavio: kohteet saapuvat nopeudella λ ja poistuvat nopeudella χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Esimerkki:
 
@@ -158,13 +160,15 @@ Määrä κ (kappa) on tilannekuva yhdeltä hetkeltä.
 
 Keskimääräinen määrä κ̅ (kappa viivalla) on laskelma, joka keskiarvoistaa mittauksia tietyltä ajanjaksolta, esimerkiksi mittaamalla joka tunti kahden viikon ajan.
 
-### Saapumisnopeus, palvelunopeus
+### Saapumisnopeus, palvelunopeus, poistumisnopeus
 
 Tärkeimmät merkinnät:
 
-- λ (lambda): saapumisnopeus. Tämä mittaa, kuinka nopeasti uusia kohteita tulee jonoon.
+- λ (lambda): saapumisnopeus. Se mittaa, kuinka nopeasti kohteet tulevat järjestelmään.
 
 - μ (mu): palvelunopeus eli kapasiteetti. Tämä mittaa, kuinka nopeasti yksi palvelin pystyy käsittelemään kohteita ollessaan varattuna.
+
+- χ (khii): poistumisnopeus. Se mittaa, kuinka nopeasti kohteet poistuvat järjestelmästä.
 
 Esimerkkejä yleisistä periaatteista perinteisille yhden palvelimen jonoille:
 
@@ -218,7 +222,7 @@ Kokonaisnopeus = onnistumisnopeus + epäonnistumisnopeus + ohitusnopeus:
 
 - χ = α + β + σ (lausutaan: khii on yhtä kuin alfa plus beeta plus sigma)
 
-![Kaavio: kohteet poistuvat järjestelmästä onnistumisena α, epäonnistumisena β tai ohituksena σ; valmistuneet δ = α + β, joten χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Kaavio: kohteet poistuvat järjestelmästä onnistumisena α, epäonnistumisena β tai ohituksena σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Jokainen χ:hin laskettu kohde on tullut järjestelmään, joten tasapainotilassa kokonaisnopeus on yhtä suuri kuin saapumisnopeus: χ ≈ λ. Siksi läpimenonopeudet mittaavat tuotosta eivätkä kapasiteettia.
 

@@ -13,7 +13,7 @@ Innehåll:
   - [Kötyper och betjäningstyper](#kötyper-och-betjäningstyper)
 - [Köteorins notation](#köteorins-notation)
   - [Antal](#antal)
-  - [Ankomsttakt, betjäningstakt](#ankomsttakt-betjäningstakt)
+  - [Ankomsttakt, betjäningstakt, avgångstakt](#ankomsttakt-betjäningstakt-avgångstakt)
   - [Utnyttjandegrad, även kallad trafikintensitet](#utnyttjandegrad-även-kallad-trafikintensitet)
   - [Genomflödestakter: total takt, slutförandetakt, lyckandetakt, felfrekvens, avhoppstakt](#genomflödestakter-total-takt-slutförandetakt-lyckandetakt-felfrekvens-avhoppstakt)
   - [Förtydligande av betjäningstakt](#förtydligande-av-betjäningstakt)
@@ -134,7 +134,9 @@ Vi räknar objekt ofta, och vi använder den här notationen:
 
 - κ (kappa): antal objekt i systemet, det vill säga väntande objekt plus objekt som bearbetas.
 
-![Diagram: objekt anländer med takten λ, κ objekt finns i systemet och objekt lämnar det med genomflödet χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: κ objekt finns i systemet](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: objekt anländer med takten λ och lämnar systemet med takten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Exempel:
 
@@ -154,13 +156,15 @@ Antalet κ (kappa) är en ögonblicksbild.
 
 Det genomsnittliga antalet κ̅ (kappa med streck) är en beräkning som tar medelvärdet av mätningar under en viss tidsperiod, till exempel genom att mäta varje timme i två veckor.
 
-### Ankomsttakt, betjäningstakt
+### Ankomsttakt, betjäningstakt, avgångstakt
 
 Den viktigaste notationen:
 
-- λ (lambda): ankomsttakt. Den mäter hur snabbt nya objekt kommer in i kön.
+- λ (lambda): ankomsttakt. Den mäter hur snabbt objekt kommer in i systemet.
 
 - μ (my): betjäningstakt, även kallad kapacitet. Den mäter hur snabbt en server kan hantera objekt när den är upptagen.
+
+- χ (chi): avgångstakt. Den mäter hur snabbt objekt lämnar systemet.
 
 Exempel på generella förhållanden för traditionella köer med en server:
 
@@ -214,7 +218,7 @@ Total takt = lyckandetakt + felfrekvens + avhoppstakt:
 
 - χ = α + β + σ (uttalas: chi är lika med alfa plus beta plus sigma)
 
-![Diagram: objekt lämnar systemet som lyckande α, misslyckande β eller avhopp σ; slutfört δ = α + β, alltså χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: objekt lämnar systemet som lyckande α, misslyckande β eller avhopp σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Varje objekt som räknas i χ har kommit in i systemet, så i stationärt tillstånd är den totala takten lika med ankomsttakten: χ ≈ λ. Det är därför genomflödestakter mäter utflöde, inte kapacitet.
 

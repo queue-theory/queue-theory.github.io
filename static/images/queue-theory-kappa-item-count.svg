@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <title id="t">κ</title>
+  <desc id="d">κ items are in the system.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="800" height="400" fill="#ffffff"/>
+
+  <!-- input -->
+  <line x1="20" y1="215" x2="276" y2="215" stroke="#334155" stroke-width="8" marker-end="url(#arrow)"/>
+
+  <!-- system -->
+  <rect x="290" y="90" width="220" height="250" rx="16" fill="#f1f5f9" stroke="#334155" stroke-width="3"/>
+  <text x="400" y="246" text-anchor="middle" font-size="96" font-weight="700" fill="#1d4ed8">κ</text>
+
+  <!-- output -->
+  <line x1="524" y1="215" x2="776" y2="215" stroke="#334155" stroke-width="8" marker-end="url(#arrow)"/>
+</svg>

@@ -13,7 +13,7 @@ Contents:
   - [Queue types an service types](#queue-types-an-service-types)
 - [Notation o queue theory](#notation-o-queue-theory)
   - [Coont](#coont)
-  - [Arrival rate, service rate](#arrival-rate-service-rate)
+  - [Arrival rate, service rate, departure rate](#arrival-rate-service-rate-departure-rate)
   - [Utilisation ratio, aka traffic intensity](#utilisation-ratio-aka-traffic-intensity)
   - [Throughput rates: total rate, duin rate, success rate, failure rate, skip rate](#throughput-rates-total-rate-duin-rate-success-rate-failure-rate-skip-rate)
   - [Whit service rate means](#whit-service-rate-means)
@@ -134,7 +134,9 @@ We coont items aften, an we uise this notation:
 
 - κ (kappa): coont o items in the system, meanin items waitin plus items bein wrocht on.
 
-![Diagram: items arrive at rate λ, κ items are in the system, items depairt at throughput χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: κ items are in the system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: items arrive at rate λ an depairt at rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Example:
 
@@ -154,13 +156,15 @@ The coont κ (kappa) is a snapshot at ae moment.
 
 The average coont κ̅ (kappa bar) is a calculation that averages measurements ower a specific period o time, sic as measurin ilka hoor fur twa weeks.
 
-### Arrival rate, service rate
+### Arrival rate, service rate, departure rate
 
 The maist important notation:
 
-- λ (lambda): arrival rate. This meisures hoo quick new items are comin intae the queue.
+- λ (lambda): arrival rate. This meisures hoo fast items are enterin the system.
 
 - μ (mu): service rate, aka capacity. This meisures hoo quick ae server can haundle items while it is thrang.
+
+- χ (chi): departure rate. This meisures hoo fast items are exitin the system.
 
 Examples o generalities fur traditional queues wi ae server:
 
@@ -214,7 +218,7 @@ Total rate = success rate + failure rate + skip rate:
 
 - χ = α + β + σ (said: chi equals alpha plus beta plus sigma)
 
-![Diagram: items leave the system as success α, failure β, or skip σ; duin δ = α + β, sae χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: items leave the system as success α, failure β, or skip σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Ilka item coonted in χ entered the system, sae in steady state the total rate equals the arrival rate: χ ≈ λ. That is how throughput rates meisure output, no capacity.
 

@@ -17,7 +17,7 @@ Efnisyfirlit:
   - [Tegundir biðraða og þjónustu](#tegundir-biðraða-og-þjónustu)
 - [Táknmál biðraðafræðinnar](#táknmál-biðraðafræðinnar)
   - [Fjöldi](#fjöldi)
-  - [Komutíðni, þjónustutíðni](#komutíðni-þjónustutíðni)
+  - [Komutíðni, þjónustutíðni, brottfaratíðni](#komutíðni-þjónustutíðni-brottfaratíðni)
   - [Nýtingarhlutfall, öðru nafni álagsstyrkur](#nýtingarhlutfall-öðru-nafni-álagsstyrkur)
   - [Gegnumstreymistíðni: heildartíðni, lokatíðni, árangurstíðni, villutíðni, slepptíðni](#gegnumstreymistíðni-heildartíðni-lokatíðni-árangurstíðni-villutíðni-slepptíðni)
   - [Margræðni hugtaksins þjónustutíðni](#margræðni-hugtaksins-þjónustutíðni)
@@ -138,7 +138,9 @@ Við teljum atriði oft og notum þetta tákn:
 
 - κ (kappa): fjöldi atriða í kerfinu, þ.e. atriði sem bíða auk atriða sem unnið er að.
 
-![Skýringarmynd: atriði koma með tíðninni λ, κ atriði eru í kerfinu og atriði fara með gegnumstreyminu χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Skýringarmynd: κ atriði eru í kerfinu](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Skýringarmynd: atriði koma með tíðninni λ og fara með tíðninni χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Dæmi:
 
@@ -158,13 +160,15 @@ Fjöldinn κ (kappa) er skyndimynd á einu augnabliki.
 
 Meðalfjöldinn κ̅ (kappa með striki) er útreikningur sem tekur meðaltal mælinga yfir tiltekið tímabil, til dæmis með því að mæla á klukkustundar fresti í tvær vikur.
 
-### Komutíðni, þjónustutíðni
+### Komutíðni, þjónustutíðni, brottfaratíðni
 
 Mikilvægasta táknmálið:
 
-- λ (lambda): komutíðni. Hún mælir hve hratt ný atriði koma inn í biðröðina.
+- λ (lambda): komutíðni. Hún mælir hversu hratt atriði koma inn í kerfið.
 
 - μ (mu): þjónustutíðni, öðru nafni afkastageta. Hún mælir hve hratt einn þjónn getur afgreitt atriði meðan hann er upptekinn.
+
+- χ (chi): brottfaratíðni. Hún mælir hversu hratt atriði fara út úr kerfinu.
 
 Dæmi um almenn atriði fyrir hefðbundnar biðraðir með einum þjóni:
 
@@ -218,7 +222,7 @@ Heildartíðni = árangurstíðni + villutíðni + slepptíðni:
 
 - χ = α + β + σ (borið fram: chi jafngildir alfa plús beta plús sigma)
 
-![Skýringarmynd: atriði fara úr kerfinu sem árangur α, villa β eða sleppt σ; lokið δ = α + β, því χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Skýringarmynd: atriði fara úr kerfinu sem árangur α, villa β eða sleppt σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Hvert atriði sem talið er í χ kom inn í kerfið, svo í jafnvægisástandi er heildartíðnin jöfn komutíðninni: χ ≈ λ. Þess vegna mælir gegnumstreymistíðni afköst, ekki afkastagetu.
 

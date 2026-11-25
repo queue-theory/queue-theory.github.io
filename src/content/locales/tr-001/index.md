@@ -18,7 +18,7 @@ hatlarımız bunlar arasındadır.
   - [Kuyruk türleri ve hizmet türleri](#kuyruk-türleri-ve-hizmet-türleri)
 - [Kuyruk teorisi gösterimi](#kuyruk-teorisi-gösterimi)
   - [Sayım](#sayım)
-  - [Varış hızı, hizmet hızı](#varış-hızı-hizmet-hızı)
+  - [Varış hızı, hizmet hızı, ayrılış hızı](#varış-hızı-hizmet-hızı-ayrılış-hızı)
   - [Kullanım oranı, diğer adıyla trafik yoğunluğu](#kullanım-oranı-diğer-adıyla-trafik-yoğunluğu)
   - [Çıktı hızları: toplam hız, tamamlanma hızı, başarı hızı, başarısızlık hızı, atlama hızı](#çıktı-hızları-toplam-hız-tamamlanma-hızı-başarı-hızı-başarısızlık-hızı-atlama-hızı)
   - [Hizmet hızı kavramının netleştirilmesi](#hizmet-hızı-kavramının-netleştirilmesi)
@@ -139,7 +139,9 @@ Bizim gösterimimiz ve her simgenin anlamı:
 
 - κ (kappa): sistemdeki öğe sayısı, yani bekleyen öğeler artı üzerinde çalışılan öğeler.
 
-![Diyagram: öğeler λ hızıyla gelir, sistemde κ öğe vardır ve öğeler χ çıktı hızıyla ayrılır](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diyagram: sistemde κ öğe vardır](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diyagram: öğeler λ hızıyla gelir ve χ hızıyla ayrılır](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Örnek:
 
@@ -159,13 +161,15 @@ Bizim gösterimimiz ve her simgenin anlamı:
 
 Ortalama sayı κ̅ (kappa çubuklu), belirli bir zaman dilimindeki ölçümlerin ortalamasını alan bir hesaplamadır; örneğin iki hafta boyunca her saat ölçüm yapmak gibi.
 
-### Varış hızı, hizmet hızı
+### Varış hızı, hizmet hızı, ayrılış hızı
 
 En önemli gösterim:
 
-- λ (lambda): varış hızı. Kuyruğa yeni öğelerin ne kadar hızlı geldiğini ölçer.
+- λ (lambda): varış hızı. Öğelerin sisteme ne kadar hızlı girdiğini ölçer.
 
 - μ (mu): hizmet hızı, diğer adıyla kapasite. Bir sunucunun meşgulken öğeleri ne kadar hızlı işleyebildiğini ölçer.
+
+- χ (chi): ayrılış hızı. Öğelerin sistemden ne kadar hızlı çıktığını ölçer.
 
 Tek sunuculu geleneksel kuyruklar için genel durum örnekleri:
 
@@ -219,7 +223,7 @@ Toplam hız = başarı hızı + başarısızlık hızı + atlama hızı:
 
 - χ = α + β + σ (okunuşu: chi eşittir alpha artı beta artı sigma)
 
-![Diyagram: öğeler sistemi başarı α, başarısızlık β veya atlama σ olarak terk eder; tamamlanan δ = α + β, dolayısıyla χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diyagram: öğeler sistemi başarı α, başarısızlık β veya atlama σ olarak terk eder; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 χ içinde sayılan her öğe sisteme girmiştir; bu yüzden kararlı durumda toplam hız varış hızına eşittir: χ ≈ λ. Çıktı hızlarının kapasiteyi değil çıktıyı ölçmesinin nedeni budur.
 

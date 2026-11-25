@@ -13,7 +13,7 @@
   - [队列类型搭服务类型](#队列类型搭服务类型)
 - [排队论符号](#排队论符号)
   - [计数](#计数)
-  - [到达率搭服务率](#到达率搭服务率)
+  - [到达率搭服务率、离开率](#到达率搭服务率离开率)
   - [利用率，又叫交通强度](#利用率又叫交通强度)
   - [吞吐率：总率、完成率、成功率、失败率、跳过率](#吞吐率总率完成率成功率失败率跳过率)
   - [服务率个歧义](#服务率个歧义)
@@ -134,7 +134,9 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 
 - κ（kappa）：系统里向条目个数目，就是等辣海个条目加上正辣处理个条目。
 
-![示意图：条目以速率 λ 到达，系统里向有 κ 只条目，条目以吞吐率 χ 离开](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![示意图：系统里向有 κ 只条目](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![示意图：条目以速率 λ 到达，以速率 χ 离开](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 例子：
 
@@ -154,13 +156,15 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 
 平均计数 κ̅（kappa加横线）是对某一段辰光里向个测量值求平均个计算，比方讲两个礼拜每个钟头测一趟。
 
-### 到达率搭服务率
+### 到达率搭服务率、离开率
 
 顶重要个符号：
 
-- λ（lambda）：到达率。衡量新条目进入队列有多少快。
+- λ（lambda）：到达率。衡量条目进入系统个速度有多快。
 
 - μ（mu）：服务率，又叫容量。衡量一只服务台辣忙个辰光处理条目有多少快。
+
+- χ（chi）：离开率。衡量条目离开系统个速度有多快。
 
 只有一只服务台个传统队列，一般有搿眼规律：
 
@@ -214,7 +218,7 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 
 - χ = α + β + σ（读作：chi 等于 alpha 加 beta 加 sigma）
 
-![示意图：条目以成功 α、失败 β 或者跳过 σ 个形式离开系统；完成 δ = α + β，所以 χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![示意图：条目以成功 α、失败 β 或者跳过 σ 个形式离开系统；δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 算进 χ 个每只条目侪进过系统，所以辣稳态个辰光总率等于到达率：χ ≈ λ。搿个就是为啥吞吐率衡量个是产出，勿是容量。
 

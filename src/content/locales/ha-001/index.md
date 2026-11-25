@@ -17,7 +17,7 @@ Abubuwan da ke ciki:
   - [Nau'o'in layi da nau'o'in sabis](#nauoin-layi-da-nauoin-sabis)
 - [Alamomin ka'idar layi](#alamomin-kaidar-layi)
   - [Ƙidaya](#ƙidaya)
-  - [Yawan isowa, yawan sabis](#yawan-isowa-yawan-sabis)
+  - [Yawan isowa, yawan sabis, yawan ficewa](#yawan-isowa-yawan-sabis-yawan-ficewa)
   - [Rabon amfani wato ƙarfin zirga-zirga](#rabon-amfani-wato-ƙarfin-zirga-zirga)
   - [Yawan fitarwa: jimillar yawa, yawan kammalawa, yawan nasara, yawan gazawa, yawan tsallakewa](#yawan-fitarwa-jimillar-yawa-yawan-kammalawa-yawan-nasara-yawan-gazawa-yawan-tsallakewa)
   - [Bayyana ma'anar yawan sabis](#bayyana-maanar-yawan-sabis)
@@ -138,7 +138,9 @@ Muna yawan ƙidaya abubuwa, kuma muna amfani da wannan alamar:
 
 - κ (kappa): ƙidayar abubuwa a cikin tsarin, wato abubuwan da ke jira tare da abubuwan da ake aiki a kansu.
 
-![Zane: abubuwa suna zuwa da yawan λ, akwai abubuwa κ a cikin tsarin, kuma abubuwa suna fita da fitarwa χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Zane: akwai abubuwa κ a cikin tsarin](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Zane: abubuwa suna zuwa da yawan λ kuma suna fita da yawan χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Misali:
 
@@ -158,13 +160,15 @@ Misali:
 
 Matsakaicin ƙidaya κ̅ (kappa mai layi) lissafi ne da ke ɗaukar matsakaicin ma'auni a tsawon wani lokaci na musamman, misali auna kowace awa har tsawon mako biyu.
 
-### Yawan isowa, yawan sabis
+### Yawan isowa, yawan sabis, yawan ficewa
 
 Alamomi mafi muhimmanci:
 
-- λ (lambda): yawan isowa. Wannan yana auna saurin shigowar sababbin abubuwa cikin layi.
+- λ (lambda): yawan isowa. Wannan yana auna yadda abubuwa ke shiga tsarin da sauri.
 
 - μ (mu): yawan sabis wato ƙarfi. Wannan yana auna saurin da mai sabis ɗaya zai iya sarrafa abubuwa yayin da yake aiki.
+
+- χ (chi): yawan ficewa. Wannan yana auna yadda abubuwa ke fita daga tsarin da sauri.
 
 Misalan ƙa'idoji na gama-gari don layukan gargajiya masu mai sabis ɗaya:
 
@@ -218,7 +222,7 @@ Jimillar yawa = yawan nasara + yawan gazawa + yawan tsallakewa:
 
 - χ = α + β + σ (ana furtawa: chi daidai da alpha da beta da sigma)
 
-![Zane: abubuwa suna fita daga tsarin a matsayin nasara α, gazawa β ko tsallakewa σ; waɗanda aka kammala δ = α + β, don haka χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Zane: abubuwa suna fita daga tsarin a matsayin nasara α, gazawa β ko tsallakewa σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Kowane abu da aka ƙidaya a cikin χ ya shiga tsarin, don haka a cikin daidaitaccen yanayi jimillar yawa daidai take da yawan isowa: χ ≈ λ. Shi ya sa yawan fitarwa ke auna fitarwa, ba ƙarfi ba.
 

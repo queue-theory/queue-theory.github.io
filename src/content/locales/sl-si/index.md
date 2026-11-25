@@ -13,7 +13,7 @@ Vsebina:
   - [Vrste čakalnih vrst in vrste strežbe](#vrste-čakalnih-vrst-in-vrste-strežbe)
 - [Notacija teorije čakalnih vrst](#notacija-teorije-čakalnih-vrst)
   - [Število](#število)
-  - [Stopnja prihodov, stopnja strežbe](#stopnja-prihodov-stopnja-strežbe)
+  - [Stopnja prihodov, stopnja strežbe, stopnja odhodov](#stopnja-prihodov-stopnja-strežbe-stopnja-odhodov)
   - [Razmerje izkoriščenosti oz. intenzivnost prometa](#razmerje-izkoriščenosti-oz-intenzivnost-prometa)
   - [Stopnje pretoka: skupna stopnja, stopnja dokončanja, stopnja uspeha, stopnja neuspeha, stopnja izpustitev](#stopnje-pretoka-skupna-stopnja-stopnja-dokončanja-stopnja-uspeha-stopnja-neuspeha-stopnja-izpustitev)
   - [Razjasnitev pojma stopnja strežbe](#razjasnitev-pojma-stopnja-strežbe)
@@ -134,7 +134,9 @@ Elemente pogosto štejemo in pri tem uporabljamo to notacijo:
 
 - κ (kapa): število elementov v sistemu, torej čakajoči elementi in elementi v obdelavi.
 
-![Diagram: elementi prihajajo s stopnjo λ, v sistemu je κ elementov, elementi pa odhajajo s pretokom χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: v sistemu je κ elementov](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: elementi prihajajo s stopnjo λ in odhajajo s stopnjo χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Primer:
 
@@ -154,13 +156,15 @@ Primer:
 
 Povprečno število κ̅ (kapa s črto) je izračun, ki povpreči meritve v določenem časovnem obdobju, na primer z merjenjem vsako uro dva tedna.
 
-### Stopnja prihodov, stopnja strežbe
+### Stopnja prihodov, stopnja strežbe, stopnja odhodov
 
 Najpomembnejša notacija:
 
-- λ (lambda): stopnja prihodov. Ta meri, kako hitro prihajajo novi elementi v čakalno vrsto.
+- λ (lambda): stopnja prihodov. Ta meri, kako hitro elementi vstopajo v sistem.
 
 - μ (mi): stopnja strežbe oz. zmogljivost. Ta meri, kako hitro lahko en strežnik obdeluje elemente, ko je zaseden.
+
+- χ (hi): stopnja odhodov. Ta meri, kako hitro elementi zapuščajo sistem.
 
 Primeri splošnih pravil za tradicionalne čakalne vrste z enim strežnikom:
 
@@ -214,7 +218,7 @@ Skupna stopnja = stopnja uspeha + stopnja neuspeha + stopnja izpustitev:
 
 - χ = α + β + σ (izgovorjava: hi je enako alfa plus beta plus sigma)
 
-![Diagram: elementi zapustijo sistem kot uspeh α, neuspeh β ali izpustitev σ; dokončano δ = α + β, torej χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: elementi zapustijo sistem kot uspeh α, neuspeh β ali izpustitev σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Vsak element, štet v χ, je vstopil v sistem, zato je v stacionarnem stanju skupna stopnja enaka stopnji prihodov: χ ≈ λ. Zato stopnje pretoka merijo izhod, ne zmogljivosti.
 

@@ -1,19 +1,19 @@
 # Teoria das filas
 
-A teoria das filas é o estudo matemático das filas de espera. Usamos a teoria das filas no nosso desenvolvimento de software para fins como analisar e otimizar nossas práticas e processos, por exemplo a capacidade de resposta do nosso atendimento ao cliente, o planeamento kanban na gestão de projetos, as filas de mensagens para comunicação entre processos e os pipelines de implantação contínua em DevOps.
+A teoria das filas é o estudo matemático das filas de espera. Usamos a teoria das filas no nosso desenvolvimento de software para fins como analisar e otimizar nossas práticas e processos, por exemplo a capacidade de resposta do nosso atendimento ao cliente, o planejamento kanban na gestão de projetos, as filas de mensagens para comunicação entre processos e os pipelines de implantação contínua em DevOps.
 
 Sumário:
 
 - [Introdução](#introdução)
   - [Capacidade de resposta do atendimento ao cliente](#capacidade-de-resposta-do-atendimento-ao-cliente)
-  - [Planeamento kanban na gestão de projetos](#planeamento-kanban-na-gestão-de-projetos)
+  - [Planejamento kanban na gestão de projetos](#planejamento-kanban-na-gestão-de-projetos)
   - [Filas de mensagens para comunicação entre processos](#filas-de-mensagens-para-comunicação-entre-processos)
   - [Pipelines de implantação contínua em DevOps](#pipelines-de-implantação-contínua-em-devops)
 - [Terminologia de filas](#terminologia-de-filas)
   - [Tipos de fila e tipos de atendimento](#tipos-de-fila-e-tipos-de-atendimento)
 - [Notação da teoria das filas](#notação-da-teoria-das-filas)
   - [Contagem](#contagem)
-  - [Taxa de chegada, taxa de atendimento](#taxa-de-chegada-taxa-de-atendimento)
+  - [Taxa de chegada, taxa de atendimento, taxa de saída](#taxa-de-chegada-taxa-de-atendimento-taxa-de-saída)
   - [Razão de utilização, também chamada intensidade de tráfego](#razão-de-utilização-também-chamada-intensidade-de-tráfego)
   - [Taxas de vazão: taxa total, taxa de conclusão, taxa de sucesso, taxa de falha, taxa de desistência](#taxas-de-vazão-taxa-total-taxa-de-conclusão-taxa-de-sucesso-taxa-de-falha-taxa-de-desistência)
   - [Desambiguação da taxa de atendimento](#desambiguação-da-taxa-de-atendimento)
@@ -47,7 +47,7 @@ Usamos a teoria das filas em nossos projetos para muitos fins:
 
 - Capacidade de resposta do atendimento ao cliente
 
-- Planeamento kanban na gestão de projetos
+- Planejamento kanban na gestão de projetos
 
 - Filas de mensagens para comunicação entre processos
 
@@ -59,7 +59,7 @@ Por exemplo, queremos analisar como os clientes solicitam ajuda de vendas e de s
 
 Alguns produtos relevantes são, por exemplo, [Salesforce](https://wikipedia.org/wiki/Salesforce), [LiveChat](https://wikipedia.org/wiki/LiveChat), [Zendesk](https://wikipedia.org/wiki/Zendesk).
 
-### Planeamento kanban na gestão de projetos
+### Planejamento kanban na gestão de projetos
 
 Por exemplo, queremos acompanhar os tempos de atravessamento e os tempos de progresso à medida que a ideia de uma nova funcionalidade evolui do design até a entrega.
 
@@ -79,7 +79,7 @@ Alguns produtos relevantes são, por exemplo, [Jenkins](<https://wikipedia.org/w
 
 ## Terminologia de filas
 
-A terminologia de filas é um tema amplo. Esta secção apresenta parte da terminologia que usamos com frequência. Nos exemplos, usaremos a ideia de um cliente esperando na fila.
+A terminologia de filas é um tema amplo. Esta seção apresenta parte da terminologia que usamos com frequência. Nos exemplos, usaremos a ideia de um cliente esperando na fila.
 
 ### Tipos de fila e tipos de atendimento
 
@@ -107,7 +107,7 @@ SJF e SRPT minimizam a espera média, mas podem deixar trabalhos longos esperand
 
 A teoria das filas usa uma notação com letras gregas.
 
-Nossas equipas usam parte da notação mais difundida; também acrescentamos uma notação própria que nos ajuda nos projetos de software.
+Nossas equipes usam parte da notação mais difundida; também acrescentamos uma notação própria que nos ajuda nos projetos de software.
 
 Nossa notação e o significado de cada símbolo:
 
@@ -124,7 +124,7 @@ Nossa notação e o significado de cada símbolo:
 | σ (sigma) | taxa de desistência: itens que entraram e depois saíram sem atendimento |
 | ε (épsilon) | razão de erro: β / (α + β) = β / δ |
 | τ (tau) | tempo no sistema, também chamado tempo de atravessamento (lead time) |
-| ω (ómega) | tempo de espera, também chamado tempo na fila |
+| ω (ômega) | tempo de espera, também chamado tempo na fila |
 | φ (fi) | tempo de trabalho, também chamado tempo no processador, também chamado tempo de atendimento |
 | θ (teta) | tempo de passo entre conclusões; tempo de passo médio ≈ 1 / χ em regime estacionário |
 
@@ -134,7 +134,9 @@ Contamos itens com frequência e usamos esta notação:
 
 - κ (kappa): contagem de itens no sistema, ou seja, itens esperando mais itens em atendimento.
 
-![Diagrama: os itens chegam à taxa λ, há κ itens no sistema e os itens saem com a vazão χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagrama: há κ itens no sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagrama: os itens chegam à taxa λ e saem à taxa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Exemplo:
 
@@ -154,13 +156,15 @@ A contagem κ (kappa) é um instantâneo de um momento.
 
 A contagem média κ̅ (kappa com barra) é um cálculo que faz a média de medições ao longo de um período específico, por exemplo medindo a cada hora durante duas semanas.
 
-### Taxa de chegada, taxa de atendimento
+### Taxa de chegada, taxa de atendimento, taxa de saída
 
 A notação mais importante:
 
-- λ (lambda): taxa de chegada. Mede a rapidez com que novos itens entram na fila.
+- λ (lambda): taxa de chegada. Mede a rapidez com que os itens entram no sistema.
 
 - μ (mi): taxa de atendimento, também chamada capacidade. Mede a rapidez com que um servidor consegue tratar itens enquanto está ocupado.
+
+- χ (qui): taxa de saída. Mede a rapidez com que os itens saem do sistema.
 
 Exemplos de generalidades para filas tradicionais com um servidor:
 
@@ -214,7 +218,7 @@ Taxa total = taxa de sucesso + taxa de falha + taxa de desistência:
 
 - χ = α + β + σ (lê-se: qui é igual a alfa mais beta mais sigma)
 
-![Diagrama: os itens saem do sistema como sucesso α, falha β ou desistência σ; concluídos δ = α + β, portanto χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagrama: os itens saem do sistema como sucesso α, falha β ou desistência σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Todo item contado em χ entrou no sistema, portanto, em regime estacionário, a taxa total é igual à taxa de chegada: χ ≈ λ. É por isso que as taxas de vazão medem a produção, e não a capacidade.
 
@@ -286,7 +290,7 @@ Acompanhamos quatro tempos:
 
 - φ (fi): tempo de trabalho = tempo gasto fazendo trabalho efetivo, também chamado tempo de processamento
 
-- ω (ómega): tempo de espera = tempo gasto sem fazer trabalho efetivo, também chamado tempo pendente
+- ω (ômega): tempo de espera = tempo gasto sem fazer trabalho efetivo, também chamado tempo pendente
 
 ![Diagrama: o tempo de atravessamento τ é o tempo de espera ω seguido do tempo de trabalho φ, portanto τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
@@ -338,7 +342,7 @@ Além disso:
 
 ## Matemática das filas
 
-As secções de matemática usam os símbolos dos livros didáticos, para que seja possível compará-las com outras fontes: S é o tempo médio de atendimento, que é o nosso φ, e μ = 1 / S é a capacidade de um servidor.
+As seções de matemática usam os símbolos dos livros didáticos, para que seja possível compará-las com outras fontes: S é o tempo médio de atendimento, que é o nosso φ, e μ = 1 / S é a capacidade de um servidor.
 
 ### A curva de utilização
 
@@ -361,7 +365,7 @@ Para uma fila M/M/1, em que S é o tempo médio de atendimento:
 
 Exemplo: uma revisão de código leva 1 hora de trabalho. Se os revisores estiverem 80% ocupados, uma revisão leva cerca de 5 horas da solicitação até a conclusão. Se os revisores estiverem 95% ocupados, leva cerca de 20 horas, embora os revisores estejam apenas 15 pontos percentuais mais ocupados.
 
-É por isso que "manter todos 100% ocupados" é uma receita para tempos de atravessamento longos, e é por isso que os [insights](#insights) abaixo alertam contra planear para uma utilização alta.
+É por isso que "manter todos 100% ocupados" é uma receita para tempos de atravessamento longos, e é por isso que os [insights](#insights) abaixo alertam contra planejar para uma utilização alta.
 
 ### Fórmula de Kingman
 
@@ -403,7 +407,7 @@ A fórmula Erlang C calcula a probabilidade de que um item que chega precise esp
 
 - Tempo de espera ω = P(espera) / (c μ − λ)
 
-As equipas de atendimento ao cliente usam Erlang C para decidir quantos atendentes escalar para atingir uma meta, como "80% das chamadas atendidas em até 20 segundos".
+As equipes de atendimento ao cliente usam Erlang C para decidir quantos atendentes escalar para atingir uma meta, como "80% das chamadas atendidas em até 20 segundos".
 
 O agrupamento tem limites: funciona melhor quando qualquer servidor pode tratar qualquer item. Se os itens exigirem especialistas, uma fila agrupada pode precisar de regras de roteamento.
 
@@ -467,7 +471,7 @@ Pressupostos da lei de Little:
 
 - Os itens que saem antes, por exemplo por desistência durante a espera, são contados de forma consistente tanto em λ quanto em τ, ou excluídos de forma consistente de ambos.
 
-Exemplo: uma equipa tem em média κ = 20 tickets em andamento, e os tickets chegam a λ = 4 por semana; em regime estacionário, a equipa também conclui χ = 4 por semana. Portanto, o ticket médio leva τ = κ / λ = 5 semanas. Para reduzir o tempo de atravessamento pela metade sem trabalhar mais rápido, reduza pela metade o trabalho em andamento.
+Exemplo: uma equipe tem em média κ = 20 tickets em andamento, e os tickets chegam a λ = 4 por semana; em regime estacionário, a equipe também conclui χ = 4 por semana. Portanto, o ticket médio leva τ = κ / λ = 5 semanas. Para reduzir o tempo de atravessamento pela metade sem trabalhar mais rápido, reduza pela metade o trabalho em andamento.
 
 ### Indicadores-chave de desempenho (KPIs)
 
@@ -475,11 +479,11 @@ Normalmente acompanhamos muitos aspectos das atividades na fila e queremos resum
 
 Construímos muitos projetos e acreditamos que os indicadores de síntese mais valiosos são:
 
-- Dτ = tempo de atravessamento da entrega. As equipas de produto podem dizer "do conceito ao cliente" ou "da ideia à implementação".
+- Dτ = tempo de atravessamento da entrega. As equipes de produto podem dizer "do conceito ao cliente" ou "da ideia à implementação".
 
-- Dα = taxa de sucesso da entrega. As equipas de DevOps podem dizer "frequência de implantação" ou "entregamos X vezes por dia".
+- Dα = taxa de sucesso da entrega. As equipes de DevOps podem dizer "frequência de implantação" ou "entregamos X vezes por dia".
 
-- Dε = razão de erro da entrega. As equipas de qualidade podem dizer "taxa de falha de mudanças" ou "percentagem de reversões".
+- Dε = razão de erro da entrega. As equipes de qualidade podem dizer "taxa de falha de mudanças" ou "porcentagem de reversões".
 
 - Rτ = tempo de atravessamento da restauração. Os engenheiros de confiabilidade de sites podem dizer "tempo de recuperação de implantações com falha" ou "tempo médio de restauração (MTTR)".
 
@@ -497,14 +501,14 @@ MTTR representa quatro medições diferentes:
 
 | Métrica | Foco | Mede | Início | Fim |
 | ------------------------ | ------------------- | ------------------------------------ | ---------------------------------- | --------------------------------- |
-| **Mean Time To Respond** (tempo médio para responder) | Reação inicial | Tempo para reconhecer e começar a agir | Quando o incidente é detectado/relatado | Quando a equipa começa a trabalhar nele |
+| **Mean Time To Respond** (tempo médio para responder) | Reação inicial | Tempo para reconhecer e começar a agir | Quando o incidente é detectado/relatado | Quando a equipe começa a trabalhar nele |
 | **Mean Time To Repair** (tempo médio para reparar) | Correção técnica | Tempo para corrigir o item quebrado | Quando o trabalho de reparo começa | Quando o item está corrigido |
 | **Mean Time To Recover** (tempo médio para recuperar) | Restauração do serviço | Tempo para restaurar o serviço completo | Quando o incidente/interrupção começa | Quando o serviço está totalmente operacional |
 | **Mean Time To Resolve** (tempo médio para resolver) | Resolução completa | Tempo total da detecção ao encerramento | Quando o incidente é detectado | Quando o incidente está totalmente encerrado |
 
 **Distinções principais:**
 
-**Responder** mede a prontidão da equipa e a eficácia dos alertas. Um tempo de resposta baixo significa que os processos de monitorização e de plantão estão funcionando bem, mesmo que a correção em si leve mais tempo.
+**Responder** mede a prontidão da equipe e a eficácia dos alertas. Um tempo de resposta baixo significa que os processos de monitoramento e de plantão estão funcionando bem, mesmo que a correção em si leve mais tempo.
 
 **Reparar** é estritamente técnico: quanto tempo leva para efetivamente corrigir o que está quebrado depois que se começa a trabalhar nisso? Exclui o tempo de detecção, a triagem e a verificação.
 
@@ -518,7 +522,7 @@ Cenário de exemplo:
 - 2:05 — O alerta dispara, o incidente é detectado
 - 2:15 — O plantonista reconhece e começa a trabalhar → Tempo de resposta: 10 min (2:05 a 2:15)
 - 2:45 — Causa raiz identificada, correção implantada → Tempo de reparo: 30 min (2:15 a 2:45)
-- 3:00 — Serviço verificado funcionando para os utilizadores → Tempo de recuperação: 60 min (2:00 a 3:00)
+- 3:00 — Serviço verificado funcionando para os usuários → Tempo de recuperação: 60 min (2:00 a 3:00)
 - 3:30 — Ticket do incidente encerrado após verificação → Tempo de resolução: 85 min (2:05 a 3:30)
 
 Métricas relacionadas:
@@ -529,23 +533,23 @@ Métricas relacionadas:
 
 ### Métricas DORA
 
-As métricas DevOps Research and Assessment (DORA) são indicadores-chave de desempenho (KPIs) padrão do setor, específicos para equipas de DevOps em engenharia de software. Consulte [dora.dev](https://dora.dev/guides/dora-metrics/).
+As métricas DevOps Research and Assessment (DORA) são indicadores-chave de desempenho (KPIs) padrão do setor, específicos para equipes de DevOps em engenharia de software. Consulte [dora.dev](https://dora.dev/guides/dora-metrics/).
 
 Atualmente o DORA usa cinco métricas, em dois grupos.
 
 Métricas de vazão:
 
-- **Change Lead Time** (tempo de atravessamento de mudanças) - Tempo para implementar, testar e entregar o código de uma funcionalidade (medido do commit até a implantação em produção). Seja específico sobre o que se entende por início e fim. Por exemplo, algumas equipas preferem medir desde quando um programador começa a trabalhar em um ticket até quando o programador envia o trabalho para um processo de integração contínua; essa abordagem tende a ser mais eficaz para medir a produtividade individual.
+- **Change Lead Time** (tempo de atravessamento de mudanças) - Tempo para implementar, testar e entregar o código de uma funcionalidade (medido do commit até a implantação em produção). Seja específico sobre o que se entende por início e fim. Por exemplo, algumas equipes preferem medir desde quando um desenvolvedor começa a trabalhar em um ticket até quando o desenvolvedor envia o trabalho para um processo de integração contínua; essa abordagem tende a ser mais eficaz para medir a produtividade individual.
 
-- **Deployment Frequency** (frequência de implantação) - Número de implantações em um determinado período de tempo. Seja específico sobre o que se entende por implantação e sobre como a frequência é acompanhada. Por exemplo, algumas equipas fazem uma implantação em uma frota de servidores de produção e acompanham a distribuição completa, enquanto outras equipas fazem a implantação em um único servidor de teste de aceitação do utilizador (UAT) e acompanham quando o gestor de projeto envia um e-mail aos utilizadores anunciando que podem começar a testar.
+- **Deployment Frequency** (frequência de implantação) - Número de implantações em um determinado período de tempo. Seja específico sobre o que se entende por implantação e sobre como a frequência é acompanhada. Por exemplo, algumas equipes fazem uma implantação em uma frota de servidores de produção e acompanham a distribuição completa, enquanto outras equipes fazem a implantação em um único servidor de teste de aceitação do usuário (UAT) e acompanham quando o gerente de projeto envia um e-mail aos usuários anunciando que podem começar a testar.
 
-- **Failed Deployment Recovery Time** (tempo de recuperação de implantações com falha) - Tempo necessário para se recuperar de uma implantação que causa uma falha em produção. Antes isso se chamava Mean Time to Recovery (MTTR) ou Time to Restore Service. Seja específico sobre o que se entende por recuperação. Por exemplo, algumas equipas consideram a recuperação como resolução completa, ou seja, o tempo total desde quando um incidente é detectado até quando o incidente está totalmente encerrado; essa abordagem é mais bem descrita como Mean Time To Resolve.
+- **Failed Deployment Recovery Time** (tempo de recuperação de implantações com falha) - Tempo necessário para se recuperar de uma implantação que causa uma falha em produção. Antes isso se chamava Mean Time to Recovery (MTTR) ou Time to Restore Service. Seja específico sobre o que se entende por recuperação. Por exemplo, algumas equipes consideram a recuperação como resolução completa, ou seja, o tempo total desde quando um incidente é detectado até quando o incidente está totalmente encerrado; essa abordagem é mais bem descrita como Mean Time To Resolve.
 
 Métricas de instabilidade:
 
-- **Change Failure Rate** (taxa de falha de mudanças) - Percentagem de implantações que causam uma falha em produção e exigem correção imediata, como uma reversão (rollback) ou um hotfix. Seja específico sobre o que se entende por falha. Por exemplo, algumas equipas também contam uma falha quando começam um ticket de trabalho e depois percebem que o ticket não tem informações suficientes para prosseguir, de modo que a equipa devolve o ticket à equipa de especificação.
+- **Change Failure Rate** (taxa de falha de mudanças) - Porcentagem de implantações que causam uma falha em produção e exigem correção imediata, como uma reversão (rollback) ou um hotfix. Seja específico sobre o que se entende por falha. Por exemplo, algumas equipes também contam uma falha quando começam um ticket de trabalho e depois percebem que o ticket não tem informações suficientes para prosseguir, de modo que a equipe devolve o ticket à equipe de especificação.
 
-- **Deployment Rework Rate** (taxa de retrabalho de implantações) - Percentagem de implantações não planeadas, por exemplo para corrigir um incidente em produção. É o número de implantações não planeadas dividido pelo total de implantações. O DORA acrescentou essa métrica em 2024.
+- **Deployment Rework Rate** (taxa de retrabalho de implantações) - Porcentagem de implantações não planejadas, por exemplo para corrigir um incidente em produção. É o número de implantações não planejadas dividido pelo total de implantações. O DORA acrescentou essa métrica em 2024.
 
 Relatórios anteriores do DORA também tratavam da **Reliability** (confiabilidade) como uma métrica de desempenho operacional: uma avaliação mais ampla, muitas vezes qualitativa, da consistência do serviço, como disponibilidade, tempo de atividade, latência, precisão e objetivos de nível de serviço. A confiabilidade ajuda a mostrar que uma alta velocidade não ocorre à custa da capacidade do sistema.
 
@@ -579,13 +583,13 @@ Em nosso trabalho prático, usamos com frequência a palavra "funil" para descre
 
 - Fila de compras que usa um estágio de busca do cliente, um estágio de carrinho de compras e um estágio de pagamento. Para esse tipo de fila, buscamos minimizar a taxa de desistência do estágio 2, ou seja, reduzir o abandono de carrinho, por exemplo por meio de lembretes.
 
-- Fila de programação que usa um estágio de integração, um estágio de aceitação do utilizador e um estágio de distribuição em produção. Para esse tipo de fila, buscamos minimizar a taxa de erro do estágio de distribuição em produção, por exemplo por meio de telemetria canário.
+- Fila de programação que usa um estágio de integração, um estágio de aceitação do usuário e um estágio de distribuição em produção. Para esse tipo de fila, buscamos minimizar a taxa de erro do estágio de distribuição em produção, por exemplo por meio de telemetria canário.
 
 ## Insights
 
 Sete insights sobre a teoria das filas, por Bob Wescott, autor de "The Every Computer Performance Book" (veja também o [resumo de Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
 
-1. Quanto mais lento o centro de serviço, menor deve ser a utilização máxima planeada para a carga de pico.
+1. Quanto mais lento o centro de serviço, menor deve ser a utilização máxima planejada para a carga de pico.
 
 2. É muito difícil usar os últimos 15% de qualquer coisa.
 
@@ -663,5 +667,5 @@ Fórmulas:
 - Versão: 3.0.0
 - Criado: 2019-01-25T04:17:56Z
 - Atualizado: 2026-11-23T15:33:48Z
-- Licença: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, ou entre em contacto connosco para outros termos (consulte [LICENSE.md](LICENSE.md))
-- Contacto: Joel Parker Henderson <joel@joelparkerhenderson.com>
+- Licença: `MIT OR Apache-2.0 OR GPL-2.0-only OR GPL-3.0-only OR BSD-3-Clause OR OGL-UK-3.0 OR CC-BY-SA-4.0`, ou entre em contato conosco para outros termos (consulte [LICENSE.md](LICENSE.md))
+- Contato: Joel Parker Henderson <joel@joelparkerhenderson.com>

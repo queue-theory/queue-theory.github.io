@@ -13,7 +13,7 @@ Turinys:
   - [Eilių tipai ir aptarnavimo tipai](#eilių-tipai-ir-aptarnavimo-tipai)
 - [Eilių teorijos žymėjimas](#eilių-teorijos-žymėjimas)
   - [Skaičius](#skaičius)
-  - [Atvykimo sparta, aptarnavimo sparta](#atvykimo-sparta-aptarnavimo-sparta)
+  - [Atvykimo sparta, aptarnavimo sparta, išvykimo sparta](#atvykimo-sparta-aptarnavimo-sparta-išvykimo-sparta)
   - [Apkrovos santykis, dar vadinamas srauto intensyvumu](#apkrovos-santykis-dar-vadinamas-srauto-intensyvumu)
   - [Pralaidumo spartos: bendroji sparta, įvykdymo sparta, sėkmės sparta, nesėkmės sparta, praleidimo sparta](#pralaidumo-spartos-bendroji-sparta-įvykdymo-sparta-sėkmės-sparta-nesėkmės-sparta-praleidimo-sparta)
   - [Aptarnavimo spartos sąvokos patikslinimas](#aptarnavimo-spartos-sąvokos-patikslinimas)
@@ -134,7 +134,9 @@ Elementus skaičiuojame dažnai ir vartojame tokį žymėjimą:
 
 - κ (kapa): elementų skaičius sistemoje, t. y. laukiantys elementai ir apdorojami elementai.
 
-![Diagrama: elementai atvyksta sparta λ, sistemoje yra κ elementų, o elementai išeina pralaidumu χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagrama: sistemoje yra κ elementų](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagrama: elementai atvyksta sparta λ ir išeina sparta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Pavyzdys:
 
@@ -154,13 +156,15 @@ Skaičius κ (kapa) yra vieno momento momentinė nuotrauka.
 
 Vidutinis skaičius κ̅ (kapa su brūkšniu) yra skaičiavimas, kuris suvidurkina matavimus per tam tikrą laikotarpį, pavyzdžiui, matuojant kas valandą dvi savaites.
 
-### Atvykimo sparta, aptarnavimo sparta
+### Atvykimo sparta, aptarnavimo sparta, išvykimo sparta
 
 Svarbiausias žymėjimas:
 
-- λ (lambda): atvykimo sparta. Ji parodo, kaip greitai į eilę ateina nauji elementai.
+- λ (lambda): atvykimo sparta. Ji parodo, kaip greitai elementai patenka į sistemą.
 
 - μ (miu): aptarnavimo sparta, dar vadinama pajėgumu. Ji parodo, kaip greitai vienas serveris gali apdoroti elementus, kai yra užimtas.
+
+- χ (chi): išvykimo sparta. Ji parodo, kaip greitai elementai išeina iš sistemos.
 
 Bendrųjų dėsningumų pavyzdžiai tradicinėms eilėms su vienu serveriu:
 
@@ -214,7 +218,7 @@ Bendroji sparta = sėkmės sparta + nesėkmės sparta + praleidimo sparta:
 
 - χ = α + β + σ (tariama: chi lygu alfa plius beta plius sigma)
 
-![Diagrama: elementai palieka sistemą kaip sėkmė α, nesėkmė β arba praleidimas σ; įvykdyta δ = α + β, taigi χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagrama: elementai palieka sistemą kaip sėkmė α, nesėkmė β arba praleidimas σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Kiekvienas į χ įskaičiuotas elementas buvo patekęs į sistemą, todėl stacionarioje būsenoje bendroji sparta lygi atvykimo spartai: χ ≈ λ. Štai kodėl pralaidumo spartos matuoja išeigą, o ne pajėgumą.
 

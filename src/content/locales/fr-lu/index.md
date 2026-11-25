@@ -18,7 +18,7 @@ Sommaire :
   - [Types de file et types de service](#types-de-file-et-types-de-service)
 - [Notation de la théorie des files d'attente](#notation-de-la-théorie-des-files-dattente)
   - [Comptage](#comptage)
-  - [Taux d'arrivée, taux de service](#taux-darrivée-taux-de-service)
+  - [Taux d'arrivée, taux de service, taux de départ](#taux-darrivée-taux-de-service-taux-de-départ)
   - [Taux d'utilisation, ou intensité du trafic](#taux-dutilisation-ou-intensité-du-trafic)
   - [Taux de débit : taux total, taux d'achèvement, taux de succès, taux d'échec, taux d'abandon](#taux-de-débit--taux-total-taux-dachèvement-taux-de-succès-taux-déchec-taux-dabandon)
   - [Désambiguïsation du taux de service](#désambiguïsation-du-taux-de-service)
@@ -139,7 +139,9 @@ Nous comptons souvent des éléments, et nous utilisons cette notation :
 
 - κ (kappa) : nombre d'éléments dans le système, c'est-à-dire les éléments en attente plus les éléments en cours de traitement.
 
-![Schéma : les éléments arrivent au taux λ, κ éléments sont dans le système, les éléments repartent avec le débit χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Schéma : κ éléments sont dans le système](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Schéma : les éléments arrivent au taux λ et repartent au taux χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Exemple :
 
@@ -159,13 +161,15 @@ Le comptage κ (kappa) est un instantané à un moment donné.
 
 Le comptage moyen κ̅ (kappa barre) est un calcul qui moyenne des mesures sur une période donnée, par exemple une mesure toutes les heures pendant deux semaines.
 
-### Taux d'arrivée, taux de service
+### Taux d'arrivée, taux de service, taux de départ
 
 La notation la plus importante :
 
-- λ (lambda) : taux d'arrivée. Il mesure la vitesse à laquelle de nouveaux éléments arrivent dans la file.
+- λ (lambda) : taux d'arrivée. Il mesure la vitesse à laquelle les éléments entrent dans le système.
 
 - μ (mu) : taux de service, ou capacité. Il mesure la vitesse à laquelle un serveur peut traiter des éléments lorsqu'il est occupé.
+
+- χ (chi) : taux de départ. Il mesure la vitesse à laquelle les éléments sortent du système.
 
 Exemples de généralités pour les files traditionnelles à un seul serveur :
 
@@ -219,7 +223,7 @@ Taux total = taux de succès + taux d'échec + taux d'abandon :
 
 - χ = α + β + σ (prononcé : chi égale alpha plus bêta plus sigma)
 
-![Schéma : les éléments quittent le système sous forme de succès α, d'échec β ou d'abandon σ ; achevés δ = α + β, donc χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Schéma : les éléments quittent le système sous forme de succès α, d'échec β ou d'abandon σ ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Chaque élément compté dans χ est entré dans le système ; en régime stationnaire, le taux total est donc égal au taux d'arrivée : χ ≈ λ. C'est pourquoi les taux de débit mesurent la production, et non la capacité.
 

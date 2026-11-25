@@ -13,7 +13,7 @@ Inhalt:
   - [Warteschlangentypen und Bedienungsarten](#warteschlangentypen-und-bedienungsarten)
 - [Notation der Warteschlangentheorie](#notation-der-warteschlangentheorie)
   - [Anzahl](#anzahl)
-  - [Ankunftsrate, Bedienrate](#ankunftsrate-bedienrate)
+  - [Ankunftsrate, Bedienrate, Abgangsrate](#ankunftsrate-bedienrate-abgangsrate)
   - [Auslastungsgrad, auch Verkehrsintensität genannt](#auslastungsgrad-auch-verkehrsintensität-genannt)
   - [Durchsatzraten: Gesamtrate, Abschlussrate, Erfolgsrate, Fehlerrate, Abbruchrate](#durchsatzraten-gesamtrate-abschlussrate-erfolgsrate-fehlerrate-abbruchrate)
   - [Begriffsklärung Bedienrate](#begriffsklärung-bedienrate)
@@ -134,7 +134,9 @@ Wir zählen häufig Elemente und verwenden dafür diese Notation:
 
 - κ (Kappa): Anzahl der Elemente im System, also wartende Elemente plus Elemente in Bearbeitung.
 
-![Diagramm: Elemente treffen mit der Rate λ ein, κ Elemente befinden sich im System, Elemente verlassen es mit dem Durchsatz χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagramm: κ Elemente befinden sich im System](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagramm: Elemente treffen mit der Rate λ ein und verlassen das System mit der Rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Beispiel:
 
@@ -154,13 +156,15 @@ Die Anzahl κ (Kappa) ist eine Momentaufnahme zu einem Zeitpunkt.
 
 Die durchschnittliche Anzahl κ̅ (Kappa mit Strich) ist eine Berechnung, die Messungen über einen bestimmten Zeitraum mittelt, etwa stündliche Messungen über zwei Wochen.
 
-### Ankunftsrate, Bedienrate
+### Ankunftsrate, Bedienrate, Abgangsrate
 
 Die wichtigste Notation:
 
-- λ (Lambda): Ankunftsrate. Sie misst, wie schnell neue Elemente in die Warteschlange gelangen.
+- λ (Lambda): Ankunftsrate. Sie misst, wie schnell Elemente in das System eintreten.
 
 - μ (My): Bedienrate, auch Kapazität genannt. Sie misst, wie schnell ein Bediener Elemente bearbeiten kann, während er beschäftigt ist.
+
+- χ (Chi): Abgangsrate. Sie misst, wie schnell Elemente das System verlassen.
 
 Beispiele für allgemeine Aussagen über klassische Warteschlangen mit einem Bediener:
 
@@ -214,7 +218,7 @@ Gesamtrate = Erfolgsrate + Fehlerrate + Abbruchrate:
 
 - χ = α + β + σ (gesprochen: Chi gleich Alpha plus Beta plus Sigma)
 
-![Diagramm: Elemente verlassen das System als Erfolg α, Fehler β oder Abbruch σ; abgeschlossen δ = α + β, also χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagramm: Elemente verlassen das System als Erfolg α, Fehler β oder Abbruch σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Jedes in χ gezählte Element ist in das System eingetreten, daher entspricht die Gesamtrate im stationären Zustand der Ankunftsrate: χ ≈ λ. Deshalb messen Durchsatzraten die Ausgabe, nicht die Kapazität.
 

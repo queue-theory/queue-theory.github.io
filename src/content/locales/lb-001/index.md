@@ -13,7 +13,7 @@ Inhalt:
   - [Schlaangentypen a Servicetypen](#schlaangentypen-a-servicetypen)
 - [Notatioun vun der Schlaangentheorie](#notatioun-vun-der-schlaangentheorie)
   - [Zuel](#zuel)
-  - [Ukonftsrat, Servicerat](#ukonftsrat-servicerat)
+  - [Ukonftsrat, Servicerat, Ofgangsrat](#ukonftsrat-servicerat-ofgangsrat)
   - [Auslaaschtungsgrad, och Verkéiersintensitéit genannt](#auslaaschtungsgrad-och-verkéiersintensitéit-genannt)
   - [Duerchsazraten: Gesamtrat, Ofschlossrat, Erfollegsrat, Feelerrat, Ofbriechrat](#duerchsazraten-gesamtrat-ofschlossrat-erfollegsrat-feelerrat-ofbriechrat)
   - [Kläerung vum Begrëff Servicerat](#kläerung-vum-begrëff-servicerat)
@@ -134,7 +134,9 @@ Mir zielen dacks Elementer, a mir benotzen dës Notatioun:
 
 - κ (Kappa): Zuel vun den Elementer am System, dat heescht déi waardend Elementer plus déi Elementer, déi a Bearbechtung sinn.
 
-![Diagramm: Elementer kommen mat der Rat λ un, κ Elementer sinn am System, an Elementer verloosse et mam Duerchsaz χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagramm: κ Elementer sinn am System](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagramm: Elementer kommen mat der Rat λ un a verloosse et mat der Rat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Beispill:
 
@@ -154,13 +156,15 @@ D’Zuel κ (Kappa) ass eng Momentopnam.
 
 Déi duerchschnëttlech Zuel κ̅ (Kappa mat Strach) ass eng Berechnung, déi Miessunge vun engem bestëmmten Zäitraum mëttelt, zum Beispill all Stonn zwou Wochen laang ze moossen.
 
-### Ukonftsrat, Servicerat
+### Ukonftsrat, Servicerat, Ofgangsrat
 
 Déi wichtegst Notatioun:
 
-- λ (Lambda): Ukonftsrat. Si moosst, wéi séier nei Elementer an d’Schlaang erakommen.
+- λ (Lambda): Ukonftsrat. Si moosst, wéi séier Elementer an de System erakommen.
 
 - μ (Mu): Servicerat, och Kapazitéit. Si moosst, wéi séier ee Server Elementer bearbechte kann, wann e beschäftegt ass.
+
+- χ (Chi): Ofgangsrat. Si moosst, wéi séier Elementer d’System verloossen.
 
 Beispiller vun allgemenge Reegele fir traditionell Schlaange mat engem Server:
 
@@ -214,7 +218,7 @@ Gesamtrat = Erfollegsrat + Feelerrat + Ofbriechrat:
 
 - χ = α + β + σ (gëtt ausgeschwat: Chi ass gläich Alpha plus Beta plus Sigma)
 
-![Diagramm: Elementer verloosse de System als Erfolleg α, Feeler β oder Ofbriech σ; ofgeschloss δ = α + β, also χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagramm: Elementer verloosse de System als Erfolleg α, Feeler β oder Ofbriech σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 All Element, dat an χ gezielt gëtt, ass an de System erakomm; dofir ass d’Gesamtrat am stationäre Zoustand gläich der Ukonftsrat: χ ≈ λ. Dofir moosse Duerchsazraten den Output an net d’Kapazitéit.
 

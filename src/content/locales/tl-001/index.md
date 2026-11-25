@@ -13,7 +13,7 @@ Nilalaman:
   - [Mga uri ng pila at mga uri ng serbisyo](#mga-uri-ng-pila-at-mga-uri-ng-serbisyo)
 - [Notasyon ng teorya ng pila](#notasyon-ng-teorya-ng-pila)
   - [Bilang](#bilang)
-  - [Rate ng pagdating, rate ng serbisyo](#rate-ng-pagdating-rate-ng-serbisyo)
+  - [Rate ng pagdating, rate ng serbisyo, rate ng pag-alis](#rate-ng-pagdating-rate-ng-serbisyo-rate-ng-pag-alis)
   - [Ratio ng utilisasyon, o intensidad ng trapiko](#ratio-ng-utilisasyon-o-intensidad-ng-trapiko)
   - [Mga rate ng throughput: kabuuang rate, rate ng pagkumpleto, rate ng tagumpay, rate ng pagkabigo, rate ng paglaktaw](#mga-rate-ng-throughput-kabuuang-rate-rate-ng-pagkumpleto-rate-ng-tagumpay-rate-ng-pagkabigo-rate-ng-paglaktaw)
   - [Paglilinaw sa rate ng serbisyo](#paglilinaw-sa-rate-ng-serbisyo)
@@ -134,7 +134,9 @@ Madalas kaming nagbibilang ng mga item, at ginagamit namin ang notasyong ito:
 
 - κ (kappa): bilang ng mga item sa sistema, ibig sabihin ay mga item na naghihintay at mga item na pinagtatrabahuhan.
 
-![Diagram: dumarating ang mga item sa rate na λ, may κ na item sa sistema, at umaalis ang mga item sa throughput na χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: may κ na item sa sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: dumarating ang mga item sa rate na λ at umaalis sa rate na χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Halimbawa:
 
@@ -154,13 +156,15 @@ Ang bilang na κ (kappa) ay isang snapshot sa isang sandali.
 
 Ang karaniwang bilang na κ̅ (kappa na may guhit) ay isang kalkulasyon na kumukuha ng average ng mga sukat sa isang tiyak na yugto ng panahon, tulad ng pagsukat tuwing oras sa loob ng dalawang linggo.
 
-### Rate ng pagdating, rate ng serbisyo
+### Rate ng pagdating, rate ng serbisyo, rate ng pag-alis
 
 Ang pinakamahalagang notasyon:
 
-- λ (lambda): rate ng pagdating. Sinusukat nito kung gaano kabilis pumapasok ang mga bagong item sa pila.
+- λ (lambda): rate ng pagdating. Sinusukat nito kung gaano kabilis pumapasok ang mga item sa sistema.
 
 - μ (mu): rate ng serbisyo, o kapasidad. Sinusukat nito kung gaano kabilis kayang asikasuhin ng isang server ang mga item habang ito ay abala.
+
+- χ (chi): rate ng pag-alis. Sinusukat nito kung gaano kabilis lumalabas ang mga item sa sistema.
 
 Mga halimbawa ng pangkalahatang tuntunin para sa mga tradisyonal na pila na may iisang server:
 
@@ -214,7 +218,7 @@ Kabuuang rate = rate ng tagumpay + rate ng pagkabigo + rate ng paglaktaw:
 
 - χ = α + β + σ (binibigkas: chi ay katumbas ng alpha dagdag beta dagdag sigma)
 
-![Diagram: umaalis ang mga item sa sistema bilang tagumpay α, pagkabigo β, o paglaktaw σ; nakumpleto δ = α + β, kaya χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: umaalis ang mga item sa sistema bilang tagumpay α, pagkabigo β, o paglaktaw σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Pumasok sa sistema ang bawat item na binilang sa χ, kaya sa steady state ay katumbas ng kabuuang rate ang rate ng pagdating: χ ≈ λ. Iyan ang dahilan kung bakit output ang sinusukat ng mga rate ng throughput, hindi kapasidad.
 

@@ -19,7 +19,7 @@ Clàr-innse:
   - [Seòrsachan ciudha agus seòrsachan seirbheis](#seòrsachan-ciudha-agus-seòrsachan-seirbheis)
 - [Comharrachadh teòiridh nan ciudhaichean](#comharrachadh-teòiridh-nan-ciudhaichean)
   - [Cunntas](#cunntas)
-  - [Reat ruighinn, reat seirbheis](#reat-ruighinn-reat-seirbheis)
+  - [Reat ruighinn, reat seirbheis, reat falbhaidh](#reat-ruighinn-reat-seirbheis-reat-falbhaidh)
   - [Co-mheas cleachdaidh, no dèine trafaig](#co-mheas-cleachdaidh-no-dèine-trafaig)
   - [Reataichean tro-chuir: reat iomlan, reat crìochnachaidh, reat soirbheachais, reat fàillinn, reat leumaidh](#reataichean-tro-chuir-reat-iomlan-reat-crìochnachaidh-reat-soirbheachais-reat-fàillinn-reat-leumaidh)
   - [Soilleireachadh air an reat seirbheis](#soilleireachadh-air-an-reat-seirbheis)
@@ -140,7 +140,9 @@ Bidh sinn a' cunntadh nithean gu tric, agus bidh sinn a' cleachdadh a' chomharra
 
 - κ (kappa): cunntas nan nithean san t-siostam, is e sin na nithean a tha a' feitheamh agus na nithean a tha fo obair.
 
-![Diagram: tha nithean a' ruighinn aig reat λ, tha κ nì san t-siostam, agus tha nithean a' fàgail aig tro-chur χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: tha κ nì san t-siostam](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: tha nithean a' ruighinn aig reat λ agus a' fàgail aig reat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Eisimpleir:
 
@@ -160,13 +162,15 @@ Tha an cunntas κ (kappa) na dhealbh-chlich aig aon mhionaid.
 
 Is e cunntadh a th' anns a' chunntas chuibheasach κ̅ (kappa le bàr) a bheir cuibheasachd de thomhasan thar ùine shònraichte, mar eisimpleir tomhas gach uair a thìde airson dà sheachdain.
 
-### Reat ruighinn, reat seirbheis
+### Reat ruighinn, reat seirbheis, reat falbhaidh
 
 An comharrachadh as cudromaiche:
 
-- λ (lambda): reat ruighinn. Tha seo a' tomhas cho luath 's a tha nithean ùra a' tighinn a-steach dhan chiudha.
+- λ (lambda): reat ruighinn. Tha seo a' tomhas dè cho luath 's a tha nithean a' dol a-steach dhan t-siostam.
 
 - μ (mu): reat seirbheis, no comas. Tha seo a' tomhas cho luath 's as urrainn do dh'aon fhrithealaiche nithean a làimhseachadh nuair a tha e trang.
+
+- χ (chi): reat falbhaidh. Tha seo a' tomhas dè cho luath 's a tha nithean a' fàgail an t-siostaim.
 
 Eisimpleirean de choitcheannachdan airson ciudhaichean traidiseanta le aon fhrithealaiche:
 
@@ -220,7 +224,7 @@ Reat iomlan = reat soirbheachais + reat fàillinn + reat leumaidh:
 
 - χ = α + β + σ (air a ràdh: chi co-ionann ri alpha plus beta plus sigma)
 
-![Diagram: tha nithean a' fàgail an t-siostaim mar shoirbheachas α, fàillinn β no leum σ; crìochnaichte δ = α + β, mar sin χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: tha nithean a' fàgail an t-siostaim mar shoirbheachas α, fàillinn β no leum σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Thàinig gach nì a tha air a chunntadh ann an χ a-steach dhan t-siostam, agus mar sin ann an staid sheasmhach tha an reat iomlan co-ionann ris an reat ruighinn: χ ≈ λ. Sin as adhbhar gu bheil reataichean tro-chuir a' tomhas toraidh, chan e comas.
 

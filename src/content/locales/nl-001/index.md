@@ -13,7 +13,7 @@ Inhoud:
   - [Wachtrijtypen en bedieningstypen](#wachtrijtypen-en-bedieningstypen)
 - [Notatie van de wachtrijtheorie](#notatie-van-de-wachtrijtheorie)
   - [Aantal](#aantal)
-  - [Aankomstsnelheid, bedieningssnelheid](#aankomstsnelheid-bedieningssnelheid)
+  - [Aankomstsnelheid, bedieningssnelheid, vertreksnelheid](#aankomstsnelheid-bedieningssnelheid-vertreksnelheid)
   - [Bezettingsgraad, ook wel verkeersintensiteit](#bezettingsgraad-ook-wel-verkeersintensiteit)
   - [Doorvoersnelheden: totale snelheid, voltooiingssnelheid, successnelheid, faalsnelheid, uitvalsnelheid](#doorvoersnelheden-totale-snelheid-voltooiingssnelheid-successnelheid-faalsnelheid-uitvalsnelheid)
   - [Verduidelijking van de bedieningssnelheid](#verduidelijking-van-de-bedieningssnelheid)
@@ -134,7 +134,9 @@ Wij tellen items vaak, en wij gebruiken deze notatie:
 
 - κ (kappa): aantal items in het systeem, dat wil zeggen wachtende items plus items in bewerking.
 
-![Diagram: items komen aan met snelheid λ, er zijn κ items in het systeem, en items vertrekken met doorvoer χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: er zijn κ items in het systeem](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: items komen aan met snelheid λ en vertrekken met snelheid χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Voorbeeld:
 
@@ -154,13 +156,15 @@ Het aantal κ (kappa) is een momentopname.
 
 Het gemiddelde aantal κ̅ (kappa streep) is een berekening die metingen over een bepaalde periode middelt, bijvoorbeeld elk uur meten gedurende twee weken.
 
-### Aankomstsnelheid, bedieningssnelheid
+### Aankomstsnelheid, bedieningssnelheid, vertreksnelheid
 
 De belangrijkste notatie:
 
-- λ (lambda): aankomstsnelheid. Deze meet hoe snel nieuwe items de wachtrij binnenkomen.
+- λ (lambda): aankomstsnelheid. Deze meet hoe snel items het systeem binnenkomen.
 
 - μ (mu): bedieningssnelheid, ook wel capaciteit. Deze meet hoe snel één server items kan afhandelen terwijl hij bezig is.
+
+- χ (chi): vertreksnelheid. Deze meet hoe snel items het systeem verlaten.
 
 Voorbeelden van algemene regels voor traditionele wachtrijen met één server:
 
@@ -214,7 +218,7 @@ Totale snelheid = successnelheid + faalsnelheid + uitvalsnelheid:
 
 - χ = α + β + σ (uitgesproken: chi is gelijk aan alfa plus bèta plus sigma)
 
-![Diagram: items verlaten het systeem als succes α, fout β of uitval σ; voltooid δ = α + β, dus χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: items verlaten het systeem als succes α, fout β of uitval σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Elk item dat in χ wordt geteld, is het systeem binnengekomen, dus in evenwichtstoestand is de totale snelheid gelijk aan de aankomstsnelheid: χ ≈ λ. Daarom meten doorvoersnelheden uitvoer, en geen capaciteit.
 

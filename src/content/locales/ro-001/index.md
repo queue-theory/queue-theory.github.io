@@ -13,7 +13,7 @@ Cuprins:
   - [Tipuri de cozi și tipuri de servire](#tipuri-de-cozi-și-tipuri-de-servire)
 - [Notația teoriei cozilor](#notația-teoriei-cozilor)
   - [Număr](#număr)
-  - [Rata de sosire, rata de servire](#rata-de-sosire-rata-de-servire)
+  - [Rata de sosire, rata de servire, rata de plecare](#rata-de-sosire-rata-de-servire-rata-de-plecare)
   - [Raportul de utilizare, adică intensitatea traficului](#raportul-de-utilizare-adică-intensitatea-traficului)
   - [Ratele de debit: rata totală, rata de finalizare, rata de succes, rata de eșec, rata de abandon](#ratele-de-debit-rata-totală-rata-de-finalizare-rata-de-succes-rata-de-eșec-rata-de-abandon)
   - [Dezambiguizarea ratei de servire](#dezambiguizarea-ratei-de-servire)
@@ -134,7 +134,9 @@ Numărăm des elemente și folosim această notație:
 
 - κ (kappa): numărul de elemente din sistem, adică elementele care așteaptă plus elementele în lucru.
 
-![Diagramă: elementele sosesc cu rata λ, în sistem sunt κ elemente, iar elementele pleacă cu debitul χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagramă: în sistem sunt κ elemente](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagramă: elementele sosesc cu rata λ și pleacă cu rata χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Exemplu:
 
@@ -154,13 +156,15 @@ Numărul κ (kappa) este o instantanee a unui moment.
 
 Numărul mediu κ̅ (kappa cu bară) este un calcul care face media măsurătorilor pe o perioadă de timp specifică, de exemplu măsurând în fiecare oră timp de două săptămâni.
 
-### Rata de sosire, rata de servire
+### Rata de sosire, rata de servire, rata de plecare
 
 Cea mai importantă notație:
 
-- λ (lambda): rata de sosire. Aceasta măsoară cât de repede intră elemente noi în coadă.
+- λ (lambda): rata de sosire. Aceasta măsoară cât de repede intră elementele în sistem.
 
 - μ (mu): rata de servire, adică capacitatea. Aceasta măsoară cât de repede poate gestiona un server elementele cât timp este ocupat.
+
+- χ (chi): rata de plecare. Aceasta măsoară cât de repede ies elementele din sistem.
 
 Exemple de generalități pentru cozile tradiționale cu un singur server:
 
@@ -214,7 +218,7 @@ Rata totală = rata de succes + rata de eșec + rata de abandon:
 
 - χ = α + β + σ (se pronunță: chi egal alpha plus beta plus sigma)
 
-![Diagramă: elementele părăsesc sistemul ca succes α, eșec β sau abandon σ; finalizate δ = α + β, deci χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagramă: elementele părăsesc sistemul ca succes α, eșec β sau abandon σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Fiecare element numărat în χ a intrat în sistem, așa că în regim staționar rata totală este egală cu rata de sosire: χ ≈ λ. De aceea ratele de debit măsoară producția, nu capacitatea.
 

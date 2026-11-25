@@ -17,7 +17,7 @@ Obsah:
   - [Typy front a typy obsluhy](#typy-front-a-typy-obsluhy)
 - [Notace teorie front](#notace-teorie-front)
   - [Počet](#počet)
-  - [Intenzita příchodů, intenzita obsluhy](#intenzita-příchodů-intenzita-obsluhy)
+  - [Intenzita příchodů, intenzita obsluhy, intenzita odchodů](#intenzita-příchodů-intenzita-obsluhy-intenzita-odchodů)
   - [Míra vytížení neboli intenzita provozu](#míra-vytížení-neboli-intenzita-provozu)
   - [Míry propustnosti: celková míra, míra dokončení, míra úspěchu, míra selhání, míra vynechání](#míry-propustnosti-celková-míra-míra-dokončení-míra-úspěchu-míra-selhání-míra-vynechání)
   - [Nejednoznačnost pojmu intenzita obsluhy](#nejednoznačnost-pojmu-intenzita-obsluhy)
@@ -138,7 +138,9 @@ Položky počítáme často a používáme tuto notaci:
 
 - κ (kappa): počet položek v systému, tedy čekajících položek plus položek, na kterých se právě pracuje.
 
-![Diagram: položky přicházejí s mírou λ, v systému je κ položek, položky odcházejí s propustností χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagram: v systému je κ položek](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagram: položky přicházejí mírou λ a odcházejí mírou χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Příklad:
 
@@ -158,13 +160,15 @@ Počet κ (kappa) je snímek v jednom okamžiku.
 
 Průměrný počet κ̅ (kappa s pruhem) je výpočet, který průměruje měření za určité časové období, například měření každou hodinu po dobu dvou týdnů.
 
-### Intenzita příchodů, intenzita obsluhy
+### Intenzita příchodů, intenzita obsluhy, intenzita odchodů
 
 Nejdůležitější notace:
 
-- λ (lambda): intenzita příchodů. Měří, jak rychle přicházejí do fronty nové položky.
+- λ (lambda): intenzita příchodů. Měří, jak rychle položky vstupují do systému.
 
 - μ (mí): intenzita obsluhy neboli kapacita. Měří, jak rychle dokáže jeden server zpracovávat položky, když je vytížen.
+
+- χ (chí): intenzita odchodů. Měří, jak rychle položky opouštějí systém.
 
 Příklady obecných pravidel pro tradiční fronty s jedním serverem:
 
@@ -218,7 +222,7 @@ Celková míra = míra úspěchu + míra selhání + míra vynechání:
 
 - χ = α + β + σ (čte se: chí se rovná alfa plus beta plus sigma)
 
-![Diagram: položky opouštějí systém jako úspěch α, selhání β nebo vynechání σ; dokončené δ = α + β, tedy χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagram: položky opouštějí systém jako úspěch α, selhání β nebo vynechání σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Každá položka započtená do χ vstoupila do systému, takže v ustáleném stavu se celková míra rovná intenzitě příchodů: χ ≈ λ. Proto míry propustnosti měří výstup, nikoli kapacitu.
 

@@ -13,7 +13,7 @@ Saturs:
   - [Rindu veidi un apkalpošanas veidi](#rindu-veidi-un-apkalpošanas-veidi)
 - [Rindu teorijas apzīmējumi](#rindu-teorijas-apzīmējumi)
   - [Skaits](#skaits)
-  - [Ierašanās ātrums, apkalpošanas ātrums](#ierašanās-ātrums-apkalpošanas-ātrums)
+  - [Ierašanās ātrums, apkalpošanas ātrums, aiziešanas ātrums](#ierašanās-ātrums-apkalpošanas-ātrums-aiziešanas-ātrums)
   - [Noslodzes koeficients jeb satiksmes intensitāte](#noslodzes-koeficients-jeb-satiksmes-intensitāte)
   - [Caurlaidspējas ātrumi: kopējais ātrums, pabeigšanas ātrums, veiksmes ātrums, neveiksmes ātrums, izlaišanas ātrums](#caurlaidspējas-ātrumi-kopējais-ātrums-pabeigšanas-ātrums-veiksmes-ātrums-neveiksmes-ātrums-izlaišanas-ātrums)
   - [Apkalpošanas ātruma jēdziena precizējums](#apkalpošanas-ātruma-jēdziena-precizējums)
@@ -134,7 +134,9 @@ Mēs bieži skaitām elementus un lietojam šādu apzīmējumu:
 
 - κ (kapa): elementu skaits sistēmā, t. i., gaidošie elementi plus apstrādājamie elementi.
 
-![Diagramma: elementi ierodas ar ātrumu λ, sistēmā ir κ elementu, un elementi aiziet ar caurlaidspēju χ](https://queue-theory.github.io/images/queue-theory-rates-lambda-input-rate-kappa-item-count-chi-output-rate.svg)
+![Diagramma: sistēmā ir κ elementu](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
+
+![Diagramma: elementi ierodas ar ātrumu λ un aiziet ar ātrumu χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-chi-departure-rate.svg)
 
 Piemērs:
 
@@ -154,13 +156,15 @@ Skaits κ (kapa) ir viena brīža momentuzņēmums.
 
 Vidējais skaits κ̅ (kapa ar svītru) ir aprēķins, kas vidēji aprēķina mērījumus noteiktā laika periodā, piemēram, mērot katru stundu divu nedēļu laikā.
 
-### Ierašanās ātrums, apkalpošanas ātrums
+### Ierašanās ātrums, apkalpošanas ātrums, aiziešanas ātrums
 
 Svarīgākie apzīmējumi:
 
-- λ (lambda): ierašanās ātrums. Tas mēra, cik ātri rindā ienāk jauni elementi.
+- λ (lambda): ierašanās ātrums. Tas mēra, cik ātri elementi ienāk sistēmā.
 
 - μ (mī): apkalpošanas ātrums jeb jauda. Tas mēra, cik ātri viens serveris var apstrādāt elementus, kamēr tas ir aizņemts.
+
+- χ (hī): aiziešanas ātrums. Tas mēra, cik ātri elementi iziet no sistēmas.
 
 Vispārīgu likumsakarību piemēri tradicionālām rindām ar vienu serveri:
 
@@ -214,7 +218,7 @@ Kopējais ātrums = veiksmes ātrums + neveiksmes ātrums + izlaišanas ātrums:
 
 - χ = α + β + σ (izrunā: hī ir vienāds ar alfa plus beta plus sigma)
 
-![Diagramma: elementi atstāj sistēmu kā veiksme α, neveiksme β vai izlaišana σ; pabeigti δ = α + β, tātad χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
+![Diagramma: elementi atstāj sistēmu kā veiksme α, neveiksme β vai izlaišana σ; δ = α + β, χ = δ + σ](https://queue-theory.github.io/images/queue-theory-delta-done-alpha-success-beta-failure-sigma-skip-chi-departure.svg)
 
 Katrs χ ieskaitītais elements ir ienācis sistēmā, tāpēc līdzsvara stāvoklī kopējais ātrums ir vienāds ar ierašanās ātrumu: χ ≈ λ. Tāpēc caurlaidspējas ātrumi mēra izvadi, nevis jaudu.
 
