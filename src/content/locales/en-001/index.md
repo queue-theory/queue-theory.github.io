@@ -24,7 +24,7 @@ Contents:
   - [Skip rate](#skip-rate)
   - [Error ratio](#error-ratio)
   - [Lead time, step time, work time, wait time](#lead-time-step-time-work-time-wait-time)
-  - [Standard notation](#standard-notation)
+  - [Kendall's notation](#kendalls-notation)
 - [Queue math](#queue-math)
   - [The utilization curve](#the-utilization-curve)
   - [Kingman's formula](#kingmans-formula)
@@ -152,7 +152,7 @@ Example:
 
 - κ ≪ 10 means much less than 10
 
-- κ ≫ 10 means greater than 10
+- κ ≫ 10 means much greater than 10
 
 The count κ (kappa) is a snapshot at one moment.
 
@@ -206,13 +206,17 @@ Throughput rates measure observed output, meaning items that actually leave the 
 
 - σ (sigma): skip rate. This measures how many items per time period enter the queue, then leave without being served, e.g. abandonments, reneges.
 
-Total rate = success rate + failure rate + skip rate. Done rate = success rate + failure rate, so total rate = done rate + skip rate:
-
-- χ = α + β + σ (pronounced: chi equals alpha plus beta plus sigma)
+Done rate = success rate + failure rate:
 
 - δ = α + β (pronounced: delta equals alpha plus beta)
 
+Total rate = done rate + skip rate:
+
 - χ = δ + σ (pronounced: chi equals delta plus sigma)
+
+Total rate = success rate + failure rate + skip rate:
+
+- χ = α + β + σ (pronounced: chi equals alpha plus beta plus sigma)
 
 ![Diagram: items leave the system as success α, failure β, or skip σ; done δ = α + β, so χ = δ + σ](https://queue-theory.github.io/images/queue-theory-output-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
@@ -309,9 +313,9 @@ Relationships:
 
 - mean θ ≈ 1 / χ: in steady state, the mean step time is the inverse of the total rate. A single gap says little about the rate; the average of many gaps does. In the examples, if the mean step time is 1s, then χ ≈ 1 item per second.
 
-### Standard notation
+### Kendall's notation
 
-Standard notation for queueing theory describes a queue by using Kendall's notation, written as A/S/c/K/N/D:
+Kendall's notation is a different notation for queueing theory written as A/S/c/K/N/D:
 
 - A: the arrival process, meaning the distribution of time between arrivals.
 
@@ -335,11 +339,13 @@ Common letters for A and S:
 
 When the last three are omitted, the defaults are K = ∞, N = ∞, D = FIFO. For example, "M/M/1" means Poisson arrivals, exponential service times, one server, unlimited capacity, unlimited population, and first in first out.
 
-Standard notation also uses n to mean the number of items in the system.
+Also:
+
+- n: the number of items in the system.
 
 ## Queue math
 
-The math sections use textbook symbols, so that you can compare them with other sources: S is the average service time, which is our φ, and μ = 1 / S is one server's capacity. See the crosswalk in [queue theory notation](#queue-theory-notation).
+The math sections use textbook symbols, so that you can compare them with other sources: S is the average service time, which is our φ, and μ = 1 / S is one server's capacity.
 
 ### The utilization curve
 
