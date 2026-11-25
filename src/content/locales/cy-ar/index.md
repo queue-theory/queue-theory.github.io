@@ -141,8 +141,6 @@ Rydym yn cyfrif eitemau’n aml, ac rydym yn defnyddio’r nodiant hwn:
 
 ![Diagram: mae κ eitem yn y system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: mae eitemau’n cyrraedd ar gyfradd λ, yn cael eu gwasanaethu ar gyfradd μ, ac yn gadael ar gyfradd χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Enghraifft:
 
 - κ = 10 yn golygu union 10
@@ -170,6 +168,8 @@ Y nodiant pwysicaf:
 - μ (mu): cyfradd gwasanaethu, neu gapasiti. Mae hon yn mesur pa mor gyflym y gall un gweinydd drin eitemau tra bydd yn brysur.
 
 - χ (chi): cyfradd ymadael. Mae hon yn mesur pa mor gyflym y mae eitemau’n gadael y system.
+
+![Diagram: mae eitemau’n cyrraedd ar gyfradd λ, yn cael eu gwasanaethu ar gyfradd μ, ac yn gadael ar gyfradd χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Enghreifftiau o egwyddorion cyffredinol ar gyfer ciwiau traddodiadol ag un gweinydd:
 
@@ -207,7 +207,7 @@ Mae cyfraddau trwybwn yn mesur yr allbwn a welwyd, sef yr eitemau sy’n gadael 
 
 - β (beta): cyfradd methu. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n troi allan yn anghywir, e.e. yn wallus, yn anghyflawn, wedi’u gwrthod.
 
-- δ (delta): cyfradd gorffen. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n cael eu gwasanaethu, boed yn gywir neu’n anghywir: llwyddiant + methiant.
+- δ (delta): cyfradd gorffen. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n cael eu gwasanaethu.
 
 - σ (sigma): cyfradd hepgor. Mae hon yn mesur faint o eitemau fesul cyfnod amser sy’n mynd i mewn i’r ciw, yna’n gadael heb gael eu gwasanaethu, e.e. yn cefnu, yn rhoi’r gorau iddi.
 
@@ -223,7 +223,7 @@ Cyfradd gyfan = cyfradd llwyddo + cyfradd methu + cyfradd hepgor:
 
 - χ = α + β + σ (ynganiad: chi yn hafal i alffa adio beta adio sigma)
 
-![Diagram: cyfradd llwyddo α, cyfradd methu β, cyfradd hepgor σ; cyfradd gorffen δ = α + β; cyfradd ymadael χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: cyfradd ymadael χ = cyfradd gorffen δ + cyfradd hepgor σ; cyfradd gorffen δ = cyfradd llwyddo α + cyfradd methu β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Aeth pob eitem a gyfrifir yn χ i mewn i’r system, felly mewn cyflwr sefydlog mae’r gyfradd gyfan yn hafal i’r gyfradd cyrraedd: χ ≈ λ. Dyna pam mae cyfraddau trwybwn yn mesur allbwn, nid capasiti.
 
@@ -300,7 +300,7 @@ Rydym yn olrhain pedwar amser:
 
 - ω (omega): amser aros = amser a dreulir heb wneud gwaith go iawn, sef amser disgwyl
 
-![Diagram: amser arwain τ yw’r amser aros ω ac yna’r amser gwaith φ, felly τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: amser arwain τ yw’r amser aros ω ac yna’r amser gwaith φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Enghreifftiau:
 

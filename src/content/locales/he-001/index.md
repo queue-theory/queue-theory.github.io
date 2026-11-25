@@ -139,8 +139,6 @@ SJF ו-SRPT ממזערים את זמן ההמתנה הממוצע, אבל הם ע
 
 ![תרשים: κ פריטים נמצאים במערכת](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![תרשים: פריטים מגיעים בקצב λ, מקבלים שירות בקצב μ ועוזבים בקצב χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 דוגמה:
 
 - κ = 10 פירושו בדיוק 10
@@ -168,6 +166,8 @@ SJF ו-SRPT ממזערים את זמן ההמתנה הממוצע, אבל הם ע
 - μ (מיו): קצב שירות, המכונה גם קיבולת. מודד כמה מהר שרת אחד יכול לטפל בפריטים כשהוא עסוק.
 
 - χ (חי): קצב יציאה. מודד באיזו מהירות פריטים יוצאים מהמערכת.
+
+![תרשים: פריטים מגיעים בקצב λ, מקבלים שירות בקצב μ ועוזבים בקצב χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 דוגמאות לכללים כלליים עבור תורים מסורתיים עם שרת אחד:
 
@@ -205,7 +205,7 @@ SJF ו-SRPT ממזערים את זמן ההמתנה הממוצע, אבל הם ע
 
 - β (בטא): קצב כשל. מודד כמה פריטים ליחידת זמן מתבררים כשגויים, למשל לא תקינים, לא שלמים, נדחים.
 
-- δ (דלתא): קצב השלמה. מודד כמה פריטים ליחידת זמן מקבלים שירות, בין אם התוצאה נכונה ובין אם שגויה: הצלחה + כשל.
+- δ (דלתא): קצב השלמה. מודד כמה פריטים ליחידת זמן מקבלים שירות.
 
 - σ (סיגמא): קצב דילוג. מודד כמה פריטים ליחידת זמן נכנסים לתור, ואז עוזבים בלי לקבל שירות, למשל נטישות ופרישות (reneges).
 
@@ -221,7 +221,7 @@ SJF ו-SRPT ממזערים את זמן ההמתנה הממוצע, אבל הם ע
 
 - χ = α + β + σ (נהגה: חי שווה אלפא ועוד בטא ועוד סיגמא)
 
-![תרשים: קצב הצלחה α, קצב כשל β, קצב דילוג σ; קצב השלמה δ = α + β; קצב יציאה χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![תרשים: קצב יציאה χ = קצב השלמה δ + קצב דילוג σ; קצב השלמה δ = קצב הצלחה α + קצב כשל β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 כל פריט שנספר ב-χ נכנס למערכת, ולכן במצב יציב הקצב הכולל שווה לקצב ההגעה: χ ≈ λ. זו הסיבה שקצבי תפוקה מודדים פלט, ולא קיבולת.
 
@@ -298,7 +298,7 @@ SJF ו-SRPT ממזערים את זמן ההמתנה הממוצע, אבל הם ע
 
 - ω (אומגה): זמן המתנה = הזמן שאינו מוקדש לעבודה בפועל, המכונה גם זמן ממתין
 
-![תרשים: זמן האספקה τ הוא זמן ההמתנה ω ואחריו זמן העבודה φ, ולכן τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![תרשים: זמן האספקה τ הוא זמן ההמתנה ω ואחריו זמן העבודה φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 דוגמאות:
 

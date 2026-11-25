@@ -136,8 +136,6 @@ Często liczymy elementy i używamy następującej notacji:
 
 ![Diagram: w systemie jest κ elementów](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: elementy przybywają w tempie λ, są obsługiwane w tempie μ i wychodzą w tempie χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Przykład:
 
 - κ = 10 oznacza dokładnie 10
@@ -165,6 +163,8 @@ Najważniejsza notacja:
 - μ (mi): tempo obsługi, czyli wydajność. Mierzy, jak szybko jeden serwer może obsługiwać elementy, gdy jest zajęty.
 
 - χ (chi): tempo opuszczania. Mierzy, jak szybko elementy wychodzą z systemu.
+
+![Diagram: elementy przybywają w tempie λ, są obsługiwane w tempie μ i wychodzą w tempie χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Przykłady ogólnych zależności dla tradycyjnych kolejek z jednym serwerem:
 
@@ -202,7 +202,7 @@ Tempa przepustowości mierzą obserwowany wynik, czyli elementy, które faktyczn
 
 - β (beta): tempo porażek. Mierzy, ile elementów w danym okresie okazuje się błędnych, np. nieprawidłowych, niekompletnych, odrzuconych.
 
-- δ (delta): tempo zakończeń. Mierzy, ile elementów w danym okresie zostaje obsłużonych, niezależnie od tego, czy wynik jest poprawny, czy błędny: sukces + porażka.
+- δ (delta): tempo zakończeń. Mierzy, ile elementów w danym okresie zostaje obsłużonych.
 
 - σ (sigma): tempo pominięć. Mierzy, ile elementów w danym okresie wchodzi do kolejki, a następnie wychodzi bez obsługi, np. porzucenia, rezygnacje.
 
@@ -218,7 +218,7 @@ Tempo całkowite = tempo sukcesów + tempo porażek + tempo pominięć:
 
 - χ = α + β + σ (czytaj: chi równa się alfa plus beta plus sigma)
 
-![Diagram: tempo sukcesów α, tempo porażek β, tempo pominięć σ; tempo zakończeń δ = α + β; tempo opuszczania χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: tempo opuszczania χ = tempo zakończeń δ + tempo pominięć σ; tempo zakończeń δ = tempo sukcesów α + tempo porażek β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Każdy element policzony w χ wszedł do systemu, więc w stanie ustalonym tempo całkowite jest równe tempu przybywania: χ ≈ λ. Dlatego tempa przepustowości mierzą wynik, a nie wydajność.
 
@@ -295,7 +295,7 @@ Przykłady:
 
 - ω (omega): czas oczekiwania = czas, w którym nie wykonuje się faktycznej pracy, czyli czas zawieszenia
 
-![Diagram: czas realizacji τ to czas oczekiwania ω, po którym następuje czas pracy φ, zatem τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: czas realizacji τ to czas oczekiwania ω, po którym następuje czas pracy φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Przykłady:
 

@@ -136,8 +136,6 @@ Ni a nivera taklow yn fenowgh, ha ni a dhevnydh an notyans ma:
 
 ![Diagram: y fydh κ takel y’n system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: taklow a dheu orth toth λ, a vydh servys orth toth μ, hag a as orth toth χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Ensampel:
 
 - κ = 10 a styr 10 poran
@@ -165,6 +163,8 @@ An notyans moyha posek:
 - μ (mu): toth servis po dalgh. Hemma a vusur pes uskis y hyll unn servell dyghtya taklow ha hi bysi.
 
 - χ (chi): toth dibarth. Hemma a vusur fatel skaf yw an taklow ow kerdhes mes a’n system.
+
+![Diagram: taklow a dheu orth toth λ, a vydh servys orth toth μ, hag a as orth toth χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Ensamplow a reolyow kemmyn rag lostow hengovek gans unn servell:
 
@@ -202,7 +202,7 @@ Tothow dhe-ves a vusur eskor gwelys, hen yw taklow a as an lost yn hwir. I a dhe
 
 - β (beta): toth fyllel. Hemma a vusur pes taklow pub spys termyn a dhe vos kamm, rag ensampel ankewar, anperfydh, sconys.
 
-- δ (delta): toth gorfennys. Hemma a vusur pes taklow pub spys termyn yw servys, pynag oll yw an sewyans ewn po kamm: sewena + fyllel.
+- δ (delta): toth gorfennys. Hemma a vusur pes taklow pub spys termyn yw servys.
 
 - σ (sigma): toth lamma. Hemma a vusur pes taklow pub spys termyn a entr y’n lost, ena a as heb bos servys, rag ensampel forsakyansow, tennansow-war-dhelergh.
 
@@ -218,7 +218,7 @@ Toth dien = toth sewena + toth fyllel + toth lamma:
 
 - χ = α + β + σ (leverys: chi yw kehaval dhe alpha ha beta ha sigma)
 
-![Diagram: toth sewena α, toth fyllel β, toth lamma σ; toth gorfennys δ = α + β; toth dibarth χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: toth dibarth χ = toth gorfennys δ + toth lamma σ; toth gorfennys δ = toth sewena α + toth fyllel β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Pub takel nivers yn χ a entras y’n system, ytho yn studh sad an toth dien yw kehaval dhe’n toth devedhyans: χ ≈ λ. Rakhenna tothow dhe-ves a vusur eskor, ha nyns yw dalgh.
 
@@ -292,7 +292,7 @@ Ni a hol peswar termyn:
 
 - ω (omega): termyn gortos = termyn spenys heb gul ober gwir po termyn ow kortos
 
-![Diagram: an termyn ledya τ yw an termyn ow kortos ω ha ena an termyn ober φ, yndella τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: an termyn ledya τ yw an termyn ow kortos ω ha ena an termyn ober φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Ensamplow:
 

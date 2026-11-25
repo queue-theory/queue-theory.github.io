@@ -136,8 +136,6 @@ Contamos itens com frequência e usamos esta notação:
 
 ![Diagrama: há κ itens no sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagrama: os itens chegam à taxa λ, são atendidos à taxa μ e saem à taxa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Exemplo:
 
 - κ = 10 significa exatamente 10
@@ -165,6 +163,8 @@ A notação mais importante:
 - μ (mi): taxa de atendimento, também chamada capacidade. Mede a rapidez com que um servidor consegue tratar itens enquanto está ocupado.
 
 - χ (qui): taxa de saída. Mede a rapidez com que os itens saem do sistema.
+
+![Diagrama: os itens chegam à taxa λ, são atendidos à taxa μ e saem à taxa χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Exemplos de generalidades para filas tradicionais com um servidor:
 
@@ -202,7 +202,7 @@ As taxas de vazão medem a produção observada, ou seja, os itens que efetivame
 
 - β (beta): taxa de falha. Mede quantos itens por período de tempo se revelam incorretos, por exemplo errados, incompletos, rejeitados.
 
-- δ (delta): taxa de conclusão. Mede quantos itens por período de tempo são atendidos, seja o resultado certo ou errado: sucesso + falha.
+- δ (delta): taxa de conclusão. Mede quantos itens por período de tempo são atendidos.
 
 - σ (sigma): taxa de desistência. Mede quantos itens por período de tempo entram na fila e depois saem sem serem atendidos, por exemplo abandonos, desistências.
 
@@ -218,7 +218,7 @@ Taxa total = taxa de sucesso + taxa de falha + taxa de desistência:
 
 - χ = α + β + σ (lê-se: qui é igual a alfa mais beta mais sigma)
 
-![Diagrama: taxa de sucesso α, taxa de falha β, taxa de desistência σ; taxa de conclusão δ = α + β; taxa de saída χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagrama: taxa de saída χ = taxa de conclusão δ + taxa de desistência σ; taxa de conclusão δ = taxa de sucesso α + taxa de falha β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Todo item contado em χ entrou no sistema, portanto, em regime estacionário, a taxa total é igual à taxa de chegada: χ ≈ λ. É por isso que as taxas de vazão medem a produção, e não a capacidade.
 
@@ -292,7 +292,7 @@ Acompanhamos quatro tempos:
 
 - ω (ômega): tempo de espera = tempo gasto sem fazer trabalho efetivo, também chamado tempo pendente
 
-![Diagrama: o tempo de atravessamento τ é o tempo de espera ω seguido do tempo de trabalho φ, portanto τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagrama: o tempo de atravessamento τ é o tempo de espera ω seguido do tempo de trabalho φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Exemplos:
 

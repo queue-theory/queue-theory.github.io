@@ -142,8 +142,6 @@ Bidh sinn a' cunntadh nithean gu tric, agus bidh sinn a' cleachdadh a' chomharra
 
 ![Diagram: tha κ nì san t-siostam](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: tha nithean a' ruighinn aig reat λ, a' faighinn seirbheis aig reat μ agus a' fàgail aig reat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Eisimpleir:
 
 - Tha κ = 10 a' ciallachadh dìreach 10
@@ -171,6 +169,8 @@ An comharrachadh as cudromaiche:
 - μ (mu): reat seirbheis, no comas. Tha seo a' tomhas cho luath 's as urrainn do dh'aon fhrithealaiche nithean a làimhseachadh nuair a tha e trang.
 
 - χ (chi): reat falbhaidh. Tha seo a' tomhas dè cho luath 's a tha nithean a' fàgail an t-siostaim.
+
+![Diagram: tha nithean a' ruighinn aig reat λ, a' faighinn seirbheis aig reat μ agus a' fàgail aig reat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Eisimpleirean de choitcheannachdan airson ciudhaichean traidiseanta le aon fhrithealaiche:
 
@@ -208,7 +208,7 @@ Bidh reataichean tro-chuir a' tomhas an toraidh a chithear, is e sin na nithean 
 
 - β (beta): reat fàillinn. Tha seo a' tomhas cia mheud nì anns gach ùine a tha ceàrr, m.e. mearachdach, neo-choileanta, air a dhiùltadh.
 
-- δ (delta): reat crìochnachaidh. Tha seo a' tomhas cia mheud nì anns gach ùine a gheibh seirbheis, ge bith an robh an toradh ceart no ceàrr: soirbheachas + fàillinn.
+- δ (delta): reat crìochnachaidh. Tha seo a' tomhas cia mheud nì anns gach ùine a gheibh seirbheis.
 
 - σ (sigma): reat leumaidh. Tha seo a' tomhas cia mheud nì anns gach ùine a thig a-steach dhan chiudha agus a dh'fhalbhas gun a bhith air am frithealadh, m.e. trèigsinnean, tarraing-às.
 
@@ -224,7 +224,7 @@ Reat iomlan = reat soirbheachais + reat fàillinn + reat leumaidh:
 
 - χ = α + β + σ (air a ràdh: chi co-ionann ri alpha plus beta plus sigma)
 
-![Diagram: reat soirbheachais α, reat fàillinn β, reat leumaidh σ; reat crìochnachaidh δ = α + β; reat falbhaidh χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: reat falbhaidh χ = reat crìochnachaidh δ + reat leumaidh σ; reat crìochnachaidh δ = reat soirbheachais α + reat fàillinn β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Thàinig gach nì a tha air a chunntadh ann an χ a-steach dhan t-siostam, agus mar sin ann an staid sheasmhach tha an reat iomlan co-ionann ris an reat ruighinn: χ ≈ λ. Sin as adhbhar gu bheil reataichean tro-chuir a' tomhas toraidh, chan e comas.
 
@@ -301,7 +301,7 @@ Bidh sinn a' lorg ceithir ùineachan:
 
 - ω (omega): ùine feitheimh = an ùine a thèid a chaitheamh gun fhìor obair a dhèanamh, no ùine ri feitheamh
 
-![Diagram: is e an ùine luaidhe τ an ùine feitheimh ω agus an uair sin an ùine obrach φ, mar sin τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: is e an ùine luaidhe τ an ùine feitheimh ω agus an uair sin an ùine obrach φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Eisimpleirean:
 

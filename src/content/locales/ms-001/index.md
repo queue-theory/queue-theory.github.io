@@ -136,8 +136,6 @@ Kami kerap mengira item, dan kami menggunakan tatatanda ini:
 
 ![Rajah: terdapat κ item dalam sistem](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Rajah: item tiba pada kadar λ, dilayan pada kadar μ dan pergi pada kadar χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Contoh:
 
 - κ = 10 bermaksud tepat 10
@@ -165,6 +163,8 @@ Tatatanda yang paling penting:
 - μ (mu): kadar perkhidmatan atau kapasiti. Ini mengukur seberapa pantas satu pelayan boleh mengendalikan item ketika ia sibuk.
 
 - χ (chi): kadar pemergian. Ini mengukur sepantas mana item keluar daripada sistem.
+
+![Rajah: item tiba pada kadar λ, dilayan pada kadar μ dan pergi pada kadar χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Contoh kelaziman umum untuk baris gilir tradisional dengan satu pelayan:
 
@@ -202,7 +202,7 @@ Kadar daya pemprosesan mengukur output yang diperhatikan, iaitu item yang benar-
 
 - β (beta): kadar kegagalan. Ini mengukur bilangan item bagi setiap tempoh masa yang ternyata salah, contohnya tidak tepat, tidak lengkap, ditolak.
 
-- δ (delta): kadar selesai. Ini mengukur bilangan item bagi setiap tempoh masa yang dilayan, sama ada hasilnya betul atau salah: kejayaan + kegagalan.
+- δ (delta): kadar selesai. Ini mengukur bilangan item bagi setiap tempoh masa yang dilayan.
 
 - σ (sigma): kadar langkau. Ini mengukur bilangan item bagi setiap tempoh masa yang memasuki baris gilir, kemudian keluar tanpa dilayan, contohnya peninggalan, penarikan diri.
 
@@ -218,7 +218,7 @@ Kadar jumlah = kadar kejayaan + kadar kegagalan + kadar langkau:
 
 - χ = α + β + σ (disebut: chi sama dengan alpha tambah beta tambah sigma)
 
-![Rajah: kadar kejayaan α, kadar kegagalan β, kadar langkau σ; kadar selesai δ = α + β; kadar pemergian χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Rajah: kadar pemergian χ = kadar selesai δ + kadar langkau σ; kadar selesai δ = kadar kejayaan α + kadar kegagalan β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Setiap item yang dikira dalam χ telah memasuki sistem, jadi dalam keadaan mantap kadar jumlah sama dengan kadar ketibaan: χ ≈ λ. Sebab itulah kadar daya pemprosesan mengukur output, bukan kapasiti.
 
@@ -292,7 +292,7 @@ Kami menjejaki empat jenis masa:
 
 - ω (omega): masa menunggu = masa yang digunakan tanpa melakukan kerja sebenar atau masa tertangguh
 
-![Rajah: masa pendahuluan τ ialah masa menunggu ω diikuti masa kerja φ, jadi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Rajah: masa pendahuluan τ ialah masa menunggu ω diikuti masa kerja φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Contoh:
 

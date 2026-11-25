@@ -136,8 +136,6 @@ Madalas kaming nagbibilang ng mga item, at ginagamit namin ang notasyong ito:
 
 ![Diagram: may κ na item sa sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: dumarating ang mga item sa rate na λ, napagsisilbihan sa rate na μ, at umaalis sa rate na χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Halimbawa:
 
 - κ = 10 ay nangangahulugang eksaktong 10
@@ -165,6 +163,8 @@ Ang pinakamahalagang notasyon:
 - μ (mu): rate ng serbisyo, o kapasidad. Sinusukat nito kung gaano kabilis kayang asikasuhin ng isang server ang mga item habang ito ay abala.
 
 - χ (chi): rate ng pag-alis. Sinusukat nito kung gaano kabilis lumalabas ang mga item sa sistema.
+
+![Diagram: dumarating ang mga item sa rate na λ, napagsisilbihan sa rate na μ, at umaalis sa rate na χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Mga halimbawa ng pangkalahatang tuntunin para sa mga tradisyonal na pila na may iisang server:
 
@@ -202,7 +202,7 @@ Sinusukat ng mga rate ng throughput ang nasusukat na output, ibig sabihin ay ang
 
 - β (beta): rate ng pagkabigo. Sinusukat nito kung ilang item bawat yugto ng oras ang lumalabas na mali, halimbawa, hindi wasto, hindi kumpleto, tinanggihan.
 
-- δ (delta): rate ng pagkumpleto. Sinusukat nito kung ilang item bawat yugto ng oras ang napagsisilbihan, tama man o mali ang kinalabasan: tagumpay + pagkabigo.
+- δ (delta): rate ng pagkumpleto. Sinusukat nito kung ilang item bawat yugto ng oras ang napagsisilbihan.
 
 - σ (sigma): rate ng paglaktaw. Sinusukat nito kung ilang item bawat yugto ng oras ang pumapasok sa pila, pagkatapos ay umaalis nang hindi napagsisilbihan, halimbawa ay pag-abandona at pag-urong.
 
@@ -218,7 +218,7 @@ Kabuuang rate = rate ng tagumpay + rate ng pagkabigo + rate ng paglaktaw:
 
 - χ = α + β + σ (binibigkas: chi ay katumbas ng alpha dagdag beta dagdag sigma)
 
-![Diagram: rate ng tagumpay α, rate ng pagkabigo β, rate ng paglaktaw σ; rate ng pagkumpleto δ = α + β; rate ng pag-alis χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: rate ng pag-alis χ = rate ng pagkumpleto δ + rate ng paglaktaw σ; rate ng pagkumpleto δ = rate ng tagumpay α + rate ng pagkabigo β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Pumasok sa sistema ang bawat item na binilang sa χ, kaya sa steady state ay katumbas ng kabuuang rate ang rate ng pagdating: χ ≈ λ. Iyan ang dahilan kung bakit output ang sinusukat ng mga rate ng throughput, hindi kapasidad.
 
@@ -295,7 +295,7 @@ Apat na tagal ang aming sinusubaybayan:
 
 - ω (omega): tagal ng paghihintay = oras na hindi ginugol sa aktuwal na trabaho, o tagal ng pagkabinbin
 
-![Diagram: ang lead time τ ay ang tagal ng paghihintay ω na sinusundan ng tagal ng trabaho φ, kaya τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: ang lead time τ ay ang tagal ng paghihintay ω na sinusundan ng tagal ng trabaho φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Mga halimbawa:
 

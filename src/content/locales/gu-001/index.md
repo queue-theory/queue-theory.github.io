@@ -140,8 +140,6 @@ SJF અને SRPT સરેરાશ પ્રતીક્ષાને લઘ�
 
 ![આકૃતિ: પ્રણાલીમાં κ વસ્તુઓ છે](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![આકૃતિ: વસ્તુઓ λ દરે આવે છે, μ દરે સેવા મેળવે છે અને χ દરે નીકળે છે](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 ઉદાહરણ:
 
 - κ = 10 નો અર્થ છે બરાબર 10
@@ -169,6 +167,8 @@ SJF અને SRPT સરેરાશ પ્રતીક્ષાને લઘ�
 - μ (mu): સેવા દર ઉર્ફે ક્ષમતા. આ માપે છે કે એક સર્વર વ્યસ્ત હોય ત્યારે કેટલી ઝડપથી વસ્તુઓ સંભાળી શકે છે.
 
 - χ (chi): નિર્ગમન દર. આ માપે છે કે વસ્તુઓ પ્રણાલીમાંથી કેટલી ઝડપથી બહાર નીકળી રહી છે.
+
+![આકૃતિ: વસ્તુઓ λ દરે આવે છે, μ દરે સેવા મેળવે છે અને χ દરે નીકળે છે](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 એક સર્વરવાળી પરંપરાગત કતારો માટે સામાન્ય નિયમોનાં ઉદાહરણો:
 
@@ -206,7 +206,7 @@ SJF અને SRPT સરેરાશ પ્રતીક્ષાને લઘ�
 
 - β (beta): નિષ્ફળતા દર. આ માપે છે કે પ્રતિ સમયગાળે કેટલી વસ્તુઓ ખોટી નીકળે છે, ઉદાહરણ તરીકે ખોટી, અપૂર્ણ, અસ્વીકૃત.
 
-- δ (delta): પૂર્ણ દર. આ માપે છે કે પ્રતિ સમયગાળે કેટલી વસ્તુઓને સેવા મળે છે, પરિણામ સાચું હોય કે ખોટું: સફળતા + નિષ્ફળતા.
+- δ (delta): પૂર્ણ દર. આ માપે છે કે પ્રતિ સમયગાળે કેટલી વસ્તુઓને સેવા મળે છે.
 
 - σ (sigma): સ્કિપ દર. આ માપે છે કે પ્રતિ સમયગાળે કેટલી વસ્તુઓ કતારમાં પ્રવેશે છે, પછી સેવા મેળવ્યા વિના નીકળી જાય છે, ઉદાહરણ તરીકે ત્યાગ (abandonment), પાછી ખેંચવી (reneging).
 
@@ -222,7 +222,7 @@ SJF અને SRPT સરેરાશ પ્રતીક્ષાને લઘ�
 
 - χ = α + β + σ (ઉચ્ચારણ: chi બરાબર alpha વત્તા beta વત્તા sigma)
 
-![આકૃતિ: સફળતા દર α, નિષ્ફળતા દર β, સ્કિપ દર σ; પૂર્ણ દર δ = α + β; નિર્ગમન દર χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![આકૃતિ: નિર્ગમન દર χ = પૂર્ણ દર δ + સ્કિપ દર σ; પૂર્ણ દર δ = સફળતા દર α + નિષ્ફળતા દર β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ માં ગણાતી દરેક વસ્તુ પ્રણાલીમાં પ્રવેશી હતી, તેથી સ્થિર અવસ્થામાં કુલ દર આગમન દર જેટલો હોય છે: χ ≈ λ. તેથી જ થ્રુપુટ દરો આઉટપુટ માપે છે, ક્ષમતા નહીં.
 
@@ -299,7 +299,7 @@ SJF અને SRPT સરેરાશ પ્રતીક્ષાને લઘ�
 
 - ω (omega): પ્રતીક્ષા સમય = વાસ્તવિક કામ ન કરતાં વિતાવેલો સમય ઉર્ફે બાકી સમય
 
-![આકૃતિ: લીડ સમય τ એટલે પ્રતીક્ષાનો સમય ω અને ત્યારબાદ કાર્ય સમય φ, તેથી τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![આકૃતિ: લીડ સમય τ એટલે પ્રતીક્ષાનો સમય ω અને ત્યારબાદ કાર્ય સમય φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 ઉદાહરણો:
 

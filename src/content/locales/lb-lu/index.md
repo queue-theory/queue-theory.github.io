@@ -136,8 +136,6 @@ Mir zielen dacks Elementer, a mir benotzen dës Notatioun:
 
 ![Diagramm: κ Elementer sinn am System](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramm: Elementer kommen mat der Rat λ un, ginn mat der Rat μ bedéngt a verloosse et mat der Rat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Beispill:
 
 - κ = 10 bedeit exakt 10
@@ -165,6 +163,8 @@ Déi wichtegst Notatioun:
 - μ (Mu): Servicerat, och Kapazitéit. Si moosst, wéi séier ee Server Elementer bearbechte kann, wann e beschäftegt ass.
 
 - χ (Chi): Ofgangsrat. Si moosst, wéi séier Elementer d’System verloossen.
+
+![Diagramm: Elementer kommen mat der Rat λ un, ginn mat der Rat μ bedéngt a verloosse et mat der Rat χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Beispiller vun allgemenge Reegele fir traditionell Schlaange mat engem Server:
 
@@ -202,7 +202,7 @@ Duerchsazrate moossen de beobachten Output, dat heescht d’Elementer, déi d’
 
 - β (Beta): Feelerrat. Si moosst, wéi vill Elementer pro Zäitraum sech als falsch erweisen, z. B. inkorrekt, onkomplett, ofgeleent.
 
-- δ (Delta): Ofschlossrat. Si moosst, wéi vill Elementer pro Zäitraum bedéngt ginn, egal ob d’Resultat richteg oder falsch ass: Erfolleg + Feeler.
+- δ (Delta): Ofschlossrat. Si moosst, wéi vill Elementer pro Zäitraum bedéngt ginn.
 
 - σ (Sigma): Ofbriechrat. Si moosst, wéi vill Elementer pro Zäitraum an d’Schlaang erakommen an se dann verloossen, ouni bedéngt ze ginn, z. B. Ofbréch, Réckzéier.
 
@@ -218,7 +218,7 @@ Gesamtrat = Erfollegsrat + Feelerrat + Ofbriechrat:
 
 - χ = α + β + σ (gëtt ausgeschwat: Chi ass gläich Alpha plus Beta plus Sigma)
 
-![Diagramm: Erfollegsrat α, Feelerrat β, Ofbriechrat σ; Ofschlossrat δ = α + β; Ofgangsrat χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagramm: Ofgangsrat χ = Ofschlossrat δ + Ofbriechrat σ; Ofschlossrat δ = Erfollegsrat α + Feelerrat β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 All Element, dat an χ gezielt gëtt, ass an de System erakomm; dofir ass d’Gesamtrat am stationäre Zoustand gläich der Ukonftsrat: χ ≈ λ. Dofir moosse Duerchsazraten den Output an net d’Kapazitéit.
 
@@ -295,7 +295,7 @@ Mir verfollege véier Zäiten:
 
 - ω (Omega): Waardezäit = Zäit, déi ouni eigentlech Aarbecht verbruecht gëtt, och Liegezäit genannt
 
-![Diagramm: D’Duerchlafzäit τ ass d’Waardezäit ω gefollegt vun der Aarbechtszäit φ, also τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagramm: D’Duerchlafzäit τ ass d’Waardezäit ω gefollegt vun der Aarbechtszäit φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Beispiller:
 

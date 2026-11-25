@@ -140,8 +140,6 @@ Elementuak sarritan zenbatzen ditugu, eta notazio hau erabiltzen dugu:
 
 ![Diagrama: sisteman κ elementu daude](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagrama: elementuak λ tasarekin iristen dira, μ tasarekin zerbitzatzen dira eta χ tasarekin irteten dira](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Adibidea:
 
 - κ = 10 esan nahi du zehazki 10
@@ -169,6 +167,8 @@ Notaziorik garrantzitsuena:
 - μ (mu): zerbitzu-tasa, gaitasuna ere deitua. Zerbitzari batek, lanpetuta dagoenean, elementuak zein azkar kudea ditzakeen neurtzen du.
 
 - χ (chi): irteera-tasa. Elementuak sistematik zein azkar ateratzen diren neurtzen du.
+
+![Diagrama: elementuak λ tasarekin iristen dira, μ tasarekin zerbitzatzen dira eta χ tasarekin irteten dira](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Zerbitzari bakarreko ilara tradizionalen orokortasunen adibideak:
 
@@ -206,7 +206,7 @@ Ekoizpen-tasek behatutako irteera neurtzen dute, hau da, benetan ilaratik aterat
 
 - β (beta): hutsegite-tasa. Denbora-tarte bakoitzeko zenbat elementu gertatzen diren oker neurtzen du, adibidez, okerrak, osatugabeak, baztertuak.
 
-- δ (delta): amaitze-tasa. Denbora-tarte bakoitzeko zenbat elementu zerbitzatzen diren neurtzen du, emaitza zuzena zein okerra izan: arrakasta + hutsegitea.
+- δ (delta): amaitze-tasa. Denbora-tarte bakoitzeko zenbat elementu zerbitzatzen diren neurtzen du.
 
 - σ (sigma): saltatze-tasa. Denbora-tarte bakoitzeko zenbat elementu sartzen diren ilaran eta gero zerbitzatu gabe joaten diren neurtzen du, adibidez abandonuak eta atzera egiteak.
 
@@ -222,7 +222,7 @@ Tasa osoa = arrakasta-tasa + hutsegite-tasa + saltatze-tasa:
 
 - χ = α + β + σ (ahoskatua: chi berdin alpha gehi beta gehi sigma)
 
-![Diagrama: arrakasta-tasa α, hutsegite-tasa β, saltatze-tasa σ; amaitze-tasa δ = α + β; irteera-tasa χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagrama: irteera-tasa χ = amaitze-tasa δ + saltatze-tasa σ; amaitze-tasa δ = arrakasta-tasa α + hutsegite-tasa β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ-n zenbatutako elementu oro sisteman sartu zen; beraz, egoera egonkorrean tasa osoa iritsiera-tasaren berdina da: χ ≈ λ. Horregatik neurtzen dute ekoizpen-tasek irteera, eta ez gaitasuna.
 
@@ -299,7 +299,7 @@ Lau denbora jarraitzen ditugu:
 
 - ω (omega): itxaron-denbora = benetako lana egin gabe emandako denbora, zain-denbora ere deitua
 
-![Diagrama: entrega-denbora τ itxaron-denbora ω da, ondoren lan-denbora φ, beraz τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagrama: entrega-denbora τ itxaron-denbora ω da, ondoren lan-denbora φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Adibideak:
 

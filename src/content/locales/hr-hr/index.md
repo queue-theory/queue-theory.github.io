@@ -140,8 +140,6 @@ Naša notacija i značenje svakog simbola:
 
 ![Dijagram: u sustavu je κ stavki](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Dijagram: stavke stižu stopom λ, poslužuju se stopom μ i odlaze stopom χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Primjer:
 
 - κ = 10 znači točno 10
@@ -169,6 +167,8 @@ Najvažnija notacija:
 - μ (mi): stopa posluživanja odnosno kapacitet. Mjeri koliko brzo jedan poslužitelj može obrađivati stavke dok je zauzet.
 
 - χ (hi): stopa odlazaka. Mjeri koliko brzo stavke izlaze iz sustava.
+
+![Dijagram: stavke stižu stopom λ, poslužuju se stopom μ i odlaze stopom χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Primjeri općih pravila za tradicionalne redove s jednim poslužiteljem:
 
@@ -206,7 +206,7 @@ Stope propusnosti mjere opaženi izlaz, odnosno stavke koje stvarno napuštaju r
 
 - β (beta): stopa neuspjeha. Mjeri koliko se stavki po razdoblju pokaže neispravnima, npr. netočnima, nepotpunima, odbijenima.
 
-- δ (delta): stopa dovršenosti. Mjeri koliko stavki po razdoblju bude posluženo, bilo da je ishod ispravan ili pogrešan: uspjeh + neuspjeh.
+- δ (delta): stopa dovršenosti. Mjeri koliko stavki po razdoblju bude posluženo.
 
 - σ (sigma): stopa preskakanja. Mjeri koliko stavki po razdoblju uđe u red, a zatim ode a da nisu poslužene, npr. napuštanja, odustajanja.
 
@@ -222,7 +222,7 @@ Ukupna stopa = stopa uspjeha + stopa neuspjeha + stopa preskakanja:
 
 - χ = α + β + σ (izgovara se: hi je jednako alfa plus beta plus sigma)
 
-![Dijagram: stopa uspjeha α, stopa neuspjeha β, stopa preskakanja σ; stopa dovršenosti δ = α + β; stopa odlazaka χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Dijagram: stopa odlazaka χ = stopa dovršenosti δ + stopa preskakanja σ; stopa dovršenosti δ = stopa uspjeha α + stopa neuspjeha β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Svaka stavka uračunata u χ ušla je u sustav, pa je u stacionarnom stanju ukupna stopa jednaka stopi dolazaka: χ ≈ λ. Zato stope propusnosti mjere izlaz, a ne kapacitet.
 
@@ -299,7 +299,7 @@ Pratimo četiri vremena:
 
 - ω (omega): vrijeme čekanja = vrijeme u kojem se ne obavlja stvarni rad odnosno vrijeme na čekanju
 
-![Dijagram: vrijeme isporuke τ je vrijeme čekanja ω nakon kojeg slijedi vrijeme rada φ, dakle τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Dijagram: vrijeme isporuke τ je vrijeme čekanja ω nakon kojeg slijedi vrijeme rada φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Primjeri:
 

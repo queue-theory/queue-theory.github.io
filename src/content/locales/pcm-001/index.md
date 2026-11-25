@@ -136,8 +136,6 @@ We dey count item often, and we dey use dis notation:
 
 ![Diagram: κ item dey for di system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: item dem dey arrive for rate λ, dem dey serve dem for rate μ, and dem dey comot for rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Example:
 
 - κ = 10 mean say e dey exactly 10
@@ -165,6 +163,8 @@ Di notation wey important pass:
 - μ (mu): service rate, wey dem still dey call capacity. Dis one dey measure how fast one server fit handle item wen e dey busy.
 
 - χ (chi): departure rate. Dis one dey measure how fast item dem dey comot from di system.
+
+![Diagram: item dem dey arrive for rate λ, dem dey serve dem for rate μ, and dem dey comot for rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Example of general tins for traditional queue wey get one server:
 
@@ -202,7 +202,7 @@ Throughput rate dem dey measure di output wey we see, wey mean item dem wey real
 
 - β (beta): failure rate. Dis one dey measure how many item for every time period come out wrong, for example incorrect, incomplete, rejected.
 
-- δ (delta): finish rate. Dis one dey measure how many item for every time period dem serve, whether di result correct or wrong: success + failure.
+- δ (delta): finish rate. Dis one dey measure how many item for every time period dem serve.
 
 - σ (sigma): skip rate. Dis one dey measure how many item for every time period enter di queue, then comot without service, for example abandonment, reneging.
 
@@ -218,7 +218,7 @@ Total rate = success rate + failure rate + skip rate:
 
 - χ = α + β + σ (you go talk am: chi equals alpha plus beta plus sigma)
 
-![Diagram: success rate α, failure rate β, skip rate σ; finish rate δ = α + β; departure rate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: departure rate χ = finish rate δ + skip rate σ; finish rate δ = success rate α + failure rate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Every item wey dem count for χ don enter di system, so for steady state di total rate equal di arrival rate: χ ≈ λ. Na why throughput rate dem dey measure output, no be capacity.
 
@@ -292,7 +292,7 @@ We dey track four kind time:
 
 - ω (omega): wait time = di time wey pass without real work, wey dem still dey call pending time
 
-![Diagram: di lead time τ na di wait time ω and then di work time φ, so τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: di lead time τ na di wait time ω and then di work time φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Example:
 

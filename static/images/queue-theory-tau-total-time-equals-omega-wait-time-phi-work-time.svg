@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 46 800 307" width="800" height="307" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
   <title id="t">τ, ω, φ</title>
-  <desc id="d">An item waits for average time ω, then is worked on for average time φ. The whole stay is the average time in the system τ, so τ = ω + φ.</desc>
+  <desc id="d">An item waits for average time ω, then is worked on for average time φ. The whole stay is the average time in the system τ.</desc>
   <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#334155"/></marker></defs>
   <rect y="46" width="800" height="307" fill="#ffffff"/>
   <text x="275" y="110" text-anchor="middle" font-size="96" font-weight="700" fill="#b45309">ω</text>
@@ -12,5 +12,4 @@
   <path d="M150 240 V254 H650 V240" fill="none" stroke="#0f766e" stroke-width="3"/>
   <line x1="400" y1="254" x2="400" y2="268" stroke="#0f766e" stroke-width="3"/>
   <text x="400" y="352" text-anchor="middle" font-size="96" font-weight="700" fill="#0f766e">τ</text>
-  <text x="640" y="345" text-anchor="middle" font-size="40" font-weight="600" fill="#334155">τ = ω + φ</text>
 </svg>

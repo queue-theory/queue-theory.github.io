@@ -141,8 +141,6 @@ Is minic a chomhairímid míreanna, agus úsáidimid an nodaireacht seo:
 
 ![Léaráid: tá κ mír sa chóras](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Léaráid: sroicheann míreanna ag ráta λ, faigheann siad seirbhís ag ráta μ agus fágann siad ag ráta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Sampla:
 
 - Ciallaíonn κ = 10 go díreach 10
@@ -170,6 +168,8 @@ An nodaireacht is tábhachtaí:
 - μ (mu): ráta seirbhíse, nó acmhainn. Tomhaiseann sé seo cé chomh tapa is féidir le freastalaí amháin míreanna a láimhseáil agus é gnóthach.
 
 - χ (chi): ráta imeachta. Tomhaiseann sé seo cé chomh tapaidh is a fhágann míreanna an córas.
+
+![Léaráid: sroicheann míreanna ag ráta λ, faigheann siad seirbhís ag ráta μ agus fágann siad ag ráta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Samplaí de ghinearáltachtaí do ghnáthscuainí le freastalaí amháin:
 
@@ -207,7 +207,7 @@ Tomhaiseann rátaí tréchuir an t-aschur a breathnaíodh, is é sin na míreann
 
 - β (beta): ráta teipe. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama atá mícheart, m.sh. míchruinn, neamhiomlán, diúltaithe.
 
-- δ (delta): ráta críochnaithe. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama a gheobhaidh seirbhís, bíodh toradh ceart nó mícheart orthu: rath + teip.
+- δ (delta): ráta críochnaithe. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama a gheobhaidh seirbhís.
 
 - σ (sigma): ráta scipeála. Tomhaiseann sé seo cé mhéad mír in aghaidh na tréimhse ama a théann isteach sa scuaine agus a fhágann í gan seirbhís a fháil, m.sh. tréigintí, cúluithe.
 
@@ -223,7 +223,7 @@ Ráta iomlán = ráta ratha + ráta teipe + ráta scipeála:
 
 - χ = α + β + σ (fuaimnítear: chi cothrom le alpha móide beta móide sigma)
 
-![Léaráid: ráta ratha α, ráta teipe β, ráta scipeála σ; ráta críochnaithe δ = α + β; ráta imeachta χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Léaráid: ráta imeachta χ = ráta críochnaithe δ + ráta scipeála σ; ráta críochnaithe δ = ráta ratha α + ráta teipe β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Tháinig gach mír a chomhairtear in χ isteach sa chóras, mar sin i staid sheasta is ionann an ráta iomlán agus an ráta teachta: χ ≈ λ. Sin an fáth a dtomhaiseann rátaí tréchuir aschur, ní acmhainn.
 
@@ -297,7 +297,7 @@ Rianaímid ceithre am:
 
 - ω (omega): am feithimh = an t-am a chaitear gan fíorobair a dhéanamh, nó am ar feitheamh
 
-![Léaráid: is é an t-am luaidhe τ an t-am feithimh ω agus ansin an t-am oibre φ, mar sin τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Léaráid: is é an t-am luaidhe τ an t-am feithimh ω agus ansin an t-am oibre φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Samplaí:
 

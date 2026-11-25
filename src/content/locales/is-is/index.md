@@ -140,8 +140,6 @@ Við teljum atriði oft og notum þetta tákn:
 
 ![Skýringarmynd: κ atriði eru í kerfinu](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Skýringarmynd: atriði koma með tíðninni λ, fá þjónustu með tíðninni μ og fara með tíðninni χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Dæmi:
 
 - κ = 10 merkir nákvæmlega 10
@@ -169,6 +167,8 @@ Mikilvægasta táknmálið:
 - μ (mu): þjónustutíðni, öðru nafni afkastageta. Hún mælir hve hratt einn þjónn getur afgreitt atriði meðan hann er upptekinn.
 
 - χ (chi): brottfaratíðni. Hún mælir hversu hratt atriði fara út úr kerfinu.
+
+![Skýringarmynd: atriði koma með tíðninni λ, fá þjónustu með tíðninni μ og fara með tíðninni χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Dæmi um almenn atriði fyrir hefðbundnar biðraðir með einum þjóni:
 
@@ -206,7 +206,7 @@ Gegnumstreymistíðni mælir mæld afköst, þ.e. atriði sem fara raunverulega 
 
 - β (beta): villutíðni. Hún mælir hve mörg atriði á tímabil reynast röng, t.d. röng, ófullgerð, hafnað.
 
-- δ (delta): lokatíðni. Hún mælir hve mörg atriði á tímabil fá þjónustu, hvort sem niðurstaðan er rétt eða röng: árangur + villur.
+- δ (delta): lokatíðni. Hún mælir hve mörg atriði á tímabil fá þjónustu.
 
 - σ (sigma): slepptíðni. Hún mælir hve mörg atriði á tímabil koma inn í biðröðina og fara síðan án þess að fá þjónustu, t.d. brotthvörf, uppgjafir.
 
@@ -222,7 +222,7 @@ Heildartíðni = árangurstíðni + villutíðni + slepptíðni:
 
 - χ = α + β + σ (borið fram: chi jafngildir alfa plús beta plús sigma)
 
-![Skýringarmynd: árangurstíðni α, villutíðni β, slepptíðni σ; lokatíðni δ = α + β; brottfaratíðni χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Skýringarmynd: brottfaratíðni χ = lokatíðni δ + slepptíðni σ; lokatíðni δ = árangurstíðni α + villutíðni β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Hvert atriði sem talið er í χ kom inn í kerfið, svo í jafnvægisástandi er heildartíðnin jöfn komutíðninni: χ ≈ λ. Þess vegna mælir gegnumstreymistíðni afköst, ekki afkastagetu.
 
@@ -299,7 +299,7 @@ Við fylgjumst með fjórum tímum:
 
 - ω (ómega): biðtími = tími sem fer ekki í raunverulega vinnu, öðru nafni bið
 
-![Skýringarmynd: heildartíminn τ er biðtíminn ω og síðan vinnutíminn φ, því τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Skýringarmynd: heildartíminn τ er biðtíminn ω og síðan vinnutíminn φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Dæmi:
 

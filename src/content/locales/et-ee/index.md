@@ -140,8 +140,6 @@ Loendame üksusi sageli ja kasutame järgmist tähistust:
 
 ![Diagramm: süsteemis on κ üksust](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramm: üksused saabuvad kiirusega λ, teenindatakse kiirusega μ ja lahkuvad kiirusega χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Näide:
 
 - κ = 10 tähendab täpselt 10
@@ -169,6 +167,8 @@ Kõige olulisem tähistus:
 - μ (müü): teeninduskiirus ehk võimsus. See mõõdab, kui kiiresti üks teenindaja suudab hõivatuna üksusi käsitleda.
 
 - χ (hii): lahkumiskiirus. See mõõdab, kui kiiresti üksused süsteemist väljuvad.
+
+![Diagramm: üksused saabuvad kiirusega λ, teenindatakse kiirusega μ ja lahkuvad kiirusega χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Üldised näited traditsiooniliste ühe teenindajaga järjekordade kohta:
 
@@ -206,7 +206,7 @@ Läbilaskekiirused mõõdavad täheldatud väljundit, st üksusi, mis tegelikult
 
 - β (beeta): ebaõnnestumiskiirus. See mõõdab, mitu üksust ajaühikus osutub valeks, nt ebakorrektseks, puudulikuks, tagasilükatuks.
 
-- δ (delta): lõpetamiskiirus. See mõõdab, mitu üksust ajaühikus teenindatakse, olgu tulemus õige või vale: õnnestumine + ebaõnnestumine.
+- δ (delta): lõpetamiskiirus. See mõõdab, mitu üksust ajaühikus teenindatakse.
 
 - σ (sigma): vahelejätmiskiirus. See mõõdab, mitu üksust ajaühikus siseneb järjekorda ja lahkub seejärel teenindamata, nt loobumised, ootamisest loobumised.
 
@@ -222,7 +222,7 @@ Kogukiirus = õnnestumiskiirus + ebaõnnestumiskiirus + vahelejätmiskiirus:
 
 - χ = α + β + σ (hääldatakse: hii võrdub alfa pluss beeta pluss sigma)
 
-![Diagramm: õnnestumiskiirus α, ebaõnnestumiskiirus β, vahelejätmiskiirus σ; lõpetamiskiirus δ = α + β; lahkumiskiirus χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagramm: lahkumiskiirus χ = lõpetamiskiirus δ + vahelejätmiskiirus σ; lõpetamiskiirus δ = õnnestumiskiirus α + ebaõnnestumiskiirus β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Iga χ-s loendatud üksus on süsteemi sisenenud, seega püsiseisundis võrdub kogukiirus saabumiskiirusega: χ ≈ λ. Seetõttu mõõdavad läbilaskekiirused väljundit, mitte võimsust.
 
@@ -299,7 +299,7 @@ Jälgime nelja aega:
 
 - ω (oomega): ooteaeg = aeg, mil tegelikku tööd ei tehta, ehk ootel olemise aeg
 
-![Diagramm: läbimisaeg τ on ooteaeg ω, millele järgneb tööaeg φ, seega τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagramm: läbimisaeg τ on ooteaeg ω, millele järgneb tööaeg φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Näited:
 

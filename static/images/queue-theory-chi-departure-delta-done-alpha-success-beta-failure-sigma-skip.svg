@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 800 315" width="800" height="315" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <title id="t">χ → δ, σ; δ → α, β</title>
+  <desc id="d">Items depart at departure rate χ. The departures split into done rate δ and skip rate σ, and the done items split into success rate α and failure rate β: χ = δ + σ and δ = α + β.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#334155"/></marker></defs>
+  <rect y="50" width="800" height="315" fill="#ffffff"/>
+
+  <!-- χ above the departure arrow -->
+  <text x="80" y="205" text-anchor="middle" font-size="96" font-weight="700" fill="#b45309">χ</text>
+  <line x1="12" y1="232" x2="143" y2="232" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- χ splits into δ and σ -->
+  <path d="M150 232 V135 H313" fill="none" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M150 232 V330 H313" fill="none" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="400" y="168" text-anchor="middle" font-size="96" font-weight="700" fill="#0369a1">δ</text>
+  <text x="400" y="363" text-anchor="middle" font-size="96" font-weight="700" fill="#6d28d9">σ</text>
+
+  <!-- δ splits into α and β -->
+  <path d="M445 135 H500 V70 H573" fill="none" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M445 135 H500 V200 H573" fill="none" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="650" y="103" text-anchor="middle" font-size="96" font-weight="700" fill="#15803d">α</text>
+  <text x="650" y="233" text-anchor="middle" font-size="96" font-weight="700" fill="#b91c1c">β</text>
+</svg>

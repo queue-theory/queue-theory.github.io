@@ -136,8 +136,6 @@ Vi räknar objekt ofta, och vi använder den här notationen:
 
 ![Diagram: κ objekt finns i systemet](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: objekt anländer med takten λ, betjänas med takten μ och lämnar systemet med takten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Exempel:
 
 - κ = 10 betyder exakt 10
@@ -165,6 +163,8 @@ Den viktigaste notationen:
 - μ (my): betjäningstakt, även kallad kapacitet. Den mäter hur snabbt en server kan hantera objekt när den är upptagen.
 
 - χ (chi): avgångstakt. Den mäter hur snabbt objekt lämnar systemet.
+
+![Diagram: objekt anländer med takten λ, betjänas med takten μ och lämnar systemet med takten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Exempel på generella förhållanden för traditionella köer med en server:
 
@@ -202,7 +202,7 @@ Genomflödestakter mäter observerat utflöde, det vill säga objekt som faktisk
 
 - β (beta): felfrekvens. Den mäter hur många objekt per tidsperiod som visar sig vara fel, t.ex. felaktiga, ofullständiga, avvisade.
 
-- δ (delta): slutförandetakt. Den mäter hur många objekt per tidsperiod som betjänas, oavsett om resultatet är rätt eller fel: lyckande + misslyckande.
+- δ (delta): slutförandetakt. Den mäter hur många objekt per tidsperiod som betjänas.
 
 - σ (sigma): avhoppstakt. Den mäter hur många objekt per tidsperiod som kommer in i kön och sedan lämnar den utan att betjänas, t.ex. övergivanden, avhopp under väntan.
 
@@ -218,7 +218,7 @@ Total takt = lyckandetakt + felfrekvens + avhoppstakt:
 
 - χ = α + β + σ (uttalas: chi är lika med alfa plus beta plus sigma)
 
-![Diagram: lyckandetakt α, felfrekvens β, avhoppstakt σ; slutförandetakt δ = α + β; avgångstakt χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: avgångstakt χ = slutförandetakt δ + avhoppstakt σ; slutförandetakt δ = lyckandetakt α + felfrekvens β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Varje objekt som räknas i χ har kommit in i systemet, så i stationärt tillstånd är den totala takten lika med ankomsttakten: χ ≈ λ. Det är därför genomflödestakter mäter utflöde, inte kapacitet.
 
@@ -295,7 +295,7 @@ Vi följer fyra tider:
 
 - ω (omega): väntetid = tid som inte läggs på faktiskt arbete, även kallad vilotid
 
-![Diagram: ledtiden τ är väntetiden ω följd av arbetstiden φ, alltså τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: ledtiden τ är väntetiden ω följd av arbetstiden φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Exempel:
 

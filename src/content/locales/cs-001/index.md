@@ -140,8 +140,6 @@ Položky počítáme často a používáme tuto notaci:
 
 ![Diagram: v systému je κ položek](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: položky přicházejí mírou λ, obsluhují se mírou μ a odcházejí mírou χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Příklad:
 
 - κ = 10 znamená přesně 10
@@ -169,6 +167,8 @@ Nejdůležitější notace:
 - μ (mí): intenzita obsluhy neboli kapacita. Měří, jak rychle dokáže jeden server zpracovávat položky, když je vytížen.
 
 - χ (chí): intenzita odchodů. Měří, jak rychle položky opouštějí systém.
+
+![Diagram: položky přicházejí mírou λ, obsluhují se mírou μ a odcházejí mírou χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Příklady obecných pravidel pro tradiční fronty s jedním serverem:
 
@@ -206,7 +206,7 @@ Míry propustnosti měří pozorovaný výstup, tedy položky, které skutečně
 
 - β (beta): míra selhání. Měří, kolik položek za časové období dopadne špatně, např. nesprávně, neúplně, zamítnuto.
 
-- δ (delta): míra dokončení. Měří, kolik položek za časové období je obslouženo, ať už dopadnou dobře, nebo špatně: úspěch + selhání.
+- δ (delta): míra dokončení. Měří, kolik položek za časové období je obslouženo.
 
 - σ (sigma): míra vynechání. Měří, kolik položek za časové období vstoupí do fronty a poté odejde, aniž by byly obslouženy, např. opuštění, odstoupení.
 
@@ -222,7 +222,7 @@ Celková míra = míra úspěchu + míra selhání + míra vynechání:
 
 - χ = α + β + σ (čte se: chí se rovná alfa plus beta plus sigma)
 
-![Diagram: míra úspěchu α, míra selhání β, míra vynechání σ; míra dokončení δ = α + β; intenzita odchodů χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: intenzita odchodů χ = míra dokončení δ + míra vynechání σ; míra dokončení δ = míra úspěchu α + míra selhání β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Každá položka započtená do χ vstoupila do systému, takže v ustáleném stavu se celková míra rovná intenzitě příchodů: χ ≈ λ. Proto míry propustnosti měří výstup, nikoli kapacitu.
 
@@ -299,7 +299,7 @@ Sledujeme čtyři doby:
 
 - ω (omega): doba čekání = čas, kdy se skutečně nepracuje, neboli doba nevyřízení
 
-![Diagram: průběžná doba τ je doba čekání ω následovaná dobou práce φ, tedy τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: průběžná doba τ je doba čekání ω následovaná dobou práce φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Příklady:
 

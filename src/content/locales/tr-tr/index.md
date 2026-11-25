@@ -141,8 +141,6 @@ Bizim gösterimimiz ve her simgenin anlamı:
 
 ![Diyagram: sistemde κ öğe vardır](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diyagram: öğeler λ hızıyla gelir, μ hızıyla hizmet alır ve χ hızıyla ayrılır](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Örnek:
 
 - κ = 10, tam olarak 10 anlamına gelir.
@@ -170,6 +168,8 @@ En önemli gösterim:
 - μ (mu): hizmet hızı, diğer adıyla kapasite. Bir sunucunun meşgulken öğeleri ne kadar hızlı işleyebildiğini ölçer.
 
 - χ (chi): ayrılış hızı. Öğelerin sistemden ne kadar hızlı çıktığını ölçer.
+
+![Diyagram: öğeler λ hızıyla gelir, μ hızıyla hizmet alır ve χ hızıyla ayrılır](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Tek sunuculu geleneksel kuyruklar için genel durum örnekleri:
 
@@ -207,7 +207,7 @@ Bir kuyruğu özetleyen en önemli gösterim:
 
 - β (beta): başarısızlık hızı. Birim zamanda kaç öğenin yanlış çıktığını ölçer; örneğin hatalı, eksik, reddedilmiş.
 
-- δ (delta): tamamlanma hızı. Birim zamanda kaç öğenin hizmet aldığını, sonucun doğru ya da yanlış olmasına bakmaksızın ölçer: başarı + başarısızlık.
+- δ (delta): tamamlanma hızı. Birim zamanda kaç öğenin hizmet aldığını ölçer.
 
 - σ (sigma): atlama hızı. Birim zamanda kaç öğenin kuyruğa girip hizmet almadan ayrıldığını ölçer; örneğin vazgeçmeler, yarıda bırakmalar.
 
@@ -223,7 +223,7 @@ Toplam hız = başarı hızı + başarısızlık hızı + atlama hızı:
 
 - χ = α + β + σ (okunuşu: chi eşittir alpha artı beta artı sigma)
 
-![Diyagram: başarı hızı α, başarısızlık hızı β, atlama hızı σ; tamamlanma hızı δ = α + β; ayrılış hızı χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diyagram: ayrılış hızı χ = tamamlanma hızı δ + atlama hızı σ; tamamlanma hızı δ = başarı hızı α + başarısızlık hızı β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ içinde sayılan her öğe sisteme girmiştir; bu yüzden kararlı durumda toplam hız varış hızına eşittir: χ ≈ λ. Çıktı hızlarının kapasiteyi değil çıktıyı ölçmesinin nedeni budur.
 
@@ -300,7 +300,7 @@ Dört süreyi takip ederiz:
 
 - ω (omega): bekleme süresi = fiilî iş yapılmadan geçen süre, diğer adıyla askıda kalma süresi
 
-![Diyagram: teslim süresi τ, bekleme süresi ω ve ardından gelen çalışma süresi φ'dir, dolayısıyla τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diyagram: teslim süresi τ, bekleme süresi ω ve ardından gelen çalışma süresi φ'dir](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Örnekler:
 

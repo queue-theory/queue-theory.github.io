@@ -140,8 +140,6 @@ Laskemme kohteita usein, ja käytämme tätä merkintää:
 
 ![Kaavio: järjestelmässä on κ kohdetta](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Kaavio: kohteet saapuvat nopeudella λ, palvellaan nopeudella μ ja poistuvat nopeudella χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Esimerkki:
 
 - κ = 10 tarkoittaa tasan 10
@@ -169,6 +167,8 @@ Tärkeimmät merkinnät:
 - μ (mu): palvelunopeus eli kapasiteetti. Tämä mittaa, kuinka nopeasti yksi palvelin pystyy käsittelemään kohteita ollessaan varattuna.
 
 - χ (khii): poistumisnopeus. Se mittaa, kuinka nopeasti kohteet poistuvat järjestelmästä.
+
+![Kaavio: kohteet saapuvat nopeudella λ, palvellaan nopeudella μ ja poistuvat nopeudella χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Esimerkkejä yleisistä periaatteista perinteisille yhden palvelimen jonoille:
 
@@ -206,7 +206,7 @@ Läpimenonopeudet mittaavat havaittua tuotosta eli kohteita, jotka todella poist
 
 - β (beeta): epäonnistumisnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä osoittautuu vääräksi, esimerkiksi virheelliseksi, keskeneräiseksi tai hylätyksi.
 
-- δ (delta): valmistumisnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä palvellaan, tulipa tulos oikea tai väärä: onnistuminen + epäonnistuminen.
+- δ (delta): valmistumisnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä palvellaan.
 
 - σ (sigma): ohitusnopeus. Tämä mittaa, kuinka monta kohdetta aikayksikössä tulee jonoon ja poistuu sitten ilman palvelua, esimerkiksi luopumiset ja kesken jättämiset.
 
@@ -222,7 +222,7 @@ Kokonaisnopeus = onnistumisnopeus + epäonnistumisnopeus + ohitusnopeus:
 
 - χ = α + β + σ (lausutaan: khii on yhtä kuin alfa plus beeta plus sigma)
 
-![Kaavio: onnistumisnopeus α, epäonnistumisnopeus β, ohitusnopeus σ; valmistumisnopeus δ = α + β; poistumisnopeus χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Kaavio: poistumisnopeus χ = valmistumisnopeus δ + ohitusnopeus σ; valmistumisnopeus δ = onnistumisnopeus α + epäonnistumisnopeus β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Jokainen χ:hin laskettu kohde on tullut järjestelmään, joten tasapainotilassa kokonaisnopeus on yhtä suuri kuin saapumisnopeus: χ ≈ λ. Siksi läpimenonopeudet mittaavat tuotosta eivätkä kapasiteettia.
 
@@ -299,7 +299,7 @@ Seuraamme neljää aikaa:
 
 - ω (oomega): odotusaika = aika, jolloin varsinaista työtä ei tehdä, eli vireilläoloaika
 
-![Kaavio: läpimenoaika τ on odotusaika ω ja sitä seuraava työaika φ, joten τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Kaavio: läpimenoaika τ on odotusaika ω ja sitä seuraava työaika φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Esimerkkejä:
 

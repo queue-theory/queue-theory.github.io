@@ -136,8 +136,6 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 
 ![다이어그램: 시스템에는 κ개의 항목이 있습니다](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![다이어그램: 항목은 비율 λ로 도착하고, 비율 μ로 서비스를 받고, 비율 χ로 떠납니다](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 예시:
 
 - κ = 10은 정확히 10을 뜻합니다.
@@ -165,6 +163,8 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 - μ(뮤): 서비스율, 일명 용량. 서버 하나가 바쁠 때 항목을 얼마나 빨리 처리할 수 있는지를 측정합니다.
 
 - χ(카이): 퇴장률. 항목이 시스템에서 얼마나 빠르게 나가는지를 측정합니다.
+
+![다이어그램: 항목은 비율 λ로 도착하고, 비율 μ로 서비스를 받고, 비율 χ로 떠납니다](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 서버가 하나인 전통적인 큐에 대한 일반적인 예시:
 
@@ -202,7 +202,7 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 
 - β(베타): 실패율. 단위 기간당 잘못된 것으로 판명된 항목 수를 측정합니다. 예: 부정확함, 미완료, 거부됨.
 
-- δ(델타): 완료율. 단위 기간당 서비스를 받은 항목 수를 결과가 옳든 그르든 측정합니다. 성공 + 실패입니다.
+- δ(델타): 완료율. 단위 기간당 서비스를 받은 항목 수를 측정합니다.
 
 - σ(시그마): 이탈률. 단위 기간당 큐에 들어온 후 서비스받지 못하고 떠나는 항목 수를 측정합니다. 예: 포기, 중도 이탈.
 
@@ -218,7 +218,7 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 
 - χ = α + β + σ (읽는 법: 카이는 알파 더하기 베타 더하기 시그마)
 
-![다이어그램: 성공률 α, 실패율 β, 이탈률 σ; 완료율 δ = α + β; 퇴장률 χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![다이어그램: 퇴장률 χ = 완료율 δ + 이탈률 σ; 완료율 δ = 성공률 α + 실패율 β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ에 집계되는 모든 항목은 시스템에 들어온 항목이므로, 정상 상태에서 총 비율은 도착률과 같습니다: χ ≈ λ. 그렇기 때문에 처리율은 용량이 아니라 산출을 측정합니다.
 
@@ -292,7 +292,7 @@ SJF와 SRPT는 평균 대기 시간을 최소화하지만, 긴 작업을 무기�
 
 - ω(오메가): 대기 시간 = 실제 작업을 하지 않은 시간, 일명 보류 시간
 
-![다이어그램: 리드 타임 τ는 대기 시간 ω 다음에 작업 시간 φ가 이어진 것이므로 τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![다이어그램: 리드 타임 τ는 대기 시간 ω 다음에 작업 시간 φ가 이어진 것입니다](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 예시:
 

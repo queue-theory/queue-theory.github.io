@@ -141,8 +141,6 @@ Contiamo spesso gli elementi e usiamo questa notazione:
 
 ![Diagramma: κ elementi sono nel sistema](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramma: gli elementi arrivano al tasso λ, vengono serviti al tasso μ ed escono al tasso χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Esempio:
 
 - κ = 10 significa esattamente 10
@@ -170,6 +168,8 @@ La notazione più importante:
 - μ (mu): tasso di servizio, detto anche capacità. Misura quanto velocemente un servente può gestire gli elementi mentre è occupato.
 
 - χ (chi): tasso di uscita. Misura quanto velocemente gli elementi escono dal sistema.
+
+![Diagramma: gli elementi arrivano al tasso λ, vengono serviti al tasso μ ed escono al tasso χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Esempi di regole generali per code tradizionali con un solo servente:
 
@@ -207,7 +207,7 @@ I tassi di throughput misurano l'output osservato, cioè gli elementi che lascia
 
 - β (beta): tasso di fallimento. Misura quanti elementi per periodo di tempo risultano errati, ad es. inesatti, incompleti, rifiutati.
 
-- δ (delta): tasso di completamento. Misura quanti elementi per periodo di tempo vengono serviti, con esito corretto o errato: successo + fallimento.
+- δ (delta): tasso di completamento. Misura quanti elementi per periodo di tempo vengono serviti.
 
 - σ (sigma): tasso di abbandono. Misura quanti elementi per periodo di tempo entrano nella coda e poi escono senza essere serviti, ad es. abbandoni, rinunce.
 
@@ -223,7 +223,7 @@ Tasso totale = tasso di successo + tasso di fallimento + tasso di abbandono:
 
 - χ = α + β + σ (si pronuncia: chi uguale alfa più beta più sigma)
 
-![Diagramma: tasso di successo α, tasso di fallimento β, tasso di abbandono σ; tasso di completamento δ = α + β; tasso di uscita χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagramma: tasso di uscita χ = tasso di completamento δ + tasso di abbandono σ; tasso di completamento δ = tasso di successo α + tasso di fallimento β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Ogni elemento contato in χ è entrato nel sistema, quindi a regime il tasso totale è uguale al tasso di arrivo: χ ≈ λ. Per questo i tassi di throughput misurano l'output, non la capacità.
 
@@ -300,7 +300,7 @@ Monitoriamo quattro tempi:
 
 - ω (omega): tempo di attesa = tempo trascorso senza lavoro effettivo, detto anche tempo di sospensione
 
-![Diagramma: il lead time τ è il tempo di attesa ω seguito dal tempo di lavoro φ, quindi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagramma: il lead time τ è il tempo di attesa ω seguito dal tempo di lavoro φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Esempi:
 

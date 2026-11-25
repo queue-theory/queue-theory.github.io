@@ -136,8 +136,6 @@ Elementus skaičiuojame dažnai ir vartojame tokį žymėjimą:
 
 ![Diagrama: sistemoje yra κ elementų](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagrama: elementai atvyksta sparta λ, aptarnaujami sparta μ ir išeina sparta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Pavyzdys:
 
 - κ = 10 reiškia lygiai 10
@@ -165,6 +163,8 @@ Svarbiausias žymėjimas:
 - μ (miu): aptarnavimo sparta, dar vadinama pajėgumu. Ji parodo, kaip greitai vienas serveris gali apdoroti elementus, kai yra užimtas.
 
 - χ (chi): išvykimo sparta. Ji parodo, kaip greitai elementai išeina iš sistemos.
+
+![Diagrama: elementai atvyksta sparta λ, aptarnaujami sparta μ ir išeina sparta χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Bendrųjų dėsningumų pavyzdžiai tradicinėms eilėms su vienu serveriu:
 
@@ -202,7 +202,7 @@ Pralaidumo spartos matuoja stebimą išeigą, t. y. elementus, kurie iš tikrųj
 
 - β (beta): nesėkmės sparta. Ji parodo, kiek elementų per laikotarpį pasirodo esantys klaidingi, pvz., netikslūs, neužbaigti, atmesti.
 
-- δ (delta): įvykdymo sparta. Ji parodo, kiek elementų per laikotarpį aptarnaujama, nesvarbu, ar rezultatas teisingas, ar klaidingas: sėkmė + nesėkmė.
+- δ (delta): įvykdymo sparta. Ji parodo, kiek elementų per laikotarpį aptarnaujama.
 
 - σ (sigma): praleidimo sparta. Ji parodo, kiek elementų per laikotarpį patenka į eilę, o tada išeina neaptarnauti, pvz., pasitraukimai, atsisakymai.
 
@@ -218,7 +218,7 @@ Bendroji sparta = sėkmės sparta + nesėkmės sparta + praleidimo sparta:
 
 - χ = α + β + σ (tariama: chi lygu alfa plius beta plius sigma)
 
-![Diagrama: sėkmės sparta α, nesėkmės sparta β, praleidimo sparta σ; įvykdymo sparta δ = α + β; išvykimo sparta χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagrama: išvykimo sparta χ = įvykdymo sparta δ + praleidimo sparta σ; įvykdymo sparta δ = sėkmės sparta α + nesėkmės sparta β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kiekvienas į χ įskaičiuotas elementas buvo patekęs į sistemą, todėl stacionarioje būsenoje bendroji sparta lygi atvykimo spartai: χ ≈ λ. Štai kodėl pralaidumo spartos matuoja išeigą, o ne pajėgumą.
 
@@ -292,7 +292,7 @@ Stebime keturis laikus:
 
 - ω (omega): laukimo laikas = laikas, kai tikras darbas nedirbamas, dar vadinamas laukimo būsenos laiku
 
-![Diagrama: įgyvendinimo trukmė τ yra laukimo laikas ω, po kurio seka darbo laikas φ, taigi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagrama: įgyvendinimo trukmė τ yra laukimo laikas ω, po kurio seka darbo laikas φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Pavyzdžiai:
 

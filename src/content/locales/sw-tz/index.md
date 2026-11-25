@@ -136,8 +136,6 @@ Tunahesabu vipengee mara kwa mara, na tunatumia nukuu hii:
 
 ![Mchoro: kuna vipengee κ katika mfumo](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Mchoro: vipengee vinawasili kwa kiwango λ, vinahudumiwa kwa kiwango μ na kuondoka kwa kiwango χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Mfano:
 
 - κ = 10 inamaanisha hasa 10
@@ -165,6 +163,8 @@ Nukuu muhimu zaidi:
 - μ (mu): kiwango cha huduma, yaani uwezo. Hiki kinapima kasi ambayo seva moja inaweza kushughulikia vipengee inapokuwa na shughuli.
 
 - χ (chi): kiwango cha kuondoka. Hiki kinapima kasi ambayo vipengee vinatoka katika mfumo.
+
+![Mchoro: vipengee vinawasili kwa kiwango λ, vinahudumiwa kwa kiwango μ na kuondoka kwa kiwango χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Mifano ya kanuni za jumla kwa foleni za kawaida zenye seva moja:
 
@@ -202,7 +202,7 @@ Viwango vya upitishaji hupima matokeo yanayoonekana, yaani vipengee ambavyo kwa 
 
 - β (beta): kiwango cha kushindwa. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinageuka kuwa makosa, kwa mfano visivyo sahihi, visivyokamilika, vilivyokataliwa.
 
-- δ (delta): kiwango cha kukamilika. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinahudumiwa, iwe matokeo ni sahihi au si sahihi: mafanikio + kushindwa.
+- δ (delta): kiwango cha kukamilika. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinahudumiwa.
 
 - σ (sigma): kiwango cha kuachwa. Hiki kinapima ni vipengee vingapi kwa kila kipindi cha muda vinaingia katika foleni, kisha vinaondoka bila kuhudumiwa, kwa mfano kuacha foleni, kujitoa.
 
@@ -218,7 +218,7 @@ Kiwango cha jumla = kiwango cha mafanikio + kiwango cha kushindwa + kiwango cha 
 
 - χ = α + β + σ (hutamkwa: chi ni sawa na alpha jumlisha beta jumlisha sigma)
 
-![Mchoro: kiwango cha mafanikio α, kiwango cha kushindwa β, kiwango cha kuachwa σ; kiwango cha kukamilika δ = α + β; kiwango cha kuondoka χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Mchoro: kiwango cha kuondoka χ = kiwango cha kukamilika δ + kiwango cha kuachwa σ; kiwango cha kukamilika δ = kiwango cha mafanikio α + kiwango cha kushindwa β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kila kipengee kinachohesabiwa katika χ kiliingia katika mfumo, kwa hiyo katika hali tulivu kiwango cha jumla ni sawa na kiwango cha uwasili: χ ≈ λ. Ndiyo sababu viwango vya upitishaji hupima matokeo, si uwezo.
 
@@ -292,7 +292,7 @@ Tunafuatilia aina nne za muda:
 
 - ω (omega): muda wa kusubiri = muda unaotumika bila kufanya kazi halisi, yaani muda wa kungoja
 
-![Mchoro: muda wa jumla wa utekelezaji τ ni muda wa kusubiri ω ukifuatwa na muda wa kazi φ, hivyo τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Mchoro: muda wa jumla wa utekelezaji τ ni muda wa kusubiri ω ukifuatwa na muda wa kazi φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Mifano:
 

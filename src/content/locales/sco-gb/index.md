@@ -136,8 +136,6 @@ We coont items aften, an we uise this notation:
 
 ![Diagram: κ items are in the system](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: items arrive at rate λ, are served at rate μ, an depairt at rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Example:
 
 - κ = 10 means exactly 10
@@ -165,6 +163,8 @@ The maist important notation:
 - μ (mu): service rate, aka capacity. This meisures hoo quick ae server can haundle items while it is thrang.
 
 - χ (chi): departure rate. This meisures hoo fast items are exitin the system.
+
+![Diagram: items arrive at rate λ, are served at rate μ, an depairt at rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Examples o generalities fur traditional queues wi ae server:
 
@@ -202,7 +202,7 @@ Throughput rates meisure observed output, meanin items that actually leave the q
 
 - β (beta): failure rate. This meisures hoo mony items per time period turn oot wrang, fur example incorrect, incomplete, rejected.
 
-- δ (delta): duin rate. This meisures hoo mony items per time period are served, whether the result is richt or wrang: success + failure.
+- δ (delta): duin rate. This meisures hoo mony items per time period are served.
 
 - σ (sigma): skip rate. This meisures hoo mony items per time period enter the queue, then leave wioot bein served, fur example abandonments, reneges.
 
@@ -218,7 +218,7 @@ Total rate = success rate + failure rate + skip rate:
 
 - χ = α + β + σ (said: chi equals alpha plus beta plus sigma)
 
-![Diagram: success rate α, failure rate β, skip rate σ; duin rate δ = α + β; departure rate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: departure rate χ = duin rate δ + skip rate σ; duin rate δ = success rate α + failure rate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Ilka item coonted in χ entered the system, sae in steady state the total rate equals the arrival rate: χ ≈ λ. That is how throughput rates meisure output, no capacity.
 
@@ -292,7 +292,7 @@ We track fower times:
 
 - ω (omega): wait time = time spent no daein actual wark, aka pendin time
 
-![Diagram: lead time τ is waitin time ω follaed bi wark time φ, sae τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: lead time τ is waitin time ω follaed bi wark time φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Examples:
 

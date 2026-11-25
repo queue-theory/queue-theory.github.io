@@ -136,8 +136,6 @@ Wij tellen items vaak, en wij gebruiken deze notatie:
 
 ![Diagram: er zijn κ items in het systeem](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: items komen aan met snelheid λ, worden bediend met snelheid μ en vertrekken met snelheid χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Voorbeeld:
 
 - κ = 10 betekent precies 10
@@ -165,6 +163,8 @@ De belangrijkste notatie:
 - μ (mu): bedieningssnelheid, ook wel capaciteit. Deze meet hoe snel één server items kan afhandelen terwijl hij bezig is.
 
 - χ (chi): vertreksnelheid. Deze meet hoe snel items het systeem verlaten.
+
+![Diagram: items komen aan met snelheid λ, worden bediend met snelheid μ en vertrekken met snelheid χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Voorbeelden van algemene regels voor traditionele wachtrijen met één server:
 
@@ -202,7 +202,7 @@ Doorvoersnelheden meten waargenomen uitvoer, dat wil zeggen items die de wachtri
 
 - β (bèta): faalsnelheid. Deze meet hoeveel items per tijdsperiode fout blijken te zijn, bijv. onjuist, onvolledig, afgewezen.
 
-- δ (delta): voltooiingssnelheid. Deze meet hoeveel items per tijdsperiode worden bediend, ongeacht of het resultaat goed of fout is: succes + fout.
+- δ (delta): voltooiingssnelheid. Deze meet hoeveel items per tijdsperiode worden bediend.
 
 - σ (sigma): uitvalsnelheid. Deze meet hoeveel items per tijdsperiode de wachtrij binnenkomen en die daarna verlaten zonder te worden bediend, bijv. opgaven, afhakers.
 
@@ -218,7 +218,7 @@ Totale snelheid = successnelheid + faalsnelheid + uitvalsnelheid:
 
 - χ = α + β + σ (uitgesproken: chi is gelijk aan alfa plus bèta plus sigma)
 
-![Diagram: successnelheid α, faalsnelheid β, uitvalsnelheid σ; voltooiingssnelheid δ = α + β; vertreksnelheid χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: vertreksnelheid χ = voltooiingssnelheid δ + uitvalsnelheid σ; voltooiingssnelheid δ = successnelheid α + faalsnelheid β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Elk item dat in χ wordt geteld, is het systeem binnengekomen, dus in evenwichtstoestand is de totale snelheid gelijk aan de aankomstsnelheid: χ ≈ λ. Daarom meten doorvoersnelheden uitvoer, en geen capaciteit.
 
@@ -295,7 +295,7 @@ Wij volgen vier tijden:
 
 - ω (omega): wachttijd = tijd die niet aan daadwerkelijk werk wordt besteed, ook wel wachtende tijd
 
-![Diagram: de doorlooptijd τ is de wachttijd ω gevolgd door de werktijd φ, dus τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: de doorlooptijd τ is de wachttijd ω gevolgd door de werktijd φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Voorbeelden:
 

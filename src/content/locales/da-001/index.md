@@ -140,8 +140,6 @@ Vi tæller ofte elementer, og vi bruger denne notation:
 
 ![Diagram: der er κ elementer i systemet](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlader systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Eksempel:
 
 - κ = 10 betyder præcis 10
@@ -169,6 +167,8 @@ Den vigtigste notation:
 - μ (mu): servicerate, også kaldet kapacitet. Den måler, hvor hurtigt én server kan håndtere elementer, mens den er optaget.
 
 - χ (chi): afgangsrate. Den måler, hvor hurtigt elementer forlader systemet.
+
+![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlader systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Eksempler på generelle forhold for traditionelle køer med én server:
 
@@ -206,7 +206,7 @@ Gennemløbsrater måler observeret output, dvs. elementer, der faktisk forlader 
 
 - β (beta): fejlrate. Den måler, hvor mange elementer pr. tidsperiode der viser sig at være forkerte, f.eks. ukorrekte, ufuldstændige, afviste.
 
-- δ (delta): færdigrate. Den måler, hvor mange elementer pr. tidsperiode der bliver betjent, uanset om resultatet er rigtigt eller forkert: succes + fejl.
+- δ (delta): færdigrate. Den måler, hvor mange elementer pr. tidsperiode der bliver betjent.
 
 - σ (sigma): springrate. Den måler, hvor mange elementer pr. tidsperiode der kommer ind i køen og derefter forlader den uden at blive betjent, f.eks. opgivelser og frafald.
 
@@ -222,7 +222,7 @@ Samlet rate = succesrate + fejlrate + springrate:
 
 - χ = α + β + σ (udtales: chi er lig med alpha plus beta plus sigma)
 
-![Diagram: succesrate α, fejlrate β, springrate σ; færdigrate δ = α + β; afgangsrate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: afgangsrate χ = færdigrate δ + springrate σ; færdigrate δ = succesrate α + fejlrate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Hvert element, der tælles i χ, er kommet ind i systemet, så i stabil tilstand er den samlede rate lig med ankomstraten: χ ≈ λ. Derfor måler gennemløbsrater output og ikke kapacitet.
 
@@ -299,7 +299,7 @@ Vi følger fire tider:
 
 - ω (omega): ventetid = tid, der ikke bruges på egentligt arbejde, også kaldet afventningstid
 
-![Diagram: gennemløbstiden τ er ventetiden ω efterfulgt af arbejdstiden φ, så τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: gennemløbstiden τ er ventetiden ω efterfulgt af arbejdstiden φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Eksempler:
 

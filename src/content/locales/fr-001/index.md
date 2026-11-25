@@ -141,8 +141,6 @@ Nous comptons souvent des éléments, et nous utilisons cette notation :
 
 ![Schéma : κ éléments sont dans le système](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Schéma : les éléments arrivent au taux λ, sont servis au taux μ et repartent au taux χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Exemple :
 
 - κ = 10 signifie exactement 10
@@ -170,6 +168,8 @@ La notation la plus importante :
 - μ (mu) : taux de service, ou capacité. Il mesure la vitesse à laquelle un serveur peut traiter des éléments lorsqu'il est occupé.
 
 - χ (chi) : taux de départ. Il mesure la vitesse à laquelle les éléments sortent du système.
+
+![Schéma : les éléments arrivent au taux λ, sont servis au taux μ et repartent au taux χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Exemples de généralités pour les files traditionnelles à un seul serveur :
 
@@ -207,7 +207,7 @@ Les taux de débit mesurent la production observée, c'est-à-dire les élément
 
 - β (bêta) : taux d'échec. Il mesure combien d'éléments par période s'avèrent incorrects, par exemple faux, incomplets, rejetés.
 
-- δ (delta) : taux d'achèvement. Il mesure combien d'éléments par période sont servis, que le résultat soit bon ou mauvais : succès + échec.
+- δ (delta) : taux d'achèvement. Il mesure combien d'éléments par période sont servis.
 
 - σ (sigma) : taux d'abandon. Il mesure combien d'éléments par période entrent dans la file, puis en sortent sans être servis, par exemple les abandons et les désistements.
 
@@ -223,7 +223,7 @@ Taux total = taux de succès + taux d'échec + taux d'abandon :
 
 - χ = α + β + σ (prononcé : chi égale alpha plus bêta plus sigma)
 
-![Schéma : taux de succès α, taux d'échec β, taux d'abandon σ; taux d'achèvement δ = α + β; taux de départ χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Schéma : taux de départ χ = taux d'achèvement δ + taux d'abandon σ; taux d'achèvement δ = taux de succès α + taux d'échec β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Chaque élément compté dans χ est entré dans le système ; en régime stationnaire, le taux total est donc égal au taux d'arrivée : χ ≈ λ. C'est pourquoi les taux de débit mesurent la production, et non la capacité.
 
@@ -300,7 +300,7 @@ Nous suivons quatre temps :
 
 - ω (oméga) : temps d'attente = temps passé sans travail effectif, ou temps en suspens
 
-![Schéma : le délai de bout en bout τ est le temps d'attente ω suivi du temps de travail φ, donc τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Schéma : le délai de bout en bout τ est le temps d'attente ω suivi du temps de travail φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Exemples :
 

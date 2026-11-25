@@ -136,8 +136,6 @@ Wir zählen häufig Elemente und verwenden dafür diese Notation:
 
 ![Diagramm: κ Elemente befinden sich im System](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramm: Elemente treffen mit der Rate λ ein, werden mit der Rate μ bedient und verlassen das System mit der Rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Beispiel:
 
 - κ = 10 bedeutet genau 10
@@ -165,6 +163,8 @@ Die wichtigste Notation:
 - μ (My): Bedienrate, auch Kapazität genannt. Sie misst, wie schnell ein Bediener Elemente bearbeiten kann, während er beschäftigt ist.
 
 - χ (Chi): Abgangsrate. Sie misst, wie schnell Elemente das System verlassen.
+
+![Diagramm: Elemente treffen mit der Rate λ ein, werden mit der Rate μ bedient und verlassen das System mit der Rate χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Beispiele für allgemeine Aussagen über klassische Warteschlangen mit einem Bediener:
 
@@ -202,7 +202,7 @@ Durchsatzraten messen die beobachtete Ausgabe, also Elemente, die die Warteschla
 
 - β (Beta): Fehlerrate. Sie misst, wie viele Elemente pro Zeitraum sich als falsch erweisen, z. B. inkorrekt, unvollständig, abgelehnt.
 
-- δ (Delta): Abschlussrate. Sie misst, wie viele Elemente pro Zeitraum bedient werden, ob mit richtigem oder falschem Ergebnis: Erfolg + Fehler.
+- δ (Delta): Abschlussrate. Sie misst, wie viele Elemente pro Zeitraum bedient werden.
 
 - σ (Sigma): Abbruchrate. Sie misst, wie viele Elemente pro Zeitraum in die Warteschlange eintreten und sie dann verlassen, ohne bedient zu werden, z. B. Abbrüche, vorzeitiges Verlassen.
 
@@ -218,7 +218,7 @@ Gesamtrate = Erfolgsrate + Fehlerrate + Abbruchrate:
 
 - χ = α + β + σ (gesprochen: Chi gleich Alpha plus Beta plus Sigma)
 
-![Diagramm: Erfolgsrate α, Fehlerrate β, Abbruchrate σ; Abschlussrate δ = α + β; Abgangsrate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagramm: Abgangsrate χ = Abschlussrate δ + Abbruchrate σ; Abschlussrate δ = Erfolgsrate α + Fehlerrate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Jedes in χ gezählte Element ist in das System eingetreten, daher entspricht die Gesamtrate im stationären Zustand der Ankunftsrate: χ ≈ λ. Deshalb messen Durchsatzraten die Ausgabe, nicht die Kapazität.
 
@@ -292,7 +292,7 @@ Wir verfolgen vier Zeiten:
 
 - ω (Omega): Wartezeit = Zeit, die nicht mit tatsächlicher Arbeit verbracht wird, auch Liegezeit genannt
 
-![Diagramm: Die Durchlaufzeit τ ist die Wartezeit ω gefolgt von der Arbeitszeit φ, also τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagramm: Die Durchlaufzeit τ ist die Wartezeit ω gefolgt von der Arbeitszeit φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Beispiele:
 

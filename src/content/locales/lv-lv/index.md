@@ -136,8 +136,6 @@ Mēs bieži skaitām elementus un lietojam šādu apzīmējumu:
 
 ![Diagramma: sistēmā ir κ elementu](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagramma: elementi ierodas ar ātrumu λ, tiek apkalpoti ar ātrumu μ un aiziet ar ātrumu χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Piemērs:
 
 - κ = 10 nozīmē tieši 10
@@ -165,6 +163,8 @@ Svarīgākie apzīmējumi:
 - μ (mī): apkalpošanas ātrums jeb jauda. Tas mēra, cik ātri viens serveris var apstrādāt elementus, kamēr tas ir aizņemts.
 
 - χ (hī): aiziešanas ātrums. Tas mēra, cik ātri elementi iziet no sistēmas.
+
+![Diagramma: elementi ierodas ar ātrumu λ, tiek apkalpoti ar ātrumu μ un aiziet ar ātrumu χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Vispārīgu likumsakarību piemēri tradicionālām rindām ar vienu serveri:
 
@@ -202,7 +202,7 @@ Caurlaidspējas ātrumi mēra novēroto izvadi, t. i., elementus, kas faktiski a
 
 - β (beta): neveiksmes ātrums. Tas mēra, cik elementu laika periodā izrādās nepareizi, piem., neprecīzi, nepabeigti, noraidīti.
 
-- δ (delta): pabeigšanas ātrums. Tas mēra, cik elementu laika periodā tiek apkalpoti neatkarīgi no tā, vai rezultāts ir pareizs vai nepareizs: veiksme + neveiksme.
+- δ (delta): pabeigšanas ātrums. Tas mēra, cik elementu laika periodā tiek apkalpoti.
 
 - σ (sigma): izlaišanas ātrums. Tas mēra, cik elementu laika periodā ienāk rindā un pēc tam aiziet neapkalpoti, piem., pamešana, atteikšanās.
 
@@ -218,7 +218,7 @@ Kopējais ātrums = veiksmes ātrums + neveiksmes ātrums + izlaišanas ātrums:
 
 - χ = α + β + σ (izrunā: hī ir vienāds ar alfa plus beta plus sigma)
 
-![Diagramma: veiksmes ātrums α, neveiksmes ātrums β, izlaišanas ātrums σ; pabeigšanas ātrums δ = α + β; aiziešanas ātrums χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagramma: aiziešanas ātrums χ = pabeigšanas ātrums δ + izlaišanas ātrums σ; pabeigšanas ātrums δ = veiksmes ātrums α + neveiksmes ātrums β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Katrs χ ieskaitītais elements ir ienācis sistēmā, tāpēc līdzsvara stāvoklī kopējais ātrums ir vienāds ar ierašanās ātrumu: χ ≈ λ. Tāpēc caurlaidspējas ātrumi mēra izvadi, nevis jaudu.
 
@@ -292,7 +292,7 @@ Mēs sekojam četriem laikiem:
 
 - ω (omega): gaidīšanas laiks = laiks, kas pavadīts, neveicot faktisku darbu, jeb nogaides laiks
 
-![Diagramma: izpildes laiks τ ir gaidīšanas laiks ω, kam seko darba laiks φ, tātad τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagramma: izpildes laiks τ ir gaidīšanas laiks ω, kam seko darba laiks φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Piemēri:
 

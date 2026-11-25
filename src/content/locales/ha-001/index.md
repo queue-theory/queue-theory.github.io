@@ -140,8 +140,6 @@ Muna yawan ƙidaya abubuwa, kuma muna amfani da wannan alamar:
 
 ![Zane: akwai abubuwa κ a cikin tsarin](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Zane: abubuwa suna zuwa da yawan λ, ana yi musu sabis da yawan μ, kuma suna fita da yawan χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Misali:
 
 - κ = 10 yana nufin daidai 10
@@ -169,6 +167,8 @@ Alamomi mafi muhimmanci:
 - μ (mu): yawan sabis wato ƙarfi. Wannan yana auna saurin da mai sabis ɗaya zai iya sarrafa abubuwa yayin da yake aiki.
 
 - χ (chi): yawan ficewa. Wannan yana auna yadda abubuwa ke fita daga tsarin da sauri.
+
+![Zane: abubuwa suna zuwa da yawan λ, ana yi musu sabis da yawan μ, kuma suna fita da yawan χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Misalan ƙa'idoji na gama-gari don layukan gargajiya masu mai sabis ɗaya:
 
@@ -206,7 +206,7 @@ Yawan fitarwa yana auna fitarwar da aka lura, wato abubuwan da suka fita daga la
 
 - β (beta): yawan gazawa. Wannan yana auna abubuwa nawa a kowane tsawon lokaci suka zama ba daidai ba misali marasa inganci, marasa cikawa, waɗanda aka ƙi.
 
-- δ (delta): yawan kammalawa. Wannan yana auna abubuwa nawa a kowane tsawon lokaci ake yi musu sabis, ko sakamakon daidai ne ko kuskure: nasara + gazawa.
+- δ (delta): yawan kammalawa. Wannan yana auna abubuwa nawa a kowane tsawon lokaci ake yi musu sabis.
 
 - σ (sigma): yawan tsallakewa. Wannan yana auna abubuwa nawa a kowane tsawon lokaci ke shiga layi, sannan su fita ba tare da an yi musu sabis ba, misali barin layi, janyewa.
 
@@ -222,7 +222,7 @@ Jimillar yawa = yawan nasara + yawan gazawa + yawan tsallakewa:
 
 - χ = α + β + σ (ana furtawa: chi daidai da alpha da beta da sigma)
 
-![Zane: yawan nasara α, yawan gazawa β, yawan tsallakewa σ; yawan kammalawa δ = α + β; yawan ficewa χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Zane: yawan ficewa χ = yawan kammalawa δ + yawan tsallakewa σ; yawan kammalawa δ = yawan nasara α + yawan gazawa β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Kowane abu da aka ƙidaya a cikin χ ya shiga tsarin, don haka a cikin daidaitaccen yanayi jimillar yawa daidai take da yawan isowa: χ ≈ λ. Shi ya sa yawan fitarwa ke auna fitarwa, ba ƙarfi ba.
 
@@ -299,7 +299,7 @@ Muna bin diddigin lokuta huɗu:
 
 - ω (omega): lokacin jira = lokacin da aka kashe ba tare da yin ainihin aiki ba wato lokacin dakon
 
-![Zane: lokacin jagora τ shi ne lokacin jira ω sai kuma lokacin aiki φ, don haka τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Zane: lokacin jagora τ shi ne lokacin jira ω sai kuma lokacin aiki φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Misalai:
 

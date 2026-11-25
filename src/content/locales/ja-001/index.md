@@ -136,8 +136,6 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 
 ![図：システム内には κ 個の項目があります](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![図：項目はレート λ で到着し、レート μ でサービスを受け、レート χ で出ていきます](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 例：
 
 - κ = 10 は、ちょうど 10 を意味します。
@@ -165,6 +163,8 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 - μ（ミュー）：サービス率、別名処理能力。1 台のサーバーが稼働中にどれだけ速く項目を処理できるかを測ります。
 
 - χ（カイ）：退出率。システムから項目がどれだけの速さで出ていくかを測ります。
+
+![図：項目はレート λ で到着し、レート μ でサービスを受け、レート χ で出ていきます](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 サーバーが 1 台の従来型キューについての一般的な例：
 
@@ -202,7 +202,7 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 
 - β（ベータ）：失敗率。単位期間あたりにいくつの項目が誤った結果（不正確、不完全、却下など）となるかを測ります。
 
-- δ（デルタ）：完了率。単位期間あたりにいくつの項目がサービスを受けるか（結果が正しいか誤りかは問いません）を測ります。成功＋失敗です。
+- δ（デルタ）：完了率。単位期間あたりにいくつの項目がサービスを受けるかを測ります。
 
 - σ（シグマ）：スキップ率。単位期間あたりにいくつの項目がキューに入った後、サービスを受けずに去るか（放棄、途中離脱など）を測ります。
 
@@ -218,7 +218,7 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 
 - χ = α + β + σ（読み方：カイ イコール アルファ プラス ベータ プラス シグマ）
 
-![図：成功率 α，失敗率 β，スキップ率 σ；完了率 δ = α + β；退出率 χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![図：退出率 χ = 完了率 δ + スキップ率 σ；完了率 δ = 成功率 α + 失敗率 β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ に数えられるすべての項目はシステムに入ってきたものなので、定常状態では総率は到着率と等しくなります：χ ≈ λ。だからこそ、スループット率は処理能力ではなく出力を測るのです。
 
@@ -292,7 +292,7 @@ SJF と SRPT は平均待ち時間を最小化しますが、長いジョブを�
 
 - ω（オメガ）：待ち時間 = 実際の作業をしていない時間、別名保留時間
 
-![図：リードタイム τ は待ち時間 ω に作業時間 φ が続いたものなので、τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![図：リードタイム τ は待ち時間 ω に作業時間 φ が続いたものです](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 例：
 

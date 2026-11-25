@@ -140,8 +140,6 @@ Gyakran számoljuk az elemeket, és ezt a jelölést használjuk:
 
 ![Ábra: κ elem van a rendszerben](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Ábra: az elemek λ rátával érkeznek, μ rátával szolgálják ki őket, és χ rátával távoznak](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Példa:
 
 - κ = 10 azt jelenti, hogy pontosan 10
@@ -169,6 +167,8 @@ A legfontosabb jelölés:
 - μ (mű): kiszolgálási ráta, más néven kapacitás. Ez azt méri, milyen gyorsan tud egy kiszolgáló elemeket kezelni, amíg foglalt.
 
 - χ (khí): távozási ráta. Azt méri, milyen gyorsan hagyják el az elemek a rendszert.
+
+![Ábra: az elemek λ rátával érkeznek, μ rátával szolgálják ki őket, és χ rátával távoznak](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Általános példák hagyományos, egy kiszolgálós sorokra:
 
@@ -206,7 +206,7 @@ Az áteresztési ráták a megfigyelt kimenetet mérik, vagyis azokat az elemeke
 
 - β (béta): hibaráta. Ez azt méri, időszakonként hány elem bizonyul hibásnak, például pontatlannak, hiányosnak, elutasítottnak.
 
-- δ (delta): befejezési ráta. Ez azt méri, időszakonként hány elemet szolgálnak ki, akár helyes, akár hibás az eredmény: siker + hiba.
+- δ (delta): befejezési ráta. Ez azt méri, időszakonként hány elemet szolgálnak ki.
 
 - σ (szigma): kihagyási ráta. Ez azt méri, időszakonként hány elem lép be a sorba, majd távozik kiszolgálás nélkül, például feladások, visszalépések.
 
@@ -222,7 +222,7 @@ Teljes ráta = sikerességi ráta + hibaráta + kihagyási ráta:
 
 - χ = α + β + σ (kiejtve: khí egyenlő alfa plusz béta plusz szigma)
 
-![Ábra: sikerességi ráta α, hibaráta β, kihagyási ráta σ; befejezési ráta δ = α + β; távozási ráta χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Ábra: távozási ráta χ = befejezési ráta δ + kihagyási ráta σ; befejezési ráta δ = sikerességi ráta α + hibaráta β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Minden χ-ben számolt elem belépett a rendszerbe, így állandósult állapotban a teljes ráta egyenlő az érkezési rátával: χ ≈ λ. Ezért mérik az áteresztési ráták a kimenetet, nem pedig a kapacitást.
 
@@ -299,7 +299,7 @@ Négy időt követünk nyomon:
 
 - ω (ómega): várakozási idő = a tényleges munka nélkül töltött idő, más néven függőben lévő idő
 
-![Ábra: az átfutási idő τ a várakozási idő ω, amelyet a munkaidő φ követ, tehát τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Ábra: az átfutási idő τ a várakozási idő ω, amelyet a munkaidő φ követ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Példák:
 

@@ -136,8 +136,6 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 ![示意圖：系統入面有 κ 個項目](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![示意圖：項目以速率 λ 到達，以速率 μ 獲得服務，以速率 χ 離開](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 例子：
 
 - κ = 10 表示啱啱好 10 個。
@@ -165,6 +163,8 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 - μ（mu）：服務率，又稱容量。量度一個服務台喺忙碌嗰陣處理項目嘅速度有幾快。
 
 - χ（chi）：離開率。量度項目離開系統有幾快。
+
+![示意圖：項目以速率 λ 到達，以速率 μ 獲得服務，以速率 χ 離開](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 以下係單一服務台嘅傳統隊列嘅一般情況：
 
@@ -202,7 +202,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 - β（beta）：失敗率。量度每段時間有幾多項目結果錯誤，例如唔正確、唔完整、被拒絕。
 
-- δ（delta）：完成率。量度每段時間有幾多項目獲得服務，不論結果啱定錯：成功 + 失敗。
+- δ（delta）：完成率。量度每段時間有幾多項目獲得服務。
 
 - σ（sigma）：跳過率。量度每段時間有幾多項目進入咗隊列，但未獲服務就離開，例如放棄、中途退出。
 
@@ -218,7 +218,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 - χ = α + β + σ（讀法：chi 等於 alpha 加 beta 加 sigma）
 
-![示意圖：成功率 α，失敗率 β，跳過率 σ；完成率 δ = α + β；離開率 χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![示意圖：離開率 χ = 完成率 δ + 跳過率 σ；完成率 δ = 成功率 α + 失敗率 β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 χ 計入嘅每一個項目都進入過系統，所以喺穩態下總率等於到達率：χ ≈ λ。因此吞吐率量度嘅係輸出，而唔係容量。
 
@@ -292,7 +292,7 @@ SJF 同 SRPT 可以令平均等候時間減到最少，但係可能會令長工�
 
 - ω（omega）：等候時間 = 冇真正做嘢嘅時間，又稱待處理時間
 
-![示意圖：前置時間 τ 係等候時間 ω 加工作時間 φ，所以 τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![示意圖：前置時間 τ 係等候時間 ω 加工作時間 φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 例子：
 

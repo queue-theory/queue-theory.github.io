@@ -136,8 +136,6 @@ Elemente pogosto štejemo in pri tem uporabljamo to notacijo:
 
 ![Diagram: v sistemu je κ elementov](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: elementi prihajajo s stopnjo λ, so postreženi s stopnjo μ in odhajajo s stopnjo χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Primer:
 
 - κ = 10 pomeni natanko 10
@@ -165,6 +163,8 @@ Najpomembnejša notacija:
 - μ (mi): stopnja strežbe oz. zmogljivost. Ta meri, kako hitro lahko en strežnik obdeluje elemente, ko je zaseden.
 
 - χ (hi): stopnja odhodov. Ta meri, kako hitro elementi zapuščajo sistem.
+
+![Diagram: elementi prihajajo s stopnjo λ, so postreženi s stopnjo μ in odhajajo s stopnjo χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Primeri splošnih pravil za tradicionalne čakalne vrste z enim strežnikom:
 
@@ -202,7 +202,7 @@ Stopnje pretoka merijo opazovani izhod, torej elemente, ki dejansko zapustijo č
 
 - β (beta): stopnja neuspeha. Ta meri, koliko elementov na časovno obdobje se izkaže za napačne, npr. netočne, nepopolne, zavrnjene.
 
-- δ (delta): stopnja dokončanja. Ta meri, koliko elementov na časovno obdobje je postreženih, ne glede na to, ali je rezultat pravilen ali napačen: uspeh + neuspeh.
+- δ (delta): stopnja dokončanja. Ta meri, koliko elementov na časovno obdobje je postreženih.
 
 - σ (sigma): stopnja izpustitev. Ta meri, koliko elementov na časovno obdobje vstopi v čakalno vrsto in jo nato zapusti, ne da bi bili postreženi, npr. opustitve, odstopi.
 
@@ -218,7 +218,7 @@ Skupna stopnja = stopnja uspeha + stopnja neuspeha + stopnja izpustitev:
 
 - χ = α + β + σ (izgovorjava: hi je enako alfa plus beta plus sigma)
 
-![Diagram: stopnja uspeha α, stopnja neuspeha β, stopnja izpustitev σ; stopnja dokončanja δ = α + β; stopnja odhodov χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: stopnja odhodov χ = stopnja dokončanja δ + stopnja izpustitev σ; stopnja dokončanja δ = stopnja uspeha α + stopnja neuspeha β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Vsak element, štet v χ, je vstopil v sistem, zato je v stacionarnem stanju skupna stopnja enaka stopnji prihodov: χ ≈ λ. Zato stopnje pretoka merijo izhod, ne zmogljivosti.
 
@@ -295,7 +295,7 @@ Spremljamo štiri čase:
 
 - ω (omega): čas čakanja = čas, ko se dejansko delo ne opravlja, oz. čas mirovanja
 
-![Diagram: pretočni čas τ je čas čakanja ω, ki mu sledi čas dela φ, torej τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: pretočni čas τ je čas čakanja ω, ki mu sledi čas dela φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Primeri:
 

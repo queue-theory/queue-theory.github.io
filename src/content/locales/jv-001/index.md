@@ -141,8 +141,6 @@ Kita asring ngetang item, saha kita ngginakaken notasi punika:
 
 ![Diagram: wonten κ item wonten ing sistem](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: item dugi kanthi laju λ, dipunladosi kanthi laju μ, saha medal kanthi laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Tuladha:
 
 - κ = 10 tegesipun persis 10
@@ -170,6 +168,8 @@ Notasi ingkang paling wigati:
 - μ (mu): laju layanan utawi kapasitas. Punika ngukur sepinten cepet satunggal server saged ngrampungaken item nalika sibuk.
 
 - χ (chi): laju budhal. Punika ngukur sepinten cepet item medal saking sistem.
+
+![Diagram: item dugi kanthi laju λ, dipunladosi kanthi laju μ, saha medal kanthi laju χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Tuladha kawontenan umum kangge antrian tradisional kanthi satunggal server:
 
@@ -207,7 +207,7 @@ Laju throughput ngukur asil ingkang dipunamati, tegesipun item ingkang saestu me
 
 - β (beta): laju gagal. Punika ngukur sepinten item saben periode wekdal ingkang dados lepat, tuladhanipun boten trep, boten jangkep, dipuntolak.
 
-- δ (delta): laju rampung. Punika ngukur sepinten item saben periode wekdal ingkang dipunladosi, mboten dados kasil utawi gagal: kasil + gagal.
+- δ (delta): laju rampung. Punika ngukur sepinten item saben periode wekdal ingkang dipunladosi.
 
 - σ (sigma): laju lompat. Punika ngukur sepinten item saben periode wekdal ingkang mlebet antrian, lajeng medal tanpa dipunladosi, tuladhanipun nilaraken antrian, mundur saking antrian.
 
@@ -223,7 +223,7 @@ Laju total = laju kasil + laju gagal + laju lompat:
 
 - χ = α + β + σ (dipunwaos: chi sami kaliyan alpha tambah beta tambah sigma)
 
-![Diagram: laju kasil α, laju gagal β, laju lompat σ; laju rampung δ = α + β; laju budhal χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: laju budhal χ = laju rampung δ + laju lompat σ; laju rampung δ = laju kasil α + laju gagal β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Saben item ingkang dipunetang wonten ing χ sampun mlebet sistem, satemah ing kawontenan ajeg laju total sami kaliyan laju kadhatengan: χ ≈ λ. Punika sababipun laju throughput ngukur asil, sanes kapasitas.
 
@@ -300,7 +300,7 @@ Kita mantau sekawan wekdal:
 
 - ω (omega): wekdal ngentosi = wekdal ingkang boten dipunginakaken kangge makarya saestu utawi wekdal tundha
 
-![Diagram: lead time τ punika wekdal ngentosi ω dipuntutugaken wekdal makarya φ, dados τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: lead time τ punika wekdal ngentosi ω dipuntutugaken wekdal makarya φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Tuladha:
 

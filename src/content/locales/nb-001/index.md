@@ -136,8 +136,6 @@ Vi teller ofte elementer, og vi bruker denne notasjonen:
 
 ![Diagram: κ elementer er i systemet](https://queue-theory.github.io/images/queue-theory-kappa-item-count.svg)
 
-![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlater systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
-
 Eksempel:
 
 - κ = 10 betyr nøyaktig 10
@@ -165,6 +163,8 @@ Den viktigste notasjonen:
 - μ (my): tjenesterate, også kalt kapasitet. Den måler hvor raskt én server kan håndtere elementer når den er opptatt.
 
 - χ (khi): avgangsrate. Den måler hvor raskt elementer forlater systemet.
+
+![Diagram: elementer ankommer med raten λ, betjenes med raten μ og forlater systemet med raten χ](https://queue-theory.github.io/images/queue-theory-lambda-arrival-rate-mu-service-rate-chi-departure-rate.svg)
 
 Eksempler på generelle regler for tradisjonelle køer med én server:
 
@@ -202,7 +202,7 @@ Gjennomstrømningsrater måler observert utdata, det vil si elementer som faktis
 
 - β (beta): feilrate. Den måler hvor mange elementer per tidsperiode som viser seg å være feil, f.eks. ukorrekte, ufullstendige, avviste.
 
-- δ (delta): fullføringsrate. Den måler hvor mange elementer per tidsperiode som blir betjent, uansett om resultatet er riktig eller galt: suksess + feil.
+- δ (delta): fullføringsrate. Den måler hvor mange elementer per tidsperiode som blir betjent.
 
 - σ (sigma): overhoppsrate. Den måler hvor mange elementer per tidsperiode som kommer inn i køen og deretter går uten å bli betjent, f.eks. avbrudd og frafall.
 
@@ -218,7 +218,7 @@ Total rate = suksessrate + feilrate + overhoppsrate:
 
 - χ = α + β + σ (uttales: khi er lik alfa pluss beta pluss sigma)
 
-![Diagram: suksessrate α, feilrate β, overhoppsrate σ; fullføringsrate δ = α + β; avgangsrate χ = δ + σ](https://queue-theory.github.io/images/queue-theory-alpha-success-beta-failure-sigma-skip-delta-done-chi-departure.svg)
+![Diagram: avgangsrate χ = fullføringsrate δ + overhoppsrate σ; fullføringsrate δ = suksessrate α + feilrate β](https://queue-theory.github.io/images/queue-theory-chi-departure-delta-done-alpha-success-beta-failure-sigma-skip.svg)
 
 Hvert element som telles i χ, kom inn i systemet, så i stabil tilstand er den totale raten lik ankomstraten: χ ≈ λ. Det er derfor gjennomstrømningsrater måler utdata, ikke kapasitet.
 
@@ -292,7 +292,7 @@ Vi følger fire tider:
 
 - ω (omega): ventetid = tid som ikke brukes på faktisk arbeid, også kalt ventende tid
 
-![Diagram: ledetiden τ er ventetiden ω etterfulgt av arbeidstiden φ, altså τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
+![Diagram: ledetiden τ er ventetiden ω etterfulgt av arbeidstiden φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Eksempler:
 
