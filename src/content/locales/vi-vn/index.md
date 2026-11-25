@@ -115,9 +115,9 @@ Ký hiệu của chúng tôi và ý nghĩa của từng biểu tượng:
 | --------------------- | ------- |
 | κ (kappa) | số lượng mục trong hệ thống, gồm các mục đang chờ cộng với các mục đang được xử lý |
 | λ (lambda) | tốc độ đến của các mục đi vào hệ thống |
+| χ (chi) | tốc độ rời đi của các mục thoát khỏi hệ thống |
 | μ (mu) | tốc độ phục vụ, còn gọi là năng lực: một máy phục vụ làm việc nhanh đến mức nào khi bận |
 | ρ (rho) | mức sử dụng: tỷ lệ thời gian các máy phục vụ bận, λ / (c μ) |
-| χ (chi) | thông lượng, còn gọi là tốc độ rời đi: đầu ra quan sát được, vì bất kỳ lý do gì |
 | α (alpha) | tốc độ thành công: đầu ra quan sát được hóa ra đúng |
 | β (beta) | tốc độ thất bại: đầu ra quan sát được hóa ra sai |
 | δ (delta) | tốc độ hoàn thành: thành công + thất bại, các mục đã được phục vụ, dù kết quả đúng hay sai |
@@ -288,7 +288,7 @@ Chúng tôi theo dõi bốn loại thời gian:
 
 - ω (omega): thời gian chờ = thời gian không làm công việc thực tế, còn gọi là thời gian treo
 
-![Sơ đồ: thời gian sản xuất τ là thời gian chờ ω nối tiếp bởi thời gian làm việc φ, do đó τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Sơ đồ: thời gian sản xuất τ là thời gian chờ ω nối tiếp bởi thời gian làm việc φ, do đó τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Ví dụ:
 

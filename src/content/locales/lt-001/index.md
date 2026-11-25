@@ -115,9 +115,9 @@ Mūsų žymėjimas ir kiekvieno simbolio reikšmė:
 | -------------- | ------- |
 | κ (kapa) | elementų skaičius sistemoje: laukiantys ir apdorojami |
 | λ (lambda) | į sistemą patenkančių elementų atvykimo sparta |
+| χ (chi) | iš sistemos išeinančių elementų išvykimo sparta |
 | μ (miu) | aptarnavimo sparta, dar vadinama pajėgumu: kaip greitai dirba vienas užimtas serveris |
 | ρ (ro) | apkrova: laiko dalis, kai serveriai užimti, λ / (c μ) |
-| χ (chi) | pralaidumas, dar vadinamas išvykimo sparta: stebima išeiga dėl bet kokios priežasties |
 | α (alfa) | sėkmės sparta: stebima išeiga, kuri pasirodo esanti teisinga |
 | β (beta) | nesėkmės sparta: stebima išeiga, kuri pasirodo esanti klaidinga |
 | δ (delta) | įvykdymo sparta: sėkmė + nesėkmė, aptarnauti elementai, nesvarbu, ar rezultatas teisingas, ar klaidingas |
@@ -288,7 +288,7 @@ Stebime keturis laikus:
 
 - ω (omega): laukimo laikas = laikas, kai tikras darbas nedirbamas, dar vadinamas laukimo būsenos laiku
 
-![Diagrama: įgyvendinimo trukmė τ yra laukimo laikas ω, po kurio seka darbo laikas φ, taigi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagrama: įgyvendinimo trukmė τ yra laukimo laikas ω, po kurio seka darbo laikas φ, taigi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Pavyzdžiai:
 

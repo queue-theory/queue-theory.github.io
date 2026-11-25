@@ -120,9 +120,9 @@ La nostra notazione e il significato di ogni simbolo:
 | ------------------- | ----------- |
 | κ (kappa) | numero di elementi nel sistema, in attesa più in lavorazione |
 | λ (lambda) | tasso di arrivo degli elementi che entrano nel sistema |
+| χ (chi) | tasso di uscita degli elementi che escono dal sistema |
 | μ (mu) | tasso di servizio, detto anche capacità: quanto velocemente lavora un servente occupato |
 | ρ (rho) | utilizzo: la frazione di tempo in cui i serventi sono occupati, λ / (c μ) |
-| χ (chi) | throughput, detto anche tasso di uscita: output osservato, per qualsiasi motivo |
 | α (alfa) | tasso di successo: output osservato che risulta corretto |
 | β (beta) | tasso di fallimento: output osservato che risulta errato |
 | δ (delta) | tasso di completamento: successo + fallimento, elementi serviti, con esito corretto o errato |
@@ -296,7 +296,7 @@ Monitoriamo quattro tempi:
 
 - ω (omega): tempo di attesa = tempo trascorso senza lavoro effettivo, detto anche tempo di sospensione
 
-![Diagramma: il lead time τ è il tempo di attesa ω seguito dal tempo di lavoro φ, quindi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagramma: il lead time τ è il tempo di attesa ω seguito dal tempo di lavoro φ, quindi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Esempi:
 

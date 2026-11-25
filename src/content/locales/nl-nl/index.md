@@ -115,9 +115,9 @@ Onze notatie en wat elk symbool betekent:
 | ------------ | --------- |
 | κ (kappa) | aantal items in het systeem, wachtende plus items in bewerking |
 | λ (lambda) | aankomstsnelheid van items die het systeem binnenkomen |
+| χ (chi) | vertreksnelheid van items die het systeem verlaten |
 | μ (mu) | bedieningssnelheid, ook wel capaciteit: hoe snel één server werkt terwijl hij bezig is |
 | ρ (rho) | bezettingsgraad: het deel van de tijd dat de servers bezig zijn, λ / (c μ) |
-| χ (chi) | doorvoer, ook wel vertreksnelheid: waargenomen uitvoer, om welke reden ook |
 | α (alfa) | successnelheid: waargenomen uitvoer die goed blijkt te zijn |
 | β (bèta) | faalsnelheid: waargenomen uitvoer die fout blijkt te zijn |
 | δ (delta) | voltooiingssnelheid: succes + fout, bediende items, ongeacht of het resultaat goed of fout is |
@@ -291,7 +291,7 @@ Wij volgen vier tijden:
 
 - ω (omega): wachttijd = tijd die niet aan daadwerkelijk werk wordt besteed, ook wel wachtende tijd
 
-![Diagram: de doorlooptijd τ is de wachttijd ω gevolgd door de werktijd φ, dus τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: de doorlooptijd τ is de wachttijd ω gevolgd door de werktijd φ, dus τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Voorbeelden:
 

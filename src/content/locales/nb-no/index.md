@@ -115,9 +115,9 @@ Vår notasjon og hva hvert symbol betyr:
 | ------------ | --------- |
 | κ (kappa) | antall elementer i systemet, de som venter pluss de som behandles |
 | λ (lambda) | ankomstrate for elementer som kommer inn i systemet |
+| χ (khi) | avgangsrate for elementer som forlater systemet |
 | μ (my) | tjenesterate, også kalt kapasitet: hvor raskt én server arbeider når den er opptatt |
 | ρ (rho) | utnyttelse: andelen av tiden serverne er opptatt, λ / (c μ) |
-| χ (khi) | gjennomstrømning, også kalt avgangsrate: observert utdata, uansett årsak |
 | α (alfa) | suksessrate: observert utdata som viser seg å være riktig |
 | β (beta) | feilrate: observert utdata som viser seg å være feil |
 | δ (delta) | fullføringsrate: suksess + feil, elementer som er betjent, uansett om resultatet er riktig eller galt |
@@ -288,7 +288,7 @@ Vi følger fire tider:
 
 - ω (omega): ventetid = tid som ikke brukes på faktisk arbeid, også kalt ventende tid
 
-![Diagram: ledetiden τ er ventetiden ω etterfulgt av arbeidstiden φ, altså τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: ledetiden τ er ventetiden ω etterfulgt av arbeidstiden φ, altså τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Eksempler:
 

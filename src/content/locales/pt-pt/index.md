@@ -115,9 +115,9 @@ Nossa notação e o significado de cada símbolo:
 | ------------- | ----------- |
 | κ (kappa) | número de itens no sistema, esperando mais em atendimento |
 | λ (lambda) | taxa de chegada dos itens que entram no sistema |
+| χ (qui) | taxa de saída dos itens que saem do sistema |
 | μ (mi) | taxa de atendimento, também chamada capacidade: a rapidez com que um servidor trabalha enquanto está ocupado |
 | ρ (rô) | utilização: a fração do tempo em que os servidores estão ocupados, λ / (c μ) |
-| χ (qui) | vazão, também chamada taxa de saída: produção observada, por qualquer motivo |
 | α (alfa) | taxa de sucesso: produção observada que se revela correta |
 | β (beta) | taxa de falha: produção observada que se revela incorreta |
 | δ (delta) | taxa de conclusão: sucesso + falha, itens atendidos, seja o resultado certo ou errado |
@@ -288,7 +288,7 @@ Acompanhamos quatro tempos:
 
 - ω (ómega): tempo de espera = tempo gasto sem fazer trabalho efetivo, também chamado tempo pendente
 
-![Diagrama: o tempo de atravessamento τ é o tempo de espera ω seguido do tempo de trabalho φ, portanto τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagrama: o tempo de atravessamento τ é o tempo de espera ω seguido do tempo de trabalho φ, portanto τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Exemplos:
 

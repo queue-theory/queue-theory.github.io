@@ -115,9 +115,9 @@ Naš zapis in pomen vsakega simbola:
 | --------- | ----- |
 | κ (kapa) | število elementov v sistemu, čakajočih in v obdelavi |
 | λ (lambda) | stopnja prihodov elementov, ki vstopajo v sistem |
+| χ (hi) | stopnja odhodov elementov, ki zapustijo sistem |
 | μ (mi) | stopnja strežbe oz. zmogljivost: kako hitro dela en strežnik, ko je zaseden |
 | ρ (ro) | izkoriščenost: delež časa, ko so strežniki zasedeni, λ / (c μ) |
-| χ (hi) | pretok oz. stopnja odhodov: opazovani izhod iz kakršnega koli razloga |
 | α (alfa) | stopnja uspeha: opazovani izhod, ki se izkaže za pravilnega |
 | β (beta) | stopnja neuspeha: opazovani izhod, ki se izkaže za napačnega |
 | δ (delta) | stopnja dokončanja: uspeh + neuspeh, postreženi elementi, ne glede na to, ali je rezultat pravilen ali napačen |
@@ -291,7 +291,7 @@ Spremljamo štiri čase:
 
 - ω (omega): čas čakanja = čas, ko se dejansko delo ne opravlja, oz. čas mirovanja
 
-![Diagram: pretočni čas τ je čas čakanja ω, ki mu sledi čas dela φ, torej τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: pretočni čas τ je čas čakanja ω, ki mu sledi čas dela φ, torej τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Primeri:
 

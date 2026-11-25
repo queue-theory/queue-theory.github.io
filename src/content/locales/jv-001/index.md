@@ -120,9 +120,9 @@ Notasi kita lan teges saben simbol:
 | ----------- | ----- |
 | κ (kappa) | cacah item wonten ing sistem, ingkang ngentosi tuwin ingkang dipungarap |
 | λ (lambda) | laju kadhatengan item ingkang mlebet sistem |
+| χ (chi) | laju budhal item ingkang medal saking sistem |
 | μ (mu) | laju layanan utawi kapasitas: sepinten cepet satunggal server makarya nalika sibuk |
 | ρ (rho) | utilisasi: perangan wekdal server sibuk, λ / (c μ) |
-| χ (chi) | throughput utawi laju medal: asil ingkang dipunamati, kanthi alesan punapa kemawon |
 | α (alpha) | laju kasil: asil ingkang dipunamati ingkang leres |
 | β (beta) | laju gagal: asil ingkang dipunamati ingkang lepat |
 | δ (delta) | laju rampung: kasil + gagal, item ingkang sampun dipunladosi, mboten dados kasil utawi gagal |
@@ -296,7 +296,7 @@ Kita mantau sekawan wekdal:
 
 - ω (omega): wekdal ngentosi = wekdal ingkang boten dipunginakaken kangge makarya saestu utawi wekdal tundha
 
-![Diagram: lead time τ punika wekdal ngentosi ω dipuntutugaken wekdal makarya φ, dados τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: lead time τ punika wekdal ngentosi ω dipuntutugaken wekdal makarya φ, dados τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Tuladha:
 

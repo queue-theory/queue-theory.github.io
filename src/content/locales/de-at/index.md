@@ -115,9 +115,9 @@ Unsere Notation und was jedes Symbol bedeutet:
 | --------------- | --------- |
 | κ (Kappa) | Anzahl der Elemente im System, wartend plus in Bearbeitung |
 | λ (Lambda) | Ankunftsrate der Elemente, die in das System eintreten |
+| χ (Chi) | Abgangsrate der Elemente, die das System verlassen |
 | μ (My) | Bedienrate, auch Kapazität genannt: wie schnell ein Bediener arbeitet, während er beschäftigt ist |
 | ρ (Rho) | Auslastung: der Anteil der Zeit, in der die Bediener beschäftigt sind, λ / (c μ) |
-| χ (Chi) | Durchsatz, auch Abgangsrate genannt: beobachtete Ausgabe, aus beliebigem Grund |
 | α (Alpha) | Erfolgsrate: beobachtete Ausgabe, die sich als richtig erweist |
 | β (Beta) | Fehlerrate: beobachtete Ausgabe, die sich als falsch erweist |
 | δ (Delta) | Abschlussrate: Erfolg + Fehler, bediente Elemente mit richtigem oder falschem Ergebnis |
@@ -288,7 +288,7 @@ Wir verfolgen vier Zeiten:
 
 - ω (Omega): Wartezeit = Zeit, die nicht mit tatsächlicher Arbeit verbracht wird, auch Liegezeit genannt
 
-![Diagramm: Die Durchlaufzeit τ ist die Wartezeit ω gefolgt von der Arbeitszeit φ, also τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagramm: Die Durchlaufzeit τ ist die Wartezeit ω gefolgt von der Arbeitszeit φ, also τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Beispiele:
 

@@ -115,9 +115,9 @@ Eis Notatioun an d’Bedeitung vun all Symbol:
 | ------------- | --------- |
 | κ (Kappa) | Zuel vun Elementer am System, waardend plus a Bearbechtung |
 | λ (Lambda) | Ukonftsrat vun den Elementer, déi an de System erakommen |
+| χ (Chi) | Ofgangsrat vun den Elementer, déi aus dem System erausginn |
 | μ (Mu) | Servicerat, och Kapazitéit: wéi séier ee Server schafft, wann e beschäftegt ass |
 | ρ (Rho) | Auslaaschtung: den Undeel vun der Zäit, an deem d’Server beschäftegt sinn, λ / (c μ) |
-| χ (Chi) | Duerchsaz, och Ofgangsrat: beobachten Output, aus egal wéi engem Grond |
 | α (Alpha) | Erfollegsrat: beobachten Output, deen sech als richteg erweist |
 | β (Beta) | Feelerrat: beobachten Output, deen sech als falsch erweist |
 | δ (Delta) | Ofschlossrat: Erfolleg + Feeler, Elementer, déi bedéngt goufen, egal ob d’Resultat richteg oder falsch ass |
@@ -291,7 +291,7 @@ Mir verfollege véier Zäiten:
 
 - ω (Omega): Waardezäit = Zäit, déi ouni eigentlech Aarbecht verbruecht gëtt, och Liegezäit genannt
 
-![Diagramm: D’Duerchlafzäit τ ass d’Waardezäit ω gefollegt vun der Aarbechtszäit φ, also τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagramm: D’Duerchlafzäit τ ass d’Waardezäit ω gefollegt vun der Aarbechtszäit φ, also τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Beispiller:
 

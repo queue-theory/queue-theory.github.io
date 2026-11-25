@@ -120,9 +120,9 @@ Notre notation et ce que signifie chaque symbole :
 | -------------- | ------------- |
 | κ (kappa) | nombre d'éléments dans le système, en attente plus en cours de traitement |
 | λ (lambda) | taux d'arrivée des éléments qui entrent dans le système |
+| χ (chi) | taux de départ des éléments qui sortent du système |
 | μ (mu) | taux de service, ou capacité : vitesse de travail d'un serveur lorsqu'il est occupé |
 | ρ (rho) | utilisation : fraction du temps pendant laquelle les serveurs sont occupés, λ / (c μ) |
-| χ (chi) | débit, ou taux de départ : production observée, quelle qu'en soit la raison |
 | α (alpha) | taux de succès : production observée qui s'avère correcte |
 | β (bêta) | taux d'échec : production observée qui s'avère incorrecte |
 | δ (delta) | taux d'achèvement : succès + échec, éléments servis dont le résultat est bon ou mauvais |
@@ -296,7 +296,7 @@ Nous suivons quatre temps :
 
 - ω (oméga) : temps d'attente = temps passé sans travail effectif, ou temps en suspens
 
-![Schéma : le délai de bout en bout τ est le temps d'attente ω suivi du temps de travail φ, donc τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Schéma : le délai de bout en bout τ est le temps d'attente ω suivi du temps de travail φ, donc τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Exemples :
 

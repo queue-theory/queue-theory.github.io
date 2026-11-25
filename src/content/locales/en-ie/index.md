@@ -119,9 +119,9 @@ Our notation and what each symbol means:
 | ------------ | --------------------------------------------------------------------- |
 | κ (kappa)    | number of items in the system, waiting plus being worked on           |
 | λ (lambda)   | arrival rate of items that enter the system                           |
+| χ (chi) | departure rate of items that exit the system |
 | μ (mu)       | service rate a.k.a. capacity: how fast one server works while busy    |
 | ρ (rho)      | utilisation: the fraction of time servers are busy, λ / (c μ)         |
-| χ (chi)      | throughput a.k.a. departure rate: observed output, for any reason     |
 | α (alpha)    | success rate: observed output that turns out right                    |
 | β (beta)     | failure rate: observed output that turns out wrong                    |
 | δ (delta)    | done rate: success + failure, items serviced right or wrong           |
@@ -295,7 +295,7 @@ We track four times:
 
 - ω (omega): wait time = time spent not doing actual work a.k.a. pending time
 
-![Diagram: lead time τ is wait time ω followed by work time φ, so τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: lead time τ is wait time ω followed by work time φ, so τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Examples:
 

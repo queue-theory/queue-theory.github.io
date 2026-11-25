@@ -119,9 +119,9 @@ A mi jelölésünk és az egyes szimbólumok jelentése:
 | --------------- | -------- |
 | κ (kappa) | a rendszerben lévő elemek száma, a várakozók és a feldolgozás alatt állók együtt |
 | λ (lambda) | a rendszerbe belépő elemek érkezési rátája |
+| χ (khí) | a rendszerből kilépő elemek távozási rátája |
 | μ (mű) | kiszolgálási ráta, más néven kapacitás: milyen gyorsan dolgozik egy kiszolgáló, amíg foglalt |
 | ρ (rhó) | kihasználtság: az idő azon hányada, amikor a kiszolgálók foglaltak, λ / (c μ) |
-| χ (khí) | áteresztőképesség, más néven távozási ráta: megfigyelt kimenet, bármilyen okból |
 | α (alfa) | sikerességi ráta: a helyesnek bizonyuló megfigyelt kimenet |
 | β (béta) | hibaráta: a hibásnak bizonyuló megfigyelt kimenet |
 | δ (delta) | befejezési ráta: siker + hiba, kiszolgált elemek, akár helyes, akár hibás az eredmény |
@@ -295,7 +295,7 @@ Négy időt követünk nyomon:
 
 - ω (ómega): várakozási idő = a tényleges munka nélkül töltött idő, más néven függőben lévő idő
 
-![Ábra: az átfutási idő τ a várakozási idő ω, amelyet a munkaidő φ követ, tehát τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Ábra: az átfutási idő τ a várakozási idő ω, amelyet a munkaidő φ követ, tehát τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Példák:
 

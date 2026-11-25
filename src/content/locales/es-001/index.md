@@ -121,9 +121,9 @@ Nuestra notación y lo que significa cada símbolo:
 | ---------------- | ----------- |
 | κ (kappa) | número de elementos en el sistema, en espera más en atención |
 | λ (lambda) | tasa de llegada de los elementos que entran al sistema |
+| χ (ji) | tasa de salida de los elementos que salen del sistema |
 | μ (mu) | tasa de servicio, también llamada capacidad: qué tan rápido trabaja un servidor mientras está ocupado |
 | ρ (rho) | utilización: la fracción del tiempo en que los servidores están ocupados, λ / (c μ) |
-| χ (ji) | rendimiento, también llamado tasa de salida: producción observada, por cualquier motivo |
 | α (alfa) | tasa de éxito: producción observada que resulta bien |
 | β (beta) | tasa de falla: producción observada que resulta mal |
 | δ (delta) | tasa de finalización: éxito + falla, elementos atendidos que resultan bien o mal |
@@ -297,7 +297,7 @@ Damos seguimiento a cuatro tiempos:
 
 - ω (omega): tiempo de espera = tiempo en que no se hace trabajo real, también llamado tiempo pendiente
 
-![Diagrama: el tiempo de entrega τ es el tiempo de espera ω seguido del tiempo de trabajo φ, así que τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagrama: el tiempo de entrega τ es el tiempo de espera ω seguido del tiempo de trabajo φ, así que τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Ejemplos:
 

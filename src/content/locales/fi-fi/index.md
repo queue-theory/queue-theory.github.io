@@ -119,9 +119,9 @@ Meidän merkintämme ja se, mitä kukin symboli tarkoittaa:
 | ------------------ | -------- |
 | κ (kappa) | järjestelmässä olevien kohteiden määrä, odottavat ja työn alla olevat |
 | λ (lambda) | järjestelmään tulevien kohteiden saapumisnopeus |
+| χ (khii) | järjestelmästä poistuvien kohteiden poistumisnopeus |
 | μ (mu) | palvelunopeus eli kapasiteetti: kuinka nopeasti yksi palvelin työskentelee varattuna |
 | ρ (rho) | käyttöaste: osuus ajasta, jonka palvelimet ovat varattuina, λ / (c μ) |
-| χ (khii) | läpimeno eli poistumisnopeus: havaittu tuotos mistä tahansa syystä |
 | α (alfa) | onnistumisnopeus: havaittu tuotos, joka osoittautuu oikeaksi |
 | β (beeta) | epäonnistumisnopeus: havaittu tuotos, joka osoittautuu vääräksi |
 | δ (delta) | valmistumisnopeus: onnistuminen + epäonnistuminen, palvellut kohteet, olipa tulos oikea tai väärä |
@@ -295,7 +295,7 @@ Seuraamme neljää aikaa:
 
 - ω (oomega): odotusaika = aika, jolloin varsinaista työtä ei tehdä, eli vireilläoloaika
 
-![Kaavio: läpimenoaika τ on odotusaika ω ja sitä seuraava työaika φ, joten τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Kaavio: läpimenoaika τ on odotusaika ω ja sitä seuraava työaika φ, joten τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Esimerkkejä:
 

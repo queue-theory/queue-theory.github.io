@@ -119,9 +119,9 @@ Okkar táknmál og merking hvers tákns:
 | ------------- | ------- |
 | κ (kappa) | fjöldi atriða í kerfinu, þau sem bíða auk þeirra sem unnið er að |
 | λ (lambda) | komutíðni atriða sem koma inn í kerfið |
+| χ (chi) | brottfaratíðni atriða sem fara út úr kerfinu |
 | μ (mu) | þjónustutíðni, öðru nafni afkastageta: hve hratt einn þjónn vinnur meðan hann er upptekinn |
 | ρ (rho) | nýting: hlutfall tímans sem þjónarnir eru uppteknir, λ / (c μ) |
-| χ (chi) | gegnumstreymi, öðru nafni brottfarartíðni: mæld afköst, af hvaða ástæðu sem er |
 | α (alfa) | árangurstíðni: mæld afköst sem reynast rétt |
 | β (beta) | villutíðni: mæld afköst sem reynast röng |
 | δ (delta) | lokatíðni: árangur + villur, atriði sem fengu þjónustu, hvort sem niðurstaðan var rétt eða röng |
@@ -295,7 +295,7 @@ Við fylgjumst með fjórum tímum:
 
 - ω (ómega): biðtími = tími sem fer ekki í raunverulega vinnu, öðru nafni bið
 
-![Skýringarmynd: heildartíminn τ er biðtíminn ω og síðan vinnutíminn φ, því τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Skýringarmynd: heildartíminn τ er biðtíminn ω og síðan vinnutíminn φ, því τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Dæmi:
 

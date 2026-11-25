@@ -120,9 +120,9 @@ Ein nodiant ac ystyr pob symbol:
 | ----------- | ----- |
 | κ (kappa) | nifer yr eitemau yn y system, sef y rhai sy’n aros a’r rhai sy’n cael eu trin |
 | λ (lambda) | cyfradd cyrraedd yr eitemau sy’n mynd i mewn i’r system |
+| χ (chi) | cyfradd ymadael yr eitemau sy’n gadael y system |
 | μ (mu) | cyfradd gwasanaethu, neu gapasiti: pa mor gyflym mae un gweinydd yn gweithio tra bydd yn brysur |
 | ρ (rho) | defnydd: y gyfran o’r amser y mae’r gweinyddion yn brysur, λ / (c μ) |
-| χ (chi) | trwybwn, neu gyfradd ymadael: allbwn a welwyd, am unrhyw reswm |
 | α (alffa) | cyfradd llwyddo: allbwn a welwyd sy’n troi allan yn iawn |
 | β (beta) | cyfradd methu: allbwn a welwyd sy’n troi allan yn anghywir |
 | δ (delta) | cyfradd gorffen: llwyddiant + methiant, eitemau a gafodd wasanaeth, boed yn gywir neu’n anghywir |
@@ -296,7 +296,7 @@ Rydym yn olrhain pedwar amser:
 
 - ω (omega): amser aros = amser a dreulir heb wneud gwaith go iawn, sef amser disgwyl
 
-![Diagram: amser arwain τ yw’r amser aros ω ac yna’r amser gwaith φ, felly τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: amser arwain τ yw’r amser aros ω ac yna’r amser gwaith φ, felly τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Enghreifftiau:
 

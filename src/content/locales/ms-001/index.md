@@ -115,9 +115,9 @@ Tatatanda kami dan maksud setiap simbol:
 | -------------- | ------ |
 | κ (kappa) | bilangan item dalam sistem, iaitu yang menunggu ditambah yang sedang dikerjakan |
 | λ (lambda) | kadar ketibaan item yang memasuki sistem |
+| χ (chi) | kadar pemergian item yang keluar daripada sistem |
 | μ (mu) | kadar perkhidmatan atau kapasiti: kepantasan satu pelayan bekerja ketika sibuk |
 | ρ (rho) | penggunaan: pecahan masa pelayan sibuk, λ / (c μ) |
-| χ (chi) | daya pemprosesan atau kadar pelepasan: output yang diperhatikan, atas apa jua sebab |
 | α (alpha) | kadar kejayaan: output yang diperhatikan yang ternyata betul |
 | β (beta) | kadar kegagalan: output yang diperhatikan yang ternyata salah |
 | δ (delta) | kadar selesai: kejayaan + kegagalan, item yang telah dilayan, sama ada hasilnya betul atau salah |
@@ -288,7 +288,7 @@ Kami menjejaki empat jenis masa:
 
 - ω (omega): masa menunggu = masa yang digunakan tanpa melakukan kerja sebenar atau masa tertangguh
 
-![Rajah: masa pendahuluan τ ialah masa menunggu ω diikuti masa kerja φ, jadi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Rajah: masa pendahuluan τ ialah masa menunggu ω diikuti masa kerja φ, jadi τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Contoh:
 

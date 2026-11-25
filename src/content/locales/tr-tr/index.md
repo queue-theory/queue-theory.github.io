@@ -120,9 +120,9 @@ Bizim gösterimimiz ve her simgenin anlamı:
 | ------------------ | ------ |
 | κ (kappa) | sistemdeki öğe sayısı, bekleyenler artı üzerinde çalışılanlar |
 | λ (lambda) | sisteme giren öğelerin varış hızı |
+| χ (chi) | sistemden çıkan öğelerin ayrılış hızı |
 | μ (mu) | hizmet hızı, diğer adıyla kapasite: bir sunucunun meşgulken ne kadar hızlı çalıştığı |
 | ρ (rho) | kullanım: sunucuların meşgul olduğu zamanın oranı, λ / (c μ) |
-| χ (chi) | çıktı hızı, diğer adıyla ayrılış hızı: herhangi bir nedenle gözlenen çıktı |
 | α (alpha) | başarı hızı: doğru çıkan gözlenen çıktı |
 | β (beta) | başarısızlık hızı: yanlış çıkan gözlenen çıktı |
 | δ (delta) | tamamlanma hızı: başarı + başarısızlık, hizmet alan öğeler, sonuç doğru da olsa yanlış da olsa |
@@ -296,7 +296,7 @@ Dört süreyi takip ederiz:
 
 - ω (omega): bekleme süresi = fiilî iş yapılmadan geçen süre, diğer adıyla askıda kalma süresi
 
-![Diyagram: teslim süresi τ, bekleme süresi ω ve ardından gelen çalışma süresi φ'dir, dolayısıyla τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diyagram: teslim süresi τ, bekleme süresi ω ve ardından gelen çalışma süresi φ'dir, dolayısıyla τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Örnekler:
 

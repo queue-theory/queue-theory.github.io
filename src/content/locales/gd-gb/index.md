@@ -121,9 +121,9 @@ An comharrachadh againne agus na tha de chiall aig gach samhla:
 | ------------------------ | ----- |
 | κ (kappa) | an àireamh de nithean san t-siostam, a' feitheamh agus fo obair |
 | λ (lambda) | reat ruighinn nan nithean a thig a-steach dhan t-siostam |
+| χ (chi) | reat falbhaidh nan nithean a dh'fhàgas an t-siostam |
 | μ (mu) | reat seirbheis no comas: cho luath 's a dh'obraicheas aon fhrithealaiche nuair a tha e trang |
 | ρ (rho) | cleachdadh: a' chuibhreann den ùine a tha na frithealaichean trang, λ / (c μ) |
-| χ (chi) | tro-chur no reat fàgail: an toradh a chithear, airson adhbhar sam bith |
 | α (alpha) | reat soirbheachais: an toradh a chithear a tha ceart |
 | β (beta) | reat fàillinn: an toradh a chithear a tha ceàrr |
 | δ (delta) | reat crìochnachaidh: soirbheachas + fàillinn, nithean a fhuair seirbheis, ge bith an robh an toradh ceart no ceàrr |
@@ -297,7 +297,7 @@ Bidh sinn a' lorg ceithir ùineachan:
 
 - ω (omega): ùine feitheimh = an ùine a thèid a chaitheamh gun fhìor obair a dhèanamh, no ùine ri feitheamh
 
-![Diagram: is e an ùine luaidhe τ an ùine feitheimh ω agus an uair sin an ùine obrach φ, mar sin τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: is e an ùine luaidhe τ an ùine feitheimh ω agus an uair sin an ùine obrach φ, mar sin τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Eisimpleirean:
 

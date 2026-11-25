@@ -115,9 +115,9 @@ Oor notation an whit each seembol means:
 | ------------ | ------ |
 | κ (kappa) | nummer o items in the system, waitin plus bein wrocht on |
 | λ (lambda) | arrival rate o items that enter the system |
+| χ (chi) | departure rate o items that exit the system |
 | μ (mu) | service rate, aka capacity: hoo quick ae server warks while it is thrang |
 | ρ (rho) | utilisation: the fraction o time the servers are thrang, λ / (c μ) |
-| χ (chi) | throughput, aka departure rate: observed output, fur onie reason |
 | α (alpha) | success rate: observed output that turns oot richt |
 | β (beta) | failure rate: observed output that turns oot wrang |
 | δ (delta) | duin rate: success + failure, items that were served, whether the result is richt or wrang |
@@ -288,7 +288,7 @@ We track fower times:
 
 - ω (omega): wait time = time spent no daein actual wark, aka pendin time
 
-![Diagram: lead time τ is waitin time ω follaed bi wark time φ, sae τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: lead time τ is waitin time ω follaed bi wark time φ, sae τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Examples:
 

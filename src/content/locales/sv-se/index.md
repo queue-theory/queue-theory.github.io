@@ -115,9 +115,9 @@ Vår notation och vad varje symbol betyder:
 | ------------ | --------- |
 | κ (kappa) | antal objekt i systemet, väntande plus objekt som bearbetas |
 | λ (lambda) | ankomsttakt för objekt som kommer in i systemet |
+| χ (chi) | avgångstakt för objekt som lämnar systemet |
 | μ (my) | betjäningstakt, även kallad kapacitet: hur snabbt en server arbetar när den är upptagen |
 | ρ (rho) | utnyttjandegrad: andelen tid som servrarna är upptagna, λ / (c μ) |
-| χ (chi) | genomflöde, även kallat avgångstakt: observerat utflöde, oavsett orsak |
 | α (alfa) | lyckandetakt: observerat utflöde som visar sig vara rätt |
 | β (beta) | felfrekvens: observerat utflöde som visar sig vara fel |
 | δ (delta) | slutförandetakt: lyckande + misslyckande, objekt som har betjänats, oavsett om resultatet är rätt eller fel |
@@ -291,7 +291,7 @@ Vi följer fyra tider:
 
 - ω (omega): väntetid = tid som inte läggs på faktiskt arbete, även kallad vilotid
 
-![Diagram: ledtiden τ är väntetiden ω följd av arbetstiden φ, alltså τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: ledtiden τ är väntetiden ω följd av arbetstiden φ, alltså τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Exempel:
 

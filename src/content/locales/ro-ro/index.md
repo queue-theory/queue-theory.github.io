@@ -115,9 +115,9 @@ Notația noastră și semnificația fiecărui simbol:
 | --------------- | ------------ |
 | κ (kappa) | numărul de elemente din sistem, cele care așteaptă plus cele în lucru |
 | λ (lambda) | rata de sosire a elementelor care intră în sistem |
+| χ (chi) | rata de plecare a elementelor care ies din sistem |
 | μ (mu) | rata de servire, adică capacitatea: cât de repede lucrează un server cât este ocupat |
 | ρ (rho) | utilizarea: fracțiunea de timp în care serverele sunt ocupate, λ / (c μ) |
-| χ (chi) | debitul, adică rata de plecare: producția observată, din orice motiv |
 | α (alpha) | rata de succes: producția observată care se dovedește corectă |
 | β (beta) | rata de eșec: producția observată care se dovedește greșită |
 | δ (delta) | rata de finalizare: succes + eșec, elemente servite, indiferent dacă rezultatul este corect sau greșit |
@@ -291,7 +291,7 @@ Urmărim patru timpi:
 
 - ω (omega): timpul de așteptare = timpul petrecut fără muncă efectivă, cunoscut și ca timp în așteptare
 
-![Diagramă: timpul de livrare τ este timpul de așteptare ω urmat de timpul de lucru φ, deci τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagramă: timpul de livrare τ este timpul de așteptare ω urmat de timpul de lucru φ, deci τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Exemple:
 

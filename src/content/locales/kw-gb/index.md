@@ -115,9 +115,9 @@ Agan notyans ha styr pub arwodh:
 | ------------ | ---- |
 | κ (kappa) | niver a daklow y’n system, ow kortos keffrys hag ow pos oberys |
 | λ (lambda) | toth devedhyans an taklow a entr y’n system |
+| χ (chi) | toth dibarth an taklow a as an system |
 | μ (mu) | toth servis po dalgh: pes uskis yth ober unn servell ha hi bysi |
 | ρ (rho) | devnydh: an rann a’n termyn may ma an servellow bysi, λ / (c μ) |
-| χ (chi) | toth dhe-ves po toth gasa an system: eskor gwelys, rag acheson vyth |
 | α (alpha) | toth sewena: eskor gwelys a dhe vos ewn |
 | β (beta) | toth fyllel: eskor gwelys a dhe vos kamm |
 | δ (delta) | toth gorfennys: sewena + fyllel, taklow servys, pynag oll yw an sewyans ewn po kamm |
@@ -288,7 +288,7 @@ Ni a hol peswar termyn:
 
 - ω (omega): termyn gortos = termyn spenys heb gul ober gwir po termyn ow kortos
 
-![Diagram: an termyn ledya τ yw an termyn ow kortos ω ha ena an termyn ober φ, yndella τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: an termyn ledya τ yw an termyn ow kortos ω ha ena an termyn ober φ, yndella τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Ensamplow:
 

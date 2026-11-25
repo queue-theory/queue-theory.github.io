@@ -119,9 +119,9 @@ Gure notazioa eta ikur bakoitzaren esanahia:
 | ------------- | -------- |
 | κ (kappa) | sistemako elementuen kopurua, itxaroten daudenak gehi lantzen ari direnak |
 | λ (lambda) | sisteman sartzen diren elementuen iritsiera-tasa |
+| χ (chi) | sistematik irteten diren elementuen irteera-tasa |
 | μ (mu) | zerbitzu-tasa, gaitasuna ere deitua: zerbitzari bat zein azkar ari den lanean lanpetuta dagoenean |
 | ρ (rho) | erabilera: zerbitzariak lanpetuta dauden denboraren zatikia, λ / (c μ) |
-| χ (chi) | ekoizpena, irteera-tasa ere deitua: behatutako irteera, edozein arrazoirengatik |
 | α (alpha) | arrakasta-tasa: zuzena gertatzen den behatutako irteera |
 | β (beta) | hutsegite-tasa: okerra gertatzen den behatutako irteera |
 | δ (delta) | amaitze-tasa: arrakasta + hutsegitea, zerbitzatutako elementuak, emaitza zuzena zein okerra izan |
@@ -295,7 +295,7 @@ Lau denbora jarraitzen ditugu:
 
 - ω (omega): itxaron-denbora = benetako lana egin gabe emandako denbora, zain-denbora ere deitua
 
-![Diagrama: entrega-denbora τ itxaron-denbora ω da, ondoren lan-denbora φ, beraz τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagrama: entrega-denbora τ itxaron-denbora ω da, ondoren lan-denbora φ, beraz τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Adibideak:
 

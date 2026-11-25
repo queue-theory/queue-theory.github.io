@@ -119,9 +119,9 @@ Naša notacija i značenje svakog simbola:
 | ------------- | -------- |
 | κ (kapa) | broj stavki u sustavu, onih koje čekaju i onih na kojima se radi |
 | λ (lambda) | stopa dolazaka stavki koje ulaze u sustav |
+| χ (hi) | stopa odlazaka stavki koje izlaze iz sustava |
 | μ (mi) | stopa posluživanja odnosno kapacitet: koliko brzo jedan poslužitelj radi dok je zauzet |
 | ρ (ro) | iskorištenost: udio vremena u kojem su poslužitelji zauzeti, λ / (c μ) |
-| χ (hi) | propusnost odnosno stopa odlazaka: opaženi izlaz, iz bilo kojeg razloga |
 | α (alfa) | stopa uspjeha: opaženi izlaz koji se pokaže ispravnim |
 | β (beta) | stopa neuspjeha: opaženi izlaz koji se pokaže neispravnim |
 | δ (delta) | stopa dovršenosti: uspjeh + neuspjeh, stavke koje su poslužene, bilo da je ishod ispravan ili pogrešan |
@@ -295,7 +295,7 @@ Pratimo četiri vremena:
 
 - ω (omega): vrijeme čekanja = vrijeme u kojem se ne obavlja stvarni rad odnosno vrijeme na čekanju
 
-![Dijagram: vrijeme isporuke τ je vrijeme čekanja ω nakon kojeg slijedi vrijeme rada φ, dakle τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Dijagram: vrijeme isporuke τ je vrijeme čekanja ω nakon kojeg slijedi vrijeme rada φ, dakle τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Primjeri:
 

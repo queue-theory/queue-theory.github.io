@@ -119,9 +119,9 @@ Naše notace a význam jednotlivých symbolů:
 | ----------- | ------ |
 | κ (kappa) | počet položek v systému, čekajících i právě zpracovávaných |
 | λ (lambda) | intenzita příchodů položek, které vstupují do systému |
+| χ (chí) | intenzita odchodů položek, které opouštějí systém |
 | μ (mí) | intenzita obsluhy neboli kapacita: jak rychle pracuje jeden server, když je vytížen |
 | ρ (ró) | vytížení: podíl času, kdy jsou servery obsazeny, λ / (c μ) |
-| χ (chí) | propustnost neboli intenzita odchodů: pozorovaný výstup z jakéhokoli důvodu |
 | α (alfa) | míra úspěchu: pozorovaný výstup, který se ukáže jako správný |
 | β (beta) | míra selhání: pozorovaný výstup, který se ukáže jako chybný |
 | δ (delta) | míra dokončení: úspěch + selhání, obsloužené položky s dobrým i špatným výsledkem |
@@ -295,7 +295,7 @@ Sledujeme čtyři doby:
 
 - ω (omega): doba čekání = čas, kdy se skutečně nepracuje, neboli doba nevyřízení
 
-![Diagram: průběžná doba τ je doba čekání ω následovaná dobou práce φ, tedy τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: průběžná doba τ je doba čekání ω následovaná dobou práce φ, tedy τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Příklady:
 

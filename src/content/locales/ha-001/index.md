@@ -119,9 +119,9 @@ Alamarmu da ma'anar kowace alama:
 | -------- | ------ |
 | κ (kappa) | adadin abubuwa a cikin tsarin, masu jira tare da waɗanda ake aiki a kansu |
 | λ (lambda) | yawan isowar abubuwan da ke shiga tsarin |
+| χ (chi) | yawan ficewar abubuwan da ke fita daga tsarin |
 | μ (mu) | yawan sabis wato ƙarfi: saurin aikin mai sabis ɗaya yayin da yake aiki |
 | ρ (rho) | amfani: ɓangaren lokacin da masu sabis ke aiki, λ / (c μ) |
-| χ (chi) | yawan fitarwa wato yawan tashi: fitarwar da aka lura, saboda kowane dalili |
 | α (alpha) | yawan nasara: fitarwar da aka lura wadda ta zama daidai |
 | β (beta) | yawan gazawa: fitarwar da aka lura wadda ta zama ba daidai ba |
 | δ (delta) | yawan kammalawa: nasara + gazawa, abubuwan da aka yi musu sabis, ko sakamakon daidai ne ko kuskure |
@@ -295,7 +295,7 @@ Muna bin diddigin lokuta huɗu:
 
 - ω (omega): lokacin jira = lokacin da aka kashe ba tare da yin ainihin aiki ba wato lokacin dakon
 
-![Zane: lokacin jagora τ shi ne lokacin jira ω sai kuma lokacin aiki φ, don haka τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Zane: lokacin jagora τ shi ne lokacin jira ω sai kuma lokacin aiki φ, don haka τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Misalai:
 

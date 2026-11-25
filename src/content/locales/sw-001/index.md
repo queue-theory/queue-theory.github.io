@@ -115,9 +115,9 @@ Alama zetu na maana ya kila alama:
 | ---------- | ----- |
 | κ (kappa) | idadi ya vipengee katika mfumo, vinavyosubiri pamoja na vinavyoshughulikiwa |
 | λ (lambda) | kiwango cha uwasili wa vipengee vinavyoingia katika mfumo |
+| χ (chi) | kiwango cha kuondoka cha vipengee vinavyotoka katika mfumo |
 | μ (mu) | kiwango cha huduma, yaani uwezo: kasi ya seva moja inapofanya kazi |
 | ρ (rho) | matumizi: sehemu ya muda ambao seva zina shughuli, λ / (c μ) |
-| χ (chi) | kiwango cha upitishaji, yaani kiwango cha kuondoka: matokeo yanayoonekana, kwa sababu yoyote |
 | α (alpha) | kiwango cha mafanikio: matokeo yanayoonekana ambayo yanageuka kuwa sahihi |
 | β (beta) | kiwango cha kushindwa: matokeo yanayoonekana ambayo yanageuka kuwa makosa |
 | δ (delta) | kiwango cha kukamilika: mafanikio + kushindwa, vipengee vilivyohudumiwa, iwe matokeo ni sahihi au si sahihi |
@@ -288,7 +288,7 @@ Tunafuatilia aina nne za muda:
 
 - ω (omega): muda wa kusubiri = muda unaotumika bila kufanya kazi halisi, yaani muda wa kungoja
 
-![Mchoro: muda wa jumla wa utekelezaji τ ni muda wa kusubiri ω ukifuatwa na muda wa kazi φ, hivyo τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Mchoro: muda wa jumla wa utekelezaji τ ni muda wa kusubiri ω ukifuatwa na muda wa kazi φ, hivyo τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Mifano:
 

@@ -120,9 +120,9 @@ Notasi kami dan arti setiap simbol:
 | ----------- | ---- |
 | κ (kappa) | jumlah item dalam sistem, yang menunggu ditambah yang sedang dikerjakan |
 | λ (lambda) | laju kedatangan item yang masuk ke sistem |
+| χ (chi) | laju keberangkatan item yang keluar dari sistem |
 | μ (mu) | laju layanan, atau kapasitas: seberapa cepat satu server bekerja saat sibuk |
 | ρ (rho) | utilisasi: fraksi waktu server sibuk, λ / (c μ) |
-| χ (chi) | throughput, atau laju keberangkatan: keluaran yang teramati, karena alasan apa pun |
 | α (alpha) | laju keberhasilan: keluaran teramati yang ternyata benar |
 | β (beta) | laju kegagalan: keluaran teramati yang ternyata salah |
 | δ (delta) | laju selesai: keberhasilan + kegagalan, item yang telah dilayani, baik hasilnya benar maupun salah |
@@ -296,7 +296,7 @@ Kami melacak empat waktu:
 
 - ω (omega): waktu tunggu = waktu yang dihabiskan tanpa melakukan pekerjaan sebenarnya, atau waktu tertunda
 
-![Diagram: lead time τ adalah waktu menunggu ω diikuti waktu kerja φ, sehingga τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: lead time τ adalah waktu menunggu ω diikuti waktu kerja φ, sehingga τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Contoh:
 

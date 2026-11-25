@@ -115,9 +115,9 @@ SJF 和 SRPT 能使平均等待時間最小，但可能讓長作業無限期地�
 | ------ | -- |
 | κ（kappa） | 系統中的條目數，即等待中的條目加上正在處理的條目 |
 | λ（lambda） | 進入系統的條目的到達率 |
+| χ（chi） | 離開系統的條目的離開率 |
 | μ（mu） | 服務率，又稱容量：單個服務檯在忙碌時的工作速度 |
 | ρ（rho） | 利用率：服務檯處於忙碌狀態的時間比例，λ / (c μ) |
-| χ（chi） | 吞吐量，又稱離開率：因任何原因觀測到的產出 |
 | α（alpha） | 成功率：觀測到的產出中結果正確的部分 |
 | β（beta） | 失敗率：觀測到的產出中結果錯誤的部分 |
 | δ（delta） | 完成率：成功 + 失敗，即已獲得服務的條目，無論結果正確與否 |
@@ -288,7 +288,7 @@ SJF 和 SRPT 能使平均等待時間最小，但可能讓長作業無限期地�
 
 - ω（omega）：等待時間 = 未進行實際工作的時間，又稱掛起時間
 
-![示意圖：前置時間 τ 是等待時間 ω 加工作時間 φ，因此 τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![示意圖：前置時間 τ 是等待時間 ω 加工作時間 φ，因此 τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 範例：
 

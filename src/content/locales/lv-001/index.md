@@ -115,9 +115,9 @@ Mūsu apzīmējumi un katra simbola nozīme:
 | --------------- | ------ |
 | κ (kapa) | elementu skaits sistēmā: gaidošie un apstrādājamie |
 | λ (lambda) | sistēmā ienākošo elementu ierašanās ātrums |
+| χ (hī) | no sistēmas izejošo elementu aiziešanas ātrums |
 | μ (mī) | apkalpošanas ātrums jeb jauda: cik ātri strādā viens aizņemts serveris |
 | ρ (ro) | noslodze: laika daļa, kad serveri ir aizņemti, λ / (c μ) |
-| χ (hī) | caurlaidspēja jeb aiziešanas ātrums: novērotā izvade jebkura iemesla dēļ |
 | α (alfa) | veiksmes ātrums: novērotā izvade, kas izrādās pareiza |
 | β (beta) | neveiksmes ātrums: novērotā izvade, kas izrādās nepareiza |
 | δ (delta) | pabeigšanas ātrums: veiksme + neveiksme, apkalpotie elementi neatkarīgi no tā, vai rezultāts ir pareizs vai nepareizs |
@@ -288,7 +288,7 @@ Mēs sekojam četriem laikiem:
 
 - ω (omega): gaidīšanas laiks = laiks, kas pavadīts, neveicot faktisku darbu, jeb nogaides laiks
 
-![Diagramma: izpildes laiks τ ir gaidīšanas laiks ω, kam seko darba laiks φ, tātad τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagramma: izpildes laiks τ ir gaidīšanas laiks ω, kam seko darba laiks φ, tātad τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Piemēri:
 

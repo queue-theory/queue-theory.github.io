@@ -120,9 +120,9 @@ Déanann cineálacha scuainí agus cineálacha seirbhíse cur síos ar an gcaoi 
 | -------------- | --- |
 | κ (kappa) | líon na míreanna sa chóras, ag feitheamh móide á n-oibriú |
 | λ (lambda) | ráta teachta na míreanna a théann isteach sa chóras |
+| χ (chi) | ráta imeachta na míreanna a fhágann an córas |
 | μ (mu) | ráta seirbhíse, nó acmhainn: cé chomh tapa a oibríonn freastalaí amháin agus é gnóthach |
 | ρ (rho) | úsáid: an codán ama a bhíonn na freastalaithe gnóthach, λ / (c μ) |
-| χ (chi) | tréchur, nó ráta imeachta: an t-aschur a breathnaíodh, ar chúis ar bith |
 | α (alpha) | ráta ratha: an t-aschur a breathnaíodh atá ceart |
 | β (beta) | ráta teipe: an t-aschur a breathnaíodh atá mícheart |
 | δ (delta) | ráta críochnaithe: rath + teip, míreanna a fuair seirbhís, bíodh toradh ceart nó mícheart orthu |
@@ -293,7 +293,7 @@ Rianaímid ceithre am:
 
 - ω (omega): am feithimh = an t-am a chaitear gan fíorobair a dhéanamh, nó am ar feitheamh
 
-![Léaráid: is é an t-am luaidhe τ an t-am feithimh ω agus ansin an t-am oibre φ, mar sin τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Léaráid: is é an t-am luaidhe τ an t-am feithimh ω agus ansin an t-am oibre φ, mar sin τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Samplaí:
 

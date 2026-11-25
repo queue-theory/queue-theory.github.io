@@ -115,9 +115,9 @@ In-notazzjoni tagħna u t-tifsira ta’ kull simbolu:
 | -------------------- | ------- |
 | κ (kappa) | għadd ta’ oġġetti fis-sistema, dawk li qed jistennew flimkien ma’ dawk li qed jinħadmu |
 | λ (lambda) | rata ta’ wasla tal-oġġetti li jidħlu fis-sistema |
+| χ (chi) | rata ta’ tluq tal-oġġetti li joħorġu mis-sistema |
 | μ (mu) | rata ta’ servizz jew kapaċità: kemm jaħdem malajr server wieħed meta jkun okkupat |
 | ρ (rho) | utilizzazzjoni: il-proporzjon tal-ħin li fih is-servers ikunu okkupati, λ / (c μ) |
-| χ (chi) | throughput jew rata ta’ tluq: l-output osservat, għal kwalunkwe raġuni |
 | α (alpha) | rata ta’ suċċess: l-output osservat li joħroġ tajjeb |
 | β (beta) | rata ta’ falliment: l-output osservat li joħroġ ħażin |
 | δ (delta) | rata ta’ tlestija: suċċess + falliment, oġġetti li ġew moqdija, kemm jekk ir-riżultat huwa tajjeb kif ukoll jekk żbaljat |
@@ -289,7 +289,7 @@ Aħna nsegwu erba’ ħinijiet:
 
 - ω (omega): ħin ta’ stennija = ħin li fih ma jsir l-ebda xogħol reali, jew ħin pendenti
 
-![Dijagramma: il-ħin ta’ twassil τ huwa l-ħin ta’ stennija ω segwit mill-ħin tax-xogħol φ, għalhekk τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Dijagramma: il-ħin ta’ twassil τ huwa l-ħin ta’ stennija ω segwit mill-ħin tax-xogħol φ, għalhekk τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Eżempji:
 

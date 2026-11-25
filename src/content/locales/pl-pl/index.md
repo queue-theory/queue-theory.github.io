@@ -115,9 +115,9 @@ Nasza notacja i znaczenie każdego symbolu:
 | ------------- | --------- |
 | κ (kappa) | liczba elementów w systemie, oczekujących plus obsługiwanych |
 | λ (lambda) | tempo przybywania elementów wchodzących do systemu |
+| χ (chi) | tempo opuszczania systemu przez elementy, które z niego wychodzą |
 | μ (mi) | tempo obsługi, czyli wydajność: jak szybko pracuje jeden serwer, gdy jest zajęty |
 | ρ (rho) | wykorzystanie: część czasu, w której serwery są zajęte, λ / (c μ) |
-| χ (chi) | przepustowość, czyli tempo wyjść: obserwowany wynik, z dowolnej przyczyny |
 | α (alfa) | tempo sukcesów: obserwowany wynik, który okazuje się poprawny |
 | β (beta) | tempo porażek: obserwowany wynik, który okazuje się błędny |
 | δ (delta) | tempo zakończeń: sukces + porażka, elementy obsłużone, niezależnie od tego, czy wynik jest poprawny, czy błędny |
@@ -291,7 +291,7 @@ Przykłady:
 
 - ω (omega): czas oczekiwania = czas, w którym nie wykonuje się faktycznej pracy, czyli czas zawieszenia
 
-![Diagram: czas realizacji τ to czas oczekiwania ω, po którym następuje czas pracy φ, zatem τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: czas realizacji τ to czas oczekiwania ω, po którym następuje czas pracy φ, zatem τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Przykłady:
 

@@ -119,9 +119,9 @@ Meie tähistus ja iga sümboli tähendus:
 | ------------- | -------- |
 | κ (kapa) | süsteemis olevate üksuste arv, ootavad pluss töös olevad |
 | λ (lambda) | süsteemi sisenevate üksuste saabumiskiirus |
+| χ (hii) | süsteemist väljuvate üksuste lahkumiskiirus |
 | μ (müü) | teeninduskiirus ehk võimsus: kui kiiresti üks teenindaja hõivatuna töötab |
 | ρ (roo) | kasutusaste: osa ajast, mil teenindajad on hõivatud, λ / (c μ) |
-| χ (hii) | läbilaskevõime ehk väljumiskiirus: täheldatud väljund mis tahes põhjusel |
 | α (alfa) | õnnestumiskiirus: täheldatud väljund, mis osutub õigeks |
 | β (beeta) | ebaõnnestumiskiirus: täheldatud väljund, mis osutub valeks |
 | δ (delta) | lõpetamiskiirus: õnnestumine + ebaõnnestumine, teenindatud üksused, olgu tulemus õige või vale |
@@ -295,7 +295,7 @@ Jälgime nelja aega:
 
 - ω (oomega): ooteaeg = aeg, mil tegelikku tööd ei tehta, ehk ootel olemise aeg
 
-![Diagramm: läbimisaeg τ on ooteaeg ω, millele järgneb tööaeg φ, seega τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagramm: läbimisaeg τ on ooteaeg ω, millele järgneb tööaeg φ, seega τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Näited:
 

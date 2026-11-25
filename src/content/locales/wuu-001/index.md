@@ -115,9 +115,9 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 | ----- | -- |
 | κ（kappa） | 系统里向条目个数目，就是等辣海个条目加上正辣处理个条目 |
 | λ（lambda） | 到达率：条目进入系统个速率 |
+| χ（chi） | 离开率：条目离开系统个速率 |
 | μ（mu） | 服务率，又叫容量：一只服务台辣忙个辰光做得有多少快 |
 | ρ（rho） | 利用率：服务台辣忙个时间比例，λ / (c μ) |
-| χ（chi） | 吞吐量，又叫离开率：观测到个产出，勿管啥原因 |
 | α（alpha） | 成功率：观测到个产出里向结果对个 |
 | β（beta） | 失败率：观测到个产出里向结果错个 |
 | δ（delta） | 完成率：成功 + 失败，就是已经得着服务个条目，勿管结果对还是错 |
@@ -288,7 +288,7 @@ SJF 搭 SRPT 能够让平均等待时间顶短，不过长作业有可能一直�
 
 - ω（omega）：等待时间 = 呒没真正做生活个时间，又叫挂起时间
 
-![示意图：前置时间 τ 是等待时间 ω 加上工作时间 φ，所以 τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![示意图：前置时间 τ 是等待时间 ω 加上工作时间 φ，所以 τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 例子：
 

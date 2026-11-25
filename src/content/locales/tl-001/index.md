@@ -115,9 +115,9 @@ Aming notasyon at ang kahulugan ng bawat simbolo:
 | -------------- | --------- |
 | κ (kappa) | bilang ng mga item sa sistema, mga naghihintay at mga pinagtatrabahuhan |
 | λ (lambda) | rate ng pagdating ng mga item na pumapasok sa sistema |
+| χ (chi) | rate ng pag-alis ng mga item na lumalabas sa sistema |
 | μ (mu) | rate ng serbisyo, o kapasidad: kung gaano kabilis gumagana ang isang server habang abala |
 | ρ (rho) | utilisasyon: ang bahagi ng oras na abala ang mga server, λ / (c μ) |
-| χ (chi) | throughput, o rate ng paglabas: nasusukat na output, sa anumang dahilan |
 | α (alpha) | rate ng tagumpay: nasusukat na output na lumalabas na tama |
 | β (beta) | rate ng pagkabigo: nasusukat na output na lumalabas na mali |
 | δ (delta) | rate ng pagkumpleto: tagumpay + pagkabigo, mga item na napagsilbihan, tama man o mali ang kinalabasan |
@@ -291,7 +291,7 @@ Apat na tagal ang aming sinusubaybayan:
 
 - ω (omega): tagal ng paghihintay = oras na hindi ginugol sa aktuwal na trabaho, o tagal ng pagkabinbin
 
-![Diagram: ang lead time τ ay ang tagal ng paghihintay ω na sinusundan ng tagal ng trabaho φ, kaya τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-wait-time-work-time.svg)
+![Diagram: ang lead time τ ay ang tagal ng paghihintay ω na sinusundan ng tagal ng trabaho φ, kaya τ = ω + φ](https://queue-theory.github.io/images/queue-theory-tau-total-time-equals-omega-wait-time-phi-work-time.svg)
 
 Mga halimbawa:
 
