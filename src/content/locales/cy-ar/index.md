@@ -127,7 +127,7 @@ Ein nodiant ac ystyr pob symbol:
 | β (beta) | cyfradd methu: allbwn a welwyd sy’n troi allan yn anghywir |
 | δ (delta) | cyfradd gorffen: llwyddiant + methiant, eitemau a gafodd wasanaeth, boed yn gywir neu’n anghywir |
 | σ (sigma) | cyfradd hepgor: eitemau a aeth i mewn, yna gadael heb wasanaeth |
-| ε (epsilon) | cymhareb gwallau: β / (α + β) = β / δ |
+| ε (epsilon) | cymhareb gwallau: β / δ = β / (α + β) |
 | τ (tau) | amser yn y system, neu amser arwain |
 | ω (omega) | amser yn aros, neu amser yn y ciw |
 | φ (phi) | amser yn gweithio, neu amser yn y prosesydd, neu amser gwasanaethu |
@@ -274,7 +274,7 @@ Nid hepgoriadau yw dau ymddygiad cysylltiedig:
 
 Y nodiant pwysicaf sy’n crynhoi llwyddiant ciw:
 
-- ε (epsilon): cymhareb gwallau = cyfrif methiannau / (cyfrif llwyddiannau + cyfrif methiannau) = β / (α + β) = β / δ
+- ε (epsilon): cymhareb gwallau = cyfrif methiannau / nifer y rhai gorffenedig = β / δ = β / (α + β)
 
 Mae hepgoriadau wedi’u heithrio, oherwydd ni chafodd eitem a hepgorwyd erioed ei gwasanaethu, felly nid oedd yn iawn nac yn anghywir. Olrheiniwch hepgoriadau ar wahân drwy σ.
 

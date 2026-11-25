@@ -122,7 +122,7 @@ Tatatanda kami dan maksud setiap simbol:
 | β (beta) | kadar kegagalan: output yang diperhatikan yang ternyata salah |
 | δ (delta) | kadar selesai: kejayaan + kegagalan, item yang telah dilayan, sama ada hasilnya betul atau salah |
 | σ (sigma) | kadar langkau: item yang masuk, kemudian keluar tanpa dilayan |
-| ε (epsilon) | nisbah ralat: β / (α + β) = β / δ |
+| ε (epsilon) | nisbah ralat: β / δ = β / (α + β) |
 | τ (tau) | masa dalam sistem atau masa pendahuluan |
 | ω (omega) | masa menunggu atau masa dalam baris gilir |
 | φ (phi) | masa kerja atau masa dalam pemproses atau masa perkhidmatan |
@@ -266,7 +266,7 @@ Dua tingkah laku yang berkaitan bukan langkau:
 
 Tatatanda paling penting yang meringkaskan kejayaan sesuatu baris gilir:
 
-- ε (epsilon): nisbah ralat = kiraan kegagalan / (kiraan kejayaan + kiraan kegagalan) = β / (α + β) = β / δ
+- ε (epsilon): nisbah ralat = kiraan kegagalan / bilangan selesai = β / δ = β / (α + β)
 
 Langkau dikecualikan, kerana item yang dilangkau tidak pernah dilayan, jadi ia bukan betul dan bukan juga salah. Sila jejaki langkau secara berasingan melalui σ.
 

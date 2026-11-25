@@ -122,7 +122,7 @@ Unsere Notation und was jedes Symbol bedeutet:
 | β (Beta) | Fehlerrate: beobachtete Ausgabe, die sich als falsch erweist |
 | δ (Delta) | Abschlussrate: Erfolg + Fehler, bediente Elemente mit richtigem oder falschem Ergebnis |
 | σ (Sigma) | Abbruchrate: Elemente, die eingetreten sind und dann unbedient gegangen sind |
-| ε (Epsilon) | Fehlerquote: β / (α + β) = β / δ |
+| ε (Epsilon) | Fehlerquote: β / δ = β / (α + β) |
 | τ (Tau) | Zeit im System, auch Durchlaufzeit genannt |
 | ω (Omega) | Wartezeit, auch Zeit in der Warteschlange genannt |
 | φ (Phi) | Arbeitszeit, auch Zeit im Prozessor genannt, auch Bedienzeit genannt |
@@ -266,7 +266,7 @@ Zwei verwandte Verhaltensweisen sind keine Abbrüche:
 
 Die wichtigste Notation, die den Erfolg einer Warteschlange zusammenfasst:
 
-- ε (Epsilon): Fehlerquote = Fehleranzahl / (Erfolgsanzahl + Fehleranzahl) = β / (α + β) = β / δ
+- ε (Epsilon): Fehlerquote = Fehleranzahl / Anzahl abgeschlossener = β / δ = β / (α + β)
 
 Abbrüche sind ausgeschlossen, weil ein abgebrochenes Element nie bedient wurde und somit weder richtig noch falsch war. Verfolgen Sie Abbrüche separat über σ.
 

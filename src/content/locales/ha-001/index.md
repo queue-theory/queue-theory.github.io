@@ -126,7 +126,7 @@ Alamarmu da ma'anar kowace alama:
 | β (beta) | yawan gazawa: fitarwar da aka lura wadda ta zama ba daidai ba |
 | δ (delta) | yawan kammalawa: nasara + gazawa, abubuwan da aka yi musu sabis, ko sakamakon daidai ne ko kuskure |
 | σ (sigma) | yawan tsallakewa: abubuwan da suka shiga, sannan suka fita ba tare da sabis ba |
-| ε (epsilon) | rabon kuskure: β / (α + β) = β / δ |
+| ε (epsilon) | rabon kuskure: β / δ = β / (α + β) |
 | τ (tau) | lokaci a cikin tsarin wato lokacin jagora |
 | ω (omega) | lokacin jira wato lokaci a cikin layi |
 | φ (phi) | lokacin aiki wato lokaci a cikin na'urar sarrafawa wato lokacin sabis |
@@ -273,7 +273,7 @@ Halaye biyu masu alaƙa ba tsallakewa ba ne:
 
 Alamar da ta fi muhimmanci wadda ke taƙaita nasarar layi:
 
-- ε (epsilon): rabon kuskure = ƙidayar gazawa / (ƙidayar nasara + ƙidayar gazawa) = β / (α + β) = β / δ
+- ε (epsilon): rabon kuskure = ƙidayar gazawa / ƙidayar waɗanda aka kammala = β / δ = β / (α + β)
 
 An cire tsallakewa, domin ba a taɓa yi wa abin da aka tsallake sabis ba, don haka bai zama daidai ba kuma bai zama ba daidai ba. Ku bi diddigin tsallakewa daban ta hanyar σ.
 

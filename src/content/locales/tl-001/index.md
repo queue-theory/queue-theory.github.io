@@ -122,7 +122,7 @@ Aming notasyon at ang kahulugan ng bawat simbolo:
 | β (beta) | rate ng pagkabigo: nasusukat na output na lumalabas na mali |
 | δ (delta) | rate ng pagkumpleto: tagumpay + pagkabigo, mga item na napagsilbihan, tama man o mali ang kinalabasan |
 | σ (sigma) | rate ng paglaktaw: mga item na pumasok, pagkatapos ay umalis nang hindi napagsilbihan |
-| ε (epsilon) | ratio ng error: β / (α + β) = β / δ |
+| ε (epsilon) | ratio ng error: β / δ = β / (α + β) |
 | τ (tau) | tagal sa sistema, o lead time |
 | ω (omega) | tagal ng paghihintay, o tagal sa pila |
 | φ (phi) | tagal ng trabaho, o tagal sa processor, o tagal ng serbisyo |
@@ -269,7 +269,7 @@ May dalawang kaugnay na pag-uugali na hindi itinuturing na paglaktaw:
 
 Ang pinakamahalagang notasyon na nagbubuod sa tagumpay ng isang pila:
 
-- ε (epsilon): ratio ng error = bilang ng pagkabigo / (bilang ng tagumpay + bilang ng pagkabigo) = β / (α + β) = β / δ
+- ε (epsilon): ratio ng error = bilang ng pagkabigo / bilang ng nakumpleto = β / δ = β / (α + β)
 
 Hindi kasama ang mga paglaktaw, dahil ang isang nilaktawang item ay hindi kailanman napagsilbihan, kaya hindi ito tama o mali. Subaybayan ang mga paglaktaw nang hiwalay sa pamamagitan ng σ.
 

@@ -127,7 +127,7 @@ Déanann cineálacha scuainí agus cineálacha seirbhíse cur síos ar an gcaoi 
 | β (beta) | ráta teipe: an t-aschur a breathnaíodh atá mícheart |
 | δ (delta) | ráta críochnaithe: rath + teip, míreanna a fuair seirbhís, bíodh toradh ceart nó mícheart orthu |
 | σ (sigma) | ráta scipeála: míreanna a tháinig isteach agus a d’imigh gan seirbhís |
-| ε (epsilon) | cóimheas earráide: β / (α + β) = β / δ |
+| ε (epsilon) | cóimheas earráide: β / δ = β / (α + β) |
 | τ (tau) | am sa chóras, nó am luaidhe |
 | ω (omega) | am ag feitheamh, nó am sa scuaine |
 | φ (phi) | am oibre, nó am sa phróiseálaí, nó am seirbhíse |
@@ -271,7 +271,7 @@ Níl dhá iompar ghaolmhara ina scipeálacha:
 
 An nodaireacht is tábhachtaí a dhéanann achoimre ar rath scuaine:
 
-- ε (epsilon): cóimheas earráide = líon teipeanna / (líon ratha + líon teipeanna) = β / (α + β) = β / δ
+- ε (epsilon): cóimheas earráide = líon teipeanna / líon na gcríochnaithe = β / δ = β / (α + β)
 
 Fágtar scipeálacha as, toisc nár tugadh seirbhís riamh do mhír a scipeáladh, mar sin ní raibh sí ceart ná mícheart. Rianaigí scipeálacha ar leith trí σ.
 

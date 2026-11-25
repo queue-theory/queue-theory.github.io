@@ -126,7 +126,7 @@ Our notation and what each symbol means:
 | β (beta)     | failure rate: observed output that turns out wrong                    |
 | δ (delta)    | done rate: success + failure, items serviced right or wrong           |
 | σ (sigma)    | skip rate: items that entered, then left unserved                     |
-| ε (epsilon)  | error ratio: β / (α + β) = β / δ                                      |
+| ε (epsilon)  | error ratio: β / δ = β / (α + β)                                      |
 | τ (tau)      | time in the system a.k.a. lead time                                   |
 | ω (omega)    | time waiting a.k.a. in the queue                                      |
 | φ (phi)      | time working a.k.a. in the processor a.k.a. service time              |
@@ -273,7 +273,7 @@ Two related behaviors are not skips:
 
 The most important notation that summarizes a queue's success:
 
-- ε (epsilon): error ratio = failure count / (success count + failure count) = β / (α + β) = β / δ
+- ε (epsilon): error ratio = failure count / done count = β / δ = β / (α + β)
 
 Skips are excluded, because a skipped item was never serviced, so it was neither right nor wrong. Track skips separately via σ.
 

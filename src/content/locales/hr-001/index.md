@@ -126,7 +126,7 @@ Naša notacija i značenje svakog simbola:
 | β (beta) | stopa neuspjeha: opaženi izlaz koji se pokaže neispravnim |
 | δ (delta) | stopa dovršenosti: uspjeh + neuspjeh, stavke koje su poslužene, bilo da je ishod ispravan ili pogrešan |
 | σ (sigma) | stopa preskakanja: stavke koje su ušle, a zatim otišle neposlužene |
-| ε (epsilon) | omjer pogrešaka: β / (α + β) = β / δ |
+| ε (epsilon) | omjer pogrešaka: β / δ = β / (α + β) |
 | τ (tau) | vrijeme u sustavu odnosno vrijeme isporuke |
 | ω (omega) | vrijeme čekanja odnosno vrijeme u redu |
 | φ (fi) | vrijeme rada odnosno vrijeme u procesoru odnosno vrijeme posluživanja |
@@ -273,7 +273,7 @@ Dva srodna ponašanja nisu preskakanja:
 
 Najvažnija notacija koja sažima uspješnost reda:
 
-- ε (epsilon): omjer pogrešaka = broj neuspjeha / (broj uspjeha + broj neuspjeha) = β / (α + β) = β / δ
+- ε (epsilon): omjer pogrešaka = broj neuspjeha / broj dovršenih = β / δ = β / (α + β)
 
 Preskakanja su isključena jer preskočena stavka nikada nije poslužena, pa nije bila ni ispravna ni neispravna. Preskakanja pratite zasebno putem σ.
 

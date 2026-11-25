@@ -122,7 +122,7 @@ Nasza notacja i znaczenie każdego symbolu:
 | β (beta) | tempo porażek: obserwowany wynik, który okazuje się błędny |
 | δ (delta) | tempo zakończeń: sukces + porażka, elementy obsłużone, niezależnie od tego, czy wynik jest poprawny, czy błędny |
 | σ (sigma) | tempo pominięć: elementy, które weszły i wyszły bez obsługi |
-| ε (epsilon) | współczynnik błędów: β / (α + β) = β / δ |
+| ε (epsilon) | współczynnik błędów: β / δ = β / (α + β) |
 | τ (tau) | czas w systemie, czyli czas realizacji |
 | ω (omega) | czas oczekiwania, czyli czas w kolejce |
 | φ (fi) | czas pracy, czyli czas w procesorze, czyli czas obsługi |
@@ -269,7 +269,7 @@ Dwa pokrewne zachowania nie są pominięciami:
 
 Najważniejsza notacja podsumowująca skuteczność kolejki:
 
-- ε (epsilon): wskaźnik błędów = liczba porażek / (liczba sukcesów + liczba porażek) = β / (α + β) = β / δ
+- ε (epsilon): wskaźnik błędów = liczba porażek / liczba zakończonych = β / δ = β / (α + β)
 
 Pominięcia są wyłączone, ponieważ pominięty element nigdy nie został obsłużony, więc nie był ani poprawny, ani błędny. Pominięcia należy śledzić osobno za pomocą σ.
 

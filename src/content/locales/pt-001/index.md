@@ -122,7 +122,7 @@ Nossa notação e o significado de cada símbolo:
 | β (beta) | taxa de falha: produção observada que se revela incorreta |
 | δ (delta) | taxa de conclusão: sucesso + falha, itens atendidos, seja o resultado certo ou errado |
 | σ (sigma) | taxa de desistência: itens que entraram e depois saíram sem atendimento |
-| ε (épsilon) | razão de erro: β / (α + β) = β / δ |
+| ε (épsilon) | razão de erro: β / δ = β / (α + β) |
 | τ (tau) | tempo no sistema, também chamado tempo de atravessamento (lead time) |
 | ω (ômega) | tempo de espera, também chamado tempo na fila |
 | φ (fi) | tempo de trabalho, também chamado tempo no processador, também chamado tempo de atendimento |
@@ -266,7 +266,7 @@ Dois comportamentos relacionados não são desistências:
 
 A notação mais importante que resume o sucesso de uma fila:
 
-- ε (épsilon): razão de erro = contagem de falhas / (contagem de sucessos + contagem de falhas) = β / (α + β) = β / δ
+- ε (épsilon): razão de erro = contagem de falhas / contagem de concluídos = β / δ = β / (α + β)
 
 As desistências são excluídas, porque um item que desistiu nunca foi atendido, portanto não foi nem correto nem incorreto. Acompanhe as desistências separadamente por meio de σ.
 

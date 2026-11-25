@@ -127,7 +127,7 @@ La nostra notazione e il significato di ogni simbolo:
 | β (beta) | tasso di fallimento: output osservato che risulta errato |
 | δ (delta) | tasso di completamento: successo + fallimento, elementi serviti, con esito corretto o errato |
 | σ (sigma) | tasso di abbandono: elementi entrati e poi usciti senza essere serviti |
-| ε (epsilon) | rapporto di errore: β / (α + β) = β / δ |
+| ε (epsilon) | rapporto di errore: β / δ = β / (α + β) |
 | τ (tau) | tempo nel sistema, detto anche lead time |
 | ω (omega) | tempo di attesa, detto anche tempo in coda |
 | φ (phi) | tempo di lavoro, detto anche tempo nel processore, detto anche tempo di servizio |
@@ -274,7 +274,7 @@ Due comportamenti correlati non sono abbandoni:
 
 La notazione più importante che riassume il successo di una coda:
 
-- ε (epsilon): rapporto di errore = numero di fallimenti / (numero di successi + numero di fallimenti) = β / (α + β) = β / δ
+- ε (epsilon): rapporto di errore = numero di fallimenti / conteggio dei completati = β / δ = β / (α + β)
 
 Gli abbandoni sono esclusi, perché un elemento abbandonato non è mai stato servito, quindi non è stato né corretto né errato. Monitori gli abbandoni separatamente tramite σ.
 

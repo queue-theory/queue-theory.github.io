@@ -127,7 +127,7 @@ Notasi kita lan teges saben simbol:
 | β (beta) | laju gagal: asil ingkang dipunamati ingkang lepat |
 | δ (delta) | laju rampung: kasil + gagal, item ingkang sampun dipunladosi, mboten dados kasil utawi gagal |
 | σ (sigma) | laju lompat: item ingkang mlebet, lajeng medal tanpa dipunladosi |
-| ε (epsilon) | rasio kalepatan: β / (α + β) = β / δ |
+| ε (epsilon) | rasio kalepatan: β / δ = β / (α + β) |
 | τ (tau) | wekdal wonten ing sistem utawi lead time |
 | ω (omega) | wekdal ngentosi utawi wekdal wonten ing antrian |
 | φ (phi) | wekdal makarya utawi wekdal wonten ing prosesor utawi wekdal layanan |
@@ -274,7 +274,7 @@ Wonten kalih tumindak ingkang gegayutan nanging sanes lompat:
 
 Notasi ingkang paling wigati ingkang ngringkes kasilipun satunggal antrian:
 
-- ε (epsilon): rasio kalepatan = cacah gagal / (cacah kasil + cacah gagal) = β / (α + β) = β / δ
+- ε (epsilon): rasio kalepatan = cacah gagal / cacah ingkang rampung = β / δ = β / (α + β)
 
 Lompatan boten dipunlebetaken, amargi item ingkang dipunlompati boten nate dipunladosi, satemah boten leres saha boten lepat. Mangga lompatan dipunpantau piyambak lumantar σ.
 

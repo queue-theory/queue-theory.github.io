@@ -126,7 +126,7 @@ Meidän merkintämme ja se, mitä kukin symboli tarkoittaa:
 | β (beeta) | epäonnistumisnopeus: havaittu tuotos, joka osoittautuu vääräksi |
 | δ (delta) | valmistumisnopeus: onnistuminen + epäonnistuminen, palvellut kohteet, olipa tulos oikea tai väärä |
 | σ (sigma) | ohitusnopeus: kohteet, jotka tulivat ja poistuivat palvelematta |
-| ε (epsilon) | virhesuhde: β / (α + β) = β / δ |
+| ε (epsilon) | virhesuhde: β / δ = β / (α + β) |
 | τ (tau) | aika järjestelmässä eli läpimenoaika |
 | ω (oomega) | odotusaika eli aika jonossa |
 | φ (fii) | työaika eli aika suorittimessa eli palveluaika |
@@ -273,7 +273,7 @@ Kaksi lähisukuista käyttäytymistä eivät ole ohituksia:
 
 Tärkein jonon onnistumista tiivistävä merkintä:
 
-- ε (epsilon): virhesuhde = epäonnistumisten määrä / (onnistumisten määrä + epäonnistumisten määrä) = β / (α + β) = β / δ
+- ε (epsilon): virhesuhde = epäonnistumisten määrä / valmistuneiden määrä = β / δ = β / (α + β)
 
 Ohitukset jätetään pois, koska ohitettua kohdetta ei koskaan palveltu, joten se ei ollut oikein eikä väärin. Seuratkaa ohituksia erikseen σ:n avulla.
 

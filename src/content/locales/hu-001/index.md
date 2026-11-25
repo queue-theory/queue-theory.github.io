@@ -126,7 +126,7 @@ A mi jelölésünk és az egyes szimbólumok jelentése:
 | β (béta) | hibaráta: a hibásnak bizonyuló megfigyelt kimenet |
 | δ (delta) | befejezési ráta: siker + hiba, kiszolgált elemek, akár helyes, akár hibás az eredmény |
 | σ (szigma) | kihagyási ráta: belépett, majd kiszolgálatlanul távozó elemek |
-| ε (epszilon) | hibaarány: β / (α + β) = β / δ |
+| ε (epszilon) | hibaarány: β / δ = β / (α + β) |
 | τ (tau) | a rendszerben töltött idő, más néven átfutási idő |
 | ω (ómega) | várakozási idő, más néven a sorban töltött idő |
 | φ (fí) | munkaidő, más néven a processzorban töltött idő, más néven kiszolgálási idő |
@@ -273,7 +273,7 @@ Két kapcsolódó viselkedés nem számít kihagyásnak:
 
 A sor sikerességét összefoglaló legfontosabb jelölés:
 
-- ε (epszilon): hibaarány = hibák száma / (sikerek száma + hibák száma) = β / (α + β) = β / δ
+- ε (epszilon): hibaarány = hibák száma / a befejezettek száma = β / δ = β / (α + β)
 
 A kihagyások nem számítanak bele, mert egy kihagyott elemet soha nem szolgáltak ki, így az sem helyes, sem hibás nem volt. A kihagyásokat külön kövesse a σ segítségével.
 

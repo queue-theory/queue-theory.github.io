@@ -122,7 +122,7 @@ Agan notyans ha styr pub arwodh:
 | β (beta) | toth fyllel: eskor gwelys a dhe vos kamm |
 | δ (delta) | toth gorfennys: sewena + fyllel, taklow servys, pynag oll yw an sewyans ewn po kamm |
 | σ (sigma) | toth lamma: taklow a entras, ena a asas heb bos servys |
-| ε (epsilon) | kevradh kammow: β / (α + β) = β / δ |
+| ε (epsilon) | kevradh kammow: β / δ = β / (α + β) |
 | τ (tau) | termyn y’n system po termyn ledya |
 | ω (omega) | termyn ow kortos po termyn y’n lost |
 | φ (phi) | termyn ober po termyn y’n argesyer po termyn servis |
@@ -266,7 +266,7 @@ Dew omdhegyans kelmys nyns yns lammow:
 
 An notyans moyha posek a gomprehend sewena lost:
 
-- ε (epsilon): kevradh kammow = niver fyllansow / (niver sewenansow + niver fyllansow) = β / (α + β) = β / δ
+- ε (epsilon): kevradh kammow = niver fyllansow / niver gorfennys = β / δ = β / (α + β)
 
 Lammow yw keas yn-mes, drefenn na veu takel lammys servys bynitha, ytho nyns o naneyl ewn na kamm. Holyewgh lammow a-dhidro dre σ.
 

@@ -122,7 +122,7 @@ Notația noastră și semnificația fiecărui simbol:
 | β (beta) | rata de eșec: producția observată care se dovedește greșită |
 | δ (delta) | rata de finalizare: succes + eșec, elemente servite, indiferent dacă rezultatul este corect sau greșit |
 | σ (sigma) | rata de abandon: elemente care au intrat, apoi au plecat neservite |
-| ε (epsilon) | raportul de erori: β / (α + β) = β / δ |
+| ε (epsilon) | raportul de erori: β / δ = β / (α + β) |
 | τ (tau) | timpul în sistem, adică timpul de livrare |
 | ω (omega) | timpul de așteptare, adică timpul în coadă |
 | φ (phi) | timpul de lucru, adică timpul în procesor, adică timpul de servire |
@@ -269,7 +269,7 @@ Două comportamente înrudite nu sunt abandonuri:
 
 Cea mai importantă notație care rezumă succesul unei cozi:
 
-- ε (epsilon): raportul de erori = numărul de eșecuri / (numărul de succese + numărul de eșecuri) = β / (α + β) = β / δ
+- ε (epsilon): raportul de erori = numărul de eșecuri / numărul de finalizate = β / δ = β / (α + β)
 
 Abandonurile sunt excluse, deoarece un element abandonat nu a fost niciodată servit, deci nu a fost nici corect, nici greșit. Urmăriți abandonurile separat prin σ.
 

@@ -127,7 +127,7 @@ Bizim gösterimimiz ve her simgenin anlamı:
 | β (beta) | başarısızlık hızı: yanlış çıkan gözlenen çıktı |
 | δ (delta) | tamamlanma hızı: başarı + başarısızlık, hizmet alan öğeler, sonuç doğru da olsa yanlış da olsa |
 | σ (sigma) | atlama hızı: girip hizmet almadan ayrılan öğeler |
-| ε (epsilon) | hata oranı: β / (α + β) = β / δ |
+| ε (epsilon) | hata oranı: β / δ = β / (α + β) |
 | τ (tau) | sistemde geçen süre, diğer adıyla teslim süresi |
 | ω (omega) | bekleme süresi, diğer adıyla kuyruktaki süre |
 | φ (phi) | çalışma süresi, diğer adıyla işlemcideki süre, diğer adıyla hizmet süresi |
@@ -274,7 +274,7 @@ Atlama, bir öğenin kuyruğa girip kayda değer bir işlem görmeden ayrılmas�
 
 Bir kuyruğun başarısını özetleyen en önemli gösterim:
 
-- ε (epsilon): hata oranı = başarısızlık sayısı / (başarı sayısı + başarısızlık sayısı) = β / (α + β) = β / δ
+- ε (epsilon): hata oranı = başarısızlık sayısı / tamamlanan sayısı = β / δ = β / (α + β)
 
 Atlamalar hariç tutulur, çünkü atlanan bir öğeye hiç hizmet verilmemiştir; dolayısıyla ne doğrudur ne de yanlıştır. Atlamaları σ ile ayrıca takip edin.
 

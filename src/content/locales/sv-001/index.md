@@ -122,7 +122,7 @@ Vår notation och vad varje symbol betyder:
 | β (beta) | felfrekvens: observerat utflöde som visar sig vara fel |
 | δ (delta) | slutförandetakt: lyckande + misslyckande, objekt som har betjänats, oavsett om resultatet är rätt eller fel |
 | σ (sigma) | avhoppstakt: objekt som kom in och sedan lämnade utan att betjänas |
-| ε (epsilon) | felkvot: β / (α + β) = β / δ |
+| ε (epsilon) | felkvot: β / δ = β / (α + β) |
 | τ (tau) | tid i systemet, även kallad ledtid |
 | ω (omega) | väntetid, även kallad tid i kön |
 | φ (fi) | arbetstid, även kallad tid i processorn, även kallad betjäningstid |
@@ -269,7 +269,7 @@ Två närliggande beteenden räknas inte som avhopp:
 
 Den viktigaste notationen som sammanfattar en kös framgång:
 
-- ε (epsilon): felkvot = antal misslyckanden / (antal lyckade + antal misslyckanden) = β / (α + β) = β / δ
+- ε (epsilon): felkvot = antal misslyckanden / antal slutförda = β / δ = β / (α + β)
 
 Avhopp räknas inte med, eftersom ett objekt som hoppat av aldrig betjänades, så det var varken rätt eller fel. Följ avhopp separat via σ.
 

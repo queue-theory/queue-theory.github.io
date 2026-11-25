@@ -126,7 +126,7 @@ Naše notace a význam jednotlivých symbolů:
 | β (beta) | míra selhání: pozorovaný výstup, který se ukáže jako chybný |
 | δ (delta) | míra dokončení: úspěch + selhání, obsloužené položky s dobrým i špatným výsledkem |
 | σ (sigma) | míra vynechání: položky, které vstoupily a odešly neobslouženy |
-| ε (epsilon) | poměr chyb: β / (α + β) = β / δ |
+| ε (epsilon) | poměr chyb: β / δ = β / (α + β) |
 | τ (tau) | doba v systému neboli průběžná doba (lead time) |
 | ω (omega) | doba čekání neboli doba ve frontě |
 | φ (fí) | doba práce neboli doba v procesoru neboli doba obsluhy |
@@ -273,7 +273,7 @@ Dvě související chování vynecháním nejsou:
 
 Nejdůležitější notace, která shrnuje úspěšnost fronty:
 
-- ε (epsilon): poměr chyb = počet selhání / (počet úspěchů + počet selhání) = β / (α + β) = β / δ
+- ε (epsilon): poměr chyb = počet selhání / počet dokončených = β / δ = β / (α + β)
 
 Vynechání se nezapočítávají, protože vynechaná položka nebyla nikdy obsloužena, takže nebyla ani správná, ani chybná. Vynechání sledujte zvlášť pomocí σ.
 

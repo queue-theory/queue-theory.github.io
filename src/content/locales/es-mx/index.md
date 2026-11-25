@@ -128,7 +128,7 @@ Nuestra notación y lo que significa cada símbolo:
 | β (beta) | tasa de falla: producción observada que resulta mal |
 | δ (delta) | tasa de finalización: éxito + falla, elementos atendidos que resultan bien o mal |
 | σ (sigma) | tasa de omisión: elementos que entraron y luego salieron sin ser atendidos |
-| ε (épsilon) | razón de errores: β / (α + β) = β / δ |
+| ε (épsilon) | razón de errores: β / δ = β / (α + β) |
 | τ (tau) | tiempo en el sistema, también llamado tiempo de entrega |
 | ω (omega) | tiempo de espera, también llamado tiempo en la cola |
 | φ (fi) | tiempo de trabajo, también llamado tiempo en el procesador, también llamado tiempo de servicio |
@@ -275,7 +275,7 @@ Dos comportamientos relacionados no son omisiones:
 
 La notación más importante que resume el éxito de una cola:
 
-- ε (épsilon): razón de errores = conteo de fallas / (conteo de éxitos + conteo de fallas) = β / (α + β) = β / δ
+- ε (épsilon): razón de errores = conteo de fallas / conteo de finalizados = β / δ = β / (α + β)
 
 Las omisiones se excluyen, porque un elemento omitido nunca fue atendido, así que no resultó ni bien ni mal. Dé seguimiento a las omisiones por separado mediante σ.
 

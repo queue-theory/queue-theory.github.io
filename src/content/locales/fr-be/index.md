@@ -127,7 +127,7 @@ Notre notation et ce que signifie chaque symbole :
 | β (bêta) | taux d'échec : production observée qui s'avère incorrecte |
 | δ (delta) | taux d'achèvement : succès + échec, éléments servis dont le résultat est bon ou mauvais |
 | σ (sigma) | taux d'abandon : éléments entrés, puis repartis sans avoir été servis |
-| ε (epsilon) | ratio d'erreur : β / (α + β) = β / δ |
+| ε (epsilon) | ratio d'erreur : β / δ = β / (α + β) |
 | τ (tau) | temps dans le système, ou délai de bout en bout |
 | ω (oméga) | temps d'attente, ou temps dans la file |
 | φ (phi) | temps de travail, ou temps dans le processeur, ou temps de service |
@@ -274,7 +274,7 @@ Deux comportements apparentés ne sont pas des abandons :
 
 La notation la plus importante pour résumer le succès d'une file :
 
-- ε (epsilon) : ratio d'erreur = nombre d'échecs / (nombre de succès + nombre d'échecs) = β / (α + β) = β / δ
+- ε (epsilon) : ratio d'erreur = nombre d'échecs / nombre d'éléments achevés = β / δ = β / (α + β)
 
 Les abandons sont exclus, car un élément abandonné n'a jamais été servi : il n'était donc ni correct ni incorrect. Suivez les abandons séparément au moyen de σ.
 

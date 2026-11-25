@@ -126,7 +126,7 @@ Meie tähistus ja iga sümboli tähendus:
 | β (beeta) | ebaõnnestumiskiirus: täheldatud väljund, mis osutub valeks |
 | δ (delta) | lõpetamiskiirus: õnnestumine + ebaõnnestumine, teenindatud üksused, olgu tulemus õige või vale |
 | σ (sigma) | vahelejätmiskiirus: sisenenud, kuid teenindamata üksused |
-| ε (epsilon) | veasuhe: β / (α + β) = β / δ |
+| ε (epsilon) | veasuhe: β / δ = β / (α + β) |
 | τ (tau) | aeg süsteemis ehk läbimisaeg |
 | ω (oomega) | ooteaeg ehk aeg järjekorras |
 | φ (fii) | tööaeg ehk aeg protsessoris ehk teenindusaeg |
@@ -273,7 +273,7 @@ Kaks seotud käitumist ei ole vahelejätmised:
 
 Kõige olulisem tähistus, mis järjekorra edukust kokku võtab:
 
-- ε (epsilon): veasuhe = ebaõnnestumiste arv / (õnnestumiste arv + ebaõnnestumiste arv) = β / (α + β) = β / δ
+- ε (epsilon): veasuhe = ebaõnnestumiste arv / lõpetatute arv = β / δ = β / (α + β)
 
 Vahelejätmised jäetakse välja, sest vahele jäetud üksust ei teenindatud kunagi, seega ei olnud see ei õige ega vale. Jälgige vahelejätmisi eraldi σ abil.
 

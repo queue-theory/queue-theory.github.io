@@ -122,7 +122,7 @@ Mūsu apzīmējumi un katra simbola nozīme:
 | β (beta) | neveiksmes ātrums: novērotā izvade, kas izrādās nepareiza |
 | δ (delta) | pabeigšanas ātrums: veiksme + neveiksme, apkalpotie elementi neatkarīgi no tā, vai rezultāts ir pareizs vai nepareizs |
 | σ (sigma) | izlaišanas ātrums: elementi, kas ienāca, bet aizgāja neapkalpoti |
-| ε (epsilons) | kļūdu attiecība: β / (α + β) = β / δ |
+| ε (epsilons) | kļūdu attiecība: β / δ = β / (α + β) |
 | τ (tau) | laiks sistēmā jeb izpildes laiks |
 | ω (omega) | gaidīšanas laiks jeb laiks rindā |
 | φ (fī) | darba laiks jeb laiks procesorā jeb apkalpošanas laiks |
@@ -266,7 +266,7 @@ Divas saistītas uzvedības nav izlaišanas:
 
 Svarīgākais apzīmējums, kas raksturo rindas veiksmi:
 
-- ε (epsilons): kļūdu attiecība = neveiksmju skaits / (veiksmju skaits + neveiksmju skaits) = β / (α + β) = β / δ
+- ε (epsilons): kļūdu attiecība = neveiksmju skaits / pabeigto skaits = β / δ = β / (α + β)
 
 Izlaišanas netiek iekļautas, jo izlaists elements nekad netika apkalpots, tāpēc tas nebija ne pareizs, ne nepareizs. Izlaišanām sekojiet atsevišķi, izmantojot σ.
 

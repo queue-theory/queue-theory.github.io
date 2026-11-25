@@ -122,7 +122,7 @@ Our own notation and wetin each symbol mean:
 | β (beta) | failure rate: output wey we see wey come out wrong |
 | δ (delta) | finish rate: success + failure, item dem wey dem don serve, whether di result correct or wrong |
 | σ (sigma) | skip rate: item wey enter, then comot without service |
-| ε (epsilon) | error ratio: β / (α + β) = β / δ |
+| ε (epsilon) | error ratio: β / δ = β / (α + β) |
 | τ (tau) | time for di system, wey dem still dey call lead time |
 | ω (omega) | wait time, wey dem still dey call time for di queue |
 | φ (phi) | work time, wey dem still dey call time for di processor, wey dem still dey call service time |
@@ -266,7 +266,7 @@ Two behavior wey relate to am no be skip:
 
 Di notation wey important pass wey dey summarize di success of queue:
 
-- ε (epsilon): error ratio = failure count / (success count + failure count) = β / (α + β) = β / δ
+- ε (epsilon): error ratio = failure count / finish count = β / δ = β / (α + β)
 
 Skip no dey inside, becos dem never serve item wey skip, so e no correct and e no wrong. Make you track skip separate with σ.
 

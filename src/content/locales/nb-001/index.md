@@ -122,7 +122,7 @@ Vår notasjon og hva hvert symbol betyr:
 | β (beta) | feilrate: observert utdata som viser seg å være feil |
 | δ (delta) | fullføringsrate: suksess + feil, elementer som er betjent, uansett om resultatet er riktig eller galt |
 | σ (sigma) | overhoppsrate: elementer som kom inn og deretter gikk uten å bli betjent |
-| ε (epsilon) | feilforhold: β / (α + β) = β / δ |
+| ε (epsilon) | feilforhold: β / δ = β / (α + β) |
 | τ (tau) | tid i systemet, også kalt ledetid |
 | ω (omega) | ventetid, også kalt tid i køen |
 | φ (fi) | arbeidstid, også kalt tid i prosessoren, også kalt tjenestetid |
@@ -266,7 +266,7 @@ To beslektede atferder er ikke overhopp:
 
 Den viktigste notasjonen som oppsummerer en køs suksess:
 
-- ε (epsilon): feilandel = antall feil / (antall suksesser + antall feil) = β / (α + β) = β / δ
+- ε (epsilon): feilandel = antall feil / antall fullførte = β / δ = β / (α + β)
 
 Overhopp er utelatt, fordi et overhoppet element aldri ble betjent, så det var verken riktig eller feil. Følg overhopp separat via σ.
 

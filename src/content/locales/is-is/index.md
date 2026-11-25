@@ -126,7 +126,7 @@ Okkar táknmál og merking hvers tákns:
 | β (beta) | villutíðni: mæld afköst sem reynast röng |
 | δ (delta) | lokatíðni: árangur + villur, atriði sem fengu þjónustu, hvort sem niðurstaðan var rétt eða röng |
 | σ (sigma) | slepptíðni: atriði sem komu inn og fóru óafgreidd |
-| ε (epsilon) | villuhlutfall: β / (α + β) = β / δ |
+| ε (epsilon) | villuhlutfall: β / δ = β / (α + β) |
 | τ (tá) | tími í kerfinu, öðru nafni heildartími |
 | ω (ómega) | biðtími, öðru nafni tími í biðröðinni |
 | φ (fí) | vinnutími, öðru nafni tími í örgjörvanum, öðru nafni þjónustutími |
@@ -273,7 +273,7 @@ Tvær skyldar hegðanir eru ekki sleppingar:
 
 Mikilvægasta táknið sem dregur saman árangur biðraðar:
 
-- ε (epsilon): villuhlutfall = fjöldi villna / (fjöldi árangurs + fjöldi villna) = β / (α + β) = β / δ
+- ε (epsilon): villuhlutfall = fjöldi villna / fjöldi lokinna = β / δ = β / (α + β)
 
 Sleppingar eru undanskildar, því atriði sem var sleppt fékk aldrei þjónustu, svo það var hvorki rétt né rangt. Fylgist með sleppingum sérstaklega með σ.
 

@@ -126,7 +126,7 @@ Vores notation og hvad hvert symbol betyder:
 | β (beta) | fejlrate: observeret output, der viser sig at være forkert |
 | δ (delta) | færdigrate: succes + fejl, elementer der er betjent, uanset om resultatet er rigtigt eller forkert |
 | σ (sigma) | springrate: elementer, der kom ind og forlod køen ubetjent |
-| ε (epsilon) | fejlforhold: β / (α + β) = β / δ |
+| ε (epsilon) | fejlforhold: β / δ = β / (α + β) |
 | τ (tau) | tid i systemet, også kaldet gennemløbstid |
 | ω (omega) | ventetid, også kaldet tid i køen |
 | φ (phi) | arbejdstid, også kaldet tid i processoren, også kaldet servicetid |
@@ -273,7 +273,7 @@ To beslægtede adfærdsmønstre er ikke spring:
 
 Den vigtigste notation, der opsummerer en køs succes:
 
-- ε (epsilon): fejlforhold = antal fejl / (antal succeser + antal fejl) = β / (α + β) = β / δ
+- ε (epsilon): fejlforhold = antal fejl / antal færdige = β / δ = β / (α + β)
 
 Spring er udeladt, fordi et sprunget element aldrig blev betjent, så det var hverken rigtigt eller forkert. Følg spring separat via σ.
 

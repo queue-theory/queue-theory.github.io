@@ -127,7 +127,7 @@ Notasi kami dan arti setiap simbol:
 | β (beta) | laju kegagalan: keluaran teramati yang ternyata salah |
 | δ (delta) | laju selesai: keberhasilan + kegagalan, item yang telah dilayani, baik hasilnya benar maupun salah |
 | σ (sigma) | laju lewati: item yang masuk, lalu pergi tanpa dilayani |
-| ε (epsilon) | rasio kesalahan: β / (α + β) = β / δ |
+| ε (epsilon) | rasio kesalahan: β / δ = β / (α + β) |
 | τ (tau) | waktu dalam sistem, atau lead time |
 | ω (omega) | waktu menunggu, atau waktu dalam antrean |
 | φ (phi) | waktu kerja, atau waktu dalam prosesor, atau waktu layanan |
@@ -274,7 +274,7 @@ Dua perilaku terkait bukan termasuk lewati:
 
 Notasi paling penting yang merangkum keberhasilan sebuah antrean:
 
-- ε (epsilon): rasio kesalahan = jumlah kegagalan / (jumlah keberhasilan + jumlah kegagalan) = β / (α + β) = β / δ
+- ε (epsilon): rasio kesalahan = jumlah kegagalan / jumlah selesai = β / δ = β / (α + β)
 
 Item yang dilewati dikecualikan, karena item yang dilewati tidak pernah dilayani, sehingga tidak benar dan tidak pula salah. Lacak item yang dilewati secara terpisah melalui σ.
 

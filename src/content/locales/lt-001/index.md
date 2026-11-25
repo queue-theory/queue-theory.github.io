@@ -122,7 +122,7 @@ Mūsų žymėjimas ir kiekvieno simbolio reikšmė:
 | β (beta) | nesėkmės sparta: stebima išeiga, kuri pasirodo esanti klaidinga |
 | δ (delta) | įvykdymo sparta: sėkmė + nesėkmė, aptarnauti elementai, nesvarbu, ar rezultatas teisingas, ar klaidingas |
 | σ (sigma) | praleidimo sparta: elementai, kurie pateko, bet išėjo neaptarnauti |
-| ε (epsilon) | klaidų santykis: β / (α + β) = β / δ |
+| ε (epsilon) | klaidų santykis: β / δ = β / (α + β) |
 | τ (tau) | laikas sistemoje, dar vadinamas įgyvendinimo trukme |
 | ω (omega) | laukimo laikas, dar vadinamas laiku eilėje |
 | φ (fi) | darbo laikas, dar vadinamas laiku procesoriuje, dar vadinamas aptarnavimo laiku |
@@ -266,7 +266,7 @@ Du susiję elgesio būdai nėra praleidimai:
 
 Svarbiausias žymėjimas, apibendrinantis eilės sėkmę:
 
-- ε (epsilon): klaidų santykis = nesėkmių skaičius / (sėkmių skaičius + nesėkmių skaičius) = β / (α + β) = β / δ
+- ε (epsilon): klaidų santykis = nesėkmių skaičius / įvykdytų skaičius = β / δ = β / (α + β)
 
 Praleidimai neįtraukiami, nes praleistas elementas niekada nebuvo aptarnautas, todėl jis nebuvo nei teisingas, nei klaidingas. Praleidimus stebėkite atskirai naudodami σ.
 

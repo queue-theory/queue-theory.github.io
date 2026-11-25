@@ -122,7 +122,7 @@ Onze notatie en wat elk symbool betekent:
 | β (bèta) | faalsnelheid: waargenomen uitvoer die fout blijkt te zijn |
 | δ (delta) | voltooiingssnelheid: succes + fout, bediende items, ongeacht of het resultaat goed of fout is |
 | σ (sigma) | uitvalsnelheid: items die binnenkwamen en daarna onbediend vertrokken |
-| ε (epsilon) | foutenverhouding: β / (α + β) = β / δ |
+| ε (epsilon) | foutenverhouding: β / δ = β / (α + β) |
 | τ (tau) | tijd in het systeem, ook wel doorlooptijd |
 | ω (omega) | wachttijd, ook wel tijd in de wachtrij |
 | φ (phi) | werktijd, ook wel tijd in de processor, ook wel bedieningstijd |
@@ -269,7 +269,7 @@ Twee verwante gedragingen zijn geen uitval:
 
 De belangrijkste notatie die het succes van een wachtrij samenvat:
 
-- ε (epsilon): foutratio = aantal fouten / (aantal successen + aantal fouten) = β / (α + β) = β / δ
+- ε (epsilon): foutratio = aantal fouten / aantal voltooide = β / δ = β / (α + β)
 
 Uitval wordt niet meegeteld, omdat een uitgevallen item nooit is bediend, dus het was goed noch fout. Volg uitval apart via σ.
 

@@ -128,7 +128,7 @@ An comharrachadh againne agus na tha de chiall aig gach samhla:
 | β (beta) | reat fàillinn: an toradh a chithear a tha ceàrr |
 | δ (delta) | reat crìochnachaidh: soirbheachas + fàillinn, nithean a fhuair seirbheis, ge bith an robh an toradh ceart no ceàrr |
 | σ (sigma) | reat leumaidh: nithean a thàinig a-steach agus a dh'fhalbh gun seirbheis |
-| ε (epsilon) | co-mheas mhearachdan: β / (α + β) = β / δ |
+| ε (epsilon) | co-mheas mhearachdan: β / δ = β / (α + β) |
 | τ (tau) | an ùine san t-siostam, no ùine luaidhe |
 | ω (omega) | an ùine a' feitheamh, no ùine sa chiudha |
 | φ (phi) | an ùine obrach, no ùine sa phròiseasar, no ùine seirbheis |
@@ -275,7 +275,7 @@ Chan e leuman a th' ann an dà ghiùlan co-cheangailte:
 
 An comharrachadh as cudromaiche a bheir geàrr-chunntas air soirbheachas ciudha:
 
-- ε (epsilon): co-mheas mhearachdan = cunntas fhàillinnean / (cunntas shoirbheachasan + cunntas fhàillinnean) = β / (α + β) = β / δ
+- ε (epsilon): co-mheas mhearachdan = cunntas fhàillinnean / cunntas nan crìochnaichte = β / δ = β / (α + β)
 
 Tha leuman air am fàgail a-mach, a chionn 's nach deach nì a leum seachad a fhrithealadh idir, agus mar sin cha robh e ceart no ceàrr. Lorgaibh leuman air leth tro σ.
 

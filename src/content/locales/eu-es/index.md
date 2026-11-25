@@ -126,7 +126,7 @@ Gure notazioa eta ikur bakoitzaren esanahia:
 | β (beta) | hutsegite-tasa: okerra gertatzen den behatutako irteera |
 | δ (delta) | amaitze-tasa: arrakasta + hutsegitea, zerbitzatutako elementuak, emaitza zuzena zein okerra izan |
 | σ (sigma) | saltatze-tasa: sartu eta zerbitzatu gabe joan diren elementuak |
-| ε (epsilon) | errore-erlazioa: β / (α + β) = β / δ |
+| ε (epsilon) | errore-erlazioa: β / δ = β / (α + β) |
 | τ (tau) | sisteman emandako denbora, entrega-denbora ere deitua |
 | ω (omega) | itxaron-denbora, ilaran emandako denbora ere deitua |
 | φ (phi) | lan-denbora, prozesadorean emandako denbora ere deitua, zerbitzu-denbora ere deitua |
@@ -273,7 +273,7 @@ Erlazionatutako bi jokabide ez dira saltatzeak:
 
 Ilara baten arrakasta laburbiltzen duen notaziorik garrantzitsuena:
 
-- ε (epsilon): errore-ratioa = hutsegite kopurua / (arrakasta kopurua + hutsegite kopurua) = β / (α + β) = β / δ
+- ε (epsilon): errore-ratioa = hutsegite kopurua / amaituen kopurua = β / δ = β / (α + β)
 
 Saltatzeak kanpoan uzten dira, saltatutako elementu bat ez baitzen inoiz zerbitzatu; beraz, ez zen ez zuzena ez okerra izan. Jarraitu saltatzeak bereiz, σ-ren bidez.
 

@@ -122,7 +122,7 @@ In-notazzjoni tagħna u t-tifsira ta’ kull simbolu:
 | β (beta) | rata ta’ falliment: l-output osservat li joħroġ ħażin |
 | δ (delta) | rata ta’ tlestija: suċċess + falliment, oġġetti li ġew moqdija, kemm jekk ir-riżultat huwa tajjeb kif ukoll jekk żbaljat |
 | σ (sigma) | rata ta’ qbiż: oġġetti li daħlu, imbagħad telqu mingħajr servizz |
-| ε (epsilon) | proporzjon ta’ żbalji: β / (α + β) = β / δ |
+| ε (epsilon) | proporzjon ta’ żbalji: β / δ = β / (α + β) |
 | τ (tau) | ħin fis-sistema jew ħin ta’ twassil |
 | ω (omega) | ħin ta’ stennija jew ħin fil-kju |
 | φ (phi) | ħin tax-xogħol jew ħin fil-proċessur jew ħin ta’ servizz |
@@ -267,7 +267,7 @@ Qbiż iseħħ meta oġġett jidħol fil-kju, imbagħad jitlaq mingħajr ebda ppr
 
 L-aktar notazzjoni importanti li tiġbor fil-qosor is-suċċess ta’ kju:
 
-- ε (epsilon): proporzjon ta’ żbalji = għadd ta’ fallimenti / (għadd ta’ suċċessi + għadd ta’ fallimenti) = β / (α + β) = β / δ
+- ε (epsilon): proporzjon ta’ żbalji = għadd ta’ fallimenti / għadd ta’ tlestijiet = β / δ = β / (α + β)
 
 Il-qbiżiet huma esklużi, għax oġġett maqbuż qatt ma ġie moqdi, għalhekk la kien tajjeb u lanqas ħażin. Il-qbiżiet jiġu segwiti separatament permezz ta’ σ.
 

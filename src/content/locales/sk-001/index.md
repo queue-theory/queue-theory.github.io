@@ -122,7 +122,7 @@ Naša notácia a význam každého symbolu:
 | β (beta) | miera zlyhaní: pozorovaný výstup, ktorý dopadne nesprávne |
 | δ (delta) | miera dokončení: úspech + zlyhanie, obslúžené položky, či už je výsledok správny, alebo nesprávny |
 | σ (sigma) | miera vynechaní: položky, ktoré vstúpili a odišli neobslúžené |
-| ε (epsilon) | pomer chýb: β / (α + β) = β / δ |
+| ε (epsilon) | pomer chýb: β / δ = β / (α + β) |
 | τ (tau) | čas v systéme alias priebežný čas |
 | ω (omega) | čas čakania alias čas vo fronte |
 | φ (fí) | pracovný čas alias čas v procesore alias čas obsluhy |
@@ -266,7 +266,7 @@ Dve súvisiace správania nie sú vynechania:
 
 Najdôležitejšia notácia, ktorá zhŕňa úspešnosť frontu:
 
-- ε (epsilon): pomer chýb = počet zlyhaní / (počet úspechov + počet zlyhaní) = β / (α + β) = β / δ
+- ε (epsilon): pomer chýb = počet zlyhaní / počet dokončených = β / δ = β / (α + β)
 
 Vynechania sú vylúčené, pretože vynechaná položka nikdy nebola obslúžená, takže nebola ani správna, ani nesprávna. Vynechania sledujte samostatne pomocou σ.
 

@@ -122,7 +122,7 @@ Ký hiệu của chúng tôi và ý nghĩa của từng biểu tượng:
 | β (beta) | tốc độ thất bại: đầu ra quan sát được hóa ra sai |
 | δ (delta) | tốc độ hoàn thành: thành công + thất bại, các mục đã được phục vụ, dù kết quả đúng hay sai |
 | σ (sigma) | tốc độ bỏ qua: các mục đã vào rồi rời đi mà không được phục vụ |
-| ε (epsilon) | tỷ lệ lỗi: β / (α + β) = β / δ |
+| ε (epsilon) | tỷ lệ lỗi: β / δ = β / (α + β) |
 | τ (tau) | thời gian trong hệ thống, còn gọi là thời gian sản xuất (lead time) |
 | ω (omega) | thời gian chờ, còn gọi là thời gian trong hàng đợi |
 | φ (phi) | thời gian làm việc, còn gọi là thời gian trong bộ xử lý, còn gọi là thời gian phục vụ |
@@ -266,7 +266,7 @@ Hai hành vi liên quan không được coi là bỏ qua:
 
 Ký hiệu quan trọng nhất để tóm tắt mức độ thành công của một hàng đợi:
 
-- ε (epsilon): tỷ lệ lỗi = số lần thất bại / (số lần thành công + số lần thất bại) = β / (α + β) = β / δ
+- ε (epsilon): tỷ lệ lỗi = số lần thất bại / số lượng hoàn thành = β / δ = β / (α + β)
 
 Các lần bỏ qua bị loại trừ, vì một mục bị bỏ qua chưa bao giờ được phục vụ, nên nó không đúng cũng không sai. Hãy theo dõi các lần bỏ qua riêng qua σ.
 

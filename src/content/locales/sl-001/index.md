@@ -122,7 +122,7 @@ Naš zapis in pomen vsakega simbola:
 | β (beta) | stopnja neuspeha: opazovani izhod, ki se izkaže za napačnega |
 | δ (delta) | stopnja dokončanja: uspeh + neuspeh, postreženi elementi, ne glede na to, ali je rezultat pravilen ali napačen |
 | σ (sigma) | stopnja izpustitev: elementi, ki so vstopili in odšli nepostreženi |
-| ε (epsilon) | razmerje napak: β / (α + β) = β / δ |
+| ε (epsilon) | razmerje napak: β / δ = β / (α + β) |
 | τ (tau) | čas v sistemu oz. pretočni čas |
 | ω (omega) | čas čakanja oz. čas v čakalni vrsti |
 | φ (fi) | čas dela oz. čas v procesorju oz. čas strežbe |
@@ -269,7 +269,7 @@ Dve sorodni vedenji nista izpustitvi:
 
 Najpomembnejša notacija, ki povzema uspešnost čakalne vrste:
 
-- ε (epsilon): razmerje napak = število neuspehov / (število uspehov + število neuspehov) = β / (α + β) = β / δ
+- ε (epsilon): razmerje napak = število neuspehov / število dokončanih = β / δ = β / (α + β)
 
 Izpustitve so izključene, ker izpuščeni element nikoli ni bil postrežen, zato ni bil ne pravilen ne napačen. Izpustitve spremljajte ločeno prek σ.
 

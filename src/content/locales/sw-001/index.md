@@ -122,7 +122,7 @@ Alama zetu na maana ya kila alama:
 | β (beta) | kiwango cha kushindwa: matokeo yanayoonekana ambayo yanageuka kuwa makosa |
 | δ (delta) | kiwango cha kukamilika: mafanikio + kushindwa, vipengee vilivyohudumiwa, iwe matokeo ni sahihi au si sahihi |
 | σ (sigma) | kiwango cha kuachwa: vipengee vilivyoingia, kisha vikaondoka bila kuhudumiwa |
-| ε (epsilon) | uwiano wa makosa: β / (α + β) = β / δ |
+| ε (epsilon) | uwiano wa makosa: β / δ = β / (α + β) |
 | τ (tau) | muda katika mfumo, yaani muda wa jumla wa utekelezaji (lead time) |
 | ω (omega) | muda wa kusubiri, yaani muda katika foleni |
 | φ (phi) | muda wa kazi, yaani muda katika kichakataji, yaani muda wa huduma |
@@ -266,7 +266,7 @@ Tabia mbili zinazohusiana si kuachwa:
 
 Nukuu muhimu zaidi inayofupisha mafanikio ya foleni:
 
-- ε (epsilon): uwiano wa makosa = idadi ya kushindwa / (idadi ya mafanikio + idadi ya kushindwa) = β / (α + β) = β / δ
+- ε (epsilon): uwiano wa makosa = idadi ya kushindwa / idadi ya vilivyokamilika = β / δ = β / (α + β)
 
 Vilivyoachwa haviingizwi, kwa sababu kipengee kilichoachwa hakikuhudumiwa kamwe, kwa hiyo hakikuwa sahihi wala kosa. Fuatilieni vilivyoachwa kando kupitia σ.
 

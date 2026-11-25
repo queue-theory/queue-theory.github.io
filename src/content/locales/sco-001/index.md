@@ -122,7 +122,7 @@ Oor notation an whit each seembol means:
 | β (beta) | failure rate: observed output that turns oot wrang |
 | δ (delta) | duin rate: success + failure, items that were served, whether the result is richt or wrang |
 | σ (sigma) | skip rate: items that entered, then left wioot service |
-| ε (epsilon) | error ratio: β / (α + β) = β / δ |
+| ε (epsilon) | error ratio: β / δ = β / (α + β) |
 | τ (tau) | time in the system, aka lead time |
 | ω (omega) | waitin time, aka time in the queue |
 | φ (phi) | wark time, aka time in the processor, aka service time |
@@ -266,7 +266,7 @@ Twa relatit behaviours are no skips:
 
 The maist important notation that sums up a queue's success:
 
-- ε (epsilon): error ratio = failure coont / (success coont + failure coont) = β / (α + β) = β / δ
+- ε (epsilon): error ratio = failure coont / duin coont = β / δ = β / (α + β)
 
 Skips are left oot, because a skipped item wis niver serviced, sae it wis neither richt nor wrang. Please track skips separately wi σ.
 

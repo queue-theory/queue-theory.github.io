@@ -122,7 +122,7 @@ Eis Notatioun an d’Bedeitung vun all Symbol:
 | β (Beta) | Feelerrat: beobachten Output, deen sech als falsch erweist |
 | δ (Delta) | Ofschlossrat: Erfolleg + Feeler, Elementer, déi bedéngt goufen, egal ob d’Resultat richteg oder falsch ass |
 | σ (Sigma) | Ofbriechrat: Elementer, déi erakomm sinn an onbedéngt fortgaange sinn |
-| ε (Epsilon) | Feelerquot: β / (α + β) = β / δ |
+| ε (Epsilon) | Feelerquot: β / δ = β / (α + β) |
 | τ (Tau) | Zäit am System, och Duerchlafzäit |
 | ω (Omega) | Waardezäit, och Zäit an der Schlaang |
 | φ (Phi) | Aarbechtszäit, och Zäit am Prozessor, och Servicezäit |
@@ -269,7 +269,7 @@ Zwee verwandt Verhalen sinn keng Ofbréch:
 
 Déi wichtegst Notatioun, déi den Erfolleg vun enger Schlaang zesummefaasst:
 
-- ε (Epsilon): Feelerquot = Zuel vun de Feeler / (Zuel vun den Erfolleger + Zuel vun de Feeler) = β / (α + β) = β / δ
+- ε (Epsilon): Feelerquot = Zuel vun de Feeler / Zuel vun den ofgeschlossenen = β / δ = β / (α + β)
 
 Ofbréch ginn ausgeschloss, well en ofgebrachent Element ni bedéngt gouf, also war et weder richteg nach falsch. Verfollegt Ofbréch w.e.g. separat iwwer σ.
 
