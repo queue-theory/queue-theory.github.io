@@ -41,10 +41,14 @@ Clàr-innse:
 - [Ciudha de chiudhaichean](#ciudha-de-chiudhaichean)
   - [Ciudha de chiudhaichean Double Diamond](#ciudha-de-chiudhaichean-double-diamond)
   - [Ciudha de chiudhaichean mar lìonadair](#ciudha-de-chiudhaichean-mar-lìonadair)
+- [Cearcall dìobhalach a’ chus-obrach](#cearcall-dìobhalach-a-chus-obrach)
 - [Lèirsinnean](#lèirsinnean)
+- [Sruth pròiseis](#sruth-pròiseis)
+  - [Crìochan giùlain](#crìochan-giùlain)
+  - [Crìochan caochlaidheachd](#crìochan-caochlaidheachd)
 - [Facal-crìche](#facal-crìche)
   - [Faicibh cuideachd](#faicibh-cuideachd)
-  - [Taing](#taing)
+  - [Cliù is aithne](#cliù-is-aithne)
 - [Lorgadh](#lorgadh)
 
 ## Ro-ràdh
@@ -594,6 +598,12 @@ Nar n-obair phractaigeach, bidh sinn gu tric a' cleachdadh am facal "lìonadair"
 
 - Ciudha prògramaidh a tha a' cleachdadh ìre amalachaidh, ìre gabhail chleachdaichean, agus ìre sgaoilidh gu riochdachadh. Airson a' chiudha seo, tha sinn ag amas air reat mhearachdan ìre an sgaoilidh gu riochdachadh a lùghdachadh, leithid tro theileamatraidh canaraidh.
 
+## Cearcall dìobhalach a’ chus-obrach
+
+Nuair a dh’èiricheas ìre nan ràinigeadh, cuiridh seo barrachd cuideam air siostam agus putaidh e an siostam nas fhaisge air a chomas (i.e. 100% de chleachdadh). Bidh seo ag adhbharachadh gun àrdaich amannan cearcaill gu luath a dh’ionnsaigh neo-chrìochnachd, agus gun àrdaich obair ga dèanamh, a bheir mu dheireadh toraidhean nas slaodaiche.
+
+Tha seo a’ stiùireadh pàtran cumanta sa ghnìomhachas ris an can sinn “cearcall dìobhalach a’ chus-obrach”: nuair a bhios na toraidhean dona gu leòr, bheir manaidsearan cead airson barrachd ghoireasan (leithid ùine-a-bharrachd no cuideachadh a bharrachd fhastadh), a leasaicheas comas an t-siostaim. Ach cho luath ’s a thig an siostam air ais gu a neart, sguiridh na manaidsearan den ùine-a-bharrachd, agus tòisichidh an cus luchd a-rithist. Faodaidh an lùb seo a bhith luath agus millteach. ’S e am fuasgladh gun cuir manaidsearan seachad an ùine airson an siostam, an comas agus an cleachdadh a thuigsinn.
+
 ## Lèirsinnean
 
 Seachd lèirsinnean air teòiridh nan ciudhaichean, le Bob Wescott, ùghdar "The Every Computer Performance Book" (faicibh cuideachd [geàrr-chunntas Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -611,6 +621,32 @@ Seachd lèirsinnean air teòiridh nan ciudhaichean, le Bob Wescott, ùghdar "The
 6. Tha buaidh àicheidh dhaonna ann an ionadan seirbheis iomadach.
 
 7. Seallaibh leasachaidhean beaga san t-solas as fheàrr aca.
+
+## Sruth pròiseis
+
+Is e sruth pròiseis sreath de phròiseasan. Bidh nithean, no obraichean, no dleastanasan, msaa a’ dol air adhart tron t-sruth pròiseis.
+
+Mar eisimpleir, tha loidhne saothrachaidh air a dèanamh suas de dh’iomadh stèisean ann an sreath tron tèid dleastanasan. Tha mòran shreathan co-cheangailte de dh’obraichean ann an ospadal (gabhail a-steach, cùram san t-seòmar, ullachadh lannsaireachd, lannsaireachd, faighinn seachad air, msaa) tron tèid euslaintich. Tha sreathan de dh’obraichean ann am banca tron tèid airgead. Tha tuigse air sruthan deatamach airson siostaman obrachaidh èifeachdach a dhealbhadh agus a stiùireadh.
+
+### Crìochan giùlain
+
+Tha giùlan sruth pròiseis an urra ri dà chrìoch:
+
+- Ìre a’ cham-uilinn: comas an t-srutha (i.e. ìre a’ phròiseis leis a’ chleachdadh as àirde).
+
+- Ùine pròiseis amh: an ùine iomlan a bhios eintiteasan air am pròiseasadh san t-sruth (i.e. an ùine cuibheasach a bheireadh e do dh’eintiteas sruth falamh a thrasnadh).
+
+### Crìochan caochlaidheachd
+
+Tha caochlaidheachd sruth pròiseis an urra ri dà chrìoch:
+
+- Caochlaidheachd an t-srutha: caochlaidheachd ann an amannan eadar ràinigeadh eintiteasan aig na siostaman.
+
+- Caochlaidheachd a’ phròiseis: caochlaidheachd ann an amannan pròiseasaidh aig na siostaman.
+
+Smaoinichibh air sruth pròiseis aig a bheil an dà chuid caochlaidheachd srutha agus caochlaidheachd pròiseis. Mar a bhiodh dùil, tha caochlaidheachd an t-srutha a thig a-mach à stèisean an urra an dà chuid ris a’ chaochlaidheachd a thig a-steach agus ris a’ chaochlaidheachd pròiseis a thèid a chruthachadh aig an stèisean fhèin. Tha an ìre dhen urrasachd air gach tè na ghnìomh de chleachdadh an t-siostaim.
+
+’S e caochlaidheachd am prìomh fhactar a lùghdaicheas coileanadh shruthan pròiseis an taca ris a’ choileanadh sa chùis as fheàrr. Mar sin, tha tuigse air caochlaidheachd agus dòighean air a cur às aig cridhe iomadh dòigh-obrach airson leasachadh obrachaidh.
 
 ## Facal-crìche
 
@@ -666,9 +702,11 @@ Foirmlean:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Taing
+### Cliù is aithne
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Tha an leabhar seo air leth math airson DevOps aig ìre àrd, agus tha e a' toirt buaidh dhìreach air ar roghainn de KPIan. Tha na KPIan air an duilleag seo a' freagairt ri molaidhean an leabhair.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Tha an leabhar seo a’ mìneachadh chiudhaichean agus sruthan phròiseasan, a’ gabhail a-steach seòrsaichean coltach de mhatamataig, le cuideam air stiùireadh gnìomhachais.
 
 ## Lorgadh
 

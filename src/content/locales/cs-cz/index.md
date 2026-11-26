@@ -39,10 +39,14 @@ Obsah:
 - [Fronta front](#fronta-front)
   - [Fronta front podle modelu Double Diamond](#fronta-front-podle-modelu-double-diamond)
   - [Fronta front typu trychtýř](#fronta-front-typu-trychtýř)
+- [Bludný kruh přepracování](#bludný-kruh-přepracování)
 - [Postřehy](#postřehy)
+- [Tok procesu](#tok-procesu)
+  - [Parametry chování](#parametry-chování)
+  - [Parametry variability](#parametry-variability)
 - [Epilog](#epilog)
   - [Viz také](#viz-také)
-  - [Poděkování](#poděkování)
+  - [Zásluhy a zdroje](#zásluhy-a-zdroje)
 - [Informace o projektu](#informace-o-projektu)
 
 ## Úvod
@@ -592,6 +596,12 @@ V praxi často používáme slovo „trychtýř“ (funnel) k volnému popisu fr
 
 - Programátorská fronta, která používá etapu integrace, etapu uživatelské akceptace a etapu zavedení do produkce. U tohoto druhu fronty se snažíme minimalizovat chybovost etapy zavedení do produkce, například prostřednictvím telemetrie kanárkových nasazení (canary).
 
+## Bludný kruh přepracování
+
+Když roste intenzita příchodů, zvyšuje se tlak na systém a přibližuje ho to ke kapacitě (tedy ke 100 % vytížení). Doby cyklu pak rychle rostou k nekonečnu a roste i rozpracovaná práce, což zase vede k pomalejším výsledkům.
+
+Z toho vzniká v praxi běžný vzorec, kterému říkáme „bludný kruh přepracování“: když jsou výsledky dost špatné, manažeři schválí další zdroje (například přesčasy nebo extra výpomoc), čímž se kapacita systému zvýší. Jakmile se však systém zotaví, manažeři přesčasy zruší a přetěžování začne znovu. Tento koloběh může být rychlý a zničující. Řešením je, aby si manažeři našli čas porozumět systému, kapacitě a vytížení.
+
 ## Postřehy
 
 Sedm postřehů k teorii front od Boba Wescotta, autora knihy „The Every Computer Performance Book“ (viz také [Kottkeho shrnutí](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Sedm postřehů k teorii front od Boba Wescotta, autora knihy „The Every Compu
 6. V systémech s více obslužnými centry působí lidský efekt popírání.
 
 7. Malá zlepšení ukazujte v co nejlepším světle.
+
+## Tok procesu
+
+Tok procesu je posloupnost procesů. Položky, operace, úlohy apod. procházejí tokem procesu.
+
+Například výrobní linka se skládá z několika za sebou řazených stanic, kterými procházejí úlohy. Nemocnice obsahuje mnoho propojených posloupností operací (příjem, péče na pokoji, příprava na operaci, operace, zotavení apod.), kterými procházejí pacienti. Banka zahrnuje posloupnosti operací, kterými protékají peníze. Pochopení toků je zásadní pro návrh a řízení efektivních provozních systémů.
+
+### Parametry chování
+
+Chování toku procesu závisí na dvou parametrech:
+
+- Rychlost úzkého místa: kapacita toku (tj. rychlost procesu s nejvyšším vytížením).
+
+- Surová doba zpracování: celková doba, kterou entity v toku strávují zpracováním (tj. průměrná doba, za kterou by entita prošla prázdným tokem).
+
+### Parametry variability
+
+Variabilita toku procesu závisí na dvou parametrech:
+
+- Variabilita toku: variabilita intervalů mezi příchody entit do systémů.
+
+- Variabilita procesu: variabilita dob zpracování v systémech.
+
+Uvažujme tok procesu, který vykazuje jak variabilitu toku, tak variabilitu procesu. Jak se dá očekávat, variabilita toku vystupujícího ze stanice závisí jak na variabilitě toku, který do ní vstupuje, tak na variabilitě procesu vznikající v samotné stanici. Do jaké míry závisí na každé z nich, je funkcí vytížení systému.
+
+Variabilita je dominantním faktorem, který zhoršuje výkon toků procesů oproti nejlepšímu možnému případu. Proto jsou pochopení variability a hledání způsobů, jak ji odstranit, jádrem mnoha metodik zlepšování provozu.
 
 ## Epilog
 
@@ -664,9 +700,11 @@ Vzorce:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Poděkování
+### Zásluhy a zdroje
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Tato kniha je vynikající pro DevOps na vysoké úrovni a přímo ovlivňuje náš výběr KPI. KPI na této stránce odpovídají doporučením knihy.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Tato kniha vysvětluje fronty a toky procesů, včetně podobných druhů matematiky, s důrazem na obchodní řízení.
 
 ## Informace o projektu
 

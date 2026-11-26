@@ -35,10 +35,14 @@ Yaliyomo:
 - [Foleni ya foleni](#foleni-ya-foleni)
   - [Foleni ya foleni ya Double Diamond](#foleni-ya-foleni-ya-double-diamond)
   - [Foleni ya foleni ya funeli](#foleni-ya-foleni-ya-funeli)
+- [Mzunguko mbaya wa kufanya kazi kupita kiasi](#mzunguko-mbaya-wa-kufanya-kazi-kupita-kiasi)
 - [Maarifa](#maarifa)
+- [Mtiririko wa mchakato](#mtiririko-wa-mchakato)
+  - [Vigezo vya tabia](#vigezo-vya-tabia)
+  - [Vigezo vya kutofautiana](#vigezo-vya-kutofautiana)
 - [Hitimisho](#hitimisho)
   - [Tazama pia](#tazama-pia)
-  - [Shukrani](#shukrani)
+  - [Shukrani na vyanzo](#shukrani-na-vyanzo)
 - [Taarifa za mradi](#taarifa-za-mradi)
 
 ## Utangulizi
@@ -585,6 +589,12 @@ Katika kazi zetu za vitendo, mara nyingi tunatumia neno "funeli" kueleza kwa uju
 
 - Foleni ya uandishi wa programu inayotumia hatua ya ujumuishaji, hatua ya kukubalika kwa mtumiaji, na hatua ya kusambaza katika mazingira ya uzalishaji. Kwa aina hii ya foleni, tunalenga kupunguza kiwango cha makosa cha hatua ya kusambaza katika uzalishaji kadiri iwezekanavyo, kwa mfano kupitia telemetria ya canary.
 
+## Mzunguko mbaya wa kufanya kazi kupita kiasi
+
+Kiwango cha kuwasili kinapoongezeka, hii huweka shinikizo zaidi kwenye mfumo na kuusukuma karibu zaidi na uwezo wake (yaani matumizi ya asilimia 100). Hili hufanya muda wa mzunguko kuongezeka kwa kasi kuelekea ukomo usio na kikomo, na kazi inayoendelea kuongezeka, jambo ambalo nalo husababisha matokeo ya polepole zaidi.
+
+Hali hii huchochea mtindo wa kawaida katika tasnia ambao tunauita “mzunguko mbaya wa kufanya kazi kupita kiasi”: matokeo yanapokuwa mabaya vya kutosha, mameneja huidhinisha rasilimali zaidi (kama vile saa za ziada au kuajiri msaada wa ziada), jambo linaloboresha uwezo wa mfumo. Lakini mara tu mfumo unapopona, mameneja husitisha saa za ziada, na mzigo kupita kiasi huanza tena. Mzunguko huu unaweza kuwa wa haraka na wa kuharibu. Suluhisho ni mameneja kutumia muda kuelewa mfumo, uwezo, na matumizi.
+
 ## Maarifa
 
 Maarifa saba kuhusu nadharia ya foleni, na Bob Wescott, mwandishi wa "The Every Computer Performance Book" (tazameni pia [muhtasari wa Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Maarifa saba kuhusu nadharia ya foleni, na Bob Wescott, mwandishi wa "The Every 
 6. Kuna athari ya kibinadamu ya kukana katika vituo vingi vya huduma.
 
 7. Onyesheni maboresho madogo kwa namna yao bora zaidi.
+
+## Mtiririko wa mchakato
+
+Mtiririko wa mchakato ni mfuatano wa michakato. Vipengee, au shughuli, au kazi, n.k. huendelea kupitia mtiririko wa mchakato.
+
+Kwa mfano, laini ya utengenezaji ina vituo kadhaa vilivyopangwa kwa mfululizo ambavyo kazi hupitia. Hospitali ina mifuatano mingi iliyounganishwa ya shughuli (kulazwa, huduma chumbani, maandalizi ya upasuaji, upasuaji, kupona, n.k.) ambayo wagonjwa hupitia. Benki inahusisha mifuatano ya shughuli ambayo pesa hupitia. Kuelewa mtiririko ni msingi wa kubuni na kusimamia mifumo madhubuti ya uendeshaji.
+
+### Vigezo vya tabia
+
+Tabia ya mtiririko wa mchakato inategemea vigezo viwili:
+
+- Kiwango cha kizuizi: uwezo wa mtiririko (yaani kiwango cha mchakato wenye matumizi ya juu zaidi).
+
+- Muda ghafi wa mchakato: jumla ya muda ambao vitu hutumia kuchakatwa katika mtiririko (yaani wastani wa muda ambao kitu kingechukua kuvuka mtiririko mtupu).
+
+### Vigezo vya kutofautiana
+
+Kutofautiana kwa mtiririko wa mchakato kunategemea vigezo viwili:
+
+- Kutofautiana kwa mtiririko: kutofautiana kwa muda kati ya kuwasili kwa vitu kwenye mifumo.
+
+- Kutofautiana kwa mchakato: kutofautiana kwa muda wa mchakato kwenye mifumo.
+
+Fikiria mtiririko wa mchakato unaokumbwa na kutofautiana kwa mtiririko na kutofautiana kwa mchakato. Kama inavyotarajiwa, kutofautiana kwa mtiririko unaotoka kituoni kunategemea kutofautiana kwa mtiririko unaoingia na kutofautiana kwa mchakato kunakozalishwa kituoni chenyewe. Kiasi cha kutegemea kila kimoja ni kazi ya matumizi ya mfumo.
+
+Kutofautiana ndicho kigezo kikuu kinachopunguza utendaji wa mtiririko wa michakato ukilinganishwa na utendaji katika hali bora zaidi. Kwa hiyo, kuelewa kutofautiana na kutafuta njia za kukiondoa ndiko kiini cha mbinu nyingi za kuboresha uendeshaji.
 
 ## Hitimisho
 
@@ -657,9 +693,11 @@ Fomula:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Shukrani
+### Shukrani na vyanzo
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Kitabu hiki ni bora sana kwa DevOps ya kiwango cha juu, na kinaongoza moja kwa moja uchaguzi wetu wa KPIs. KPIs zilizo katika ukurasa huu zinaendana na mapendekezo ya kitabu hiki.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Kitabu hiki kinaeleza foleni na mtiririko wa michakato, ikiwa ni pamoja na aina zinazofanana za hisabati, kwa msisitizo kwenye usimamizi wa biashara.
 
 ## Taarifa za mradi
 

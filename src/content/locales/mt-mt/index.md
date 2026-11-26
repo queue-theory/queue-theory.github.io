@@ -35,10 +35,14 @@ Werrej:
 - [Kju ta’ kjuwijiet](#kju-ta-kjuwijiet)
   - [Kju ta’ kjuwijiet Double Diamond](#kju-ta-kjuwijiet-double-diamond)
   - [Kju ta’ kjuwijiet f’forma ta’ lembut](#kju-ta-kjuwijiet-fforma-ta-lembut)
+- [Iċ-ċirku vizzjuż tal-ħidma żejda](#iċ-ċirku-vizzjuż-tal-ħidma-żejda)
 - [Għarfien](#għarfien)
+- [Fluss tal-proċess](#fluss-tal-proċess)
+  - [Parametri tal-imġiba](#parametri-tal-imġiba)
+  - [Parametri tal-varjabbiltà](#parametri-tal-varjabbiltà)
 - [Epilogu](#epilogu)
   - [Ara wkoll](#ara-wkoll)
-  - [Ringrazzjamenti](#ringrazzjamenti)
+  - [Krediti](#krediti)
 - [Informazzjoni tal-proġett](#informazzjoni-tal-proġett)
 
 ## Introduzzjoni
@@ -586,6 +590,12 @@ Fix-xogħol prattiku tagħna, spiss nużaw il-kelma “lembut” biex niddeskriv
 
 - Kju tal-ipprogrammar li juża stadju ta’ integrazzjoni, stadju ta’ aċċettazzjoni mill-utent, u stadju ta’ tnedija fil-produzzjoni. Għal dan it-tip ta’ kju, għandna l-għan li nimminimizzaw ir-rata ta’ żbalji tal-istadju tat-tnedija fil-produzzjoni, pereżempju permezz ta’ telemetrija canary.
 
+## Iċ-ċirku vizzjuż tal-ħidma żejda
+
+Meta r-rata tal-wasla togħla, dan ipoġġi aktar pressjoni fuq sistema u jgħaddiha eqreb lejn il-kapaċità tagħha (jiġifieri 100% ta’ utilizzazzjoni). Dan iġiegħel il-ħinijiet taċ-ċiklu jogħlew malajr lejn l-infinit, u x-xogħol fil-proċess jiżdied, li min-naħa tiegħu jwassal għal riżultati aktar bil-mod.
+
+Dan iwassal għal mudell komuni fl-industrija li nsejħulu “ċ-ċirku vizzjuż tal-ħidma żejda”: meta r-riżultati jsiru ħżiena biżżejjed, il-maniġers jawtorizzaw aktar riżorsi (bħal overtime jew għajnuna żejda), u dan itejjeb il-kapaċità tas-sistema. Imma malli s-sistema tirkupra, il-maniġers jwaqqfu l-overtime, u t-tagħbija żejda tibda mill-ġdid. Dan iċ-ċirku jista’ jkun mgħaġġel u devastanti. Is-soluzzjoni hi li l-maniġers jieħdu ż-żmien biex jifhmu s-sistema, il-kapaċità u l-utilizzazzjoni.
+
 ## Għarfien
 
 Seba’ għarfiet dwar it-teorija tal-kjuwijiet, minn Bob Wescott, awtur ta’ “The Every Computer Performance Book” (ara wkoll [is-sommarju ta’ Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -603,6 +613,32 @@ Seba’ għarfiet dwar it-teorija tal-kjuwijiet, minn Bob Wescott, awtur ta’ �
 6. Hemm effett ta’ ċaħda umana f’ċentri tas-servizz multipli.
 
 7. Uri t-titjib żgħir fl-aħjar dawl tiegħu.
+
+## Fluss tal-proċess
+
+Fluss tal-proċess huwa sekwenza ta’ proċessi. Oġġetti, jew operazzjonijiet, jew xogħlijiet, eċċ. jimxu ’l quddiem permezz tal-fluss tal-proċess.
+
+Pereżempju, linja tal-manifattura tikkonsisti f’diversi stazzjonijiet f’serje li minnhom jgħaddu x-xogħlijiet. Sptar fih ħafna sekwenzi konnessi ta’ operazzjonijiet (dħul, kura fil-kamra, tħejjija kirurġika, kirurġija, rkupru, eċċ.) li minnhom jgħaddu l-pazjenti. Bank jinvolvi sekwenzi ta’ operazzjonijiet li minnhom tgħaddi l-flus. Il-fehim tal-flussi huwa fundamentali biex jiġu ddisinjati u ġestiti sistemi ta’ operazzjonijiet effettivi.
+
+### Parametri tal-imġiba
+
+L-imġiba ta’ fluss tal-proċess tiddependi minn żewġ parametri:
+
+- Rata tal-konġestjoni: il-kapaċità tal-fluss (jiġifieri r-rata tal-proċess bl-ogħla utilizzazzjoni).
+
+- Ħin tal-proċess mhux ipproċessat: iż-żmien totali li l-entitajiet jaqattgħu qed jiġu pproċessati fil-fluss (jiġifieri ż-żmien medju li jieħu entità biex taqsam fluss vojt).
+
+### Parametri tal-varjabbiltà
+
+Il-varjabbiltà ta’ fluss tal-proċess tiddependi minn żewġ parametri:
+
+- Varjabbiltà tal-fluss: varjabbiltà fil-ħinijiet bejn il-wasliet tal-entitajiet fis-sistemi.
+
+- Varjabbiltà tal-proċess: varjabbiltà fil-ħinijiet tal-proċess fis-sistemi.
+
+Ikkunsidra fluss tal-proċess li jesperjenza kemm varjabbiltà tal-fluss kif ukoll varjabbiltà tal-proċess. Kif wieħed jistenna, il-varjabbiltà tal-fluss li toħroġ minn stazzjon tiddependi kemm mill-varjabbiltà tal-fluss li tidħol fih kif ukoll mill-varjabbiltà tal-proċess maħluqa fl-istazzjon innifsu. Kemm tiddependi minn kull waħda minnhom hija funzjoni tal-utilizzazzjoni tas-sistema.
+
+Il-varjabbiltà hija l-fattur dominanti li jiddegrada l-prestazzjoni tal-flussi tal-proċess relattivament għall-prestazzjoni fl-aħjar każ. Għalhekk, il-fehim tal-varjabbiltà u s-sejba ta’ modi biex tiġi eliminata huma fil-qalba ta’ ħafna metodoloġiji ta’ titjib tal-operazzjonijiet.
 
 ## Epilogu
 
@@ -658,9 +694,11 @@ Formuli:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Ringrazzjamenti
+### Krediti
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Dan il-ktieb huwa eċċellenti għal DevOps ta’ livell għoli, u jinfluwenza direttament l-għażla tagħna tal-KPIs. Il-KPIs f’din il-paġna jaqblu mar-rakkomandazzjonijiet tal-ktieb.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Dan il-ktieb jispjega l-kjuwijiet u l-flussi tal-proċessi, inklużi tipi simili ta’ matematika, b’enfasi fuq il-ġestjoni tan-negozju.
 
 ## Informazzjoni tal-proġett
 

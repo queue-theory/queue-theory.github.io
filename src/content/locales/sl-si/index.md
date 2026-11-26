@@ -35,10 +35,14 @@ Vsebina:
 - [Čakalna vrsta čakalnih vrst](#čakalna-vrsta-čakalnih-vrst)
   - [Čakalna vrsta čakalnih vrst Double Diamond](#čakalna-vrsta-čakalnih-vrst-double-diamond)
   - [Lijak kot čakalna vrsta čakalnih vrst](#lijak-kot-čakalna-vrsta-čakalnih-vrst)
+- [Začarani krog preobremenjenosti](#začarani-krog-preobremenjenosti)
 - [Spoznanja](#spoznanja)
+- [Procesni tok](#procesni-tok)
+  - [Parametri obnašanja](#parametri-obnašanja)
+  - [Parametri variabilnosti](#parametri-variabilnosti)
 - [Epilog](#epilog)
   - [Glejte tudi](#glejte-tudi)
-  - [Zahvala](#zahvala)
+  - [Zasluge in viri](#zasluge-in-viri)
 - [Sledenje](#sledenje)
 
 ## Uvod
@@ -588,6 +592,12 @@ V našem praktičnem delu pogosto uporabljamo besedo „lijak“ za ohlapen opis
 
 - Čakalna vrsta programiranja s stopnjo integracije, stopnjo uporabniškega sprejemanja in stopnjo uvedbe v produkcijo. Pri tovrstni čakalni vrsti si prizadevamo čim bolj zmanjšati stopnjo napak stopnje uvedbe v produkcijo, na primer s kanarčkovo telemetrijo (canary).
 
+## Začarani krog preobremenjenosti
+
+Ko se stopnja prihodov poveča, to pritiska na sistem in ga približa njegovi zmogljivosti (tj. 100 % izkoriščenosti). Zato se časi cikla hitro večajo proti neskončnosti, povečuje se tudi delo v teku, to pa povzroča počasnejše rezultate.
+
+To poganja pogost vzorec v panogi, ki mu pravimo „začarani krog preobremenjenosti“: ko so rezultati dovolj slabi, vodje odobrijo več virov (na primer nadure ali dodatno pomoč), kar izboljša zmogljivost sistema. Toda takoj ko si sistem opomore, vodje nadure ukinejo in preobremenjenost se začne znova. Ta zanka je lahko hitra in uničujoča. Rešitev je, da si vodje vzamejo čas za razumevanje sistema, zmogljivosti in izkoriščenosti.
+
 ## Spoznanja
 
 Sedem spoznanj o teoriji čakalnih vrst, ki jih je zapisal Bob Wescott, avtor knjige „The Every Computer Performance Book“ (glejte tudi [Kottkejev povzetek](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -605,6 +615,32 @@ Sedem spoznanj o teoriji čakalnih vrst, ki jih je zapisal Bob Wescott, avtor kn
 6. Pri več centrih strežbe obstaja učinek človeškega zanikanja.
 
 7. Majhne izboljšave prikažite v najboljši luči.
+
+## Procesni tok
+
+Procesni tok je zaporedje procesov. Elementi, operacije, opravila ipd. napredujejo skozi procesni tok.
+
+Na primer, proizvodna linija je sestavljena iz več zaporedno povezanih postaj, skozi katere tečejo opravila. Bolnišnica vsebuje številna povezana zaporedja operacij (sprejem, oskrba v sobi, priprava na operacijo, operacija, okrevanje ipd.), skozi katera tečejo bolniki. Banka vključuje zaporedja operacij, skozi katera teče denar. Razumevanje tokov je temeljno za načrtovanje in upravljanje učinkovitih operativnih sistemov.
+
+### Parametri obnašanja
+
+Obnašanje procesnega toka je odvisno od dveh parametrov:
+
+- Stopnja ozkega grla: zmogljivost toka (tj. stopnja procesa z najvišjo izkoriščenostjo).
+
+- Surovi čas procesa: skupni čas, ki ga entitete porabijo za obdelavo v toku (tj. povprečni čas, ki bi ga entiteta potrebovala za prehod skozi prazen tok).
+
+### Parametri variabilnosti
+
+Variabilnost procesnega toka je odvisna od dveh parametrov:
+
+- Variabilnost toka: variabilnost v časih med prihodi entitet v sisteme.
+
+- Variabilnost procesa: variabilnost v časih obdelave v sistemih.
+
+Obravnavajmo procesni tok, ki ima tako variabilnost toka kot variabilnost procesa. Kot je pričakovati, je variabilnost toka, ki izhaja iz postaje, odvisna tako od variabilnosti toka, ki vanjo vstopa, kot od variabilnosti procesa, ki nastane v sami postaji. Koliko je odvisna od posamezne, je funkcija izkoriščenosti sistema.
+
+Variabilnost je prevladujoči dejavnik, ki poslabšuje delovanje procesnih tokov v primerjavi z delovanjem v najboljšem primeru. Zato sta razumevanje variabilnosti in iskanje načinov za njeno odpravo jedro številnih metodologij izboljševanja poslovanja.
 
 ## Epilog
 
@@ -660,9 +696,11 @@ Formule:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Zahvala
+### Zasluge in viri
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Ta knjiga je odlična za DevOps na visoki ravni in neposredno vpliva na našo izbiro kazalnikov KPI. Kazalniki KPI na tej strani se ujemajo s priporočili knjige.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Ta knjiga razlaga čakalne vrste in procesne tokove, vključno s podobno matematiko, s poudarkom na poslovnem upravljanju.
 
 ## Sledenje
 

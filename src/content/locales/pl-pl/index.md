@@ -35,10 +35,14 @@ Spis treści:
 - [Kolejka kolejek](#kolejka-kolejek)
   - [Kolejka kolejek Double Diamond](#kolejka-kolejek-double-diamond)
   - [Kolejka kolejek w formie lejka](#kolejka-kolejek-w-formie-lejka)
+- [Błędne koło przepracowania](#błędne-koło-przepracowania)
 - [Spostrzeżenia](#spostrzeżenia)
+- [Przepływ procesu](#przepływ-procesu)
+  - [Parametry zachowania](#parametry-zachowania)
+  - [Parametry zmienności](#parametry-zmienności)
 - [Epilog](#epilog)
   - [Zobacz także](#zobacz-także)
-  - [Podziękowania](#podziękowania)
+  - [Podziękowania i źródła](#podziękowania-i-źródła)
 - [Informacje o projekcie](#informacje-o-projekcie)
 
 ## Wprowadzenie
@@ -588,6 +592,12 @@ W naszej praktycznej pracy często używamy słowa „lejek”, aby luźno opisa
 
 - Kolejka programowania, która obejmuje etap integracji, etap akceptacji przez użytkownika i etap wdrożenia produkcyjnego. W przypadku takiej kolejki dążymy do minimalizacji tempa błędów etapu wdrożenia produkcyjnego, na przykład poprzez telemetrię wdrożeń kanarkowych.
 
+## Błędne koło przepracowania
+
+Gdy natężenie napływu rośnie, zwiększa to presję na system i przybliża go do granicy wydajności (tj. 100% wykorzystania). Czasy cyklu szybko rosną wtedy w stronę nieskończoności, rośnie też ilość pracy w toku, co z kolei powoduje wolniejsze wyniki.
+
+Napędza to powszechny w branży wzorzec, który nazywamy „błędnym kołem przepracowania”: gdy wyniki stają się wystarczająco złe, kierownicy zatwierdzają dodatkowe zasoby (takie jak nadgodziny czy zatrudnienie dodatkowej pomocy), co zwiększa wydajność systemu. Jednak gdy tylko system dojdzie do siebie, kierownicy znoszą nadgodziny i przeciążenie zaczyna się od nowa. Ta pętla może być szybka i niszczycielska. Rozwiązaniem jest poświęcenie przez kierowników czasu na zrozumienie systemu, jego wydajności i wykorzystania.
+
 ## Spostrzeżenia
 
 Siedem spostrzeżeń na temat teorii kolejek autorstwa Boba Wescotta, autora książki „The Every Computer Performance Book” (zob. także [podsumowanie Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -605,6 +615,32 @@ Siedem spostrzeżeń na temat teorii kolejek autorstwa Boba Wescotta, autora ksi
 6. W wielu centrach obsługi występuje ludzki efekt wyparcia.
 
 7. Małe usprawnienia należy pokazywać w jak najlepszym świetle.
+
+## Przepływ procesu
+
+Przepływ procesu to sekwencja procesów. Elementy, operacje, zlecenia itp. przechodzą przez przepływ procesu.
+
+Na przykład linia produkcyjna składa się z kilku stanowisk połączonych szeregowo, przez które przepływają zlecenia. Szpital zawiera wiele połączonych sekwencji operacji (przyjęcie, opieka na sali, przygotowanie do zabiegu, zabieg, rekonwalescencja itp.), przez które przepływają pacjenci. Bank obejmuje sekwencje operacji, przez które przepływają pieniądze. Zrozumienie przepływów jest podstawą projektowania i zarządzania skutecznymi systemami operacyjnymi.
+
+### Parametry zachowania
+
+Zachowanie przepływu procesu zależy od dwóch parametrów:
+
+- Tempo wąskiego gardła: przepustowość przepływu (tj. tempo procesu o najwyższym wykorzystaniu).
+
+- Surowy czas procesu: łączny czas, jaki jednostki spędzają na przetwarzaniu w przepływie (tj. średni czas, jakiego potrzebowałaby jednostka na przejście przez pusty przepływ).
+
+### Parametry zmienności
+
+Zmienność przepływu procesu zależy od dwóch parametrów:
+
+- Zmienność przepływu: zmienność odstępów między przybyciami jednostek do systemów.
+
+- Zmienność procesu: zmienność czasów przetwarzania w systemach.
+
+Rozważmy przepływ procesu, w którym występuje zarówno zmienność przepływu, jak i zmienność procesu. Jak można się spodziewać, zmienność przepływu wychodzącego ze stanowiska zależy zarówno od zmienności przepływu wchodzącego, jak i od zmienności procesu powstającej na samym stanowisku. To, w jakim stopniu zależy od każdej z nich, jest funkcją wykorzystania systemu.
+
+Zmienność jest dominującym czynnikiem, który pogarsza wydajność przepływów procesów w porównaniu z wydajnością w najlepszym przypadku. Dlatego zrozumienie zmienności i znalezienie sposobów jej wyeliminowania leżą u podstaw wielu metodyk usprawniania operacji.
 
 ## Epilog
 
@@ -660,9 +696,11 @@ Wzory:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Podziękowania
+### Podziękowania i źródła
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Ta książka jest doskonała w zakresie DevOps na wysokim poziomie i bezpośrednio wpływa na nasz wybór KPI. Wskaźniki KPI na tej stronie są zgodne z zaleceniami tej książki.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Ta książka wyjaśnia kolejki i przepływy procesów, w tym podobne rodzaje matematyki, z naciskiem na zarządzanie biznesem.
 
 ## Informacje o projekcie
 

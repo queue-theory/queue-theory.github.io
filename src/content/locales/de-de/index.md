@@ -35,10 +35,14 @@ Inhalt:
 - [Warteschlange aus Warteschlangen](#warteschlange-aus-warteschlangen)
   - [Double Diamond als Warteschlange aus Warteschlangen](#double-diamond-als-warteschlange-aus-warteschlangen)
   - [Trichter als Warteschlange aus Warteschlangen](#trichter-als-warteschlange-aus-warteschlangen)
+- [Der Teufelskreis der Überarbeitung](#der-teufelskreis-der-überarbeitung)
 - [Erkenntnisse](#erkenntnisse)
+- [Prozessfluss](#prozessfluss)
+  - [Verhaltensparameter](#verhaltensparameter)
+  - [Variabilitätsparameter](#variabilitätsparameter)
 - [Nachwort](#nachwort)
   - [Siehe auch](#siehe-auch)
-  - [Danksagung](#danksagung)
+  - [Quellen und Anerkennung](#quellen-und-anerkennung)
 - [Projektinformationen](#projektinformationen)
 
 ## Einführung
@@ -585,6 +589,12 @@ In unserer praktischen Arbeit verwenden wir häufig das Wort „Trichter“, um 
 
 - Programmierwarteschlange mit einer Integrationsstufe, einer Benutzerakzeptanzstufe und einer Produktions-Rollout-Stufe. Bei dieser Art von Warteschlange streben wir an, die Fehlerrate der Produktions-Rollout-Stufe zu minimieren, etwa durch Canary-Telemetrie.
 
+## Der Teufelskreis der Überarbeitung
+
+Wenn die Ankunftsrate steigt, setzt das ein System stärker unter Druck und rückt es näher an die Kapazitätsgrenze (also 100 % Auslastung). Dadurch steigen die Durchlaufzeiten rasch gegen unendlich und die Menge der in Bearbeitung befindlichen Arbeit nimmt zu, was wiederum zu langsameren Ergebnissen führt.
+
+Daraus entsteht ein in der Praxis häufiges Muster, das wir „den Teufelskreis der Überarbeitung“ nennen: Wenn die Ergebnisse schlecht genug werden, genehmigen Führungskräfte mehr Ressourcen (etwa Überstunden oder zusätzliche Hilfe), wodurch sich die Kapazität des Systems verbessert. Sobald sich das System jedoch erholt hat, streichen die Führungskräfte die Überstunden wieder, und die Überlastung beginnt von vorn. Dieser Kreislauf kann schnell und verheerend sein. Die Lösung besteht darin, dass sich Führungskräfte die Zeit nehmen, das System, die Kapazität und die Auslastung zu verstehen.
+
 ## Erkenntnisse
 
 Sieben Erkenntnisse zur Warteschlangentheorie von Bob Wescott, Autor von „The Every Computer Performance Book“ (siehe auch [Kottkes Zusammenfassung](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Sieben Erkenntnisse zur Warteschlangentheorie von Bob Wescott, Autor von „The 
 6. Bei mehreren Servicecentern gibt es einen menschlichen Verdrängungseffekt.
 
 7. Stellen Sie kleine Verbesserungen im besten Licht dar.
+
+## Prozessfluss
+
+Ein Prozessfluss ist eine Abfolge von Prozessen. Elemente, Vorgänge, Aufträge usw. durchlaufen den Prozessfluss.
+
+Zum Beispiel besteht eine Fertigungslinie aus mehreren hintereinander angeordneten Stationen, die die Aufträge durchlaufen. Ein Krankenhaus enthält viele verbundene Abfolgen von Vorgängen (Aufnahme, Pflege auf dem Zimmer, OP-Vorbereitung, Operation, Genesung usw.), die die Patienten durchlaufen. Eine Bank umfasst Abfolgen von Vorgängen, durch die Geld fließt. Das Verständnis von Flüssen ist grundlegend für den Entwurf und die Steuerung wirksamer Betriebssysteme.
+
+### Verhaltensparameter
+
+Das Verhalten eines Prozessflusses hängt von zwei Parametern ab:
+
+- Engpassrate: Die Kapazität des Flusses (also die Rate des Prozesses mit der höchsten Auslastung).
+
+- Reine Prozesszeit: Die gesamte Zeit, die Entitäten im Fluss bearbeitet werden (also die durchschnittliche Zeit, die eine Entität für das Durchlaufen eines leeren Flusses benötigen würde).
+
+### Variabilitätsparameter
+
+Die Variabilität eines Prozessflusses hängt von zwei Parametern ab:
+
+- Flussvariabilität: Variabilität der Zwischenankunftszeiten der Entitäten an den Systemen.
+
+- Prozessvariabilität: Variabilität der Bearbeitungszeiten an den Systemen.
+
+Betrachten Sie einen Prozessfluss, der sowohl Flussvariabilität als auch Prozessvariabilität aufweist. Wie zu erwarten, hängt die Flussvariabilität, die eine Station verlässt, sowohl von der Flussvariabilität ab, die in sie eintritt, als auch von der Prozessvariabilität, die in der Station selbst entsteht. Wie stark sie von beiden abhängt, ist eine Funktion der Systemauslastung.
+
+Variabilität ist der dominierende Faktor, der die Leistung von Prozessflüssen gegenüber der bestmöglichen Leistung verschlechtert. Daher stehen das Verständnis der Variabilität und das Finden von Wegen, sie zu beseitigen, im Kern vieler Methoden zur Verbesserung des Betriebs.
 
 ## Nachwort
 
@@ -657,9 +693,11 @@ Formeln:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Danksagung
+### Quellen und Anerkennung
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Dieses Buch ist hervorragend für DevOps auf übergeordneter Ebene und prägt unmittelbar unsere Wahl der KPIs. Die KPIs auf dieser Seite entsprechen den Empfehlungen des Buches.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Dieses Buch erklärt Warteschlangen und Prozessabläufe, einschließlich ähnlicher Mathematik, mit Schwerpunkt auf dem Unternehmensmanagement.
 
 ## Projektinformationen
 

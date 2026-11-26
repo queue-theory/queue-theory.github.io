@@ -40,10 +40,14 @@ hatlarımız bunlar arasındadır.
 - [Kuyruklardan oluşan kuyruk](#kuyruklardan-oluşan-kuyruk)
   - [Double Diamond tipi kuyruklardan oluşan kuyruk](#double-diamond-tipi-kuyruklardan-oluşan-kuyruk)
   - [Huni tipi kuyruklardan oluşan kuyruk](#huni-tipi-kuyruklardan-oluşan-kuyruk)
+- [Aşırı çalışmanın kısır döngüsü](#aşırı-çalışmanın-kısır-döngüsü)
 - [Çıkarımlar](#çıkarımlar)
+- [Süreç akışı](#süreç-akışı)
+  - [Davranış parametreleri](#davranış-parametreleri)
+  - [Değişkenlik parametreleri](#değişkenlik-parametreleri)
 - [Sonsöz](#sonsöz)
   - [Ayrıca bakınız](#ayrıca-bakınız)
-  - [Teşekkürler](#teşekkürler)
+  - [Katkılar](#katkılar)
 - [Proje bilgileri](#proje-bilgileri)
 
 ## Giriş
@@ -593,6 +597,12 @@ Pratik çalışmalarımızda "huni" kelimesini, her aşamada öğe sayısını a
 
 - Bir entegrasyon aşaması, kullanıcı kabul aşaması ve üretime yaygınlaştırma aşaması kullanan programlama kuyruğu. Bu tür bir kuyrukta üretime yaygınlaştırma aşamasının hata hızını, örneğin kanarya telemetrisi yoluyla en aza indirmeyi hedefleriz.
 
+## Aşırı çalışmanın kısır döngüsü
+
+Geliş hızı arttığında bu, sistem üzerinde daha fazla baskı oluşturur ve sistemi kapasitesine (yani %100 kullanıma) daha da yaklaştırır. Bu durum çevrim sürelerinin hızla sonsuza doğru artmasına ve süreçteki işlerin çoğalmasına yol açar; bu da sonuçların yavaşlamasına neden olur.
+
+Bu, sektörde yaygın bir örüntüye yol açar; biz buna “aşırı çalışmanın kısır döngüsü” diyoruz: sonuçlar yeterince kötüleştiğinde yöneticiler daha fazla kaynak (örneğin fazla mesai ya da ek yardım) onaylar ve bu, sistemin kapasitesini iyileştirir. Ancak sistem toparlanır toparlanmaz yöneticiler fazla mesaiyi keser ve aşırı yüklenme yeniden başlar. Bu döngü hızlı ve yıkıcı olabilir. Çözüm, yöneticilerin sistemi, kapasiteyi ve kullanımı anlamak için zaman ayırmasıdır.
+
 ## Çıkarımlar
 
 "The Every Computer Performance Book" kitabının yazarı Bob Wescott'tan kuyruk teorisine dair yedi çıkarım (ayrıca bkz. [Kottke'nin özeti](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -610,6 +620,32 @@ Pratik çalışmalarımızda "huni" kelimesini, her aşamada öğe sayısını a
 6. Birden fazla hizmet merkezinde insani bir inkâr etkisi vardır.
 
 7. Küçük iyileştirmeleri en iyi şekilde gösterin.
+
+## Süreç akışı
+
+Süreç akışı, süreçlerin bir dizisidir. Öğeler, işlemler, işler vb. süreç akışı boyunca ilerler.
+
+Örneğin bir üretim hattı, işlerin içinden aktığı seri hâlde birkaç istasyondan oluşur. Bir hastane, hastaların içinden aktığı birbirine bağlı pek çok işlem dizisi içerir (kabul, odada bakım, ameliyat hazırlığı, ameliyat, iyileşme vb.). Bir banka, paranın içinden aktığı işlem dizilerini içerir. Etkili operasyon sistemlerini tasarlamak ve yönetmek için akışları anlamak temel önemdedir.
+
+### Davranış parametreleri
+
+Bir süreç akışının davranışı iki parametreye bağlıdır:
+
+- Darboğaz hızı: akışın kapasitesi (yani kullanımı en yüksek olan sürecin hızı).
+
+- Ham süreç süresi: varlıkların akışta işlenerek geçirdiği toplam süre (yani bir varlığın boş bir akışı geçmesi için gereken ortalama süre).
+
+### Değişkenlik parametreleri
+
+Bir süreç akışının değişkenliği iki parametreye bağlıdır:
+
+- Akış değişkenliği: varlıkların sistemlere varış aralıklarındaki değişkenlik.
+
+- Süreç değişkenliği: sistemlerdeki işlem sürelerindeki değişkenlik.
+
+Hem akış değişkenliği hem de süreç değişkenliği yaşayan bir süreç akışını düşünün. Beklenebileceği gibi, bir istasyondan çıkan akışın değişkenliği hem istasyona giren akışın değişkenliğine hem de istasyonun kendisinde oluşan süreç değişkenliğine bağlıdır. Her birine ne kadar bağlı olduğu, sistemin kullanımının bir fonksiyonudur.
+
+Değişkenlik, süreç akışlarının performansını en iyi durumdaki performansa kıyasla düşüren baskın etkendir. Bu nedenle değişkenliği anlamak ve onu ortadan kaldırmanın yollarını bulmak, birçok operasyon iyileştirme metodolojisinin merkezindedir.
 
 ## Sonsöz
 
@@ -665,9 +701,11 @@ Formüller:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Teşekkürler
+### Katkılar
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Bu kitap üst düzey devops için mükemmeldir ve KPI seçimimizi doğrudan şekillendirir. Bu sayfadaki KPI'lar kitabın önerileriyle uyumludur.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Bu kitap, benzer türde matematik de dahil olmak üzere kuyrukları ve süreç akışlarını açıklar; iş yönetimine vurgu yapar.
 
 ## Proje bilgileri
 

@@ -35,10 +35,14 @@ Saturs:
 - [Rindu rinda](#rindu-rinda)
   - [„Double Diamond“ rindu rinda](#double-diamond-rindu-rinda)
   - [Piltuves rindu rinda](#piltuves-rindu-rinda)
+- [Pārslodzes apburtais loks](#pārslodzes-apburtais-loks)
 - [Atziņas](#atziņas)
+- [Procesa plūsma](#procesa-plūsma)
+  - [Uzvedības parametri](#uzvedības-parametri)
+  - [Mainības parametri](#mainības-parametri)
 - [Epilogs](#epilogs)
   - [Skatiet arī](#skatiet-arī)
-  - [Pateicības](#pateicības)
+  - [Atzinība un avoti](#atzinība-un-avoti)
 - [Projekta informācija](#projekta-informācija)
 
 ## Ievads
@@ -585,6 +589,12 @@ Praktiskajā darbā mēs bieži lietojam vārdu „piltuve“, lai brīvi apraks
 
 - Programmēšanas rinda ar integrācijas posmu, lietotāju pieņemšanas posmu un ražošanas izlaišanas posmu. Šāda veida rindā mēs cenšamies maksimāli samazināt ražošanas izlaišanas posma kļūdu ātrumu, piemēram, ar „canary“ telemetriju.
 
+## Pārslodzes apburtais loks
+
+Kad ierašanās intensitāte pieaug, tas rada lielāku spiedienu uz sistēmu un pietuvina to savai jaudai (t. i., 100 % noslodzei). Tas liek cikla laikiem strauji augt uz bezgalību un palielina nepabeigto darbu, kas savukārt rada lēnākus rezultātus.
+
+Tas rada nozarē izplatītu modeli, ko mēs saucam par „pārslodzes apburto loku“: kad rezultāti kļūst pietiekami slikti, vadītāji atļauj papildu resursus (piemēram, virsstundas vai papildu palīdzību), kas uzlabo sistēmas jaudu. Taču, tiklīdz sistēma atveseļojas, vadītāji virsstundas atceļ, un pārslodze sākas no jauna. Šis cikls var būt straujš un graujošs. Risinājums ir tāds, ka vadītāji atvēl laiku, lai izprastu sistēmu, jaudu un noslodzi.
+
 ## Atziņas
 
 Septiņas atziņas par rindu teoriju, ko sniedzis Bobs Veskots (Bob Wescott), grāmatas „The Every Computer Performance Book“ autors (skatiet arī [Kottke kopsavilkumu](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Septiņas atziņas par rindu teoriju, ko sniedzis Bobs Veskots (Bob Wescott), gr
 6. Vairākos apkalpošanas centros pastāv cilvēciskā nolieguma efekts.
 
 7. Parādiet nelielus uzlabojumus to labākajā gaismā.
+
+## Procesa plūsma
+
+Procesa plūsma ir procesu secība. Vienumi, operācijas, darbi utt. virzās cauri procesa plūsmai.
+
+Piemēram, ražošanas līnija sastāv no vairākām secīgām stacijām, caur kurām plūst darbi. Slimnīcā ir daudz savstarpēji saistītu operāciju secību (uzņemšana, aprūpe palātā, sagatavošana operācijai, operācija, atveseļošanās utt.), caur kurām plūst pacienti. Bankā ir operāciju secības, caur kurām plūst nauda. Plūsmu izpratne ir pamats efektīvu operāciju sistēmu izstrādei un vadībai.
+
+### Uzvedības parametri
+
+Procesa plūsmas uzvedība ir atkarīga no diviem parametriem:
+
+- Šaurās vietas ātrums: plūsmas jauda (t. i., procesa ar augstāko noslodzi ātrums).
+
+- Neapstrādātais procesa laiks: kopējais laiks, ko entītijas pavada apstrādē plūsmā (t. i., vidējais laiks, kas entītijai vajadzīgs, lai izietu cauri tukšai plūsmai).
+
+### Mainības parametri
+
+Procesa plūsmas mainība ir atkarīga no diviem parametriem:
+
+- Plūsmas mainība: mainība laikā starp entītiju ierašanos sistēmās.
+
+- Procesa mainība: mainība apstrādes laikos sistēmās.
+
+Aplūkosim procesa plūsmu, kurā ir gan plūsmas mainība, gan procesa mainība. Kā gaidāms, no stacijas izejošās plūsmas mainība ir atkarīga gan no tajā ienākošās plūsmas mainības, gan no pašā stacijā radītās procesa mainības. Cik lielā mērā tā ir atkarīga no katras, ir sistēmas noslodzes funkcija.
+
+Mainība ir dominējošais faktors, kas pasliktina procesu plūsmu veiktspēju salīdzinājumā ar labākā gadījuma veiktspēju. Tāpēc mainības izpratne un veidu meklēšana, kā to novērst, ir daudzu darbības uzlabošanas metodoloģiju pamatā.
 
 ## Epilogs
 
@@ -657,9 +693,11 @@ Formulas:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Pateicības
+### Atzinība un avoti
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Šī grāmata ir lieliska augsta līmeņa „DevOps“ tēmām, un tā tieši nosaka mūsu KPI izvēli. Šajā lapā minētie KPI atbilst grāmatas ieteikumiem.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Šī grāmata skaidro rindas un procesu plūsmas, tostarp līdzīgu matemātiku, ar uzsvaru uz uzņēmējdarbības vadību.
 
 ## Projekta informācija
 

@@ -40,10 +40,14 @@ Cynnwys:
 - [Ciw o giwiau](#ciw-o-giwiau)
   - [Ciw o giwiau y Diemwnt Dwbl](#ciw-o-giwiau-y-diemwnt-dwbl)
   - [Ciw o giwiau twndis](#ciw-o-giwiau-twndis)
+- [Cylch dieflig gorweithio](#cylch-dieflig-gorweithio)
 - [Mewnwelediadau](#mewnwelediadau)
+- [Llif proses](#llif-proses)
+  - [Paramedrau ymddygiad](#paramedrau-ymddygiad)
+  - [Paramedrau amrywioldeb](#paramedrau-amrywioldeb)
 - [Epilog](#epilog)
   - [Gweler hefyd](#gweler-hefyd)
-  - [Diolch](#diolch)
+  - [Cydnabyddiaethau](#cydnabyddiaethau)
 - [Olrhain](#olrhain)
 
 ## Cyflwyniad
@@ -593,6 +597,12 @@ Yn ein gwaith ymarferol, rydym yn aml yn defnyddio’r gair "twndis" i ddisgrifi
 
 - Ciw rhaglennu sy’n defnyddio cam integreiddio, cam derbyn gan ddefnyddwyr, a cham cyflwyno i gynhyrchu. Ar gyfer y math hwn o giw, rydym yn anelu at leihau cyfradd gwallau’r cam cyflwyno i gynhyrchu, er enghraifft drwy delemetreg caneri.
 
+## Cylch dieflig gorweithio
+
+Pan fydd y gyfradd cyrraedd yn cynyddu, mae hyn yn rhoi mwy o bwysau ar system ac yn gwthio'r system yn nes at ei chapasiti (h.y. 100% o ddefnydd). Mae hyn yn peri i amseroedd beicio gynyddu'n gyflym tuag at anfeidredd, ac i waith ar y gweill gynyddu, sydd yn ei dro yn achosi canlyniadau arafach.
+
+Mae hyn yn sbarduno patrwm cyffredin yn y diwydiant a elwir gennym yn “gylch dieflig gorweithio”: pan fydd y canlyniadau'n ddigon gwael, mae rheolwyr yn awdurdodi rhagor o adnoddau (megis goramser neu gyflogi cymorth ychwanegol), sy'n gwella capasiti'r system. Ond cyn gynted ag y bydd y system wedi gwella, mae'r rheolwyr yn dod â'r goramser i ben, ac mae'r gorlwytho'n dechrau eto. Gall y ddolen hon fod yn gyflym ac yn ddinistriol. Yr ateb yw i reolwyr neilltuo amser i ddeall y system, y capasiti a'r defnydd.
+
 ## Mewnwelediadau
 
 Saith mewnwelediad i theori ciwiau, gan Bob Wescott, awdur "The Every Computer Performance Book" (gweler hefyd [crynodeb Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -610,6 +620,32 @@ Saith mewnwelediad i theori ciwiau, gan Bob Wescott, awdur "The Every Computer P
 6. Mae effaith gwadu dynol mewn canolfannau gwasanaeth lluosog.
 
 7. Dangoswch welliannau bach yn eu goleuni gorau.
+
+## Llif proses
+
+Dilyniant o brosesau yw llif proses. Mae eitemau, neu weithrediadau, neu swyddi, ac ati, yn symud ymlaen drwy'r llif proses.
+
+Er enghraifft, mae llinell weithgynhyrchu yn cynnwys sawl gorsaf yn olynol y mae swyddi'n llifo drwyddynt. Mae ysbyty'n cynnwys llawer o ddilyniannau cysylltiedig o weithrediadau (derbyn, gofal yn yr ystafell, paratoi ar gyfer llawdriniaeth, llawdriniaeth, gwella, ac ati) y mae cleifion yn llifo drwyddynt. Mae banc yn cynnwys dilyniannau o weithrediadau y mae arian yn llifo drwyddynt. Mae deall llifoedd yn sylfaenol i ddylunio a rheoli systemau gweithrediadau effeithiol.
+
+### Paramedrau ymddygiad
+
+Mae ymddygiad llif proses yn dibynnu ar ddau baramedr:
+
+- Cyfradd y dagfa: capasiti'r llif (h.y. cyfradd y broses sydd â'r defnydd uchaf).
+
+- Amser proses crai: cyfanswm yr amser y mae endidau'n ei dreulio yn cael eu prosesu yn y llif (h.y. yr amser cyfartalog y byddai'n ei gymryd i endid groesi llif gwag).
+
+### Paramedrau amrywioldeb
+
+Mae amrywioldeb llif proses yn dibynnu ar ddau baramedr:
+
+- Amrywioldeb llif: amrywioldeb yn yr amseroedd rhwng cyrraedd endidau at y systemau.
+
+- Amrywioldeb proses: amrywioldeb yn yr amseroedd prosesu yn y systemau.
+
+Ystyriwch lif proses sy'n profi amrywioldeb llif ac amrywioldeb proses. Fel y byddai rhywun yn disgwyl, mae'r amrywioldeb llif sy'n dod allan o orsaf yn dibynnu ar yr amrywioldeb llif sy'n dod i mewn iddi ac ar yr amrywioldeb proses a grëir yn yr orsaf ei hun. Mae faint y mae'n dibynnu ar bob un o'r rhain yn swyddogaeth o ddefnydd y system.
+
+Amrywioldeb yw'r prif ffactor sy'n gwaethygu perfformiad llifoedd proses o'i gymharu â'r perfformiad yn yr achos gorau. Felly, mae deall amrywioldeb a chanfod ffyrdd o'i ddileu wrth wraidd llawer o fethodolegau gwella gweithrediadau.
 
 ## Epilog
 
@@ -665,9 +701,11 @@ Fformiwlâu (Saesneg):
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Diolch
+### Cydnabyddiaethau
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. gan Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Mae’r llyfr hwn yn ardderchog ar gyfer devops lefel uchel, ac mae’n llywio ein dewis o DPA yn uniongyrchol. Mae’r DPA ar y dudalen hon yn cyd-fynd ag argymhellion y llyfr.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Mae'r llyfr hwn yn egluro ciwiau a llifoedd prosesau, gan gynnwys mathau tebyg o fathemateg, gyda phwyslais ar reoli busnes.
 
 ## Olrhain
 

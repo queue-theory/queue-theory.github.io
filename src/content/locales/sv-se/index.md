@@ -35,10 +35,14 @@ Innehåll:
 - [Kö av köer](#kö-av-köer)
   - [Double Diamond som kö av köer](#double-diamond-som-kö-av-köer)
   - [Tratten som kö av köer](#tratten-som-kö-av-köer)
+- [Överarbetets onda cirkel](#överarbetets-onda-cirkel)
 - [Insikter](#insikter)
+- [Processflöde](#processflöde)
+  - [Beteendeparametrar](#beteendeparametrar)
+  - [Variationsparametrar](#variationsparametrar)
 - [Epilog](#epilog)
   - [Se även](#se-även)
-  - [Tack](#tack)
+  - [Erkännanden](#erkännanden)
 - [Projektinformation](#projektinformation)
 
 ## Introduktion
@@ -588,6 +592,12 @@ I vårt praktiska arbete använder vi ofta ordet "tratt" för att löst beskriva
 
 - Programmeringskö med ett integrationssteg, ett steg för användaracceptans och ett steg för utrullning i produktion. För den här typen av kö siktar vi på att minimera felfrekvensen i steget för utrullning i produktion, till exempel genom canary-telemetri.
 
+## Överarbetets onda cirkel
+
+När ankomsttakten ökar sätter det större press på ett system och driver systemet närmare dess kapacitet (dvs. 100 % utnyttjande). Det gör att ledtiderna snabbt ökar mot oändligheten och att pågående arbete ökar, vilket i sin tur ger långsammare resultat.
+
+Detta driver ett vanligt mönster i branschen som vi kallar ”överarbetets onda cirkel”: när resultaten blir tillräckligt dåliga godkänner chefer mer resurser (till exempel övertid eller extra hjälp), vilket förbättrar systemets kapacitet. Men så fort systemet har återhämtat sig avslutar cheferna övertiden, och överbelastningen börjar om. Den här slingan kan vara snabb och förödande. Lösningen är att cheferna tar sig tid att förstå systemet, kapaciteten och utnyttjandet.
+
 ## Insikter
 
 Sju insikter om köteori, av Bob Wescott, författare till "The Every Computer Performance Book" (se även [Kottkes sammanfattning](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -605,6 +615,32 @@ Sju insikter om köteori, av Bob Wescott, författare till "The Every Computer P
 6. Det finns en mänsklig förnekelseeffekt i flera betjäningscenter.
 
 7. Visa små förbättringar i bästa möjliga ljus.
+
+## Processflöde
+
+Ett processflöde är en sekvens av processer. Objekt, operationer, jobb osv. tar sig fram genom processflödet.
+
+En tillverkningslinje består till exempel av flera stationer i serie som jobben flödar genom. Ett sjukhus innehåller många sammankopplade sekvenser av operationer (inskrivning, vård på rummet, operationsförberedelse, operation, återhämtning osv.) som patienter flödar genom. En bank omfattar sekvenser av operationer som pengar flödar genom. Att förstå flöden är grundläggande för att utforma och styra effektiva driftsystem.
+
+### Beteendeparametrar
+
+Ett processflödes beteende beror på två parametrar:
+
+- Flaskhalstakt: flödets kapacitet (dvs. takten för den process som har högst utnyttjande).
+
+- Rå processtid: den totala tid som entiteter tillbringar med att bearbetas i flödet (dvs. den genomsnittliga tid det skulle ta för en entitet att passera ett tomt flöde).
+
+### Variationsparametrar
+
+Ett processflödes variation beror på två parametrar:
+
+- Flödesvariation: variation i tiden mellan entiteters ankomster till systemen.
+
+- Processvariation: variation i processtiderna vid systemen.
+
+Betrakta ett processflöde som har både flödesvariation och processvariation. Som man kan vänta sig beror flödesvariationen som lämnar en station både på flödesvariationen som kommer in i den och på processvariationen som skapas i själva stationen. Hur mycket den beror på var och en är en funktion av systemets utnyttjande.
+
+Variation är den dominerande faktorn som försämrar processflödens prestanda jämfört med prestandan i bästa fall. Därför ligger förståelse för variation och sätt att driva bort den i kärnan av många metoder för driftsförbättring.
 
 ## Epilog
 
@@ -660,9 +696,11 @@ Formler:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Tack
+### Erkännanden
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Den här boken är utmärkt för devops på hög nivå och ligger direkt till grund för vårt val av KPI:er. KPI:erna på den här sidan stämmer överens med bokens rekommendationer.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Den här boken förklarar köer och processflöden, inklusive liknande typer av matematik, med tonvikt på företagsledning.
 
 ## Projektinformation
 

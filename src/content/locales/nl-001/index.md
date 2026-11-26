@@ -35,10 +35,14 @@ Inhoud:
 - [Wachtrij van wachtrijen](#wachtrij-van-wachtrijen)
   - [Double Diamond als wachtrij van wachtrijen](#double-diamond-als-wachtrij-van-wachtrijen)
   - [De trechter als wachtrij van wachtrijen](#de-trechter-als-wachtrij-van-wachtrijen)
+- [De vicieuze cirkel van overwerk](#de-vicieuze-cirkel-van-overwerk)
 - [Inzichten](#inzichten)
+- [Processtroom](#processtroom)
+  - [Gedragsparameters](#gedragsparameters)
+  - [Variabiliteitsparameters](#variabiliteitsparameters)
 - [Epiloog](#epiloog)
   - [Zie ook](#zie-ook)
-  - [Dank](#dank)
+  - [Bronvermelding](#bronvermelding)
 - [Projectinformatie](#projectinformatie)
 
 ## Inleiding
@@ -588,6 +592,12 @@ In ons praktische werk gebruiken wij vaak het woord "trechter" om losjes een wac
 
 - Programmeerwachtrij met een integratiefase, een fase voor gebruikersacceptatie en een fase voor uitrol in productie. Voor dit soort wachtrij streven wij ernaar de foutsnelheid van de fase voor uitrol in productie te minimaliseren, bijvoorbeeld via canary-telemetrie.
 
+## De vicieuze cirkel van overwerk
+
+Wanneer de aankomstsnelheid stijgt, zet dat het systeem meer onder druk en brengt het systeem dichter bij zijn capaciteit (oftewel 100 % bezetting). Hierdoor lopen de doorlooptijden snel op richting oneindig en neemt het onderhanden werk toe, wat op zijn beurt tot tragere resultaten leidt.
+
+Dit drijft een veelvoorkomend patroon in de praktijk aan dat wij „de vicieuze cirkel van overwerk” noemen: wanneer de resultaten slecht genoeg worden, keuren managers meer middelen goed (zoals overwerk of extra hulp), waardoor de capaciteit van het systeem verbetert. Maar zodra het systeem zich herstelt, stoppen de managers het overwerk en begint de overbelasting opnieuw. Deze cirkel kan snel en verwoestend zijn. De oplossing is dat managers de tijd nemen om het systeem, de capaciteit en de bezetting te begrijpen.
+
 ## Inzichten
 
 Zeven inzichten in wachtrijtheorie, van Bob Wescott, auteur van "The Every Computer Performance Book" (zie ook [de samenvatting van Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -605,6 +615,32 @@ Zeven inzichten in wachtrijtheorie, van Bob Wescott, auteur van "The Every Compu
 6. Er is een menselijk ontkenningseffect bij meerdere bedieningscentra.
 
 7. Presenteer kleine verbeteringen in het best mogelijke licht.
+
+## Processtroom
+
+Een processtroom is een reeks processen. Items, bewerkingen, taken enzovoort doorlopen de processtroom.
+
+Een productielijn bestaat bijvoorbeeld uit meerdere stations in serie waar taken doorheen stromen. Een ziekenhuis bevat veel verbonden reeksen van bewerkingen (opname, zorg op de kamer, operatievoorbereiding, operatie, herstel enzovoort) waar patiënten doorheen stromen. Een bank omvat reeksen van bewerkingen waar geld doorheen stroomt. Inzicht in stromen is fundamenteel voor het ontwerpen en beheren van effectieve operationele systemen.
+
+### Gedragsparameters
+
+Het gedrag van een processtroom hangt af van twee parameters:
+
+- Knelpuntsnelheid: de capaciteit van de stroom (d.w.z. de snelheid van het proces met de hoogste bezetting).
+
+- Ruwe procestijd: de totale tijd die entiteiten in de stroom aan verwerking besteden (d.w.z. de gemiddelde tijd die een entiteit nodig zou hebben om een lege stroom te doorlopen).
+
+### Variabiliteitsparameters
+
+De variabiliteit van een processtroom hangt af van twee parameters:
+
+- Stroomvariabiliteit: variabiliteit in de tussenaankomsttijden van entiteiten bij de systemen.
+
+- Procesvariabiliteit: variabiliteit in de verwerkingstijden bij de systemen.
+
+Beschouw een processtroom met zowel stroomvariabiliteit als procesvariabiliteit. Zoals te verwachten hangt de stroomvariabiliteit die uit een station komt af van zowel de stroomvariabiliteit die erin komt als de procesvariabiliteit die in het station zelf ontstaat. In hoeverre die van elk afhangt, is een functie van de bezetting van het systeem.
+
+Variabiliteit is de dominante factor die de prestaties van processtromen verslechtert ten opzichte van de prestaties in het beste geval. Daarom vormen inzicht in variabiliteit en het vinden van manieren om die weg te nemen de kern van veel methoden voor operationele verbetering.
 
 ## Epiloog
 
@@ -660,9 +696,11 @@ Formules:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Dank
+### Bronvermelding
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Dit boek is uitstekend voor devops op hoog niveau en ligt direct ten grondslag aan onze keuze van KPI's. De KPI's op deze pagina sluiten aan bij de aanbevelingen van het boek.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Dit boek legt wachtrijen en procesflows uit, inclusief vergelijkbare wiskunde, met nadruk op bedrijfsmanagement.
 
 ## Projectinformatie
 

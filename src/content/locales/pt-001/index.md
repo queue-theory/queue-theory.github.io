@@ -35,10 +35,14 @@ Sumário:
 - [Fila de filas](#fila-de-filas)
   - [Fila de filas Double Diamond](#fila-de-filas-double-diamond)
   - [Fila de filas em funil](#fila-de-filas-em-funil)
+- [O círculo vicioso do excesso de trabalho](#o-círculo-vicioso-do-excesso-de-trabalho)
 - [Insights](#insights)
+- [Fluxo de processo](#fluxo-de-processo)
+  - [Parâmetros de comportamento](#parâmetros-de-comportamento)
+  - [Parâmetros de variabilidade](#parâmetros-de-variabilidade)
 - [Epílogo](#epílogo)
   - [Veja também](#veja-também)
-  - [Agradecimentos](#agradecimentos)
+  - [Créditos](#créditos)
 - [Informações do projeto](#informações-do-projeto)
 
 ## Introdução
@@ -585,6 +589,12 @@ Em nosso trabalho prático, usamos com frequência a palavra "funil" para descre
 
 - Fila de programação que usa um estágio de integração, um estágio de aceitação do usuário e um estágio de distribuição em produção. Para esse tipo de fila, buscamos minimizar a taxa de erro do estágio de distribuição em produção, por exemplo por meio de telemetria canário.
 
+## O círculo vicioso do excesso de trabalho
+
+Quando a taxa de chegada aumenta, isso exerce mais pressão sobre o sistema e o aproxima da sua capacidade (ou seja, 100% de utilização). Isso faz os tempos de ciclo crescerem rapidamente rumo ao infinito e o trabalho em andamento aumentar, o que por sua vez causa resultados mais lentos.
+
+Isso impulsiona um padrão comum no setor que chamamos de “círculo vicioso do excesso de trabalho”: quando os resultados ficam ruins o bastante, os gestores autorizam mais recursos (como horas extras ou ajuda adicional), o que melhora a capacidade do sistema. Mas assim que o sistema se recupera, os gestores suspendem as horas extras e a sobrecarga recomeça. Esse ciclo pode ser rápido e devastador. A solução é que os gestores dediquem tempo a compreender o sistema, a capacidade e a utilização.
+
 ## Insights
 
 Sete insights sobre a teoria das filas, por Bob Wescott, autor de "The Every Computer Performance Book" (veja também o [resumo de Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Sete insights sobre a teoria das filas, por Bob Wescott, autor de "The Every Com
 6. Existe um efeito humano de negação em múltiplos centros de serviço.
 
 7. Mostre as pequenas melhorias da forma mais favorável.
+
+## Fluxo de processo
+
+Um fluxo de processo é uma sequência de processos. Itens, operações, trabalhos etc. avançam pelo fluxo de processo.
+
+Por exemplo, uma linha de manufatura consiste em várias estações em série pelas quais os trabalhos fluem. Um hospital contém muitas sequências conectadas de operações (admissão, cuidados no quarto, preparação cirúrgica, cirurgia, recuperação etc.) pelas quais os pacientes fluem. Um banco envolve sequências de operações pelas quais o dinheiro flui. Compreender os fluxos é fundamental para projetar e gerenciar sistemas de operações eficazes.
+
+### Parâmetros de comportamento
+
+O comportamento de um fluxo de processo depende de dois parâmetros:
+
+- Taxa do gargalo: a capacidade do fluxo (ou seja, a taxa do processo com a maior utilização).
+
+- Tempo de processo bruto: o tempo total que as entidades passam sendo processadas no fluxo (ou seja, o tempo médio que uma entidade levaria para atravessar um fluxo vazio).
+
+### Parâmetros de variabilidade
+
+A variabilidade de um fluxo de processo depende de dois parâmetros:
+
+- Variabilidade do fluxo: variabilidade nos tempos entre chegadas das entidades aos sistemas.
+
+- Variabilidade do processo: variabilidade nos tempos de processo nos sistemas.
+
+Considere um fluxo de processo que apresenta tanto variabilidade do fluxo quanto variabilidade do processo. Como seria de esperar, a variabilidade do fluxo que sai de uma estação depende tanto da variabilidade do fluxo que entra nela quanto da variabilidade do processo criada na própria estação. O quanto ela depende de cada uma delas é função da utilização do sistema.
+
+A variabilidade é o fator dominante que degrada o desempenho dos fluxos de processo em relação ao desempenho no melhor caso. Portanto, compreender a variabilidade e encontrar maneiras de eliminá-la está no cerne de muitas metodologias de melhoria de operações.
 
 ## Epílogo
 
@@ -657,9 +693,11 @@ Fórmulas:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Agradecimentos
+### Créditos
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Este livro é excelente para DevOps em alto nível e orienta diretamente nossa escolha de KPIs. Os KPIs desta página estão alinhados com as recomendações do livro.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Este livro explica filas e fluxos de processos, incluindo tipos semelhantes de matemática, com ênfase na gestão empresarial.
 
 ## Informações do projeto
 

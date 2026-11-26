@@ -35,10 +35,14 @@ Mục lục:
 - [Hàng đợi của các hàng đợi](#hàng-đợi-của-các-hàng-đợi)
   - [Double Diamond như một hàng đợi của các hàng đợi](#double-diamond-như-một-hàng-đợi-của-các-hàng-đợi)
   - [Phễu như một hàng đợi của các hàng đợi](#phễu-như-một-hàng-đợi-của-các-hàng-đợi)
+- [Vòng luẩn quẩn của làm việc quá sức](#vòng-luẩn-quẩn-của-làm-việc-quá-sức)
 - [Nhận định](#nhận-định)
+- [Luồng quy trình](#luồng-quy-trình)
+  - [Tham số hành vi](#tham-số-hành-vi)
+  - [Tham số biến thiên](#tham-số-biến-thiên)
 - [Phần kết](#phần-kết)
   - [Xem thêm](#xem-thêm)
-  - [Lời cảm ơn](#lời-cảm-ơn)
+  - [Ghi công](#ghi-công)
 - [Thông tin dự án](#thông-tin-dự-án)
 
 ## Giới thiệu
@@ -585,6 +589,12 @@ Trong công việc thực tế, chúng tôi thường dùng từ "phễu" để 
 
 - Hàng đợi lập trình gồm giai đoạn tích hợp, giai đoạn chấp nhận của người dùng và giai đoạn phát hành lên production. Với loại hàng đợi này, chúng tôi nhắm tới giảm thiểu tốc độ lỗi của giai đoạn phát hành lên production, chẳng hạn qua dữ liệu đo từ xa của bản phát hành canary.
 
+## Vòng luẩn quẩn của làm việc quá sức
+
+Khi tốc độ đến tăng lên, điều này tạo thêm áp lực lên hệ thống và đẩy hệ thống đến gần công suất hơn (tức là mức sử dụng 100%). Điều này khiến thời gian chu kỳ tăng nhanh về phía vô cực và công việc dở dang tăng lên, từ đó lại làm kết quả chậm hơn.
+
+Điều này thúc đẩy một mô hình phổ biến trong ngành mà chúng tôi gọi là “vòng luẩn quẩn của làm việc quá sức”: khi kết quả trở nên đủ tệ, các nhà quản lý phê duyệt thêm nguồn lực (như làm thêm giờ hoặc thuê thêm người hỗ trợ), giúp cải thiện công suất của hệ thống. Nhưng ngay khi hệ thống hồi phục, các nhà quản lý ngừng làm thêm giờ, và tình trạng quá tải lại bắt đầu. Vòng lặp này có thể diễn ra nhanh và gây hại nặng nề. Giải pháp là các nhà quản lý dành thời gian tìm hiểu hệ thống, công suất và mức sử dụng.
+
 ## Nhận định
 
 Bảy nhận định về lý thuyết hàng đợi, của Bob Wescott, tác giả cuốn "The Every Computer Performance Book" (xem thêm [bản tóm tắt của Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Bảy nhận định về lý thuyết hàng đợi, của Bob Wescott, tác gi�
 6. Có một hiệu ứng chối bỏ của con người trong các hệ thống có nhiều trung tâm phục vụ.
 
 7. Hãy trình bày những cải tiến nhỏ theo cách tốt nhất của chúng.
+
+## Luồng quy trình
+
+Luồng quy trình là một chuỗi các quy trình. Các mục, hoặc thao tác, hoặc công việc, v.v. tiến lên qua luồng quy trình.
+
+Ví dụ, một dây chuyền sản xuất gồm nhiều trạm nối tiếp nhau mà các công việc chảy qua. Một bệnh viện chứa nhiều chuỗi thao tác được kết nối (tiếp nhận, chăm sóc tại phòng, chuẩn bị phẫu thuật, phẫu thuật, hồi phục, v.v.) mà bệnh nhân chảy qua. Một ngân hàng có các chuỗi thao tác mà tiền chảy qua. Hiểu về các luồng là nền tảng để thiết kế và quản lý các hệ thống vận hành hiệu quả.
+
+### Tham số hành vi
+
+Hành vi của một luồng quy trình phụ thuộc vào hai tham số:
+
+- Tốc độ điểm nghẽn: năng lực của luồng (tức là tốc độ của quy trình có mức sử dụng cao nhất).
+
+- Thời gian quy trình thô: tổng thời gian các thực thể dành để được xử lý trong luồng (tức là thời gian trung bình để một thực thể đi qua một luồng trống).
+
+### Tham số biến thiên
+
+Độ biến thiên của một luồng quy trình phụ thuộc vào hai tham số:
+
+- Biến thiên luồng: biến thiên trong khoảng thời gian giữa các lần đến của thực thể tại các hệ thống.
+
+- Biến thiên quy trình: biến thiên trong thời gian xử lý tại các hệ thống.
+
+Hãy xét một luồng quy trình có cả biến thiên luồng lẫn biến thiên quy trình. Đúng như dự đoán, biến thiên của luồng đi ra khỏi một trạm phụ thuộc vào cả biến thiên của luồng đi vào trạm lẫn biến thiên quy trình phát sinh tại chính trạm đó. Mức độ phụ thuộc vào từng yếu tố là một hàm của mức sử dụng hệ thống.
+
+Biến thiên là yếu tố chi phối làm suy giảm hiệu suất của các luồng quy trình so với hiệu suất trong trường hợp tốt nhất. Do đó, hiểu về biến thiên và tìm cách loại bỏ nó là cốt lõi của nhiều phương pháp luận cải tiến vận hành.
 
 ## Phần kết
 
@@ -657,9 +693,11 @@ Công thức:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Lời cảm ơn
+### Ghi công
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Cuốn sách này rất xuất sắc về devops ở cấp độ tổng quan, và trực tiếp định hướng lựa chọn KPI của chúng tôi. Các KPI trên trang này phù hợp với các khuyến nghị của cuốn sách.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Cuốn sách này giải thích hàng đợi và luồng quy trình, bao gồm các loại toán tương tự, với trọng tâm là quản trị kinh doanh.
 
 ## Thông tin dự án
 

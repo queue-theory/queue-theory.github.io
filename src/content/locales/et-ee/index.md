@@ -39,10 +39,14 @@ Sisukord:
 - [Järjekordade järjekord](#järjekordade-järjekord)
   - [Topeltteemandi järjekordade järjekord](#topeltteemandi-järjekordade-järjekord)
   - [Lehtri järjekordade järjekord](#lehtri-järjekordade-järjekord)
+- [Ületöötamise nõiaring](#ületöötamise-nõiaring)
 - [Tähelepanekud](#tähelepanekud)
+- [Protsessivoog](#protsessivoog)
+  - [Käitumisparameetrid](#käitumisparameetrid)
+  - [Varieeruvuse parameetrid](#varieeruvuse-parameetrid)
 - [Järelsõna](#järelsõna)
   - [Vaadake ka](#vaadake-ka)
-  - [Tänusõnad](#tänusõnad)
+  - [Tunnustused](#tunnustused)
 - [Projekti andmed](#projekti-andmed)
 
 ## Sissejuhatus
@@ -592,6 +596,12 @@ Oma praktilises töös kasutame sageli sõna „lehter“, et ligikaudselt kirje
 
 - Programmeerimisjärjekord, mis kasutab integratsiooni etappi, kasutaja vastuvõtu etappi ja tootmisse levitamise etappi. Seda tüüpi järjekorra puhul püüame minimeerida tootmisse levitamise etapi veakiirust, näiteks kanaaritelemeetria abil.
 
+## Ületöötamise nõiaring
+
+Kui saabumiskiirus kasvab, suurendab see süsteemi koormust ja viib süsteemi lähemale tema võimsusele (st 100% kasutusele). See paneb tsükliajad kiiresti lõpmatuse poole kasvama ja pooleliolevate tööde hulga suurenema, mis omakorda annab aeglasemaid tulemusi.
+
+See toob kaasa valdkonnas levinud mustri, mida me nimetame „ületöötamise nõiaringiks“: kui tulemused muutuvad piisavalt halvaks, kiidavad juhid heaks lisaressursse (näiteks ületunnitöö või lisaabi palkamise), mis parandab süsteemi võimsust. Kuid niipea kui süsteem on taastunud, lõpetavad juhid ületunnitöö ja ülekoormus algab uuesti. See tsükkel võib olla kiire ja laastav. Lahendus on see, et juhid võtavad aega, et süsteemi, võimsust ja kasutust mõista.
+
 ## Tähelepanekud
 
 Seitse tähelepanekut järjekorrateooria kohta Bob Wescottilt, kes on raamatu „The Every Computer Performance Book“ autor (vaadake ka [Kottke kokkuvõtet](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Seitse tähelepanekut järjekorrateooria kohta Bob Wescottilt, kes on raamatu �
 6. Mitme teeninduskeskuse puhul esineb inimlik eitamisefekt.
 
 7. Näidake väikesi parandusi nende parimas valguses.
+
+## Protsessivoog
+
+Protsessivoog on protsesside jada. Üksused, toimingud, tööd jne liiguvad läbi protsessivoo.
+
+Näiteks koosneb tootmisliin mitmest järjestikusest jaamast, mida mööda tööd liiguvad. Haigla sisaldab palju omavahel seotud toimingute jadasid (vastuvõtt, hooldus palatis, operatsiooniks ettevalmistus, operatsioon, taastumine jne), mida mööda patsiendid liiguvad. Pank hõlmab toimingute jadasid, mida mööda liigub raha. Voogude mõistmine on tõhusate tegevussüsteemide kavandamisel ja juhtimisel hädavajalik.
+
+### Käitumisparameetrid
+
+Protsessivoo käitumine sõltub kahest parameetrist:
+
+- Kitsaskoha kiirus: voo läbilaskevõime (st kõrgeima kasutusega protsessi kiirus).
+
+- Toores protsessiaeg: kogu aeg, mille olemid voos töötlemisel veedavad (st keskmine aeg, mis kuluks olemil tühja voo läbimiseks).
+
+### Varieeruvuse parameetrid
+
+Protsessivoo varieeruvus sõltub kahest parameetrist:
+
+- Voo varieeruvus: varieeruvus olemite saabumisvahede ajas süsteemidesse.
+
+- Protsessi varieeruvus: varieeruvus töötlemisaegades süsteemides.
+
+Vaatleme protsessivoogu, milles esineb nii voo varieeruvust kui ka protsessi varieeruvust. Nagu võiks oodata, sõltub jaamast väljuva voo varieeruvus nii sellesse sisenevast voo varieeruvusest kui ka jaamas endas tekkivast protsessi varieeruvusest. Kui palju see kummastki sõltub, on süsteemi kasutusastme funktsioon.
+
+Varieeruvus on peamine tegur, mis halvendab protsessivoogude toimimist parima võimaliku juhtumiga võrreldes. Seetõttu on varieeruvuse mõistmine ja selle kõrvaldamise viiside leidmine paljude tegevuse parandamise metoodikate keskmes.
 
 ## Järelsõna
 
@@ -664,9 +700,11 @@ Valemid:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Tänusõnad
+### Tunnustused
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). See raamat on suurepärane kõrgetasemelise DevOpsi jaoks ja on otseselt mõjutanud meie KPI-de valikut. Sellel lehel olevad KPI-d on kooskõlas raamatu soovitustega.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). See raamat selgitab järjekordi ja protsessivoogusid, sealhulgas sarnast matemaatikat, rõhuga ärijuhtimisel.
 
 ## Projekti andmed
 

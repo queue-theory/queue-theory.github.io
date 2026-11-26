@@ -35,10 +35,14 @@ Wetin dey inside:
 - [Queue wey get queue inside](#queue-wey-get-queue-inside)
   - [Double Diamond as queue wey get queue inside](#double-diamond-as-queue-wey-get-queue-inside)
   - [Funnel as queue wey get queue inside](#funnel-as-queue-wey-get-queue-inside)
+- [Di overwork wahala wey dey go round and round](#di-overwork-wahala-wey-dey-go-round-and-round)
 - [Wetin we don learn](#wetin-we-don-learn)
+- [Process flow](#process-flow)
+  - [Behavior parameters](#behavior-parameters)
+  - [Variability parameters](#variability-parameters)
 - [Last word](#last-word)
   - [Make you still look](#make-you-still-look)
-  - [Thank you](#thank-you)
+  - [Credits](#credits)
 - [Project information](#project-information)
 
 ## Introduction
@@ -585,6 +589,12 @@ For our practical work, we dey use di word "funnel" often to loosely describe qu
 
 - Programming queue wey dey use integration stage, user acceptance stage, and production rollout stage. For dis kind queue, we dey aim to make di error rate of di production rollout stage small as e fit be, like through canary telemetry.
 
+## Di overwork wahala wey dey go round and round
+
+When arrival rate dey increase, e dey put more pressure on system, and e dey push di system near im capacity (dat na 100% utilization). Dis one dey make cycle times shoot up fast go toward infinity, and work wey dey process dey increase, wey go cause slower results.
+
+Dis one dey cause one common pattern for industry wey we dey call “di overwork wahala wey dey go round and round”: when results bad reach, managers go approve more resources (like overtime or to hire extra help), wey go improve di capacity of di system. But as soon as di system recover, di managers go stop overtime, and di overload go start again. Dis loop fit fast and destroy plenty tins. Di solution na make managers take time sabi di system, di capacity, and di utilization.
+
 ## Wetin we don learn
 
 Seven insight about queue theory, by Bob Wescott, di author of "The Every Computer Performance Book" (please still see [Kottke's summary](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Seven insight about queue theory, by Bob Wescott, di author of "The Every Comput
 6. Human denial effect dey for multiple service center.
 
 7. Make you show small improvement dem for dia best light.
+
+## Process flow
+
+Process flow na sequence of processes. Items, or operations, or jobs, and so on dey waka go front through di process flow.
+
+For example, manufacturing line get plenty stations wey dey one after di other, wey jobs dey flow pass. Hospital get many connected sequences of operations (admission, care for inside room, surgery preparation, surgery, recovery, and so on) wey patients dey flow pass. Bank get sequences of operations wey money dey flow pass. To sabi how flows dey work na foundation for how to design and manage operations systems wey go work well.
+
+### Behavior parameters
+
+Di behavior of one process flow dey depend on two parameters:
+
+- Bottleneck rate: di capacity of di flow (dat na di rate of di process wey get di highest utilization).
+
+- Raw process time: di total time wey entities dey spend dey process for di flow (dat na di average time wey e go take one entity to waka pass empty flow).
+
+### Variability parameters
+
+Di variability of one process flow dey depend on two parameters:
+
+- Flow variability: variability for di inter-arrival times of entities wey dey reach di systems.
+
+- Process variability: variability for di process times for di systems.
+
+Think about one process flow wey get both flow variability and process variability. As you for expect, di flow variability wey dey comot from one station dey depend on both di flow variability wey dey enter am and di process variability wey di station itself create. How much e dey depend on each one na function of system utilization.
+
+Variability na di main factor wey dey reduce how process flows dey perform compared to di best case. So, to understand variability and find ways to remove am dey di center of many operations improvement methods.
 
 ## Last word
 
@@ -657,9 +693,11 @@ Formula dem:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Thank you
+### Credits
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Dis book dey excellent for high-level devops, and e dey directly guide how we take choose our KPIs. Di KPIs for dis page dey agree with wetin di book recommend.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Dis book dey explain queues and process flows, including similar kind of maths, and e dey put emphasis on business management.
 
 ## Project information
 

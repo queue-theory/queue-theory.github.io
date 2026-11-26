@@ -39,10 +39,14 @@ Efnisyfirlit:
 - [Biðröð biðraða](#biðröð-biðraða)
   - [Biðröð biðraða í Double Diamond](#biðröð-biðraða-í-double-diamond)
   - [Trektarbiðröð biðraða](#trektarbiðröð-biðraða)
+- [Vítahringur ofvinnu](#vítahringur-ofvinnu)
 - [Innsýn](#innsýn)
+- [Ferlaflæði](#ferlaflæði)
+  - [Hegðunarbreytur](#hegðunarbreytur)
+  - [Breytileikabreytur](#breytileikabreytur)
 - [Eftirmáli](#eftirmáli)
   - [Sjá einnig](#sjá-einnig)
-  - [Þakkir](#þakkir)
+  - [Heimildir og þakkir](#heimildir-og-þakkir)
 - [Skráning](#skráning)
 
 ## Inngangur
@@ -592,6 +596,12 @@ Biðraðafræði getur líkt eftir þessu sem einni ferlisbiðröð sem inniheld
 
 - Forritunarbiðröð með samþættingaráfanga, áfanga notendasamþykkis og útrúlluáfanga í raunumhverfi. Fyrir þess konar biðröð stefnum við að því að lágmarka villutíðni útrúlluáfangans í raunumhverfi, til dæmis með fjarmælingum úr kanarífuglaútgáfum.
 
+## Vítahringur ofvinnu
+
+Þegar komuhraði eykst setur það aukið álag á kerfið og færir það nær afkastagetu sinni (þ.e. 100 % nýtingu). Þetta veldur því að lotutímar lengjast hratt í átt að óendanleika og vinna í vinnslu eykst, sem aftur leiðir til hægari niðurstaðna.
+
+Þetta knýr áfram algengt mynstur í atvinnulífinu sem við köllum „vítahring ofvinnu“: þegar niðurstöður verða nógu slæmar heimila stjórnendur meiri úrræði (svo sem yfirvinnu eða aukalið), sem eykur afkastagetu kerfisins. En um leið og kerfið jafnar sig fella stjórnendur yfirvinnuna niður og ofálagið byrjar aftur. Þessi hringrás getur verið hröð og eyðileggjandi. Lausnin er sú að stjórnendur gefi sér tíma til að skilja kerfið, afkastagetuna og nýtinguna.
+
 ## Innsýn
 
 Sjö atriði um innsýn í biðraðafræði, eftir Bob Wescott, höfund „The Every Computer Performance Book“ (sjá einnig [samantekt Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Sjö atriði um innsýn í biðraðafræði, eftir Bob Wescott, höfund „The E
 6. Í mörgum þjónustustöðvum gætir mannlegrar afneitunar.
 
 7. Sýnið litlar umbætur í sem bestu ljósi.
+
+## Ferlaflæði
+
+Ferlaflæði er röð ferla. Atriði, aðgerðir, verk o.s.frv. ganga áfram í gegnum ferlaflæðið.
+
+Til dæmis samanstendur framleiðslulína af nokkrum stöðvum í röð sem verk flæða í gegnum. Sjúkrahús hefur margar tengdar raðir aðgerða (innlögn, umönnun á stofu, undirbúningur skurðaðgerðar, skurðaðgerð, bati o.s.frv.) sem sjúklingar flæða í gegnum. Banki felur í sér raðir aðgerða sem peningar flæða í gegnum. Skilningur á flæði er grundvallaratriði við hönnun og stjórnun skilvirkra rekstrarkerfa.
+
+### Hegðunarbreytur
+
+Hegðun ferlaflæðis ræðst af tveimur breytum:
+
+- Flöskuhálshraði: afkastageta flæðisins (þ.e. hraði ferlisins með mestu nýtinguna).
+
+- Hrár vinnslutími: heildartíminn sem einingar eru í vinnslu í flæðinu (þ.e. meðaltíminn sem það tæki einingu að fara í gegnum tómt flæði).
+
+### Breytileikabreytur
+
+Breytileiki ferlaflæðis ræðst af tveimur breytum:
+
+- Flæðisbreytileiki: breytileiki í tíma milli koma eininga í kerfin.
+
+- Ferlisbreytileiki: breytileiki í vinnslutíma í kerfunum.
+
+Lítum á ferlaflæði sem býr bæði við flæðisbreytileika og ferlisbreytileika. Eins og við er að búast ræðst flæðisbreytileikinn sem kemur út úr stöð bæði af flæðisbreytileikanum sem kemur inn í hana og ferlisbreytileikanum sem verður til í stöðinni sjálfri. Hversu mikið hann ræðst af hvoru um sig er fall af nýtingu kerfisins.
+
+Breytileiki er ráðandi þátturinn sem rýrir afköst ferlaflæðis miðað við afköst í besta tilviki. Þess vegna er skilningur á breytileika og leiðir til að útrýma honum kjarninn í mörgum aðferðum til að bæta rekstur.
 
 ## Eftirmáli
 
@@ -664,9 +700,11 @@ Formúlur:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Þakkir
+### Heimildir og þakkir
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Þessi bók er afbragðsgóð um DevOps á háu stigi og liggur beint til grundvallar vali okkar á lykilmælikvörðum. Lykilmælikvarðarnir á þessari síðu eru í samræmi við ráðleggingar bókarinnar.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Þessi bók útskýrir biðraðir og ferlaflæði, þar á meðal áþekka stærðfræði, með áherslu á viðskiptastjórnun.
 
 ## Skráning
 

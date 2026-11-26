@@ -40,10 +40,14 @@ Contenido:
 - [Cola de colas](#cola-de-colas)
   - [Cola de colas del Doble Diamante](#cola-de-colas-del-doble-diamante)
   - [Cola de colas en embudo](#cola-de-colas-en-embudo)
+- [El círculo vicioso del exceso de trabajo](#el-círculo-vicioso-del-exceso-de-trabajo)
 - [Ideas clave](#ideas-clave)
+- [Flujo de proceso](#flujo-de-proceso)
+  - [Parámetros de comportamiento](#parámetros-de-comportamiento)
+  - [Parámetros de variabilidad](#parámetros-de-variabilidad)
 - [Epílogo](#epílogo)
   - [Ver también](#ver-también)
-  - [Agradecimientos](#agradecimientos)
+  - [Créditos](#créditos)
 - [Seguimiento](#seguimiento)
 
 
@@ -594,6 +598,12 @@ En nuestro trabajo práctico, a menudo usamos la palabra "embudo" para describir
 
 - Cola de programación con una etapa de integración, una etapa de aceptación del usuario y una etapa de lanzamiento a producción. Para este tipo de cola, buscamos minimizar la tasa de errores de la etapa de lanzamiento a producción, por ejemplo mediante telemetría canary.
 
+## El círculo vicioso del exceso de trabajo
+
+Cuando aumenta la tasa de llegada, esto presiona más al sistema y lo acerca a su capacidad (es decir, a una utilización del 100 %). Eso hace que los tiempos de ciclo crezcan rápidamente hacia el infinito y que aumente el trabajo en proceso, lo que a su vez produce resultados más lentos.
+
+Esto impulsa un patrón común en la industria al que llamamos «el círculo vicioso del exceso de trabajo»: cuando los resultados empeoran lo suficiente, los directivos autorizan más recursos (como horas extra o ayuda adicional), lo que mejora la capacidad del sistema. Pero en cuanto el sistema se recupera, los directivos suspenden las horas extra y la sobrecarga vuelve a empezar. Este ciclo puede ser rápido y devastador. La solución es que los directivos dediquen tiempo a comprender el sistema, la capacidad y la utilización.
+
 ## Ideas clave
 
 Siete ideas clave sobre la teoría de colas, de Bob Wescott, autor de "The Every Computer Performance Book" (ver también [el resumen de Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -611,6 +621,32 @@ Siete ideas clave sobre la teoría de colas, de Bob Wescott, autor de "The Every
 6. Existe un efecto humano de negación cuando hay varios centros de servicio.
 
 7. Presente las pequeñas mejoras de la forma más favorable.
+
+## Flujo de proceso
+
+Un flujo de proceso es una secuencia de procesos. Los elementos, o las operaciones, o los trabajos, etc. avanzan a través del flujo de proceso.
+
+Por ejemplo, una línea de manufactura consta de varias estaciones en serie por las que fluyen los trabajos. Un hospital contiene muchas secuencias conectadas de operaciones (admisión, atención en la habitación, preparación quirúrgica, cirugía, recuperación, etc.) por las que fluyen los pacientes. Un banco implica secuencias de operaciones por las que fluye el dinero. Comprender los flujos es fundamental para diseñar y gestionar sistemas de operaciones eficaces.
+
+### Parámetros de comportamiento
+
+El comportamiento de un flujo de proceso depende de dos parámetros:
+
+- Tasa del cuello de botella: la capacidad del flujo (es decir, la tasa del proceso con mayor utilización).
+
+- Tiempo de proceso bruto: el tiempo total que las entidades pasan siendo procesadas en el flujo (es decir, el tiempo promedio que tardaría una entidad en recorrer un flujo vacío).
+
+### Parámetros de variabilidad
+
+La variabilidad de un flujo de proceso depende de dos parámetros:
+
+- Variabilidad del flujo: variabilidad en los tiempos entre llegadas de las entidades a los sistemas.
+
+- Variabilidad del proceso: variabilidad en los tiempos de proceso en los sistemas.
+
+Consideremos un flujo de proceso que presenta tanto variabilidad del flujo como variabilidad del proceso. Como cabría esperar, la variabilidad del flujo que sale de una estación depende tanto de la variabilidad del flujo que entra en ella como de la variabilidad del proceso generada en la propia estación. Cuánto depende de cada una de ellas es función de la utilización del sistema.
+
+La variabilidad es el factor dominante que degrada el desempeño de los flujos de proceso respecto del mejor caso. Por eso, comprender la variabilidad y encontrar maneras de eliminarla está en el centro de muchas metodologías de mejora de las operaciones.
 
 ## Epílogo
 
@@ -666,9 +702,11 @@ Fórmulas (en inglés):
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Agradecimientos
+### Créditos
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. de Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Este libro es excelente para devops de alto nivel, e informa directamente nuestra elección de KPI. Los KPI de esta página coinciden con las recomendaciones del libro.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Este libro explica las colas y los flujos de procesos, incluidas matemáticas similares, con énfasis en la gestión empresarial.
 
 ## Seguimiento
 

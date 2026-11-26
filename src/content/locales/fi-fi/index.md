@@ -39,10 +39,14 @@ Sisällysluettelo:
 - [Jonojen jono](#jonojen-jono)
   - [Double Diamond -jonojen jono](#double-diamond--jonojen-jono)
   - [Suppilo-jonojen jono](#suppilo-jonojen-jono)
+- [Ylityön noidankehä](#ylityön-noidankehä)
 - [Havainnot](#havainnot)
+- [Prosessivirta](#prosessivirta)
+  - [Käyttäytymisparametrit](#käyttäytymisparametrit)
+  - [Vaihtelun parametrit](#vaihtelun-parametrit)
 - [Loppusanat](#loppusanat)
   - [Katso myös](#katso-myös)
-  - [Kiitokset](#kiitokset)
+  - [Tunnustukset](#tunnustukset)
 - [Projektin tiedot](#projektin-tiedot)
 
 ## Johdanto
@@ -592,6 +596,12 @@ Käytännön työssämme käytämme usein sanaa ”suppilo” kuvaamaan väljäs
 
 - Ohjelmointijono, jossa on integraatiovaihe, käyttäjien hyväksymisvaihe ja tuotantoon levityksen vaihe. Tällaisessa jonossa pyrimme minimoimaan tuotantoon levityksen vaiheen virhenopeuden, esimerkiksi kanarialintutelemetrian avulla.
 
+## Ylityön noidankehä
+
+Kun saapumisnopeus kasvaa, järjestelmään kohdistuu enemmän painetta ja se lähestyy kapasiteettiaan (eli 100 %:n käyttöastetta). Tämä saa kierrosajat kasvamaan nopeasti kohti ääretöntä ja keskeneräisen työn määrän lisääntymään, mikä puolestaan hidastaa tuloksia.
+
+Tämä ruokkii alalla yleistä toimintamallia, jota kutsumme ”ylityön noidankehäksi”: kun tulokset ovat tarpeeksi huonoja, esihenkilöt hyväksyvät lisäresursseja (kuten ylitöitä tai ylimääräistä apua), mikä parantaa järjestelmän kapasiteettia. Heti kun järjestelmä on toipunut, esihenkilöt lopettavat ylityöt ja ylikuormitus alkaa uudelleen. Tämä kehä voi olla nopea ja tuhoisa. Ratkaisu on, että esihenkilöt käyttävät aikaa järjestelmän, kapasiteetin ja käyttöasteen ymmärtämiseen.
+
 ## Havainnot
 
 Seitsemän havaintoa jonoteoriasta, kirjoittanut Bob Wescott, teoksen ”The Every Computer Performance Book” kirjoittaja (katsokaa myös [Kottken yhteenveto](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Seitsemän havaintoa jonoteoriasta, kirjoittanut Bob Wescott, teoksen ”The Eve
 6. Useissa palvelukeskuksissa esiintyy inhimillinen kieltämisilmiö.
 
 7. Esittäkää pienet parannukset niiden parhaassa valossa.
+
+## Prosessivirta
+
+Prosessivirta on prosessien sarja. Kohteet, toiminnot, työt jne. etenevät prosessivirran läpi.
+
+Esimerkiksi valmistuslinja koostuu useista peräkkäisistä asemista, joiden läpi työt kulkevat. Sairaala sisältää monia toisiinsa liittyviä toimintojen sarjoja (sisäänkirjaus, huonehoito, leikkausvalmistelu, leikkaus, toipuminen jne.), joiden läpi potilaat kulkevat. Pankissa on toimintojen sarjoja, joiden läpi raha kulkee. Virtojen ymmärtäminen on perustavaa laatua tehokkaiden toimintajärjestelmien suunnittelussa ja johtamisessa.
+
+### Käyttäytymisparametrit
+
+Prosessivirran käyttäytyminen riippuu kahdesta parametrista:
+
+- Pullonkaulan nopeus: virran kapasiteetti (eli suurimman käyttöasteen prosessin nopeus).
+
+- Raaka prosessiaika: kokonaisaika, jonka entiteetit viettävät käsiteltävinä virrassa (eli keskimääräinen aika, jonka entiteetti kulkisi tyhjän virran läpi).
+
+### Vaihtelun parametrit
+
+Prosessivirran vaihtelu riippuu kahdesta parametrista:
+
+- Virran vaihtelu: vaihtelu entiteettien saapumisväleissä järjestelmiin.
+
+- Prosessin vaihtelu: vaihtelu käsittelyajoissa järjestelmissä.
+
+Tarkastellaan prosessivirtaa, jossa on sekä virran vaihtelua että prosessin vaihtelua. Kuten voi odottaa, aseman jättävän virran vaihtelu riippuu sekä siihen saapuvan virran vaihtelusta että aseman itsensä synnyttämästä prosessin vaihtelusta. Se, kuinka paljon se riippuu kummastakin, on järjestelmän käyttöasteen funktio.
+
+Vaihtelu on hallitseva tekijä, joka heikentää prosessivirtojen suorituskykyä parhaaseen tapaukseen verrattuna. Siksi vaihtelun ymmärtäminen ja keinojen löytäminen sen poistamiseksi ovat monien toiminnan parantamismenetelmien ytimessä.
 
 ## Loppusanat
 
@@ -664,9 +700,11 @@ Kaavat:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Kiitokset
+### Tunnustukset
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Tämä kirja on erinomainen ylemmän tason DevOpsin kannalta, ja se on vaikuttanut suoraan KPI-valintoihimme. Tämän sivun KPI:t ovat linjassa kirjan suositusten kanssa.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Tämä kirja selittää jonot ja prosessivirrat, mukaan lukien samankaltaisen matematiikan, painottaen liiketoiminnan johtamista.
 
 ## Projektin tiedot
 

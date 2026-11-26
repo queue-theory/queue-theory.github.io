@@ -35,10 +35,14 @@ Synsas:
 - [Lost a lostow](#lost-a-lostow)
   - [Lost a lostow Double Diamond](#lost-a-lostow-double-diamond)
   - [Lost a lostow fonel](#lost-a-lostow-fonel)
+- [An bogh-kylgh drog a re-lavur](#an-bogh-kylgh-drog-a-re-lavur)
 - [Golokow](#golokow)
+- [Fluv argerdh](#fluv-argerdh)
+  - [Parametrow argerdh](#parametrow-argerdh)
+  - [Parametrow chanjyosedh](#parametrow-chanjyosedh)
 - [Diwedh-lavar](#diwedh-lavar)
   - [Gwelewgh ynwedh](#gwelewgh-ynwedh)
-  - [Grassow](#grassow)
+  - [Meurasow](#meurasow)
 - [Kovskrif](#kovskrif)
 
 ## Raglavar
@@ -585,6 +589,12 @@ Y’gan ober usadow, ni a dhevnydh yn fenowgh an ger “fonel” dhe dhiskrifa y
 
 - Lost towlenna hag a dhevnydh stap kesunyans, stap degemeryans devnydhyoryon, ha stap lesans produktyans. Rag an eghen ma a lost, agan amkan yw lehe toth kammow an stap lesans produktyans, kepar ha dre bellvusur canary.
 
+## An bogh-kylgh drog a re-lavur
+
+Pan wra an kevradh devnydh ow tos ypa, hemma a worrow moy a wask war system hag a wra bys an system nes dh'y alloes (i.e. 100% a devnydh). Hemma a wra termynyow kylgh ypa kler dhe anfinyta, ha'n lavur yn kerdh ypa, hag yn y dro hemma a wra sewyansow arettha.
+
+Hemma a wra patrun kemmyn y'n diwysyans a wra ni y henwel “bogh-kylgh drog a re-lavur”: pan vo an sewyansow lowr drog, rannyoryon a ro kummyas rag moy a vaghow (avel termyn ober ekstra po gweres ekstra), hag a wra gwell alloes an system. Mes kettel dheffo an system dhe'y nerth, an rannyoryon a wra dhe ben termyn ober ekstra, ha'n re-lyes a dhallath arta. An kylgh ma a yll bos buan ha distrowyus. An dhyskans yw bos rannyoryon ow kemmeres termyn rag convedhes an system, an alloes ha'n devnydh.
+
 ## Golokow
 
 Seyth golok war dybyans lostow, gans Bob Wescott, awtour “The Every Computer Performance Book” (mar pleg, gwelewgh ynwedh [Kottke's summary](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Seyth golok war dybyans lostow, gans Bob Wescott, awtour “The Every Computer P
 6. Yma effeyth denagh denek yn lies kresen servis.
 
 7. Diskwedhewgh gwellheansow byghan y’ga golow gwella.
+
+## Fluv argerdh
+
+Fluv argerdh yw lergh a argerdhow. Taklow, oberyow, swyddow, hag yn kever, a avonsya dre'n fluv argerdh.
+
+Rag ensampel, linenn gwrians a'n jeves nebes gorsafow yn rew dre may fluv swyddow. Yma yn ospytti lies lergh junys a oberyow (degemmeres, kovaytha y'n chambour, darbar kirurji, kirurji, sylli, hag yn kever) dre may fluv klavjiwyon. Yma yn banka lerghow a oberyow dre may fluv arghans. Convedhes fluvyow yw sel rag dyllo ha rekya systemow oberyow effeythus.
+
+### Parametrow argerdh
+
+Argerdh fluv argerdh a dhelanwyn war dhew barametr:
+
+- Reyth an gwedhek: gallos an fluv (i.e. reyth an argerdh gans an devnydh uhella).
+
+- Termyn argerdh kriv: an termyn hag oll a dremen entitys ow bos argerdhys y'n fluv (i.e. an termyn kesrann a gemmerrsa dhe entiti dhe dremena fluv gwag).
+
+### Parametrow chanjyosedh
+
+Chanjyosedh fluv argerdh a dhelanwyn war dhew barametr:
+
+- Chanjyosedh fluv: chanjyosedh y'n termynyow ynter devedhyans entitys dhe'n systemow.
+
+- Chanjyosedh argerdh: chanjyosedh y'n termynyow argerdh y'n systemow.
+
+Konsydrewgh fluv argerdh a'n jeves ha chanjyosedh fluv ha chanjyosedh argerdh. Avel yw gwelys, chanjyosedh fluv a dheu mes a orsaf a dhelanwyn war chanjyosedh fluv a dheu ino ha war chanjyosedh argerdh gwrys y'n orsaf hy honan. Py veur a dhelanwyn war an dhew yw gwrians a dhevnydh an system.
+
+Chanjyosedh yw an fakter pennrewlyes a wra fowt perfformans fluvyow argerdh orth an perfformans y'n kas gwella. Rag henna, convedhes chanjyosedh ha kavos fordhow rag y dhilea yw yn kres lies metodologi gwellhe oberyow.
 
 ## Diwedh-lavar
 
@@ -657,9 +693,11 @@ Furvelow:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Grassow
+### Meurasow
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). An lyver ma yw bryntin rag devops a nivel ughel, hag ev a gedhla agan dewis a KPIs yn strayt. An KPIs war an folen ma a omsett gans kussulyow an lyver.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). An lyver ma a dhysk lostow ha fluryow a dhedhwys, ha'n keth sort a vathamatek, gans bresel war lywyans negys.
 
 ## Kovskrif
 

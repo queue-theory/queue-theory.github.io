@@ -40,10 +40,14 @@ Indice:
 - [Coda di code](#coda-di-code)
   - [Double Diamond come coda di code](#double-diamond-come-coda-di-code)
   - [Imbuto come coda di code](#imbuto-come-coda-di-code)
+- [Il circolo vizioso del superlavoro](#il-circolo-vizioso-del-superlavoro)
 - [Spunti](#spunti)
+- [Flusso di processo](#flusso-di-processo)
+  - [Parametri di comportamento](#parametri-di-comportamento)
+  - [Parametri di variabilità](#parametri-di-variabilità)
 - [Epilogo](#epilogo)
   - [Si veda anche](#si-veda-anche)
-  - [Ringraziamenti](#ringraziamenti)
+  - [Crediti](#crediti)
 - [Informazioni sul progetto](#informazioni-sul-progetto)
 
 ## Introduzione
@@ -593,6 +597,12 @@ Nel nostro lavoro pratico usiamo spesso la parola "imbuto" (funnel) per descrive
 
 - Coda di programmazione che usa una fase di integrazione, una fase di accettazione da parte degli utenti e una fase di rollout in produzione. Per questo tipo di coda, puntiamo a minimizzare il tasso di errore della fase di rollout in produzione, ad esempio tramite telemetria canary.
 
+## Il circolo vizioso del superlavoro
+
+Quando il tasso di arrivo aumenta, ciò esercita una maggiore pressione sul sistema e lo spinge più vicino alla sua capacità (cioè al 100% di utilizzo). Questo fa crescere rapidamente i tempi di ciclo verso l'infinito e aumenta il lavoro in corso, il che a sua volta rallenta i risultati.
+
+Ciò dà origine a uno schema comune nel settore, che chiamiamo «il circolo vizioso del superlavoro»: quando i risultati diventano abbastanza negativi, i responsabili autorizzano più risorse (come gli straordinari o un aiuto in più), il che migliora la capacità del sistema. Ma non appena il sistema si riprende, i responsabili sospendono gli straordinari e il sovraccarico ricomincia. Questo ciclo può essere rapido e devastante. La soluzione è che i responsabili dedichino il tempo necessario a comprendere il sistema, la capacità e l'utilizzo.
+
 ## Spunti
 
 Sette spunti sulla teoria delle code, di Bob Wescott, autore di "The Every Computer Performance Book" (si veda anche il [riassunto di Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -610,6 +620,32 @@ Sette spunti sulla teoria delle code, di Bob Wescott, autore di "The Every Compu
 6. Nei centri di servizio multipli c'è un effetto umano di negazione.
 
 7. Presenti i piccoli miglioramenti nella luce migliore.
+
+## Flusso di processo
+
+Un flusso di processo è una sequenza di processi. Elementi, operazioni, lavori ecc. avanzano attraverso il flusso di processo.
+
+Per esempio, una linea di produzione è composta da diverse stazioni in serie attraverso cui scorrono i lavori. Un ospedale contiene molte sequenze collegate di operazioni (ricovero, assistenza in camera, preparazione chirurgica, intervento, recupero ecc.) attraverso cui scorrono i pazienti. Una banca comprende sequenze di operazioni attraverso cui scorre il denaro. Comprendere i flussi è fondamentale per progettare e gestire sistemi operativi efficaci.
+
+### Parametri di comportamento
+
+Il comportamento di un flusso di processo dipende da due parametri:
+
+- Tasso del collo di bottiglia: la capacità del flusso (cioè il tasso del processo con il più alto utilizzo).
+
+- Tempo di processo grezzo: il tempo totale che le entità trascorrono in lavorazione nel flusso (cioè il tempo medio che impiegherebbe un'entità ad attraversare un flusso vuoto).
+
+### Parametri di variabilità
+
+La variabilità di un flusso di processo dipende da due parametri:
+
+- Variabilità del flusso: variabilità nei tempi tra gli arrivi delle entità ai sistemi.
+
+- Variabilità del processo: variabilità nei tempi di lavorazione ai sistemi.
+
+Consideriamo un flusso di processo che presenta sia variabilità del flusso sia variabilità del processo. Come ci si può aspettare, la variabilità del flusso in uscita da una stazione dipende sia dalla variabilità del flusso in ingresso sia dalla variabilità di processo generata nella stazione stessa. Quanto dipenda da ciascuna è una funzione dell'utilizzo del sistema.
+
+La variabilità è il fattore dominante che degrada le prestazioni dei flussi di processo rispetto alle prestazioni nel caso migliore. Perciò comprendere la variabilità e trovare modi per eliminarla è al centro di molte metodologie di miglioramento operativo.
 
 ## Epilogo
 
@@ -665,9 +701,11 @@ Formule:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Ringraziamenti
+### Crediti
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Questo libro è eccellente per il devops ad alto livello e orienta direttamente la nostra scelta dei KPI. I KPI di questa pagina sono in linea con le raccomandazioni del libro.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Questo libro spiega le code e i flussi di processo, compresa una matematica simile, con un'enfasi sulla gestione aziendale.
 
 ## Informazioni sul progetto
 

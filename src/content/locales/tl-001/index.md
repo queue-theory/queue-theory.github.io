@@ -35,10 +35,14 @@ Nilalaman:
 - [Pila ng mga pila](#pila-ng-mga-pila)
   - [Pila ng mga pila na Double Diamond](#pila-ng-mga-pila-na-double-diamond)
   - [Pila ng mga pila na hugis-funnel](#pila-ng-mga-pila-na-hugis-funnel)
+- [Ang mabisyong siklo ng labis na pagtatrabaho](#ang-mabisyong-siklo-ng-labis-na-pagtatrabaho)
 - [Mga kabatiran](#mga-kabatiran)
+- [Daloy ng proseso](#daloy-ng-proseso)
+  - [Mga parameter ng pag-uugali](#mga-parameter-ng-pag-uugali)
+  - [Mga parameter ng baryabilidad](#mga-parameter-ng-baryabilidad)
 - [Pangwakas](#pangwakas)
   - [Tingnan din](#tingnan-din)
-  - [Pasasalamat](#pasasalamat)
+  - [Mga kredito](#mga-kredito)
 - [Pagsubaybay](#pagsubaybay)
 
 ## Panimula
@@ -588,6 +592,12 @@ Sa aming praktikal na trabaho, madalas naming gamitin ang salitang “funnel” 
 
 - Pila ng programming na gumagamit ng yugto ng integration, yugto ng user acceptance, at yugto ng production rollout. Para sa ganitong uri ng pila, nilalayon naming pababain hangga't maaari ang rate ng error ng yugto ng production rollout, tulad ng sa pamamagitan ng canary telemetry.
 
+## Ang mabisyong siklo ng labis na pagtatrabaho
+
+Kapag tumaas ang arrival rate, nagbibigay ito ng mas malaking presyon sa sistema at itinutulak ang sistema na mas malapit sa kapasidad nito (ibig sabihin, 100% utilisasyon). Dahil dito, mabilis na tumataas ang cycle time patungong infinity, at dumarami ang work in process, na sa gayon ay nagdudulot ng mas mabagal na resulta.
+
+Ito ang nagtutulak sa isang karaniwang padron sa industriya na tinatawag naming “ang mabisyong siklo ng labis na pagtatrabaho”: kapag sapat na ang pagkasama ng mga resulta, nag-aapruba ang mga manager ng karagdagang resources (tulad ng overtime o pagkuha ng dagdag na tulong), na nagpapabuti sa kapasidad ng sistema. Ngunit sa sandaling bumawi ang sistema, itinitigil ng mga manager ang overtime, at nagsisimulang muli ang labis na karga. Maaaring maging mabilis at nakapipinsala ang ikot na ito. Ang solusyon ay maglaan ang mga manager ng oras upang unawain ang sistema, kapasidad, at utilisasyon.
+
 ## Mga kabatiran
 
 Pitong kabatiran sa teorya ng pila, ni Bob Wescott, may-akda ng “The Every Computer Performance Book” (pakitingnan din ang [buod ni Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -605,6 +615,32 @@ Pitong kabatiran sa teorya ng pila, ni Bob Wescott, may-akda ng “The Every Com
 6. May epekto ng pagtanggi ng tao sa maraming service center.
 
 7. Ipakita ang maliliit na pagpapahusay sa pinakamainam nitong anyo.
+
+## Daloy ng proseso
+
+Ang daloy ng proseso ay isang sunud-sunod na mga proseso. Ang mga aytem, o operasyon, o trabaho, atbp. ay umuusad sa daloy ng proseso.
+
+Halimbawa, ang isang linya ng paggawa ay binubuo ng ilang istasyong magkakasunod na dinadaluyan ng mga trabaho. Ang isang ospital ay may maraming magkakaugnay na sunud-sunod na operasyon (pagpasok, pangangalaga sa silid, paghahanda sa operasyon, operasyon, paggaling, atbp.) na dinadaluyan ng mga pasyente. Ang isang bangko ay may mga sunud-sunod na operasyon na dinadaluyan ng pera. Ang pag-unawa sa mga daloy ay pundamental sa pagdidisenyo at pamamahala ng mabisang mga sistema ng operasyon.
+
+### Mga parameter ng pag-uugali
+
+Ang pag-uugali ng daloy ng proseso ay nakadepende sa dalawang parameter:
+
+- Bottleneck rate: ang kapasidad ng daloy (ibig sabihin, ang rate ng prosesong may pinakamataas na utilisasyon).
+
+- Raw process time: ang kabuuang oras na ginugugol ng mga entity sa pagpoproseso sa daloy (ibig sabihin, ang karaniwang oras na kakailanganin ng isang entity upang tawirin ang walang-lamang daloy).
+
+### Mga parameter ng baryabilidad
+
+Ang baryabilidad ng daloy ng proseso ay nakadepende sa dalawang parameter:
+
+- Baryabilidad ng daloy: baryabilidad sa mga pagitan ng pagdating ng mga entity sa mga sistema.
+
+- Baryabilidad ng proseso: baryabilidad sa mga oras ng pagpoproseso sa mga sistema.
+
+Isaalang-alang ang isang daloy ng proseso na may parehong baryabilidad ng daloy at baryabilidad ng proseso. Gaya ng inaasahan, ang baryabilidad ng daloy na lumalabas sa isang istasyon ay nakadepende sa baryabilidad ng daloy na pumapasok dito at sa baryabilidad ng prosesong nalilikha sa mismong istasyon. Kung gaano ito nakadepende sa bawat isa ay isang function ng utilisasyon ng sistema.
+
+Ang baryabilidad ang nangingibabaw na salik na nagpapababa sa pagganap ng mga daloy ng proseso kumpara sa pagganap sa pinakamainam na kaso. Kaya, ang pag-unawa sa baryabilidad at paghahanap ng mga paraan upang alisin ito ay nasa ubod ng maraming metodolohiya sa pagpapabuti ng operasyon.
 
 ## Pangwakas
 
@@ -660,9 +696,11 @@ Mga pormula:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Pasasalamat
+### Mga kredito
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Napakahusay ng aklat na ito para sa DevOps sa mataas na antas, at direktang humuhubog sa aming pagpili ng mga KPI. Naaayon ang mga KPI sa pahinang ito sa mga rekomendasyon ng aklat.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Ipinapaliwanag ng aklat na ito ang mga pila at daloy ng proseso, kasama ang katulad na uri ng matematika, na may diin sa pamamahala ng negosyo.
 
 ## Pagsubaybay
 

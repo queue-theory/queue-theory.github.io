@@ -39,10 +39,14 @@ Indhold:
 - [Kø af køer](#kø-af-køer)
   - [Double Diamond som kø af køer](#double-diamond-som-kø-af-køer)
   - [Tragt som kø af køer](#tragt-som-kø-af-køer)
+- [Overarbejdets onde cirkel](#overarbejdets-onde-cirkel)
 - [Indsigter](#indsigter)
+- [Procesflow](#procesflow)
+  - [Adfærdsparametre](#adfærdsparametre)
+  - [Variationsparametre](#variationsparametre)
 - [Efterskrift](#efterskrift)
   - [Se også](#se-også)
-  - [Tak](#tak)
+  - [Kilder og anerkendelser](#kilder-og-anerkendelser)
 - [Projektoplysninger](#projektoplysninger)
 
 ## Introduktion
@@ -592,6 +596,12 @@ I vores praktiske arbejde bruger vi ofte ordet "tragt" løst om en kø af køer,
 
 - Programmeringskø med et integrationsstadie, et brugeracceptstadie og et stadie for udrulning i produktion. For denne type kø sigter vi mod at minimere fejlraten i stadiet for udrulning i produktion, f.eks. via canary-telemetri.
 
+## Overarbejdets onde cirkel
+
+Når ankomsthastigheden stiger, lægger det mere pres på et system og skubber systemet tættere på kapaciteten (dvs. 100 % udnyttelse). Det får gennemløbstiderne til at stige hurtigt mod uendelig og mængden af igangværende arbejde til at vokse, hvilket igen giver langsommere resultater.
+
+Det driver et almindeligt mønster i erhvervslivet, som vi kalder “overarbejdets onde cirkel”: Når resultaterne bliver dårlige nok, bevilger ledere flere ressourcer (f.eks. overarbejde eller ekstra hjælp), hvilket forbedrer systemets kapacitet. Men så snart systemet er kommet sig, afskaffer lederne overarbejdet, og overbelastningen begynder igen. Denne sløjfe kan være hurtig og ødelæggende. Løsningen er, at lederne bruger tid på at forstå systemet, kapaciteten og udnyttelsen.
+
 ## Indsigter
 
 Syv indsigter i køteori fra Bob Wescott, forfatter til "The Every Computer Performance Book" (se også [Kottkes sammenfatning](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Syv indsigter i køteori fra Bob Wescott, forfatter til "The Every Computer Perf
 6. Der findes en menneskelig fornægtelseseffekt ved flere servicecentre.
 
 7. Vis små forbedringer fra deres bedste side.
+
+## Procesflow
+
+Et procesflow er en sekvens af processer. Emner, eller operationer, eller opgaver osv. bevæger sig gennem procesflowet.
+
+En produktionslinje består for eksempel af flere stationer i serie, som opgaver løber igennem. Et hospital indeholder mange forbundne sekvenser af operationer (indlæggelse, pleje på stuen, forberedelse til operation, operation, bedring osv.), som patienter løber igennem. En bank omfatter sekvenser af operationer, som penge løber igennem. Forståelse af flow er grundlæggende for at designe og styre effektive driftssystemer.
+
+### Adfærdsparametre
+
+Et procesflows adfærd afhænger af to parametre:
+
+- Flaskehalsrate: flowets kapacitet (dvs. raten for den proces, der har den højeste udnyttelse).
+
+- Rå proces-tid: den samlede tid, enheder bruger på at blive behandlet i flowet (dvs. den gennemsnitlige tid, det ville tage en enhed at passere gennem et tomt flow).
+
+### Variationsparametre
+
+Et procesflows variation afhænger af to parametre:
+
+- Flowvariation: variation i tiden mellem enheders ankomster til systemerne.
+
+- Procesvariation: variation i procestiderne i systemerne.
+
+Overvej et procesflow, der oplever både flowvariation og procesvariation. Som man kunne forvente, afhænger den flowvariation, der kommer ud af en station, både af den flowvariation, der kommer ind i den, og af den procesvariation, der skabes i selve stationen. Hvor meget den afhænger af hver af dem, er en funktion af systemets udnyttelse.
+
+Variation er den dominerende faktor, der forringer procesflows' ydeevne i forhold til den bedst mulige ydeevne. Derfor er det at forstå variation og finde måder at fjerne den på kernen i mange metoder til driftsforbedring.
 
 ## Efterskrift
 
@@ -664,9 +700,11 @@ Formler:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Tak
+### Kilder og anerkendelser
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Denne bog er fremragende til devops på overordnet niveau og danner direkte grundlag for vores valg af KPI'er. KPI'erne på denne side er i overensstemmelse med bogens anbefalinger.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Denne bog forklarer køer og proceskørsler, herunder lignende former for matematik, med vægt på virksomhedsledelse.
 
 ## Projektoplysninger
 

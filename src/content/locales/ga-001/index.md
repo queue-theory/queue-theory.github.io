@@ -40,10 +40,14 @@ Clár ábhair:
 - [Scuaine scuainí](#scuaine-scuainí)
   - [Scuaine scuainí Double Diamond](#scuaine-scuainí-double-diamond)
   - [Scuaine scuainí mar thonnadóir](#scuaine-scuainí-mar-thonnadóir)
+- [An ciorcal fí den ró-obair](#an-ciorcal-fí-den-ró-obair)
 - [Léargais](#léargais)
+- [Sreabhadh próisis](#sreabhadh-próisis)
+  - [Paraiméadair iompair](#paraiméadair-iompair)
+  - [Paraiméadair inathraitheachta](#paraiméadair-inathraitheachta)
 - [Iarfhocal](#iarfhocal)
   - [Féach freisin](#féach-freisin)
-  - [Buíochas](#buíochas)
+  - [Aitheantas](#aitheantas)
 - [Rianú](#rianú)
 
 ## Réamhrá
@@ -590,6 +594,12 @@ Inár gcuid oibre praiticiúla, is minic a úsáidimid an focal “tonnadóir”
 
 - Scuaine ríomhchlárúcháin a úsáideann céim chomhtháthaithe, céim ghlactha úsáideoirí, agus céim rollta amach táirgthe. Don chineál seo scuaine, déanaimid iarracht ráta earráide chéim an rollta amach táirgthe a íoslaghdú, mar shampla trí theiliméadracht canáraigh.
 
+## An ciorcal fí den ró-obair
+
+Nuair a fhásann an ráta teachta, cuireann sé seo níos mó brú ar chóras agus brúnn sé an córas níos gaire dá acmhainn (i.e. 100% úsáide). Cuireann sé seo ar amanna timthrialla méadú go tapa i dtreo na héigríche, agus ar obair idir lámha méadú, rud a fhágann torthaí níos moille ina dhiaidh sin.
+
+Is cúis é seo le patrún coitianta sa tionscal ar a dtugaimid “an ciorcal fí den ró-obair”: nuair a éiríonn na torthaí dona go leor, údaraíonn bainisteoirí tuilleadh acmhainní (amhail ragobair nó cúnamh breise a fhostú), rud a fheabhsaíonn acmhainn an chórais. Ach chomh luath agus a théann an córas i bhfeabhas, scoireann na bainisteoirí den ragobair, agus tosaíonn an ró-ualú arís. Is féidir leis an lúb seo a bheith tapa agus millteach. Is é an réiteach ná go gcaithfidh bainisteoirí an t-am chun an córas, an acmhainn agus an úsáid a thuiscint.
+
 ## Léargais
 
 Seacht léargas ar theoiric na scuainí, le Bob Wescott, údar “The Every Computer Performance Book” (féach freisin [achoimre Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -607,6 +617,32 @@ Seacht léargas ar theoiric na scuainí, le Bob Wescott, údar “The Every Comp
 6. Bíonn éifeacht shéanta dhaonna ann i gcás ionad seirbhíse iolrach.
 
 7. Léirígí feabhsuithe beaga sa solas is fearr.
+
+## Sreabhadh próisis
+
+Seicheamh próiseas is ea sreabhadh próisis. Téann míreanna, nó oibríochtaí, nó jabanna, srl. ar aghaidh tríd an sreabhadh próisis.
+
+Mar shampla, tá roinnt stáisiún i ndiaidh a chéile i líne mhonaraíochta a shreabhann jabanna tríothu. Tá go leor seichimh nasctha oibríochtaí in ospidéal (ligean isteach, cúram sa seomra, ullmhúchán máinliachta, máinliacht, téarnamh, srl.) a shreabhann othair tríothu. Baineann seichimh oibríochtaí le banc a shreabhann airgead tríothu. Tá tuiscint ar shreafaí bunriachtanach chun córais oibríochtaí éifeachtacha a dhearadh agus a bhainistiú.
+
+### Paraiméadair iompair
+
+Braitheann iompar sreabhadh próisis ar dhá pharaiméadar:
+
+- Ráta an chaolais: acmhainn an tsreabhaidh (i.e. ráta an phróisis a bhfuil an úsáid is airde aige).
+
+- Am próisis amh: an t-am iomlán a chaitheann aonáin á bpróiseáil sa sreabhadh (i.e. meán-am a thógfadh sé ar aonán sreabhadh folamh a thrasnú).
+
+### Paraiméadair inathraitheachta
+
+Braitheann inathraitheacht sreabhadh próisis ar dhá pharaiméadar:
+
+- Inathraitheacht sreabhaidh: inathraitheacht in amanna idir teacht aonán chuig na córais.
+
+- Inathraitheacht próisis: inathraitheacht in amanna próiseála ag na córais.
+
+Smaoinigh ar shreabhadh próisis a bhfuil inathraitheacht sreabhaidh agus inathraitheacht próisis araon ann. Mar a bheifí ag súil leis, braitheann an inathraitheacht sreabhaidh a thagann amach as stáisiún ar an inathraitheacht sreabhaidh a théann isteach ann agus ar an inathraitheacht próisis a chruthaítear sa stáisiún féin. Is feidhm d'úsáid an chórais é cé chomh mór agus a bhraitheann sé ar gach ceann acu.
+
+Is í an inathraitheacht an príomhfhachtóir a laghdaíonn feidhmíocht sreafaí próisis i gcomparáid leis an bhfeidhmíocht sa chás is fearr. Dá bhrí sin, tá tuiscint ar an inathraitheacht agus bealaí chun í a dhíchur i gcroílár go leor modheolaíochtaí feabhsúcháin oibríochtaí.
 
 ## Iarfhocal
 
@@ -662,9 +698,11 @@ Foirmlí:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Buíochas
+### Aitheantas
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Tá an leabhar seo ar fheabhas do DevOps ardleibhéil, agus bíonn tionchar díreach aige ar ár rogha KPIanna. Tá na KPIanna ar an leathanach seo ag teacht le moltaí an leabhair.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Míníonn an leabhar seo scuainí agus sreafaí próisis, lena n-áirítear cineálacha cosúla matamaitice, agus béim ar bhainistíocht ghnó.
 
 ## Rianú
 

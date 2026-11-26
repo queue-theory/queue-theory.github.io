@@ -39,10 +39,14 @@ Tartalom:
 - [Sorok sora](#sorok-sora)
   - [A Double Diamond sorok sora](#a-double-diamond-sorok-sora)
   - [Tölcsér típusú sorok sora](#tölcsér-típusú-sorok-sora)
+- [A túlhajszolás ördögi köre](#a-túlhajszolás-ördögi-köre)
 - [Meglátások](#meglátások)
+- [Folyamatáramlás](#folyamatáramlás)
+  - [Viselkedési paraméterek](#viselkedési-paraméterek)
+  - [Változékonysági paraméterek](#változékonysági-paraméterek)
 - [Epilógus](#epilógus)
   - [További források](#további-források)
-  - [Köszönetnyilvánítás](#köszönetnyilvánítás)
+  - [Köszönetnyilvánítás és források](#köszönetnyilvánítás-és-források)
 - [Nyilvántartás](#nyilvántartás)
 
 ## Bevezetés
@@ -592,6 +596,12 @@ Gyakorlati munkánkban gyakran használjuk a „tölcsér” szót olyan sorok s
 
 - Programozási sor, amely integrációs szakaszt, felhasználói átvételi szakaszt és éles bevezetési szakaszt használ. Az ilyen sornál az éles bevezetési szakasz hibarátájának minimalizálására törekszünk, például canary telemetria révén.
 
+## A túlhajszolás ördögi köre
+
+Amikor az érkezési ráta nő, az nagyobb nyomást helyez a rendszerre, és közelebb tolja a kapacitásához (azaz a 100%-os kihasználtsághoz). Emiatt a ciklusidők gyorsan a végtelen felé nőnek, és a folyamatban lévő munka mennyisége is növekszik, ami viszont lassabb eredményeket okoz.
+
+Ez az iparágban gyakori mintát hajt, amelyet „a túlhajszolás ördögi körének” nevezünk: amikor az eredmények elég rosszra fordulnak, a vezetők több erőforrást engedélyeznek (például túlórát vagy plusz segítséget), ami javítja a rendszer kapacitását. De amint a rendszer magához tér, a vezetők megszüntetik a túlórát, és a túlterhelés újra kezdődik. Ez a kör gyors és pusztító lehet. A megoldás az, hogy a vezetők szánnak időt a rendszer, a kapacitás és a kihasználtság megértésére.
+
 ## Meglátások
 
 Hét meglátás a sorbanállás-elméletről Bob Wescott-tól, a „The Every Computer Performance Book” szerzőjétől (további információ: [Kottke összefoglalója](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Hét meglátás a sorbanállás-elméletről Bob Wescott-tól, a „The Every Co
 6. Több kiszolgálóközpont esetén fellép egy emberi tagadási hatás.
 
 7. A kis javulásokat a legjobb színben tüntesse fel.
+
+## Folyamatáramlás
+
+A folyamatáramlás folyamatok sorozata. A tételek, műveletek, munkák stb. végighaladnak a folyamatáramláson.
+
+Például egy gyártósor több, egymás után kapcsolt állomásból áll, amelyeken a munkák átfolynak. Egy kórház sok összekapcsolt műveletsort tartalmaz (felvétel, kórtermi ellátás, műtéti előkészítés, műtét, felépülés stb.), amelyeken a betegek átfolynak. Egy bank olyan műveletsorokat foglal magában, amelyeken a pénz átfolyik. Az áramlások megértése alapvető a hatékony műveleti rendszerek tervezéséhez és irányításához.
+
+### Viselkedési paraméterek
+
+A folyamatáramlás viselkedése két paramétertől függ:
+
+- Szűk keresztmetszet üteme: az áramlás kapacitása (azaz a legnagyobb kihasználtságú folyamat üteme).
+
+- Nyers folyamatidő: az az összes idő, amelyet az entitások feldolgozással töltenek az áramlásban (azaz az az átlagos idő, amely alatt egy entitás áthaladna egy üres áramláson).
+
+### Változékonysági paraméterek
+
+A folyamatáramlás változékonysága két paramétertől függ:
+
+- Áramlási változékonyság: az entitások rendszerekbe érkezése között eltelt idők változékonysága.
+
+- Folyamatváltozékonyság: a rendszerekben a feldolgozási idők változékonysága.
+
+Tekintsünk egy olyan folyamatáramlást, amelyben mind áramlási, mind folyamatváltozékonyság jelen van. Ahogy várható, az állomásról kilépő áramlás változékonysága függ a belépő áramlás változékonyságától és az állomáson magán keletkező folyamatváltozékonyságtól is. Hogy mennyire függ az egyiktől és a másiktól, az a rendszer kihasználtságának függvénye.
+
+A változékonyság az a meghatározó tényező, amely a legjobb esethez képest rontja a folyamatáramlások teljesítményét. Ezért a változékonyság megértése és a kiküszöbölésére szolgáló módok keresése számos működésfejlesztési módszertan középpontjában áll.
 
 ## Epilógus
 
@@ -664,9 +700,11 @@ Képletek:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Köszönetnyilvánítás
+### Köszönetnyilvánítás és források
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Ez a könyv kiváló a magas szintű DevOps témában, és közvetlenül megalapozza a KPI-k kiválasztását. Az ezen az oldalon szereplő KPI-k összhangban vannak a könyv ajánlásaival.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Ez a könyv a sorokat és a folyamatok áramlását magyarázza, hasonló jellegű matematikával együtt, az üzleti menedzsmentre helyezve a hangsúlyt.
 
 ## Nyilvántartás
 

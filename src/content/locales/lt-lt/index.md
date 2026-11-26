@@ -35,10 +35,14 @@ Turinys:
 - [Eilių eilė](#eilių-eilė)
   - [„Double Diamond“ eilių eilė](#double-diamond-eilių-eilė)
   - [Piltuvo eilių eilė](#piltuvo-eilių-eilė)
+- [Perdėto darbo užburtas ratas](#perdėto-darbo-užburtas-ratas)
 - [Įžvalgos](#įžvalgos)
+- [Procesų srautas](#procesų-srautas)
+  - [Elgsenos parametrai](#elgsenos-parametrai)
+  - [Kintamumo parametrai](#kintamumo-parametrai)
 - [Epilogas](#epilogas)
   - [Taip pat žr.](#taip-pat-žr)
-  - [Padėka](#padėka)
+  - [Padėkos ir šaltiniai](#padėkos-ir-šaltiniai)
 - [Projekto informacija](#projekto-informacija)
 
 ## Įvadas
@@ -585,6 +589,12 @@ Praktiniame darbe dažnai vartojame žodį „piltuvas“, kad laisvai apibūdin
 
 - Programavimo eilė su integracijos, naudotojų priėmimo ir išleidimo į gamybinę aplinką etapais. Tokioje eilėje siekiame maksimaliai sumažinti išleidimo į gamybinę aplinką etapo klaidų spartą, pvz., „canary“ telemetrija.
 
+## Perdėto darbo užburtas ratas
+
+Kai atvykimo sparta didėja, tai labiau spaudžia sistemą ir stumia ją arčiau jos pajėgumo (t. y. 100 % apkrovos). Dėl to ciklo trukmės sparčiai didėja link begalybės, daugėja nebaigto darbo, o tai savo ruožtu lemia lėtesnius rezultatus.
+
+Tai lemia pramonėje įprastą modelį, kurį vadiname „perdėto darbo užburtu ratu“: kai rezultatai tampa pakankamai blogi, vadovai leidžia skirti daugiau išteklių (pavyzdžiui, viršvalandžius ar papildomą pagalbą), o tai didina sistemos pajėgumą. Bet vos tik sistema atsigauna, vadovai nutraukia viršvalandžius ir perkrova prasideda iš naujo. Šis ciklas gali būti greitas ir niokojantis. Sprendimas – kad vadovai skirtų laiko sistemai, pajėgumui ir apkrovai suprasti.
+
 ## Įžvalgos
 
 Septynios įžvalgos apie eilių teoriją, kurias pateikė Bobas Wescottas, knygos „The Every Computer Performance Book“ autorius (taip pat žr. [Kottke santrauką](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Septynios įžvalgos apie eilių teoriją, kurias pateikė Bobas Wescottas, knyg
 6. Keliuose aptarnavimo centruose pasireiškia žmogiškojo neigimo efektas.
 
 7. Nedidelius patobulinimus parodykite geriausioje šviesoje.
+
+## Procesų srautas
+
+Procesų srautas – tai procesų seka. Elementai, operacijos, darbai ir kt. juda procesų srautu.
+
+Pavyzdžiui, gamybos linija susideda iš kelių nuosekliai išdėstytų stočių, per kurias teka darbai. Ligoninėje yra daug susijusių operacijų sekų (priėmimas, priežiūra palatoje, pasiruošimas operacijai, operacija, sveikimas ir kt.), per kurias teka pacientai. Banke yra operacijų sekų, per kurias teka pinigai. Srautų supratimas yra esminis kuriant ir valdant veiksmingas veiklos sistemas.
+
+### Elgsenos parametrai
+
+Procesų srauto elgsena priklauso nuo dviejų parametrų:
+
+- Butelio kaklelio sparta: srauto pajėgumas (t. y. didžiausios apkrovos proceso sparta).
+
+- Grynasis proceso laikas: bendras laikas, kurį esybės praleidžia apdorojamos sraute (t. y. vidutinis laikas, per kurį esybė praeitų tuščią srautą).
+
+### Kintamumo parametrai
+
+Procesų srauto kintamumas priklauso nuo dviejų parametrų:
+
+- Srauto kintamumas: esybių atvykimo į sistemas intervalų kintamumas.
+
+- Proceso kintamumas: apdorojimo laikų sistemose kintamumas.
+
+Panagrinėkime procesų srautą, kuriame yra ir srauto kintamumas, ir proceso kintamumas. Kaip ir galima tikėtis, iš stoties išeinančio srauto kintamumas priklauso ir nuo į ją patenkančio srauto kintamumo, ir nuo pačioje stotyje atsirandančio proceso kintamumo. Kiek jis priklauso nuo kiekvieno iš jų, lemia sistemos apkrova.
+
+Kintamumas yra vyraujantis veiksnys, dėl kurio procesų srautų veikimas suprastėja, palyginti su geriausiu atveju. Todėl kintamumo supratimas ir būdų jį pašalinti paieška yra daugelio veiklos tobulinimo metodikų esmė.
 
 ## Epilogas
 
@@ -657,9 +693,11 @@ Formulės:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Padėka
+### Padėkos ir šaltiniai
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Ši knyga puikiai tinka aukšto lygio „DevOps“ temoms ir tiesiogiai lemia mūsų KPI pasirinkimą. Šiame puslapyje pateikti KPI atitinka knygos rekomendacijas.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Ši knyga aiškina eiles ir procesų srautus, įskaitant panašią matematiką, daugiausia dėmesio skiriant verslo valdymui.
 
 ## Projekto informacija
 

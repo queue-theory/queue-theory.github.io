@@ -35,10 +35,14 @@ Kandungan:
 - [Baris gilir bagi baris gilir](#baris-gilir-bagi-baris-gilir)
   - [Baris gilir bagi baris gilir Double Diamond](#baris-gilir-bagi-baris-gilir-double-diamond)
   - [Baris gilir bagi baris gilir corong](#baris-gilir-bagi-baris-gilir-corong)
+- [Kitaran ganas kerja berlebihan](#kitaran-ganas-kerja-berlebihan)
 - [Pandangan](#pandangan)
+- [Aliran proses](#aliran-proses)
+  - [Parameter kelakuan](#parameter-kelakuan)
+  - [Parameter kebolehubahan](#parameter-kebolehubahan)
 - [Epilog](#epilog)
   - [Lihat juga](#lihat-juga)
-  - [Penghargaan](#penghargaan)
+  - [Kredit](#kredit)
 - [Maklumat projek](#maklumat-projek)
 
 ## Pengenalan
@@ -585,6 +589,12 @@ Dalam kerja praktikal kami, kami kerap menggunakan perkataan “corong” untuk 
 
 - Baris gilir pengaturcaraan yang menggunakan tahap integrasi, tahap penerimaan pengguna, dan tahap pelancaran pengeluaran. Untuk baris gilir jenis ini, kami berhasrat untuk meminimumkan kadar ralat tahap pelancaran pengeluaran, seperti melalui telemetri canary.
 
+## Kitaran ganas kerja berlebihan
+
+Apabila kadar ketibaan meningkat, ini mengenakan lebih tekanan pada sistem dan menolak sistem lebih dekat kepada kapasitinya (iaitu penggunaan 100%). Ini menyebabkan masa kitaran meningkat dengan pantas menuju ketakterhinggaan, dan kerja dalam proses bertambah, yang seterusnya menyebabkan hasil menjadi lebih perlahan.
+
+Ini mendorong corak biasa dalam industri yang kami panggil “kitaran ganas kerja berlebihan”: apabila hasil menjadi cukup buruk, pengurus meluluskan lebih banyak sumber (seperti kerja lebih masa atau pengambilan bantuan tambahan), yang menambah baik kapasiti sistem. Tetapi sebaik sahaja sistem pulih, pengurus menamatkan kerja lebih masa, dan beban berlebihan bermula semula. Gelung ini boleh berlaku dengan pantas dan membinasakan. Penyelesaiannya ialah pengurus meluangkan masa untuk memahami sistem, kapasiti dan penggunaan.
+
 ## Pandangan
 
 Tujuh pandangan tentang teori baris gilir, oleh Bob Wescott, pengarang “The Every Computer Performance Book” (sila lihat juga [ringkasan Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Tujuh pandangan tentang teori baris gilir, oleh Bob Wescott, pengarang “The Ev
 6. Terdapat kesan penafian manusia dalam pelbagai pusat perkhidmatan.
 
 7. Tunjukkan penambahbaikan kecil dalam cahaya terbaiknya.
+
+## Aliran proses
+
+Aliran proses ialah satu jujukan proses. Item, atau operasi, atau tugas, dsb. bergerak melalui aliran proses.
+
+Contohnya, barisan pembuatan terdiri daripada beberapa stesen secara bersiri yang dilalui oleh tugas. Hospital mengandungi banyak jujukan operasi yang saling bersambung (kemasukan, rawatan di dalam bilik, persediaan pembedahan, pembedahan, pemulihan, dsb.) yang dilalui oleh pesakit. Bank melibatkan jujukan operasi yang dilalui oleh wang. Memahami aliran adalah asas untuk mereka bentuk dan mengurus sistem operasi yang berkesan.
+
+### Parameter kelakuan
+
+Kelakuan aliran proses bergantung pada dua parameter:
+
+- Kadar kesesakan: kapasiti aliran (iaitu kadar proses yang mempunyai penggunaan tertinggi).
+
+- Masa proses mentah: jumlah masa yang dihabiskan oleh entiti untuk diproses dalam aliran (iaitu purata masa yang diperlukan oleh sesuatu entiti untuk melalui aliran kosong).
+
+### Parameter kebolehubahan
+
+Kebolehubahan aliran proses bergantung pada dua parameter:
+
+- Kebolehubahan aliran: kebolehubahan dalam masa antara ketibaan entiti ke sistem.
+
+- Kebolehubahan proses: kebolehubahan dalam masa proses di sistem.
+
+Pertimbangkan aliran proses yang mengalami kedua-dua kebolehubahan aliran dan kebolehubahan proses. Seperti yang dijangka, kebolehubahan aliran yang keluar daripada sesebuah stesen bergantung pada kebolehubahan aliran yang masuk ke dalamnya dan kebolehubahan proses yang tercipta di stesen itu sendiri. Berapa banyak ia bergantung pada setiap satu merupakan fungsi penggunaan sistem.
+
+Kebolehubahan ialah faktor dominan yang menjejaskan prestasi aliran proses berbanding prestasi kes terbaik. Oleh itu, memahami kebolehubahan dan mencari cara untuk menyingkirkannya merupakan teras kepada banyak metodologi penambahbaikan operasi.
 
 ## Epilog
 
@@ -657,9 +693,11 @@ Formula:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Penghargaan
+### Kredit
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Buku ini sangat baik untuk DevOps peringkat tinggi, dan secara langsung mempengaruhi pilihan KPI kami. KPI dalam halaman ini selaras dengan cadangan buku tersebut.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Buku ini menerangkan baris gilir dan aliran proses, termasuk jenis matematik yang serupa, dengan penekanan pada pengurusan perniagaan.
 
 ## Maklumat projek
 

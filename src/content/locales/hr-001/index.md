@@ -39,10 +39,14 @@ Sadržaj:
 - [Red redova](#red-redova)
   - [Red redova Double Diamond](#red-redova-double-diamond)
   - [Red redova u obliku lijevka](#red-redova-u-obliku-lijevka)
+- [Začarani krug prekomjernog rada](#začarani-krug-prekomjernog-rada)
 - [Uvidi](#uvidi)
+- [Tok procesa](#tok-procesa)
+  - [Parametri ponašanja](#parametri-ponašanja)
+  - [Parametri varijabilnosti](#parametri-varijabilnosti)
 - [Epilog](#epilog)
   - [Pogledajte također](#pogledajte-također)
-  - [Zahvale](#zahvale)
+  - [Zasluge i izvori](#zasluge-i-izvori)
 - [Praćenje](#praćenje)
 
 ## Uvod
@@ -592,6 +596,12 @@ U praktičnom radu često koristimo riječ „lijevak” kako bismo okvirno opis
 
 - Programerski red koji koristi fazu integracije, fazu korisničkog prihvaćanja i fazu uvođenja u produkciju. Za ovu vrstu reda težimo minimizirati stopu pogrešaka faze uvođenja u produkciju, primjerice putem kanarinske telemetrije.
 
+## Začarani krug prekomjernog rada
+
+Kada se stopa dolazaka povećava, to stavlja veći pritisak na sustav i gura ga bliže njegovu kapacitetu (tj. 100 % iskorištenosti). Zbog toga vremena ciklusa brzo rastu prema beskonačnosti, a raste i posao u tijeku, što pak uzrokuje sporije rezultate.
+
+To pokreće uobičajen obrazac u industriji koji nazivamo „začarani krug prekomjernog rada“: kada rezultati postanu dovoljno loši, voditelji odobre dodatne resurse (poput prekovremenog rada ili dodatne pomoći), čime se poboljšava kapacitet sustava. No čim se sustav oporavi, voditelji ukinu prekovremeni rad i preopterećenje ponovno počinje. Ta petlja može biti brza i razorna. Rješenje je da voditelji odvoje vrijeme kako bi razumjeli sustav, kapacitet i iskorištenost.
+
 ## Uvidi
 
 Sedam uvida u teoriju redova čekanja, autora Boba Wescotta, autora knjige „The Every Computer Performance Book” (pogledajte i [Kottkeov sažetak](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Sedam uvida u teoriju redova čekanja, autora Boba Wescotta, autora knjige „Th
 6. U višestrukim uslužnim centrima postoji ljudski učinak poricanja.
 
 7. Mala poboljšanja prikažite u najboljem svjetlu.
+
+## Tok procesa
+
+Tok procesa je slijed procesa. Stavke, operacije, poslovi itd. napreduju kroz tok procesa.
+
+Na primjer, proizvodna linija sastoji se od nekoliko postaja u nizu kroz koje teku poslovi. Bolnica sadrži mnogo povezanih slijedova operacija (prijem, njega u sobi, priprema za operaciju, operacija, oporavak itd.) kroz koje teku pacijenti. Banka uključuje slijedove operacija kroz koje teče novac. Razumijevanje tokova temeljno je za osmišljavanje i upravljanje učinkovitim operativnim sustavima.
+
+### Parametri ponašanja
+
+Ponašanje toka procesa ovisi o dva parametra:
+
+- Stopa uskog grla: kapacitet toka (tj. stopa procesa s najvećom iskorištenošću).
+
+- Sirovo vrijeme procesa: ukupno vrijeme koje entiteti provedu u obradi u toku (tj. prosječno vrijeme koje bi entitetu trebalo da prođe kroz prazan tok).
+
+### Parametri varijabilnosti
+
+Varijabilnost toka procesa ovisi o dva parametra:
+
+- Varijabilnost toka: varijabilnost u vremenima između dolazaka entiteta u sustave.
+
+- Varijabilnost procesa: varijabilnost u vremenima obrade u sustavima.
+
+Razmotrimo tok procesa koji ima i varijabilnost toka i varijabilnost procesa. Kako se i očekuje, varijabilnost toka koji izlazi iz postaje ovisi i o varijabilnosti toka koji ulazi u nju i o varijabilnosti procesa koja nastaje u samoj postaji. Koliko ovisi o svakoj od njih funkcija je iskorištenosti sustava.
+
+Varijabilnost je dominantan čimbenik koji pogoršava učinak tokova procesa u odnosu na učinak u najboljem slučaju. Stoga su razumijevanje varijabilnosti i pronalaženje načina za njezino uklanjanje u srži mnogih metodologija poboljšanja poslovanja.
 
 ## Epilog
 
@@ -664,9 +700,11 @@ Formule:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Zahvale
+### Zasluge i izvori
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Ova je knjiga izvrsna za DevOps na visokoj razini i izravno utječe na naš izbor KPI-jeva. KPI-jevi na ovoj stranici usklađeni su s preporukama iz knjige.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Ova knjiga objašnjava redove čekanja i tokove procesa, uključujući slične vrste matematike, s naglaskom na poslovno upravljanje.
 
 ## Praćenje
 

@@ -39,10 +39,14 @@ Contents:
 - [Queue of queues](#queue-of-queues)
   - [Double Diamond queue of queues](#double-diamond-queue-of-queues)
   - [Funnel queue of queues](#funnel-queue-of-queues)
+- [The overwork vicious cycle](#the-overwork-vicious-cycle)
 - [Insights](#insights)
+- [Process flow](#process-flow)
+  - [Behaviour parameters](#behaviour-parameters)
+  - [Variability parameters](#variability-parameters)
 - [Epilogue](#epilogue)
   - [See also](#see-also)
-  - [Thanks](#thanks)
+  - [Credits](#credits)
 - [Tracking](#tracking)
 
 ## Introduction
@@ -592,6 +596,12 @@ In our practical work, we frequently use the word "funnel" to loosely describe a
 
 - Programming queue that uses an integration stage, user acceptance stage, and production rollout stage. For this kind of queue, we aim to minimise the error rate of the production rollout stage, such as via canary telemetry.
 
+## The overwork vicious cycle
+
+When arrival rate increases then this puts more pressure on a system, and pushes the system closer to capacity (i.e. 100% utilisation). This makes cycle times increase rapidly toward infinity, and work in process to increase, which in turn causes slower results.
+
+This drives a common pattern in industry which we call "the overwork vicious cycle": when results get bad enough then managers authorise more resources (such as overtime or hiring extra help), which improves the capacity of the system. But as soon as the system recovers, the managers discontinue overtime, and the overloading begins again. This loop can be swift and devastating. The solution is for managers to spend the time to understand the system, capacity, and utilisation.
+
 ## Insights
 
 Seven insights into queueing theory, by Bob Wescott, author of "The Every Computer Performance Book" (see also [Kottke's summary](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Seven insights into queueing theory, by Bob Wescott, author of "The Every Comput
 6. There is a human denial effect in multiple service centers.
 
 7. Show small improvements in their best light.
+
+## Process flow
+
+A process flow is a sequence of processes. Items, or operations, or jobs, etc. progress through the process flow.
+
+For example, a manufacturing line consists of several stations in tandem through which jobs flow. A hospital contains many connected sequences of operations (admission, in-room care, surgical prep, surgery, recovery, etc.) through which patients flow. A bank involves sequences of operations through which money flows. Understanding flows is fundamental to designing and managing effective operations systems.
+
+### Behaviour parameters
+
+The behaviour of a process flow depends on two parameters:
+
+- Bottleneck Rate: The capacity of the flow (i.e., the rate of the process with the highest utilisation).
+
+- Raw Process Time: The total time entities spend being processed in the flow (i.e., the average time it would take an entity to traverse an empty flow).
+
+### Variability parameters
+
+The variability of a process flow depends on two parameters:
+
+- Flow variability: variability in the inter-arrival times of entities to the systems.
+
+- Process variability: variability in the process times at systems.
+
+Consider a process flow that experiences both flow variability and process variability. As one would expect, the flow variability that comes out of a station depends on both the flow variability coming into it and the process variability created at the station itself. How much it depends on each of these is a function of system utilisation.
+
+Variability is the dominant factor that degrades performance of process flows relative to best case performance. Therefore, understanding variability and finding ways to drive it out are at the core of many operations improvement methodologies.
 
 ## Epilogue
 
@@ -664,9 +700,11 @@ Formulas:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Thanks
+### Credits
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). This book is excellent for high level devops, and directly informs our choice of KPIs. The KPIs on this page align with the book's recommendations.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). This book explains queues and process flows, including similar kinds of maths, and with an emphasis on business management.
 
 ## Tracking
 

@@ -35,10 +35,14 @@ Obsah:
 - [Front front](#front-front)
   - [Front front Double Diamond](#front-front-double-diamond)
   - [Lievikový front front](#lievikový-front-front)
+- [Začarovaný kruh nadmernej práce](#začarovaný-kruh-nadmernej-práce)
 - [Postrehy](#postrehy)
+- [Tok procesu](#tok-procesu)
+  - [Parametre správania](#parametre-správania)
+  - [Parametre variability](#parametre-variability)
 - [Doslov](#doslov)
   - [Pozri aj](#pozri-aj)
-  - [Poďakovanie](#poďakovanie)
+  - [Zásluhy a zdroje](#zásluhy-a-zdroje)
 - [Sledovanie](#sledovanie)
 
 ## Úvod
@@ -585,6 +589,12 @@ V našej praxi často používame slovo „lievik“ na voľný opis frontu fron
 
 - Programovací front, ktorý používa fázu integrácie, fázu používateľskej akceptácie a fázu zavedenia do produkcie. Pri tomto druhu frontu sa snažíme minimalizovať mieru chýb fázy zavedenia do produkcie, napríklad pomocou kanárikovej telemetrie.
 
+## Začarovaný kruh nadmernej práce
+
+Keď sa intenzita príchodov zvyšuje, vyvíja to na systém väčší tlak a približuje ho to k jeho kapacite (t. j. k 100 % vyťaženiu). Časy cyklu preto rýchlo rastú smerom k nekonečnu a zvyšuje sa rozpracovaná práca, čo následne spôsobuje pomalšie výsledky.
+
+To poháňa bežný vzorec v praxi, ktorý nazývame „začarovaný kruh nadmernej práce“: keď sú výsledky dosť zlé, manažéri schvália viac zdrojov (napríklad nadčasy alebo prídavnú pomoc), čím sa zlepší kapacita systému. Hneď ako sa však systém spamätá, manažéri nadčasy zrušia a preťaženie sa začne odznova. Táto slučka môže byť rýchla a zničujúca. Riešením je, aby si manažéri našli čas na pochopenie systému, kapacity a vyťaženia.
+
 ## Postrehy
 
 Sedem postrehov k teórii front od Boba Wescotta, autora knihy „The Every Computer Performance Book“ (pozrite si aj [Kottkeho zhrnutie](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Sedem postrehov k teórii front od Boba Wescotta, autora knihy „The Every Comp
 6. Pri viacerých centrách obsluhy existuje ľudský efekt popierania.
 
 7. Malé zlepšenia ukazujte v čo najlepšom svetle.
+
+## Tok procesu
+
+Tok procesu je postupnosť procesov. Položky, operácie, úlohy atď. postupujú tokom procesu.
+
+Napríklad výrobná linka pozostáva z niekoľkých staníc zapojených za sebou, cez ktoré prúdia úlohy. Nemocnica obsahuje mnoho prepojených postupností operácií (prijatie, starostlivosť na izbe, príprava na operáciu, operácia, zotavenie atď.), cez ktoré prúdia pacienti. Banka zahŕňa postupnosti operácií, cez ktoré prúdia peniaze. Pochopenie tokov je základom pre navrhovanie a riadenie efektívnych prevádzkových systémov.
+
+### Parametre správania
+
+Správanie toku procesu závisí od dvoch parametrov:
+
+- Rýchlosť úzkeho miesta: kapacita toku (t. j. rýchlosť procesu s najvyšším vyťažením).
+
+- Surový čas procesu: celkový čas, ktorý entity trávia spracovaním v toku (t. j. priemerný čas, ktorý by entita potrebovala na prejdenie prázdnym tokom).
+
+### Parametre variability
+
+Variabilita toku procesu závisí od dvoch parametrov:
+
+- Variabilita toku: variabilita v intervaloch medzi príchodmi entít do systémov.
+
+- Variabilita procesu: variabilita v časoch spracovania v systémoch.
+
+Uvažujme tok procesu, ktorý vykazuje variabilitu toku aj variabilitu procesu. Ako sa dá očakávať, variabilita toku vychádzajúceho zo stanice závisí od variability toku, ktorý do nej vstupuje, aj od variability procesu vznikajúcej v samotnej stanici. Do akej miery závisí od každej z nich, je funkciou vyťaženia systému.
+
+Variabilita je dominantný faktor, ktorý zhoršuje výkon tokov procesov v porovnaní s výkonom v najlepšom prípade. Preto sú pochopenie variability a hľadanie spôsobov, ako ju odstrániť, jadrom mnohých metodík zlepšovania prevádzky.
 
 ## Doslov
 
@@ -657,9 +693,11 @@ Vzorce:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Poďakovanie
+### Zásluhy a zdroje
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Táto kniha je vynikajúca pre DevOps na vysokej úrovni a priamo ovplyvňuje náš výber KPI. KPI na tejto stránke sú v súlade s odporúčaniami knihy.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Táto kniha vysvetľuje fronty a toky procesov, vrátane podobných druhov matematiky, s dôrazom na obchodný manažment.
 
 ## Sledovanie
 

@@ -39,10 +39,14 @@ Abubuwan da ke ciki:
 - [Layin layuka](#layin-layuka)
   - [Layin layuka na Double Diamond](#layin-layuka-na-double-diamond)
   - [Layin layuka na mazurari](#layin-layuka-na-mazurari)
+- [Muguwar da'irar yawan aiki](#muguwar-dairar-yawan-aiki)
 - [Fahimta](#fahimta)
+- [Kwararar tsari](#kwararar-tsari)
+  - [Ma'aunin hali](#maaunin-hali)
+  - [Ma'aunin sauye-sauye](#maaunin-sauye-sauye)
 - [Kammalawa](#kammalawa)
   - [Duba kuma](#duba-kuma)
-  - [Godiya](#godiya)
+  - [Yabo da tushe](#yabo-da-tushe)
 - [Bin diddigi](#bin-diddigi)
 
 ## Gabatarwa
@@ -592,6 +596,12 @@ A cikin aikinmu na zahiri, muna yawan amfani da kalmar "mazurari" (funnel) don b
 
 - Layin shirye-shirye wanda ke amfani da matakin haɗawa, matakin karɓuwar mai amfani, da matakin yaɗa zuwa production. Ga irin wannan layi, muna nufin rage yawan kuskuren matakin yaɗa zuwa production zuwa ƙarami, kamar ta hanyar telemetry na canary.
 
+## Muguwar da'irar yawan aiki
+
+Idan yawan zuwan aiki ya karu, wannan yana ƙara wa tsarin matsin lamba, kuma yana tura tsarin kusa da ƙarfinsa (watau amfani da kashi 100%). Wannan yana sa lokutan zagayen aiki su ƙaru da sauri zuwa mara iyaka, kuma aikin da ake yi ya ƙaru, wanda hakan kuma yana haifar da sakamako mai jinkiri.
+
+Wannan yana haifar da wani salo da ya zama ruwan dare a masana'antu, wanda muke kira “muguwar da'irar yawan aiki”: idan sakamako ya yi muni sosai, manajoji kan amince da ƙarin albarkatu (kamar karin lokacin aiki ko ɗaukar ƙarin taimako), wanda ke inganta ƙarfin tsarin. Amma da zarar tsarin ya warke, manajoji sukan dakatar da karin lokacin aiki, sai nauyin da ya wuce kima ya sake komawa. Wannan da'ira na iya zama mai sauri da lalatarwa. Maganin shi ne manajoji su ɗauki lokaci don fahimtar tsarin, ƙarfinsa, da yadda ake amfani da shi.
+
 ## Fahimta
 
 Fahimta bakwai game da ka'idar layi, daga Bob Wescott, marubucin "The Every Computer Performance Book" (duba kuma [taƙaitawar Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Fahimta bakwai game da ka'idar layi, daga Bob Wescott, marubucin "The Every Comp
 6. Akwai tasirin musun ɗan adam a cikin cibiyoyin sabis masu yawa.
 
 7. Ku nuna ƙananan ingantawa ta hanya mafi kyau.
+
+## Kwararar tsari
+
+Kwararar tsari jerin tsare-tsare ne. Abubuwa, ko ayyuka, ko aikace-aikace, da sauransu, suna ci gaba ta cikin kwararar tsari.
+
+Alal misali, layin kera kaya ya ƙunshi tashoshi da yawa da aka jera, waɗanda ayyuka ke ratsawa. Asibiti yana ƙunshe da jerin ayyuka da yawa da aka haɗa (karɓar marasa lafiya, kulawa a ɗaki, shirin tiyata, tiyata, murmurewa, da sauransu) waɗanda marasa lafiya ke ratsawa. Banki yana ƙunshe da jerin ayyuka waɗanda kuɗi ke ratsawa. Fahimtar kwararar abubuwa na da muhimmanci wajen tsarawa da gudanar da ingantattun tsare-tsaren gudanarwa.
+
+### Ma'aunin hali
+
+Halin kwararar tsari yana dogara ne da ma'auni biyu:
+
+- Adadin ƙwanƙwasa: ƙarfin kwararar (watau adadin tsarin da ke da mafi yawan amfani).
+
+- Lokacin tsari na asali: jimillar lokacin da ƙungiyoyi ke kashewa wajen sarrafa su a cikin kwararar (watau matsakaicin lokacin da zai ɗauki ƙungiya ta ratsa kwararar da babu kowa a ciki).
+
+### Ma'aunin sauye-sauye
+
+Sauye-sauyen kwararar tsari yana dogara ne da ma'auni biyu:
+
+- Sauye-sauyen kwarara: sauye-sauye a lokutan tsakanin zuwan ƙungiyoyi cikin tsare-tsaren.
+
+- Sauye-sauyen tsari: sauye-sauye a lokutan sarrafawa a cikin tsare-tsaren.
+
+Yi la'akari da kwararar tsari da ke fuskantar sauye-sauyen kwarara da sauye-sauyen tsari. Kamar yadda ake tsammani, sauye-sauyen kwararar da ke fita daga tasha yana dogara ne da sauye-sauyen kwararar da ke shiga cikinta da kuma sauye-sauyen tsarin da aka ƙirƙira a tashar kanta. Yawan dogaro da kowanne yana kasancewa aiki ne na yadda ake amfani da tsarin.
+
+Sauye-sauye shi ne babban abin da ke rage ingancin kwararar tsare-tsare idan aka kwatanta da mafi kyawun yanayi. Saboda haka, fahimtar sauye-sauye da neman hanyoyin kawar da shi suna a tushen hanyoyin inganta ayyuka da yawa.
 
 ## Kammalawa
 
@@ -664,9 +700,11 @@ Dabaru:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Godiya
+### Yabo da tushe
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Wannan littafi yana da kyau ƙwarai don DevOps na babban mataki, kuma yana ba da bayanai kai tsaye ga zaɓinmu na KPIs. KPIs da ke wannan shafi sun yi daidai da shawarwarin littafin.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Wannan littafi yana bayyana layuka da kwararar tsare-tsare, har da irin lissafin da ya yi kama da wannan, tare da mai da hankali kan gudanar da kasuwanci.
 
 ## Bin diddigi
 

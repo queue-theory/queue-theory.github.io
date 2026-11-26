@@ -40,10 +40,14 @@ Daftar isi:
 - [Antrian saking antrian](#antrian-saking-antrian)
   - [Antrian saking antrian Double Diamond](#antrian-saking-antrian-double-diamond)
   - [Antrian saking antrian awujud corong](#antrian-saking-antrian-awujud-corong)
+- [Lingkaran setan kerja kakehan](#lingkaran-setan-kerja-kakehan)
 - [Wawasan](#wawasan)
+- [Alur proses](#alur-proses)
+  - [Parameter prilaku](#parameter-prilaku)
+  - [Parameter variabilitas](#parameter-variabilitas)
 - [Panutup](#panutup)
   - [Priksani ugi](#priksani-ugi)
-  - [Panuwun](#panuwun)
+  - [Kredit](#kredit)
 - [Cathetan](#cathetan)
 
 ## Pambuka
@@ -593,6 +597,12 @@ Wonten ing padamelan praktis kita, kita asring ngginakaken tembung „corong“ 
 
 - Antrian pemrograman ingkang ngginakaken tahap integrasi, tahap user acceptance, saha tahap rollout produksi. Kangge antrian jinis punika, kita ngancas ngalit-alitaken laju kalepatan tahap rollout produksi, kados ta lumantar telemetri canary.
 
+## Lingkaran setan kerja kakehan
+
+Menawi laju rawuhipun mundhak, punika paring tekanan langkung ageng dhumateng sistem lan nyurung sistem langkung celak dhumateng kapasitasipun (inggih punika utilisasi 100%). Kawontenan punika ndadosaken wekdal siklus mundhak cepet dhumateng tanpa wates, lan pakaryan ingkang dipun garap saya kathah, ingkang salajengipun ndadosaken asil ingkang langkung alon.
+
+Punika nuwuhaken pola umum ing industri ingkang kita sebat “lingkaran setan kerja kakehan”: menawi asilipun sampun cekap awon, para manajer nyetujoni sumber daya tambahan (kados lembur utawi nambah tenaga bantu), ingkang ngapiki kapasitas sistem. Nanging sanalika sistem pulih, para manajer mungkasi lembur, lan beban kakehan wiwit malih. Daur punika saged cepet lan ngrusak. Pangrampunganipun inggih punika para manajer nyisihaken wekdal kangge mangertosi sistem, kapasitas, lan utilisasi.
+
 ## Wawasan
 
 Pitung wawasan babagan teori antrian, saking Bob Wescott, panganggit „The Every Computer Performance Book“ (mangga priksani ugi [ringkesan Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -610,6 +620,32 @@ Pitung wawasan babagan teori antrian, saking Bob Wescott, panganggit „The Ever
 6. Wonten efek panulakan manungsa wonten ing pinten-pinten pusat layanan.
 
 7. Mangga tedahaken pandandosan alit kanthi cara ingkang paling sae.
+
+## Alur proses
+
+Alur proses inggih punika urutan proses. Item, operasi, utawi pakaryan, lan sapanunggalanipun maju ngliwati alur proses.
+
+Tuladhanipun, jalur manufaktur dumadi saking sawetawis stasiun urut ingkang dipun lewati pakaryan. Rumah sakit gadhah kathah urutan operasi ingkang nyambung (panampi, perawatan ing kamar, persiapan bedah, pembedahan, pemulihan, lan sapanunggalanipun) ingkang dipun lewati pasien. Bank nglibataken urutan operasi ingkang dipun lewati arta. Mangertos alur punika dhasar kangge ngrancang lan ngurus sistem operasi ingkang efektif.
+
+### Parameter prilaku
+
+Prilaku alur proses gumantung ing kalih parameter:
+
+- Laju bottleneck: kapasitas alur (inggih punika laju proses kanthi utilisasi paling inggil).
+
+- Wekdal proses mentah: jumlah wekdal ingkang dipun enggo entitas kangge dipun proses ing alur (inggih punika rata-rata wekdal ingkang dipun betahaken sawijining entitas kangge ngliwati alur kosong).
+
+### Parameter variabilitas
+
+Variabilitas alur proses gumantung ing kalih parameter:
+
+- Variabilitas alur: variabilitas ing wekdal antawis rawuhipun entitas dhateng sistem.
+
+- Variabilitas proses: variabilitas ing wekdal proses ing sistem.
+
+Mangga dipun pikirake alur proses ingkang ngalami variabilitas alur lan variabilitas proses sekaligus. Kados ingkang dipun gadhahi, variabilitas alur ingkang medal saking stasiun gumantung ing variabilitas alur ingkang mlebet lan variabilitas proses ingkang kawontenan ing stasiun piyambak. Sepinten gumantungipun dhateng saben-saben punika fungsi saking utilisasi sistem.
+
+Variabilitas punika faktor dominan ingkang ngedhunaken kinerja alur proses dibandhingaken kinerja ing kasus paling sae. Mila, mangertos variabilitas lan madosi cara kangge nyingkiraken punika dados inti saking kathah metodologi pangapikan operasi.
 
 ## Panutup
 
@@ -665,9 +701,11 @@ Rumus:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Panuwun
+### Kredit
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Buku punika sae sanget kangge DevOps tataran nginggil, saha langsung dados dhasar pilihan KPI kita. KPI wonten ing kaca punika jumbuh kaliyan pitutur saking buku punika.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Buku punika nerangaken antrian lan alur proses, kalebet jinis matematika ingkang sami, kanthi penekanan ing manajemen bisnis.
 
 ## Cathetan
 

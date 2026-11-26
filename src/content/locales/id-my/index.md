@@ -40,10 +40,14 @@ Daftar isi:
 - [Antrean dari antrean](#antrean-dari-antrean)
   - [Antrean dari antrean Double Diamond](#antrean-dari-antrean-double-diamond)
   - [Antrean dari antrean berbentuk corong](#antrean-dari-antrean-berbentuk-corong)
+- [Lingkaran setan kerja berlebihan](#lingkaran-setan-kerja-berlebihan)
 - [Wawasan](#wawasan)
+- [Alur proses](#alur-proses)
+  - [Parameter perilaku](#parameter-perilaku)
+  - [Parameter variabilitas](#parameter-variabilitas)
 - [Epilog](#epilog)
   - [Lihat juga](#lihat-juga)
-  - [Ucapan terima kasih](#ucapan-terima-kasih)
+  - [Kredit](#kredit)
 - [Informasi proyek](#informasi-proyek)
 
 ## Pendahuluan
@@ -593,6 +597,12 @@ Dalam pekerjaan praktis kami, kami sering menggunakan kata "corong" (funnel) unt
 
 - Antrean pemrograman yang menggunakan tahap integrasi, tahap user acceptance, dan tahap rollout produksi. Untuk antrean semacam ini, kami bertujuan meminimalkan laju kesalahan tahap rollout produksi, misalnya melalui telemetri canary.
 
+## Lingkaran setan kerja berlebihan
+
+Ketika laju kedatangan meningkat, hal ini memberi tekanan lebih besar pada sistem dan mendorong sistem lebih dekat ke kapasitasnya (yaitu utilisasi 100%). Akibatnya waktu siklus meningkat pesat menuju tak hingga, dan pekerjaan dalam proses bertambah, yang pada gilirannya menghasilkan hasil yang lebih lambat.
+
+Hal ini mendorong pola umum di industri yang kami sebut “lingkaran setan kerja berlebihan”: ketika hasilnya cukup buruk, manajer menyetujui sumber daya tambahan (seperti lembur atau menambah tenaga bantuan), sehingga kapasitas sistem membaik. Namun begitu sistem pulih, manajer menghentikan lembur, dan pembebanan berlebih dimulai lagi. Putaran ini bisa berlangsung cepat dan merusak. Solusinya adalah manajer meluangkan waktu untuk memahami sistem, kapasitas, dan utilisasi.
+
 ## Wawasan
 
 Tujuh wawasan tentang teori antrean, oleh Bob Wescott, penulis "The Every Computer Performance Book" (lihat juga [ringkasan Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -610,6 +620,32 @@ Tujuh wawasan tentang teori antrean, oleh Bob Wescott, penulis "The Every Comput
 6. Ada efek penyangkalan manusia pada banyak pusat layanan.
 
 7. Tampilkan perbaikan kecil dari sisi terbaiknya.
+
+## Alur proses
+
+Alur proses adalah urutan proses. Item, operasi, atau pekerjaan, dsb. bergerak maju melalui alur proses.
+
+Misalnya, lini manufaktur terdiri atas beberapa stasiun berurutan yang dilalui pekerjaan. Rumah sakit memiliki banyak urutan operasi yang saling terhubung (penerimaan, perawatan di kamar, persiapan bedah, pembedahan, pemulihan, dsb.) yang dilalui pasien. Bank melibatkan urutan operasi yang dilalui uang. Memahami alur adalah hal mendasar untuk merancang dan mengelola sistem operasi yang efektif.
+
+### Parameter perilaku
+
+Perilaku alur proses bergantung pada dua parameter:
+
+- Laju hambatan: kapasitas alur (yaitu laju proses dengan utilisasi tertinggi).
+
+- Waktu proses mentah: total waktu yang dihabiskan entitas untuk diproses dalam alur (yaitu waktu rata-rata yang dibutuhkan sebuah entitas untuk melintasi alur yang kosong).
+
+### Parameter variabilitas
+
+Variabilitas alur proses bergantung pada dua parameter:
+
+- Variabilitas alur: variabilitas dalam waktu antarkedatangan entitas ke sistem.
+
+- Variabilitas proses: variabilitas dalam waktu proses di sistem.
+
+Bayangkan alur proses yang mengalami variabilitas alur sekaligus variabilitas proses. Seperti yang diperkirakan, variabilitas alur yang keluar dari suatu stasiun bergantung pada variabilitas alur yang masuk ke dalamnya dan variabilitas proses yang timbul di stasiun itu sendiri. Seberapa besar ketergantungannya pada masing-masing merupakan fungsi dari utilisasi sistem.
+
+Variabilitas adalah faktor dominan yang menurunkan kinerja alur proses dibandingkan kinerja kasus terbaik. Karena itu, memahami variabilitas dan menemukan cara untuk menghilangkannya merupakan inti dari banyak metodologi peningkatan operasi.
 
 ## Epilog
 
@@ -665,9 +701,11 @@ Rumus:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Ucapan terima kasih
+### Kredit
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Buku ini sangat baik untuk DevOps tingkat tinggi, dan secara langsung menjadi dasar pilihan KPI kami. KPI di halaman ini selaras dengan rekomendasi buku tersebut.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Buku ini menjelaskan antrean dan alur proses, termasuk jenis matematika yang serupa, dengan penekanan pada manajemen bisnis.
 
 ## Informasi proyek
 

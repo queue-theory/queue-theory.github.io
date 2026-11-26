@@ -11,7 +11,9 @@
 - [Activity tracking](https://queue-theory.github.io/en-001/#activity-tracking)
 - [Service metrics](https://queue-theory.github.io/en-001/#service-metrics)
 - [Queue of queues](https://queue-theory.github.io/en-001/#queue-of-queues)
+- [The overwork vicious cycle](https://queue-theory.github.io/en-001/#the-overwork-vicious-cycle)
 - [Insights](https://queue-theory.github.io/en-001/#insights)
+- [Process flow](https://queue-theory.github.io/en-001/#process-flow)
 - [Epilog](https://queue-theory.github.io/en-001/#epilog)
 - [Tracking](https://queue-theory.github.io/en-001/#tracking)
 

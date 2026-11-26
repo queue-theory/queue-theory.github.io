@@ -35,10 +35,14 @@ Innhold:
 - [Kø av køer](#kø-av-køer)
   - [Double Diamond som kø av køer](#double-diamond-som-kø-av-køer)
   - [Trakt som kø av køer](#trakt-som-kø-av-køer)
+- [Overarbeidets onde sirkel](#overarbeidets-onde-sirkel)
 - [Innsikter](#innsikter)
+- [Prosessflyt](#prosessflyt)
+  - [Atferdsparametere](#atferdsparametere)
+  - [Variasjonsparametere](#variasjonsparametere)
 - [Epilog](#epilog)
   - [Se også](#se-også)
-  - [Takk](#takk)
+  - [Kilder og anerkjennelser](#kilder-og-anerkjennelser)
 - [Prosjektinformasjon](#prosjektinformasjon)
 
 ## Innledning
@@ -585,6 +589,12 @@ I det praktiske arbeidet vårt bruker vi ofte ordet «trakt» løst om en kø av
 
 - En programmeringskø med et integrasjonstrinn, et trinn for brukeraksept og et trinn for utrulling i produksjon. For en slik kø sikter vi mot å minimere feilraten i trinnet for utrulling i produksjon, for eksempel gjennom kanari-telemetri.
 
+## Overarbeidets onde sirkel
+
+Når ankomstraten øker, legger det mer press på et system og skyver systemet nærmere kapasiteten (dvs. 100 % utnyttelse). Det gjør at syklustidene øker raskt mot uendelig og mengden pågående arbeid vokser, noe som igjen gir tregere resultater.
+
+Dette driver et vanlig mønster i bransjen som vi kaller «overarbeidets onde sirkel»: Når resultatene blir dårlige nok, godkjenner ledere flere ressurser (for eksempel overtid eller ekstra hjelp), noe som forbedrer systemets kapasitet. Men så snart systemet har kommet seg, avvikler lederne overtiden, og overbelastningen begynner igjen. Denne sløyfen kan være rask og ødeleggende. Løsningen er at ledere bruker tid på å forstå systemet, kapasiteten og utnyttelsen.
+
 ## Innsikter
 
 Sju innsikter i køteori, av Bob Wescott, forfatter av «The Every Computer Performance Book» (se også [Kottkes sammendrag](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -602,6 +612,32 @@ Sju innsikter i køteori, av Bob Wescott, forfatter av «The Every Computer Perf
 6. Det finnes en menneskelig fornektelseseffekt ved flere tjenestesentre.
 
 7. Vis små forbedringer i sitt beste lys.
+
+## Prosessflyt
+
+En prosessflyt er en sekvens av prosesser. Enheter, operasjoner, jobber osv. går gjennom prosessflyten.
+
+For eksempel består en produksjonslinje av flere stasjoner i serie som jobbene flyter gjennom. Et sykehus inneholder mange sammenkoblede sekvenser av operasjoner (innleggelse, pleie på rommet, operasjonsforberedelse, operasjon, restituering osv.) som pasientene flyter gjennom. En bank omfatter sekvenser av operasjoner som penger flyter gjennom. Å forstå flyt er grunnleggende for å utforme og styre effektive driftssystemer.
+
+### Atferdsparametere
+
+Atferden til en prosessflyt avhenger av to parametere:
+
+- Flaskehalsrate: flytens kapasitet (dvs. raten til prosessen med høyest utnyttelse).
+
+- Rå prosesstid: den totale tiden enheter bruker på å bli behandlet i flyten (dvs. gjennomsnittstiden en enhet ville bruke på å passere gjennom en tom flyt).
+
+### Variasjonsparametere
+
+Variasjonen i en prosessflyt avhenger av to parametere:
+
+- Flytvariasjon: variasjon i tiden mellom enheters ankomster til systemene.
+
+- Prosessvariasjon: variasjon i prosesstidene i systemene.
+
+Tenk deg en prosessflyt som har både flytvariasjon og prosessvariasjon. Som man kan vente, avhenger flytvariasjonen som kommer ut av en stasjon både av flytvariasjonen som kommer inn i den og av prosessvariasjonen som oppstår i selve stasjonen. Hvor mye den avhenger av hver av dem, er en funksjon av systemets utnyttelse.
+
+Variasjon er den dominerende faktoren som svekker ytelsen til prosessflyter sammenlignet med ytelsen i beste tilfelle. Derfor ligger forståelse av variasjon og å finne måter å fjerne den på i kjernen av mange metoder for driftsforbedring.
 
 ## Epilog
 
@@ -657,9 +693,11 @@ Formler:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Takk
+### Kilder og anerkjennelser
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Denne boken er utmerket for DevOps på et overordnet nivå, og den ligger direkte til grunn for vårt valg av KPI-er. KPI-ene på denne siden samsvarer med bokens anbefalinger.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Denne boken forklarer køer og prosessflyter, inkludert lignende typer matematikk, med vekt på virksomhetsledelse.
 
 ## Prosjektinformasjon
 

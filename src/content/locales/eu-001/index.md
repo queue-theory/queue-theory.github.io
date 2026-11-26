@@ -39,10 +39,14 @@ Aurkibidea:
 - [Ilaren ilara](#ilaren-ilara)
   - [Diamante Bikoitzaren ilaren ilara](#diamante-bikoitzaren-ilaren-ilara)
   - [Inbutu-ilaren ilara](#inbutu-ilaren-ilara)
+- [Gehiegizko lanaren zirkulu zoroztuna](#gehiegizko-lanaren-zirkulu-zoroztuna)
 - [Ondorioak](#ondorioak)
+- [Prozesu-fluxua](#prozesu-fluxua)
+  - [Portaera-parametroak](#portaera-parametroak)
+  - [Aldakortasun-parametroak](#aldakortasun-parametroak)
 - [Epilogoa](#epilogoa)
   - [Ikus, gainera](#ikus-gainera)
-  - [Eskerrak](#eskerrak)
+  - [Aitorpenak](#aitorpenak)
 - [Proiektuaren datuak](#proiektuaren-datuak)
 
 ## Sarrera
@@ -592,6 +596,12 @@ Gure lan praktikoan, sarritan erabiltzen dugu «inbutu» hitza etapa bakoitzean 
 
 - Programazio-ilara, integrazio-etapa, erabiltzaileen onarpen-etapa eta ekoizpeneko hedapen-etapa erabiltzen dituena. Ilara mota honetan, ekoizpeneko hedapen-etaparen errore-tasa minimizatzea dugu helburu, adibidez canary telemetriaren bidez.
 
+## Gehiegizko lanaren zirkulu zoroztuna
+
+Iristeen tasa handitzen denean, sistemari presio handiagoa egiten zaio eta sistema bere ahalmenetik (hau da, %100eko erabileratik) gertuago jartzen da. Horrek ziklo-denborak infiniturantz azkar hazarazten ditu eta prozesuan dagoen lana areagotzen du, eta horrek emaitza motelagoak ekartzen ditu.
+
+Horrek industrian ohikoa den patroi bat eragiten du, “gehiegizko lanaren zirkulu zoroztuna” deitzen diogunari: emaitzak nahikoa txarrak direnean, kudeatzaileek baliabide gehiago baimentzen dituzte (ordu estrak edo laguntza gehigarria kontratatzea, adibidez), eta horrek sistemaren ahalmena hobetzen du. Baina sistema suspertu bezain laster, kudeatzaileek ordu estrak bertan behera uzten dituzte, eta gainkarga berriro hasten da. Begizta hori azkarra eta suntsitzailea izan daiteke. Irtenbidea da kudeatzaileek denbora hartzea sistema, ahalmena eta erabilera ulertzeko.
+
 ## Ondorioak
 
 Ilara-teoriari buruzko zazpi ondorio, Bob Wescottenak, «The Every Computer Performance Book» liburuaren egilearenak (ikus, gainera, [Kottkeren laburpena](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -609,6 +619,32 @@ Ilara-teoriari buruzko zazpi ondorio, Bob Wescottenak, «The Every Computer Perf
 6. Zerbitzu-zentro anitzetan giza ukazio-efektu bat dago.
 
 7. Erakutsi hobekuntza txikiak beren argirik onenean.
+
+## Prozesu-fluxua
+
+Prozesu-fluxua prozesuen sekuentzia da. Elementuak, eragiketak, lanak eta abar prozesu-fluxutik aurrera doaz.
+
+Adibidez, fabrikazio-lerro batek zerbitzu-estazio batzuk ditu seriean, eta lanak haietatik igarotzen dira. Ospitale batek eragiketa-sekuentzia konektatu asko ditu (onarpena, gelako zainketa, ebakuntza-prestaketa, ebakuntza, errekuperazioa eta abar), eta pazienteak haietatik igarotzen dira. Banku batek eragiketa-sekuentziak ditu, eta diruak haietatik egiten du bidea. Fluxuak ulertzea funtsezkoa da eragiketa-sistema eraginkorrak diseinatu eta kudeatzeko.
+
+### Portaera-parametroak
+
+Prozesu-fluxu baten portaera bi parametroren araberakoa da:
+
+- Botila-lepoaren tasa: fluxuaren ahalmena (hau da, erabilera handiena duen prozesuaren tasa).
+
+- Prozesu-denbora gordina: entitateek fluxuan prozesatzen ematen duten denbora osoa (hau da, entitate batek fluxu huts bat zeharkatzeko behar lukeen batez besteko denbora).
+
+### Aldakortasun-parametroak
+
+Prozesu-fluxu baten aldakortasuna bi parametroren araberakoa da:
+
+- Fluxuaren aldakortasuna: entitateak sistemetara iristen diren arteko denboren aldakortasuna.
+
+- Prozesuaren aldakortasuna: sistemetako prozesatze-denboren aldakortasuna.
+
+Pentsa dezagun fluxu-aldakortasuna eta prozesu-aldakortasuna dituen prozesu-fluxu bat. Espero daitekeenez, estazio batetik ateratzen den fluxuaren aldakortasuna estaziora sartzen denaren aldakortasunaren eta estazioan bertan sortzen den prozesuaren aldakortasunaren araberakoa da. Bakoitzaren araberakoa zenbateraino den sistemaren erabileraren funtzioa da.
+
+Aldakortasuna da prozesu-fluxuen errendimendua kasurik onenarekin alderatuta okertzen duen faktore nagusia. Hori dela eta, aldakortasuna ulertzea eta hura kentzeko bideak aurkitzea eragiketak hobetzeko metodologia askoren muinean dago.
 
 ## Epilogoa
 
@@ -664,9 +700,11 @@ Formulak:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Eskerrak
+### Aitorpenak
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Liburu hau bikaina da goi-mailako DevOps-erako, eta zuzenean eragin du gure KPIen hautaketan. Orri honetako KPIak liburuaren gomendioekin bat datoz.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Liburu honek ilarak eta prozesu-fluxuak azaltzen ditu, antzeko matematika barne, enpresa-kudeaketan arreta berezia jarrita.
 
 ## Proiektuaren datuak
 

@@ -35,10 +35,14 @@ Cuprins:
 - [Coadă de cozi](#coadă-de-cozi)
   - [Coada de cozi Double Diamond](#coada-de-cozi-double-diamond)
   - [Coada de cozi tip pâlnie](#coada-de-cozi-tip-pâlnie)
+- [Cercul vicios al suprasolicitării](#cercul-vicios-al-suprasolicitării)
 - [Observații](#observații)
+- [Fluxul de proces](#fluxul-de-proces)
+  - [Parametrii de comportament](#parametrii-de-comportament)
+  - [Parametrii de variabilitate](#parametrii-de-variabilitate)
 - [Epilog](#epilog)
   - [Consultați și](#consultați-și)
-  - [Mulțumiri](#mulțumiri)
+  - [Credite](#credite)
 - [Informații despre proiect](#informații-despre-proiect)
 
 ## Introducere
@@ -588,6 +592,12 @@ Teoria cozilor poate modela acest lucru ca o coadă de proces care conține patr
 
 - Coada de programare, care folosește o etapă de integrare, o etapă de acceptanță de către utilizatori și o etapă de lansare în producție. Pentru acest tip de coadă, urmărim minimizarea ratei de erori a etapei de lansare în producție, de exemplu prin telemetrie canary.
 
+## Cercul vicios al suprasolicitării
+
+Când rata de sosire crește, aceasta pune mai multă presiune pe sistem și îl împinge mai aproape de capacitate (adică la o utilizare de 100%). Timpii de ciclu cresc astfel rapid spre infinit, iar lucrul în curs de execuție crește, ceea ce, la rândul său, duce la rezultate mai lente.
+
+Aceasta alimentează un tipar comun în industrie, pe care îl numim „cercul vicios al suprasolicitării”: când rezultatele devin suficient de proaste, managerii aprobă mai multe resurse (precum ore suplimentare sau ajutor în plus), ceea ce îmbunătățește capacitatea sistemului. Dar de îndată ce sistemul își revine, managerii renunță la orele suplimentare, iar supraîncărcarea reîncepe. Această buclă poate fi rapidă și devastatoare. Soluția este ca managerii să își facă timp pentru a înțelege sistemul, capacitatea și utilizarea.
+
 ## Observații
 
 Șapte observații despre teoria cozilor, de Bob Wescott, autorul cărții „The Every Computer Performance Book” (consultați și [rezumatul lui Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -605,6 +615,32 @@ Teoria cozilor poate modela acest lucru ca o coadă de proces care conține patr
 6. Există un efect uman de negare în centrele de servire multiple.
 
 7. Prezentați micile îmbunătățiri în cea mai bună lumină.
+
+## Fluxul de proces
+
+Un flux de proces este o secvență de procese. Elementele, operațiile, lucrările etc. avansează prin fluxul de proces.
+
+De exemplu, o linie de fabricație constă din mai multe stații în serie prin care circulă lucrările. Un spital conține multe secvențe conectate de operații (internare, îngrijire în salon, pregătire chirurgicală, intervenție chirurgicală, recuperare etc.) prin care circulă pacienții. O bancă implică secvențe de operații prin care circulă banii. Înțelegerea fluxurilor este fundamentală pentru proiectarea și gestionarea unor sisteme de operațiuni eficiente.
+
+### Parametrii de comportament
+
+Comportamentul unui flux de proces depinde de doi parametri:
+
+- Rata punctului critic: capacitatea fluxului (adică rata procesului cu cea mai mare utilizare).
+
+- Timpul brut de proces: timpul total pe care entitățile îl petrec fiind procesate în flux (adică timpul mediu necesar unei entități pentru a traversa un flux gol).
+
+### Parametrii de variabilitate
+
+Variabilitatea unui flux de proces depinde de doi parametri:
+
+- Variabilitatea fluxului: variabilitatea timpilor dintre sosirile entităților în sisteme.
+
+- Variabilitatea procesului: variabilitatea timpilor de procesare din sisteme.
+
+Să luăm în considerare un flux de proces care prezintă atât variabilitatea fluxului, cât și variabilitatea procesului. Așa cum era de așteptat, variabilitatea fluxului care iese dintr-o stație depinde atât de variabilitatea fluxului care intră în ea, cât și de variabilitatea procesului creată în stația însăși. Cât de mult depinde de fiecare dintre acestea este o funcție a utilizării sistemului.
+
+Variabilitatea este factorul dominant care degradează performanța fluxurilor de proces în raport cu performanța în cel mai bun caz. De aceea, înțelegerea variabilității și găsirea unor modalități de a o elimina se află în centrul multor metodologii de îmbunătățire a operațiunilor.
 
 ## Epilog
 
@@ -660,9 +696,11 @@ Formule:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Mulțumiri
+### Credite
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Această carte este excelentă pentru DevOps la nivel înalt și ne influențează direct alegerea KPI-urilor. KPI-urile de pe această pagină sunt aliniate cu recomandările cărții.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Această carte explică cozile și fluxurile de procese, inclusiv tipuri similare de matematică, cu accent pe managementul afacerilor.
 
 ## Informații despre proiect
 

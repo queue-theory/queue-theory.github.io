@@ -35,10 +35,14 @@ Inhalt:
 - [Schlaang vu Schlaangen](#schlaang-vu-schlaangen)
   - [Double Diamond als Schlaang vu Schlaangen](#double-diamond-als-schlaang-vu-schlaangen)
   - [Trichter als Schlaang vu Schlaangen](#trichter-als-schlaang-vu-schlaangen)
+- [Den Deifelskrees vun der Iwwerarbecht](#den-deifelskrees-vun-der-iwwerarbecht)
 - [Erkenntnisser](#erkenntnisser)
+- [Prozessfloss](#prozessfloss)
+  - [Verhalensparameteren](#verhalensparameteren)
+  - [Variabilitéitsparameteren](#variabilitéitsparameteren)
 - [Nowuert](#nowuert)
   - [Kuckt och](#kuckt-och)
-  - [Merci](#merci)
+  - [Quellen an Unerkennung](#quellen-an-unerkennung)
 - [Projetsinformatiounen](#projetsinformatiounen)
 
 ## Aleedung
@@ -588,6 +592,12 @@ An eiser praktescher Aarbecht benotze mir dacks d’Wuert „Trichter“, fir la
 
 - Eng Programméierschlaang mat enger Integratiounsetapp, enger Etapp fir d’Akzeptanz vun de Benotzer an enger Etapp fir de Rollout an d’Produktioun. Bei dëser Zort vu Schlaang zile mir drop of, d’Feelerrat vun der Rollout-Etapp an d’Produktioun ze miniméieren, zum Beispill duerch Canary-Telemetrie.
 
+## Den Deifelskrees vun der Iwwerarbecht
+
+Wann d'Ukomstrate klëmmt, setzt dat e System méi ënner Drock a réckt et méi no un d'Kapazitéitsgrenz (also 100 % Auslaaschtung). Doduerch klammen d'Duerchlafzäiten séier géint onendlech an d'Quantitéit u Aarbecht an der Bearbechtung geet erop, wat wiederem zu méi lues Resultater féiert.
+
+Doraus entsteet e verbreet Muster an der Praxis, dat mir „den Deifelskrees vun der Iwwerarbecht“ nennen: Wann d'Resultater schlecht genuch ginn, genehmegen Chefen méi Ressourcen (zum Beispill Iwwerstonnen oder zousätzlech Hëllef), wat d'Kapazitéit vum System verbessert. Awer soubal sech de System erholl huet, streiche d'Chefen d'Iwwerstonnen erëm, an d'Iwwerlaaschtung fänkt vun nees un. Dëse Krees kann séier a verheerend sinn. D'Léisung ass, datt sech d'Chefen d'Zäit huelen, fir de System, d'Kapazitéit an d'Auslaaschtung ze verstoen.
+
 ## Erkenntnisser
 
 Siwe Erkenntnisser iwwer d’Schlaangentheorie vum Bob Wescott, Auteur vum Buch „The Every Computer Performance Book“ (kuckt w.e.g. och [d’Zesummefaassung vum Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)):
@@ -605,6 +615,32 @@ Siwe Erkenntnisser iwwer d’Schlaangentheorie vum Bob Wescott, Auteur vum Buch 
 6. Bei méi Servicezentere gëtt et e mënschlechen Effekt vun der Verleegnung.
 
 7. Weist kleng Verbesserungen an hirem beschte Liicht.
+
+## Prozessfloss
+
+E Prozessfloss ass eng Oofolleg vu Prozesser. Elementer, Operatiounen, Opträg asw. duerchlafen de Prozessfloss.
+
+Zum Beispill besteet eng Fabrikatiounslinn aus e puer Statiounen hannerteneen, duerch déi d'Opträg fléissen. E Spidol enthält vill verbonne Oofolleg vun Operatiounen (Opnam, Betreiung um Zëmmer, Virbereedung op d'Operatioun, Operatioun, Erhuelung asw.), duerch déi d'Patienten fléissen. Eng Bank huet Oofolleg vun Operatiounen, duerch déi d'Geld fléisst. D'Verständnis vu Flëss ass grondleeënd fir effikass Betribssystemer ze entwerfen an ze féieren.
+
+### Verhalensparameteren
+
+D'Verhale vun engem Prozessfloss hänkt vun zwee Parameteren of:
+
+- Engpassrate: D'Kapazitéit vum Floss (also d'Rate vum Prozess mat der héchster Auslaaschtung).
+
+- Reng Prozesszäit: Déi ganz Zäit, déi Entitéiten am Floss mat der Bearbechtung verbréngen (also d'Duerchschnëttszäit, déi eng Entitéit fir en eidele Floss brauche géif).
+
+### Variabilitéitsparameteren
+
+D'Variabilitéit vun engem Prozessfloss hänkt vun zwee Parameteren of:
+
+- Flossvariabilitéit: Variabilitéit an den Zwëschenukomstzäite vun den Entitéiten un de Systemer.
+
+- Prozessvariabilitéit: Variabilitéit an de Bearbechtungszäiten un de Systemer.
+
+Bedenkt e Prozessfloss, deen souwuel Flossvariabilitéit wéi och Prozessvariabilitéit huet. Wéi ze erwaarden, hänkt d'Flossvariabilitéit, déi aus enger Statioun erauskënnt, souwuel vun der Flossvariabilitéit of, déi erageet, wéi och vun der Prozessvariabilitéit, déi an der Statioun selwer entsteet. Wéi staark se vun all vun deenen zwee ofhänkt, ass eng Funktioun vun der Systemauslaaschtung.
+
+Variabilitéit ass dee beherrschende Facteur, deen d'Leeschtung vu Prozessflëss am Verglach mat der bestméiglecher Leeschtung verschlechtert. Dofir sinn d'Verständnis vun der Variabilitéit an d'Siche no Weeër, se ze beseitegen, am Kär vu villen Methode fir d'Verbesserung vum Betrib.
 
 ## Nowuert
 
@@ -660,9 +696,11 @@ Formelen:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Merci
+### Quellen an Unerkennung
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Dëst Buch ass exzellent fir DevOps op héijem Niveau, an et beaflosst direkt eis Auswiel vun de KPIs. D’KPIs op dëser Säit stëmmen mat den Empfehlunge vum Buch iwwereneen.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Dëst Buch erkläert Schlaangen a Prozessofleef, mat ähnlecher Mathematik, mat Schwéierpunkt op der Betribswirtschaft.
 
 ## Projetsinformatiounen
 

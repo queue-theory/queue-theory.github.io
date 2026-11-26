@@ -40,10 +40,14 @@ Sommaire :
 - [File de files](#file-de-files)
   - [File de files du Double Diamant](#file-de-files-du-double-diamant)
   - [File de files en entonnoir](#file-de-files-en-entonnoir)
+- [Le cercle vicieux du surmenage](#le-cercle-vicieux-du-surmenage)
 - [Enseignements](#enseignements)
+- [Flux de processus](#flux-de-processus)
+  - [Paramètres de comportement](#paramètres-de-comportement)
+  - [Paramètres de variabilité](#paramètres-de-variabilité)
 - [Épilogue](#épilogue)
   - [Voir aussi](#voir-aussi)
-  - [Remerciements](#remerciements)
+  - [Crédits](#crédits)
 - [Suivi](#suivi)
 
 ## Introduction
@@ -593,6 +597,12 @@ Dans notre travail pratique, nous employons souvent le mot « entonnoir » pou
 
 - File de programmation qui comporte une étape d'intégration, une étape d'acceptation utilisateur et une étape de déploiement en production. Pour ce type de file, nous cherchons à minimiser le taux d'erreur de l'étape de déploiement en production, par exemple au moyen de la télémétrie canari.
 
+## Le cercle vicieux du surmenage
+
+Quand le taux d'arrivée augmente, cela exerce une pression accrue sur un système et le rapproche de sa capacité (soit 100 % d'utilisation). Les temps de cycle augmentent alors rapidement vers l'infini, de même que les travaux en cours, ce qui entraîne à son tour des résultats plus lents.
+
+Cela alimente un schéma courant dans l'industrie, que nous appelons « le cercle vicieux du surmenage » : lorsque les résultats deviennent assez mauvais, les responsables autorisent davantage de ressources (par exemple des heures supplémentaires ou du renfort), ce qui améliore la capacité du système. Mais dès que le système se rétablit, les responsables suppriment les heures supplémentaires, et la surcharge recommence. Cette boucle peut être rapide et dévastatrice. La solution est que les responsables prennent le temps de comprendre le système, la capacité et l'utilisation.
+
 ## Enseignements
 
 Sept enseignements sur la théorie des files d'attente, par Bob Wescott, auteur de « The Every Computer Performance Book » (voir aussi le [résumé de Kottke](https://kottke.org/19/01/its-time-for-some-queueing-theory)) :
@@ -610,6 +620,32 @@ Sept enseignements sur la théorie des files d'attente, par Bob Wescott, auteur 
 6. Il existe un effet de déni humain dans les centres de service multiples.
 
 7. Présentez les petites améliorations sous leur meilleur jour.
+
+## Flux de processus
+
+Un flux de processus est une séquence de processus. Les éléments, ou opérations, ou tâches, etc. progressent à travers le flux de processus.
+
+Par exemple, une ligne de fabrication se compose de plusieurs postes en série par lesquels circulent les tâches. Un hôpital contient de nombreuses séquences d'opérations connectées (admission, soins en chambre, préparation chirurgicale, chirurgie, rétablissement, etc.) par lesquelles circulent les patients. Une banque comporte des séquences d'opérations par lesquelles circule l'argent. Comprendre les flux est fondamental pour concevoir et gérer des systèmes d'exploitation efficaces.
+
+### Paramètres de comportement
+
+Le comportement d'un flux de processus dépend de deux paramètres :
+
+- Taux du goulot d'étranglement : la capacité du flux (c'est-à-dire le taux du processus ayant la plus forte utilisation).
+
+- Temps de traitement brut : le temps total que les entités passent à être traitées dans le flux (c'est-à-dire le temps moyen qu'il faudrait à une entité pour traverser un flux vide).
+
+### Paramètres de variabilité
+
+La variabilité d'un flux de processus dépend de deux paramètres :
+
+- Variabilité du flux : variabilité des intervalles entre les arrivées des entités dans les systèmes.
+
+- Variabilité du processus : variabilité des temps de traitement dans les systèmes.
+
+Considérons un flux de processus qui présente à la fois de la variabilité de flux et de la variabilité de processus. Comme on peut s'y attendre, la variabilité du flux qui sort d'un poste dépend à la fois de la variabilité du flux qui y entre et de la variabilité de processus créée au poste lui-même. La part de chacune est fonction de l'utilisation du système.
+
+La variabilité est le facteur dominant qui dégrade la performance des flux de processus par rapport à la performance dans le meilleur des cas. Par conséquent, comprendre la variabilité et trouver des moyens de l'éliminer est au cœur de nombreuses méthodologies d'amélioration des opérations.
 
 ## Épilogue
 
@@ -665,9 +701,11 @@ Formules :
 
 - [Formule Erlang C](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Remerciements
+### Crédits
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). Ce livre est excellent pour une vision d'ensemble du devops, et il oriente directement notre choix de KPI. Les KPI de cette page sont conformes aux recommandations du livre.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). Ce livre explique les files d'attente et les flux de processus, y compris des mathématiques similaires, en mettant l'accent sur la gestion d'entreprise.
 
 ## Suivi
 

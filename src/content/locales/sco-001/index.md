@@ -35,10 +35,14 @@ Contents:
 - [Queue o queues](#queue-o-queues)
   - [Double Diamond queue o queues](#double-diamond-queue-o-queues)
   - [Funnel queue o queues](#funnel-queue-o-queues)
+- [The overwark vicious cycle](#the-overwark-vicious-cycle)
 - [Insichts](#insichts)
+- [Process flow](#process-flow)
+  - [Behaviour parameters](#behaviour-parameters)
+  - [Variability parameters](#variability-parameters)
 - [Efterword](#efterword)
   - [See an aw](#see-an-aw)
-  - [Thanks](#thanks)
+  - [Credits](#credits)
 - [Trackin](#trackin)
 
 ## Introduction
@@ -585,6 +589,12 @@ In oor practical wark, we aften uise the word "funnel" tae loosely describe a qu
 
 - Programmin queue that uises an integration stage, user acceptance stage, an production rollout stage. Fur this kind o queue, we aim tae minimise the error rate o the production rollout stage, sic as wi canary telemetry.
 
+## The overwark vicious cycle
+
+Whan the arrival rate gaes up, this pits mair pressure on a system, and pushes the system nearer til its capacity (i.e. 100% utilisation). This maks cycle times rise quick towards infinity, and wark in process rise an aw, which in turn causes slawer results.
+
+This drives a common pattern in industry that we ca “the overwark vicious cycle”: whan results get bad enough than managers authorise mair resources (sic as owertime or hirin extra help), which improves the capacity o the system. But as shuin as the system recovers, the managers discontinue owertime, and the owerloadin stairts again. This loop can be swift and devastatin. The solution is for managers tae spend the time tae unnerstaun the system, capacity, and utilisation.
+
 ## Insichts
 
 Seiven insichts intae queuein theory, by Bob Wescott, author o "The Every Computer Performance Book" (please see [Kottke's summary](https://kottke.org/19/01/its-time-for-some-queueing-theory) an aw):
@@ -602,6 +612,32 @@ Seiven insichts intae queuein theory, by Bob Wescott, author o "The Every Comput
 6. There is a human denial effect in multiple service centres.
 
 7. Please shaw smaw improvements in their best licht.
+
+## Process flow
+
+A process flow is a sequence o processes. Items, or operations, or jobs, etc. mak their wey throu the process flow.
+
+For example, a manufacturin line consists o several stations in tandem throu which jobs flow. A hospital contains mony connectit sequences o operations (admission, in-room care, surgical prep, surgery, recovery, etc.) throu which patients flow. A bank involves sequences o operations throu which siller flows. Unnerstaunin flows is fundamental tae designin an managin effective operations systems.
+
+### Behaviour parameters
+
+The behaviour o a process flow depends on twa parameters:
+
+- Bottleneck rate: The capacity o the flow (i.e., the rate o the process wi the heichest utilisation).
+
+- Raw process time: The total time entities spend bein processed in the flow (i.e., the average time it wad tak an entity tae traverse an tuim flow).
+
+### Variability parameters
+
+The variability o a process flow depends on twa parameters:
+
+- Flow variability: variability in the inter-arrival times o entities at the systems.
+
+- Process variability: variability in the process times at systems.
+
+Consider a process flow that experiences baith flow variability an process variability. As ane wad expect, the flow variability that comes oot o a station depends on baith the flow variability comin intae it an the process variability creatit at the station itsel. Hou muckle it depends on each o thir is a function o system utilisation.
+
+Variability is the dominant factor that degrades performance o process flows relative tae best case performance. Therefore, unnerstaunin variability an findin weys tae drive it oot are at the core o mony operations improvement methodologies.
 
 ## Efterword
 
@@ -657,9 +693,11 @@ Formulas:
 
 - [Erlang C formula](<https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula>)
 
-### Thanks
+### Credits
 
 [Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. By Nicole Forsgren, Jez Humble, Gene Kim](https://www.amazon.com/dp/B07B9F83WM). This buik is first-rate fur heich-level DevOps, an directly informs oor choice o KPIs. The KPIs on this page line up wi the buik's recommendations.
+
+[Supply Chain Science. By Waler Hopp](https://archive.org/details/supplychainscien0000hopp). This beuk explains queues and process flaws, includin similar kinds o maths, wi an emphasis on business management.
 
 ## Trackin
 
