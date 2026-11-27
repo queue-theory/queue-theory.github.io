@@ -438,7 +438,9 @@ Ejemplos:
 
 - Aλ: tasa de llegada de la actividad: cuántos elementos entran por unidad de tiempo.
 
-- Aχ: tasa total de la actividad: cuántos elementos salen de la cola por unidad de tiempo.
+- Aχ: tasa de salida de la actividad: cuántos elementos salen por unidad de tiempo.
+
+- Aδ: tasa de finalización de la actividad: cuántos elementos se atienden (bien o mal) por unidad de tiempo.
 
 - Aα: tasa de éxito de la actividad: cuántos elementos están bien por unidad de tiempo.
 

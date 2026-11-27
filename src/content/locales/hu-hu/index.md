@@ -436,7 +436,9 @@ Példák:
 
 - Aλ: a tevékenység érkezési rátája: hány elem érkezik időegységenként.
 
-- Aχ: a tevékenység teljes rátája: hány elem lép ki a sorból időegységenként.
+- Aχ: a tevékenység távozási rátája: hány elem távozik időegységenként.
+
+- Aδ: a tevékenység elvégzési rátája: hány elem kerül kiszolgálásra (helyesen vagy hibásan) időegységenként.
 
 - Aα: a tevékenység sikerességi rátája: hány elem helyes időegységenként.
 

@@ -437,7 +437,9 @@ Esempi:
 
 - Aλ: tasso di arrivo dell'attività: quanti elementi arrivano per unità di tempo.
 
-- Aχ: tasso totale dell'attività: quanti elementi escono dalla coda per unità di tempo.
+- Aχ: tasso di uscita dell'attività: quanti elementi escono per unità di tempo.
+
+- Aδ: tasso di completamento dell'attività: quanti elementi vengono serviti (corretti o errati) per unità di tempo.
 
 - Aα: tasso di successo dell'attività: quanti elementi sono corretti per unità di tempo.
 

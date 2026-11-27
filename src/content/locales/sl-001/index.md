@@ -432,7 +432,9 @@ Primeri:
 
 - Aλ: stopnja prihodov aktivnosti: koliko elementov prispe na časovno enoto.
 
-- Aχ: skupna stopnja aktivnosti: koliko elementov zapusti čakalno vrsto na časovno enoto.
+- Aχ: stopnja odhodov aktivnosti: koliko elementov odide na časovno enoto.
+
+- Aδ: stopnja dokončanja aktivnosti: koliko elementov je obravnavanih (pravilno ali napačno) na časovno enoto.
 
 - Aα: stopnja uspeha aktivnosti: koliko elementov je pravilnih na časovno enoto.
 

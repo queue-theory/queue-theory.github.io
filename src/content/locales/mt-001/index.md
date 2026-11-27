@@ -430,7 +430,9 @@ Eżempji:
 
 - Aλ: rata ta’ wasla tal-attività: kemm-il oġġett jidħol għal kull unità ta’ ħin.
 
-- Aχ: rata totali tal-attività: kemm-il oġġett joħroġ mill-kju għal kull unità ta’ ħin.
+- Aχ: rata ta’ ħruġ tal-attività: kemm-il oġġett joħroġ għal kull unità ta’ ħin.
+
+- Aδ: rata ta’ tlestija tal-attività: kemm-il oġġett jiġi servut (tajjeb jew ħażin) għal kull unità ta’ ħin.
 
 - Aα: rata ta’ suċċess tal-attività: kemm-il oġġett ikun tajjeb għal kull unità ta’ ħin.
 

@@ -432,7 +432,9 @@ Przykłady:
 
 - Aλ: tempo przybywania aktywności: ile elementów napływa na jednostkę czasu.
 
-- Aχ: tempo całkowite aktywności: ile elementów opuszcza kolejkę na jednostkę czasu.
+- Aχ: tempo wychodzenia aktywności: ile elementów wychodzi na jednostkę czasu.
+
+- Aδ: tempo ukończenia aktywności: ile elementów jest obsłużonych (poprawnie lub błędnie) na jednostkę czasu.
 
 - Aα: tempo sukcesów aktywności: ile elementów jest poprawnych na jednostkę czasu.
 

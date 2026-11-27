@@ -437,7 +437,9 @@ Contoh:
 
 - Aλ: laju kedatangan aktivitas: berapa banyak item yang masuk per satuan waktu.
 
-- Aχ: laju total aktivitas: berapa banyak item yang keluar dari antrean per satuan waktu.
+- Aχ: laju keluar aktivitas: berapa banyak item yang keluar per satuan waktu.
+
+- Aδ: laju penyelesaian aktivitas: berapa banyak item yang dilayani (benar atau salah) per satuan waktu.
 
 - Aα: laju keberhasilan aktivitas: berapa banyak item yang benar per satuan waktu.
 

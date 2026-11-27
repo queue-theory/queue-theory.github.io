@@ -436,7 +436,9 @@ Příklady:
 
 - Aλ: intenzita příchodů činností: kolik položek přichází za časovou jednotku.
 
-- Aχ: celková míra činností: kolik položek odchází z fronty za časovou jednotku.
+- Aχ: intenzita odchodů činností: kolik položek odchází za časovou jednotku.
+
+- Aδ: míra dokončení činností: kolik položek je obslouženo (správně či chybně) za časovou jednotku.
 
 - Aα: míra úspěchu činností: kolik položek je správných za časovou jednotku.
 

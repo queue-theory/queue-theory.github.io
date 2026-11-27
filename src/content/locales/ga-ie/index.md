@@ -434,7 +434,9 @@ Samplaí:
 
 - Aλ: Ráta teachta gníomhaíochta: cé mhéad mír atá ag teacht isteach in aghaidh an aonaid ama.
 
-- Aχ: Ráta iomlán gníomhaíochta: cé mhéad mír a fhágann an scuaine in aghaidh an aonaid ama.
+- Aχ: Ráta imeachta gníomhaíochta: cé mhéad mír atá ag imeacht in aghaidh an aonaid ama.
+
+- Aδ: Ráta críochnaithe gníomhaíochta: cé mhéad mír a ndéantar freastal orthu (i gceart nó go mícheart) in aghaidh an aonaid ama.
 
 - Aα: Ráta ratha gníomhaíochta: cé mhéad mír atá ceart in aghaidh an aonaid ama.
 

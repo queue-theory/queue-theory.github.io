@@ -429,7 +429,9 @@ Ensamplow:
 
 - Aλ: toth devedhyans an gwrians: pes taklow a dheu ajy pub unnses termyn.
 
-- Aχ: toth dien an gwrians: pes taklow yn-mes a’n lost pub unnses termyn.
+- Aχ: toth diberthyans an gwrians: pes taklow a dhiberth pub unnses termyn.
+
+- Aδ: toth gorfennans an gwrians: pes taklow yw servys (ewn po kamm) pub unnses termyn.
 
 - Aα: toth sewena an gwrians: pes taklow yw ewn pub unnses termyn.
 

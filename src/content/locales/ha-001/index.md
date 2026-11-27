@@ -436,7 +436,9 @@ Misalai:
 
 - Aλ: yawan isowar Aiki: abubuwa nawa ke shigowa a kowace raka'ar lokaci.
 
-- Aχ: jimillar yawan Aiki: abubuwa nawa ke fita daga layi a kowace raka'ar lokaci.
+- Aχ: yawan ficewar Aiki: abubuwa nawa ke fita a kowace raka'ar lokaci.
+
+- Aδ: yawan kammala Aiki: abubuwa nawa ake yi wa hidima (daidai ko kuskure) a kowace raka'ar lokaci.
 
 - Aα: yawan nasarar Aiki: abubuwa nawa ne daidai a kowace raka'ar lokaci.
 

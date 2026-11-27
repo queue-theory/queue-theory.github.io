@@ -429,7 +429,9 @@ Pavyzdžiai:
 
 - Aλ: veiklos atvykimo sparta: kiek elementų ateina per laiko vienetą.
 
-- Aχ: veiklos bendroji sparta: kiek elementų išeina iš eilės per laiko vienetą.
+- Aχ: veiklos išėjimo sparta: kiek elementų išeina per laiko vienetą.
+
+- Aδ: veiklos užbaigimo sparta: kiek elementų aptarnaujama (teisingai ar klaidingai) per laiko vienetą.
 
 - Aα: veiklos sėkmės sparta: kiek elementų yra teisingi per laiko vienetą.
 

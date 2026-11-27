@@ -429,7 +429,9 @@ Examples:
 
 - Aλ: Activity arrival rate: hoo mony items are comin in per time unit.
 
-- Aχ: Activity total rate: hoo mony items gang oot o the queue per time unit.
+- Aχ: Activity departure rate: hoo mony items are gaun oot per time unit.
+
+- Aδ: Activity done rate: hoo mony items are served (richt or wrang) per time unit.
 
 - Aα: Activity success rate: hoo mony items are richt per time unit.
 

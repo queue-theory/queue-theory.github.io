@@ -432,7 +432,9 @@ Mga halimbawa:
 
 - Aλ: Rate ng pagdating ng aktibidad: kung ilang item ang dumarating bawat yunit ng oras.
 
-- Aχ: Kabuuang rate ng aktibidad: kung ilang item ang lumalabas sa pila bawat yunit ng oras.
+- Aχ: Rate ng pag-alis ng aktibidad: kung ilang item ang umaalis bawat yunit ng oras.
+
+- Aδ: Rate ng pagkumpleto ng aktibidad: kung ilang item ang napagsilbihan (tama man o mali) bawat yunit ng oras.
 
 - Aα: Rate ng tagumpay ng aktibidad: kung ilang item ang tama bawat yunit ng oras.
 

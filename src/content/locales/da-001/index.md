@@ -436,7 +436,9 @@ Eksempler:
 
 - Aλ: aktivitetens ankomstrate: hvor mange elementer der kommer ind pr. tidsenhed.
 
-- Aχ: aktivitetens samlede rate: hvor mange elementer der forlader køen pr. tidsenhed.
+- Aχ: aktivitetens afgangsrate: hvor mange elementer der går ud pr. tidsenhed.
+
+- Aδ: aktivitetens færdigrate: hvor mange elementer der er behandlet (rigtige eller forkerte) pr. tidsenhed.
 
 - Aα: aktivitetens succesrate: hvor mange elementer der er rigtige pr. tidsenhed.
 

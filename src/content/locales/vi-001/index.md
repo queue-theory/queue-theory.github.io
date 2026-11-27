@@ -429,7 +429,9 @@ Ví dụ:
 
 - Aλ: Tốc độ đến của hoạt động: có bao nhiêu mục đến mỗi đơn vị thời gian.
 
-- Aχ: Tốc độ tổng của hoạt động: có bao nhiêu mục ra khỏi hàng đợi mỗi đơn vị thời gian.
+- Aχ: Tốc độ rời đi của hoạt động: có bao nhiêu mục rời đi mỗi đơn vị thời gian.
+
+- Aδ: Tốc độ hoàn thành của hoạt động: có bao nhiêu mục được phục vụ (đúng hoặc sai) mỗi đơn vị thời gian.
 
 - Aα: Tốc độ thành công của hoạt động: có bao nhiêu mục đúng mỗi đơn vị thời gian.
 

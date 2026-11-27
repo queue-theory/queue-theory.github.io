@@ -434,9 +434,11 @@ Examples:
 
 - Aκ: Activity count: how many items are in the queue.
 
-- Aλ: Activity arrival rate: how many items are incoming per time unit.
+- Aλ: Activity arrival rate: how many items are entering per time unit.
 
-- Aχ: Activity total rate: how many items out of the queue per time unit.
+- Aχ: Activity departure rate: how many items are exiting per time unit.
+
+- Aδ: Activity done rate: how many items are serviced (right or wrong) per time unit.
 
 - Aα: Activity success rate: how many items are right per time unit.
 

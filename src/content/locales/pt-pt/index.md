@@ -429,7 +429,9 @@ Exemplos:
 
 - Aλ: taxa de chegada da atividade: quantos itens chegam por unidade de tempo.
 
-- Aχ: taxa total da atividade: quantos itens saem da fila por unidade de tempo.
+- Aχ: taxa de saída da atividade: quantos itens saem por unidade de tempo.
+
+- Aδ: taxa de conclusão da atividade: quantos itens são atendidos (certos ou errados) por unidade de tempo.
 
 - Aα: taxa de sucesso da atividade: quantos itens estão corretos por unidade de tempo.
 

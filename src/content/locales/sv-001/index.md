@@ -432,7 +432,9 @@ Exempel:
 
 - Aλ: aktivitetens ankomsttakt: hur många objekt som kommer in per tidsenhet.
 
-- Aχ: aktivitetens totala takt: hur många objekt som lämnar kön per tidsenhet.
+- Aχ: aktivitetens avgångstakt: hur många objekt som går ut per tidsenhet.
+
+- Aδ: aktivitetens färdigtakt: hur många objekt som blir hanterade (rätt eller fel) per tidsenhet.
 
 - Aα: aktivitetens lyckandetakt: hur många objekt som är rätt per tidsenhet.
 

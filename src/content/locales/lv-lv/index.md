@@ -429,7 +429,9 @@ Piemēri:
 
 - Aλ: darbības ierašanās ātrums: cik elementu ienāk laika vienībā.
 
-- Aχ: darbības kopējais ātrums: cik elementu iziet no rindas laika vienībā.
+- Aχ: darbības iziešanas ātrums: cik elementu iziet laika vienībā.
+
+- Aδ: darbības pabeigšanas ātrums: cik elementu tiek apkalpoti (pareizi vai nepareizi) laika vienībā.
 
 - Aα: darbības veiksmes ātrums: cik elementu ir pareizi laika vienībā.
 

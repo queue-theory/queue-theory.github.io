@@ -432,7 +432,9 @@ Voorbeelden:
 
 - Aλ: aankomstsnelheid van de activiteit: hoeveel items er per tijdseenheid binnenkomen.
 
-- Aχ: totale snelheid van de activiteit: hoeveel items er per tijdseenheid de wachtrij verlaten.
+- Aχ: vertreksnelheid van de activiteit: hoeveel items er per tijdseenheid vertrekken.
+
+- Aδ: afhandelingssnelheid van de activiteit: hoeveel items er per tijdseenheid worden afgehandeld (goed of fout).
 
 - Aα: successnelheid van de activiteit: hoeveel items er per tijdseenheid goed zijn.
 

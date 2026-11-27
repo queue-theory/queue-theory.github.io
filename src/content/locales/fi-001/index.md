@@ -436,7 +436,9 @@ Esimerkkejä:
 
 - Aλ: toiminnon saapumisnopeus: kuinka monta kohdetta saapuu aikayksikössä.
 
-- Aχ: toiminnon kokonaisnopeus: kuinka monta kohdetta poistuu jonosta aikayksikössä.
+- Aχ: toiminnon poistumisnopeus: kuinka monta kohdetta poistuu aikayksikössä.
+
+- Aδ: toiminnon valmistumisnopeus: kuinka monta kohdetta palvellaan (oikein tai väärin) aikayksikössä.
 
 - Aα: toiminnon onnistumisnopeus: kuinka monta kohdetta on oikein aikayksikössä.
 

@@ -429,7 +429,9 @@ Contoh:
 
 - Aλ: Kadar ketibaan aktiviti: berapa banyak item yang masuk bagi setiap unit masa.
 
-- Aχ: Kadar jumlah aktiviti: berapa banyak item yang keluar dari baris gilir bagi setiap unit masa.
+- Aχ: Kadar pemergian aktiviti: berapa banyak item yang keluar bagi setiap unit masa.
+
+- Aδ: Kadar penyiapan aktiviti: berapa banyak item yang dilayani (betul atau salah) bagi setiap unit masa.
 
 - Aα: Kadar kejayaan aktiviti: berapa banyak item yang betul bagi setiap unit masa.
 

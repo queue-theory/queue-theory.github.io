@@ -437,7 +437,9 @@ Tuladha:
 
 - Aλ: laju kadhatengan aktivitas: pinten item ingkang dhateng saben satuan wekdal.
 
-- Aχ: laju total aktivitas: pinten item medal saking antrian saben satuan wekdal.
+- Aχ: laju medal aktivitas: pinten item ingkang medal saben satuan wekdal.
+
+- Aδ: laju rampung aktivitas: pinten item ingkang dipunlayani (leres utawi lepat) saben satuan wekdal.
 
 - Aα: laju kasil aktivitas: pinten item ingkang leres saben satuan wekdal.
 

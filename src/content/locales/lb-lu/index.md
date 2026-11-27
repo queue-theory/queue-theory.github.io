@@ -432,7 +432,9 @@ Beispiller:
 
 - Aλ: Ukonftsrat vun der Aktivitéit: wéi vill Elementer pro Zäitenheet erakommen.
 
-- Aχ: Gesamtrat vun der Aktivitéit: wéi vill Elementer pro Zäitenheet aus der Schlaang erausginn.
+- Aχ: Ofgangsrat vun der Aktivitéit: wéi vill Elementer pro Zäitenheet erausginn.
+
+- Aδ: Ofschlossrat vun der Aktivitéit: wéi vill Elementer pro Zäitenheet behandelt ginn (richteg oder falsch).
 
 - Aα: Erfollegsrat vun der Aktivitéit: wéi vill Elementer pro Zäitenheet richteg sinn.
 

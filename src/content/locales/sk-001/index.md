@@ -429,7 +429,9 @@ Príklady:
 
 - Aλ: intenzita príchodov aktivít: koľko položiek prichádza za jednotku času.
 
-- Aχ: celková miera aktivít: koľko položiek opustí front za jednotku času.
+- Aχ: intenzita odchodov aktivít: koľko položiek odchádza za jednotku času.
+
+- Aδ: miera dokončenia aktivít: koľko položiek je obslúžených (správne alebo nesprávne) za jednotku času.
 
 - Aα: miera úspechu aktivít: koľko položiek je správnych za jednotku času.
 

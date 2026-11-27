@@ -437,7 +437,9 @@ Etkinliği ve etkinliğin bir kuyrukta nasıl ilerlediğini tanımlamak için ku
 
 - Aλ: Etkinlik varış hızı: zaman birimi başına kaç öğenin geldiği.
 
-- Aχ: Etkinlik toplam hızı: zaman birimi başına kuyruktan kaç öğenin çıktığı.
+- Aχ: Etkinlik çıkış hızı: zaman birimi başına kaç öğenin çıktığı.
+
+- Aδ: Etkinlik tamamlanma hızı: zaman birimi başına kaç öğeye hizmet verildiği (doğru ya da yanlış).
 
 - Aα: Etkinlik başarı hızı: zaman birimi başına kaç öğenin doğru olduğu.
 

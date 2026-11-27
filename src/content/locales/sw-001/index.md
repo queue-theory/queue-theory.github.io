@@ -429,7 +429,9 @@ Mifano:
 
 - Aλ: Kiwango cha uwasili wa shughuli: ni vipengee vingapi vinaingia kwa kila kipimo cha muda.
 
-- Aχ: Kiwango cha jumla cha shughuli: ni vipengee vingapi vinatoka katika foleni kwa kila kipimo cha muda.
+- Aχ: Kiwango cha kuondoka cha shughuli: ni vipengee vingapi vinatoka kwa kila kipimo cha muda.
+
+- Aδ: Kiwango cha kukamilika cha shughuli: ni vipengee vingapi vinahudumiwa (sahihi au si sahihi) kwa kila kipimo cha muda.
 
 - Aα: Kiwango cha mafanikio cha shughuli: ni vipengee vingapi viko sahihi kwa kila kipimo cha muda.
 

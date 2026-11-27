@@ -437,7 +437,9 @@ Exemples :
 
 - Aλ : taux d'arrivée de l'activité : combien d'éléments arrivent par unité de temps.
 
-- Aχ : taux total de l'activité : combien d'éléments sortent de la file par unité de temps.
+- Aχ : taux de sortie de l'activité : combien d'éléments sortent par unité de temps.
+
+- Aδ : taux d'achèvement de l'activité : combien d'éléments sont traités (corrects ou erronés) par unité de temps.
 
 - Aα : taux de succès de l'activité : combien d'éléments sont corrects par unité de temps.
 

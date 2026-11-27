@@ -436,7 +436,9 @@ Primjeri:
 
 - Aλ: stopa dolazaka aktivnosti: koliko stavki pristiže po jedinici vremena.
 
-- Aχ: ukupna stopa aktivnosti: koliko stavki izlazi iz reda po jedinici vremena.
+- Aχ: stopa odlazaka aktivnosti: koliko stavki izlazi po jedinici vremena.
+
+- Aδ: stopa dovršetka aktivnosti: koliko je stavki obrađeno (ispravno ili pogrešno) po jedinici vremena.
 
 - Aα: stopa uspjeha aktivnosti: koliko je stavki ispravno po jedinici vremena.
 

@@ -429,7 +429,9 @@ Eksempler:
 
 - Aλ: ankomstrate for aktiviteten: hvor mange elementer som kommer inn per tidsenhet.
 
-- Aχ: total rate for aktiviteten: hvor mange elementer som går ut av køen per tidsenhet.
+- Aχ: avgangsrate for aktiviteten: hvor mange elementer som går ut per tidsenhet.
+
+- Aδ: ferdigstillingsrate for aktiviteten: hvor mange elementer som blir behandlet (riktig eller feil) per tidsenhet.
 
 - Aα: suksessrate for aktiviteten: hvor mange elementer som er riktige per tidsenhet.
 

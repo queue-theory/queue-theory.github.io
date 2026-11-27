@@ -437,7 +437,9 @@ Enghreifftiau:
 
 - Aλ: Cyfradd cyrraedd gweithgaredd: faint o eitemau sy’n dod i mewn fesul uned amser.
 
-- Aχ: Cyfradd gyfan gweithgaredd: faint o eitemau sy’n gadael y ciw fesul uned amser.
+- Aχ: Cyfradd ymadael gweithgaredd: faint o eitemau sy’n gadael fesul uned amser.
+
+- Aδ: Cyfradd gorffen gweithgaredd: faint o eitemau sy’n cael eu gwasanaethu (yn iawn neu’n anghywir) fesul uned amser.
 
 - Aα: Cyfradd llwyddo gweithgaredd: faint o eitemau sy’n iawn fesul uned amser.
 

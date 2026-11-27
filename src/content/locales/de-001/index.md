@@ -429,7 +429,9 @@ Beispiele:
 
 - Aλ: Ankunftsrate der Aktivität: wie viele Elemente pro Zeiteinheit eintreffen.
 
-- Aχ: Gesamtrate der Aktivität: wie viele Elemente pro Zeiteinheit die Warteschlange verlassen.
+- Aχ: Abgangsrate der Aktivität: wie viele Elemente pro Zeiteinheit austreten.
+
+- Aδ: Abschlussrate der Aktivität: wie viele Elemente pro Zeiteinheit bearbeitet werden (richtig oder falsch).
 
 - Aα: Erfolgsrate der Aktivität: wie viele Elemente pro Zeiteinheit richtig sind.
 

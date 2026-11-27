@@ -436,7 +436,9 @@ Dæmi:
 
 - Aλ: komutíðni virkni: hve mörg atriði koma inn á hverja tímaeiningu.
 
-- Aχ: heildartíðni virkni: hve mörg atriði fara úr biðröðinni á hverja tímaeiningu.
+- Aχ: brottfarartíðni virkni: hve mörg atriði fara út á hverja tímaeiningu.
+
+- Aδ: lúkningartíðni virkni: hve mörg atriði eru afgreidd (rétt eða röng) á hverja tímaeiningu.
 
 - Aα: árangurstíðni virkni: hve mörg atriði eru rétt á hverja tímaeiningu.
 

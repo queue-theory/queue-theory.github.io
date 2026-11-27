@@ -436,7 +436,9 @@ Adibideak:
 
 - Aλ: jardueraren iritsiera-tasa: denbora-unitateko zenbat elementu iristen diren.
 
-- Aχ: jardueraren tasa osoa: denbora-unitateko zenbat elementu ateratzen diren ilaratik.
+- Aχ: jardueraren irteera-tasa: denbora-unitateko zenbat elementu ateratzen diren.
+
+- Aδ: jardueraren amaiera-tasa: denbora-unitateko zenbat elementu zerbitzatzen diren (zuzen zein oker).
 
 - Aα: jardueraren arrakasta-tasa: denbora-unitateko zenbat elementu diren zuzenak.
 

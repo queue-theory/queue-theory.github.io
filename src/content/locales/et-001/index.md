@@ -436,7 +436,9 @@ Näited:
 
 - Aλ: tegevuse saabumiskiirus: mitu üksust saabub ajaühikus.
 
-- Aχ: tegevuse kogukiirus: mitu üksust väljub järjekorrast ajaühikus.
+- Aχ: tegevuse väljumiskiirus: mitu üksust väljub ajaühikus.
+
+- Aδ: tegevuse lõpetamiskiirus: mitu üksust teenindatakse (õigesti või valesti) ajaühikus.
 
 - Aα: tegevuse õnnestumiskiirus: mitu üksust on ajaühikus õiged.
 

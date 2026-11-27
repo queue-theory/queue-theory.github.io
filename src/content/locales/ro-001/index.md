@@ -432,7 +432,9 @@ Exemple:
 
 - Aλ: rata de sosire a activității: câte elemente intră pe unitatea de timp.
 
-- Aχ: rata totală a activității: câte elemente ies din coadă pe unitatea de timp.
+- Aχ: rata de ieșire a activității: câte elemente ies pe unitatea de timp.
+
+- Aδ: rata de finalizare a activității: câte elemente sunt servite (corect sau greșit) pe unitatea de timp.
 
 - Aα: rata de succes a activității: câte elemente sunt corecte pe unitatea de timp.
 

@@ -438,7 +438,9 @@ Eisimpleirean:
 
 - Aλ: reat ruighinn na gnìomhachd: cia mheud nì a tha a' tighinn a-steach anns gach aonad ùine.
 
-- Aχ: reat iomlan na gnìomhachd: cia mheud nì a tha a' fàgail a' chiudha anns gach aonad ùine.
+- Aχ: reat fàgail na gnìomhachd: cia mheud nì a tha a' fàgail anns gach aonad ùine.
+
+- Aδ: reat crìochnachaidh na gnìomhachd: cia mheud nì a tha air a làimhseachadh (ceart no ceàrr) anns gach aonad ùine.
 
 - Aα: reat soirbheachais na gnìomhachd: cia mheud nì a tha ceart anns gach aonad ùine.
 
